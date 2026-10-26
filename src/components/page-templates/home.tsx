@@ -5,7 +5,7 @@ import { platformPages } from "@/lib/platform-pages";
 import { homeContent } from "@/lib/content/page-home";
 import { getUi } from "@/lib/ui-strings";
 import { hreflang, localePath, type Locale } from "@/lib/i18n";
-import { PixelStar } from "@/components/pixel-star";
+import { PixelHeart, PixelSpark, PixelStar } from "@/components/pixel-star";
 import { PlatformChips } from "@/components/platform-chips";
 import { Faq, JsonLd, faqJsonLd } from "@/components/sections";
 import { contactEmail, getSiteUrl, siteName } from "@/lib/site";
@@ -70,8 +70,14 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <PixelStar className="absolute top-14 left-[8%] hidden h-8 w-8 text-brand-200 lg:block" />
-        <PixelStar className="absolute top-40 right-[10%] hidden h-5 w-5 text-pixel-lime lg:block" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
+          <PixelStar className="pixel-float absolute top-14 left-[7%] h-8 w-8 text-brand-200" />
+          <PixelSpark className="pixel-float absolute top-8 right-[8%] h-4 w-4 text-pixel-blue [animation-delay:200ms]" />
+          <PixelHeart className="pixel-float absolute top-36 left-[4%] h-5 w-5 text-pixel-pink [animation-delay:500ms]" />
+          <PixelStar className="pixel-float absolute top-44 right-[9%] h-5 w-5 text-pixel-lime [animation-delay:900ms]" />
+          <PixelSpark className="pixel-float absolute bottom-28 left-[9%] h-4 w-4 text-pixel-lime [animation-delay:1.3s]" />
+          <PixelHeart className="pixel-float absolute right-[5%] bottom-16 h-6 w-6 text-pixel-pink [animation-delay:1.6s]" />
+        </div>
         <div className="mx-auto max-w-3xl px-4 pt-14 pb-12 text-center sm:px-6">
           <h1 className="text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
             {c.hero.pre}
