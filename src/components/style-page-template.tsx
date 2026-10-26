@@ -1,0 +1,148 @@
+import Link from "next/link";
+import { SingleStyleTool } from "@/components/single-style-tool";
+import {
+  CompatNote,
+  Faq,
+  JsonLd,
+  RelatedTools,
+  Steps,
+  faqJsonLd,
+} from "@/components/sections";
+import { convertText } from "@/lib/text-styles";
+import { getStylePage, type StylePageDef } from "@/lib/style-pages";
+import { getSiteUrl } from "@/lib/site";
+import { getUi } from "@/lib/ui-strings";
+import { localePath, type Locale } from "@/lib/i18n";
+
+const siteUrl = getSiteUrl();
+
+export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale: Locale }) {
+  const c = page.copy[locale];
+  const t = getUi(locale);
+  const path = localePath(locale, `/${page.slug}/`);
+
+  const relatedLinks = page.related
+    .map((slug) => getStylePage(locale, slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
+    .map((p) => ({
+      href: localePath(locale, `/${p.slug}/`),
+      title: p.copy[locale].h1,
+      description: p.copy[locale].intro,
+    }));
+
+  const webAppJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: c.h1,
+    url: `${siteUrl}${path}`,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript",
+    description: c.description,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  };
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd data={webAppJsonLd} />
+      <JsonLd data={faqJsonLd(c.faq)} />
+
+      <header>
+        <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
+        <p className="mt-3 leading-relaxed text-ink-600">{c.intro}</p>
+      </header>
+
+      <div className="mt-8">
+        <SingleStyleTool styleIds={page.styleIds} defaultText={c.sampleInputs[0]} />
+      </div>
+
+      <CompatNote locale={locale} />
+
+      <section className="mt-12" aria-labelledby="how-heading">
+        <h2 id="how-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.howToUse}
+        </h2>
+        <Steps items={t.stylePageSteps} />
+      </section>
+
+      <section className="mt-12" aria-labelledby="how-works-heading">
+        <h2 id="how-works-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.howWorks(c.navName.toLowerCase())}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-ink-700">{c.howItWorks}</p>
+        <p className="mt-3 text-sm leading-relaxed text-ink-700">{c.coverageNote}</p>
+      </section>
+
+      <section className="mt-12" aria-labelledby="best-heading">
+        <h2 id="best-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.whereShines}
+        </h2>
+        <ul className="mt-4 space-y-2">
+          {c.bestFor.map((item) => (
+            <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700">
+              <span aria-hidden="true" className="mt-0.5 text-brand-600">
+                ✦
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12" aria-labelledby="examples-heading">
+        <h2 id="examples-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.examples}
+        </h2>
+        <ul className="mt-4 space-y-2">
+          {c.sampleInputs.map((input) => (
+            <li
+              key={input}
+              className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-xl border border-line bg-surface p-4"
+            >
+              <span className="text-xs font-semibold tracking-wider text-ink-500 uppercase">
+                {input}
+              </span>
+              <span className="result-text text-2xl font-medium text-ink-900">
+                {convertText(input, page.styleIds[0])}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12" aria-labelledby="platform-heading">
+        <h2 id="platform-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.onPlatforms}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-ink-700">{c.platformTip}</p>
+      </section>
+
+      <RelatedTools
+        links={[
+          ...relatedLinks,
+          {
+            href: localePath(locale, "/fancy-text-generator/"),
+            title: t.tools.fancy,
+            description: c.intro,
+          },
+        ]}
+      />
+
+      <section className="mt-12" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
+          {t.sections.faq}
+        </h2>
+        <Faq items={c.faq} />
+      </section>
+
+      <p className="mt-10 text-center">
+        <Link
+          href={localePath(locale, "/fancy-text-generator/")}
+          className="text-sm font-semibold text-brand-700 hover:text-brand-800"
+        >
+          {t.sections.openFull}
+        </Link>
+      </p>
+    </div>
+  );
+}
