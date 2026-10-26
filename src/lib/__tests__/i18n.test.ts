@@ -53,6 +53,8 @@ describe("i18n completeness", () => {
       "cod-name-generator",
       "youtube-fonts",
       "roblox-name-generator",
+      "adopt-me-fonts",
+      "berry-avenue-fonts",
     ]);
     for (const locale of locales) {
       for (const page of platformPages) {

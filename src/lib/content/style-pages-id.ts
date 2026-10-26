@@ -349,7 +349,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     description:
       "Huruf imut untuk disalin: huruf balon bundar dengan satu hati, pita, atau bunga. Gratis di browser, tanpa menginstal apa pun.",
     intro:
-      "Ketik sebuah nama dan dapatkan tampilan lembut yang juga disebut cute, kawaii, coquette, atau soft. Huruf balon muncul lebih dulu, dengan hati, pita, atau bunga di kedua sisi. Baris cursive ada di bawah kalau kamu mau yang lebih tenang. Ini karakter untuk ditempel, bukan berkas font.",
+      "Ketik sebuah nama dan dapatkan huruf balon dengan satu hati, pita ୨୧, atau bunga. Orang juga menyebutnya kawaii atau soft. Baris cursive ada di bawah kalau kamu mau yang lebih tenang. Script dengan pita ada di halaman coquette. Ini karakter untuk ditempel, bukan berkas font.",
     howItWorks:
       "Huruf balon dan lingkaran adalah alfanumerik tertutup. Baris yang mengalir adalah Mathematical Script. Hati, pita (୨୧), bunga, dan kurung lembut adalah simbol terpisah, dan hanya baris balon yang memakainya — satu pasang setiap kali, supaya namanya tetap terbaca.",
     coverageNote:
@@ -369,7 +369,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
       {
         q: "Apakah coquette atau kawaii generator lain?",
-        a: "Tampilan yang sama, nama lain. Coquette condong ke pita; kawaii dan soft ke hati atau bunga. Semua baris itu ada di halaman ini.",
+        a: "Kawaii tetap di halaman ini: huruf balon dengan hati, pita ୨୧, atau bunga. Coquette adalah halaman lain, huruf script dengan pita.",
       },
       {
         q: "Bisa dipakai sebagai username Instagram?",
@@ -510,6 +510,74 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       {
         q: "Apakah hiasan dihitung di bio?",
         a: "Ya. Setiap huruf full-width dihitung satu, dan setiap kilau atau titik juga. Satu kata pendek adalah panjang yang nyaman.",
+      },
+    ],
+  },
+  "coquette-font-generator": {
+    navName: "Coquette",
+    h1: "Generator huruf coquette",
+    description:
+      "Teks coquette untuk disalin: huruf script dengan satu pita. Untuk nama tampilan Instagram dan nama panggilan Discord, bukan unduhan font.",
+    intro:
+      "Huruf script, lalu satu pita. Barisnya pita kecil, sepasang ribbon, dan emoji pita. Huruf imut di situs ini adalah huruf balon. Halaman ini tetap di pita.",
+    howItWorks:
+      "Pita membungkus script yang lebih tebal, Unicode Bold Script, karena alfabet itu punya e, g, dan o yang utuh. Script tipis ada di bawah, tanpa pita, dan di baris itu e, g, dan o adalah pengganti, jadi nama seperti Belle memakai baris tebal. Pita adalah simbol terpisah, hanya di baris tebal.",
+    coverageNote:
+      "Script mengubah A–Z dan a–z. Angka tetap seperti yang diketik. Pita kecil adalah karakter langka dan bisa tampil sebagai kotak kosong. Kalau begitu, salin baris emoji pita. Hiasan dihitung dalam batas nama.",
+    bestFor: [
+      "Nama tampilan dan bio Instagram",
+      "Nama panggilan dan status pendek Discord",
+      "Nama satu kata dengan satu pita",
+    ],
+    sampleInputs: ["Mia", "Lila", "Belle"],
+    platformTip:
+      "Tempel ke nama tampilan Instagram atau nama panggilan Discord. Username di sana hanya menerima huruf biasa, angka, dan sedikit tanda, jadi pita tidak masuk ke username. Nama tampilan Instagram sekitar 30 karakter dan nama panggilan Discord sekitar 32. Kalau pita kecil gagal, emoji pita tetap bisa disalin.",
+    faq: [
+      {
+        q: "Apakah coquette font yang diunduh?",
+        a: "Bukan. Kamu menyalin karakter. Berkas font harus dipasang, dan situs ini tidak menawarkannya.",
+      },
+      {
+        q: "Apa bedanya dengan huruf imut?",
+        a: "Huruf imut adalah huruf balon dengan hati, pita ୨୧, atau bunga. Coquette adalah script dengan pita. Dua halaman ini tidak memakai hiasan yang sama.",
+      },
+      {
+        q: "Bisakah nama coquette jadi username Instagram?",
+        a: "Tidak. Username tetap biasa. Tempel nama bergaya ke nama tampilan atau bio.",
+      },
+    ],
+  },
+  "preppy-font-generator": {
+    navName: "Preppy",
+    h1: "Generator huruf preppy",
+    description:
+      "Nama preppy untuk disalin: small caps dengan satu hati yang bersih. Cukup pendek untuk dicoba sebagai nama tampilan Adopt Me.",
+    intro:
+      "Small caps, lalu satu hati: putih, hati kartu, atau hati miring. Tanpa pita dan tanpa huruf balon. Tampilan yang lebih ramai ada di halaman lain. Yang ini tetap bersih, seperti nama preppy di Adopt Me.",
+    howItWorks:
+      "Small caps adalah huruf pengubah Unicode yang terlihat seperti huruf besar yang lebih pendek. Script adalah baris kedua yang polos. Setiap hati hanya ada di baris small caps, sepasang atau satu sisi, supaya namanya tetap pendek.",
+    coverageNote:
+      "Small caps mencakup sebagian besar huruf dan membiarkan beberapa tetap bila Unicode tidak punya bentuknya. Script hanya mengubah huruf, jadi angka di baris itu tetap biasa. Hati adalah karakter tambahan. Hati putih adalah emoji dan biasanya yang pertama ditolak filter game.",
+    bestFor: [
+      "Nama tampilan Adopt Me yang pendek",
+      "Nama bersih dengan satu hati",
+      "Bio yang harus rapi, bukan bulat",
+    ],
+    sampleInputs: ["Mila", "Blair", "Tess"],
+    platformTip:
+      "Adopt Me menampilkan nama tampilan Roblox-mu, biasanya sekitar 20 karakter, dan username tidak bisa memakai font. Nama small caps yang pendek dengan satu hati lebih sering muat daripada pita di kedua sisi. Tempel di layar nama Roblox sebelum kamu mengonfirmasi perubahan.",
+    faq: [
+      {
+        q: "Apakah preppy sama dengan coquette?",
+        a: "Tidak. Coquette adalah script dengan pita. Preppy adalah small caps dengan satu hati yang bersih.",
+      },
+      {
+        q: "Apakah ini bisa jadi username Adopt Me?",
+        a: "Username Roblox tetap huruf, angka, dan satu garis bawah. Coba nama bergaya sebagai nama tampilan, dan hanya setelah pratinjau game menerimanya.",
+      },
+      {
+        q: "Kenapa hatinya sesederhana ini?",
+        a: "Tumpukan pita menghabiskan 20 karakter nama tampilan dan lebih sering difilter. Satu hati adalah tanda preppy, dan nama masih muat.",
       },
     ],
   },

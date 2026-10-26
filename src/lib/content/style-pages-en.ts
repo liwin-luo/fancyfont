@@ -374,7 +374,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     description:
       "Cute copy-and-paste text: round bubble letters with one heart, bow, or flower. Free in the browser, nothing to install.",
     intro:
-      "Type a name and get the soft look people also call kawaii, coquette, or soft lettering. Round bubble letters come first, with a heart, a bow, or a flower on either side. A script line sits underneath if you want it quieter. These are characters you paste, not a font file.",
+      "Type a name and get round bubble letters with one heart, the ୨୧ bow, or a flower. People also call this kawaii or soft lettering. A script line sits underneath if you want it quieter. Ribbon script is the coquette page. These are characters you paste, not a font file.",
     howItWorks:
       "Bubble and circled letters are enclosed alphanumerics. The flowing line is Mathematical Script. Hearts, bows (୨୧), flowers, and soft brackets are separate symbols, and only the bubble row wears them — one pair at a time, so the name stays readable.",
     coverageNote:
@@ -394,7 +394,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       },
       {
         q: "Is coquette or kawaii text a different generator?",
-        a: "Same look, different names. Coquette leans on the bow, kawaii and soft on the heart or the flower. All of those rows are on this page.",
+        a: "Kawaii stays on this page: bubble letters with a heart, the ୨୧ bow, or a flower. Coquette is the other page, script letters with a ribbon bow.",
       },
       {
         q: "Can I use this as my Instagram username?",
@@ -535,6 +535,74 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       {
         q: "Will decorations count in my bio?",
         a: "Yes. Each full-width letter counts as one, and each sparkle or dot counts as well. A short word is the comfortable length.",
+      },
+    ],
+  },
+  "coquette-font-generator": {
+    navName: "Coquette",
+    h1: "Coquette Font Generator",
+    description:
+      "Coquette copy-and-paste text: script letters with one ribbon bow. For Instagram display names and Discord nicknames, not a font download.",
+    intro:
+      "Script letters, then one bow. The rows are a small bow, a ribbon pair, and a ribbon emoji. Cute text on this site is round bubble letters. This page stays the ribbon look.",
+    howItWorks:
+      "The bow wraps Unicode Bold Script. That heavier alphabet has a real e, g, and o. The thinner script sits underneath with no bow, and on that row e, g, and o are stand-ins, so a name like Belle should use the bold row. The bows and the ribbon are separate symbols on the bold row only.",
+    coverageNote:
+      "Script converts A–Z and a–z. Digits stay as typed. The small bow is a rare character and can show as an empty box. If it does, copy the ribbon-emoji row. Decorations count toward the name limit.",
+    bestFor: [
+      "Instagram display names and bios",
+      "Discord nicknames and short statuses",
+      "A one-word name with a single bow",
+    ],
+    sampleInputs: ["Mia", "Lila", "Belle"],
+    platformTip:
+      "Paste this into an Instagram display name or a Discord nickname. Those usernames only take plain letters, digits, and a few marks, so the bow stays off the handle. A display name is about 30 characters on Instagram and a nickname about 32 on Discord. If the small bow fails, the ribbon emoji still copies.",
+    faq: [
+      {
+        q: "Is coquette a font I download?",
+        a: "No. You copy characters. A font file would have to be installed, and this site does not offer one.",
+      },
+      {
+        q: "How is this different from the cute font page?",
+        a: "Cute is bubble letters with a heart, the ୨୧ bow, or a flower. Coquette is script with a ribbon bow. The two pages do not share decorations.",
+      },
+      {
+        q: "Can I put a coquette name in my Instagram username?",
+        a: "No. The username stays plain. Paste the styled name into the display name or the bio.",
+      },
+    ],
+  },
+  "preppy-font-generator": {
+    navName: "Preppy",
+    h1: "Preppy Font Generator",
+    description:
+      "Preppy copy-and-paste names: small caps with one clean heart. Short enough to try on an Adopt Me display name.",
+    intro:
+      "Small caps, then one heart: white, a suit heart, or a rotated heart. No bows and no bubble letters. That louder cute look is the other page. This one stays clean, which is what preppy names in Adopt Me usually want.",
+    howItWorks:
+      "Small caps are Unicode modifier letters that look like shorter capitals. Script is the bare second row. Each heart is a symbol on the small-caps row only, one pair or one side, so the name stays short.",
+    coverageNote:
+      "Small caps cover most letters and leave a few unchanged when Unicode has no small-cap form. Script converts letters only, so digits in that row stay plain. Hearts are extra characters. The white heart is an emoji and is the first one a game filter may reject.",
+    bestFor: [
+      "Short Adopt Me display names",
+      "A clean name with a single heart",
+      "Bios that should feel tidy rather than bubbly",
+    ],
+    sampleInputs: ["Mila", "Blair", "Tess"],
+    platformTip:
+      "Adopt Me shows your Roblox display name, usually about 20 characters, and the username cannot take fonts. A short small-caps name with one heart fits that box more often than a bow on both sides. Paste it on Roblox's own name screen before you confirm the change.",
+    faq: [
+      {
+        q: "Is preppy the same as coquette?",
+        a: "No. Coquette is script with a ribbon bow. Preppy is small caps with one clean heart.",
+      },
+      {
+        q: "Will this work as an Adopt Me username?",
+        a: "The Roblox username stays letters, digits, and one underscore. Try the styled name as the display name, and only after the game's own preview accepts it.",
+      },
+      {
+        q: "Why keep the hearts so plain?",
+        a: "A stack of bows eats the 20-character display name and gets filtered more often. One heart is the preppy mark, and it still leaves room for the name.",
       },
     ],
   },

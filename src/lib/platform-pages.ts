@@ -1,7 +1,8 @@
 // Platform preset pages: shared routing/config plus per-locale copy.
 // Platform rules change — every locale's copy keeps the honest wording.
 
-import type { Locale } from "./i18n";
+import { localePath, type Locale } from "./i18n";
+import { getStylePage } from "./style-pages";
 import type { PlatformPreviewId } from "./platform-preview";
 import type { TextStyleId } from "./text-styles";
 import { platformPagesEn, type PlatformPageCopy } from "./content/platform-pages-en";
@@ -60,7 +61,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     toolMode: "text",
     preview: "instagram",
     featuredStyles: ["script", "boldScript", "smallCaps", "fullwidth", "bubble"],
-    related: ["tiktok-fonts", "discord-fonts"],
+    related: ["tiktok-fonts", "discord-fonts", "coquette-font-generator"],
   },
   {
     slug: "tiktok-fonts",
@@ -76,7 +77,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     toolMode: "text",
     preview: "discord",
     featuredStyles: ["bold", "monospace", "fraktur", "smallCaps", "bubble"],
-    related: ["roblox-name-generator", "instagram-fonts"],
+    related: ["roblox-name-generator", "instagram-fonts", "coquette-font-generator"],
   },
   {
     slug: "cod-name-generator",
@@ -100,7 +101,23 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     toolMode: "gaming",
     preview: "roblox",
     featuredStyles: ["bold", "smallCaps", "bubble"],
-    related: ["discord-fonts", "gaming-name-generator"],
+    related: ["adopt-me-fonts", "berry-avenue-fonts", "discord-fonts"],
+  },
+  {
+    slug: "adopt-me-fonts",
+    platform: "Adopt Me",
+    toolMode: "text",
+    preview: "roblox",
+    featuredStyles: ["smallCaps", "bubble", "script"],
+    related: ["preppy-font-generator", "berry-avenue-fonts", "roblox-name-generator"],
+  },
+  {
+    slug: "berry-avenue-fonts",
+    platform: "Berry Avenue",
+    toolMode: "text",
+    preview: "roblox",
+    featuredStyles: ["boldScript", "smallCaps", "script"],
+    related: ["coquette-font-generator", "adopt-me-fonts", "roblox-name-generator"],
   },
 ];
 
@@ -131,4 +148,29 @@ export const platformPages: PlatformPageDef[] = SHARED.map((shared) => ({
 
 export function getPlatformPage(locale: Locale, slug: string): PlatformPageDef | undefined {
   return platformPages.find((page) => page.slug === slug);
+}
+
+/** Style and platform slugs share one related row, so a look can point at a place. */
+export function relatedToolLinks(locale: Locale, slugs: readonly string[]) {
+  const links: { href: string; title: string; description: string }[] = [];
+  for (const slug of slugs) {
+    const style = getStylePage(locale, slug);
+    if (style) {
+      links.push({
+        href: localePath(locale, `/${style.slug}/`),
+        title: style.copy[locale].h1,
+        description: style.copy[locale].intro,
+      });
+      continue;
+    }
+    const platform = getPlatformPage(locale, slug);
+    if (platform) {
+      links.push({
+        href: localePath(locale, `/${platform.slug}/`),
+        title: platform.copy[locale].h1,
+        description: platform.copy[locale].intro,
+      });
+    }
+  }
+  return links;
 }

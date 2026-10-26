@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { clipCodePoints, codePointLength, plainHandle } from "@/lib/platform-preview";
+import { buildCustomNickname, type CustomCombo } from "@/lib/nickname";
+import { platformPages } from "@/lib/platform-pages";
+import { clipCodePoints, codePointLength, plainHandle, previewFields } from "@/lib/platform-preview";
 
 describe("platform preview handles", () => {
   it("keeps a plain handle and drops characters that username fields reject", () => {
@@ -11,6 +13,19 @@ describe("platform preview handles", () => {
     expect(plainHandle("___", "roblox")).toBe("Player");
     expect(plainHandle("Shadow Hero!", "youtube")).toBe("shadowhero");
     expect(plainHandle("浩然", "youtube")).toBe("channel");
+  });
+
+  it("keeps adopt me and berry avenue presets inside a roblox display name", () => {
+    const max = previewFields.roblox.nameMax;
+    for (const slug of ["adopt-me-fonts", "berry-avenue-fonts"]) {
+      const page = platformPages.find((item) => item.slug === slug);
+      expect(page?.preview).toBe("roblox");
+      expect(page?.toolMode).toBe("text");
+      for (const preset of page?.copy.en.presets ?? []) {
+        const text = buildCustomNickname(page?.copy.en.defaultText ?? "", preset as CustomCombo);
+        expect(codePointLength(text)).toBeLessThanOrEqual(max);
+      }
+    }
   });
 
   it("counts and clips by code point", () => {

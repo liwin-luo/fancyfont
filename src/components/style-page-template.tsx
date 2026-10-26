@@ -8,7 +8,8 @@ import {
   Steps,
   faqJsonLd,
 } from "@/components/sections";
-import { getStylePage, previewStylePage, type StylePageDef } from "@/lib/style-pages";
+import { relatedToolLinks } from "@/lib/platform-pages";
+import { previewStylePage, type StylePageDef } from "@/lib/style-pages";
 import { getSiteUrl } from "@/lib/site";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -20,14 +21,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
   const t = getUi(locale);
   const path = localePath(locale, `/${page.slug}/`);
 
-  const relatedLinks = page.related
-    .map((slug) => getStylePage(locale, slug))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p))
-    .map((p) => ({
-      href: localePath(locale, `/${p.slug}/`),
-      title: p.copy[locale].h1,
-      description: p.copy[locale].intro,
-    }));
+  const relatedLinks = relatedToolLinks(locale, page.related);
 
   const webAppJsonLd = {
     "@context": "https://schema.org",

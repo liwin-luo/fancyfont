@@ -30,7 +30,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
   { slug: "bold-text-generator", styleIds: ["bold", "sansBold", "boldItalic"], related: ["italic-text-generator", "strikethrough-text-generator", "cool-font-generator"] },
   { slug: "italic-text-generator", styleIds: ["italic", "sansItalic"], related: ["bold-text-generator", "cursive-text-generator"] },
   { slug: "bubble-letters-generator", styleIds: ["bubble", "circled", "squared"], related: ["small-caps-generator", "cute-font-generator"] },
-  { slug: "small-caps-generator", styleIds: ["smallCaps"], related: ["tiny-text-generator", "cursive-text-generator"] },
+  { slug: "small-caps-generator", styleIds: ["smallCaps"], related: ["preppy-font-generator", "tiny-text-generator", "cursive-text-generator"] },
   { slug: "strikethrough-text-generator", styleIds: ["strike", "slash", "boldStrike"], related: ["bold-text-generator", "upside-down-text-generator"] },
   { slug: "glitch-text-generator", styleIds: ["zalgoLight", "zalgoMedium", "zalgoHeavy"], related: ["upside-down-text-generator", "gothic-text-generator"] },
   { slug: "upside-down-text-generator", styleIds: ["upsideDown"], related: ["glitch-text-generator", "tiny-text-generator"] },
@@ -44,7 +44,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["✿ ", " ✿"],
       ["꒰ ", " ꒱"],
     ],
-    related: ["cool-font-generator", "elegant-font-generator", "cursive-text-generator", "bubble-letters-generator"],
+    related: ["coquette-font-generator", "cool-font-generator", "elegant-font-generator", "bubble-letters-generator"],
   },
   {
     slug: "cool-font-generator",
@@ -85,6 +85,26 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["✧･ﾟ ", " ･ﾟ✧"],
     ],
     related: ["cute-font-generator", "elegant-font-generator", "small-caps-generator"],
+  },
+  {
+    slug: "coquette-font-generator",
+    styleIds: ["boldScript", "script"],
+    wrappers: [
+      ["𐙚 ", " 𐙚"],
+      ["𝜗𝜚 ", " 𝜗𝜚"],
+      ["🎀 ", " 🎀"],
+    ],
+    related: ["cute-font-generator", "elegant-font-generator", "instagram-fonts", "discord-fonts"],
+  },
+  {
+    slug: "preppy-font-generator",
+    styleIds: ["smallCaps", "script"],
+    wrappers: [
+      ["🤍 ", " 🤍"],
+      ["♥ ", " ♥"],
+      ["❥ ", " ❥"],
+    ],
+    related: ["coquette-font-generator", "small-caps-generator", "cute-font-generator", "adopt-me-fonts"],
   },
 ];
 

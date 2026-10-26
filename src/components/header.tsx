@@ -1,12 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PixelStar } from "@/components/pixel-star";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { getUi } from "@/lib/ui-strings";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localeFromPathname, localePath, type Locale } from "@/lib/i18n";
 import { siteName } from "@/lib/site";
 
 export function Header({ locale }: { locale: Locale }) {
   const t = getUi(locale);
+  const pathname = usePathname() ?? "/";
+  const fromPath = localeFromPathname(pathname);
+  const bare = fromPath === "en" ? pathname : pathname.replace(`/${fromPath}`, "") || "/";
+  const here = bare.endsWith("/") ? bare : `${bare}/`;
   const links = [
     { href: "/fancy-text-generator/", label: t.nav.fancy },
     { href: "/gaming-name-generator/", label: t.nav.gaming },
@@ -36,15 +43,23 @@ export function Header({ locale }: { locale: Locale }) {
             aria-label="Main"
             className="order-3 -mx-1 flex w-full items-center gap-0.5 overflow-x-auto px-1 pb-0.5 sm:order-2 sm:w-auto sm:gap-1 sm:overflow-visible sm:px-0 sm:pb-0"
           >
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={localePath(locale, link.href)}
-                className="whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-medium text-ink-700 transition-colors hover:bg-brand-50 hover:text-brand-700 sm:px-3 sm:text-sm"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const active = here === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={localePath(locale, link.href)}
+                  aria-current={active ? "page" : undefined}
+                  className={`whitespace-nowrap rounded-lg px-2 py-2 text-[13px] transition-colors sm:px-3 sm:text-sm ${
+                    active
+                      ? "bg-brand-100 font-bold text-brand-800"
+                      : "font-semibold text-ink-900 hover:bg-brand-50 hover:text-brand-700"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>

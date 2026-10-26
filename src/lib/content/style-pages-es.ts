@@ -349,7 +349,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     description:
       "Letras tiernas para copiar y pegar: burbujas redondas con un corazón, un lazo o una flor. Gratis, en el navegador, sin instalar nada.",
     intro:
-      "Escribe un nombre y obtén el look suave que también llaman cute, kawaii, coquette o soft. Primero van las letras burbuja, con un corazón, un lazo o una flor a cada lado. Debajo hay una línea cursiva por si la quieres más quieta. Son caracteres que pegas, no un archivo de fuente.",
+      "Escribe un nombre y obtén letras burbuja con un corazón, el lazo ୨୧ o una flor. También lo llaman kawaii o soft. Debajo hay una línea cursiva por si la quieres más quieta. El script con cinta está en la página coquette. Son caracteres que pegas, no un archivo de fuente.",
     howItWorks:
       "Las letras burbuja y las circuladas son alfanuméricos encerrados. La línea que fluye es Mathematical Script. Corazones, lazos (୨୧), flores y corchetes suaves son símbolos aparte, y solo la fila burbuja los lleva — un par cada vez, para que el nombre se lea.",
     coverageNote:
@@ -369,7 +369,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
       {
         q: "¿Coquette o kawaii es otro generador?",
-        a: "Es el mismo look con otro nombre. Coquette se apoya en el lazo; kawaii y soft, en el corazón o la flor. Todas esas filas están en esta página.",
+        a: "Kawaii se queda aquí: letras burbuja con un corazón, el lazo ୨୧ o una flor. Coquette es la otra página, letras script con un lazo de cinta.",
       },
       {
         q: "¿Puedo usarlo como usuario de Instagram?",
@@ -510,6 +510,74 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       {
         q: "¿Los adornos cuentan en mi bio?",
         a: "Sí. Cada letra full-width cuenta como una, y cada destello o punto también. Una palabra corta es el largo cómodo.",
+      },
+    ],
+  },
+  "coquette-font-generator": {
+    navName: "Coquette",
+    h1: "Generador de letras coquette",
+    description:
+      "Texto coquette para copiar y pegar: letras script con un lazo de cinta. Para el nombre visible de Instagram y el apodo de Discord, no para descargar una fuente.",
+    intro:
+      "Letras script y un solo lazo. Las filas son un lazo pequeño, un par de cintas y el emoji de cinta. Lo tierno de este sitio son las letras burbuja. Esta página se queda en el lazo.",
+    howItWorks:
+      "El lazo envuelve el script grueso, Unicode Bold Script, porque esa letra tiene e, g y o de verdad. El script fino queda debajo, sin lazo, y en esa fila e, g y o son sustitutos, así que un nombre como Belle va en la fila gruesa. Los lazos y la cinta son símbolos aparte, solo en la fila gruesa.",
+    coverageNote:
+      "El script convierte A–Z y a–z. Los dígitos se quedan como los escribiste. El lazo pequeño es un carácter raro y puede salir como un cuadro vacío. Si pasa, copia la fila del emoji de cinta. Los adornos cuentan en el límite del nombre.",
+    bestFor: [
+      "Nombres visibles y bios de Instagram",
+      "Apodos y estados cortos de Discord",
+      "Un nombre de una palabra con un solo lazo",
+    ],
+    sampleInputs: ["Mia", "Lila", "Belle"],
+    platformTip:
+      "Pégalo en el nombre visible de Instagram o en el apodo de Discord. Esos usuarios solo aceptan letras planas, dígitos y unas pocas marcas, así que el lazo no va en el usuario. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord. Si el lazo pequeño falla, el emoji de cinta igual se copia.",
+    faq: [
+      {
+        q: "¿Coquette es una fuente que descargo?",
+        a: "No. Copias caracteres. Un archivo de fuente habría que instalarlo, y este sitio no lo ofrece.",
+      },
+      {
+        q: "¿En qué se diferencia de las letras tiernas?",
+        a: "Lo tierno son letras burbuja con un corazón, el lazo ୨୧ o una flor. Coquette es script con un lazo de cinta. Las dos páginas no comparten adornos.",
+      },
+      {
+        q: "¿Puedo poner un nombre coquette en mi usuario de Instagram?",
+        a: "No. El usuario se queda plano. Pega el nombre con estilo en el nombre visible o en la bio.",
+      },
+    ],
+  },
+  "preppy-font-generator": {
+    navName: "Preppy",
+    h1: "Generador de letras preppy",
+    description:
+      "Nombres preppy para copiar y pegar: versalitas con un corazón limpio. Cortos para probar en un nombre visible de Adopt Me.",
+    intro:
+      "Versalitas y un solo corazón: blanco, de palo o girado. Sin lazos y sin letras burbuja. Ese look más ruidoso está en la otra página. Este se queda limpio, que es lo que suelen buscar los nombres preppy de Adopt Me.",
+    howItWorks:
+      "Las versalitas son letras modificadoras de Unicode que parecen mayúsculas más bajas. El script es la segunda fila, sin adorno. Cada corazón es un símbolo solo en la fila de versalitas, un par o un lado, para que el nombre siga corto.",
+    coverageNote:
+      "Las versalitas cubren la mayoría de las letras y dejan unas pocas iguales cuando Unicode no tiene forma. El script solo convierte letras, así que los dígitos de esa fila quedan normales. Los corazones son caracteres extra. El corazón blanco es un emoji y suele ser el primero que rechaza el filtro de un juego.",
+    bestFor: [
+      "Nombres visibles cortos de Adopt Me",
+      "Un nombre limpio con un solo corazón",
+      "Bios que deban verse ordenadas, no redondas",
+    ],
+    sampleInputs: ["Mila", "Blair", "Tess"],
+    platformTip:
+      "Adopt Me muestra tu nombre visible de Roblox, normalmente unos 20 caracteres, y el usuario no admite fuentes. Un nombre corto en versalitas con un corazón cabe en ese cuadro más a menudo que un lazo a cada lado. Pégalo en la pantalla de nombre de Roblox antes de confirmar el cambio.",
+    faq: [
+      {
+        q: "¿Preppy es lo mismo que coquette?",
+        a: "No. Coquette es script con un lazo de cinta. Preppy son versalitas con un corazón limpio.",
+      },
+      {
+        q: "¿Esto sirve como usuario de Adopt Me?",
+        a: "El usuario de Roblox se queda en letras, dígitos y un guion bajo. Prueba el nombre con estilo como nombre visible, y solo después de que la vista previa del juego lo acepte.",
+      },
+      {
+        q: "¿Por qué los corazones son tan simples?",
+        a: "Una pila de lazos se come los 20 caracteres del nombre visible y el filtro la corta más a menudo. Un corazón es la marca preppy y todavía deja sitio para el nombre.",
       },
     ],
   },

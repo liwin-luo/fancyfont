@@ -236,6 +236,98 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "adopt-me-fonts": {
+      navName: "Adopt Me",
+      h1: "Adopt Me Fonts",
+      title: "Adopt Me Fonts That Work – Roblox Display Names",
+      description:
+        "Short Adopt Me name fonts for your Roblox display name. About 20 characters, a plain username, and a preview before you change it.",
+      intro:
+        "Adopt Me uses your Roblox name. The username stays plain letters, digits, and one underscore. The display name other players see is about 20 characters, and Roblox can still reject a symbol. These rows are the preppy and cute looks, cut short enough to try.",
+      defaultText: "Mila",
+      presets: [
+        { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
+        { label: "One heart", left: "♥ ", right: "", transform: "smallCaps" },
+        { label: "Cute", left: "♡ ", right: " ♡", transform: "bubble" },
+        { label: "Bow", left: "୨୧ ", right: "", transform: "bubble" },
+      ],
+      guidance: [
+        {
+          label: "Display name",
+          body: "About 20 characters, including every heart. This is the name above your avatar in Adopt Me. The preview clips past 20. A short small-caps name with one heart fits more often than a bow on both sides.",
+        },
+        {
+          label: "Username",
+          body: "Letters, digits, and a single underscore, 3–20 characters. No fonts and no spaces. The preview keeps this handle plain while the display name carries the style.",
+        },
+        {
+          label: "What actually gets through",
+          body: "Roblox filters display names and can change the rules. A styled name can turn into boxes or be rejected. Paste it on Roblox's name screen and read that preview before you confirm. Display-name changes are limited, so do not spend one on a name you have not checked.",
+        },
+      ],
+      compatNote:
+        "Adopt Me is a Roblox experience. These are Unicode characters, not an Adopt Me or Roblox feature. Nothing here guarantees the name will be accepted. FancyFont is not affiliated with Roblox or Adopt Me.",
+      faq: [
+        {
+          q: "Can my Adopt Me username use these fonts?",
+          a: "No. The username is the Roblox login name: letters, digits, and one underscore. Put the style in the display name.",
+        },
+        {
+          q: "Why did my fancy Adopt Me name get rejected?",
+          a: "Roblox filters the display name. Stacked bows and rare symbols fail first. Try the single-heart row, or the plain small-caps row, and check the game's own preview.",
+        },
+        {
+          q: "Is this an official Adopt Me tool?",
+          a: "No. FancyFont is independent. Adopt Me and Roblox belong to their owners. This page only drafts a name that fits the usual display-name length.",
+        },
+      ],
+    },
+    "berry-avenue-fonts": {
+      navName: "Berry Avenue",
+      h1: "Berry Avenue Fonts",
+      title: "Berry Avenue Fonts – RP Names That Fit",
+      description:
+        "Berry Avenue name fonts for a Roblox display name of about 20 characters, plus shorter ribbon looks you can test before you change it.",
+      intro:
+        "Berry Avenue shows your Roblox display name over your character. That field is about 20 characters, and the username stays plain. Roleplay lines in chat can be longer than the name overhead. These rows are the ribbon look, kept short for the display name.",
+      defaultText: "Blair",
+      presets: [
+        { label: "Ribbon", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
+        { label: "Bow", left: "🎀 ", right: "", transform: "boldScript" },
+        { label: "Coquette", left: "𐙚 ", right: " 𐙚", transform: "boldScript" },
+        { label: "Quiet", left: "", right: "", transform: "smallCaps" },
+      ],
+      guidance: [
+        {
+          label: "Display name",
+          body: "About 20 characters. This is the overhead name in Berry Avenue. Hearts, bows, and script letters all count. The preview clips past 20.",
+        },
+        {
+          label: "Username",
+          body: "Letters, digits, and a single underscore. Players still find you by this plain handle. Fonts do not go here.",
+        },
+        {
+          label: "Chat lines",
+          body: "A roleplay intro in chat can be longer than the overhead name. Keep the display name to one short row, and put a longer line in chat only after you see it draw on your device. The small bow can show as a box; the ribbon emoji is the fallback.",
+        },
+      ],
+      compatNote:
+        "Berry Avenue runs on Roblox. These are Unicode characters, not a game feature, and Roblox can reject them. FancyFont is not affiliated with Roblox or Berry Avenue.",
+      faq: [
+        {
+          q: "Which Berry Avenue fonts actually fit?",
+          a: "Start with a display name of about 20 characters or fewer. The quiet small-caps row has no extra symbols. Add one bow only if Roblox's own name preview still accepts it.",
+        },
+        {
+          q: "Can I use a long RP name as my Berry Avenue username?",
+          a: "No. The username stays plain. A longer roleplay line belongs in chat, not in the username or a crowded display name.",
+        },
+        {
+          q: "Is this an official Berry Avenue tool?",
+          a: "No. FancyFont is independent. Berry Avenue and Roblox belong to their owners.",
+        },
+      ],
+    },
   },
   es: {
     "pubg-name-generator": {
@@ -465,6 +557,98 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "¿Es una herramienta oficial de YouTube?",
           a: "No. FancyFont es independiente. YouTube y sus marcas pertenecen a Google.",
+        },
+      ],
+    },
+    "adopt-me-fonts": {
+      navName: "Adopt Me",
+      h1: "Fuentes para Adopt Me",
+      title: "Fuentes para Adopt Me que caben – Nombres visibles de Roblox",
+      description:
+        "Fuentes cortas para tu nombre visible de Adopt Me en Roblox. Unos 20 caracteres, usuario plano y una vista previa antes de cambiarlo.",
+      intro:
+        "Adopt Me usa tu nombre de Roblox. El usuario se queda en letras, dígitos y un guion bajo. El nombre visible que ven los demás ronda los 20 caracteres, y Roblox todavía puede rechazar un símbolo. Estas filas son los looks preppy y tierno, recortados para probar.",
+      defaultText: "Mila",
+      presets: [
+        { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
+        { label: "Un corazón", left: "♥ ", right: "", transform: "smallCaps" },
+        { label: "Tierna", left: "♡ ", right: " ♡", transform: "bubble" },
+        { label: "Lazo", left: "୨୧ ", right: "", transform: "bubble" },
+      ],
+      guidance: [
+        {
+          label: "Nombre visible",
+          body: "Unos 20 caracteres, corazón incluido. Es el nombre sobre tu avatar en Adopt Me. La vista previa corta a partir de 20. Un nombre corto en versalitas con un corazón cabe más a menudo que un lazo a cada lado.",
+        },
+        {
+          label: "Usuario",
+          body: "Letras, dígitos y un solo guion bajo, de 3 a 20 caracteres. Sin fuentes y sin espacios. La vista previa deja este usuario plano y pone el estilo en el nombre visible.",
+        },
+        {
+          label: "Lo que de verdad pasa",
+          body: "Roblox filtra los nombres visibles y puede cambiar las reglas. Un nombre con estilo puede volverse cuadros o ser rechazado. Pégalo en la pantalla de nombre de Roblox y lee esa vista previa antes de confirmar. Los cambios de nombre visible son limitados, así que no gastes uno en un nombre que no hayas revisado.",
+        },
+      ],
+      compatNote:
+        "Adopt Me es una experiencia de Roblox. Estos son caracteres Unicode, no una función de Adopt Me ni de Roblox. Nada aquí garantiza que el nombre sea aceptado. FancyFont no está afiliado a Roblox ni a Adopt Me.",
+      faq: [
+        {
+          q: "¿Mi usuario de Adopt Me puede usar estas fuentes?",
+          a: "No. El usuario es el nombre de acceso de Roblox: letras, dígitos y un guion bajo. El estilo va en el nombre visible.",
+        },
+        {
+          q: "¿Por qué rechazaron mi nombre fancy de Adopt Me?",
+          a: "Roblox filtra el nombre visible. Los lazos apilados y los símbolos raros fallan primero. Prueba la fila de un solo corazón, o las versalitas sin adorno, y revisa la vista previa del juego.",
+        },
+        {
+          q: "¿Es una herramienta oficial de Adopt Me?",
+          a: "No. FancyFont es independiente. Adopt Me y Roblox pertenecen a sus dueños. Esta página solo prepara un nombre que cabe en la longitud habitual del nombre visible.",
+        },
+      ],
+    },
+    "berry-avenue-fonts": {
+      navName: "Berry Avenue",
+      h1: "Fuentes para Berry Avenue",
+      title: "Fuentes para Berry Avenue – Nombres de rol que caben",
+      description:
+        "Fuentes para un nombre visible de Berry Avenue de unos 20 caracteres, con looks de cinta cortos para probar antes de cambiarlo.",
+      intro:
+        "Berry Avenue muestra tu nombre visible de Roblox sobre el personaje. Ese campo ronda los 20 caracteres, y el usuario se queda plano. Una frase de rol en el chat puede ser más larga que el nombre de encima. Estas filas son el look de cinta, corto para el nombre visible.",
+      defaultText: "Blair",
+      presets: [
+        { label: "Cinta", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
+        { label: "Lazo", left: "🎀 ", right: "", transform: "boldScript" },
+        { label: "Coquette", left: "𐙚 ", right: " 𐙚", transform: "boldScript" },
+        { label: "Quieto", left: "", right: "", transform: "smallCaps" },
+      ],
+      guidance: [
+        {
+          label: "Nombre visible",
+          body: "Unos 20 caracteres. Es el nombre sobre la cabeza en Berry Avenue. Corazones, lazos y letras script cuentan. La vista previa corta a partir de 20.",
+        },
+        {
+          label: "Usuario",
+          body: "Letras, dígitos y un solo guion bajo. Los demás te encuentran por este usuario plano. Las fuentes no van aquí.",
+        },
+        {
+          label: "Frases de chat",
+          body: "Una presentación de rol en el chat puede ser más larga que el nombre de encima. Deja el nombre visible en una fila corta, y pon la frase larga en el chat solo después de ver que se dibuja en tu dispositivo. El lazo pequeño puede salir como un cuadro; el emoji de cinta es el recambio.",
+        },
+      ],
+      compatNote:
+        "Berry Avenue corre en Roblox. Estos son caracteres Unicode, no una función del juego, y Roblox puede rechazarlos. FancyFont no está afiliado a Roblox ni a Berry Avenue.",
+      faq: [
+        {
+          q: "¿Qué fuentes de Berry Avenue caben de verdad?",
+          a: "Empieza con un nombre visible de unos 20 caracteres o menos. La fila quieta de versalitas no añade símbolos. Suma un lazo solo si la vista previa de nombre de Roblox todavía lo acepta.",
+        },
+        {
+          q: "¿Puedo usar un nombre de rol largo como usuario de Berry Avenue?",
+          a: "No. El usuario se queda plano. Una frase de rol más larga va en el chat, no en el usuario ni en un nombre visible abarrotado.",
+        },
+        {
+          q: "¿Es una herramienta oficial de Berry Avenue?",
+          a: "No. FancyFont es independiente. Berry Avenue y Roblox pertenecen a sus dueños.",
         },
       ],
     },
@@ -700,6 +884,98 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "adopt-me-fonts": {
+      navName: "Adopt Me",
+      h1: "Fontes para Adopt Me",
+      title: "Fontes para Adopt Me que cabem – Nomes de exibição do Roblox",
+      description:
+        "Fontes curtas para o nome de exibição do Adopt Me no Roblox. Cerca de 20 caracteres, usuário comum e uma prévia antes de trocar.",
+      intro:
+        "O Adopt Me usa seu nome do Roblox. O usuário fica em letras, dígitos e um sublinhado. O nome de exibição que os outros veem fica em torno de 20 caracteres, e o Roblox ainda pode rejeitar um símbolo. Estas linhas são os visuais preppy e fofo, encurtados para testar.",
+      defaultText: "Mila",
+      presets: [
+        { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
+        { label: "Um coração", left: "♥ ", right: "", transform: "smallCaps" },
+        { label: "Fofa", left: "♡ ", right: " ♡", transform: "bubble" },
+        { label: "Laço", left: "୨୧ ", right: "", transform: "bubble" },
+      ],
+      guidance: [
+        {
+          label: "Nome de exibição",
+          body: "Cerca de 20 caracteres, coração incluído. É o nome acima do avatar no Adopt Me. A prévia corta depois de 20. Um nome curto em versaletes com um coração cabe mais vezes do que um laço dos dois lados.",
+        },
+        {
+          label: "Usuário",
+          body: "Letras, dígitos e um único sublinhado, de 3 a 20 caracteres. Sem fontes e sem espaços. A prévia deixa esse usuário comum e põe o estilo no nome de exibição.",
+        },
+        {
+          label: "O que realmente passa",
+          body: "O Roblox filtra nomes de exibição e pode mudar as regras. Um nome estilizado pode virar quadrados ou ser rejeitado. Cole na tela de nome do Roblox e leia aquela prévia antes de confirmar. Trocas de nome de exibição são limitadas, então não gaste uma num nome que você não conferiu.",
+        },
+      ],
+      compatNote:
+        "Adopt Me é uma experiência do Roblox. Estes são caracteres Unicode, não um recurso do Adopt Me nem do Roblox. Nada aqui garante que o nome será aceito. O FancyFont não é afiliado ao Roblox nem ao Adopt Me.",
+      faq: [
+        {
+          q: "Meu usuário do Adopt Me pode usar essas fontes?",
+          a: "Não. O usuário é o nome de login do Roblox: letras, dígitos e um sublinhado. O estilo vai no nome de exibição.",
+        },
+        {
+          q: "Por que meu nome fancy do Adopt Me foi rejeitado?",
+          a: "O Roblox filtra o nome de exibição. Laços empilhados e símbolos raros falham primeiro. Tente a linha de um coração só, ou os versaletes sem enfeite, e confira a prévia do jogo.",
+        },
+        {
+          q: "Esta é uma ferramenta oficial do Adopt Me?",
+          a: "Não. O FancyFont é independente. Adopt Me e Roblox pertencem aos seus donos. Esta página só rascunha um nome que cabe no tamanho usual do nome de exibição.",
+        },
+      ],
+    },
+    "berry-avenue-fonts": {
+      navName: "Berry Avenue",
+      h1: "Fontes para Berry Avenue",
+      title: "Fontes para Berry Avenue – Nomes de RP que cabem",
+      description:
+        "Fontes para um nome de exibição do Berry Avenue de cerca de 20 caracteres, com visuais de fita curtos para testar antes de trocar.",
+      intro:
+        "O Berry Avenue mostra seu nome de exibição do Roblox sobre o personagem. Esse campo fica em torno de 20 caracteres, e o usuário continua comum. Uma fala de RP no chat pode ser mais longa do que o nome acima da cabeça. Estas linhas são o visual de fita, curto para o nome de exibição.",
+      defaultText: "Blair",
+      presets: [
+        { label: "Fita", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
+        { label: "Laço", left: "🎀 ", right: "", transform: "boldScript" },
+        { label: "Coquette", left: "𐙚 ", right: " 𐙚", transform: "boldScript" },
+        { label: "Quieto", left: "", right: "", transform: "smallCaps" },
+      ],
+      guidance: [
+        {
+          label: "Nome de exibição",
+          body: "Cerca de 20 caracteres. É o nome acima da cabeça no Berry Avenue. Corações, laços e letras script contam. A prévia corta depois de 20.",
+        },
+        {
+          label: "Usuário",
+          body: "Letras, dígitos e um único sublinhado. As outras pessoas ainda te acham por esse usuário comum. Fontes não entram aqui.",
+        },
+        {
+          label: "Frases do chat",
+          body: "Uma apresentação de RP no chat pode ser mais longa do que o nome acima da cabeça. Deixe o nome de exibição em uma linha curta, e ponha a frase longa no chat só depois de ver que ela desenha no seu aparelho. O laço pequeno pode aparecer como um quadrado; o emoji de fita é o reserva.",
+        },
+      ],
+      compatNote:
+        "Berry Avenue roda no Roblox. Estes são caracteres Unicode, não um recurso do jogo, e o Roblox pode rejeitá-los. O FancyFont não é afiliado ao Roblox nem ao Berry Avenue.",
+      faq: [
+        {
+          q: "Quais fontes do Berry Avenue realmente cabem?",
+          a: "Comece com um nome de exibição de cerca de 20 caracteres ou menos. A linha quieta de versaletes não acrescenta símbolos. Some um laço só se a prévia de nome do próprio Roblox ainda aceitar.",
+        },
+        {
+          q: "Posso usar um nome de RP longo como usuário do Berry Avenue?",
+          a: "Não. O usuário continua comum. Uma fala de RP mais longa fica no chat, não no usuário nem num nome de exibição lotado.",
+        },
+        {
+          q: "Esta é uma ferramenta oficial do Berry Avenue?",
+          a: "Não. O FancyFont é independente. Berry Avenue e Roblox pertencem aos seus donos.",
+        },
+      ],
+    },
   },
   "zh-cn": {
     "pubg-name-generator": {
@@ -924,6 +1200,98 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "这是 YouTube 官方工具吗？",
           a: "不是。FancyFont 是独立工具。YouTube 及其标识属于 Google。",
+        },
+      ],
+    },
+    "adopt-me-fonts": {
+      navName: "Adopt Me",
+      h1: "Adopt Me 字体",
+      title: "能放进 Adopt Me 的字体 – Roblox 展示名",
+      description:
+        "给 Adopt Me 用的短名字字体，贴在 Roblox 展示名上。大约 20 个字符，用户名保持普通字母，改名之前先看预览。",
+      intro:
+        "Adopt Me 用的是你的 Roblox 名字。用户名只能是字母、数字和一个下划线。别人看到的展示名大约 20 个字符，Roblox 仍可能拒绝某个符号。下面是 preppy 和可爱两种样子，并且剪短到可以拿去试。",
+      defaultText: "Mila",
+      presets: [
+        { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
+        { label: "一颗心", left: "♥ ", right: "", transform: "smallCaps" },
+        { label: "可爱", left: "♡ ", right: " ♡", transform: "bubble" },
+        { label: "蝴蝶结", left: "୨୧ ", right: "", transform: "bubble" },
+      ],
+      guidance: [
+        {
+          label: "展示名",
+          body: "大约 20 个字符，爱心也算。这是 Adopt Me 里头像上方的名字。预览超过 20 会截断。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放下。",
+        },
+        {
+          label: "用户名",
+          body: "字母、数字和一个下划线，3 到 20 个字符。不能用花字，也不能有空格。预览里用户名保持普通字符，花字只放在展示名。",
+        },
+        {
+          label: "真正能通过的",
+          body: "Roblox 会过滤展示名，规则也会变。花字可能变成方块，或直接被拒绝。先贴到 Roblox 自己的改名页，看它的预览，再确认。展示名不能频繁改，没看过的名字不要拿去用掉一次机会。中文通常过不了这个过滤。",
+        },
+      ],
+      compatNote:
+        "Adopt Me 是 Roblox 里的体验。这些是 Unicode 字符，不是 Adopt Me 或 Roblox 的功能。这里不保证名字会被接受。FancyFont 与 Roblox 和 Adopt Me 没有隶属关系。",
+      faq: [
+        {
+          q: "Adopt Me 的用户名能用这些字体吗？",
+          a: "不能。用户名是 Roblox 的登录名：字母、数字和一个下划线。花字放进展示名。",
+        },
+        {
+          q: "为什么我的 Adopt Me 花字名字被拒绝了？",
+          a: "Roblox 会过滤展示名。叠在一起的蝴蝶结和生僻符号最先失败。试一试只有一颗心的那一行，或没有装饰的小型大写，并看游戏自己的预览。",
+        },
+        {
+          q: "这是 Adopt Me 官方工具吗？",
+          a: "不是。FancyFont 是独立工具。Adopt Me 和 Roblox 属于各自的权利人。这一页只帮你起草一个符合常见展示名长度的名字。",
+        },
+      ],
+    },
+    "berry-avenue-fonts": {
+      navName: "Berry Avenue",
+      h1: "Berry Avenue 字体",
+      title: "Berry Avenue 字体 – 放得下的 RP 名字",
+      description:
+        "给 Berry Avenue 用的名字字体。Roblox 展示名大约 20 个字符，丝带样式剪短，改名之前可以先试。",
+      intro:
+        "Berry Avenue 在角色头顶显示你的 Roblox 展示名。这个框大约 20 个字符，用户名保持普通字母。聊天里的角色扮演句子可以比头顶名字更长。下面是丝带样子，并且按展示名的长度收短。",
+      defaultText: "Blair",
+      presets: [
+        { label: "丝带", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
+        { label: "蝴蝶结", left: "🎀 ", right: "", transform: "boldScript" },
+        { label: "Coquette", left: "𐙚 ", right: " 𐙚", transform: "boldScript" },
+        { label: "安静", left: "", right: "", transform: "smallCaps" },
+      ],
+      guidance: [
+        {
+          label: "展示名",
+          body: "大约 20 个字符。这是 Berry Avenue 里头顶的名字。爱心、蝴蝶结和花体字母都要算进去。预览超过 20 会截断。",
+        },
+        {
+          label: "用户名",
+          body: "字母、数字和一个下划线。别人仍然用这个普通用户名找到你。花字不要放在这里。",
+        },
+        {
+          label: "聊天句子",
+          body: "聊天里的角色介绍可以比头顶名字更长。展示名保持一行短的，长句子先在你自己的设备上看它画得出来，再贴进聊天。小蝴蝶结可能变成方块，丝带 emoji 是退路。中文原样保留，但展示名过滤通常不收中文。",
+        },
+      ],
+      compatNote:
+        "Berry Avenue 运行在 Roblox 上。这些是 Unicode 字符，不是游戏功能，Roblox 可以拒绝它们。FancyFont 与 Roblox 和 Berry Avenue 没有隶属关系。",
+      faq: [
+        {
+          q: "哪些 Berry Avenue 字体真的放得下？",
+          a: "先从大约 20 个字符以内的展示名开始。安静的小型大写那一行没有额外符号。只有 Roblox 自己的改名预览还接受时，再加一个蝴蝶结。",
+        },
+        {
+          q: "能把很长的 RP 名字当成 Berry Avenue 用户名吗？",
+          a: "不能。用户名保持普通字符。更长的角色扮演句子放在聊天里，不要塞进用户名或挤满的展示名。",
+        },
+        {
+          q: "这是 Berry Avenue 官方工具吗？",
+          a: "不是。FancyFont 是独立工具。Berry Avenue 和 Roblox 属于各自的权利人。",
         },
       ],
     },
@@ -1156,6 +1524,98 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "Apakah ini alat resmi YouTube?",
           a: "Bukan. FancyFont berdiri sendiri. YouTube dan mereknya milik Google.",
+        },
+      ],
+    },
+    "adopt-me-fonts": {
+      navName: "Adopt Me",
+      h1: "Font Adopt Me",
+      title: "Font Adopt Me yang muat – Nama tampilan Roblox",
+      description:
+        "Font nama pendek untuk nama tampilan Adopt Me di Roblox. Sekitar 20 karakter, username biasa, dan pratinjau sebelum menggantinya.",
+      intro:
+        "Adopt Me memakai nama Roblox-mu. Username tetap huruf, angka, dan satu garis bawah. Nama tampilan yang dilihat pemain lain sekitar 20 karakter, dan Roblox masih bisa menolak sebuah simbol. Baris ini adalah tampilan preppy dan imut, dipotong supaya bisa dicoba.",
+      defaultText: "Mila",
+      presets: [
+        { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
+        { label: "Satu hati", left: "♥ ", right: "", transform: "smallCaps" },
+        { label: "Imut", left: "♡ ", right: " ♡", transform: "bubble" },
+        { label: "Pita", left: "୨୧ ", right: "", transform: "bubble" },
+      ],
+      guidance: [
+        {
+          label: "Nama tampilan",
+          body: "Sekitar 20 karakter, hati ikut dihitung. Ini nama di atas avatar di Adopt Me. Pratinjau memotong lewat 20. Nama small caps yang pendek dengan satu hati lebih sering muat daripada pita di kedua sisi.",
+        },
+        {
+          label: "Username",
+          body: "Huruf, angka, dan satu garis bawah, 3–20 karakter. Tanpa font dan tanpa spasi. Pratinjau membiarkan username ini biasa, sementara nama tampilan yang membawa gaya.",
+        },
+        {
+          label: "Yang benar-benar lolos",
+          body: "Roblox memfilter nama tampilan dan bisa mengubah aturannya. Nama bergaya bisa jadi kotak atau ditolak. Tempel di layar nama Roblox dan baca pratinjau itu sebelum kamu mengonfirmasi. Pergantian nama tampilan terbatas, jadi jangan pakai satu kesempatan untuk nama yang belum kamu cek.",
+        },
+      ],
+      compatNote:
+        "Adopt Me adalah pengalaman di Roblox. Ini karakter Unicode, bukan fitur Adopt Me atau Roblox. Tidak ada jaminan nama akan diterima. FancyFont tidak berafiliasi dengan Roblox atau Adopt Me.",
+      faq: [
+        {
+          q: "Bisakah username Adopt Me saya memakai font ini?",
+          a: "Tidak. Username adalah nama login Roblox: huruf, angka, dan satu garis bawah. Gayanya ada di nama tampilan.",
+        },
+        {
+          q: "Kenapa nama fancy Adopt Me saya ditolak?",
+          a: "Roblox memfilter nama tampilan. Pita yang ditumpuk dan simbol langka gagal lebih dulu. Coba baris satu hati, atau small caps polos, lalu cek pratinjau game.",
+        },
+        {
+          q: "Apakah ini alat resmi Adopt Me?",
+          a: "Bukan. FancyFont berdiri sendiri. Adopt Me dan Roblox milik pemiliknya. Halaman ini hanya merancang nama yang muat pada panjang nama tampilan yang biasa.",
+        },
+      ],
+    },
+    "berry-avenue-fonts": {
+      navName: "Berry Avenue",
+      h1: "Font Berry Avenue",
+      title: "Font Berry Avenue – Nama RP yang muat",
+      description:
+        "Font nama Berry Avenue untuk nama tampilan Roblox sekitar 20 karakter, dengan tampilan pita yang pendek untuk dicoba sebelum diganti.",
+      intro:
+        "Berry Avenue menampilkan nama tampilan Roblox-mu di atas karakter. Kolom itu sekitar 20 karakter, dan username tetap biasa. Kalimat roleplay di chat bisa lebih panjang daripada nama di atas kepala. Baris ini adalah tampilan pita, dijaga pendek untuk nama tampilan.",
+      defaultText: "Blair",
+      presets: [
+        { label: "Pita", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
+        { label: "Simpul", left: "🎀 ", right: "", transform: "boldScript" },
+        { label: "Coquette", left: "𐙚 ", right: " 𐙚", transform: "boldScript" },
+        { label: "Tenang", left: "", right: "", transform: "smallCaps" },
+      ],
+      guidance: [
+        {
+          label: "Nama tampilan",
+          body: "Sekitar 20 karakter. Ini nama di atas kepala di Berry Avenue. Hati, pita, dan huruf script semuanya dihitung. Pratinjau memotong lewat 20.",
+        },
+        {
+          label: "Username",
+          body: "Huruf, angka, dan satu garis bawah. Pemain lain tetap menemukanmu lewat username biasa ini. Font tidak masuk ke sini.",
+        },
+        {
+          label: "Kalimat chat",
+          body: "Perkenalan roleplay di chat bisa lebih panjang daripada nama di atas kepala. Biarkan nama tampilan satu baris pendek, dan taruh kalimat panjang di chat hanya setelah kamu melihatnya tergambar di perangkatmu. Pita kecil bisa tampil sebagai kotak; emoji pita adalah cadangannya.",
+        },
+      ],
+      compatNote:
+        "Berry Avenue berjalan di Roblox. Ini karakter Unicode, bukan fitur game, dan Roblox bisa menolaknya. FancyFont tidak berafiliasi dengan Roblox atau Berry Avenue.",
+      faq: [
+        {
+          q: "Font Berry Avenue yang mana yang benar-benar muat?",
+          a: "Mulai dengan nama tampilan sekitar 20 karakter atau kurang. Baris small caps yang tenang tidak menambah simbol. Tambahkan satu pita hanya jika pratinjau nama Roblox masih menerimanya.",
+        },
+        {
+          q: "Bisakah nama RP yang panjang jadi username Berry Avenue?",
+          a: "Tidak. Username tetap biasa. Kalimat roleplay yang lebih panjang ada di chat, bukan di username atau nama tampilan yang penuh.",
+        },
+        {
+          q: "Apakah ini alat resmi Berry Avenue?",
+          a: "Bukan. FancyFont berdiri sendiri. Berry Avenue dan Roblox milik pemiliknya.",
         },
       ],
     },

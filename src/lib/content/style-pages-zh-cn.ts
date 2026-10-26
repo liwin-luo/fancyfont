@@ -351,7 +351,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     description:
       "可复制的可爱字体：圆气泡字母，左右再加一个爱心、蝴蝶结或小花。在浏览器里完成，不用安装字体。",
     intro:
-      "输入一个名字，得到软软的那一挂。别人也会叫它 kawaii、coquette 或 soft。先出圆气泡字，两边放爱心、蝴蝶结或小花。想再安静一点，下面还有一行花体。这些是能粘贴的字符，不是字体文件。",
+      "输入一个名字，得到圆气泡字，两边放一颗心、蝴蝶结 ୨୧ 或一朵小花。别人也会叫它 kawaii 或 soft。想再安静一点，下面还有一行花体。丝带花体在 Coquette 那一页。这些是能粘贴的字符，不是字体文件。",
     howItWorks:
       "气泡字和圆圈字来自带圈字母。流动的那一行是 Mathematical Script 花体。爱心、蝴蝶结（୨୧）、小花和软括号是单独的符号，只套在气泡字上——一次一对，名字才读得清。",
     coverageNote:
@@ -371,7 +371,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "coquette 或 kawaii 是另一个生成器吗？",
-        a: "同一种样子，换了个叫法。coquette 用蝴蝶结，kawaii 和 soft 用爱心或小花。这些行都在这一页。",
+        a: "kawaii 留在这一页：气泡字配爱心、蝴蝶结 ୨୧ 或小花。Coquette 是另一页，花体配丝带蝴蝶结。",
       },
       {
         q: "能用作 Instagram 用户名吗？",
@@ -512,6 +512,74 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       {
         q: "装饰在简介里算字符吗？",
         a: "算。每个全角字母算一个，每个闪光或圆点也算。一个短词是比较舒服的长度。",
+      },
+    ],
+  },
+  "coquette-font-generator": {
+    navName: "Coquette",
+    h1: "Coquette 字体生成器",
+    description:
+      "可复制的 Coquette 文字：花体字母加一个丝带蝴蝶结。用于 Instagram 展示名和 Discord 昵称，不是字体下载。",
+    intro:
+      "花体字母，再加一个蝴蝶结。三行分别是小蝴蝶结、一对丝带，以及丝带 emoji。本站的可爱字体是圆气泡字。这一页只做丝带这一挂。",
+    howItWorks:
+      "蝴蝶结套在较粗的花体上，也就是 Unicode Bold Script，因为这一套有真正的 e、g、o。较细的花体放在下面，不带蝴蝶结，那一行的 e、g、o 是替代字形，所以 Belle 这类名字用粗的那一行。蝴蝶结和丝带是单独的符号，只套在粗花体上。",
+    coverageNote:
+      "花体转换 A–Z 和 a–z。数字保持原样。小蝴蝶结是生僻字符，可能显示成空方块。如果这样，就复制丝带 emoji 那一行。装饰计入名字长度。中文原样保留。",
+    bestFor: [
+      "Instagram 展示名和简介",
+      "Discord 昵称和短状态",
+      "一个词的名字，只加一个蝴蝶结",
+    ],
+    sampleInputs: ["Mia", "Lila", "Belle"],
+    platformTip:
+      "贴到 Instagram 展示名或 Discord 昵称。这两处的用户名只收普通字母、数字和少量符号，蝴蝶结不要放进用户名。Instagram 展示名大约 30 个字符，Discord 昵称大约 32 个。小蝴蝶结如果失败，丝带 emoji 仍然可以复制。",
+    faq: [
+      {
+        q: "Coquette 是要下载的字体文件吗？",
+        a: "不是。你复制的是字符。字体文件需要安装，本站不提供。",
+      },
+      {
+        q: "它和可爱字体有什么不同？",
+        a: "可爱字体是气泡字，配爱心、蝴蝶结 ୨୧ 或小花。Coquette 是花体配丝带蝴蝶结。两页的装饰不重复。",
+      },
+      {
+        q: "能把 Coquette 名字放进 Instagram 用户名吗？",
+        a: "不能。用户名保持普通字符。花字贴到展示名或简介。",
+      },
+    ],
+  },
+  "preppy-font-generator": {
+    navName: "Preppy",
+    h1: "Preppy 字体生成器",
+    description:
+      "可复制的 Preppy 名字：小型大写加一颗干净的心。短到可以拿去试 Adopt Me 的展示名。",
+    intro:
+      "小型大写，再加一颗心：白心、扑克心，或一颗侧过来的心。没有蝴蝶结，也没有气泡字。更闹的那种在可爱字体那一页。这一页保持干净，Adopt Me 里的 preppy 名字通常要的就是这个。",
+    howItWorks:
+      "小型大写是 Unicode 修饰字母，看起来像矮一号的大写。花体是不带装饰的第二行。每颗心只套在小型大写那一行，一对或单侧，名字才够短。",
+    coverageNote:
+      "小型大写覆盖大多数字母，Unicode 没有对应字形的会保持原样。花体只转换字母，所以那一行里的数字保持原样。爱心是额外字符。白心是 emoji，游戏过滤通常最先拒绝它。中文原样保留。",
+    bestFor: [
+      "短的 Adopt Me 展示名",
+      "干净的名字，只加一颗心",
+      "想整齐、不想圆气泡的简介",
+    ],
+    sampleInputs: ["Mila", "Blair", "Tess"],
+    platformTip:
+      "Adopt Me 显示的是你的 Roblox 展示名，通常大约 20 个字符，用户名不能用花字。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放进这个框。先贴到 Roblox 自己的改名页，确认预览通过再保存。",
+    faq: [
+      {
+        q: "Preppy 和 Coquette 是同一种吗？",
+        a: "不是。Coquette 是花体加丝带蝴蝶结。Preppy 是小型大写加一颗干净的心。",
+      },
+      {
+        q: "这能当 Adopt Me 的用户名吗？",
+        a: "Roblox 用户名只能是字母、数字和一个下划线。花字拿去试展示名，而且要等游戏自己的预览接受了再确认。",
+      },
+      {
+        q: "为什么爱心这么简单？",
+        a: "一串蝴蝶结会吃掉展示名的 20 个字符，也更容易被过滤。一颗心就是 preppy 的记号，还留得下名字。",
       },
     ],
   },

@@ -11,7 +11,7 @@ import {
 } from "@/components/sections";
 import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
-import { getPlatformPage, type PlatformPageDef } from "@/lib/platform-pages";
+import { relatedToolLinks, type PlatformPageDef } from "@/lib/platform-pages";
 import { getSiteUrl } from "@/lib/site";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -24,14 +24,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   const path = localePath(locale, `/${page.slug}/`);
 
   const relatedLinks = [
-    ...page.related
-      .map((slug) => getPlatformPage(locale, slug))
-      .filter((p): p is NonNullable<typeof p> => Boolean(p))
-      .map((p) => ({
-        href: localePath(locale, `/${p.slug}/`),
-        title: p.copy[locale].h1,
-        description: p.copy[locale].intro,
-      })),
+    ...relatedToolLinks(locale, page.related),
     {
       href: localePath(locale, page.toolMode === "gaming" ? "/symbols/" : "/fancy-text-generator/"),
       title: page.toolMode === "gaming" ? t.tools.symbols : t.tools.fancy,

@@ -125,6 +125,20 @@ const styleDetail: Record<string, Record<Locale, string>> = {
     "zh-cn": "宽体字母",
     id: "huruf lebar",
   },
+  "coquette-font-generator": {
+    en: "Ribbons & Script",
+    es: "lazos y script",
+    "pt-br": "laços e script",
+    "zh-cn": "丝带花体",
+    id: "pita & script",
+  },
+  "preppy-font-generator": {
+    en: "Clean Hearts",
+    es: "corazones limpios",
+    "pt-br": "corações limpos",
+    "zh-cn": "干净爱心",
+    id: "hati bersih",
+  },
 };
 
 export function serpScript(locale: Locale): string {
