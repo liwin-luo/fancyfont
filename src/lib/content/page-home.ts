@@ -32,9 +32,9 @@ export interface HomeContent {
 export const homeContent: Record<Locale, HomeContent> = {
   en: {
     meta: {
-      title: serpTitle("FancyFont", "en"),
+      title: serpTitle("Fancy Text", "en", "Names & Symbols"),
       description:
-        "Create stylish text, decorate gaming names, and copy special symbols in seconds with free online tools.",
+        "Free fancy text generator with 30 Unicode styles, gaming nicknames, and symbols like hearts, stars, and wings. Copy and paste into a bio, chat, or profile — no sign-up, no font to install.",
     },
     hero: {
       pre: "Generate and Copy ",
@@ -114,9 +114,9 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   es: {
     meta: {
-      title: serpTitle("FancyFont", "es"),
+      title: serpTitle("Letras bonitas", "es", "nombres y símbolos"),
       description:
-        "Crea texto con estilo, decora nombres gamer y copia símbolos especiales en segundos con herramientas gratuitas.",
+        "Generador gratis de letras bonitas: 30 estilos Unicode, nombres gamer y símbolos (corazones, estrellas, alas). Copia y pega en tu bio, chat o perfil, sin registro ni instalar fuentes.",
     },
     hero: {
       pre: "Genera y copia ",
@@ -196,9 +196,9 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   "pt-br": {
     meta: {
-      title: serpTitle("FancyFont", "pt-br"),
+      title: serpTitle("Letras bonitas", "pt-br", "nomes e símbolos"),
       description:
-        "Crie texto estiloso, decore nomes de jogo e copie símbolos especiais em segundos com ferramentas gratuitas.",
+        "Gerador grátis de letras bonitas: 30 estilos Unicode, nomes de jogo e símbolos (corações, estrelas, asas). Copie e cole na bio, no chat ou no perfil, sem cadastro e sem instalar fontes.",
     },
     hero: {
       pre: "Gere e copie ",
@@ -278,9 +278,9 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   "zh-cn": {
     meta: {
-      title: serpTitle("FancyFont", "zh-cn"),
+      title: serpTitle("花体字生成器", "zh-cn", "昵称与符号"),
       description:
-        "FancyFont 免费在线生成花体字、装饰游戏昵称，并复制爱心、星星等符号。打开页面就能预览，一键复制到游戏、简介或聊天，无需注册，也不安装字体。",
+        "免费花体字生成器：30 种 Unicode 样式、游戏昵称，以及爱心、星星、翅膀等符号。浏览器里预览，复制粘贴到简介、聊天或昵称，无需注册，也不安装字体。",
     },
     hero: {
       pre: "生成并复制",
@@ -360,9 +360,9 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   id: {
     meta: {
-      title: serpTitle("FancyFont", "id"),
+      title: serpTitle("Huruf keren", "id", "nama & simbol"),
       description:
-        "Buat teks keren, hias nama game, dan salin simbol spesial dalam hitungan detik dengan alat gratis.",
+        "Generator huruf keren gratis: 30 gaya Unicode, nama game, dan simbol seperti hati, bintang, dan sayap. Salin tempel ke bio, chat, atau profil — tanpa daftar, tanpa memasang font.",
     },
     hero: {
       pre: "Buat dan salin ",

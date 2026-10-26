@@ -19,7 +19,8 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
   en: {
     meta: {
       title: "Symbols Copy and Paste – Hearts, Stars, Wings & More",
-      description: "Browse and copy special symbols for names, profiles, bios, and messages.",
+      description:
+        "Copy and paste hearts, stars, wings, crowns, arrows, and other Unicode symbols for names, bios, and messages. Click a symbol to copy it. Free, no sign-up.",
     },
     h1: "Symbols to Copy and Paste",
     intro: (count) =>
@@ -67,7 +68,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     meta: {
       title: "Símbolos para copiar y pegar – corazones, estrellas y más",
       description:
-        "Explora y copia símbolos especiales para nombres, perfiles, bios y mensajes.",
+        "Copia y pega corazones, estrellas, alas, coronas, flechas y otros símbolos Unicode para nombres, bios y mensajes. Un clic copia. Gratis, sin registro.",
     },
     h1: "Símbolos para copiar y pegar",
     intro: (count) =>
@@ -115,7 +116,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     meta: {
       title: "Símbolos para copiar e colar – corações, estrelas e mais",
       description:
-        "Navegue e copie símbolos especiais para nomes, perfis, bios e mensagens.",
+        "Copie e cole corações, estrelas, asas, coroas, setas e outros símbolos Unicode para nomes, bios e mensagens. Um clique copia. Grátis, sem cadastro.",
     },
     h1: "Símbolos para copiar e colar",
     intro: (count) =>
@@ -210,7 +211,8 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
   id: {
     meta: {
       title: "Simbol copy paste – hati, bintang, sayap & lainnya",
-      description: "Jelajahi dan salin simbol spesial untuk nama, profil, bio, dan pesan.",
+      description:
+        "Salin tempel hati, bintang, sayap, mahkota, panah, dan simbol Unicode lain untuk nama, bio, dan pesan. Sekali klik menyalin. Gratis, tanpa daftar.",
     },
     h1: "Simbol untuk Disalin & Ditempel",
     intro: (count, categories) =>

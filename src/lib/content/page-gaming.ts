@@ -22,7 +22,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     meta: {
       title: "Gaming Name Generator – Cool Names & Symbols",
       description:
-        "Create decorated gaming nicknames with cool styles and symbols. Generate ideas, preview them, and copy your favorite.",
+        "Type a name and decorate it with symbols, borders, and letter styles. Preview cool, dark, cute, pro, and minimal looks, then copy and paste your favorite. Free, no sign-up.",
     },
     h1: "Gaming Name Generator",
     intro:
@@ -86,7 +86,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     meta: {
       title: "Generador de nombres para juegos – nombres y símbolos",
       description:
-        "Crea apodos decorados para juegos con estilos y símbolos. Genera ideas, previsualízalas y copia tu favorito.",
+        "Escribe un nombre y decóralo con símbolos, marcos y estilos de letra. Previsualiza looks cool, dark, cute, pro y minimal, y copia y pega tu favorito. Gratis, sin registro.",
     },
     h1: "Generador de nombres para juegos",
     intro:
@@ -150,7 +150,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     meta: {
       title: "Gerador de nomes para jogos – nomes e símbolos",
       description:
-        "Crie apelidos decorados para jogos com estilos e símbolos. Gere ideias, veja a prévia e copie o seu favorito.",
+        "Digite um nome e decore com símbolos, molduras e estilos de letra. Veja os visuais cool, dark, cute, pro e minimal, e copie e cole o favorito. Grátis, sem cadastro.",
     },
     h1: "Gerador de nomes para jogos",
     intro:
@@ -278,7 +278,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     meta: {
       title: "Generator Nama Game – nama keren & simbol",
       description:
-        "Buat nama game berhias dengan gaya dan simbol keren. Buat ide, lihat pratinjau, dan salin favoritmu.",
+        "Ketik nama dan hias dengan simbol, bingkai, dan gaya huruf. Pratinjau tampilan cool, dark, cute, pro, dan minimal, lalu salin tempel favoritmu. Gratis, tanpa daftar.",
     },
     h1: "Generator Nama Game",
     intro:

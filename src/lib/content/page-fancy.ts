@@ -33,9 +33,9 @@ export interface FancyContent {
 export const fancyContent: Record<Locale, FancyContent> = {
   en: {
     meta: {
-      title: serpTitle("Fancy Text Generator", "en"),
+      title: serpTitle("Fancy Text Generator", "en", "30 Styles"),
       description:
-        "Turn ordinary text into stylish Unicode text. Preview different styles and copy the result for your profile or bio.",
+        "Turn text into cursive, gothic, bold, bubble, and 30 Unicode styles. Copy and paste the result into bios, names, and chats. Free in your browser — no font to install.",
     },
     h1: "Fancy Text Generator",
     intro:
@@ -96,9 +96,9 @@ export const fancyContent: Record<Locale, FancyContent> = {
   },
   es: {
     meta: {
-      title: serpTitle("Generador de letras bonitas", "es"),
+      title: serpTitle("Generador de letras bonitas", "es", "30 estilos"),
       description:
-        "Convierte texto normal en letras Unicode con estilo. Previsualiza los estilos y copia el resultado para tu bio o perfil.",
+        "Convierte tu texto en cursiva, gótica, negrita, burbuja y 30 estilos Unicode. Copia y pega el resultado en tu bio, nombre o chat. Gratis, sin instalar fuentes.",
     },
     h1: "Generador de letras bonitas",
     intro:
@@ -159,9 +159,9 @@ export const fancyContent: Record<Locale, FancyContent> = {
   },
   "pt-br": {
     meta: {
-      title: serpTitle("Gerador de letras bonitas", "pt-br"),
+      title: serpTitle("Gerador de letras bonitas", "pt-br", "30 estilos"),
       description:
-        "Transforme texto normal em letras Unicode estilosas. Veja a prévia dos estilos e copie o resultado para sua bio ou perfil.",
+        "Transforme seu texto em cursiva, gótica, negrito, bolha e 30 estilos Unicode. Copie e cole na bio, no nome ou no chat. Grátis, sem instalar fontes.",
     },
     h1: "Gerador de letras bonitas",
     intro:
@@ -222,9 +222,9 @@ export const fancyContent: Record<Locale, FancyContent> = {
   },
   "zh-cn": {
     meta: {
-      title: serpTitle("个性字体生成器", "zh-cn"),
+      title: serpTitle("个性字体生成器", "zh-cn", "30种样式"),
       description:
-        "把任意文字转换成花体、哥特、粗体、气泡字等 Unicode 个性字体。输入后即时预览，一键复制到简介、昵称或聊天，无需安装字体。",
+        "把文字转成花体、哥特、粗体、气泡字等 30 种 Unicode 样式。即时预览，复制粘贴到简介、昵称或聊天，无需安装字体。",
     },
     h1: "个性字体生成器",
     intro:
@@ -284,9 +284,9 @@ export const fancyContent: Record<Locale, FancyContent> = {
   },
   id: {
     meta: {
-      title: serpTitle("Generator Huruf Keren", "id"),
+      title: serpTitle("Generator Huruf Keren", "id", "30 gaya"),
       description:
-        "Ubah teks biasa menjadi huruf Unicode keren. Pratinjau berbagai gaya dan salin hasilnya untuk bio atau profilmu.",
+        "Ubah teks jadi cursive, gothic, tebal, gelembung, dan 30 gaya Unicode. Salin tempel ke bio, nama, atau chat. Gratis di browser, tanpa memasang font.",
     },
     h1: "Generator Huruf Keren",
     intro:

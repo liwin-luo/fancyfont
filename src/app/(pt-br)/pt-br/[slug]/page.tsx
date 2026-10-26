@@ -4,7 +4,7 @@ import { PlatformPageTemplate } from "@/components/platform-page-template";
 import { stylePages, getStylePage } from "@/lib/style-pages";
 import { platformPages, getPlatformPage } from "@/lib/platform-pages";
 import { pageMetadata } from "@/lib/metadata";
-import { serpTitle } from "@/lib/serp-title";
+import { styleSerpTitle } from "@/lib/serp-title";
 
 export function generateStaticParams() {
   return [...stylePages, ...platformPages].map((page) => ({ slug: page.slug }));
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (stylePage) {
     const copy = stylePage.copy["pt-br"];
     return pageMetadata("pt-br", `/${slug}/`, {
-      title: serpTitle(copy.h1, "pt-br"),
+      title: styleSerpTitle(copy.h1, slug, "pt-br"),
       description: copy.description,
     });
   }
