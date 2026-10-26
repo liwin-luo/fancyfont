@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ToastProvider } from "@/components/toast";
 import { LocaleProvider } from "@/components/locale-context";
+import { Analytics } from "@vercel/analytics/next";
 
 /**
  * Shared shell for the three locale route groups. Each group's root layout
@@ -23,6 +24,7 @@ export function AppShell({ locale, children }: { locale: Locale; children: React
             <Footer locale={locale} />
           </ToastProvider>
         </LocaleProvider>
+        <Analytics />
       </body>
     </html>
   );
