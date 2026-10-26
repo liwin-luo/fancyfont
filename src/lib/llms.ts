@@ -1,6 +1,7 @@
 // Plain-text site summary for agents that fetch /llms.txt before citing a page.
 
 import { platformPages } from "./platform-pages";
+import { isLookPage, stylePages } from "./style-pages";
 import { textStyles } from "./text-styles";
 import { symbolCategories } from "./symbols-data";
 import { vibeStyles } from "./nickname";
@@ -12,6 +13,10 @@ export function llmsTxt(siteUrl: string): string {
   const platforms = platformPages
     .map((page) => `[${page.copy.en.navName}](${siteUrl}/${page.slug}/)`)
     .join(", ");
+  const looks = stylePages
+    .filter(isLookPage)
+    .map((page) => `[${page.copy.en.navName}](${siteUrl}/${page.slug}/)`)
+    .join(", ");
 
   return `# FancyFont
 
@@ -20,7 +25,8 @@ export function llmsTxt(siteUrl: string): string {
 ## Pages
 
 - [Home](${siteUrl}/): what the tool is, and links to every generator
-- [Fancy Text Generator](${siteUrl}/fancy-text-generator/): all ${textStyles.length} Unicode styles for a short phrase
+- [Fancy Text Generator](${siteUrl}/fancy-text-generator/): all ${textStyles.length} Unicode styles for a short phrase, no decorations
+- Look generators, each with its own symbols: ${looks}
 - [Gaming Name Generator](${siteUrl}/gaming-name-generator/): decorated nicknames
 - Platform generators, in filter order: ${platforms}
 - [Symbols](${siteUrl}/symbols/): searchable symbols and decorative combos

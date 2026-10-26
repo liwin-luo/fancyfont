@@ -3,7 +3,7 @@ import { PixelStar } from "@/components/pixel-star";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
 import { getSiteUrl, siteName } from "@/lib/site";
-import { stylePages } from "@/lib/style-pages";
+import { isLookPage, stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -54,9 +54,19 @@ export function Footer({ locale }: { locale: Locale }) {
           </ul>
         </nav>
         <nav aria-label="Style generators">
-          <h2 className="text-sm font-semibold text-ink-900">{t.tools.styleGenerators}</h2>
+          <h2 className="text-sm font-semibold text-ink-900">{t.tools.lookGenerators}</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            {stylePages.map((page) => (
+            {stylePages.filter(isLookPage).map((page) => (
+              <li key={page.slug}>
+                <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, `/${page.slug}/`)}>
+                  {page.copy[locale].navName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-6 text-sm font-semibold text-ink-900">{t.tools.letterGenerators}</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {stylePages.filter((page) => !isLookPage(page)).map((page) => (
               <li key={page.slug}>
                 <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, `/${page.slug}/`)}>
                   {page.copy[locale].navName}

@@ -223,7 +223,8 @@ export const fancyContent: Record<Locale, FancyContent> = {
   "zh-cn": {
     meta: {
       title: serpTitle("个性字体生成器", "zh-cn"),
-      description: "把普通文字转换成有个性的 Unicode 字体。预览不同样式，一键复制到你的简介或资料。",
+      description:
+        "把任意文字转换成花体、哥特、粗体、气泡字等 Unicode 个性字体。输入后即时预览，一键复制到简介、昵称或聊天，无需安装字体。",
     },
     h1: "个性字体生成器",
     intro:

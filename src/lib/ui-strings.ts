@@ -19,7 +19,8 @@ export interface UiStrings {
     mcp: string;
     tagline: string;
     copyright: string;
-    styleGenerators: string;
+    letterGenerators: string;
+    lookGenerators: string;
     forPlatforms: string;
     site: string;
     /** Suffix for platform footer links, e.g. "Instagram fonts" / "Roblox names". */
@@ -208,7 +209,8 @@ export const ui: Record<Locale, UiStrings> = {
       tagline: "Stylish names, fonts & symbols — free to use, no sign-up needed.",
       copyright:
         "All results are Unicode characters, not installed fonts. This site runs entirely in your browser.",
-      styleGenerators: "Style generators",
+      letterGenerators: "Letter styles",
+      lookGenerators: "Looks",
       forPlatforms: "For platforms",
       site: "Site",
       fontsWord: "fonts",
@@ -406,7 +408,8 @@ export const ui: Record<Locale, UiStrings> = {
       tagline: "Nombres, letras y símbolos con estilo — gratis y sin registro.",
       copyright:
         "Todos los resultados son caracteres Unicode, no fuentes instaladas. Este sitio funciona por completo en tu navegador.",
-      styleGenerators: "Generadores de estilos",
+      letterGenerators: "Estilos de letra",
+      lookGenerators: "Apariencias",
       forPlatforms: "Por plataforma",
       site: "Sitio",
       fontsWord: "fuentes",
@@ -641,7 +644,8 @@ export const ui: Record<Locale, UiStrings> = {
       tagline: "Nomes, letras e símbolos estilosos — grátis e sem cadastro.",
       copyright:
         "Todos os resultados são caracteres Unicode, não fontes instaladas. Este site funciona inteiramente no seu navegador.",
-      styleGenerators: "Geradores de estilo",
+      letterGenerators: "Estilos de letra",
+      lookGenerators: "Visuais",
       forPlatforms: "Por plataforma",
       site: "Site",
       fontsWord: "fontes",
@@ -871,7 +875,8 @@ export const ui: Record<Locale, UiStrings> = {
       tagline: "个性昵称、花体字与特殊符号——免费使用，无需注册。",
       copyright:
         "所有结果均为 Unicode 字符，而非已安装的字体文件。本网站完全在你的浏览器中运行。",
-      styleGenerators: "风格生成器",
+      letterGenerators: "字母",
+      lookGenerators: "外观",
       forPlatforms: "按平台",
       site: "本站",
       fontsWord: "字体",
@@ -1100,7 +1105,8 @@ export const ui: Record<Locale, UiStrings> = {
       tagline: "Nama, huruf, dan simbol keren — gratis tanpa daftar.",
       copyright:
         "Semua hasil adalah karakter Unicode, bukan font yang terpasang. Situs ini berjalan sepenuhnya di browser kamu.",
-      styleGenerators: "Generator gaya",
+      letterGenerators: "Huruf",
+      lookGenerators: "Tampilan",
       forPlatforms: "Per platform",
       site: "Situs",
       fontsWord: "font",

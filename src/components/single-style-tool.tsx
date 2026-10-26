@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { convertText, getStyle, type TextStyleId } from "@/lib/text-styles";
+import { convertText, withWrapper, type TextStyleId } from "@/lib/text-styles";
 import { CopyButton } from "@/components/copy-button";
 import { PreviewOptions, ShareLinks } from "@/components/style-actions";
 import { useToast } from "@/components/toast";
@@ -22,9 +22,12 @@ function DownloadIcon() {
 export function SingleStyleTool({
   styleIds,
   defaultText,
+  wrappers,
 }: {
   styleIds: TextStyleId[];
   defaultText: string;
+  /** Wrapped around styleIds[0] only. Other styles stay bare. */
+  wrappers?: readonly (readonly [string, string])[];
 }) {
   const [text, setText] = useState(defaultText);
   const [previewSize, setPreviewSize] = useState(24);
@@ -35,10 +38,25 @@ export function SingleStyleTool({
   const charCount = Math.min(text.length, MAX_LENGTH);
   const previewText = text.slice(0, MAX_LENGTH);
 
-  const outputs = useMemo(
-    () => styleIds.map((id) => ({ style: getStyle(id), text: convertText(previewText, id) })),
-    [styleIds, previewText],
-  );
+  const outputs = useMemo(() => {
+    const [primary, ...rest] = styleIds;
+    const primaryName = t.styleNames[primary];
+    const primaryText = convertText(previewText, primary);
+    const rows: { key: string; label: string; text: string }[] = [
+      { key: primary, label: primaryName, text: primaryText },
+    ];
+    for (const wrapper of wrappers ?? []) {
+      rows.push({
+        key: `${primary}:${wrapper[0]}:${wrapper[1]}`,
+        label: `${wrapper[0].trim()} ${primaryName}`,
+        text: withWrapper(primaryText, wrapper),
+      });
+    }
+    for (const id of rest) {
+      rows.push({ key: id, label: t.styleNames[id], text: convertText(previewText, id) });
+    }
+    return rows;
+  }, [styleIds, previewText, t.styleNames, wrappers]);
 
   async function handleDownload(name: string, value: string) {
     const ok = await downloadTextPng(
@@ -92,32 +110,28 @@ export function SingleStyleTool({
         </p>
       ) : (
         <ul className="mt-5 space-y-3">
-          {outputs.map(({ style, text: value }) => {
-            const localName = t.styleNames[style.id];
+          {outputs.map(({ key, label, text: value }) => {
             return (
               <li
-                key={style.id}
+                key={key}
                 className="rounded-xl border border-line bg-white p-4 transition-colors hover:border-brand-200"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span
-                    className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase"
-                    title={style.note}
-                  >
-                    {localName}
+                  <span className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase">
+                    {label}
                   </span>
                   <div className="flex shrink-0 items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => handleDownload(localName, value)}
-                      aria-label={t.common.downloadPng(localName)}
+                      onClick={() => handleDownload(label, value)}
+                      aria-label={t.common.downloadPng(label)}
                       className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 sm:h-9"
                     >
                       <DownloadIcon />
                       <span className="sm:hidden">PNG</span>
                     </button>
-                    <CopyButton text={value} ariaLabel={t.common.copyStyle(localName)} />
-                    <ShareLinks text={value} name={localName} />
+                    <CopyButton text={value} ariaLabel={t.common.copyStyle(label)} />
+                    <ShareLinks text={value} name={label} />
                   </div>
                 </div>
                 <p

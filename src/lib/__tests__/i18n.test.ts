@@ -101,6 +101,28 @@ describe("i18n completeness", () => {
     }
   });
 
+  it("keeps the homepage headline and Chinese hub descriptions specific", () => {
+    expect(homeContent.en.hero.pre + homeContent.en.hero.accent).toBe("Generate and Copy Fancy Text");
+    expect(homeContent.es.hero.pre + homeContent.es.hero.accent).toBe("Genera y copia letras bonitas");
+    expect(homeContent["pt-br"].hero.pre + homeContent["pt-br"].hero.accent).toBe("Gere e copie letras bonitas");
+    expect(homeContent["zh-cn"].hero.pre + homeContent["zh-cn"].hero.accent).toBe("生成并复制个性文字");
+    expect(homeContent.id.hero.pre + homeContent.id.hero.accent).toBe("Buat dan salin teks keren");
+
+    const related = gamingContent["pt-br"].related.map((item) => `${item.title} ${item.description}`).join("\n");
+    expect(related).not.toMatch(/Generador|Convierte|tu propio|apodos/);
+    expect(related).toContain("Gerador de letras bonitas");
+    expect(related).toContain("Fontes para Discord");
+
+    for (const description of [
+      homeContent["zh-cn"].meta.description,
+      fancyContent["zh-cn"].meta.description,
+      gamingContent["zh-cn"].meta.description,
+      symbolsContent["zh-cn"].meta.description,
+    ]) {
+      expect(description.length).toBeGreaterThanOrEqual(60);
+    }
+  });
+
   it("page metadata builds per-locale canonical, hreflang and x-default", () => {
     const meta = pageMetadata("es", "/symbols/", { title: "T", description: "D" });
     expect(meta.alternates?.canonical).toBe("/es/symbols/");

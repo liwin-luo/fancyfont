@@ -37,8 +37,8 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Create stylish text, decorate gaming names, and copy special symbols in seconds with free online tools.",
     },
     hero: {
-      pre: "Make Your Name ",
-      accent: "Stand Out",
+      pre: "Generate and Copy ",
+      accent: "Fancy Text",
       sub: "Create stylish text, gaming names, and special symbols. Preview and copy in seconds — free, no sign-up.",
       ctaPrimary: "Try Fancy Text",
       ctaSecondary: "Make a Gaming Name",
@@ -119,8 +119,8 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Crea texto con estilo, decora nombres gamer y copia símbolos especiales en segundos con herramientas gratuitas.",
     },
     hero: {
-      pre: "Haz que tu nombre ",
-      accent: "destaque",
+      pre: "Genera y copia ",
+      accent: "letras bonitas",
       sub: "Crea texto con estilo, nombres gamer y símbolos especiales. Previsualiza y copia en segundos — gratis y sin registro.",
       ctaPrimary: "Probar letras bonitas",
       ctaSecondary: "Crear un nombre gamer",
@@ -201,8 +201,8 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Crie texto estiloso, decore nomes de jogo e copie símbolos especiais em segundos com ferramentas gratuitas.",
     },
     hero: {
-      pre: "Faça o seu nome ",
-      accent: "brilhar",
+      pre: "Gere e copie ",
+      accent: "letras bonitas",
       sub: "Crie texto estiloso, nomes de jogo e símbolos especiais. Veja a prévia e copie em segundos — grátis, sem cadastro.",
       ctaPrimary: "Testar letras bonitas",
       ctaSecondary: "Criar um nome de jogo",
@@ -279,11 +279,12 @@ export const homeContent: Record<Locale, HomeContent> = {
   "zh-cn": {
     meta: {
       title: serpTitle("FancyFont", "zh-cn"),
-      description: "用免费在线工具，几秒钟创建个性文字、装饰游戏昵称并复制特殊符号。",
+      description:
+        "FancyFont 免费在线生成花体字、装饰游戏昵称，并复制爱心、星星等符号。打开页面就能预览，一键复制到游戏、简介或聊天，无需注册，也不安装字体。",
     },
     hero: {
-      pre: "让你的名字",
-      accent: "与众不同",
+      pre: "生成并复制",
+      accent: "个性文字",
       sub: "创建个性文字、游戏昵称和特殊符号。实时预览，秒速复制——免费，无需注册。",
       ctaPrimary: "试试个性字体",
       ctaSecondary: "生成游戏昵称",
@@ -364,8 +365,8 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Buat teks keren, hias nama game, dan salin simbol spesial dalam hitungan detik dengan alat gratis.",
     },
     hero: {
-      pre: "Buat namamu ",
-      accent: "menonjol",
+      pre: "Buat dan salin ",
+      accent: "teks keren",
       sub: "Buat teks keren, nama game, dan simbol spesial. Pratinjau dan salin dalam hitungan detik — gratis, tanpa daftar.",
       ctaPrimary: "Coba huruf keren",
       ctaSecondary: "Buat nama game",

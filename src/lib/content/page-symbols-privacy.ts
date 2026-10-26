@@ -162,7 +162,8 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
   "zh-cn": {
     meta: {
       title: "特殊符号复制粘贴 – 爱心、星星、翅膀等",
-      description: "浏览并复制用于名字、资料、简介和消息的特殊符号。",
+      description:
+        "浏览并一键复制爱心、星星、翅膀、皇冠等特殊符号，用在游戏昵称、个人资料、简介和消息里。可以按名称搜索，点一下就复制，无需注册。",
     },
     h1: "特殊符号复制粘贴",
     intro: (count, categories) =>

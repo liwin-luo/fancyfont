@@ -8,8 +8,7 @@ import {
   Steps,
   faqJsonLd,
 } from "@/components/sections";
-import { convertText } from "@/lib/text-styles";
-import { getStylePage, type StylePageDef } from "@/lib/style-pages";
+import { getStylePage, previewStylePage, type StylePageDef } from "@/lib/style-pages";
 import { getSiteUrl } from "@/lib/site";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -53,7 +52,11 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
       </header>
 
       <div className="mt-8">
-        <SingleStyleTool styleIds={page.styleIds} defaultText={c.sampleInputs[0]} />
+        <SingleStyleTool
+          styleIds={page.styleIds}
+          wrappers={page.wrappers}
+          defaultText={c.sampleInputs[0]}
+        />
       </div>
 
       <CompatNote locale={locale} />
@@ -103,7 +106,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
                 {input}
               </span>
               <span className="result-text text-2xl font-medium text-ink-900">
-                {convertText(input, page.styleIds[0])}
+                {previewStylePage(input, page)}
               </span>
             </li>
           ))}
@@ -118,6 +121,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
       </section>
 
       <RelatedTools
+        locale={locale}
         links={[
           ...relatedLinks,
           {

@@ -634,6 +634,11 @@ export function convertText(text: string, id: TextStyleId): string {
   return getStyle(id).transform(text);
 }
 
+/** Paste a decoration pair around text. Spaces live in the pair, not here. */
+export function withWrapper(text: string, wrapper: readonly [string, string]): string {
+  return wrapper[0] + text + wrapper[1];
+}
+
 export function convertAll(text: string): ConvertedText[] {
   return textStyles.map((style) => ({
     id: style.id,

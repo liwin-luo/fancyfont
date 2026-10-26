@@ -343,37 +343,173 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
     ],
   },
+  "cute-font-generator": {
+    navName: "Tierna",
+    h1: "Generador de letras tiernas",
+    description:
+      "Letras tiernas para copiar y pegar: burbujas redondas con un corazón, un lazo o una flor. Gratis, en el navegador, sin instalar nada.",
+    intro:
+      "Escribe un nombre y obtén el look suave que también llaman cute, kawaii, coquette o soft. Primero van las letras burbuja, con un corazón, un lazo o una flor a cada lado. Debajo hay una línea cursiva por si la quieres más quieta. Son caracteres que pegas, no un archivo de fuente.",
+    howItWorks:
+      "Las letras burbuja y las circuladas son alfanuméricos encerrados. La línea que fluye es Mathematical Script. Corazones, lazos (୨୧), flores y corchetes suaves son símbolos aparte, y solo la fila burbuja los lleva — un par cada vez, para que el nombre se lea.",
+    coverageNote:
+      "Burbuja y circuladas convierten A–Z, a–z y dígitos. La cursiva solo convierte letras, así que los números de esa fila quedan igual. Las tildes, los emoji y otros alfabetos pasan sin cambios. Los adornos son caracteres extra alrededor de la palabra.",
+    bestFor: [
+      "Nombres visibles y bios que deban sentirse suaves",
+      "Un nombre corto con un solo corazón o un solo lazo",
+      "Captions, no frases enteras",
+    ],
+    sampleInputs: ["Momo", "Suave", "Melocotón"],
+    platformTip:
+      "Estas letras funcionan en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord. Los usuarios que solo aceptan letras planas las rechazan. Si un lazo o un corchete sale como un cuadro vacío, copia la fila del corazón.",
+    faq: [
+      {
+        q: "¿La letra tierna es un archivo que descargo?",
+        a: "No. El resultado son caracteres Unicode, y por eso se pega en apps que solo aceptan texto plano. Este sitio no ofrece archivos de fuente.",
+      },
+      {
+        q: "¿Coquette o kawaii es otro generador?",
+        a: "Es el mismo look con otro nombre. Coquette se apoya en el lazo; kawaii y soft, en el corazón o la flor. Todas esas filas están en esta página.",
+      },
+      {
+        q: "¿Puedo usarlo como usuario de Instagram?",
+        a: "No. El usuario de Instagram solo acepta letras, números, puntos y guiones bajos. Pega el nombre tierno en tu nombre visible o en la bio.",
+      },
+    ],
+  },
+  "cool-font-generator": {
+    navName: "Cool",
+    h1: "Generador de letras cool",
+    description:
+      "Nombres cool para copiar y pegar: letras gruesas con un rayo, estrellas o un ala de clan. Gratis, y se queda en tu navegador.",
+    intro:
+      "Letras gruesas, y después un rayo, una marca de estrella o las alas de clan ꧁༒. También lo buscan como texto stylish o tag de clan. Aquí se arma un nombre decorado. La lista completa de cada alfabeto, sin símbolos, está en Letras bonitas.",
+    howItWorks:
+      "Las letras pesadas son Unicode Mathematical Bold. Las versalitas son la segunda fila, más quieta y sin adorno, para compararlas con la línea gruesa decorada. Estrellas, rayos y alas son símbolos que envuelven solo la fila gruesa.",
+    coverageNote:
+      "La negrita convierte letras y dígitos. Las versalitas convierten la mayoría de las letras y dejan unas pocas iguales cuando Unicode no tiene forma versalita. Los adornos cuentan en el límite de caracteres del nombre.",
+    bestFor: [
+      "Nombres de Discord y tags de juego",
+      "Un nombre de clan con un solo par de alas",
+      "Una palabra que deba pesar más que la cursiva",
+    ],
+    sampleInputs: ["Nova", "As", "Clan"],
+    platformTip:
+      "La negrita Unicode suele sobrevivir en Discord y en bios. Los juegos que solo aceptan ASCII plano la van a quitar. Las alas fallan primero en teléfonos viejos — si desaparecen, copia la fila del rayo.",
+    faq: [
+      {
+        q: "¿Es lo mismo que la página de letras bonitas?",
+        a: "No. Letras bonitas lista cada alfabeto y no añade adornos. Esta página solo arma el look cool: negrita más rayo, estrellas o alas de clan.",
+      },
+      {
+        q: "¿Qué significa texto stylish aquí?",
+        a: "Los mismos nombres gruesos decorados. Stylish, en esta página, son las filas del rayo, la estrella y las alas — no otro alfabeto.",
+      },
+      {
+        q: "¿Un tag de clan cabe en un usuario de juego?",
+        a: "Muchas veces el símbolo es lo que rechazan. Si las alas desaparecen en la vista previa del juego, usa la fila de negrita sin adorno.",
+      },
+    ],
+  },
+  "dark-font-generator": {
+    navName: "Oscura",
+    h1: "Generador de letras oscuras",
+    description:
+      "Nombres oscuros para copiar y pegar: letra gótica con una calavera, una daga o una luna. Para bios y nombres visibles, no para descargar una fuente.",
+    intro:
+      "Letra gótica con un símbolo oscuro — una calavera, una daga o una luna. La letra emo es esta mezcla. La página gótica es el alfabeto pelado, sin calaveras. Esta es la versión decorada.",
+    howItWorks:
+      "Las letras son Unicode Fraktur. El corte grueso va decorado; el corte normal queda pelado debajo. Calaveras, dagas y lunas son símbolos aparte, solo en la fila gruesa.",
+    coverageNote:
+      "Los dos estilos fraktur convierten solo A–Z y a–z. Los dígitos se quedan como los escribiste. La calavera es un símbolo y puede verse distinta en cada teléfono. Las tildes y otros alfabetos pasan sin cambios.",
+    bestFor: [
+      "Bios oscuras y nombres de Discord",
+      "Nombres emo o de una sola palabra",
+      "Líneas de Halloween que igual hay que copiar como texto",
+    ],
+    sampleInputs: ["Noche", "Emo", "Cuervo"],
+    platformTip:
+      "El fraktur funciona en muchas bios y falla en juegos que exigen ASCII plano. Si la calavera sale como un cuadro vacío, copia la fila de la daga o de la luna.",
+    faq: [
+      {
+        q: "¿El texto emo es distinto del gótico?",
+        a: "Gótico, en este sitio, es el alfabeto blackletter pelado. Emo es ese alfabeto más una calavera, una daga o una luna — o sea, esta página.",
+      },
+      {
+        q: "¿Puedo descargar una fuente oscura?",
+        a: "No. Copias caracteres. Un archivo de fuente habría que instalarlo, y aquí no se instala nada.",
+      },
+      {
+        q: "¿Por qué algunas letras se ven distintas?",
+        a: "El fraktur conserva formas históricas para C, H, I, R y Z. Esa forma es el alfabeto, no un fallo.",
+      },
+    ],
+  },
+  "elegant-font-generator": {
+    navName: "Elegante",
+    h1: "Generador de letras elegantes",
+    description:
+      "Cursiva elegante para copiar y pegar, con una corona, una flor de lis o un corazón floral. Para nombres, captions y bios.",
+    intro:
+      "Cursiva gruesa, y después una corona, una flor de lis o un corazón floral. Los nombres royal y de princesa son este mismo look: letras que fluyen y un símbolo formal, no burbujas redondas.",
+    howItWorks:
+      "Las letras son Unicode Bold Script, con la cursiva fina como segunda fila pelada. Coronas, flores de lis y corazones florales envuelven solo la cursiva gruesa, así el adorno queda en un par por resultado.",
+    coverageNote:
+      "Los dos estilos de cursiva convierten solo letras. Dígitos, tildes y emoji se quedan como los escribiste. Cada corona o flor de lis es un carácter extra a ese lado del nombre.",
+    bestFor: [
+      "Nombres de boda, belleza y perfiles formales",
+      "Un nombre royal o de princesa en la bio",
+      "Captions cortos que deban verse arreglados",
+    ],
+    sampleInputs: ["Rosa", "Reina", "Ada"],
+    platformTip:
+      "La cursiva funciona en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord, no en usuarios limitados a letras planas. Si la cursiva gruesa sale en cuadros, copia la fila fina.",
+    faq: [
+      {
+        q: "¿Elegante es lo mismo que cursiva?",
+        a: "La cursiva es el alfabeto script pelado. Elegante lleva la cursiva más gruesa y añade un símbolo formal: corona, flor de lis o corazón floral.",
+      },
+      {
+        q: "¿Dónde están las fuentes royal y de princesa?",
+        a: "En esta página. Un nombre de princesa o royal aquí es cursiva más una corona o una flor de lis, no una descarga aparte.",
+      },
+      {
+        q: "¿Esto es un archivo de caligrafía?",
+        a: "No. Copias caracteres. Los archivos de caligrafía se instalan, y este sitio no los ofrece.",
+      },
+    ],
+  },
   "aesthetic-text-generator": {
     navName: "Aesthetic",
     h1: "Generador de letras aesthetic",
     description:
-      "Convierte tu texto en letras anchas vaporwave — espaciado ａｅｓｔｈｅｔｉｃ para bios, captions y perfiles lo-fi. Copia en un toque.",
+      "Letras anchas vaporwave con un destello o una niebla de puntos a cada lado, y versalitas si la quieres más quieta. Copiar y pegar, sin archivo de fuente.",
     intro:
-      "ａｅｓｔｈｅｔｉｃ. Este generador ensancha cada letra a su forma full-width — el ritmo lento y espaciado del vaporwave que definió toda una estética.",
+      "Letras anchas full-width — el look vaporwave — con una niebla de puntos o un destello a cada lado. Las versalitas son la segunda fila cuando las letras anchas se sienten demasiado fuertes.",
     howItWorks:
-      "Los caracteres full-width vienen de codificaciones antiguas donde el texto CJK y el latino compartían cuadrículas de ancho fijo, así que las letras latinas tenían su propia caja ancha. Los espacios también se ensanchan — cada uno se vuelve un espacio ideográfico completo — y de ahí sale el ritmo flotante.",
+      "Los caracteres full-width vienen de codificaciones antiguas donde el texto CJK y el latino compartían cuadrículas de ancho fijo, así que las letras latinas tenían su propia caja ancha. Los espacios también se ensanchan, y de ahí sale el ritmo lento. La niebla de puntos y el destello son símbolos que envuelven solo esa línea ancha. No forman parte del alfabeto full-width.",
     coverageNote:
-      "El estilo full-width cubre letras, dígitos y espacios, así que frases completas se convierten limpias. La puntuación queda en su forma normal, y los emoji y otros alfabetos no se afectan.",
+      "El full-width cubre letras, dígitos y espacios. Las versalitas cubren la mayoría de las letras y dejan unas pocas iguales. La puntuación queda normal. Los adornos añaden caracteres y hacen la línea todavía más ancha.",
     bestFor: [
       "Perfiles vaporwave, lo-fi y retro",
-      "Bios de una palabra, lentas y espaciadas",
-      "Posts con onda retro-tech y años 80/90",
+      "Una bio de una palabra ancha con un poco de destello",
+      "Posts retro-tech y de los años 80/90",
     ],
     sampleInputs: ["aesthetic", "v a p o r", "sueño 1997"],
     platformTip:
-      "El texto full-width se dibuja donde se dibuja el texto CJK — o sea, en casi todo. Eso sí: es ancho, revisa que las frases largas quepan en tu bio sin saltos raros.",
+      "El texto full-width se dibuja donde se dibuja el texto CJK, o sea en casi todo. Es ancho, y el destello lo hace más ancho — revisa que la línea quepa en tu bio. Si un destello falla, la fila ancha pelada igual se copia.",
     faq: [
       {
         q: "¿Por qué se llama texto vaporwave?",
-        a: "El estilo se volvió la firma visual de la cultura musical vaporwave — letras anchas, espaciado lento, vibra retrofuturista. El nombre técnico es texto full-width.",
+        a: "Las letras anchas y el espaciado lento se volvieron la firma visual del vaporwave. El nombre técnico de las letras es texto full-width. El destello es un símbolo aparte a cada lado.",
       },
       {
         q: "¿El espaciado ancho también se copia?",
-        a: "Sí — el espacio ancho es un carácter real (el espacio ideográfico), así que el ritmo aireado sobrevive al pegar. También significa que el texto ocupa más sitio en los límites de caracteres.",
+        a: "Sí. El espacio ancho es un carácter real, el espacio ideográfico, así que el ritmo aireado sobrevive al pegar. También usa más del límite de caracteres.",
       },
       {
-        q: "¿Cuenta como más caracteres en mi bio?",
-        a: "Cada carácter full-width cuenta como uno, igual que una letra normal — pero los espacios anchos también cuentan, así que una frase usa más de tu límite.",
+        q: "¿Los adornos cuentan en mi bio?",
+        a: "Sí. Cada letra full-width cuenta como una, y cada destello o punto también. Una palabra corta es el largo cómodo.",
       },
     ],
   },

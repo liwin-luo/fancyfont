@@ -140,7 +140,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         <p className="mt-4 text-sm leading-relaxed text-ink-700">{c.compatNote}</p>
       </section>
 
-      <RelatedTools links={relatedLinks} />
+      <RelatedTools locale={locale} links={relatedLinks} />
 
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">

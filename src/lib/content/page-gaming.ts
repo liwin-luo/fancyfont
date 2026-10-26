@@ -191,29 +191,30 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "Símbolos e decoração",
-        description: "376 símbolos para armar tu propio look.",
+        description: "376 símbolos para montar seu próprio visual.",
       },
       {
         path: "/fancy-text-generator/",
-        title: "Generador de letras bonitas",
-        description: "Convierte cualquier texto en 30 estilos Unicode.",
+        title: "Gerador de letras bonitas",
+        description: "Transforme qualquer texto em 30 estilos Unicode.",
       },
       {
         path: "/roblox-name-generator/",
-        title: "Generador de nombres para Roblox",
-        description: "Ideas para Roblox y las reglas del usuario, explicadas.",
+        title: "Gerador de nomes para Roblox",
+        description: "Ideias de nome para Roblox e as regras do usuário, explicadas.",
       },
       {
         path: "/discord-fonts/",
-        title: "Fuentes para Discord",
-        description: "Texto con estilo para apodos y estados de Discord.",
+        title: "Fontes para Discord",
+        description: "Texto com estilo para apelidos e status do Discord.",
       },
     ],
   },
   "zh-cn": {
     meta: {
       title: "游戏昵称生成器 – 酷炫名字与符号",
-      description: "用酷炫的样式和符号生成带装饰的游戏昵称。生成创意、实时预览，复制你最喜欢的一个。",
+      description:
+        "输入名字，用符号和花体字生成可复制的游戏昵称。选择风格并实时预览，再复制到游戏、Discord 或社交资料。粘贴前请先在游戏里试一次。",
     },
     h1: "游戏昵称生成器",
     intro:

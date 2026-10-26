@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { symbols } from "@/lib/symbols-data";
-import { stylePages } from "@/lib/style-pages";
+import { isLookPage, stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
 import { homeContent } from "@/lib/content/page-home";
 import { getUi } from "@/lib/ui-strings";
@@ -227,20 +227,31 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
           {c.directory.h2}
         </h2>
         <p className="mt-2 max-w-2xl text-ink-600">{c.directory.sub}</p>
-        <div className="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[...stylePages, ...platformPages].map((page) => (
-            <Link
-              key={page.slug}
-              href={localePath(locale, `/${page.slug}/`)}
-              className="flex items-baseline justify-between gap-3 border-b border-line pb-2 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-700"
-            >
-              {page.copy[locale].h1}
-              <span aria-hidden="true" className="text-ink-500">
-                →
-              </span>
-            </Link>
-          ))}
-        </div>
+        {(
+          [
+            [t.tools.lookGenerators, stylePages.filter(isLookPage)],
+            [t.tools.letterGenerators, stylePages.filter((page) => !isLookPage(page))],
+            [t.tools.forPlatforms, platformPages],
+          ] as const
+        ).map(([heading, pages]) => (
+          <div key={heading} className="mt-8">
+            <h3 className="text-sm font-semibold tracking-wide text-ink-500 uppercase">{heading}</h3>
+            <div className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {pages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={localePath(locale, `/${page.slug}/`)}
+                  className="flex items-baseline justify-between gap-3 border-b border-line pb-2 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-700"
+                >
+                  {page.copy[locale].h1}
+                  <span aria-hidden="true" className="text-ink-500">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* How it works */}

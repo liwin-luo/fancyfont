@@ -37,11 +37,12 @@ export interface RelatedLink {
   description: string;
 }
 
-export function RelatedTools({ links }: { links: RelatedLink[] }) {
+export function RelatedTools({ locale, links }: { locale: Locale; links: RelatedLink[] }) {
+  const t = getUi(locale);
   return (
     <section className="mt-12" aria-labelledby="related-heading">
       <h2 id="related-heading" className="text-xl font-bold text-ink-900">
-        Related tools
+        {t.sections.related}
       </h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {links.map((link) => (

@@ -343,37 +343,173 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
     ],
   },
+  "cute-font-generator": {
+    navName: "Imut",
+    h1: "Generator Huruf Imut",
+    description:
+      "Huruf imut untuk disalin: huruf balon bundar dengan satu hati, pita, atau bunga. Gratis di browser, tanpa menginstal apa pun.",
+    intro:
+      "Ketik sebuah nama dan dapatkan tampilan lembut yang juga disebut cute, kawaii, coquette, atau soft. Huruf balon muncul lebih dulu, dengan hati, pita, atau bunga di kedua sisi. Baris cursive ada di bawah kalau kamu mau yang lebih tenang. Ini karakter untuk ditempel, bukan berkas font.",
+    howItWorks:
+      "Huruf balon dan lingkaran adalah alfanumerik tertutup. Baris yang mengalir adalah Mathematical Script. Hati, pita (୨୧), bunga, dan kurung lembut adalah simbol terpisah, dan hanya baris balon yang memakainya — satu pasang setiap kali, supaya namanya tetap terbaca.",
+    coverageNote:
+      "Balon dan lingkaran mengubah A–Z, a–z, dan angka. Cursive hanya mengubah huruf, jadi angka di baris itu tetap biasa. Huruf beraksen, emoji, dan aksara lain lewat begitu saja. Hiasan adalah karakter tambahan di sekeliling kata.",
+    bestFor: [
+      "Nama tampilan dan bio yang harus terasa lembut",
+      "Nama pendek dengan satu hati atau satu pita",
+      "Caption, bukan kalimat panjang",
+    ],
+    sampleInputs: ["Momo", "Lembut", "Persik"],
+    platformTip:
+      "Huruf imut berfungsi di sebagian besar nama tampilan dan bio Instagram, TikTok, dan Discord. Username yang hanya menerima huruf biasa akan menolaknya. Kalau pita atau kurung lembut jadi kotak kosong, salin baris hati.",
+    faq: [
+      {
+        q: "Apakah huruf imut itu berkas yang diunduh?",
+        a: "Bukan. Hasilnya karakter Unicode, makanya bisa ditempel ke app yang hanya menerima teks polos. Situs ini tidak menawarkan berkas font.",
+      },
+      {
+        q: "Apakah coquette atau kawaii generator lain?",
+        a: "Tampilan yang sama, nama lain. Coquette condong ke pita; kawaii dan soft ke hati atau bunga. Semua baris itu ada di halaman ini.",
+      },
+      {
+        q: "Bisa dipakai sebagai username Instagram?",
+        a: "Tidak. Username Instagram hanya menerima huruf, angka, titik, dan garis bawah. Tempel nama imut ke nama tampilan atau bio.",
+      },
+    ],
+  },
+  "cool-font-generator": {
+    navName: "Cool",
+    h1: "Generator Huruf Cool",
+    description:
+      "Nama cool untuk disalin: huruf tebal dengan petir, bintang, atau sayap klan. Gratis, dan tetap di browser kamu.",
+    intro:
+      "Huruf tebal, lalu petir, tanda bintang, atau sayap klan ꧁༒. Orang juga mencarinya sebagai teks stylish atau tag klan. Halaman ini merakit satu nama berhias. Daftar setiap alfabet, tanpa simbol, ada di Huruf Keren.",
+    howItWorks:
+      "Huruf yang berat adalah Unicode Mathematical Bold. Small caps adalah baris kedua yang lebih tenang dan tanpa hiasan, supaya bisa dibandingkan dengan baris tebal yang berhias. Bintang, petir, dan sayap hanya membungkus baris tebal.",
+    coverageNote:
+      "Tebal mengubah huruf dan angka. Small caps mengubah sebagian besar huruf dan membiarkan beberapa tetap kalau Unicode tidak punya bentuk small-cap. Hiasan dihitung dalam batas panjang nama.",
+    bestFor: [
+      "Nama tampilan Discord dan tag game",
+      "Nama klan dengan satu pasang sayap",
+      "Satu kata yang harus lebih berat daripada cursive",
+    ],
+    sampleInputs: ["Nova", "Ace", "Klan"],
+    platformTip:
+      "Unicode tebal biasanya bertahan di Discord dan bio. Game yang hanya menerima ASCII polos akan membuangnya. Sayap gagal lebih dulu di ponsel lama — kalau hilang, salin baris petir.",
+    faq: [
+      {
+        q: "Apakah ini sama dengan halaman huruf keren?",
+        a: "Tidak. Huruf Keren memuat setiap alfabet dan tidak menambah hiasan. Halaman ini hanya merakit tampilan cool: tebal plus petir, bintang, atau sayap klan.",
+      },
+      {
+        q: "Apa arti teks stylish di sini?",
+        a: "Nama tebal berhias yang sama. Stylish, di halaman ini, adalah baris petir, bintang, dan sayap — bukan alfabet lain.",
+      },
+      {
+        q: "Apakah tag klan muat di username game?",
+        a: "Sering kali simbolnya yang ditolak. Kalau sayap hilang di pratinjau game, pakai baris tebal tanpa hiasan.",
+      },
+    ],
+  },
+  "dark-font-generator": {
+    navName: "Gelap",
+    h1: "Generator Huruf Gelap",
+    description:
+      "Nama gelap untuk disalin: huruf blackletter dengan tengkorak, belati, atau bulan. Untuk bio dan nama tampilan, bukan unduhan font.",
+    intro:
+      "Blackletter dengan satu simbol gelap — tengkorak, belati, atau bulan. Huruf emo adalah campuran ini. Halaman gothic adalah alfabet polos, tanpa tengkorak. Halaman ini versi berhiasnya.",
+    howItWorks:
+      "Hurufnya Unicode Fraktur. Potongan tebal dibungkus; potongan biasa tetap polos di bawah. Tengkorak, belati, dan bulan adalah simbol terpisah, hanya di baris tebal.",
+    coverageNote:
+      "Kedua gaya fraktur hanya mengubah A–Z dan a–z. Angka tetap seperti yang kamu ketik. Tengkorak adalah simbol dan bisa tampil beda di tiap ponsel. Huruf beraksen dan aksara lain lewat begitu saja.",
+    bestFor: [
+      "Bio gelap dan nama Discord",
+      "Nama emo satu kata",
+      "Baris Halloween yang tetap perlu disalin sebagai teks",
+    ],
+    sampleInputs: ["Malam", "Emo", "Raven"],
+    platformTip:
+      "Fraktur berfungsi di banyak bio dan gagal di game yang menuntut ASCII polos. Kalau tengkorak jadi kotak kosong, salin baris belati atau bulan.",
+    faq: [
+      {
+        q: "Apakah teks emo berbeda dari gothic?",
+        a: "Gothic, di situs ini, adalah alfabet blackletter polos. Emo adalah alfabet itu plus tengkorak, belati, atau bulan — yaitu halaman ini.",
+      },
+      {
+        q: "Bisa mengunduh font gelap?",
+        a: "Tidak. Kamu menyalin karakter. Berkas font harus dipasang, dan di sini tidak ada yang dipasang.",
+      },
+      {
+        q: "Kenapa beberapa huruf tampak berbeda?",
+        a: "Fraktur menyimpan bentuk historis untuk C, H, I, R, dan Z. Bentuk itu adalah alfabetnya, bukan kerusakan.",
+      },
+    ],
+  },
+  "elegant-font-generator": {
+    navName: "Elegan",
+    h1: "Generator Huruf Elegan",
+    description:
+      "Cursive elegan untuk disalin, dengan mahkota, fleur-de-lis, atau hati bunga. Untuk nama, caption, dan bio.",
+    intro:
+      "Cursive tebal, lalu mahkota, fleur-de-lis, atau hati bunga. Nama royal dan putri adalah tampilan yang sama: huruf mengalir dan satu simbol formal, bukan balon bundar.",
+    howItWorks:
+      "Hurufnya Unicode Bold Script, dengan cursive tipis sebagai baris kedua yang polos. Mahkota, fleur, dan hati bunga hanya membungkus cursive tebal, jadi hiasannya satu pasang per hasil.",
+    coverageNote:
+      "Kedua gaya cursive hanya mengubah huruf. Angka, aksen, dan emoji tetap seperti yang diketik. Setiap mahkota atau fleur adalah karakter tambahan di sisi nama itu.",
+    bestFor: [
+      "Nama pernikahan, kecantikan, dan profil formal",
+      "Nama royal atau putri di bio",
+      "Caption pendek yang harus terasa rapi",
+    ],
+    sampleInputs: ["Mawar", "Ratu", "Ada"],
+    platformTip:
+      "Cursive berfungsi di sebagian besar nama tampilan dan bio Instagram, TikTok, dan Discord, bukan di username yang dibatasi huruf biasa. Kalau cursive tebal jadi kotak, salin baris yang tipis.",
+    faq: [
+      {
+        q: "Apakah elegan sama dengan cursive?",
+        a: "Cursive adalah alfabet script polos. Elegan memakai cursive yang lebih tebal dan menambah satu simbol formal: mahkota, fleur, atau hati bunga.",
+      },
+      {
+        q: "Di mana font royal dan putri?",
+        a: "Di halaman ini. Nama putri atau royal di sini adalah cursive plus mahkota atau fleur-de-lis, bukan unduhan terpisah.",
+      },
+      {
+        q: "Apakah ini berkas font kaligrafi?",
+        a: "Bukan. Kamu menyalin karakter. Berkas kaligrafi dipasang, dan situs ini tidak menawarkannya.",
+      },
+    ],
+  },
   "aesthetic-text-generator": {
     navName: "Aesthetic",
     h1: "Generator Huruf Aesthetic",
     description:
-      "Ubah teks menjadi huruf lebar gaya vaporwave — spasi ａｅｓｔｈｅｔｉｃ untuk bio, caption, dan profil lo-fi. Salin sekali ketuk.",
+      "Huruf lebar vaporwave dengan kilau atau kabut titik di kedua sisi, plus small caps kalau mau lebih tenang. Salin dan tempel, tanpa berkas font.",
     intro:
-      "ａｅｓｔｈｅｔｉｃ. Generator ini melebarkan setiap huruf ke bentuk full-width — ritme lambat dan berjarak khas vaporwave yang mendefinisikan satu estetika.",
+      "Huruf full-width yang lebar — tampilan vaporwave — dengan kabut titik atau kilau di kedua sisi. Small caps adalah baris kedua saat huruf lebar terasa terlalu keras.",
     howItWorks:
-      "Karakter full-width berasal dari enkode lama ketika teks CJK dan Latin berbagi kisi lebar tetap, sehingga huruf Latin mendapat kotak lebarnya sendiri. Spasi ikut melebar — setiap spasi menjadi spasi ideografik penuh — dan dari situlah ritme melayangnya berasal.",
+      "Karakter full-width berasal dari enkode lama ketika teks CJK dan Latin berbagi kisi lebar tetap, sehingga huruf Latin mendapat kotak lebarnya sendiri. Spasi ikut melebar, dan dari situlah ritme lambatnya. Kabut titik dan kilau adalah simbol yang membungkus baris lebar itu saja. Keduanya bukan bagian dari alfabet full-width.",
     coverageNote:
-      "Full-width mencakup huruf, angka, dan spasi, jadi frasa utuh terkonversi bersih. Tanda baca tetap dalam bentuk normal, dan emoji serta aksara lain tidak terpengaruh.",
+      "Full-width mencakup huruf, angka, dan spasi. Small caps mencakup sebagian besar huruf dan membiarkan beberapa tetap. Tanda baca tetap biasa. Hiasan menambah karakter dan membuat baris makin lebar.",
     bestFor: [
       "Profil vaporwave, lo-fi, dan retro",
-      "Bio satu kata yang lambat dan berjarak",
-      "Postingan bertema retro-tech dan era 80/90-an",
+      "Bio satu kata yang lebar dengan sedikit kilau",
+      "Postingan retro-tech dan era 80/90-an",
     ],
     sampleInputs: ["aesthetic", "v a p o r", "mimpi 1997"],
     platformTip:
-      "Teks full-width tampil di mana pun teks CJK tampil — artinya hampir di mana saja. Tapi lebar: pastikan frasa panjang muat di biomu tanpa patah yang aneh.",
+      "Teks full-width muncul di mana pun teks CJK muncul, artinya hampir di mana saja. Lebar, dan kilau membuatnya lebih lebar — pastikan barisnya masih muat di bio. Kalau kilau gagal, baris lebar yang polos tetap bisa disalin.",
     faq: [
       {
         q: "Kenapa disebut teks vaporwave?",
-        a: "Gaya ini menjadi tanda visual budaya musik vaporwave — huruf lebar, spasi lambat, vibe retro-futuristik. Nama teknisnya adalah teks full-width.",
+        a: "Huruf lebar dan spasi lambat menjadi tanda visual vaporwave. Nama teknis hurufnya adalah teks full-width. Kilaunya simbol terpisah di kedua sisi.",
       },
       {
         q: "Apakah spasi lebarnya ikut tersalin?",
-        a: "Ya — spasi lebar adalah karakter nyata (spasi ideografik), jadi ritme lapangnya bertahan saat ditempel. Itu juga berarti teksnya memakan lebih banyak kuota karakter.",
+        a: "Ya. Spasi lebar adalah karakter nyata, spasi ideografik, jadi ritme lapangnya bertahan saat ditempel. Itu juga memakai lebih banyak batas karakter.",
       },
       {
-        q: "Apakah dihitung lebih banyak karakter di bio?",
-        a: "Setiap karakter full-width dihitung satu, sama seperti huruf normal — tapi spasi lebarnya juga dihitung, jadi satu frasa memakai lebih banyak jatahmu.",
+        q: "Apakah hiasan dihitung di bio?",
+        a: "Ya. Setiap huruf full-width dihitung satu, dan setiap kilau atau titik juga. Satu kata pendek adalah panjang yang nyaman.",
       },
     ],
   },

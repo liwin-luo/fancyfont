@@ -1,8 +1,12 @@
 // Dedicated style generator pages: shared routing/config plus per-locale
 // copy. Every locale's copy is hand-written — no machine-swapped keywords.
+//
+// Look pages (cute, cool, dark, elegant, aesthetic) wrap ONE primary alphabet
+// in decorations that no other page uses. styleIds[0] is that alphabet.
+// Later ids stay bare so the grids don't collapse into each other.
 
 import type { Locale } from "./i18n";
-import type { TextStyleId } from "./text-styles";
+import { convertText, withWrapper, type TextStyleId } from "./text-styles";
 import { stylePagesEn, type StylePageCopy } from "./content/style-pages-en";
 import { stylePagesEs } from "./content/style-pages-es";
 import { stylePagesPtBr } from "./content/style-pages-pt-br";
@@ -14,22 +18,74 @@ export type { StylePageCopy, StylePageFaq } from "./content/style-pages-en";
 export interface StylePageDef {
   slug: string;
   styleIds: TextStyleId[];
+  /** [left, right] pairs. Only the first style is wrapped. */
+  wrappers?: readonly (readonly [string, string])[];
   related: string[];
   copy: Record<Locale, StylePageCopy>;
 }
 
 const SHARED: Omit<StylePageDef, "copy">[] = [
-  { slug: "cursive-text-generator", styleIds: ["script", "boldScript"], related: ["bold-text-generator", "aesthetic-text-generator"] },
-  { slug: "gothic-text-generator", styleIds: ["fraktur", "boldFraktur"], related: ["cursive-text-generator", "glitch-text-generator"] },
-  { slug: "bold-text-generator", styleIds: ["bold", "sansBold", "boldItalic"], related: ["italic-text-generator", "strikethrough-text-generator"] },
+  { slug: "cursive-text-generator", styleIds: ["script", "boldScript"], related: ["bold-text-generator", "cute-font-generator", "elegant-font-generator"] },
+  { slug: "gothic-text-generator", styleIds: ["fraktur", "boldFraktur"], related: ["cursive-text-generator", "glitch-text-generator", "dark-font-generator"] },
+  { slug: "bold-text-generator", styleIds: ["bold", "sansBold", "boldItalic"], related: ["italic-text-generator", "strikethrough-text-generator", "cool-font-generator"] },
   { slug: "italic-text-generator", styleIds: ["italic", "sansItalic"], related: ["bold-text-generator", "cursive-text-generator"] },
-  { slug: "bubble-letters-generator", styleIds: ["bubble", "circled", "squared"], related: ["small-caps-generator", "aesthetic-text-generator"] },
+  { slug: "bubble-letters-generator", styleIds: ["bubble", "circled", "squared"], related: ["small-caps-generator", "cute-font-generator"] },
   { slug: "small-caps-generator", styleIds: ["smallCaps"], related: ["tiny-text-generator", "cursive-text-generator"] },
   { slug: "strikethrough-text-generator", styleIds: ["strike", "slash", "boldStrike"], related: ["bold-text-generator", "upside-down-text-generator"] },
   { slug: "glitch-text-generator", styleIds: ["zalgoLight", "zalgoMedium", "zalgoHeavy"], related: ["upside-down-text-generator", "gothic-text-generator"] },
   { slug: "upside-down-text-generator", styleIds: ["upsideDown"], related: ["glitch-text-generator", "tiny-text-generator"] },
   { slug: "tiny-text-generator", styleIds: ["superscript", "subscript"], related: ["small-caps-generator", "upside-down-text-generator"] },
-  { slug: "aesthetic-text-generator", styleIds: ["fullwidth"], related: ["cursive-text-generator", "bubble-letters-generator"] },
+  {
+    slug: "cute-font-generator",
+    styleIds: ["bubble", "script", "circled"],
+    wrappers: [
+      ["♡ ", " ♡"],
+      ["୨୧ ", " ୨୧"],
+      ["✿ ", " ✿"],
+      ["꒰ ", " ꒱"],
+    ],
+    related: ["cool-font-generator", "elegant-font-generator", "cursive-text-generator", "bubble-letters-generator"],
+  },
+  {
+    slug: "cool-font-generator",
+    styleIds: ["bold", "smallCaps"],
+    wrappers: [
+      ["⚡ ", " ⚡"],
+      ["★彡 ", " 彡★"],
+      ["꧁༒ ", " ༒꧂"],
+      ["『", "』"],
+    ],
+    related: ["cute-font-generator", "dark-font-generator", "bold-text-generator"],
+  },
+  {
+    slug: "dark-font-generator",
+    styleIds: ["boldFraktur", "fraktur"],
+    wrappers: [
+      ["☠︎ ", " ☠︎"],
+      ["† ", " †"],
+      ["☾ ", " ☽"],
+    ],
+    related: ["cool-font-generator", "elegant-font-generator", "gothic-text-generator"],
+  },
+  {
+    slug: "elegant-font-generator",
+    styleIds: ["boldScript", "script"],
+    wrappers: [
+      ["♛ ", " ♛"],
+      ["⚜ ", " ⚜"],
+      ["❦ ", " ❦"],
+    ],
+    related: ["cute-font-generator", "dark-font-generator", "cursive-text-generator"],
+  },
+  {
+    slug: "aesthetic-text-generator",
+    styleIds: ["fullwidth", "smallCaps"],
+    wrappers: [
+      ["·˚ ", " ˚·"],
+      ["✧･ﾟ ", " ･ﾟ✧"],
+    ],
+    related: ["cute-font-generator", "elegant-font-generator", "small-caps-generator"],
+  },
 ];
 
 const COPY: Record<Locale, Record<string, StylePageCopy>> = {
@@ -50,6 +106,17 @@ export const stylePages: StylePageDef[] = SHARED.map((shared) => ({
     id: COPY.id[shared.slug],
   },
 }));
+
+export function isLookPage(page: StylePageDef): boolean {
+  return Boolean(page.wrappers?.length);
+}
+
+/** Static example: primary alphabet, first decoration if this is a look page. */
+export function previewStylePage(text: string, page: Pick<StylePageDef, "styleIds" | "wrappers">): string {
+  const inner = convertText(text, page.styleIds[0]);
+  const wrap = page.wrappers?.[0];
+  return wrap ? withWrapper(inner, wrap) : inner;
+}
 
 export function getStylePage(locale: Locale, slug: string): StylePageDef | undefined {
   return stylePages.find((page) => page.slug === slug);

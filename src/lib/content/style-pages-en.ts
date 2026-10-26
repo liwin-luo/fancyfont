@@ -368,37 +368,173 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       },
     ],
   },
+  "cute-font-generator": {
+    navName: "Cute",
+    h1: "Cute Font Generator",
+    description:
+      "Cute copy-and-paste text: round bubble letters with one heart, bow, or flower. Free in the browser, nothing to install.",
+    intro:
+      "Type a name and get the soft look people also call kawaii, coquette, or soft lettering. Round bubble letters come first, with a heart, a bow, or a flower on either side. A script line sits underneath if you want it quieter. These are characters you paste, not a font file.",
+    howItWorks:
+      "Bubble and circled letters are enclosed alphanumerics. The flowing line is Mathematical Script. Hearts, bows (୨୧), flowers, and soft brackets are separate symbols, and only the bubble row wears them — one pair at a time, so the name stays readable.",
+    coverageNote:
+      "Bubble and circled convert A–Z, a–z, and digits. Script converts letters only, so numbers in that row stay plain. Accented letters, emoji, and other scripts pass through. Decorations are extra characters around the word.",
+    bestFor: [
+      "Display names and bios that should feel soft",
+      "A short name with one heart or one bow",
+      "Captions, not full sentences",
+    ],
+    sampleInputs: ["Momo", "Soft", "Peach"],
+    platformTip:
+      "Cute letters work in most Instagram, TikTok, and Discord display names and bios. Usernames that only allow plain letters will reject them. If a bow or soft bracket shows as an empty box, copy the heart row instead.",
+    faq: [
+      {
+        q: "Is a cute font a file I download?",
+        a: "No. The result is Unicode characters, which is why it pastes into apps that only accept plain text. This site does not offer font files.",
+      },
+      {
+        q: "Is coquette or kawaii text a different generator?",
+        a: "Same look, different names. Coquette leans on the bow, kawaii and soft on the heart or the flower. All of those rows are on this page.",
+      },
+      {
+        q: "Can I use this as my Instagram username?",
+        a: "No. Instagram usernames only allow letters, digits, periods, and underscores. Paste the cute name into your display name or bio.",
+      },
+    ],
+  },
+  "cool-font-generator": {
+    navName: "Cool",
+    h1: "Cool Font Generator",
+    description:
+      "Cool copy-and-paste names: bold letters with lightning, stars, or a clan wing. Free, and it stays in your browser.",
+    intro:
+      "Bold letters, then lightning, a star mark, or the clan wings ꧁༒. People also call this stylish text or a clan tag. It builds one decorated name. The full list of every alphabet, with no symbols, is the Fancy Text page.",
+    howItWorks:
+      "The heavy letters are Unicode Mathematical Bold. Small caps is the quieter second row and stays bare, so you can compare it with the decorated bold line. Stars, lightning, and wing brackets are symbols wrapped around the bold row only.",
+    coverageNote:
+      "Bold converts letters and digits. Small caps converts most letters and leaves a few unchanged when Unicode has no small-cap form. Decorations count toward name-length limits.",
+    bestFor: [
+      "Discord display names and game tags",
+      "A clan-style name with one wing pair",
+      "A single word that should read heavier than script",
+    ],
+    sampleInputs: ["Nova", "Ace", "Clan"],
+    platformTip:
+      "Bold Unicode usually survives Discord and social bios. Games that only accept plain ASCII will strip it. Wing brackets fail first on older phones — if they vanish, copy the lightning row.",
+    faq: [
+      {
+        q: "Is this the same as the fancy text page?",
+        a: "No. Fancy Text lists every alphabet and adds no decorations. This page only builds the cool look: bold letters plus lightning, stars, or clan wings.",
+      },
+      {
+        q: "What does stylish text mean here?",
+        a: "The same decorated bold names. Stylish, on this page, is the lightning, star, and wing rows — not a separate alphabet.",
+      },
+      {
+        q: "Will a clan tag fit a game username?",
+        a: "Often the symbol is the part that gets rejected. If the wings disappear in the game's preview, use the plain bold row.",
+      },
+    ],
+  },
+  "dark-font-generator": {
+    navName: "Dark",
+    h1: "Dark Font Generator",
+    description:
+      "Dark copy-and-paste names: blackletter with a skull, a dagger, or a moon. For bios and display names, not a font download.",
+    intro:
+      "Blackletter with one dark symbol — a skull, a dagger, or a moon. Emo lettering is this mix. The gothic page is the bare alphabet, with no skulls. This page is the decorated version.",
+    howItWorks:
+      "The letters are Unicode Fraktur. The heavy bold cut is wrapped; the regular cut stays bare underneath. Skulls, daggers, and moons are separate symbols on the bold row only.",
+    coverageNote:
+      "Both fraktur styles convert A–Z and a–z only. Digits stay as you typed them. The skull is a symbol and can look different on each phone. Accented letters and other scripts pass through.",
+    bestFor: [
+      "Dark bios and Discord names",
+      "Emo or moody one-word names",
+      "Halloween lines that still need to be copied as text",
+    ],
+    sampleInputs: ["Night", "Emo", "Raven"],
+    platformTip:
+      "Fraktur works in many bios and fails in games that require plain ASCII. If the skull shows as an empty box, copy the dagger or the moon row.",
+    faq: [
+      {
+        q: "Is emo text different from gothic?",
+        a: "Gothic, on this site, is the bare blackletter alphabet. Emo is that alphabet plus a skull, a dagger, or a moon — which is this page.",
+      },
+      {
+        q: "Can I download a dark font?",
+        a: "No. You copy characters. A font file would have to be installed, and nothing here is installed.",
+      },
+      {
+        q: "Why do some letters look different from the rest?",
+        a: "Fraktur keeps historical forms for C, H, I, R, and Z. That shape is the alphabet, not a glitch.",
+      },
+    ],
+  },
+  "elegant-font-generator": {
+    navName: "Elegant",
+    h1: "Elegant Font Generator",
+    description:
+      "Elegant copy-and-paste script with a crown, a fleur-de-lis, or a floral heart. For names, captions, and bios.",
+    intro:
+      "Heavy script, then a crown, a fleur-de-lis, or a floral heart. Royal and princess names are this same look: flowing letters and one formal symbol, not round bubble type.",
+    howItWorks:
+      "Letters are Unicode Bold Script, with the thinner script as a bare second row. Crowns, fleurs, and floral hearts wrap the bold script only, so the decoration stays one pair per result.",
+    coverageNote:
+      "Both script styles convert letters only. Digits, accents, and emoji stay as typed. Each crown or fleur is an extra character on that side of the name.",
+    bestFor: [
+      "Wedding, beauty, and formal display names",
+      "A royal or princess name in a bio",
+      "Short captions that should feel dressed up",
+    ],
+    sampleInputs: ["Rose", "Royal", "Ada"],
+    platformTip:
+      "Script works in most Instagram, TikTok, and Discord display names and bios, not in usernames limited to plain letters. If the heavy script shows boxes, copy the thinner script row.",
+    faq: [
+      {
+        q: "Is elegant the same as cursive?",
+        a: "Cursive is the bare script alphabet. Elegant leads with the heavier script and adds one formal symbol: a crown, a fleur, or a floral heart.",
+      },
+      {
+        q: "Where are royal and princess fonts?",
+        a: "On this page. A princess or royal name here is script plus a crown or a fleur-de-lis, not a separate download.",
+      },
+      {
+        q: "Is this a calligraphy font file?",
+        a: "No. You copy characters. Calligraphy font files are something you install, and this site does not offer those.",
+      },
+    ],
+  },
   "aesthetic-text-generator": {
     navName: "Aesthetic",
-    h1: "Aesthetic Text Generator",
+    h1: "Aesthetic Font Generator",
     description:
-      "Turn text into wide vaporwave letters — ａｅｓｔｈｅｔｉｃ spacing for bios, captions and lo-fi profiles. Copy in one tap.",
+      "Wide vaporwave letters with a sparkle or a dot-mist on either side, plus small caps if you want it quieter. Copy and paste, no font file.",
     intro:
-      "ａｅｓｔｈｅｔｉｃ. This generator widens every letter into full-width forms — the slow, spaced-out vaporwave look that defined an entire aesthetic.",
+      "Wide full-width letters — the vaporwave look — with a mist of dots or a sparkle on either side. Small caps is the second row when the wide letters feel too loud.",
     howItWorks:
-      "Full-width characters come from legacy encodings where CJK and Latin text shared fixed-width grids, so Latin letters got wide boxes of their own. Spaces widen too — each one becomes a full ideographic space — which is where the slow, floating rhythm comes from.",
+      "Full-width characters come from legacy encodings where CJK and Latin text shared fixed-width grids, so Latin letters got wide boxes of their own. Spaces widen too, which is the slow rhythm. The dot-mist and the sparkle are symbols wrapped around that wide line only. They are not part of the full-width alphabet.",
     coverageNote:
-      "Full-width covers letters, digits and spaces, so whole phrases convert cleanly. Punctuation stays in its normal form, and emoji and other scripts are unaffected.",
+      "Full-width covers letters, digits, and spaces. Small caps covers most letters and leaves a few unchanged. Punctuation stays plain. The decorations add characters and make the line wider still.",
     bestFor: [
-      "Vaporwave, lo-fi and retro profiles",
-      "Slow, spaced-out one-word bios",
-      "Retro-tech and 80s/90s themed posts",
+      "Vaporwave, lo-fi, and retro profiles",
+      "A wide one-word bio with a little sparkle",
+      "Retro-tech and 80s/90s posts",
     ],
     sampleInputs: ["aesthetic", "v a p o r", "dream 1997"],
     platformTip:
-      "Full-width text renders everywhere CJK text renders — which is essentially everywhere. It is wide, though: check that long phrases fit your bio without wrapping awkwardly.",
+      "Full-width text shows up wherever CJK text does, which is almost everywhere. It is wide, and the sparkle makes it wider — check that the line still fits your bio. If a sparkle fails, the plain wide row still copies.",
     faq: [
       {
         q: "Why is it called vaporwave text?",
-        a: "The style became the visual signature of vaporwave music culture — wide letters, slow spacing, retro-future vibes. The technical name is full-width text.",
+        a: "Wide letters and slow spacing became the visual signature of vaporwave. The technical name of the letters is full-width text. The sparkle is a separate symbol on either side.",
       },
       {
         q: "Does the wide spacing copy too?",
-        a: "Yes — the wide space is a real character (the ideographic space), so the airy rhythm survives pasting. It also means the text takes up more room in character limits.",
+        a: "Yes. The wide space is a real character, the ideographic space, so the airy rhythm survives pasting. It also uses more of a character limit.",
       },
       {
-        q: "Will it count as more characters in my bio?",
-        a: "Each full-width character counts as one character, same as a normal letter — but the wide spaces count too, so a phrase effectively uses more of your limit.",
+        q: "Will decorations count in my bio?",
+        a: "Yes. Each full-width letter counts as one, and each sparkle or dot counts as well. A short word is the comfortable length.",
       },
     ],
   },

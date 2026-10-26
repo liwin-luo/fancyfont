@@ -83,6 +83,7 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
       </section>
 
       <RelatedTools
+        locale={locale}
         links={c.related.map((link) => ({
           href: localePath(locale, link.path),
           title: link.title,
