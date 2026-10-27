@@ -34,7 +34,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     aboutHeading: "About the collection",
     about: (count, categories) => [
       `Every symbol here is a standard Unicode character, so it copies as plain text and travels with your message. The collection spans ${categories} categories: hearts, stars, arrows, crowns, flowers, wings & bows, brackets, lines & borders, faces, music & vibes, and more.`,
-      "The decorative combos are ready-made pairs of symbols and lines — handy as dividers in bios or around a nickname you have already styled.",
+      "The decorative combos are ready-made pairs of symbols and lines — handy as dividers in bios or around a nickname you have already styled. This page does not restyle letters. To change A–Z, use the fancy text generator.",
     ],
     faqHeading: "FAQ",
     faq: [
@@ -82,7 +82,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     aboutHeading: "Sobre la colección",
     about: (count, categories) => [
       `Cada símbolo es un carácter Unicode estándar, así que se copia como texto plano y viaja con tu mensaje. La colección abarca ${categories} categorías: corazones, estrellas, flechas, coronas, flores, alas y lazos, corchetes, líneas y bordes, caras, música y vibra, y más.`,
-      "Las combinaciones decorativas son pares de símbolos y líneas listos para usar — útiles como divisores en bios o alrededor de un apodo que ya tengas con estilo.",
+      "Las combinaciones decorativas son pares de símbolos y líneas listos para usar — útiles como divisores en bios o alrededor de un apodo que ya tengas con estilo. Esta página no cambia las letras. Para convertir A–Z, usa el generador de letras bonitas.",
     ],
     faqHeading: "Preguntas frecuentes",
     faq: [
@@ -130,7 +130,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     aboutHeading: "Sobre a coleção",
     about: (count, categories) => [
       `Cada símbolo aqui é um caractere Unicode padrão, então copia como texto simples e viaja com a sua mensagem. A coleção cobre ${categories} categorias: corações, estrelas, setas, coroas, flores, asas e laços, colchetes, linhas e bordas, carinhas, música e vibe, e mais.`,
-      "As combinações decorativas são pares prontos de símbolos e linhas — úteis como divisores na bio ou ao redor de um apelido que você já estilizou.",
+      "As combinações decorativas são pares prontos de símbolos e linhas — úteis como divisores na bio ou ao redor de um apelido que você já estilizou. Esta página não muda as letras. Para converter A–Z, use o gerador de letras bonitas.",
     ],
     faqHeading: "Perguntas frequentes",
     faq: [
@@ -178,7 +178,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     aboutHeading: "关于符号库",
     about: (count, categories) => [
       `这里每个符号都是标准 Unicode 字符，按纯文本复制并随消息一起走。符号库覆盖 ${categories} 个分类：爱心、星星、箭头、皇冠、花朵、翅膀与蝴蝶结、括号、线条与边框、表情、音乐与氛围、对勾与叉、数学、希腊字母、货币、数字与罗马、圆点与符号。`,
-      "装饰组合是现成的符号与线条搭配——适合做简介分隔线，或围在你已加好样式的昵称周围。",
+      "装饰组合是现成的符号与线条搭配——适合做简介分隔线，或围在你已加好样式的昵称周围。这一页不改字母。要转换 A–Z，用个性字体生成器。",
     ],
     faqHeading: "常见问题",
     faq: [
@@ -226,7 +226,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     aboutHeading: "Tentang koleksinya",
     about: (count, categories) => [
       `Setiap simbol di sini adalah karakter Unicode standar, jadi tersalin sebagai teks biasa dan ikut bersama pesanmu. Koleksinya mencakup ${categories} kategori: hati, bintang, panah, mahkota, bunga, sayap & pita, kurung, garis & border, wajah, musik & vibe, dan lainnya.`,
-      "Kombinasi dekoratif adalah pasangan simbol dan garis siap pakai — praktis sebagai pembatas bio atau pengeliling nama yang sudah kamu gayakan.",
+      "Kombinasi dekoratif adalah pasangan simbol dan garis siap pakai — praktis sebagai pembatas bio atau pengeliling nama yang sudah kamu gayakan. Halaman ini tidak mengubah huruf. Untuk mengubah A–Z, pakai generator huruf keren.",
     ],
     faqHeading: "FAQ",
     faq: [

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { textStyles } from "@/lib/text-styles";
 import { symbols } from "@/lib/symbols-data";
 import { isLookPage, stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
@@ -94,7 +95,7 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
           </div>
 
           <div className="mt-8 text-left">
-            <PlatformChips locale={locale} />
+            <PlatformChips locale={locale} includeAll={false} />
           </div>
 
           <div className="card mx-auto mt-10 max-w-xl p-5 text-left">
@@ -179,8 +180,13 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
                   }
                   className="flex items-baseline justify-between gap-4 rounded-xl border border-line bg-surface p-4 transition-colors hover:border-brand-300"
                 >
-                  <span className="shrink-0 text-xs font-semibold tracking-wider text-ink-500 uppercase">
-                    {t.styleNames[id]}
+                  <span className="shrink-0">
+                    <span className="block text-xs font-semibold tracking-wider text-ink-500 uppercase">
+                      {t.styleNames[id]}
+                    </span>
+                    <span className="mt-1 block text-xs font-normal tracking-normal text-ink-500 normal-case">
+                      {t.tools.coverage[textStyles.find((style) => style.id === id)!.coverage]}
+                    </span>
                   </span>
                   <SampleStyledName
                     styleId={id}
@@ -247,9 +253,16 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
                 <Link
                   key={page.slug}
                   href={localePath(locale, `/${page.slug}/`)}
-                  className="flex items-baseline justify-between gap-3 border-b border-line pb-2 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-700"
+                  className="flex items-start justify-between gap-3 border-b border-line pb-2 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-700"
                 >
-                  {page.copy[locale].h1}
+                  <span className="min-w-0">
+                    <span className="block">{page.copy[locale].h1}</span>
+                    {"styleIds" in page && isLookPage(page) ? (
+                      <span className="mt-0.5 block text-xs font-normal text-ink-500">
+                        {t.tools.usesLetters(t.styleNames[page.styleIds[0]])}
+                      </span>
+                    ) : null}
+                  </span>
                   <span aria-hidden="true" className="text-ink-500">
                     →
                   </span>

@@ -56,7 +56,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     aboutHeading: "How does this work?",
     about: [
       "This tool maps your letters to lookalike characters from other parts of the Unicode standard — mathematical bold, script, fraktur, enclosed alphanumerics and more. The result is real text, not formatting, so you can paste it almost anywhere plain text is accepted: Instagram and TikTok bios, Discord names, messages, and many games.",
-      "Every style covers a different range. Styles marked “partial” skip characters that Unicode has no styled form for, and accented letters, emoji and other scripts always stay as you typed them.",
+      "Every style covers a different range. Styles marked “partial” skip characters that Unicode has no styled form for, and accented letters, emoji and other scripts always stay as you typed them. Bold cursive keeps every letter in one alphabet; lighter cursive swaps e, g, and o for a different cut.",
     ],
     dedicatedHeading: "Dedicated style generators",
     dedicatedSub:
@@ -119,7 +119,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     aboutHeading: "¿Cómo funciona?",
     about: [
       "Esta herramienta cambia tus letras por caracteres similares de otras partes del estándar Unicode — negrita matemática, script, fraktur, caracteres encerrados y más. El resultado es texto de verdad, no formato, así que puedes pegarlo en casi cualquier sitio que acepte texto plano: bios de Instagram y TikTok, nombres de Discord, mensajes y muchos juegos.",
-      "Cada estilo cubre un rango distinto. Los estilos marcados como “parcial” se saltan los caracteres que no tienen forma en Unicode, y las letras con tilde, los emoji y otros alfabetos siempre quedan como los escribiste.",
+      "Cada estilo cubre un rango distinto. Los estilos marcados como “parcial” se saltan los caracteres que no tienen forma en Unicode, y las letras con tilde, los emoji y otros alfabetos siempre quedan como los escribiste. La cursiva negrita mantiene cada letra en un solo alfabeto; la cursiva fina cambia e, g y o por otro trazo.",
     ],
     dedicatedHeading: "Generadores por estilo",
     dedicatedSub:
@@ -182,7 +182,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     aboutHeading: "Como funciona?",
     about: [
       "Esta ferramenta troca suas letras por caracteres parecidos de outras partes do padrão Unicode — negrito matemático, script, fraktur, caracteres delimitados e mais. O resultado é texto de verdade, não formatação, então dá para colar em quase todo lugar que aceita texto simples: bios do Instagram e TikTok, nomes do Discord, mensagens e muitos jogos.",
-      "Cada estilo cobre uma faixa diferente. Os estilos marcados como “parcial” pulam os caracteres sem forma no Unicode, e letras com acento, emoji e outros alfabetos sempre ficam como você digitou.",
+      "Cada estilo cobre uma faixa diferente. Os estilos marcados como “parcial” pulam os caracteres sem forma no Unicode, e letras com acento, emoji e outros alfabetos sempre ficam como você digitou. A cursiva em negrito mantém cada letra num só alfabeto; a cursiva fina troca e, g e o por outro traço.",
     ],
     dedicatedHeading: "Geradores por estilo",
     dedicatedSub:
@@ -245,7 +245,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     aboutHeading: "这是什么原理？",
     about: [
       "这个工具把你的字母映射到 Unicode 标准其他区域的形近字符——数学粗体、花体、哥特体、带圈字符等等。结果是真实的文字而非格式，所以几乎可以粘贴到任何接受纯文本的地方：Instagram 和 TikTok 简介、Discord 昵称、消息，以及很多游戏。",
-      "每种样式覆盖的范围不同。标有“部分支持”的样式会跳过 Unicode 中没有对应形态的字符；带声调的字母、emoji 和中文等其他文字永远保持原样。",
+      "每种样式覆盖的范围不同。标有“部分支持”的样式会跳过 Unicode 中没有对应形态的字符；带声调的字母、emoji 和中文等其他文字永远保持原样。粗花体的每个字母都在同一套里；细花体的 e、g、o 会换成另一套字形。",
     ],
     dedicatedHeading: "按风格专页",
     dedicatedSub: "只想要一种效果？每种风格都有独立页面，提供专注的转换器和针对性技巧。",
@@ -307,7 +307,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     aboutHeading: "Bagaimana ini bekerja?",
     about: [
       "Alat ini memetakan hurufmu ke karakter kemiripan dari bagian lain standar Unicode — tebal matematis, script, fraktur, karakter berlingkar, dan lainnya. Hasilnya teks sungguhan, bukan format, jadi bisa ditempel hampir di mana pun teks biasa diterima: bio Instagram dan TikTok, nama Discord, pesan, dan banyak game.",
-      "Setiap gaya mencakup rentang berbeda. Gaya berlabel “sebagian” melewatkan karakter yang tidak punya bentuk di Unicode, dan huruf beraksen, emoji, serta aksara lain selalu tetap seperti yang kamu ketik.",
+      "Setiap gaya mencakup rentang berbeda. Gaya berlabel “sebagian” melewatkan karakter yang tidak punya bentuk di Unicode, dan huruf beraksen, emoji, serta aksara lain selalu tetap seperti yang kamu ketik. Cursive tebal menahan setiap huruf dalam satu alfabet; cursive tipis menukar e, g, dan o dengan potongan lain.",
     ],
     dedicatedHeading: "Generator per gaya",
     dedicatedSub: "Hanya ingin satu tampilan? Setiap gaya punya halaman sendiri dengan konverter khusus dan tips spesifik.",

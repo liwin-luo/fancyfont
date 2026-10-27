@@ -13,7 +13,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     howItWorks:
       "Huruf cursive dibuat dari rentang Unicode Mathematical Script dan Bold Script. Setiap huruf ditukar dengan karakter serupa yang memang digambar dengan goresan tulisan tangan yang tersambung — itulah alasan gaya ini bertahan saat dicopy-paste, sesuatu yang tak bisa dilakukan font sungguhan.",
     coverageNote:
-      "Kedua gaya cursive hanya mengonversi A–Z dan a–z. Unicode tidak punya angka cursive, jadi angka tetap seperti aslinya; huruf beraksen, emoji, dan aksara lain juga tidak berubah.",
+      "Kedua gaya cursive hanya mengonversi A–Z dan a–z. Unicode tidak punya angka cursive, jadi angka tetap seperti aslinya; huruf beraksen, emoji, dan aksara lain juga tidak berubah. Cursive tebal adalah satu alfabet utuh. Cursive tipis tidak punya bentuk matematis untuk e, g, dan o, jadi ketiga huruf itu memakai potongan lain (ℯ ℊ ℴ).",
     bestFor: [
       "Bio Instagram dan nama tampilan dengan kesan tulisan tangan yang lembut",
       "Branding kecantikan, pernikahan, dan lifestyle",

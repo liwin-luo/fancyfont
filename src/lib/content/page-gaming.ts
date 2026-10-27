@@ -26,7 +26,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     },
     h1: "Gaming Name Generator",
     intro:
-      "Type your name and get decorated nickname ideas built from cool symbols and letter styles — for games, Discord, and social profiles. Copy the one you like or generate fresh combinations.",
+      "Type your name and get decorated nickname ideas built from cool symbols and letter styles — for games, Discord, and social profiles. The tool decorates the name you typed and does not invent a different one. Copy the one you like or generate fresh combinations.",
     howHeading: "How to use it",
     steps: [
       "Type the name you want to decorate — results appear instantly.",
@@ -90,7 +90,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     },
     h1: "Generador de nombres para juegos",
     intro:
-      "Escribe tu nombre y recibe ideas de apodos decorados con símbolos y estilos de letra — para juegos, Discord y redes. Copia el que te guste o genera combinaciones nuevas.",
+      "Escribe tu nombre y recibe ideas de apodos decorados con símbolos y estilos de letra — para juegos, Discord y redes. La herramienta decora el nombre que escribiste y no inventa otro. Copia el que te guste o genera combinaciones nuevas.",
     howHeading: "Cómo usarlo",
     steps: [
       "Escribe el nombre que quieres decorar — los resultados aparecen al instante.",
@@ -154,7 +154,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     },
     h1: "Gerador de nomes para jogos",
     intro:
-      "Digite seu nome e receba ideias de apelidos decorados com símbolos e estilos de letra — para jogos, Discord e redes sociais. Copie o que gostar ou gere combinações novas.",
+      "Digite seu nome e receba ideias de apelidos decorados com símbolos e estilos de letra — para jogos, Discord e redes sociais. A ferramenta decora o nome que você digitou e não inventa outro. Copie o que gostar ou gere combinações novas.",
     howHeading: "Como usar",
     steps: [
       "Digite o nome que quer decorar — os resultados aparecem na hora.",
@@ -218,7 +218,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     },
     h1: "游戏昵称生成器",
     intro:
-      "输入你的名字，立刻获得由酷炫符号和字母样式组成的装饰昵称创意——适用于游戏、Discord 和社交资料。复制喜欢的，或换一批新组合。",
+      "输入你的名字，立刻获得由酷炫符号和字母样式组成的装饰昵称创意——适用于游戏、Discord 和社交资料。工具装饰的是你输入的名字，不会另起一个。复制喜欢的，或换一批新组合。",
     howHeading: "使用方法",
     steps: [
       "输入你想装饰的名字——结果即时出现。",
@@ -282,7 +282,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     },
     h1: "Generator Nama Game",
     intro:
-      "Ketik namamu dan dapatkan ide nama berhias dari simbol dan gaya huruf keren — untuk game, Discord, dan profil sosial. Salin yang kamu suka atau buat kombinasi baru.",
+      "Ketik namamu dan dapatkan ide nama berhias dari simbol dan gaya huruf keren — untuk game, Discord, dan profil sosial. Alat ini menghias nama yang kamu ketik dan tidak mengarang nama lain. Salin yang kamu suka atau buat kombinasi baru.",
     howHeading: "Cara pakai",
     steps: [
       "Ketik nama yang ingin kamu hias — hasilnya muncul seketika.",

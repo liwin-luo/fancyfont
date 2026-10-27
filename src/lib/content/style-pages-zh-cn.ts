@@ -15,7 +15,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     howItWorks:
       "花体效果来自 Unicode 的 Mathematical Script 和 Bold Script 字符区。每个字母被替换成一个恰好写成连笔手写形态的相似字符——这正是它能被复制粘贴的原因，而真正的字体文件做不到这一点。",
     coverageNote:
-      "两种花体样式只转换英文字母 A–Z 和 a–z。Unicode 没有花体数字，所以数字保持原样；带声调的字母、emoji 和中文等字符也都原样保留。中文昵称想用花体，可以把英文名部分转换后与中文混排。",
+      "两种花体样式只转换英文字母 A–Z 和 a–z。Unicode 没有花体数字，所以数字保持原样；带声调的字母、emoji 和中文等字符也都原样保留。中文昵称想用花体，可以把英文名部分转换后与中文混排。粗花体是一整套字母。细花体没有 e、g、o 的同套字形，这三个字母会换成另一套（ℯ ℊ ℴ）。",
     bestFor: [
       "Instagram、小红书简介里想要柔和手写感的英文名",
       "美妆、婚礼、生活方式类账号的品牌名",

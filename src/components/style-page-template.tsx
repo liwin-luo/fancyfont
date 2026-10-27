@@ -43,6 +43,11 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
         <p className="mt-3 leading-relaxed text-ink-600">{c.intro}</p>
+        {page.wrappers?.length ? (
+          <p className="mt-2 text-sm leading-relaxed text-ink-700">
+            {t.sections.lookUses(t.styleNames[page.styleIds[0]])}
+          </p>
+        ) : null}
       </header>
 
       <div className="mt-8">
@@ -121,7 +126,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
           {
             href: localePath(locale, "/fancy-text-generator/"),
             title: t.tools.fancy,
-            description: c.intro,
+            description: t.sections.browseFancy,
           },
         ]}
       />

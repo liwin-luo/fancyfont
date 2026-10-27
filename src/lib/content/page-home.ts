@@ -39,32 +39,35 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Generate and Copy ",
       accent: "Fancy Text",
-      sub: "Create stylish text, gaming names, and special symbols. Preview and copy in seconds — free, no sign-up.",
+      sub: "Style A–Z, decorate a name you already have, or copy one symbol. Accented letters, Chinese, and emoji stay as typed.",
       ctaPrimary: "Try Fancy Text",
       ctaSecondary: "Make a Gaming Name",
       instantPreview: "Instant preview",
       convertLink: "Convert your own text →",
     },
     toolsSection: {
-      h2: "Three tools, one vibe",
-      sub: "Everything works together: style your text, decorate it with symbols, or build a full gaming nickname.",
+      h2: "Three jobs",
+      sub: "Each card is a different job. Pick the one that matches what you are pasting.",
       cards: [
         {
           icon: "✦",
           title: "Fancy Text Generator",
-          description: "Turn plain text into stylish Unicode text — cursive, gothic, bold and more.",
+          description:
+            "For a bio or a chat line. Turns A–Z into a Unicode style. Anything outside Latin letters stays as typed.",
           cta: "Generate text",
         },
         {
           icon: "♛",
           title: "Gaming Name Maker",
-          description: "Create decorated nicknames with cool symbols, borders and styles.",
+          description:
+            "For a name you already use. Adds a frame or a letter style, and does not invent a new name. Decorations count toward length limits.",
           cta: "Create a name",
         },
         {
           icon: "#",
           title: "Symbols & Decorators",
-          description: "Find and copy hearts, stars, wings, crowns and other symbols in seconds.",
+          description:
+            "When you only need one symbol, such as a heart or a star. It does not restyle the letters of a word.",
           cta: "Explore symbols",
         },
       ],
@@ -104,7 +107,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "Will styled text work on Instagram, TikTok, or Discord?",
-        a: "Most platforms accept Unicode characters in bios, display names, and messages. Every platform has its own rules though, and some characters may not display on every device. Test your result where you plan to use it.",
+        a: "Usernames usually keep plain letters. Styled text belongs in a display name, bio, or message. Instagram, TikTok, and Discord each have a page for that platform's fields. Paste it in the app and check.",
       },
       {
         q: "Does FancyFont store what I type?",
@@ -121,32 +124,35 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Genera y copia ",
       accent: "letras bonitas",
-      sub: "Crea texto con estilo, nombres gamer y símbolos especiales. Previsualiza y copia en segundos — gratis y sin registro.",
+      sub: "Dale estilo a A–Z, decora un nombre que ya tienes, o copia un símbolo. Las tildes, el chino y los emoji se quedan igual.",
       ctaPrimary: "Probar letras bonitas",
       ctaSecondary: "Crear un nombre gamer",
       instantPreview: "Vista previa",
       convertLink: "Convertir tu propio texto →",
     },
     toolsSection: {
-      h2: "Tres herramientas, una vibra",
-      sub: "Todo funciona junto: dale estilo a tu texto, decóralo con símbolos o arma un apodo gamer completo.",
+      h2: "Tres trabajos",
+      sub: "Cada tarjeta es un trabajo distinto. Elige el que coincide con lo que vas a pegar.",
       cards: [
         {
           icon: "✦",
           title: "Generador de letras bonitas",
-          description: "Convierte texto normal en letras Unicode con estilo — cursiva, gótica, negrita y más.",
+          description:
+            "Para una bio o un chat. Convierte A–Z en un estilo Unicode. Lo que no sea letra latina se queda igual.",
           cta: "Generar texto",
         },
         {
           icon: "♛",
           title: "Creador de nombres gamer",
-          description: "Crea apodos decorados con símbolos, marcos y estilos.",
+          description:
+            "Para un nombre que ya usas. Añade un marco o un estilo, y no inventa otro nombre. La decoración cuenta en el límite de caracteres.",
           cta: "Crear un nombre",
         },
         {
           icon: "#",
           title: "Símbolos y decoración",
-          description: "Encuentra y copia corazones, estrellas, alas, coronas y más símbolos en segundos.",
+          description:
+            "Cuando solo necesitas un símbolo, como un corazón o una estrella. No cambia las letras de una palabra.",
           cta: "Explorar símbolos",
         },
       ],
@@ -186,7 +192,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "¿El texto con estilo funciona en Instagram, TikTok o Discord?",
-        a: "La mayoría de plataformas acepta caracteres Unicode en bios, nombres visibles y mensajes. Cada plataforma tiene sus reglas y algunos caracteres pueden no verse en todos los dispositivos. Prueba tu resultado donde lo vayas a usar.",
+        a: "El usuario suele quedarse en letras normales. El texto con estilo va en el nombre visible, la bio o el mensaje. Instagram, TikTok y Discord tienen cada uno su página con los campos de esa plataforma. Pégalo en la app y compruébalo.",
       },
       {
         q: "¿FancyFont guarda lo que escribo?",
@@ -203,32 +209,35 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Gere e copie ",
       accent: "letras bonitas",
-      sub: "Crie texto estiloso, nomes de jogo e símbolos especiais. Veja a prévia e copie em segundos — grátis, sem cadastro.",
+      sub: "Estilize A–Z, decore um nome que você já tem, ou copie um símbolo. Acentos, chinês e emoji ficam como você digitou.",
       ctaPrimary: "Testar letras bonitas",
       ctaSecondary: "Criar um nome de jogo",
       instantPreview: "Prévia instantânea",
       convertLink: "Converter o seu texto →",
     },
     toolsSection: {
-      h2: "Três ferramentas, uma vibe",
-      sub: "Tudo funciona junto: estilize seu texto, decore com símbolos ou monte um apelido de jogo completo.",
+      h2: "Três tarefas",
+      sub: "Cada cartão é uma tarefa diferente. Escolha a que combina com o que você vai colar.",
       cards: [
         {
           icon: "✦",
           title: "Gerador de letras bonitas",
-          description: "Transforme texto simples em letras Unicode estilosas — cursiva, gótica, negrito e mais.",
+          description:
+            "Para uma bio ou um chat. Transforma A–Z em um estilo Unicode. O que não for letra latina fica igual.",
           cta: "Gerar texto",
         },
         {
           icon: "♛",
           title: "Criador de nomes de jogo",
-          description: "Crie apelidos decorados com símbolos, molduras e estilos.",
+          description:
+            "Para um nome que você já usa. Acrescenta uma moldura ou um estilo, e não inventa outro nome. A decoração entra no limite de caracteres.",
           cta: "Criar um nome",
         },
         {
           icon: "#",
           title: "Símbolos e decoração",
-          description: "Encontre e copie corações, estrelas, asas, coroas e outros símbolos em segundos.",
+          description:
+            "Quando você só precisa de um símbolo, como um coração ou uma estrela. Não muda as letras de uma palavra.",
           cta: "Explorar símbolos",
         },
       ],
@@ -268,7 +277,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "O texto estilizado funciona no Instagram, TikTok ou Discord?",
-        a: "A maioria das plataformas aceita caracteres Unicode em bios, nomes e mensagens. Mas cada plataforma tem suas regras e alguns caracteres podem não aparecer em todos os aparelhos. Teste onde você for usar.",
+        a: "O usuário costuma ficar em letras comuns. O texto estilizado vai no nome visível, na bio ou na mensagem. Instagram, TikTok e Discord têm cada um uma página com os campos daquela plataforma. Cole no app e confira.",
       },
       {
         q: "O FancyFont guarda o que eu digito?",
@@ -285,32 +294,32 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "生成并复制",
       accent: "个性文字",
-      sub: "创建个性文字、游戏昵称和特殊符号。实时预览，秒速复制——免费，无需注册。",
+      sub: "给 A–Z 换样式、装饰一个已有的名字，或复制一个符号。声调字母、中文和 emoji 保持原样。",
       ctaPrimary: "试试个性字体",
       ctaSecondary: "生成游戏昵称",
       instantPreview: "即时预览",
       convertLink: "转换你自己的文字 →",
     },
     toolsSection: {
-      h2: "三大工具，一种气质",
-      sub: "所有工具环环相扣：给文字换风格、用符号装饰，或组合完整的游戏昵称。",
+      h2: "三件不同的事",
+      sub: "每张卡是一件不同的事。按你要粘贴的内容来选。",
       cards: [
         {
           icon: "✦",
           title: "个性字体生成器",
-          description: "把普通文字变成花体、哥特、粗体等个性的 Unicode 文字。",
+          description: "给简介或聊天里的一句字换样式。只转换 A–Z，拉丁字母以外的字符保持原样。",
           cta: "生成文字",
         },
         {
           icon: "♛",
           title: "游戏昵称生成器",
-          description: "用酷炫符号、边框和样式组合出带装饰的昵称。",
+          description: "装饰你已经在用的名字，加上边框或字母样式，不会另起一个名字。装饰会计入字数。",
           cta: "起个名字",
         },
         {
           icon: "#",
           title: "特殊符号大全",
-          description: "几秒内找到并复制爱心、星星、翅膀、皇冠等符号。",
+          description: "只需要一个符号时用，比如爱心或星星。这一页不改单词里的字母。",
           cta: "浏览符号",
         },
       ],
@@ -350,7 +359,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "带样式的文字在 Instagram、TikTok 或 Discord 上能用吗？",
-        a: "大多数平台在简介、昵称和消息中接受 Unicode 字符。但每个平台都有自己的规则，某些字符在部分设备上可能无法显示。请在你实际使用的地方测试。",
+        a: "用户名通常只能用普通字母。带样式的文字放在显示名、简介或消息里。Instagram、TikTok 和 Discord 各有一页说明那个平台的字段。贴到应用里再看一眼。",
       },
       {
         q: "FancyFont 会保存我输入的内容吗？",
@@ -367,32 +376,35 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Buat dan salin ",
       accent: "teks keren",
-      sub: "Buat teks keren, nama game, dan simbol spesial. Pratinjau dan salin dalam hitungan detik — gratis, tanpa daftar.",
+      sub: "Gayakan A–Z, hias nama yang sudah kamu punya, atau salin satu simbol. Huruf beraksen, Cina, dan emoji tetap seperti aslinya.",
       ctaPrimary: "Coba huruf keren",
       ctaSecondary: "Buat nama game",
       instantPreview: "Pratinjau instan",
       convertLink: "Konversi teksmu sendiri →",
     },
     toolsSection: {
-      h2: "Tiga alat, satu vibe",
-      sub: "Semuanya saling terhubung: gayakan teksmu, hias dengan simbol, atau racik nama game lengkap.",
+      h2: "Tiga pekerjaan",
+      sub: "Setiap kartu adalah pekerjaan berbeda. Pilih yang sesuai dengan yang akan kamu tempel.",
       cards: [
         {
           icon: "✦",
           title: "Generator huruf keren",
-          description: "Ubah teks biasa jadi huruf Unicode keren — cursive, gothic, tebal, dan lainnya.",
+          description:
+            "Untuk bio atau chat. Mengubah A–Z menjadi gaya Unicode. Selain huruf Latin tetap seperti aslinya.",
           cta: "Buat teks",
         },
         {
           icon: "♛",
           title: "Pembuat nama game",
-          description: "Racik nama dengan simbol, bingkai, dan gaya keren.",
+          description:
+            "Untuk nama yang sudah kamu pakai. Menambah bingkai atau gaya huruf, dan tidak mengarang nama baru. Dekorasi dihitung dalam batas karakter.",
           cta: "Bikin nama",
         },
         {
           icon: "#",
           title: "Simbol & dekorasi",
-          description: "Temukan dan salin hati, bintang, sayap, mahkota, dan simbol lain dalam hitungan detik.",
+          description:
+            "Saat kamu hanya butuh satu simbol, seperti hati atau bintang. Halaman ini tidak mengubah huruf dalam sebuah kata.",
           cta: "Jelajahi simbol",
         },
       ],
@@ -432,7 +444,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "Apakah teks bergaya berfungsi di Instagram, TikTok, atau Discord?",
-        a: "Sebagian besar platform menerima karakter Unicode di bio, nama, dan pesan. Tapi tiap platform punya aturannya sendiri dan beberapa karakter mungkin tidak tampil di semua perangkat. Uji hasilnya di tempat kamu memakainya.",
+        a: "Username biasanya tetap huruf biasa. Teks bergaya masuk ke nama tampilan, bio, atau pesan. Instagram, TikTok, dan Discord masing-masing punya halaman untuk kolom platform itu. Tempel di aplikasi dan periksa.",
       },
       {
         q: "Apakah FancyFont menyimpan yang saya ketik?",

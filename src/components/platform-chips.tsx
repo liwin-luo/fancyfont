@@ -9,10 +9,20 @@ const chipClass =
   "inline-flex h-9 items-center gap-1.5 rounded-full border px-3 text-sm font-medium whitespace-nowrap";
 
 /** Horizontal platform filter. `active` is a platform slug, or "all" on the gaming page. */
-export function PlatformChips({ locale, active }: { locale: Locale; active?: string }) {
+export function PlatformChips({
+  locale,
+  active,
+  includeAll = true,
+}: {
+  locale: Locale;
+  active?: string;
+  includeAll?: boolean;
+}) {
   const t = getUi(locale);
   const chips: { slug: string; href: string; label: string; mark: PlatformPreviewId | "all" }[] = [
-    { slug: "all", href: "/gaming-name-generator/", label: t.common.all, mark: "all" },
+    ...(includeAll
+      ? [{ slug: "all", href: "/gaming-name-generator/", label: t.common.all, mark: "all" as const }]
+      : []),
     ...platformPages.map((page) => ({
       slug: page.slug,
       href: `/${page.slug}/`,

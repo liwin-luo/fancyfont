@@ -26,6 +26,13 @@ export interface UiStrings {
     /** Suffix for platform footer links, e.g. "Instagram fonts" / "Roblox names". */
     fontsWord: string;
     namesWord: string;
+    usesLetters: (style: string) => string;
+    coverage: {
+      letters: string;
+      lettersDigits: string;
+      partial: string;
+      all: string;
+    };
   };
   common: {
     yourText: string;
@@ -156,6 +163,7 @@ export interface UiStrings {
     exploreAll: string;
     browseSymbols: string;
     browseFancy: string;
+    lookUses: (style: string) => string;
   };
   compat: { lead: string; body: string };
   stylePageSteps: [string, string, string];
@@ -215,6 +223,13 @@ export const ui: Record<Locale, UiStrings> = {
       site: "Site",
       fontsWord: "fonts",
       namesWord: "names",
+      usesLetters: (style) => `Uses ${style} letters`,
+      coverage: {
+        letters: "Letters only",
+        lettersDigits: "Letters and digits",
+        partial: "Some letters stay plain",
+        all: "Any character",
+      },
     },
     common: {
       yourText: "Your text",
@@ -383,6 +398,8 @@ export const ui: Record<Locale, UiStrings> = {
       exploreAll: "Explore all FancyFont tools →",
       browseSymbols: "Browse 376 symbols to build your own look.",
       browseFancy: "Browse all 30 styles in one tool and copy any of them.",
+      lookUses: (style) =>
+        `This look uses ${style} letters. The decorations appear only on this page.`,
     },
     compat: {
       lead: "Heads up:",
@@ -414,6 +431,13 @@ export const ui: Record<Locale, UiStrings> = {
       site: "Sitio",
       fontsWord: "fuentes",
       namesWord: "nombres",
+      usesLetters: (style) => `Usa letras ${style}`,
+      coverage: {
+        letters: "Solo letras",
+        lettersDigits: "Letras y números",
+        partial: "Algunas letras se quedan igual",
+        all: "Cualquier carácter",
+      },
     },
     common: {
       yourText: "Tu texto",
@@ -614,6 +638,8 @@ export const ui: Record<Locale, UiStrings> = {
       exploreAll: "Explorar todas las herramientas de FancyFont →",
       browseSymbols: "376 símbolos para armar tu propio look.",
       browseFancy: "Los 30 estilos en una sola herramienta, cópialos todos.",
+      lookUses: (style) =>
+        `Este look usa letras ${style}. Las decoraciones solo están en esta página.`,
     },
     compat: {
       lead: "Atención:",
@@ -650,6 +676,13 @@ export const ui: Record<Locale, UiStrings> = {
       site: "Site",
       fontsWord: "fontes",
       namesWord: "nomes",
+      usesLetters: (style) => `Usa letras ${style}`,
+      coverage: {
+        letters: "Só letras",
+        lettersDigits: "Letras e números",
+        partial: "Algumas letras ficam iguais",
+        all: "Qualquer caractere",
+      },
     },
     common: {
       yourText: "Seu texto",
@@ -850,6 +883,8 @@ export const ui: Record<Locale, UiStrings> = {
       exploreAll: "Explorar todas as ferramentas do FancyFont →",
       browseSymbols: "376 símbolos para montar seu próprio visual.",
       browseFancy: "Os 30 estilos em uma ferramenta só, copie qualquer um.",
+      lookUses: (style) =>
+        `Este visual usa letras ${style}. As decorações só aparecem nesta página.`,
     },
     compat: {
       lead: "Atenção:",
@@ -881,6 +916,13 @@ export const ui: Record<Locale, UiStrings> = {
       site: "本站",
       fontsWord: "字体",
       namesWord: "名字",
+      usesLetters: (style) => `用的是${style}字母`,
+      coverage: {
+        letters: "只改字母",
+        lettersDigits: "字母和数字",
+        partial: "部分字母保持原样",
+        all: "任何字符",
+      },
     },
     common: {
       yourText: "你的文字",
@@ -1080,6 +1122,7 @@ export const ui: Record<Locale, UiStrings> = {
       exploreAll: "探索 FancyFont 全部工具 →",
       browseSymbols: "浏览 376 个符号，搭配你自己的风格。",
       browseFancy: "30 种样式集于一处，任意复制。",
+      lookUses: (style) => `这一页用的是${style}字母，装饰只出现在这一页。`,
     },
     compat: {
       lead: "注意：",
@@ -1111,6 +1154,13 @@ export const ui: Record<Locale, UiStrings> = {
       site: "Situs",
       fontsWord: "font",
       namesWord: "nama",
+      usesLetters: (style) => `Pakai huruf ${style}`,
+      coverage: {
+        letters: "Huruf saja",
+        lettersDigits: "Huruf dan angka",
+        partial: "Sebagian huruf tetap biasa",
+        all: "Karakter apa pun",
+      },
     },
     common: {
       yourText: "Teks kamu",
@@ -1312,6 +1362,8 @@ export const ui: Record<Locale, UiStrings> = {
       exploreAll: "Jelajahi semua alat FancyFont →",
       browseSymbols: "Jelajahi 376 simbol untuk bikin gayamu sendiri.",
       browseFancy: "Semua 30 gaya dalam satu alat — salin salah satunya.",
+      lookUses: (style) =>
+        `Tampilan ini memakai huruf ${style}. Dekorasinya hanya ada di halaman ini.`,
     },
     compat: {
       lead: "Catatan:",

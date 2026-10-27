@@ -13,7 +13,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     howItWorks:
       "El texto cursivo usa los rangos Unicode Mathematical Script y Bold Script. Cada letra se cambia por un carácter similar dibujado con trazos manuscritos conectados: por eso el estilo sobrevive al copiar y pegar, algo que una fuente de verdad no puede hacer.",
     coverageNote:
-      "Los dos estilos cursivos convierten la A–Z y la a–z. Unicode no tiene dígitos cursivos, así que los números quedan igual, y las letras con tilde, los emoji y otros alfabetos se mantienen sin cambios.",
+      "Los dos estilos cursivos convierten la A–Z y la a–z. Unicode no tiene dígitos cursivos, así que los números quedan igual, y las letras con tilde, los emoji y otros alfabetos se mantienen sin cambios. La cursiva negrita es un alfabeto continuo. La cursiva fina no tiene forma matemática propia para e, g y o, así que esas tres letras usan otro trazo (ℯ ℊ ℴ).",
     bestFor: [
       "Bios de Instagram y nombres visibles con un toque manuscrito y suave",
       "Perfiles de belleza, bodas y lifestyle",

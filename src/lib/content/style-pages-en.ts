@@ -38,7 +38,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     howItWorks:
       "Cursive text is built from the Unicode Mathematical Script and Bold Script ranges. Each letter is swapped for a lookalike character that happens to be drawn with connected, handwritten strokes — which is exactly why the style survives copy and paste while a real font would not.",
     coverageNote:
-      "Both cursive styles convert A–Z and a–z. Unicode has no cursive digits, so numbers stay as you typed them, and accented letters, emoji and other scripts pass through untouched.",
+      "Both cursive styles convert A–Z and a–z. Unicode has no cursive digits, so numbers stay as you typed them, and accented letters, emoji and other scripts pass through untouched. Bold cursive is one continuous alphabet. Lighter cursive has no single mathematical form for e, g, and o, so those three letters use a different cut (ℯ ℊ ℴ).",
     bestFor: [
       "Instagram bios and display names that need a soft, handwritten touch",
       "Beauty, wedding and lifestyle branding in profiles",
