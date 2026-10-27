@@ -41,9 +41,9 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     navName: "Gothic",
     h1: "Generator Huruf Gothic",
     description:
-      "Ubah kata apa pun menjadi huruf gothic blackletter. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan clan.",
+      "Generator huruf Fraktur, blackletter gothic. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan clan.",
     intro:
-      "Ketik apa saja dan ubah menjadi huruf gothic — gaya klasik dari logo band metal, tag clan, dan bio gelap. Salin dalam satu klik.",
+      "Ketik apa saja dan ubah menjadi Fraktur, huruf gothic pada logo band metal, tag clan, dan bio gelap. Dua ketebalan, salin dalam satu klik.",
     howItWorks:
       "Huruf gothic memakai rentang Unicode Mathematical Fraktur. Fraktur adalah gaya tulisan tangan Jerman bersejarah, dan Unicode menyediakan alfabet lengkapnya — termasuk bentuk khusus untuk C, H, I, R, dan Z.",
     coverageNote:
@@ -57,6 +57,10 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     platformTip:
       "Karakter blackletter didukung baik di ponsel modern, tapi beberapa perangkat lama menampilkan kotak. Uji di aplikasi yang kamu tuju — terutama di dalam game.",
     faq: [
+      {
+        q: "Apakah Fraktur generator yang berbeda dari gothic?",
+        a: "Bukan. Halaman ini keduanya. Fraktur adalah nama alfabet blackletter itu, dan gothic adalah nama pencarian untuk karakter yang sama. Tidak ada berkas font terpisah.",
+      },
       {
         q: "Apa bedanya dua gaya gothic ini?",
         a: "Yang pertama fraktur klasik dengan goresan tipis; yang kedua versi tebal yang tetap terbaca di ukuran kecil.",
@@ -578,6 +582,74 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       {
         q: "Kenapa hatinya sesederhana ini?",
         a: "Tumpukan pita menghabiskan 20 karakter nama tampilan dan lebih sering difilter. Satu hati adalah tanda preppy, dan nama masih muat.",
+      },
+    ],
+  },
+  "heart-font-generator": {
+    navName: "Hati",
+    h1: "Generator huruf hati",
+    description:
+      "Teks hati untuk disalin: huruf script dengan hati yang berbeda di masing-masing dari dua belas baris. Gratis di browser, tanpa menginstal apa pun.",
+    intro:
+      "Huruf script, lalu satu pasang hati per baris — dua belas hati, dan tidak ada dua baris yang memakai simbol yang sama. Satu hati di huruf balon tetap di halaman imut. Satu hati bersih di small caps tetap di halaman preppy. Kamu menyalin karakter. Ini bukan berkas font dan bukan gambar huruf.",
+    howItWorks:
+      "Baris berhati membungkus Bold Script Unicode, alfabet yang lebih tebal dengan e, g, dan o yang utuh. Script tipis ada di bawah, tanpa hati — di baris itu e, g, dan o adalah pengganti, jadi nama seperti Love atau Belle tetap di baris berhati. Balon adalah baris ketiga dan tetap polos, supaya tidak mengulang halaman imut. Setiap hati adalah simbol terpisah, hanya di baris tebal.",
+    coverageNote:
+      "Script dan script tebal mengubah A–Z dan a–z. Angka tetap seperti yang diketik. Balon mengubah huruf dan angka. Huruf beraksen, emoji, dan aksara lain lewat begitu saja. Hati adalah karakter tambahan dan dihitung dalam batas nama. Hati yang lebih kecil langka dan bisa tampil sebagai kotak kosong — kalau satu gagal, salin baris hati merah atau baris berkilau.",
+    bestFor: [
+      "Nama tampilan dan bio Instagram serta TikTok",
+      "Nama satu kata atau caption pendek",
+      "Nama panggilan Discord yang cukup dengan satu hati di tiap sisi",
+    ],
+    sampleInputs: ["Love", "Mia", "Honey"],
+    platformTip:
+      "Tempel nama berhati ke nama tampilan atau bio Instagram, bio TikTok, atau nama panggilan Discord. Username yang hanya menerima huruf biasa akan menolak hati. Nama tampilan Instagram sekitar 30 karakter dan nama panggilan Discord sekitar 32, jadi satu hati di tiap sisi kata pendek lebih sering muat daripada tumpukan simbol.",
+    faq: [
+      {
+        q: "Apakah font hati berkas yang diunduh?",
+        a: "Bukan. Hasilnya karakter Unicode, karena itu bisa ditempel ke app yang hanya menerima teks biasa. Situs ini tidak menawarkan berkas font, dan tidak menggambar huruf menjadi gambar.",
+      },
+      {
+        q: "Apa bedanya dengan halaman imut dan preppy?",
+        a: "Halaman imut adalah huruf balon dengan satu hati, pita, atau bunga. Preppy adalah small caps dengan satu hati yang bersih. Halaman ini adalah script dengan dua belas pasang hati yang berbeda, dan hati-hati itu tidak dipakai di halaman lain.",
+      },
+      {
+        q: "Bisakah nama berhati jadi username Instagram?",
+        a: "Tidak. Username Instagram hanya menerima huruf, angka, titik, dan garis bawah. Tempel nama berhati ke nama tampilan atau bio.",
+      },
+    ],
+  },
+  "chicano-font-generator": {
+    navName: "Chicano",
+    h1: "Generator huruf chicano",
+    description:
+      "Teks bergaya chicano untuk disalin: blackletter dengan satu hiasan per baris, plus satu baris script. Gratis di browser. Bukan berkas font dan bukan stensil tato.",
+    intro:
+      "Blackletter klasik, lalu satu hiasan per baris — dua belas tanda, dan tidak ada tengkorak atau bulan dari halaman gelap. Blackletter polos, tanpa hiasan, ada di halaman gothic. Kamu menyalin karakter. Ini bukan huruf Chicano yang digambar tangan, dan bukan stensil.",
+    howItWorks:
+      "Baris berhiasan membungkus Fraktur Unicode, alfabet blackletter yang sering disebut Old English. Fraktur tebal ada di bawah, tanpa hiasan, supaya goresan yang lebih berat tetap terbaca di ukuran kecil. Script tebal adalah baris ketiga dan tetap polos: itu pengganti bagian tulisan mengalir, dan hurufnya tidak tersambung. Setiap hiasan adalah simbol terpisah, hanya di baris fraktur klasik.",
+    coverageNote:
+      "Kedua gaya fraktur hanya mengubah A–Z dan a–z. Angka, huruf beraksen seperti á, é, dan ñ, serta emoji tetap seperti yang diketik, karena Unicode tidak punya bentuk fraktur untuk mereka. Script tebal hanya mengubah huruf. Hiasan adalah karakter tambahan dan dihitung dalam batas nama. Hiasan yang langka bisa tampil sebagai kotak kosong — kalau begitu, salin baris salib atau baris fraktur yang polos.",
+    bestFor: [
+      "Nama pendek atau semboyan satu kata di bio",
+      "Membandingkan blackletter dan script sebelum kamu minta seorang seniman huruf",
+      "Nama tampilan yang ingin blackletter tanpa tengkorak halaman gelap",
+    ],
+    sampleInputs: ["Rosa", "Luz", "Vida"],
+    platformTip:
+      "Tempel ke nama tampilan atau bio, lalu cek di app itu. Game yang hanya menerima huruf biasa akan menolak blackletter. Karakter ini bukan stensil tato: goresannya glif teks, bukan gambar yang diukur untuk kulit.",
+    faq: [
+      {
+        q: "Apakah ini font chicano yang diunduh?",
+        a: "Bukan. Kamu menyalin karakter Unicode. Situs ini tidak menawarkan berkas font, dan tidak memuat huruf blackletter atau script berbayar yang dipakai generator gambar.",
+      },
+      {
+        q: "Apakah ini huruf Chicano tradisional?",
+        a: "Bukan. Huruf Chicano adalah blackletter dan script yang digambar tangan, dari karya grafis Meksiko-Amerika — mural, mobil, dan tato. Baris di sini hanya mendekati tampilan blackletter, plus satu alfabet script. Ini bukan stensil dan tidak menggantikan seniman.",
+      },
+      {
+        q: "Kenapa ñ dan huruf beraksen tetap biasa?",
+        a: "Fraktur Unicode tidak punya bentuk untuk huruf itu, jadi mereka lewat begitu saja dan huruf lainnya tetap berubah.",
       },
     ],
   },

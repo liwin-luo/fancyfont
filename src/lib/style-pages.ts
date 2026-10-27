@@ -26,7 +26,7 @@ export interface StylePageDef {
 
 const SHARED: Omit<StylePageDef, "copy">[] = [
   { slug: "cursive-text-generator", styleIds: ["script", "boldScript"], related: ["bold-text-generator", "cute-font-generator", "elegant-font-generator"] },
-  { slug: "gothic-text-generator", styleIds: ["fraktur", "boldFraktur"], related: ["cursive-text-generator", "glitch-text-generator", "dark-font-generator"] },
+  { slug: "gothic-text-generator", styleIds: ["fraktur", "boldFraktur"], related: ["chicano-font-generator", "cursive-text-generator", "glitch-text-generator", "dark-font-generator"] },
   { slug: "bold-text-generator", styleIds: ["bold", "sansBold", "boldItalic"], related: ["italic-text-generator", "strikethrough-text-generator", "cool-font-generator"] },
   { slug: "italic-text-generator", styleIds: ["italic", "sansItalic"], related: ["bold-text-generator", "cursive-text-generator"] },
   { slug: "bubble-letters-generator", styleIds: ["bubble", "circled", "squared"], related: ["small-caps-generator", "cute-font-generator"] },
@@ -44,7 +44,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["✿ ", " ✿"],
       ["꒰ ", " ꒱"],
     ],
-    related: ["coquette-font-generator", "cool-font-generator", "elegant-font-generator", "bubble-letters-generator"],
+    related: ["heart-font-generator", "coquette-font-generator", "cool-font-generator", "bubble-letters-generator"],
   },
   {
     slug: "cool-font-generator",
@@ -65,7 +65,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["† ", " †"],
       ["☾ ", " ☽"],
     ],
-    related: ["cool-font-generator", "elegant-font-generator", "gothic-text-generator"],
+    related: ["chicano-font-generator", "cool-font-generator", "elegant-font-generator", "gothic-text-generator"],
   },
   {
     slug: "elegant-font-generator",
@@ -104,7 +104,45 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["♥ ", " ♥"],
       ["❥ ", " ❥"],
     ],
-    related: ["coquette-font-generator", "small-caps-generator", "cute-font-generator", "adopt-me-fonts"],
+    related: ["heart-font-generator", "coquette-font-generator", "small-caps-generator", "adopt-me-fonts"],
+  },
+  {
+    slug: "heart-font-generator",
+    styleIds: ["boldScript", "script", "bubble"],
+    wrappers: [
+      ["❤ ", " ❤"],
+      ["💖 ", " 💖"],
+      ["💗 ", " 💗"],
+      ["💓 ", " 💓"],
+      ["💞 ", " 💞"],
+      ["💕 ", " 💕"],
+      ["💝 ", " 💝"],
+      ["💘 ", " 💘"],
+      ["ღ ", " ღ"],
+      ["ᥫ᭡ ", " ᥫ᭡"],
+      ["ꨄ ", " ꨄ"],
+      ["❣ ", " ❣"],
+    ],
+    related: ["cute-font-generator", "preppy-font-generator", "coquette-font-generator", "cursive-text-generator", "instagram-fonts"],
+  },
+  {
+    slug: "chicano-font-generator",
+    styleIds: ["fraktur", "boldFraktur", "boldScript"],
+    wrappers: [
+      ["✠ ", " ✠"],
+      ["❧ ", " ❧"],
+      ["༺", "༻"],
+      ["𓆩", "𓆪"],
+      ["〘", "〙"],
+      ["〖", "〗"],
+      ["᯽ ", " ᯽"],
+      ["✶ ", " ✶"],
+      ["⊹ ", " ⊹"],
+      ["۞ ", " ۞"],
+      ["⸙ ", " ⸙"],
+      ["☙ ", " ☙"],
+    ],
+    related: ["gothic-text-generator", "dark-font-generator", "cursive-text-generator", "elegant-font-generator"],
   },
 ];
 

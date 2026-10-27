@@ -28,11 +28,11 @@ const styleDetail: Record<string, Record<Locale, string>> = {
     id: "bio & nama",
   },
   "gothic-text-generator": {
-    en: "Clan Tags",
-    es: "nombres de clan",
-    "pt-br": "nomes de clã",
-    "zh-cn": "战队名",
-    id: "nama klan",
+    en: "Fraktur",
+    es: "fraktur",
+    "pt-br": "fraktur",
+    "zh-cn": "Fraktur",
+    id: "fraktur",
   },
   "bold-text-generator": {
     en: "Chats & Names",
@@ -138,6 +138,20 @@ const styleDetail: Record<string, Record<Locale, string>> = {
     "pt-br": "corações limpos",
     "zh-cn": "干净爱心",
     id: "hati bersih",
+  },
+  "heart-font-generator": {
+    en: "Twelve Hearts",
+    es: "doce corazones",
+    "pt-br": "doze corações",
+    "zh-cn": "十二种爱心",
+    id: "dua belas hati",
+  },
+  "chicano-font-generator": {
+    en: "Blackletter Names",
+    es: "nombres góticos",
+    "pt-br": "nomes góticos",
+    "zh-cn": "黑字母名字",
+    id: "nama blackletter",
   },
 };
 

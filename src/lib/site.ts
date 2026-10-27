@@ -4,7 +4,7 @@ export const siteName = "FancyFont";
 export const contactEmail = "hello@fancyfont.tools";
 
 /** Bump when public pages change so sitemap lastmod stays stable between requests. */
-export const contentUpdated = "2026-10-26";
+export const contentUpdated = "2026-10-27";
 
 export const ogImagePath = "/og/";
 export const ogImageAlt = "FancyFont — stylish Unicode text, gaming names and symbols";

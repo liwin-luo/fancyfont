@@ -41,9 +41,9 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     navName: "Gótica",
     h1: "Gerador de letras góticas",
     description:
-      "Crie texto gótico blackletter com qualquer palavra. Traços clássico e negrito, prévia ao vivo e cópia em um toque para nomes, bios e clãs.",
+      "Gerador de letras Fraktur, a gótica blackletter. Traços clássico e negrito, prévia ao vivo e cópia em um toque para nomes, bios e clãs.",
     intro:
-      "Digite qualquer coisa e transforme em letra gótica — o estilo antigo dos logos de metal, tags de clã e bios sombrias. Copie em um clique.",
+      "Digite qualquer coisa e transforme em Fraktur, a letra gótica dos logos de metal, tags de clã e bios sombrias. Dois traços, copie em um clique.",
     howItWorks:
       "O texto gótico usa as faixas Unicode Mathematical Fraktur. O fraktur é um estilo alemão histórico, e o Unicode traz um alfabeto inteiro de lookalikes — incluindo formas especiais para C, H, I, R e Z.",
     coverageNote:
@@ -57,6 +57,10 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     platformTip:
       "Os caracteres blackletter funcionam bem em celulares modernos, mas alguns aparelhos antigos mostram quadradinhos. Teste no app que você vai usar — principalmente em jogos.",
     faq: [
+      {
+        q: "Fraktur é outro gerador, diferente do gótico?",
+        a: "Não. Esta página é os dois. Fraktur é o nome do alfabeto gótico, e «gótica» é como se busca o mesmo texto. Não há um arquivo de fonte separado.",
+      },
       {
         q: "Qual a diferença entre os dois estilos góticos?",
         a: "O primeiro é o fraktur clássico, de traço fino; o segundo é o peso negrito, que continua legível em tamanhos pequenos.",
@@ -578,6 +582,74 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       {
         q: "Por que os corações são tão simples?",
         a: "Uma pilha de laços come os 20 caracteres do nome de exibição e o filtro corta com mais frequência. Um coração é a marca preppy e ainda deixa espaço para o nome.",
+      },
+    ],
+  },
+  "heart-font-generator": {
+    navName: "Coração",
+    h1: "Gerador de letras com coração",
+    description:
+      "Texto com coração para copiar e colar: letras script e um coração diferente em cada uma de doze linhas. Grátis no navegador, sem instalar nada.",
+    intro:
+      "Letras script e um par de corações por linha: doze corações, e nenhuma linha repete o símbolo. Um coração nas letras bolha fica na página fofa. Um coração limpo nos versaletes fica na página preppy. Você copia caracteres. Não é um arquivo de fonte nem um desenho de letras.",
+    howItWorks:
+      "As linhas com coração envolvem o script pesado do Unicode, o alfabeto que tem e, g e o de verdade. O script fino fica embaixo, sem coração, e nessa linha e, g e o são substitutos, então um nome como Love ou Belle fica numa linha com coração. A bolha é a terceira linha e fica sem enfeite, para não repetir a página fofa. Cada coração é um símbolo separado, só na linha pesada.",
+    coverageNote:
+      "O script e o script pesado convertem A–Z e a–z. Os dígitos ficam como você digitou. A bolha converte letras e dígitos. Acentos, emoji e outros alfabetos passam sem mudança. Os corações são caracteres extras e contam no limite do nome. Os corações menores são raros e podem aparecer como um quadrado vazio: se um falhar, copie a linha do coração vermelho ou a do brilho.",
+    bestFor: [
+      "Nomes de exibição e bios do Instagram e do TikTok",
+      "Um nome de uma palavra ou uma legenda curta",
+      "Apelidos do Discord em que um coração de cada lado basta",
+    ],
+    sampleInputs: ["Love", "Mia", "Honey"],
+    platformTip:
+      "Cole o nome com coração no nome de exibição ou na bio do Instagram, na bio do TikTok ou no apelido do Discord. Usuários que só aceitam letras comuns rejeitam os corações. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord, então um coração de cada lado de uma palavra curta cabe mais vezes do que uma pilha de símbolos.",
+    faq: [
+      {
+        q: "A fonte de coração é um arquivo para baixar?",
+        a: "Não. O resultado são caracteres Unicode, e é por isso que cola em apps que só aceitam texto puro. Este site não oferece arquivos de fonte e não desenha as letras numa imagem.",
+      },
+      {
+        q: "Qual a diferença para as páginas fofa e preppy?",
+        a: "O fofo são letras bolha com um coração, um laço ou uma flor. Preppy são versaletes com um coração limpo. Esta página é script com doze pares de coração diferentes, e esses corações não aparecem nas outras páginas.",
+      },
+      {
+        q: "Posso usar um nome com coração como usuário do Instagram?",
+        a: "Não. O usuário do Instagram só aceita letras, dígitos, pontos e sublinhados. Cole o nome com coração no nome de exibição ou na bio.",
+      },
+    ],
+  },
+  "chicano-font-generator": {
+    navName: "Chicana",
+    h1: "Gerador de letra chicana",
+    description:
+      "Texto no estilo chicano para copiar e colar: gótica com um enfeite por linha, mais uma linha script. Grátis no navegador. Não é um arquivo de fonte nem um estêncil de tatuagem.",
+    intro:
+      "Gótica clássica e um enfeite por linha: doze marcas, e nenhuma é a caveira ou a lua da página escura. A gótica sem enfeite está na página gothic. Você copia caracteres. Isto não é lettering chicano desenhado à mão, nem um estêncil.",
+    howItWorks:
+      "As linhas com enfeite envolvem o Fraktur do Unicode, a letra gótica que muita gente chama de Old English. A gótica pesada fica embaixo, sem enfeite, para o traço grosso continuar legível em tamanho pequeno. O script pesado é a terceira linha e fica sem enfeite: ocupa o lugar da metade cursiva do estilo, e as letras não são ligadas. Cada enfeite é um símbolo separado, só na linha gótica clássica.",
+    coverageNote:
+      "As duas góticas convertem só A–Z e a–z. Dígitos, letras com acento como á, é e ñ, e emoji ficam como você digitou, porque o Unicode não tem forma gótica para eles. O script pesado só converte letras. Os enfeites são caracteres extras e contam no limite do nome. Um enfeite raro pode aparecer como um quadrado vazio: se isso acontecer, copie a linha da cruz ou a gótica nua.",
+    bestFor: [
+      "Um nome curto ou um lema de uma palavra na bio",
+      "Comparar gótica e script antes de passar o trabalho a um letrista",
+      "Um nome de exibição que queira gótica sem as caveiras da página escura",
+    ],
+    sampleInputs: ["Rosa", "Luz", "Vida"],
+    platformTip:
+      "Cole num nome de exibição ou na bio e confira nesse app. Jogos que só aceitam letras comuns rejeitam a gótica. Estes caracteres não são um estêncil de tatuagem: os traços são glifos de texto, não um desenho no tamanho da pele.",
+    faq: [
+      {
+        q: "Isto é uma fonte chicana para baixar?",
+        a: "Não. Você copia caracteres Unicode. Este site não oferece um arquivo de fonte e não carrega as góticas ou scripts pagos que os geradores de imagem usam.",
+      },
+      {
+        q: "É lettering chicano tradicional?",
+        a: "Não. O lettering chicano é gótica e script desenhados à mão, do trabalho gráfico mexicano-americano: murais, carros e tatuagens. Estas linhas só se aproximam do visual gótico, mais um alfabeto script. Não são um estêncil nem substituem um artista.",
+      },
+      {
+        q: "Por que ñ e as letras com acento ficam normais?",
+        a: "O fraktur do Unicode não tem forma para elas, então passam iguais e o resto das letras ainda converte.",
       },
     ],
   },

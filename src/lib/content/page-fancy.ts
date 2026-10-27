@@ -33,13 +33,13 @@ export interface FancyContent {
 export const fancyContent: Record<Locale, FancyContent> = {
   en: {
     meta: {
-      title: serpTitle("Fancy Text Generator", "en", "30 Styles"),
+      title: serpTitle("Fancy Text Generator", "en", "Live Preview"),
       description:
-        "Turn text into cursive, gothic, bold, bubble, and 30 Unicode styles. Copy and paste the result into bios, names, and chats. Free in your browser — no font to install.",
+        "Live font generator for cursive, gothic, bold, bubble, and 30 Unicode styles. The preview updates as you type. Copy and paste into bios, names, and chats.",
     },
     h1: "Fancy Text Generator",
     intro:
-      "Type any text and instantly turn it into stylish Unicode text — cursive, gothic, bold, circled and more. Click copy, then paste it into your bio, profile, or chat.",
+      "A live font generator for plain text. Type anything and the styles update as you type — cursive, gothic, bold, bubble and more. Copy, then paste into a bio, profile, or chat.",
     howHeading: "How to use it",
     steps: [
       "Type or paste your text into the box above — results update as you type.",

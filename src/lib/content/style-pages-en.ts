@@ -66,9 +66,9 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     navName: "Gothic",
     h1: "Gothic Text Generator",
     description:
-      "Create gothic blackletter text from any word. Classic and bold weights, live preview, one-tap copy for names, bios and clans.",
+      "Fraktur font generator for gothic blackletter. Classic and bold weights, live preview, one-tap copy for names, bios and clans.",
     intro:
-      "Type anything and turn it into gothic blackletter — the old-world style you see in metal logos, clan tags and moody bios. Copy it in one click.",
+      "Type anything and turn it into Fraktur, the gothic blackletter in metal logos, clan tags and moody bios. Classic and bold weights, copy in one click.",
     howItWorks:
       "Gothic text uses the Unicode Mathematical Fraktur ranges. Fraktur is a historical German blackletter style, and Unicode ships a full lookalike alphabet for it — including typographically correct special forms for C, H, I, R and Z.",
     coverageNote:
@@ -82,6 +82,10 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     platformTip:
       "Blackletter characters are widely supported on modern phones, but a few older devices show boxes. Test in the app you are targeting — especially inside games.",
     faq: [
+      {
+        q: "Is Fraktur a different generator from gothic?",
+        a: "No. This page is both. Fraktur is the name of the blackletter alphabet, and gothic is the usual search name for the same characters. There is no separate font file.",
+      },
       {
         q: "What is the difference between the two gothic styles?",
         a: "The first is classic Fraktur with thinner strokes; the second is the bold weight with heavier strokes that stays readable at small sizes.",
@@ -603,6 +607,74 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       {
         q: "Why keep the hearts so plain?",
         a: "A stack of bows eats the 20-character display name and gets filtered more often. One heart is the preppy mark, and it still leaves room for the name.",
+      },
+    ],
+  },
+  "heart-font-generator": {
+    navName: "Heart",
+    h1: "Heart Font Generator",
+    description:
+      "Heart copy-and-paste text: script letters with a different heart on each of twelve rows. Free in the browser, nothing to install.",
+    intro:
+      "Script letters, then one heart pair per row — twelve hearts, and no two rows share a symbol. One heart on bubble letters stays on the cute page. One clean heart on small caps stays on the preppy page. You copy characters. This is not a font file and not a picture of lettering.",
+    howItWorks:
+      "The heart rows wrap Unicode Bold Script, the heavier alphabet with a real e, g, and o. The thinner script sits underneath with no heart — on that row e, g, and o are stand-ins, so a name like Love or Belle should stay on a heart row. Bubble is the third row and stays bare, so it does not repeat the cute page. Each heart is a separate symbol on the bold row only.",
+    coverageNote:
+      "Script and bold script convert A–Z and a–z. Digits stay as typed. Bubble converts letters and digits. Accented letters, emoji, and other scripts pass through. Hearts are extra characters and count toward name-length limits. The smaller hearts are rare and can show as an empty box — if one fails, copy the red heart or the sparkle row.",
+    bestFor: [
+      "Instagram and TikTok display names and bios",
+      "A one-word name or a short caption",
+      "Discord nicknames where one heart on each side is enough",
+    ],
+    sampleInputs: ["Love", "Mia", "Honey"],
+    platformTip:
+      "Paste a heart name into an Instagram display name or bio, a TikTok bio, or a Discord nickname. Handles that only allow plain letters will reject the hearts. A display name is about 30 characters on Instagram and a nickname about 32 on Discord, so one heart on each side of a short word fits more often than a stack of symbols.",
+    faq: [
+      {
+        q: "Is a heart font a file I download?",
+        a: "No. The result is Unicode characters, which is why it pastes into apps that only accept plain text. This site does not offer font files, and it does not draw the letters into a picture.",
+      },
+      {
+        q: "How is this different from the cute and preppy pages?",
+        a: "Cute is bubble letters with one heart, a bow, or a flower. Preppy is small caps with one clean heart. This page is script with twelve different heart pairs, and those hearts are not used on the other pages.",
+      },
+      {
+        q: "Can I use a heart name as my Instagram username?",
+        a: "No. Instagram usernames only allow letters, digits, periods, and underscores. Paste the heart name into your display name or bio.",
+      },
+    ],
+  },
+  "chicano-font-generator": {
+    navName: "Chicano",
+    h1: "Chicano Font Generator",
+    description:
+      "Chicano-style copy-and-paste text: blackletter with one ornament per row, plus a script line. Free in the browser. Not a font file or a tattoo stencil.",
+    intro:
+      "Classic blackletter, then one ornament per row — twelve marks, and none of them are the skulls or moons on the dark page. Bare blackletter, with no ornaments, is the gothic page. You copy characters. This is not hand-drawn Chicano lettering, and it is not a stencil.",
+    howItWorks:
+      "The ornament rows wrap Unicode Fraktur, the blackletter alphabet often called Old English. Bold fraktur sits underneath with no ornament, so the heavier weight stays readable at small sizes. Bold script is the third row and stays bare: it stands in for the flowing half of the style, and the letters are not joined. Each ornament is a separate symbol on the classic fraktur row only.",
+    coverageNote:
+      "Both fraktur styles convert A–Z and a–z only. Digits, accented letters such as á, é, and ñ, and emoji stay as typed, because Unicode has no fraktur forms for them. Bold script converts letters only. Ornaments are extra characters and count toward name-length limits. A rare ornament can show as an empty box — if it does, copy the cross row or the bare fraktur row.",
+    bestFor: [
+      "A short name or a one-word motto in a bio",
+      "Comparing blackletter and script before you brief a lettering artist",
+      "A display name that wants blackletter without the dark-page skulls",
+    ],
+    sampleInputs: ["Rosa", "Luz", "Vida"],
+    platformTip:
+      "Paste into a display name or bio, then check that app. Games that only accept plain letters will reject blackletter. These characters are not a tattoo stencil: the strokes are text glyphs, not a drawing sized for skin.",
+    faq: [
+      {
+        q: "Is this a Chicano font I download?",
+        a: "No. You copy Unicode characters. This site does not offer a font file, and it does not load the retail blackletter or script faces that image generators use.",
+      },
+      {
+        q: "Is this traditional Chicano lettering?",
+        a: "No. Chicano lettering is hand-drawn blackletter and script from Mexican-American graphic work — murals, cars, and tattoos. These rows only approximate the blackletter look, plus one script alphabet. They are not a stencil or a stand-in for an artist.",
+      },
+      {
+        q: "Why do ñ and accented letters stay plain?",
+        a: "Unicode fraktur has no styled form for them, so they pass through and the other letters still convert.",
       },
     ],
   },

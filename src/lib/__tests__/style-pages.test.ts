@@ -15,6 +15,8 @@ describe("look pages", () => {
       "aesthetic-text-generator",
       "coquette-font-generator",
       "preppy-font-generator",
+      "heart-font-generator",
+      "chicano-font-generator",
     ]);
 
     const seen = new Set<string>();
@@ -40,6 +42,12 @@ describe("look pages", () => {
     expect(previewStylePage("Mia", looks[5])).toBe(`𐙚 ${convertText("Mia", "boldScript")} 𐙚`);
     expect(previewStylePage("Belle", looks[5])).not.toContain("\u212F");
     expect(previewStylePage("Mila", looks[6])).toBe(`🤍 ${convertText("Mila", "smallCaps")} 🤍`);
+    const heart = looks[7];
+    expect(heart.wrappers?.length).toBeGreaterThanOrEqual(10);
+    expect(previewStylePage("Love", heart)).toBe(`❤ ${convertText("Love", "boldScript")} ❤`);
+    const chicano = looks[8];
+    expect(chicano.wrappers?.length).toBeGreaterThanOrEqual(10);
+    expect(previewStylePage("Rosa", chicano)).toBe(`✠ ${convertText("Rosa", "fraktur")} ✠`);
 
     const previews = looks.map((page) => previewStylePage("Name", page));
     expect(new Set(previews).size).toBe(looks.length);
