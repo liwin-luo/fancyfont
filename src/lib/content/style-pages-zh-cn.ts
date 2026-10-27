@@ -43,11 +43,11 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     navName: "哥特",
     h1: "哥特字体生成器",
     description:
-      "Fraktur 字体生成器：把单词转成哥特黑体。经典与加粗两款，实时预览，一键复制到昵称、简介和战队名。",
+      "Fraktur 与 Old English 字体生成器：把单词转成哥特黑体。经典与加粗两款，实时预览，一键复制到昵称、简介和战队名。",
     intro:
-      "输入英文单词，把它变成 Fraktur，也就是哥特黑体。金属乐队 Logo、战队标签和暗黑简介用的就是这套字母。两款粗细，一键复制。",
+      "输入英文单词，把它变成 Fraktur，也就是常被叫作 Old English 的哥特黑体。金属乐队 Logo、战队标签和暗黑简介用的就是这套字母。两款粗细，一键复制。",
     howItWorks:
-      "哥体效果来自 Unicode 的 Mathematical Fraktur 字符区。Fraktur 是一种历史悠久的德文黑体书法，Unicode 为它提供了完整的形近字母表——包括 C、H、I、R、Z 的特殊字形。",
+      "哥体效果来自 Unicode 的 Mathematical Fraktur 字符区。Fraktur 也常被叫作 Old English，是一种历史悠久的德文黑体书法，Unicode 为它提供了完整的形近字母表——包括 C、H、I、R、Z 的特殊字形。",
     coverageNote:
       "两种哥体样式只转换英文字母 A–Z 和 a–z。数字、带声调字母和 emoji 保持原样，因为 Unicode 没有哥特数字。",
     bestFor: [
@@ -60,8 +60,8 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       "黑体字符在现代手机上支持良好，但少数老设备会显示方块。请在你目标的应用里测试——游戏内尤其要试。",
     faq: [
       {
-        q: "Fraktur 是另一个生成器吗？",
-        a: "不是。这一页就是两者。Fraktur 是这套黑体字母的名称，哥特是同一套字符的常见叫法。没有单独的字体文件。",
+        q: "Fraktur 或 Old English 是另一个生成器吗？",
+        a: "不是。这一页就是这几个名字。Fraktur 和 Old English 是同一套黑体字母，哥特是这些字符的常见叫法。没有单独的字体文件。",
       },
       {
         q: "两种哥体样式有什么区别？",

@@ -41,11 +41,11 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     navName: "Gothic",
     h1: "Generator Huruf Gothic",
     description:
-      "Generator huruf Fraktur, blackletter gothic. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan clan.",
+      "Generator huruf Fraktur dan Old English, blackletter gothic. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan clan.",
     intro:
-      "Ketik apa saja dan ubah menjadi Fraktur, huruf gothic pada logo band metal, tag clan, dan bio gelap. Dua ketebalan, salin dalam satu klik.",
+      "Ketik apa saja dan ubah menjadi Fraktur, blackletter Old English pada logo band metal, tag clan, dan bio gelap. Dua ketebalan, salin dalam satu klik.",
     howItWorks:
-      "Huruf gothic memakai rentang Unicode Mathematical Fraktur. Fraktur adalah gaya tulisan tangan Jerman bersejarah, dan Unicode menyediakan alfabet lengkapnya — termasuk bentuk khusus untuk C, H, I, R, dan Z.",
+      "Huruf gothic memakai rentang Unicode Mathematical Fraktur. Fraktur, yang sering disebut Old English, adalah gaya tulisan tangan Jerman bersejarah, dan Unicode menyediakan alfabet lengkapnya — termasuk bentuk khusus untuk C, H, I, R, dan Z.",
     coverageNote:
       "Kedua gaya gothic hanya mengonversi A–Z dan a–z. Angka, huruf beraksen, dan emoji tetap seperti aslinya karena Unicode tidak punya angka fraktur.",
     bestFor: [
@@ -58,8 +58,8 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       "Karakter blackletter didukung baik di ponsel modern, tapi beberapa perangkat lama menampilkan kotak. Uji di aplikasi yang kamu tuju — terutama di dalam game.",
     faq: [
       {
-        q: "Apakah Fraktur generator yang berbeda dari gothic?",
-        a: "Bukan. Halaman ini keduanya. Fraktur adalah nama alfabet blackletter itu, dan gothic adalah nama pencarian untuk karakter yang sama. Tidak ada berkas font terpisah.",
+        q: "Apakah Fraktur atau Old English generator yang berbeda dari gothic?",
+        a: "Bukan. Halaman ini mencakup ketiga nama itu. Fraktur dan Old English adalah alfabet blackletter yang sama, dan gothic adalah nama pencarian untuk karakter yang sama. Tidak ada berkas font terpisah.",
       },
       {
         q: "Apa bedanya dua gaya gothic ini?",

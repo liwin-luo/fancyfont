@@ -16,6 +16,9 @@ describe("serp titles", () => {
     expect(serpTitle("Fancy Text Generator", "en", "30 Styles")).toBe(
       `Fancy Text Generator \u2014 ${script} 30 Styles | ${siteName}`,
     );
+    const gothic = styleSerpTitle("Gothic Text Generator", "gothic-text-generator", "en");
+    expect(gothic).toContain("Fraktur");
+    expect(gothic).toContain("Old English");
   });
 
   it("gives every style page a plain-text detail after the script", () => {

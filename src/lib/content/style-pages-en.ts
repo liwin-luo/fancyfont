@@ -66,11 +66,11 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     navName: "Gothic",
     h1: "Gothic Text Generator",
     description:
-      "Fraktur font generator for gothic blackletter. Classic and bold weights, live preview, one-tap copy for names, bios and clans.",
+      "Fraktur and Old English font generator for gothic blackletter. Classic and bold weights, live preview, one-tap copy for names, bios and clans.",
     intro:
-      "Type anything and turn it into Fraktur, the gothic blackletter in metal logos, clan tags and moody bios. Classic and bold weights, copy in one click.",
+      "Type anything and turn it into Fraktur, the Old English blackletter in metal logos, clan tags and moody bios. Classic and bold weights, copy in one click.",
     howItWorks:
-      "Gothic text uses the Unicode Mathematical Fraktur ranges. Fraktur is a historical German blackletter style, and Unicode ships a full lookalike alphabet for it — including typographically correct special forms for C, H, I, R and Z.",
+      "Gothic text uses the Unicode Mathematical Fraktur ranges. Fraktur, often called Old English, is a historical German blackletter style, and Unicode ships a full lookalike alphabet for it — including typographically correct special forms for C, H, I, R and Z.",
     coverageNote:
       "Both gothic styles convert A–Z and a–z only. Digits, accented letters and emoji are kept exactly as typed, because Unicode ships no fraktur digits.",
     bestFor: [
@@ -83,8 +83,8 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       "Blackletter characters are widely supported on modern phones, but a few older devices show boxes. Test in the app you are targeting — especially inside games.",
     faq: [
       {
-        q: "Is Fraktur a different generator from gothic?",
-        a: "No. This page is both. Fraktur is the name of the blackletter alphabet, and gothic is the usual search name for the same characters. There is no separate font file.",
+        q: "Is Fraktur or Old English a different generator from gothic?",
+        a: "No. This page is all three names. Fraktur and Old English are names for the same blackletter alphabet, and gothic is the usual search name for those characters. There is no separate font file.",
       },
       {
         q: "What is the difference between the two gothic styles?",

@@ -41,11 +41,11 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     navName: "Gótica",
     h1: "Gerador de letras góticas",
     description:
-      "Gerador de letras Fraktur, a gótica blackletter. Traços clássico e negrito, prévia ao vivo e cópia em um toque para nomes, bios e clãs.",
+      "Gerador de letras Fraktur e Old English, a gótica blackletter. Traços clássico e negrito, prévia ao vivo e cópia em um toque para nomes, bios e clãs.",
     intro:
-      "Digite qualquer coisa e transforme em Fraktur, a letra gótica dos logos de metal, tags de clã e bios sombrias. Dois traços, copie em um clique.",
+      "Digite qualquer coisa e transforme em Fraktur, a blackletter Old English dos logos de metal, tags de clã e bios sombrias. Dois traços, copie em um clique.",
     howItWorks:
-      "O texto gótico usa as faixas Unicode Mathematical Fraktur. O fraktur é um estilo alemão histórico, e o Unicode traz um alfabeto inteiro de lookalikes — incluindo formas especiais para C, H, I, R e Z.",
+      "O texto gótico usa as faixas Unicode Mathematical Fraktur. O fraktur, que muita gente chama de Old English, é um estilo alemão histórico, e o Unicode traz um alfabeto inteiro de lookalikes — incluindo formas especiais para C, H, I, R e Z.",
     coverageNote:
       "Os dois estilos góticos convertem apenas A–Z e a–z. Dígitos, acentos e emoji ficam como estão, porque o Unicode não tem dígitos fraktur.",
     bestFor: [
@@ -58,8 +58,8 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       "Os caracteres blackletter funcionam bem em celulares modernos, mas alguns aparelhos antigos mostram quadradinhos. Teste no app que você vai usar — principalmente em jogos.",
     faq: [
       {
-        q: "Fraktur é outro gerador, diferente do gótico?",
-        a: "Não. Esta página é os dois. Fraktur é o nome do alfabeto gótico, e «gótica» é como se busca o mesmo texto. Não há um arquivo de fonte separado.",
+        q: "Fraktur ou Old English é outro gerador, diferente do gótico?",
+        a: "Não. Esta página cobre os três nomes. Fraktur e Old English são o mesmo alfabeto gótico, e «gótica» é como se busca esse texto. Não há um arquivo de fonte separado.",
       },
       {
         q: "Qual a diferença entre os dois estilos góticos?",
