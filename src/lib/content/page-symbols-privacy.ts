@@ -62,6 +62,12 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
         title: "Fancy Text Generator",
         description: "Turn plain text into 30 stylish Unicode styles.",
       },
+      {
+        path: "/blank-space/",
+        title: "Blank Space",
+        description:
+          "Copy a run of Hangul filler, Braille blank, or ideographic space, or place that blank between fancy letters.",
+      },
     ],
   },
   es: {
@@ -109,6 +115,12 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
         path: "/fancy-text-generator/",
         title: "Generador de letras bonitas",
         description: "Convierte texto normal en 30 estilos Unicode.",
+      },
+      {
+        path: "/blank-space/",
+        title: "Espacio en blanco",
+        description:
+          "Copia una tanda de relleno hangul, espacio braille o espacio ideográfico, o colócalo entre letras con estilo.",
       },
     ],
   },
@@ -158,6 +170,12 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
         title: "Gerador de letras bonitas",
         description: "Transforme texto simples em 30 estilos Unicode.",
       },
+      {
+        path: "/blank-space/",
+        title: "Espaço em branco",
+        description:
+          "Copie uma sequência de preenchimento hangul, espaço braille ou espaço ideográfico, ou coloque esse espaço entre letras estilizadas.",
+      },
     ],
   },
   "zh-cn": {
@@ -206,6 +224,11 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
         title: "个性字体生成器",
         description: "把普通文字转换成 30 种个性 Unicode 样式。",
       },
+      {
+        path: "/blank-space/",
+        title: "空白复制",
+        description: "复制一串韩文填充符、盲文空位或表意空格，或把这种空白夹进花体字母。",
+      },
     ],
   },
   id: {
@@ -253,6 +276,12 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
         path: "/fancy-text-generator/",
         title: "Generator Huruf Keren",
         description: "Ubah teks biasa menjadi 30 gaya Unicode keren.",
+      },
+      {
+        path: "/blank-space/",
+        title: "Spasi kosong",
+        description:
+          "Salin deretan pengisi Hangul, spasi Braille, atau spasi ideografis, atau selipkan spasi itu di antara huruf keren.",
       },
     ],
   },

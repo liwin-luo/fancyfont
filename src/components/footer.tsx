@@ -40,6 +40,11 @@ export function Footer({ locale }: { locale: Locale }) {
                 {t.tools.symbols}
               </Link>
             </li>
+            <li>
+              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/blank-space/")}>
+                {t.tools.blank}
+              </Link>
+            </li>
           </ul>
           <h2 className="mt-6 text-sm font-semibold text-ink-900">{t.tools.forPlatforms}</h2>
           <ul className="mt-3 space-y-2 text-sm">

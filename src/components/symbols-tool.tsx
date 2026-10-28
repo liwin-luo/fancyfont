@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
+import { localePath } from "@/lib/i18n";
 import {
   displaySymbol,
   searchSymbols,
@@ -144,7 +146,13 @@ export function SymbolsTool() {
         </p>
         {showInvisibleNote && (
           <p className="mt-3 rounded-xl bg-brand-50 px-3 py-2 text-sm leading-relaxed text-ink-700">
-            {t.symbolCatNotes.invisible}
+            {t.symbolCatNotes.invisible}{" "}
+            <Link
+              href={localePath(locale, "/blank-space/")}
+              className="font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
+            >
+              {t.symbolCatNotes.blankLink}
+            </Link>
           </p>
         )}
       </div>

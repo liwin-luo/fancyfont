@@ -30,6 +30,7 @@ export function llmsTxt(siteUrl: string): string {
 - [Gaming Name Generator](${siteUrl}/gaming-name-generator/): decorated nicknames
 - Platform generators, in filter order: ${platforms}
 - [Symbols](${siteUrl}/symbols/): searchable symbols and decorative combos
+- [Blank Space](${siteUrl}/blank-space/): copy Hangul filler (U+3164), Braille blank (U+2800), or ideographic space (U+3000) — 1, 20, or 100 — or insert 0–5 of that blank between the Unicode letter styles
 - [MCP for local AI agents](${siteUrl}/mcp/): download ${siteUrl}/fancyfont-mcp.mjs and run it with node
 - [Privacy](${siteUrl}/privacy/): text stays on the device
 - [Terms](${siteUrl}/terms/): independent site, no affiliation with the named apps

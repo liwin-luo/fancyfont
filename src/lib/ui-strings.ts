@@ -14,6 +14,7 @@ export interface UiStrings {
     fancy: string;
     gaming: string;
     symbols: string;
+    blank: string;
     privacy: string;
     terms: string;
     mcp: string;
@@ -150,7 +151,7 @@ export interface UiStrings {
     subscribers: string;
     subscribe: string;
   };
-  symbolCatNotes: { invisible: string };
+  symbolCatNotes: { invisible: string; blankLink: string };
   sections: {
     howToUse: string;
     examples: string;
@@ -211,6 +212,7 @@ export const ui: Record<Locale, UiStrings> = {
       fancy: "Fancy Text Generator",
       gaming: "Gaming Name Generator",
       symbols: "Symbols & Decorators",
+      blank: "Blank Space",
       privacy: "Privacy Policy",
       terms: "Terms of Use",
       mcp: "For AI agents",
@@ -385,6 +387,8 @@ export const ui: Record<Locale, UiStrings> = {
     symbolCatNotes: {
       invisible:
         "These characters are invisible. They are famously used for blank game names: copy one and replace your whole name with it (some games still reject blank names — test first). The dotted circle just marks where the hidden character is.",
+      blankLink:
+        "Copy a run of Hangul filler, Braille blank, or ideographic space, or place that blank between fancy letters.",
     },
     sections: {
       howToUse: "How to use it",
@@ -419,6 +423,7 @@ export const ui: Record<Locale, UiStrings> = {
       fancy: "Generador de letras bonitas",
       gaming: "Generador de nombres para juegos",
       symbols: "Símbolos y decoración",
+      blank: "Espacio en blanco",
       privacy: "Política de privacidad",
       terms: "Términos de uso",
       mcp: "Para agentes de IA",
@@ -625,6 +630,8 @@ export const ui: Record<Locale, UiStrings> = {
     symbolCatNotes: {
       invisible:
         "Estos caracteres son invisibles. Se usan mucho para nombres vacíos en juegos: copia uno y reemplaza con él todo tu nombre (algunos juegos siguen rechazando nombres vacíos — prueba antes). El círculo punteado solo marca dónde está el carácter oculto.",
+      blankLink:
+        "Copia una tanda de relleno hangul, espacio braille o espacio ideográfico, o colócalo entre letras con estilo.",
     },
     sections: {
       howToUse: "Cómo usarlo",
@@ -664,6 +671,7 @@ export const ui: Record<Locale, UiStrings> = {
       fancy: "Gerador de letras bonitas",
       gaming: "Gerador de nomes para jogos",
       symbols: "Símbolos e decoração",
+      blank: "Espaço em branco",
       privacy: "Política de Privacidade",
       terms: "Termos de uso",
       mcp: "Para agentes de IA",
@@ -870,6 +878,8 @@ export const ui: Record<Locale, UiStrings> = {
     symbolCatNotes: {
       invisible:
         "Esses caracteres são invisíveis. São famosos para nomes vazios em jogos: copie um e substitua todo o seu nome por ele (alguns jogos ainda recusam nomes vazios — teste antes). O círculo pontilhado só marca onde está o caractere oculto.",
+      blankLink:
+        "Copie uma sequência de preenchimento hangul, espaço braille ou espaço ideográfico, ou coloque esse espaço entre letras estilizadas.",
     },
     sections: {
       howToUse: "Como usar",
@@ -904,6 +914,7 @@ export const ui: Record<Locale, UiStrings> = {
       fancy: "个性字体生成器",
       gaming: "游戏昵称生成器",
       symbols: "特殊符号大全",
+      blank: "空白复制",
       privacy: "隐私政策",
       terms: "使用条款",
       mcp: "给 AI 代理",
@@ -1109,6 +1120,7 @@ export const ui: Record<Locale, UiStrings> = {
     symbolCatNotes: {
       invisible:
         "这些字符本身不可见，最出名的用法是游戏空白名：复制一个，用它替换整个名字（部分游戏仍然拒绝空白名——请先测试）。虚线圆圈只是用来标记隐藏字符的位置。",
+      blankLink: "要复制一串韩文填充符、盲文空位或表意空格，或把这种空白夹进花体字母，打开空白复制页。",
     },
     sections: {
       howToUse: "使用方法",
@@ -1142,6 +1154,7 @@ export const ui: Record<Locale, UiStrings> = {
       fancy: "Generator Huruf Keren",
       gaming: "Generator Nama Game",
       symbols: "Simbol & Dekorasi",
+      blank: "Spasi kosong",
       privacy: "Kebijakan Privasi",
       terms: "Ketentuan penggunaan",
       mcp: "Untuk agen AI",
@@ -1349,6 +1362,8 @@ export const ui: Record<Locale, UiStrings> = {
     symbolCatNotes: {
       invisible:
         "Karakter ini tidak terlihat. Terkenal untuk nama kosong di game: salin satu dan ganti seluruh namamu dengannya (beberapa game tetap menolak nama kosong — uji dulu). Lingkaran titik-titik hanya penanda posisi karakter tersembunyi.",
+      blankLink:
+        "Salin deretan pengisi Hangul, spasi Braille, atau spasi ideografis, atau selipkan spasi itu di antara huruf keren.",
     },
     sections: {
       howToUse: "Cara pakai",

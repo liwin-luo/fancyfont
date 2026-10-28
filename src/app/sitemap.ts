@@ -15,6 +15,7 @@ const PATHS: PathSpec[] = [
   { path: "/fancy-text-generator/", changeFrequency: "monthly", priority: 0.9 },
   { path: "/gaming-name-generator/", changeFrequency: "monthly", priority: 0.9 },
   { path: "/symbols/", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/blank-space/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/privacy/", changeFrequency: "yearly", priority: 0.3 },
   { path: "/terms/", changeFrequency: "yearly", priority: 0.3 },
   { path: "/mcp/", changeFrequency: "monthly", priority: 0.5 },
