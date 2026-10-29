@@ -5,5 +5,5 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata("es", "/terms/", termsContent.es.meta);
 
 export default function Page() {
-  return <LegalPageTemplate content={termsContent.es} />;
+  return <LegalPageTemplate content={termsContent.es} locale="es" path="/terms/" />;
 }

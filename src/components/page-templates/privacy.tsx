@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 import { privacyContent } from "@/lib/content/page-symbols-privacy";
 import { contactEmail } from "@/lib/site";
-import type { Locale } from "@/lib/i18n";
+import { workMeta } from "@/lib/schema";
+import { getSiteUrl } from "@/lib/site";
+import { JsonLd } from "@/components/sections";
+import { localePath, type Locale } from "@/lib/i18n";
 
 export interface LegalContent {
   h1: string;
@@ -27,9 +30,26 @@ function renderBody(body: string): ReactNode {
   );
 }
 
-export function LegalPageTemplate({ content }: { content: LegalContent }) {
+export function LegalPageTemplate({
+  content,
+  locale = "en",
+  path,
+}: {
+  content: LegalContent;
+  locale?: Locale;
+  path: string;
+}) {
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: content.h1,
+    url: `${getSiteUrl()}${localePath(locale, path)}`,
+    ...workMeta(),
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd data={webPageJsonLd} />
       <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{content.h1}</h1>
       <p className="mt-2 text-sm text-ink-500">{content.updated}</p>
 
@@ -46,5 +66,5 @@ export function LegalPageTemplate({ content }: { content: LegalContent }) {
 }
 
 export function PrivacyPageTemplate({ locale }: { locale: Locale }) {
-  return <LegalPageTemplate content={privacyContent[locale]} />;
+  return <LegalPageTemplate content={privacyContent[locale]} locale={locale} path="/privacy/" />;
 }

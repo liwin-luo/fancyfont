@@ -9,6 +9,7 @@ import {
 } from "@/components/sections";
 import { blankSpaceContent } from "@/lib/content/page-blank-space";
 import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { localePath, type Locale } from "@/lib/i18n";
 import { textStyles } from "@/lib/text-styles";
 
@@ -29,6 +30,7 @@ export function BlankSpacePageTemplate({ locale }: { locale: Locale }) {
     browserRequirements: "Requires JavaScript",
     description: c.meta.description,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...workMeta(),
   };
 
   return (

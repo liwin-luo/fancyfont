@@ -5,18 +5,30 @@ import { mcpContent } from "@/lib/content/page-mcp";
 import { localePath, type Locale } from "@/lib/i18n";
 import { MCP_DOWNLOAD_NAME, MCP_DOWNLOAD_PATH, MCP_INSTALL_CONFIG } from "@/mcp/install";
 import { getUi } from "@/lib/ui-strings";
+import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 
 export function McpPageTemplate({ locale }: { locale: Locale }) {
   const c = mcpContent[locale];
   const t = getUi(locale);
+  const siteUrl = getSiteUrl();
   const links = [
     { href: "/fancy-text-generator/", label: t.tools.fancy },
     { href: "/gaming-name-generator/", label: t.tools.gaming },
     { href: "/symbols/", label: t.tools.symbols },
   ];
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: c.h1,
+    url: `${siteUrl}${localePath(locale, "/mcp/")}`,
+    description: c.intro,
+    ...workMeta(),
+  };
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd data={webPageJsonLd} />
       <JsonLd data={faqJsonLd(c.faq)} />
       <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-600">{c.intro}</p>

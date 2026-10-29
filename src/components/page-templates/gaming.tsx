@@ -10,6 +10,7 @@ import {
 } from "@/components/sections";
 import { gamingContent } from "@/lib/content/page-gaming";
 import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { localePath, type Locale } from "@/lib/i18n";
 
 const siteUrl = getSiteUrl();
@@ -28,6 +29,7 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
     browserRequirements: "Requires JavaScript",
     description: c.meta.description,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...workMeta(),
   };
 
   return (

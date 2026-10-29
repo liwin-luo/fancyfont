@@ -12,6 +12,7 @@ import { convertText } from "@/lib/text-styles";
 import { stylePages } from "@/lib/style-pages";
 import { fancyContent } from "@/lib/content/page-fancy";
 import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -32,6 +33,7 @@ export function FancyPageTemplate({ locale }: { locale: Locale }) {
     browserRequirements: "Requires JavaScript",
     description: c.meta.description,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...workMeta(),
   };
 
   return (

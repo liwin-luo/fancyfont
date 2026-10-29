@@ -13,6 +13,7 @@ import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
 import { relatedToolLinks, type PlatformPageDef } from "@/lib/platform-pages";
 import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -42,6 +43,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
     browserRequirements: "Requires JavaScript",
     description: c.description,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...workMeta(),
   };
 
   return (

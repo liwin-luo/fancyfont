@@ -11,6 +11,7 @@ import {
 import { relatedToolLinks } from "@/lib/platform-pages";
 import { previewStylePage, type StylePageDef } from "@/lib/style-pages";
 import { getSiteUrl } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -33,6 +34,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
     browserRequirements: "Requires JavaScript",
     description: c.description,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...workMeta(),
   };
 
   return (

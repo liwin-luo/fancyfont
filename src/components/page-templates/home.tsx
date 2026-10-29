@@ -10,6 +10,7 @@ import { PixelHeart, PixelSpark, PixelStar } from "@/components/pixel-star";
 import { PlatformChips } from "@/components/platform-chips";
 import { Faq, JsonLd, faqJsonLd } from "@/components/sections";
 import { contactEmail, getSiteUrl, siteName } from "@/lib/site";
+import { workMeta } from "@/lib/schema";
 import { sampleNames } from "@/lib/sample-names";
 import { SampleNameProvider, SampleStyledName } from "@/components/sample-name";
 
@@ -58,6 +59,7 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
     description: c.meta.description,
     inLanguage: hreflang[locale],
     publisher: { "@type": "Organization", name: siteName, url: siteUrl, email: contactEmail },
+    ...workMeta(),
   };
 
   const popularSymbols = popularSymbolIds

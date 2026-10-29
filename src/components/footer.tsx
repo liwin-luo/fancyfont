@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PixelStar } from "@/components/pixel-star";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
-import { getSiteUrl, siteName } from "@/lib/site";
+import { getSiteUrl, siteName, contentUpdated } from "@/lib/site";
 import { isLookPage, stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
 
@@ -99,6 +99,16 @@ export function Footer({ locale }: { locale: Locale }) {
               </Link>
             </li>
             <li>
+              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/about/")}>
+                {t.tools.about}
+              </Link>
+            </li>
+            <li>
+              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/contact/")}>
+                {t.tools.contact}
+              </Link>
+            </li>
+            <li>
               <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/mcp/")}>
                 {t.tools.mcp}
               </Link>
@@ -107,7 +117,16 @@ export function Footer({ locale }: { locale: Locale }) {
         </nav>
       </div>
       <div className="border-t border-line py-4 text-center text-xs text-ink-500">
-        © {new Date().getFullYear()} {siteName}. {t.tools.copyright}
+        <p>
+          © {new Date().getFullYear()} {siteName}. {t.tools.copyright}
+        </p>
+        <p className="mt-1">
+          {t.tools.publishedBy}{" "}
+          <Link href={localePath(locale, "/about/")} className="font-semibold hover:text-brand-700">
+            {siteName}
+          </Link>{" "}
+          · {t.tools.lastUpdated} <time dateTime={contentUpdated}>{contentUpdated}</time>
+        </p>
       </div>
     </footer>
   );

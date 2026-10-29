@@ -18,6 +18,8 @@ const PATHS: PathSpec[] = [
   { path: "/blank-space/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/privacy/", changeFrequency: "yearly", priority: 0.3 },
   { path: "/terms/", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/about/", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/contact/", changeFrequency: "yearly", priority: 0.3 },
   { path: "/mcp/", changeFrequency: "monthly", priority: 0.5 },
   ...stylePages.map((page) => ({
     path: `/${page.slug}/`,

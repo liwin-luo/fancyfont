@@ -34,6 +34,8 @@ export function llmsTxt(siteUrl: string): string {
 - [MCP for local AI agents](${siteUrl}/mcp/): download ${siteUrl}/fancyfont-mcp.mjs and run it with node
 - [Privacy](${siteUrl}/privacy/): text stays on the device
 - [Terms](${siteUrl}/terms/): independent site, no affiliation with the named apps
+- [About](${siteUrl}/about/): who runs FancyFont and how the pages are made
+- [Contact](${siteUrl}/contact/): one email inbox, hello@fancyfont.tools, for bugs and requests
 
 Languages: English at ${siteUrl}/, Español at ${siteUrl}/es/, Português (Brasil) at ${siteUrl}/pt-br/, 简体中文 at ${siteUrl}/zh-cn/, Bahasa Indonesia at ${siteUrl}/id/. Each page links its translations with hreflang.
 

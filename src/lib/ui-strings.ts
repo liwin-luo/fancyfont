@@ -17,9 +17,14 @@ export interface UiStrings {
     blank: string;
     privacy: string;
     terms: string;
+    about: string;
+    contact: string;
     mcp: string;
     tagline: string;
     copyright: string;
+    /** Footer byline: who publishes the site, and the last content revision date. */
+    publishedBy: string;
+    lastUpdated: string;
     letterGenerators: string;
     lookGenerators: string;
     forPlatforms: string;
@@ -215,10 +220,14 @@ export const ui: Record<Locale, UiStrings> = {
       blank: "Blank Space",
       privacy: "Privacy Policy",
       terms: "Terms of Use",
+      about: "About",
+      contact: "Contact",
       mcp: "For AI agents",
       tagline: "Stylish names, fonts & symbols — free to use, no sign-up needed.",
       copyright:
         "All results are Unicode characters, not installed fonts. This site runs entirely in your browser.",
+      publishedBy: "Published by",
+      lastUpdated: "Last updated",
       letterGenerators: "Letter styles",
       lookGenerators: "Looks",
       forPlatforms: "For platforms",
@@ -426,10 +435,14 @@ export const ui: Record<Locale, UiStrings> = {
       blank: "Espacio en blanco",
       privacy: "Política de privacidad",
       terms: "Términos de uso",
+      about: "Quiénes somos",
+      contact: "Contacto",
       mcp: "Para agentes de IA",
       tagline: "Nombres, letras y símbolos con estilo — gratis y sin registro.",
       copyright:
         "Todos los resultados son caracteres Unicode, no fuentes instaladas. Este sitio funciona por completo en tu navegador.",
+      publishedBy: "Publicado por",
+      lastUpdated: "Última actualización",
       letterGenerators: "Estilos de letra",
       lookGenerators: "Apariencias",
       forPlatforms: "Por plataforma",
@@ -674,10 +687,14 @@ export const ui: Record<Locale, UiStrings> = {
       blank: "Espaço em branco",
       privacy: "Política de Privacidade",
       terms: "Termos de uso",
+      about: "Sobre",
+      contact: "Contato",
       mcp: "Para agentes de IA",
       tagline: "Nomes, letras e símbolos estilosos — grátis e sem cadastro.",
       copyright:
         "Todos os resultados são caracteres Unicode, não fontes instaladas. Este site funciona inteiramente no seu navegador.",
+      publishedBy: "Publicado por",
+      lastUpdated: "Última atualização",
       letterGenerators: "Estilos de letra",
       lookGenerators: "Visuais",
       forPlatforms: "Por plataforma",
@@ -917,10 +934,14 @@ export const ui: Record<Locale, UiStrings> = {
       blank: "空白复制",
       privacy: "隐私政策",
       terms: "使用条款",
+      about: "关于本站",
+      contact: "联系我们",
       mcp: "给 AI 代理",
       tagline: "个性昵称、花体字与特殊符号——免费使用，无需注册。",
       copyright:
         "所有结果均为 Unicode 字符，而非已安装的字体文件。本网站完全在你的浏览器中运行。",
+      publishedBy: "发布者",
+      lastUpdated: "最后更新",
       letterGenerators: "字母",
       lookGenerators: "外观",
       forPlatforms: "按平台",
@@ -1157,10 +1178,14 @@ export const ui: Record<Locale, UiStrings> = {
       blank: "Spasi kosong",
       privacy: "Kebijakan Privasi",
       terms: "Ketentuan penggunaan",
+      about: "Tentang",
+      contact: "Kontak",
       mcp: "Untuk agen AI",
       tagline: "Nama, huruf, dan simbol keren — gratis tanpa daftar.",
       copyright:
         "Semua hasil adalah karakter Unicode, bukan font yang terpasang. Situs ini berjalan sepenuhnya di browser kamu.",
+      publishedBy: "Diterbitkan oleh",
+      lastUpdated: "Terakhir diperbarui",
       letterGenerators: "Huruf",
       lookGenerators: "Tampilan",
       forPlatforms: "Per platform",
