@@ -158,18 +158,19 @@ export function SymbolsTool() {
       </div>
 
       {recentEntries.length > 0 && (
-        <section className="mt-6" aria-labelledby="recent-heading">
+        <section className="mt-6 w-full" aria-labelledby="recent-heading">
           <h2 id="recent-heading" className="text-sm font-semibold text-ink-700">
             {t.symbols.recent}
           </h2>
-          <ul className="mt-2 flex flex-wrap gap-2">
+          <ul className="mt-2 flex w-full flex-wrap gap-2">
             {recentEntries.map((entry) => (
-              <li key={entry.id} className="relative">
+              <li key={entry.id} className="relative max-w-full shrink-0">
                 <button
                   type="button"
                   onClick={() => copySymbol(entry.symbol, entry.label)}
                   aria-label={t.symbols.copySymbol(entry.label)}
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl border text-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                  // ponytail: batch joins can be long; grow the chip, clip instead of painting over neighbors
+                  className={`flex h-11 min-w-11 max-w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-xl border px-2.5 text-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                     lastCopied === entry.symbol
                       ? "border-success/40 bg-success-bg text-success"
                       : "border-line bg-surface text-ink-900 hover:border-brand-300 hover:bg-brand-50"
