@@ -63,7 +63,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "Symbols & Decorators",
-        description: "Browse 376 symbols to build your own look.",
+        description: "Browse 388 symbols to build your own look.",
       },
       {
         path: "/fancy-text-generator/",
@@ -127,7 +127,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "Símbolos y decoración",
-        description: "376 símbolos para armar tu propio look.",
+        description: "388 símbolos para armar tu propio look.",
       },
       {
         path: "/fancy-text-generator/",
@@ -191,7 +191,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "Símbolos e decoração",
-        description: "376 símbolos para montar seu próprio visual.",
+        description: "388 símbolos para montar seu próprio visual.",
       },
       {
         path: "/fancy-text-generator/",
@@ -255,7 +255,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "特殊符号大全",
-        description: "浏览 376 个符号，搭配你自己的风格。",
+        description: "浏览 388 个符号，搭配你自己的风格。",
       },
       {
         path: "/fancy-text-generator/",
@@ -319,7 +319,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       {
         path: "/symbols/",
         title: "Simbol & Dekorasi",
-        description: "Jelajahi 376 simbol untuk bikin gayamu sendiri.",
+        description: "Jelajahi 388 simbol untuk bikin gayamu sendiri.",
       },
       {
         path: "/fancy-text-generator/",

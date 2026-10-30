@@ -174,18 +174,15 @@ function shuffle<T>(items: readonly T[], seed: number): T[] {
   return out;
 }
 
-export function generateNicknames(
-  rawName: string,
-  style: NicknameStyle = "all",
-  nonce = 0,
-  count = 24,
-): string[] {
-  const name = rawName.trim().replace(/\s+/g, " ").slice(0, MAX_NICKNAME_LENGTH);
-  if (!name) return [];
+/** Short bases used only when the user has not typed a name. */
+const SUGGESTED_BASES = ["Nova", "Luna", "Rex", "Milo", "Aria", "Kai", "Nyx", "Juno"] as const;
 
-  const selected =
-    style === "all" ? vibeStyles : vibeStyles.filter((s) => s.id === style);
+export function suggestedBases(style: NicknameStyle, nonce: number): string[] {
+  return shuffle([...SUGGESTED_BASES], hashSeed(`suggest|${style}|${nonce}`)).slice(0, 4);
+}
 
+function poolFor(name: string, style: NicknameStyle): string[] {
+  const selected = style === "all" ? vibeStyles : vibeStyles.filter((s) => s.id === style);
   const pool: string[] = [];
   for (const vibe of selected) {
     for (const [left, right] of vibe.wrappers) {
@@ -195,8 +192,18 @@ export function generateNicknames(
       }
     }
   }
+  return pool;
+}
 
-  const unique = Array.from(new Set(pool));
-  const seed = hashSeed(`${name.toLowerCase()}|${style}|${nonce}`);
+export function generateNicknames(
+  rawName: string,
+  style: NicknameStyle = "all",
+  nonce = 0,
+  count = 24,
+): string[] {
+  const name = rawName.trim().replace(/\s+/g, " ").slice(0, MAX_NICKNAME_LENGTH);
+  const names = name ? [name] : suggestedBases(style, nonce);
+  const unique = Array.from(new Set(names.flatMap((base) => poolFor(base, style))));
+  const seed = hashSeed(`${(name || "suggest").toLowerCase()}|${style}|${nonce}`);
   return shuffle(unique, seed).slice(0, count);
 }

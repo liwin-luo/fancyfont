@@ -201,14 +201,19 @@ export function SymbolsTool() {
           {results.map((entry) => {
             const justCopied = lastCopied === entry.symbol;
             const inTray = tray.includes(entry.symbol);
+            const wide = entry.category === "kaomoji";
             return (
-              <li key={entry.id} className="relative">
+              <li key={entry.id} className={wide ? "relative col-span-full" : "relative"}>
                 <button
                   type="button"
                   onClick={() => copySymbol(entry.symbol, entry.label)}
                   title={entry.label}
                   aria-label={t.symbols.copySymbol(entry.label)}
-                  className={`flex aspect-square w-full items-center justify-center rounded-xl border text-xl transition-colors active:scale-95 sm:text-2xl ${
+                  className={`flex w-full items-center justify-center rounded-xl border transition-colors active:scale-95 ${
+                    wide
+                      ? "h-12 px-3 text-base"
+                      : "aspect-square text-xl sm:text-2xl"
+                  } ${
                     justCopied
                       ? "border-success/40 bg-success-bg text-success"
                       : "border-line bg-surface text-ink-900 hover:border-brand-300 hover:bg-brand-50"

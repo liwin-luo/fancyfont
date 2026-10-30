@@ -6,6 +6,15 @@ import {
   styleCategories,
   type ConvertedText,
 } from "@/lib/text-styles";
+import {
+  applyWrap,
+  hanFrames,
+  hasHan,
+  pasteTargets,
+  type PasteTargetId,
+  type WrapId,
+} from "@/lib/composer";
+import { codePointLength } from "@/lib/platform-preview";
 import { CopyButton } from "@/components/copy-button";
 import { PreviewOptions, ShareLinks } from "@/components/style-actions";
 import { useToast } from "@/components/toast";
@@ -40,6 +49,8 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
   const [category, setCategory] = useState<string | null>(null);
   const [previewSize, setPreviewSize] = useState(18);
   const [transparentPng, setTransparentPng] = useState(false);
+  const [wrapId, setWrapId] = useState<WrapId>("none");
+  const [pasteId, setPasteId] = useState<PasteTargetId>("anywhere");
   const favorites = useLocalList(FAVORITES_KEY);
   const showToast = useToast();
   const locale = useLocale();
@@ -77,14 +88,42 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
     showToast(ok ? t.common.savedAsPng : t.common.pngFailed);
   }
 
+  const paste = pasteTargets.find((item) => item.id === pasteId) ?? pasteTargets[0];
+  const source = text.slice(0, MAX_LENGTH);
+  const showHan = hasHan(source);
+
+  function dressed(value: string) {
+    return applyWrap(value, wrapId);
+  }
+
   async function copyFavorites() {
     const lines = all
       .filter((result) => favorites.items.includes(result.id))
-      .map((result) => result.text)
+      .map((result) => dressed(result.text))
       .filter((line) => line.trim().length > 0);
     const ok = lines.length > 0 && (await copyText(lines.join("\n")));
     showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
   }
+
+  const wrapChips: { id: WrapId; name: string }[] = [
+    { id: "none", name: t.common.wrapNone },
+    { id: "star", name: t.common.wrapStar },
+    { id: "heart", name: t.common.wrapHeart },
+    { id: "wings", name: t.common.wrapWings },
+    { id: "brackets", name: t.common.wrapBrackets },
+  ];
+  const pasteChips: { id: PasteTargetId; name: string }[] = [
+    { id: "anywhere", name: t.common.pasteAnywhere },
+    { id: "display", name: t.common.pasteDisplay },
+    { id: "bio", name: t.common.pasteBio },
+    { id: "username", name: t.common.pasteUsername },
+  ];
+  const chipClass = (active: boolean) =>
+    `h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+      active
+        ? "border-brand-600 bg-brand-100 text-brand-800"
+        : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
+    }`;
 
   const chips: { id: string; name: string }[] = [
     { id: "all", name: t.common.all },
@@ -136,6 +175,42 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
           {charCount}/{MAX_LENGTH} {t.common.charactersInfo} · {t.common.browserOnly}
         </p>
 
+        <div className="mt-4">
+          <p className="mb-2 text-sm font-semibold text-ink-700">{t.common.wrapLabel}</p>
+          <div role="group" aria-label={t.common.wrapLabel} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+            {wrapChips.map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                aria-pressed={wrapId === chip.id}
+                onClick={() => setWrapId(chip.id)}
+                className={chipClass(wrapId === chip.id)}
+              >
+                {chip.name}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="mt-3">
+          <p className="mb-2 text-sm font-semibold text-ink-700">{t.common.pasteLabel}</p>
+          <div role="group" aria-label={t.common.pasteLabel} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+            {pasteChips.map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                aria-pressed={pasteId === chip.id}
+                onClick={() => setPasteId(chip.id)}
+                className={chipClass(pasteId === chip.id)}
+              >
+                {chip.name}
+              </button>
+            ))}
+          </div>
+          {paste.plain && (
+            <p className="mt-2 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>
+          )}
+        </div>
+
         <div className="mt-4 border-t border-line pt-4">
           <label htmlFor="style-search" className="mb-2 block text-sm font-semibold text-ink-700">
             {t.common.filterStyles}
@@ -183,6 +258,29 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
         </div>
       </div>
 
+      {showHan && (
+        <section className="mt-6" aria-labelledby="han-frames-heading">
+          <h2 id="han-frames-heading" className="text-sm font-semibold text-ink-700">
+            {t.common.hanFrames}
+          </h2>
+          <p className="mt-1 text-sm leading-relaxed text-ink-600">{t.common.hanNote}</p>
+          <ul className="mt-3 space-y-2">
+            {hanFrames.map(([left, right]) => {
+              const line = left + source + right;
+              return (
+                <li
+                  key={left + right}
+                  className="flex items-center justify-between gap-3 rounded-xl border border-line bg-surface px-4 py-3"
+                >
+                  <p className="result-text min-w-0 text-lg text-ink-900">{line}</p>
+                  <CopyButton text={line} ariaLabel={t.common.copy} />
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
       {charCount === 0 ? (
         <p className="mt-6 rounded-xl border border-dashed border-line bg-white/60 p-8 text-center text-sm text-ink-600">
           {t.common.typeToSee(all.length)}
@@ -197,6 +295,9 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
         <ul className="mt-6 space-y-3">
           {results.map((result) => {
             const isFavorite = favorites.items.includes(result.id);
+            const line = dressed(result.text);
+            const points = codePointLength(line);
+            const over = paste.limit !== null && points > paste.limit;
             return (
               <li
                 key={result.id}
@@ -246,13 +347,16 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                     className="result-text mt-1 text-ink-900 select-all"
                     style={{ fontSize: previewSize }}
                   >
-                    {result.text}
+                    {line}
                   </p>
+                  {over && paste.limit !== null && (
+                    <p className="mt-1 text-xs text-warning">{t.common.overLimit(points, paste.limit)}</p>
+                  )}
                 </div>
                 <div className="flex shrink-0 items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => handleDownload(result)}
+                    onClick={() => handleDownload({ ...result, text: line })}
                     aria-label={t.common.downloadPng(result.localName)}
                     className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 sm:h-9"
                   >
@@ -260,10 +364,10 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                     <span className="sm:hidden">PNG</span>
                   </button>
                   <CopyButton
-                    text={result.text}
+                    text={line}
                     ariaLabel={t.common.copyStyle(result.localName)}
                   />
-                  <ShareLinks text={result.text} name={result.localName} />
+                  <ShareLinks text={line} name={result.localName} />
                 </div>
               </li>
             );

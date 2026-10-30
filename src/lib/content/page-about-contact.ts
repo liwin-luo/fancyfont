@@ -36,7 +36,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "What the tools do",
-        body: "Every generator works on the same principle: it replaces the letters you type with look-alike characters from Unicode blocks — cursive, gothic, bubble, tiny, glitch, and more. The result is plain text, not a font file, so you paste it into profile names, bios, chats, and game nicknames. The site also lists 376 symbols and a blank-space copy tool for names that look empty.",
+        body: "Every generator works on the same principle: it replaces the letters you type with look-alike characters from Unicode blocks — cursive, gothic, bubble, tiny, glitch, and more. The result is plain text, not a font file, so you paste it into profile names, bios, chats, and game nicknames. The site also lists 388 symbols and a blank-space copy tool for names that look empty.",
       },
       {
         h2: "Who runs it",
@@ -67,7 +67,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "Qué hacen las herramientas",
-        body: "Todos los generadores funcionan con el mismo principio: sustituyen las letras que escribes por caracteres parecidos de bloques Unicode — cursiva, gótica, burbuja, mini, glitch y más. El resultado es texto normal, no un archivo de fuente, así que lo pegas en nombres de perfil, bios, chats y apodos de juegos. El sitio también reúne 376 símbolos y una herramienta de espacio en blanco para nombres que parecen vacíos.",
+        body: "Todos los generadores funcionan con el mismo principio: sustituyen las letras que escribes por caracteres parecidos de bloques Unicode — cursiva, gótica, burbuja, mini, glitch y más. El resultado es texto normal, no un archivo de fuente, así que lo pegas en nombres de perfil, bios, chats y apodos de juegos. El sitio también reúne 388 símbolos y una herramienta de espacio en blanco para nombres que parecen vacíos.",
       },
       {
         h2: "Quién lo mantiene",
@@ -98,7 +98,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "O que as ferramentas fazem",
-        body: "Todos os geradores seguem o mesmo princípio: trocam as letras digitadas por caracteres parecidos de blocos Unicode — cursiva, gótica, bolha, mini, glitch e mais. O resultado é texto comum, não um arquivo de fonte, então você cola em nomes de perfil, bios, chats e apelidos de jogos. O site também reúne 376 símbolos e uma ferramenta de espaço em branco para nomes que parecem vazios.",
+        body: "Todos os geradores seguem o mesmo princípio: trocam as letras digitadas por caracteres parecidos de blocos Unicode — cursiva, gótica, bolha, mini, glitch e mais. O resultado é texto comum, não um arquivo de fonte, então você cola em nomes de perfil, bios, chats e apelidos de jogos. O site também reúne 388 símbolos e uma ferramenta de espaço em branco para nomes que parecem vazios.",
       },
       {
         h2: "Quem mantém o site",
@@ -129,7 +129,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "这些工具做什么",
-        body: "所有生成器基于同一个原理：把你输入的字母替换成 Unicode 区块里形状相近的字符——花体、哥特、气泡、小字、乱码等等。结果是纯文本，而不是字体文件，所以能粘贴到资料名、简介、聊天和游戏昵称里。站内还收录了 376 个符号，以及一个空白复制工具，用来做看起来空空的名字。",
+        body: "所有生成器基于同一个原理：把你输入的字母替换成 Unicode 区块里形状相近的字符——花体、哥特、气泡、小字、乱码等等。结果是纯文本，而不是字体文件，所以能粘贴到资料名、简介、聊天和游戏昵称里。站内还收录了 388 个符号，以及一个空白复制工具，用来做看起来空空的名字。",
       },
       {
         h2: "谁在运营",
@@ -160,7 +160,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "Apa yang dilakukan alat-alat ini",
-        body: "Semua generator bekerja dengan prinsip yang sama: mengganti huruf yang kamu ketik dengan karakter serupa dari blok Unicode — cursive, gothic, balon, kecil, glitch, dan lainnya. Hasilnya teks biasa, bukan file font, jadi kamu menempelnya di nama profil, bio, chat, dan nama game. Situs ini juga memuat 376 simbol dan alat spasi kosong untuk nama yang terlihat kosong.",
+        body: "Semua generator bekerja dengan prinsip yang sama: mengganti huruf yang kamu ketik dengan karakter serupa dari blok Unicode — cursive, gothic, balon, kecil, glitch, dan lainnya. Hasilnya teks biasa, bukan file font, jadi kamu menempelnya di nama profil, bio, chat, dan nama game. Situs ini juga memuat 388 simbol dan alat spasi kosong untuk nama yang terlihat kosong.",
       },
       {
         h2: "Siapa yang menjalankannya",

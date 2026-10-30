@@ -33,6 +33,7 @@ export const symbolCategories: SymbolCategory[] = [
   { id: "brackets", name: "Brackets" },
   { id: "lines", name: "Lines & Borders" },
   { id: "faces", name: "Faces" },
+  { id: "kaomoji", name: "Kaomoji" },
   { id: "vibes", name: "Music & Vibes" },
   { id: "checks", name: "Check & Cross" },
   { id: "math", name: "Math" },
@@ -441,6 +442,20 @@ const DATA: Record<string, Row[]> = {
     ["⌁", "Electric arrow", "zigzag bolt"],
     ["⁂", "Asterism", "dots three stars"],
     ["⟡", "Concave rotated diamond", "sparkle diamond"],
+  ],
+  kaomoji: [
+    ["(˶ᵔ ᵕ ᵔ˶)", "Soft smile", "kaomoji cute face"],
+    ["(ᵔᗜᵔ)", "Happy face", "kaomoji cute"],
+    ["(｡•́︿•̀｡)", "Sad face", "kaomoji sad"],
+    ["(╯°□°)╯", "Table flip", "kaomoji angry"],
+    ["(✿◠‿◠)", "Flower smile", "kaomoji cute flower"],
+    ["(づ｡◕‿‿◕｡)づ", "Hug", "kaomoji hug"],
+    ["(¬‿¬)", "Smirk", "kaomoji smirk"],
+    ["(•̀ᴗ•́)و", "Cheering", "kaomoji cheer"],
+    ["( ˘͈ ᵕ ˘͈♡)", "Love face", "kaomoji heart"],
+    ["(｡♥‿♥｡)", "Heart eyes", "kaomoji heart eyes"],
+    ["(ᵕ—ᴗ—)", "Calm smile", "kaomoji calm"],
+    ["(๑˃̵ᴗ˂̵)", "Shy face", "kaomoji shy"],
   ],
   // Blank code points used for empty game names. The UI draws U+25CC (◌)
   // as a marker; copying still writes the real character.

@@ -25,7 +25,7 @@ upside down, strikethrough family, and three deterministic zalgo intensities. Ev
 style carries honest coverage metadata (`letters` / `lettersDigits` / `partial` /
 `all`) and display-risk notes shown in the UI.
 
-**376 symbols in 17 categories** — hearts, stars, arrows, crowns, flowers, wings &
+**388 symbols in 18 categories** — hearts, stars, arrows, crowns, flowers, wings &
 bows, brackets, lines, faces, music & vibes, check & cross, math, Greek, currency,
 numbers & Roman, dots & marks, and invisible blanks for empty game names — plus 14
 ready-made decorative combos. Searchable by name and keyword.
@@ -140,7 +140,7 @@ src/
   lib/
     text-styles.ts        # 30-style Unicode conversion engine (coverage metadata, zalgo)
     nickname.ts           # seeded, deterministic nickname combinator + custom builder API
-    symbols-data.ts       # 376 symbols, 17 categories, search, combos
+    symbols-data.ts       # 388 symbols, 18 categories, search, combos
     style-pages.ts        # hand-written content for the 11 style pages
     platform-pages.ts     # hand-written content for the 4 platform pages
     storage.ts            # SSR-safe localStorage lists (favorites/recents/saved)

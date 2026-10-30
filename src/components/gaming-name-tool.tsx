@@ -5,6 +5,7 @@ import {
   buildCustomNickname,
   decoratorPairs,
   generateNicknames,
+  suggestedBases,
   MAX_NICKNAME_LENGTH,
   NICKNAME_PAGE_SIZE,
   vibeStyles,
@@ -12,6 +13,8 @@ import {
   type NicknameTransform,
 } from "@/lib/nickname";
 import { styleCategories, textStyles } from "@/lib/text-styles";
+import { pasteTargets, type PasteTargetId } from "@/lib/composer";
+import { codePointLength } from "@/lib/platform-preview";
 import { CopyButton } from "@/components/copy-button";
 import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
@@ -74,20 +77,23 @@ export function GamingNameTool({
   // Builder state: a decoration pair + a letter style, applied to the name.
   const [pairIndex, setPairIndex] = useState(1);
   const [builderTransform, setBuilderTransform] = useState<NicknameTransform>("script");
+  const [pasteId, setPasteId] = useState<PasteTargetId>("anywhere");
 
   const cleanName = name.trim().slice(0, MAX_NICKNAME_LENGTH);
   const results = useMemo(
     () => generateNicknames(cleanName, styleFilter, nonce, shown),
     [cleanName, styleFilter, nonce, shown],
   );
-  const canLoadMore = cleanName.length > 0 && results.length >= shown;
+  const canLoadMore = results.length >= shown;
+  const paste = pasteTargets.find((item) => item.id === pasteId) ?? pasteTargets[0];
 
   const combo: CustomCombo = {
     left: decoratorPairs[pairIndex][0],
     right: decoratorPairs[pairIndex][1],
     transform: builderTransform,
   };
-  const builderPreview = buildCustomNickname(cleanName || "Alex", combo);
+  const sampleBase = cleanName || suggestedBases(styleFilter, nonce)[0] || "Nova";
+  const builderPreview = buildCustomNickname(sampleBase, combo);
 
   function resetPaging() {
     setShown(NICKNAME_PAGE_SIZE);
@@ -254,9 +260,15 @@ export function GamingNameTool({
           </div>
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-3 rounded-xl border border-brand-100 bg-brand-50 p-4">
-          <p className="result-text min-w-0 flex-1 text-xl font-medium text-ink-900">
-            {builderPreview}
-          </p>
+          <div className="min-w-0 flex-1">
+            <p className="result-text text-xl font-medium text-ink-900">{builderPreview}</p>
+            {paste.limit !== null && codePointLength(builderPreview) > paste.limit && (
+              <p className="mt-1 text-xs text-warning">
+                {t.common.overLimit(codePointLength(builderPreview), paste.limit)}
+              </p>
+            )}
+            {paste.plain && <p className="mt-1 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>}
+          </div>
           <div className="flex shrink-0 gap-2">
             {preview && <PreviewButton onClick={() => setPreviewAt(0)} />}
             <CopyButton text={builderPreview} ariaLabel={t.gaming.copyCombo} />
@@ -270,6 +282,33 @@ export function GamingNameTool({
             >
               {t.gaming.saveCombo}
             </button>
+          </div>
+        </div>
+        <div className="mt-3">
+          <p className="mb-2 text-xs font-semibold text-ink-700">{t.common.pasteLabel}</p>
+          <div role="group" aria-label={t.common.pasteLabel} className="flex flex-wrap gap-2">
+            {(
+              [
+                ["anywhere", t.common.pasteAnywhere],
+                ["display", t.common.pasteDisplay],
+                ["bio", t.common.pasteBio],
+                ["username", t.common.pasteUsername],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={pasteId === id}
+                onClick={() => setPasteId(id)}
+                className={`h-9 rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                  pasteId === id
+                    ? "border-brand-600 bg-brand-100 text-brand-800"
+                    : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
         {customCombos.items.length > 0 && (
@@ -312,13 +351,12 @@ export function GamingNameTool({
         )}
       </section>
 
-      {cleanName.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-dashed border-line bg-white/60 p-8 text-center text-sm text-ink-600">
-          {t.gaming.emptyName}
-        </p>
-      ) : (
+      {cleanName.length === 0 && (
+        <p className="mt-6 text-sm text-ink-600">{t.gaming.emptyName}</p>
+      )}
+      {results.length > 0 && (
         <>
-          <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <ul className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${cleanName.length === 0 ? "mt-3" : "mt-6"}`}>
             {results.map((nickname, index) => {
               const isSaved = savedNames.items.includes(nickname);
               return (
@@ -364,8 +402,8 @@ export function GamingNameTool({
         <PlatformPreviewDialog
           id={preview.id}
           platform={preview.platform}
-          raw={cleanName || "Alex"}
-          items={cleanName.length > 0 ? [builderPreview, ...results] : [builderPreview]}
+          raw={sampleBase}
+          items={[builderPreview, ...results]}
           index={previewAt}
           onIndex={setPreviewAt}
         />

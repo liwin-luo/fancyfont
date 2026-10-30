@@ -65,7 +65,19 @@ describe("nickname engine", () => {
     }
   });
 
-  it("returns nothing for a blank name", () => {
-    expect(generateNicknames("   ", "all", 0, 24)).toEqual([]);
+  it("suggests nicknames built from short bases when the name is blank", () => {
+    const results = generateNicknames("   ", "all", 0, 8);
+    const again = generateNicknames("", "all", 0, 8);
+    expect(results).toHaveLength(8);
+    expect(again).toEqual(results);
+    const bases = ["Nova", "Luna", "Rex", "Milo", "Aria", "Kai", "Nyx", "Juno"];
+    for (const nickname of results) {
+      const hit = bases.some(
+        (base) =>
+          nickname.includes(base) ||
+          textStyles.some((style) => nickname.includes(style.transform(base))),
+      );
+      expect(hit).toBe(true);
+    }
   });
 });
