@@ -30,10 +30,9 @@ bows, brackets, lines, faces, music & vibes, check & cross, math, Greek, currenc
 numbers & Roman, dots & marks, and invisible blanks for empty game names — plus 14
 ready-made decorative combos. Searchable by name and keyword.
 
-**21 pages in 5 languages (105 URLs)**, all static: home, 3 core tools, 11 dedicated
-style generators (cursive, gothic, bold, italic, bubble letters, small caps,
-strikethrough, glitch, upside down, tiny, aesthetic), 4 platform pages (Instagram,
-TikTok, Discord, Roblox), privacy policy, a local MCP install page, custom 404 — each fully localized in
+**40 index paths in 5 languages (200 URLs)**, all static: home, three core tools,
+style and platform pages, blank space, privacy, terms, about, contact, and a local
+MCP page. Custom 404 stays out of the sitemap. Each index path is localized in
 **English, Español (`/es/`), Português-BR (`/pt-br/`), 简体中文 (`/zh-cn/`) and
 Bahasa Indonesia (`/id/`)**.
 
@@ -60,7 +59,7 @@ CoolSymbol, fsymbols, LingoJam):
   translation completeness at build time (`ui-strings.ts` + i18n unit tests).
 - `<html lang>` is correct per locale via five route-group root layouts
   (`en`, `es`, `pt-BR`, `zh-CN`, `id`).
-- `sitemap.xml` lists all 105 URLs, each entry carrying its hreflang alternates.
+- `sitemap.xml` lists all 200 URLs, each entry carrying its hreflang alternates.
   `lastmod` is a fixed content date, so it does not change on every request.
 - Chinese note (roadmap §6.3): styles convert Latin letters only — Chinese
   characters pass through unchanged. This boundary is stated honestly in every
@@ -72,7 +71,7 @@ CoolSymbol, fsymbols, LingoJam):
 
 - Unique `<title>`, meta description, and single `<h1>` per page.
 - Canonical URLs with trailing slashes (`trailingSlash: true`; non-slash URLs 308-redirect).
-- `sitemap.xml` with all 21 pages (`src/app/sitemap.ts`), `robots.txt` (including
+- `sitemap.xml` with all 40 index paths (`src/app/sitemap.ts`), `robots.txt` (including
   an explicit allow for common AI crawlers), and `/llms.txt` for agents that
   cite the site.
 - Default Open Graph image at `/og/` and `summary_large_image` Twitter cards.

@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import { locales, localePath, hreflang, htmlLang, localeFromLanguages } from "@/lib/i18n";
@@ -15,6 +17,17 @@ import { termsContent } from "@/lib/content/page-terms";
 import { contactEmail } from "@/lib/site";
 import { mcpContent } from "@/lib/content/page-mcp";
 import { serpTitle } from "@/lib/serp-title";
+
+function indexPath(url: string): string {
+  const path = url.replace("https://fancyfont.tools", "");
+  for (const prefix of ["/es", "/pt-br", "/zh-cn", "/id"]) {
+    if (path === prefix || path.startsWith(`${prefix}/`)) {
+      const rest = path.slice(prefix.length);
+      return rest === "" ? "/" : rest;
+    }
+  }
+  return path || "/";
+}
 
 describe("i18n completeness", () => {
   it("every style page exists in every locale with non-empty copy", () => {
@@ -131,26 +144,38 @@ describe("i18n completeness", () => {
     }
   });
 
-  it("lists every sampled path in five locales with its own canonical", () => {
+  it("lists every index path in five locales with its own canonical", () => {
     const entries = sitemap();
-    expect(entries.length % locales.length).toBe(0);
     expect(entries.some((entry) => entry.url.includes("/ja"))).toBe(false);
+    const paths = [...new Set(entries.map((entry) => indexPath(entry.url)))];
+    expect(entries).toHaveLength(paths.length * locales.length);
+    expect(paths).toHaveLength(40);
     const urls = new Set(entries.map((entry) => entry.url));
-    const paths = ["/", "/fancy-text-generator/", "/gaming-name-generator/", "/symbols/", "/instagram-fonts/", "/pubg-name-generator/", "/free-fire-name-generator/", "/roblox-name-generator/"];
     for (const path of paths) {
       for (const locale of locales) {
-        expect(urls.has(`https://fancyfont.tools${localePath(locale, path)}`)).toBe(true);
-        const meta = pageMetadata(locale, path, { title: "T", description: "D" });
-        expect(meta.alternates?.canonical).toBe(localePath(locale, path));
-        const languages = meta.alternates?.languages as Record<string, string>;
+        const url = `https://fancyfont.tools${localePath(locale, path)}`;
+        expect(urls.has(url)).toBe(true);
+        const languages = (entries.find((entry) => entry.url === url)?.alternates?.languages ?? {}) as Record<string, string>;
         expect(languages["x-default"]).toBe(`https://fancyfont.tools${localePath("en", path)}`);
         for (const item of locales) {
           expect(languages[hreflang[item]]).toBe(`https://fancyfont.tools${localePath(item, path)}`);
         }
+        const meta = pageMetadata(locale, path, { title: "T", description: "D" });
+        expect(meta.alternates?.canonical).toBe(localePath(locale, path));
+        const metaLanguages = meta.alternates?.languages as Record<string, string>;
+        expect(metaLanguages["x-default"]).toBe(`https://fancyfont.tools${localePath("en", path)}`);
+        expect(metaLanguages[hreflang["zh-cn"]]).toBe(`https://fancyfont.tools${localePath("zh-cn", path)}`);
       }
     }
     expect(htmlLang).toEqual({ en: "en", es: "es", "pt-br": "pt-BR", "zh-cn": "zh-CN", id: "id" });
     expect(hreflang["zh-cn"]).toBe("zh-Hans");
+    const root = join(process.cwd(), "src");
+    const shell = readFileSync(join(root, "components/app-shell.tsx"), "utf8");
+    expect(shell).toContain("<html lang={htmlLang[locale]}>");
+    for (const locale of locales) {
+      const layout = readFileSync(join(root, "app", `(${locale})`, "layout.tsx"), "utf8");
+      expect(layout).toContain(`<AppShell locale="${locale}">`);
+    }
   });
 
   it("page metadata builds per-locale canonical, hreflang and x-default", () => {

@@ -1,6 +1,6 @@
 # 关键词与搜索意图地图（Keyword Intent Map）
 
-- 站点：https://fancyfont.tools（38 路径 × 5 语言，URL 结构各语言一致）
+- 站点：https://fancyfont.tools（40 路径 × 5 语言，URL 结构各语言一致）
 - 站点上线：2026-10-26；GSC 属性已验证（`google824e0769c16d7fbd.html`）
 - 本表基准：2026-10-29，对应代码 commit 840a06e
 - 配套文件：`seo/产品事实底稿.md`（能力/限制的唯一事实来源）
@@ -54,7 +54,7 @@
 | `/youtube-fonts/` | youtube fonts | youtube channel name generator | YouTube 场景频道名/handle 区分 | 未知 | 低 |
 | `/adopt-me-fonts/` | adopt me fonts？ | adopt me name ideas | Adopt Me 玩家的 Roblox 显示名 | 未知 | 与 roblox 页按游戏分流；**主查询表述待 SERP 确认**（"fonts"是否是真实查询形态） |
 | `/berry-avenue-fonts/` | berry avenue fonts？ | berry avenue bio / display name | Berry Avenue 玩家的头顶名 | 未知 | 同上 |
-| `/privacy/` `/terms/` | 无搜索意图 | — | 信任与合规信息页 | — | 不参与意图竞争 |
+| `/privacy/` `/terms/` `/about/` `/contact/` | 无搜索意图 | — | 信任与合规信息页 | — | 不参与意图竞争 |
 | `/mcp/` | fancyfont mcp（品牌长尾） | mcp server for fonts | 本机 agent 用户下载接入 | 未知（低优先） | 唯一入口 |
 
 ## 成组监控清单（GSC 查询重合是合并/分化的裁决依据）
@@ -82,7 +82,7 @@
 
 ## GSC 回填计划（SOP STEP 0/6 检查点）
 
-- ~2026-11-02（上线 7 天）：索引与抓取检查；确认 190 条 URL 开始被抓取，无 noindex 异常。
+- ~2026-11-02（上线 7 天）：索引与抓取检查；确认 200 条 URL 开始被抓取，无 noindex 异常。
 - ~2026-11-09（14 天）：按页面拉取查询/曝光初值，回填"待 GSC"行；检查成组监控清单的查询重合。
 - ~2026-11-23（28 天）：产出 SEO Baseline Report（28 天曝光/点击/CTR/平均排名，按页面与查询细分，区分品牌词与非品牌词）；据此决定花体标题实验是否立项。
 
