@@ -302,7 +302,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         "What FancyFont collects (and does not collect): all tools run in your browser and your text is never sent to our servers.",
     },
     h1: "Privacy Policy",
-    updated: "Last updated: October 2026",
+    updated: "Last updated: November 2026",
     sections: [
       {
         h2: "Your text stays in your browser",
@@ -310,7 +310,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Information we do not collect",
-        body: "We do not require an account, we do not set advertising or tracking cookies, and we do not collect the content you type or copy. Copying a result uses your browser's clipboard directly — it never passes through us.",
+        body: "We do not require an account, and we do not collect the text you type or copy. Copying a result uses your browser's clipboard directly — it never passes through us. We do not sell personal information and we do not run advertising cookies.",
       },
       {
         h2: "Standard hosting logs",
@@ -321,8 +321,12 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         body: "FancyFont is a general-audience tool and does not knowingly collect any personal information from any visitor, including children.",
       },
       {
+        h2: "Usage measurement",
+        body: "When analytics is turned on for this deployment, the page loads Google Analytics 4 and Microsoft Clarity. They receive the page address and events such as which style id was copied, which tool was used, and a character-length range (such as 1–20). They do not receive the text you type, a generated nickname, a copied symbol, or a search query. You can block these scripts in your browser; the tools keep working. If no measurement ID is configured, those scripts are not loaded.",
+      },
+      {
         h2: "Changes to this policy",
-        body: "If we add features that change how data is handled — for example optional analytics — we will update this page before those changes go live.",
+        body: "If we change how data is handled, we will update this page before the change goes live.",
       },
       {
         h2: "Contact",
@@ -337,7 +341,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         "Qué recoge FancyFont (y qué no): todas las herramientas corren en tu navegador y tu texto nunca llega a nuestros servidores.",
     },
     h1: "Política de privacidad",
-    updated: "Última actualización: octubre de 2026",
+    updated: "Última actualización: noviembre de 2026",
     sections: [
       {
         h2: "Tu texto se queda en tu navegador",
@@ -345,7 +349,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Información que no recogemos",
-        body: "No pedimos cuenta, no ponemos cookies de publicidad ni rastreo, y no recogemos el contenido que escribes o copias. Copiar un resultado usa el portapapeles de tu navegador directamente — nunca pasa por nosotros.",
+        body: "No pedimos cuenta y no recogemos el contenido que escribes o copias. Copiar un resultado usa el portapapeles de tu navegador directamente — nunca pasa por nosotros. No vendemos información personal ni usamos cookies de publicidad.",
       },
       {
         h2: "Registros estándar de hosting",
@@ -356,8 +360,12 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         body: "FancyFont es una herramienta para público general y no recoge a sabiendas información personal de ningún visitante, incluidos menores.",
       },
       {
+        h2: "Medición de uso",
+        body: "Cuando esta instalación tiene activada la medición, la página carga Google Analytics 4 y Microsoft Clarity. Reciben la dirección de la página y eventos como qué identificador de estilo se copió, qué herramienta se usó y un rango de longitud (por ejemplo, 1–20). No reciben el texto que escribes, un apodo generado, un símbolo copiado ni el texto de una búsqueda. Puedes bloquear estos scripts en tu navegador; las herramientas siguen funcionando. Si no hay un ID de medición, esos scripts no se cargan.",
+      },
+      {
         h2: "Cambios en esta política",
-        body: "Si añadimos funciones que cambien cómo se tratan los datos — por ejemplo, analíticas opcionales — actualizaremos esta página antes de activarlas.",
+        body: "Si cambiamos cómo se tratan los datos, actualizaremos esta página antes de que el cambio entre en vigor.",
       },
       {
         h2: "Contacto",
@@ -372,7 +380,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         "O que o FancyFont coleta (e não coleta): todas as ferramentas rodam no seu navegador e seu texto nunca chega aos nossos servidores.",
     },
     h1: "Política de Privacidade",
-    updated: "Última atualização: outubro de 2026",
+    updated: "Última atualização: novembro de 2026",
     sections: [
       {
         h2: "Seu texto fica no seu navegador",
@@ -380,7 +388,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Informação que não coletamos",
-        body: "Não pedimos conta, não usamos cookies de publicidade ou rastreamento e não coletamos o conteúdo que você digita ou copia. Copiar um resultado usa a área de transferência do seu navegador direto — nunca passa por nós.",
+        body: "Não pedimos conta e não coletamos o conteúdo que você digita ou copia. Copiar um resultado usa a área de transferência do seu navegador direto — nunca passa por nós. Não vendemos informações pessoais e não usamos cookies de publicidade.",
       },
       {
         h2: "Registros padrão de hospedagem",
@@ -391,8 +399,12 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         body: "O FancyFont é uma ferramenta para público geral e não coleta intencionalmente informação pessoal de nenhum visitante, incluindo crianças.",
       },
       {
+        h2: "Medição de uso",
+        body: "Quando esta instalação tem a medição ligada, a página carrega o Google Analytics 4 e o Microsoft Clarity. Eles recebem o endereço da página e eventos como qual id de estilo foi copiado, qual ferramenta foi usada e uma faixa de tamanho (por exemplo, 1–20). Não recebem o texto que você digita, um apelido gerado, um símbolo copiado nem o texto de uma busca. Você pode bloquear esses scripts no navegador; as ferramentas continuam funcionando. Sem um ID de medição, esses scripts não são carregados.",
+      },
+      {
         h2: "Mudanças nesta política",
-        body: "Se adicionarmos recursos que mudem como os dados são tratados — por exemplo, análises opcionais — atualizaremos esta página antes de ativá-las.",
+        body: "Se mudarmos como os dados são tratados, atualizaremos esta página antes de a mudança entrar no ar.",
       },
       {
         h2: "Contato",
@@ -406,7 +418,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       description: "FancyFont 收集什么（以及不收集什么）：所有工具都在你的浏览器中运行，你的文字永远不会发送到我们的服务器。",
     },
     h1: "隐私政策",
-    updated: "最后更新：2026 年 10 月",
+    updated: "最后更新：2026 年 11 月",
     sections: [
       {
         h2: "你的文字只留在你的浏览器里",
@@ -414,7 +426,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "我们不收集的信息",
-        body: "我们不需要注册账号，不设置广告或追踪 Cookie，也不收集你输入或复制的内容。复制结果直接使用你浏览器的剪贴板——不会经过我们的服务器。",
+        body: "我们不需要注册账号，也不收集你输入或复制的内容。复制结果直接使用你浏览器的剪贴板——不会经过我们的服务器。我们不出售个人信息，也不投放广告 Cookie。",
       },
       {
         h2: "标准的托管日志",
@@ -425,8 +437,12 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         body: "FancyFont 是面向大众的工具，不会有意收集任何访客的个人信息，包括未成年人。",
       },
       {
+        h2: "使用情况统计",
+        body: "当这次部署打开了统计时，页面会加载 Google Analytics 4 和 Microsoft Clarity。它们收到的是页面地址，以及这些事件：复制了哪个样式编号、用了哪个工具、字符长度落在哪个区间（例如 1–20）。它们收不到你输入的文字、生成的昵称、复制的符号，也收不到搜索词。你可以在浏览器里拦截这些脚本，工具仍然可用。没有配置测量 ID 时，这些脚本不会加载。",
+      },
+      {
         h2: "政策的变更",
-        body: "如果我们添加会改变数据处理方式的功能——例如可选的统计分析——会在上线前先更新本页面。",
+        body: "如果数据处理方式有变化，会在变更上线前先更新本页面。",
       },
       {
         h2: "联系我们",
@@ -441,7 +457,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         "Apa yang dikumpulkan (dan tidak dikumpulkan) FancyFont: semua alat berjalan di browsermu dan teksmu tidak pernah dikirim ke server kami.",
     },
     h1: "Kebijakan Privasi",
-    updated: "Terakhir diperbarui: Oktober 2026",
+    updated: "Terakhir diperbarui: November 2026",
     sections: [
       {
         h2: "Teks kamu tetap di browsermu",
@@ -449,7 +465,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Informasi yang tidak kami kumpulkan",
-        body: "Kami tidak meminta akun, tidak memasang cookie iklan atau pelacakan, dan tidak mengumpulkan konten yang kamu ketik atau salin. Menyalin hasil memakai papan klip browsermu secara langsung — tidak pernah lewat kami.",
+        body: "Kami tidak meminta akun dan tidak mengumpulkan konten yang kamu ketik atau salin. Menyalin hasil memakai papan klip browsermu secara langsung — tidak pernah lewat kami. Kami tidak menjual informasi pribadi dan tidak memasang cookie iklan.",
       },
       {
         h2: "Log hosting standar",
@@ -460,8 +476,12 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
         body: "FancyFont adalah alat untuk audiens umum dan tidak dengan sengaja mengumpulkan informasi pribadi dari pengunjung mana pun, termasuk anak-anak.",
       },
       {
+        h2: "Pengukuran penggunaan",
+        body: "Saat pengukuran diaktifkan untuk pemasangan ini, halaman memuat Google Analytics 4 dan Microsoft Clarity. Keduanya menerima alamat halaman dan peristiwa seperti id gaya yang disalin, alat yang dipakai, dan rentang panjang karakter (misalnya 1–20). Keduanya tidak menerima teks yang kamu ketik, nama yang dibuat, simbol yang disalin, atau kata yang dicari. Kamu bisa memblokir skrip ini di browser; alatnya tetap jalan. Jika tidak ada ID pengukuran, skrip itu tidak dimuat.",
+      },
+      {
         h2: "Perubahan kebijakan ini",
-        body: "Jika kami menambahkan fitur yang mengubah cara data ditangani — misalnya analitik opsional — halaman ini akan diperbarui sebelum perubahan tersebut aktif.",
+        body: "Jika cara data ditangani berubah, halaman ini akan diperbarui sebelum perubahan itu aktif.",
       },
       {
         h2: "Kontak",

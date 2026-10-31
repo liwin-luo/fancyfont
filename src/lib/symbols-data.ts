@@ -536,3 +536,8 @@ export function searchSymbols(query: string, category: string | null): SymbolEnt
 export function categoryName(id: string): string {
   return symbolCategories.find((c) => c.id === id)?.name ?? id;
 }
+
+/** Text first, then the board, in the order the symbols were added. */
+export function joinBoard(text: string, symbols: string[]): string {
+  return text + symbols.join("");
+}

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   displaySymbol,
+  joinBoard,
   searchSymbols,
   symbols,
   symbolCategories,
@@ -74,6 +75,11 @@ describe("symbol search", () => {
 
   it("is case-insensitive", () => {
     expect(searchSymbols("STAR", null)).toEqual(searchSymbols("star", null));
+  });
+
+  it("puts text in front of the board and copies the board alone when the text is empty", () => {
+    expect(joinBoard("Alex", ["♥", "★"])).toBe("Alex♥★");
+    expect(joinBoard("", ["♥", "★"])).toBe("♥★");
   });
 
   it("keeps invisible characters blank and shows a dotted circle instead", () => {

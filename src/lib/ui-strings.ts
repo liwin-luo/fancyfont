@@ -45,10 +45,15 @@ export interface UiStrings {
     clear: string;
     reset: string;
     charactersInfo: string;
+    countsSummary: string;
+    visibleCount: (count: number) => string;
+    codePointCount: (count: number) => string;
+    utf16Count: (count: number) => string;
     filterStyles: string;
     searchStyles: string;
     all: string;
     favorites: string;
+    recent: string;
     noFavorites: string;
     noStylesMatch: (query: string) => string;
     typeToSee: (count: number) => string;
@@ -113,6 +118,8 @@ export interface UiStrings {
     combosHeading: string;
     combosHint: string;
     copyCombo: (label: string) => string;
+    prefixLabel: string;
+    prefixPlaceholder: string;
   };
   gaming: {
     yourName: string;
@@ -141,6 +148,20 @@ export interface UiStrings {
     emptyName: string;
     loadMore: string;
     generateNew: string;
+    checkNickname: string;
+    checkResult: string;
+    inputPreview: string;
+    unicodeHeading: string;
+    platformHeading: string;
+    analysisComplete: string;
+    platformRule: (status: "needs_verification" | "partial" | "verified") => string;
+    platformNone: string;
+    displayDevice: string;
+    combiningMark: string;
+    variationSelector: string;
+    emojiFlag: string;
+    unchangedLetters: (letters: string) => string;
+    codePointsLabel: string;
   };
   styleNames: Record<TextStyleId, string>;
   styleCategoryNames: Record<StyleCategory, string>;
@@ -160,6 +181,9 @@ export interface UiStrings {
     next: string;
     note: string;
     over: string;
+    notTested: string;
+    approxField: (platform: string, max: number) => string;
+    handleAscii: string;
     posts: string;
     followers: string;
     following: string;
@@ -171,6 +195,7 @@ export interface UiStrings {
     subscribers: string;
     subscribe: string;
   };
+  bio: { drafts: string; boardTail: string; png: string };
   symbolCatNotes: { invisible: string; blankLink: string };
   sections: {
     howToUse: string;
@@ -262,10 +287,15 @@ export const ui: Record<Locale, UiStrings> = {
       clear: "Clear",
       reset: "Reset",
       charactersInfo: "characters",
+      countsSummary: "Character counts",
+      visibleCount: (count) => `Visible characters: ${count}`,
+      codePointCount: (count) => `Unicode code points: ${count}`,
+      utf16Count: (count) => `UTF-16 units: ${count}`,
       filterStyles: "Filter styles",
       searchStyles: "Search styles — try “cursive”, “tiny”, “glitch”...",
       all: "All",
       favorites: "Favorites",
+      recent: "Recent",
       noFavorites: "No favorites yet — tap the star on any style to pin it here.",
       noStylesMatch: (query) => `No styles match “${query}” — try another word.`,
       typeToSee: (count) => `Type something above to see it in ${count} styles.`,
@@ -331,6 +361,8 @@ export const ui: Record<Locale, UiStrings> = {
       combosHeading: "Decorative combos",
       combosHint: "Ready-made decorations — click one to copy the whole thing.",
       copyCombo: (label) => `Copy ${label}`,
+      prefixLabel: "Text in front",
+      prefixPlaceholder: "Optional — copied before the symbols",
     },
     gaming: {
       yourName: "Your name",
@@ -359,6 +391,25 @@ export const ui: Record<Locale, UiStrings> = {
       emptyName: "No name yet — these use short suggestions. Type yours to replace them.",
       loadMore: "Load more",
       generateNew: "Generate new combinations",
+      checkNickname: "Check this nickname",
+      checkResult: "Check this result",
+      inputPreview: "Input",
+      unicodeHeading: "Unicode analysis",
+      platformHeading: "Platform",
+      analysisComplete: "Character analysis: complete",
+      platformRule: (status) =>
+        ({
+          needs_verification: "Platform rule: needs verification",
+          partial: "Platform rule: partial",
+          verified: "Platform rule: verified",
+        })[status],
+      platformNone: "Platform rule: no platform selected",
+      displayDevice: "Display: depends on the device",
+      combiningMark: "Contains a combining mark",
+      variationSelector: "Contains a variation selector",
+      emojiFlag: "Contains emoji",
+      unchangedLetters: (letters) => `These letters stay the same in this style: ${letters}`,
+      codePointsLabel: "Code points",
     },
     styleNames: styleNamesEn,
     styleCategoryNames: {
@@ -413,6 +464,9 @@ export const ui: Record<Locale, UiStrings> = {
       next: "Next",
       note: "Drawn in your browser to match the profile layout. The real app uses its own font, so paste the text there and check it before you rely on it.",
       over: "over the usual limit",
+      notTested: "Not tested on this site.",
+      approxField: (platform, max) => `About ${max} characters on ${platform}, counted as code points. Not tested on this site.`,
+      handleAscii: "The login name keeps only the ASCII that platform already documents.",
       posts: "posts",
       followers: "followers",
       following: "following",
@@ -423,6 +477,11 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Friends",
       subscribers: "subscribers",
       subscribe: "Subscribe",
+    },
+    bio: {
+      drafts: "Draft",
+      boardTail: "Symbols on your board are added at the end.",
+      png: "Save PNG",
     },
     symbolCatNotes: {
       invisible:
@@ -493,10 +552,15 @@ export const ui: Record<Locale, UiStrings> = {
       clear: "Borrar",
       reset: "Restaurar",
       charactersInfo: "caracteres",
+      countsSummary: "Recuento de caracteres",
+      visibleCount: (count) => `Caracteres visibles: ${count}`,
+      codePointCount: (count) => `Puntos de código Unicode: ${count}`,
+      utf16Count: (count) => `Unidades UTF-16: ${count}`,
       filterStyles: "Filtrar estilos",
       searchStyles: "Busca estilos — prueba “cursiva”, “pequeño”, “glitch”...",
       all: "Todos",
       favorites: "Favoritos",
+      recent: "Recientes",
       noFavorites: "Aún no hay favoritos — toca la estrella de cualquier estilo para fijarlo aquí.",
       noStylesMatch: (query) => `Ningún estilo coincide con “${query}” — prueba otra palabra.`,
       typeToSee: (count) => `Escribe algo arriba para verlo en ${count} estilos.`,
@@ -562,6 +626,8 @@ export const ui: Record<Locale, UiStrings> = {
       combosHeading: "Combinaciones decorativas",
       combosHint: "Decoraciones listas para usar — toca una para copiarla completa.",
       copyCombo: (label) => `Copiar ${label}`,
+      prefixLabel: "Texto delante",
+      prefixPlaceholder: "Opcional — se copia antes de los símbolos",
     },
     gaming: {
       yourName: "Tu nombre",
@@ -590,6 +656,25 @@ export const ui: Record<Locale, UiStrings> = {
       emptyName: "Aún no hay nombre — estas usan sugerencias cortas. Escribe el tuyo para reemplazarlas.",
       loadMore: "Cargar más",
       generateNew: "Generar nuevas combinaciones",
+      checkNickname: "Revisar este apodo",
+      checkResult: "Revisar este resultado",
+      inputPreview: "Entrada",
+      unicodeHeading: "Análisis Unicode",
+      platformHeading: "Plataforma",
+      analysisComplete: "Análisis de caracteres: completo",
+      platformRule: (status) =>
+        ({
+          needs_verification: "Regla de la plataforma: falta verificación",
+          partial: "Regla de la plataforma: parcial",
+          verified: "Regla de la plataforma: verificada",
+        })[status],
+      platformNone: "Regla de la plataforma: ninguna plataforma elegida",
+      displayDevice: "Visualización: depende del dispositivo",
+      combiningMark: "Contiene una marca combinante",
+      variationSelector: "Contiene un selector de variación",
+      emojiFlag: "Contiene un emoji",
+      unchangedLetters: (letters) => `Estas letras no cambian en este estilo: ${letters}`,
+      codePointsLabel: "Puntos de código",
     },
     styleNames: {
       ...styleNamesEn,
@@ -676,6 +761,9 @@ export const ui: Record<Locale, UiStrings> = {
       next: "Siguiente",
       note: "Se dibuja en tu navegador con la disposición del perfil. La app real usa su propia fuente: pega el texto allí y compruébalo antes de fiarte.",
       over: "supera el límite habitual",
+      notTested: "No lo hemos probado en este sitio.",
+      approxField: (platform, max) => `Unos ${max} caracteres en ${platform}, contados como puntos de código. No lo hemos probado en este sitio.`,
+      handleAscii: "El nombre de inicio de sesión conserva solo el ASCII que la plataforma ya documenta.",
       posts: "publicaciones",
       followers: "seguidores",
       following: "seguidos",
@@ -686,6 +774,11 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Amigos",
       subscribers: "suscriptores",
       subscribe: "Suscribirse",
+    },
+    bio: {
+      drafts: "Borrador",
+      boardTail: "Los símbolos de tu bandeja se añaden al final.",
+      png: "Guardar PNG",
     },
     symbolCatNotes: {
       invisible:
@@ -761,10 +854,15 @@ export const ui: Record<Locale, UiStrings> = {
       clear: "Limpar",
       reset: "Restaurar",
       charactersInfo: "caracteres",
+      countsSummary: "Contagem de caracteres",
+      visibleCount: (count) => `Caracteres visíveis: ${count}`,
+      codePointCount: (count) => `Pontos de código Unicode: ${count}`,
+      utf16Count: (count) => `Unidades UTF-16: ${count}`,
       filterStyles: "Filtrar estilos",
       searchStyles: "Busque estilos — teste “cursiva”, “pequena”, “glitch”...",
       all: "Todos",
       favorites: "Favoritos",
+      recent: "Recentes",
       noFavorites: "Nenhum favorito ainda — toque na estrela de um estilo para fixá-lo aqui.",
       noStylesMatch: (query) => `Nenhum estilo corresponde a “${query}” — tente outra palavra.`,
       typeToSee: (count) => `Digite algo acima para ver em ${count} estilos.`,
@@ -830,6 +928,8 @@ export const ui: Record<Locale, UiStrings> = {
       combosHeading: "Combinações decorativas",
       combosHint: "Decorações prontas — toque em uma para copiar tudo.",
       copyCombo: (label) => `Copiar ${label}`,
+      prefixLabel: "Texto na frente",
+      prefixPlaceholder: "Opcional — copiado antes dos símbolos",
     },
     gaming: {
       yourName: "Seu nome",
@@ -858,6 +958,25 @@ export const ui: Record<Locale, UiStrings> = {
       emptyName: "Ainda sem nome — estas usam sugestões curtas. Digite o seu para substituí-las.",
       loadMore: "Carregar mais",
       generateNew: "Gerar novas combinações",
+      checkNickname: "Conferir este apelido",
+      checkResult: "Conferir este resultado",
+      inputPreview: "Entrada",
+      unicodeHeading: "Análise Unicode",
+      platformHeading: "Plataforma",
+      analysisComplete: "Análise de caracteres: completa",
+      platformRule: (status) =>
+        ({
+          needs_verification: "Regra da plataforma: precisa de verificação",
+          partial: "Regra da plataforma: parcial",
+          verified: "Regra da plataforma: verificada",
+        })[status],
+      platformNone: "Regra da plataforma: nenhuma plataforma escolhida",
+      displayDevice: "Exibição: depende do aparelho",
+      combiningMark: "Contém uma marca combinante",
+      variationSelector: "Contém um seletor de variação",
+      emojiFlag: "Contém emoji",
+      unchangedLetters: (letters) => `Estas letras ficam iguais neste estilo: ${letters}`,
+      codePointsLabel: "Pontos de código",
     },
     styleNames: {
       ...styleNamesEn,
@@ -944,6 +1063,9 @@ export const ui: Record<Locale, UiStrings> = {
       next: "Próximo",
       note: "Desenhado no seu navegador com a disposição do perfil. O app real usa a fonte dele: cole o texto lá e confira antes de confiar.",
       over: "acima do limite usual",
+      notTested: "Não testado neste site.",
+      approxField: (platform, max) => `Cerca de ${max} caracteres no ${platform}, contados como pontos de código. Não testado neste site.`,
+      handleAscii: "O nome de login mantém só o ASCII que a plataforma já documenta.",
       posts: "publicações",
       followers: "seguidores",
       following: "seguindo",
@@ -954,6 +1076,11 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Amigos",
       subscribers: "inscritos",
       subscribe: "Inscrever-se",
+    },
+    bio: {
+      drafts: "Rascunho",
+      boardTail: "Os símbolos da sua bandeja são adicionados no final.",
+      png: "Salvar PNG",
     },
     symbolCatNotes: {
       invisible:
@@ -1024,10 +1151,15 @@ export const ui: Record<Locale, UiStrings> = {
       clear: "清空",
       reset: "还原",
       charactersInfo: "个字符",
+      countsSummary: "字符计数",
+      visibleCount: (count) => `可见字符：${count}`,
+      codePointCount: (count) => `Unicode 码点：${count}`,
+      utf16Count: (count) => `UTF-16 单元：${count}`,
       filterStyles: "筛选样式",
       searchStyles: "搜索样式——试试“花体”“上标”“乱码”...",
       all: "全部",
       favorites: "收藏",
+      recent: "最近使用",
       noFavorites: "还没有收藏——点击任意样式旁的星标即可固定在这里。",
       noStylesMatch: (query) => `没有匹配“${query}”的样式——换个词试试。`,
       typeToSee: (count) => `在上方输入文字，即可看到 ${count} 种样式效果。`,
@@ -1093,6 +1225,8 @@ export const ui: Record<Locale, UiStrings> = {
       combosHeading: "装饰组合",
       combosHint: "现成的装饰搭配——点击即整条复制。",
       copyCombo: (label) => `复制${label}`,
+      prefixLabel: "前面的文字",
+      prefixPlaceholder: "可选，会复制在符号前面",
     },
     gaming: {
       yourName: "你的名字",
@@ -1121,6 +1255,25 @@ export const ui: Record<Locale, UiStrings> = {
       emptyName: "还没输入名字——下面用的是短建议。输入你的名字就会换成你的。",
       loadMore: "加载更多",
       generateNew: "换一批组合",
+      checkNickname: "检查这段昵称",
+      checkResult: "检查这段结果",
+      inputPreview: "输入预览",
+      unicodeHeading: "Unicode 分析",
+      platformHeading: "平台规则",
+      analysisComplete: "字符分析：完成",
+      platformRule: (status) =>
+        ({
+          needs_verification: "平台规则：需要核实",
+          partial: "平台规则：部分",
+          verified: "平台规则：已验证",
+        })[status],
+      platformNone: "平台规则：未选择平台",
+      displayDevice: "显示：取决于设备",
+      combiningMark: "含有组合附加符号",
+      variationSelector: "含有变体选择符",
+      emojiFlag: "含有 emoji",
+      unchangedLetters: (letters) => `这些字母在这个样式里保持原样：${letters}`,
+      codePointsLabel: "码点",
     },
     styleNames: {
       script: "花体",
@@ -1206,6 +1359,9 @@ export const ui: Record<Locale, UiStrings> = {
       next: "下一个",
       note: "按资料页的版式画在你的浏览器里。真正的应用用自己的字体，把文字粘贴过去再确认一次。",
       over: "超过常见字数",
+      notTested: "未在本站实测。",
+      approxField: (platform, max) => `${platform} 大约 ${max} 个字符（按码点计）。未在本站实测。`,
+      handleAscii: "登录名只保留平台公开允许的 ASCII。",
       posts: "帖子",
       followers: "粉丝",
       following: "关注",
@@ -1216,6 +1372,11 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "好友",
       subscribers: "位订阅者",
       subscribe: "订阅",
+    },
+    bio: {
+      drafts: "草稿",
+      boardTail: "托盘里的符号会加在末尾。",
+      png: "保存 PNG",
     },
     symbolCatNotes: {
       invisible:
@@ -1284,10 +1445,15 @@ export const ui: Record<Locale, UiStrings> = {
       clear: "Hapus",
       reset: "Reset",
       charactersInfo: "karakter",
+      countsSummary: "Jumlah karakter",
+      visibleCount: (count) => `Karakter terlihat: ${count}`,
+      codePointCount: (count) => `Titik kode Unicode: ${count}`,
+      utf16Count: (count) => `Unit UTF-16: ${count}`,
       filterStyles: "Filter gaya",
       searchStyles: "Cari gaya — coba “cursive”, “tiny”, “glitch”...",
       all: "Semua",
       favorites: "Favorit",
+      recent: "Baru dipakai",
       noFavorites: "Belum ada favorit — ketuk bintang pada gaya untuk menyimpannya di sini.",
       noStylesMatch: (query) => `Tidak ada gaya yang cocok dengan “${query}” — coba kata lain.`,
       typeToSee: (count) => `Ketik sesuatu di atas untuk melihatnya dalam ${count} gaya.`,
@@ -1354,6 +1520,8 @@ export const ui: Record<Locale, UiStrings> = {
       combosHeading: "Kombinasi dekorasi",
       combosHint: "Dekorasi siap pakai — ketuk untuk menyalin semuanya.",
       copyCombo: (label) => `Salin ${label}`,
+      prefixLabel: "Teks di depan",
+      prefixPlaceholder: "Opsional — disalin sebelum simbol",
     },
     gaming: {
       yourName: "Nama kamu",
@@ -1383,6 +1551,25 @@ export const ui: Record<Locale, UiStrings> = {
       emptyName: "Belum ada nama — ini memakai saran pendek. Ketik namamu untuk menggantinya.",
       loadMore: "Muat lebih banyak",
       generateNew: "Buat kombinasi baru",
+      checkNickname: "Periksa nama ini",
+      checkResult: "Periksa hasil ini",
+      inputPreview: "Pratinjau masukan",
+      unicodeHeading: "Analisis Unicode",
+      platformHeading: "Aturan platform",
+      analysisComplete: "Analisis karakter: selesai",
+      platformRule: (status) =>
+        ({
+          needs_verification: "Aturan platform: perlu verifikasi",
+          partial: "Aturan platform: sebagian",
+          verified: "Aturan platform: terverifikasi",
+        })[status],
+      platformNone: "Aturan platform: platform belum dipilih",
+      displayDevice: "Tampilan: tergantung perangkat",
+      combiningMark: "Mengandung tanda penggabung",
+      variationSelector: "Mengandung pemilih variasi",
+      emojiFlag: "Mengandung emoji",
+      unchangedLetters: (letters) => `Huruf ini tetap sama pada gaya ini: ${letters}`,
+      codePointsLabel: "Code point",
     },
     styleNames: {
       script: "Cursive",
@@ -1468,6 +1655,9 @@ export const ui: Record<Locale, UiStrings> = {
       next: "Berikutnya",
       note: "Digambar di browser kamu dengan tata letak profil. Aplikasi aslinya memakai fontnya sendiri — tempel teksnya di sana dan cek sebelum kamu mengandalkannya.",
       over: "melebihi batas umum",
+      notTested: "Belum diuji di situs ini.",
+      approxField: (platform, max) => `Sekitar ${max} karakter di ${platform}, dihitung sebagai code point. Belum diuji di situs ini.`,
+      handleAscii: "Nama login hanya menyimpan ASCII yang sudah didokumentasikan platform.",
       posts: "postingan",
       followers: "pengikut",
       following: "mengikuti",
@@ -1478,6 +1668,11 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Teman",
       subscribers: "subscriber",
       subscribe: "Berlangganan",
+    },
+    bio: {
+      drafts: "Draf",
+      boardTail: "Simbol di baki kamu ditambahkan di akhir.",
+      png: "Simpan PNG",
     },
     symbolCatNotes: {
       invisible:

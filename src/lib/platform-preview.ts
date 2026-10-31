@@ -1,8 +1,12 @@
 // Local profile-card limits and the plain handle shown beside styled text.
 //
 // ponytail: length is code points, and the handle keeps only ASCII the
-// platform already documents. Real apps count UTF-16 or graphemes and apply
-// their own font — the card is a fitting check, not a pixel match.
+// platform already documents. Ceilings come from platform-rules.ts so the
+// card and the rule table cannot drift. Real apps count UTF-16 or graphemes
+// and apply their own font — the card is a fitting check, not a pixel match.
+
+import { measureText } from "./measure";
+import { previewExtraMax, previewNameMax } from "./platform-rules";
 
 export type PlatformPreviewId =
   | "instagram"
@@ -23,20 +27,26 @@ export interface PreviewFields {
   handle?: "social" | "discord" | "roblox" | "youtube";
 }
 
+function extraMax(id: PlatformPreviewId): number {
+  const max = previewExtraMax(id);
+  if (max === undefined) throw new Error(`No extra rule for ${id}`);
+  return max;
+}
+
 export const previewFields: Record<PlatformPreviewId, PreviewFields> = {
-  instagram: { nameLabel: "displayName", nameMax: 30, extra: { label: "bio", max: 150 }, handle: "social" },
-  tiktok: { nameLabel: "nickname", nameMax: 24, extra: { label: "bio", max: 80 }, handle: "social" },
-  discord: { nameLabel: "nickname", nameMax: 32, extra: { label: "status", max: 128 }, handle: "discord" },
-  roblox: { nameLabel: "displayName", nameMax: 20, handle: "roblox" },
-  facebook: { nameLabel: "displayName", nameMax: 50, extra: { label: "bio", max: 101 }, handle: "social" },
-  youtube: { nameLabel: "displayName", nameMax: 100, extra: { label: "bio", max: 1000 }, handle: "youtube" },
-  pubg: { nameLabel: "nickname", nameMax: 16 },
-  freefire: { nameLabel: "nickname", nameMax: 12 },
-  cod: { nameLabel: "nickname", nameMax: 16 },
+  instagram: { nameLabel: "displayName", nameMax: previewNameMax("instagram"), extra: { label: "bio", max: extraMax("instagram") }, handle: "social" },
+  tiktok: { nameLabel: "nickname", nameMax: previewNameMax("tiktok"), extra: { label: "bio", max: extraMax("tiktok") }, handle: "social" },
+  discord: { nameLabel: "nickname", nameMax: previewNameMax("discord"), extra: { label: "status", max: extraMax("discord") }, handle: "discord" },
+  roblox: { nameLabel: "displayName", nameMax: previewNameMax("roblox"), handle: "roblox" },
+  facebook: { nameLabel: "displayName", nameMax: previewNameMax("facebook"), extra: { label: "bio", max: extraMax("facebook") }, handle: "social" },
+  youtube: { nameLabel: "displayName", nameMax: previewNameMax("youtube"), extra: { label: "bio", max: extraMax("youtube") }, handle: "youtube" },
+  pubg: { nameLabel: "nickname", nameMax: previewNameMax("pubg") },
+  freefire: { nameLabel: "nickname", nameMax: previewNameMax("freefire") },
+  cod: { nameLabel: "nickname", nameMax: previewNameMax("cod") },
 };
 
 export function codePointLength(text: string): number {
-  return [...text].length;
+  return measureText(text).codePoints;
 }
 
 /** Visible clip. The full string is what gets copied; this is only the card. */

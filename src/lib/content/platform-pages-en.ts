@@ -19,6 +19,12 @@ export interface PlatformPresetCopy {
   transform: string;
 }
 
+export interface BioTemplate {
+  id: string;
+  label: string;
+  text: string;
+}
+
 export interface PlatformPageCopy {
   navName: string;
   h1: string;
@@ -26,6 +32,7 @@ export interface PlatformPageCopy {
   description: string;
   intro: string;
   defaultText: string;
+  bios?: BioTemplate[];
   presets: PlatformPresetCopy[];
   guidance: PlatformGuidance[];
   compatNote: string;
@@ -40,8 +47,13 @@ export const platformPagesEn: Record<string, PlatformPageCopy> = {
     description:
       "Stylish Unicode fonts for your Instagram bio and display name — preview how each style looks and copy it in one tap.",
     intro:
-      "Instagram has no font picker — but Unicode text works in your display name and bio. Pick a style below, copy it, and paste it straight into your profile.",
+      "Instagram has no font picker. The draft below is for the bio, and the line breaks are already in it. The display name is the short field, about 30 characters, and the username stays plain.",
     defaultText: "Instagram",
+    bios: [
+      { id: "name", label: "Name, then symbols", text: "Alex\n\n♡ ✦ ♡" },
+      { id: "line", label: "One line about you", text: "coffee and late walks\n\n✦" },
+      { id: "note", label: "Name and a note", text: "Alex\n\nnew here" },
+    ],
     presets: [
       { label: "Soft name frame", left: "✦ ", right: " ✦", transform: "script" },
       { label: "Aesthetic spacing", left: "", right: "", transform: "fullwidth" },
@@ -88,6 +100,11 @@ export const platformPagesEn: Record<string, PlatformPageCopy> = {
     intro:
       "TikTok's built-in text options stop at its video editor. Your nickname and bio accept Unicode — pick a style below and paste it into your profile.",
     defaultText: "TikTok",
+    bios: [
+      { id: "name", label: "Name, then a mark", text: "Alex\n\n♪" },
+      { id: "line", label: "What you post", text: "daily clips\n\n★" },
+      { id: "note", label: "Name and a note", text: "Alex\nhere for the edits" },
+    ],
     presets: [
       { label: "Clan frame", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "Sparkle accent", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
@@ -134,6 +151,11 @@ export const platformPagesEn: Record<string, PlatformPageCopy> = {
     intro:
       "Discord nicknames and custom statuses have no formatting buttons — Unicode fills the gap. Pick a style, copy it, and paste it into your profile.",
     defaultText: "Discord",
+    bios: [
+      { id: "name", label: "Name and a status", text: "Alex\n\nlistening" },
+      { id: "line", label: "What you're doing", text: "in a call\n\n✦" },
+      { id: "note", label: "Short away note", text: "Alex\naway" },
+    ],
     presets: [
       { label: "Server tag", left: "『", right: "』", transform: "monospace" },
       { label: "Mod mode", left: "† ", right: " †", transform: "fraktur" },

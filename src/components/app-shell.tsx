@@ -1,5 +1,7 @@
+import Script from "next/script";
 import type { Locale } from "@/lib/i18n";
 import { htmlLang } from "@/lib/i18n";
+import { measurementIds } from "@/lib/analytics";
 import { Header } from "@/components/header";
 import { PixelHeart, PixelSpark, PixelStar } from "@/components/pixel-star";
 import { Footer } from "@/components/footer";
@@ -11,9 +13,23 @@ import { LocaleProvider } from "@/components/locale-context";
  * renders this with its own locale so <html lang> is always correct.
  */
 export function AppShell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
+  const { ga, clarity } = measurementIds();
   return (
     <html lang={htmlLang[locale]}>
       <body className="bg-page text-ink-900 antialiased">
+        {ga ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${ga}');`}
+            </Script>
+          </>
+        ) : null}
+        {clarity ? (
+          <Script id="clarity" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarity}");`}
+          </Script>
+        ) : null}
         <LocaleProvider locale={locale}>
           <ToastProvider>
             <a href="#main" className="skip-link">

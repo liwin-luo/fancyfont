@@ -7,6 +7,7 @@ import { PreviewOptions, ShareLinks } from "@/components/style-actions";
 import { useToast } from "@/components/toast";
 import { downloadTextPng } from "@/lib/export-image";
 import { useLocale } from "@/components/locale-context";
+import { measureText, sliceGraphemes } from "@/lib/measure";
 import { getUi } from "@/lib/ui-strings";
 
 const MAX_LENGTH = 120;
@@ -35,8 +36,8 @@ export function SingleStyleTool({
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
-  const charCount = Math.min(text.length, MAX_LENGTH);
-  const previewText = text.slice(0, MAX_LENGTH);
+  const previewText = sliceGraphemes(text, MAX_LENGTH);
+  const charCount = measureText(previewText).graphemes;
 
   const outputs = useMemo(() => {
     const [primary, ...rest] = styleIds;
@@ -77,8 +78,7 @@ export function SingleStyleTool({
           id="style-page-input"
           type="text"
           value={text}
-          maxLength={MAX_LENGTH}
-          onChange={(event) => setText(event.target.value)}
+          onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
           placeholder={t.common.stylePageInputLabel}
           autoComplete="off"
           spellCheck={false}

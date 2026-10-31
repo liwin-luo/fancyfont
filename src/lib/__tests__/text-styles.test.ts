@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { convertAll, convertText, textStyles, styleCategories } from "@/lib/text-styles";
+import { convertAll, convertText, getStyle, styleMatches, textStyles, styleCategories } from "@/lib/text-styles";
 
 const cp = (s: string) => [...s].map((c) => c.codePointAt(0)!.toString(16)).join(" ");
 
@@ -11,6 +11,21 @@ describe("style metadata", () => {
       expect(["letters", "lettersDigits", "partial", "all"]).toContain(style.coverage);
       expect(style.note.length).toBeGreaterThan(0);
     }
+  });
+
+  it("matches search aliases and does not treat bold as cursive", () => {
+    expect(styleMatches(getStyle("script"), "cursive")).toBe(true);
+    expect(styleMatches(getStyle("script"), "handwriting")).toBe(true);
+    expect(styleMatches(getStyle("bold"), "cursive")).toBe(false);
+    expect(styleMatches(getStyle("fraktur"), "old english")).toBe(true);
+    expect(styleMatches(getStyle("bubble"), "bubble letters")).toBe(true);
+    expect(styleMatches(getStyle("smallCaps"), "small caps")).toBe(true);
+    expect(styleMatches(getStyle("zalgoLight"), "zalgo")).toBe(true);
+    expect(styleMatches(getStyle("zalgoHeavy"), "glitch")).toBe(true);
+    expect(styleMatches(getStyle("upsideDown"), "flip")).toBe(true);
+    expect(styleMatches(getStyle("superscript"), "tiny")).toBe(true);
+    expect(styleMatches(getStyle("subscript"), "tiny")).toBe(true);
+    expect(convertText("Hello", "script")).toBe("ℋℯ𝓁𝓁ℴ");
   });
 
   it("labels combining-mark styles as all-characters and enclosed styles honestly", () => {

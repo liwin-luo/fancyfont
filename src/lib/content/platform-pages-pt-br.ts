@@ -10,8 +10,13 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     description:
       "Letras Unicode estilosas para a bio e o nome do seu Instagram — veja como cada estilo fica e copie em um toque.",
     intro:
-      "O Instagram não tem seletor de fontes — mas texto Unicode funciona no seu nome e na sua bio. Escolha um estilo abaixo, copie e cole direto no perfil.",
+      "O Instagram não tem seletor de fontes. O rascunho abaixo é para a bio, e as quebras de linha já estão nele. O nome visível é o campo curto, cerca de 30 caracteres, e o usuário fica simples.",
     defaultText: "Instagram",
+    bios: [
+      { id: "name", label: "Nome e símbolos", text: "Alex\n\n♡ ✦ ♡" },
+      { id: "line", label: "Uma linha sobre você", text: "café e caminhadas\n\n✦" },
+      { id: "note", label: "Nome e uma nota", text: "Alex\n\nchegando agora" },
+    ],
     presets: [
       { label: "Moldura suave", left: "✦ ", right: " ✦", transform: "script" },
       { label: "Espaçamento aesthetic", left: "", right: "", transform: "fullwidth" },
@@ -58,6 +63,11 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     intro:
       "As opções de texto do TikTok param no editor de vídeo. O apelido e a bio aceitam Unicode — escolha um estilo abaixo e cole no seu perfil.",
     defaultText: "TikTok",
+    bios: [
+      { id: "name", label: "Nome e uma marca", text: "Alex\n\n♪" },
+      { id: "line", label: "O que você posta", text: "clipes diários\n\n★" },
+      { id: "note", label: "Nome e uma nota", text: "Alex\npelos edits" },
+    ],
     presets: [
       { label: "Moldura de clã", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "Brilho sparkle", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
@@ -104,6 +114,11 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     intro:
       "Apelidos e status personalizados do Discord não têm botões de formatação — o Unicode preenche essa lacuna. Escolha um estilo, copie e cole no seu perfil.",
     defaultText: "Discord",
+    bios: [
+      { id: "name", label: "Nome e status", text: "Alex\n\nouvindo" },
+      { id: "line", label: "O que você está fazendo", text: "numa chamada\n\n✦" },
+      { id: "note", label: "Nota curta", text: "Alex\nausente" },
+    ],
     presets: [
       { label: "Tag de servidor", left: "『", right: "』", transform: "monospace" },
       { label: "Modo mod", left: "† ", right: " †", transform: "fraktur" },

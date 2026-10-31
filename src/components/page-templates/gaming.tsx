@@ -8,6 +8,7 @@ import {
   Steps,
   faqJsonLd,
 } from "@/components/sections";
+import { coreFocus } from "@/lib/content/core-focus";
 import { gamingContent } from "@/lib/content/page-gaming";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
@@ -42,6 +43,7 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
       <header className="mt-6">
         <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
         <p className="mt-3 leading-relaxed text-ink-600">{c.intro}</p>
+        <p className="mt-2 text-sm leading-relaxed text-ink-700">{coreFocus[locale].gaming}</p>
       </header>
 
       <div className="mt-8">

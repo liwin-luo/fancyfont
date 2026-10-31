@@ -10,8 +10,13 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
     description:
       "Huruf Unicode keren untuk bio dan nama tampilan Instagram kamu — lihat pratinjau tiap gaya dan salin sekali ketuk.",
     intro:
-      "Instagram tidak punya pemilih font — tapi teks Unicode bisa dipakai di nama tampilan dan bio. Pilih gaya di bawah, salin, lalu tempel langsung ke profilmu.",
+      "Instagram tidak punya pemilih font. Draf di bawah ini untuk bio, dan pemisah barisnya sudah ada. Nama tampilan adalah kolom yang pendek, sekitar 30 karakter, dan username tetap polos.",
     defaultText: "Instagram",
+    bios: [
+      { id: "name", label: "Nama lalu simbol", text: "Alex\n\n♡ ✦ ♡" },
+      { id: "line", label: "Satu baris tentang kamu", text: "kopi dan jalan malam\n\n✦" },
+      { id: "note", label: "Nama dan catatan", text: "Alex\n\nbaru di sini" },
+    ],
     presets: [
       { label: "Bingkai nama lembut", left: "✦ ", right: " ✦", transform: "script" },
       { label: "Spasi aesthetic", left: "", right: "", transform: "fullwidth" },
@@ -58,6 +63,11 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
     intro:
       "Opsi teks bawaan TikTok berhenti di editor videonya. Nama dan biomu menerima Unicode — pilih gaya di bawah dan tempel ke profilmu.",
     defaultText: "TikTok",
+    bios: [
+      { id: "name", label: "Nama lalu tanda", text: "Alex\n\n♪" },
+      { id: "line", label: "Apa yang kamu unggah", text: "klip harian\n\n★" },
+      { id: "note", label: "Nama dan catatan", text: "Alex\nbuat editannya" },
+    ],
     presets: [
       { label: "Bingkai clan", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "Aksen berkilau", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
@@ -104,6 +114,11 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
     intro:
       "Nama dan status kustom Discord tidak punya tombol format — Unicode mengisi celahnya. Pilih gaya, salin, dan tempel ke profilmu.",
     defaultText: "Discord",
+    bios: [
+      { id: "name", label: "Nama dan status", text: "Alex\n\nmendengarkan" },
+      { id: "line", label: "Sedang apa", text: "dalam panggilan\n\n✦" },
+      { id: "note", label: "Catatan singkat", text: "Alex\npergi sebentar" },
+    ],
     presets: [
       { label: "Tag server", left: "『", right: "』", transform: "monospace" },
       { label: "Mode mod", left: "† ", right: " †", transform: "fraktur" },

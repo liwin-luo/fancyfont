@@ -17,6 +17,7 @@ export type {
   PlatformPageFaq,
   PlatformGuidance,
   PlatformPresetCopy,
+  BioTemplate,
 } from "./content/platform-pages-en";
 
 export interface PlatformPageDef {
@@ -24,6 +25,8 @@ export interface PlatformPageDef {
   platform: string;
   /** "gaming" renders the nickname generator, otherwise the text tool. */
   toolMode: "text" | "gaming";
+  /** Instagram, TikTok and Discord swap the style list for a bio draft. */
+  bioMode?: boolean;
   preview: PlatformPreviewId;
   featuredStyles: TextStyleId[];
   related: string[];
@@ -59,6 +62,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     slug: "instagram-fonts",
     platform: "Instagram",
     toolMode: "text",
+    bioMode: true,
     preview: "instagram",
     featuredStyles: ["script", "boldScript", "smallCaps", "fullwidth", "bubble"],
     related: ["tiktok-fonts", "discord-fonts", "coquette-font-generator"],
@@ -67,6 +71,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     slug: "tiktok-fonts",
     platform: "TikTok",
     toolMode: "text",
+    bioMode: true,
     preview: "tiktok",
     featuredStyles: ["boldScript", "fraktur", "bubble", "fullwidth", "smallCaps"],
     related: ["instagram-fonts", "glitch-text-generator"],
@@ -75,6 +80,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     slug: "discord-fonts",
     platform: "Discord",
     toolMode: "text",
+    bioMode: true,
     preview: "discord",
     featuredStyles: ["bold", "monospace", "fraktur", "smallCaps", "bubble"],
     related: ["roblox-name-generator", "instagram-fonts", "coquette-font-generator"],

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { locales, localePath, hreflang, localeFromLanguages } from "@/lib/i18n";
+import sitemap from "@/app/sitemap";
+import { locales, localePath, hreflang, htmlLang, localeFromLanguages } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 import { stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
@@ -128,6 +129,28 @@ describe("i18n completeness", () => {
     ]) {
       expect(description.length).toBeGreaterThanOrEqual(60);
     }
+  });
+
+  it("lists every sampled path in five locales with its own canonical", () => {
+    const entries = sitemap();
+    expect(entries.length % locales.length).toBe(0);
+    expect(entries.some((entry) => entry.url.includes("/ja"))).toBe(false);
+    const urls = new Set(entries.map((entry) => entry.url));
+    const paths = ["/", "/fancy-text-generator/", "/gaming-name-generator/", "/symbols/", "/instagram-fonts/", "/pubg-name-generator/", "/free-fire-name-generator/", "/roblox-name-generator/"];
+    for (const path of paths) {
+      for (const locale of locales) {
+        expect(urls.has(`https://fancyfont.tools${localePath(locale, path)}`)).toBe(true);
+        const meta = pageMetadata(locale, path, { title: "T", description: "D" });
+        expect(meta.alternates?.canonical).toBe(localePath(locale, path));
+        const languages = meta.alternates?.languages as Record<string, string>;
+        expect(languages["x-default"]).toBe(`https://fancyfont.tools${localePath("en", path)}`);
+        for (const item of locales) {
+          expect(languages[hreflang[item]]).toBe(`https://fancyfont.tools${localePath(item, path)}`);
+        }
+      }
+    }
+    expect(htmlLang).toEqual({ en: "en", es: "es", "pt-br": "pt-BR", "zh-cn": "zh-CN", id: "id" });
+    expect(hreflang["zh-cn"]).toBe("zh-Hans");
   });
 
   it("page metadata builds per-locale canonical, hreflang and x-default", () => {

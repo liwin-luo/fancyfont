@@ -16,6 +16,8 @@ interface CopyButtonProps {
   copiedClassName?: string;
   /** Replaces the default "copied" toast. */
   successToast?: string;
+  /** Runs only after the text is actually on the clipboard. */
+  onCopied?: () => void;
 }
 
 function CopyIcon() {
@@ -52,6 +54,7 @@ export function CopyButton({
   className,
   copiedClassName,
   successToast,
+  onCopied,
 }: CopyButtonProps) {
   const showToast = useToast();
   const locale = useLocale();
@@ -63,6 +66,7 @@ export function CopyButton({
     const ok = await copyText(text);
     if (ok) {
       setCopied(true);
+      onCopied?.();
       showToast(successToast ?? t.common.copiedToClipboard);
       window.setTimeout(() => setCopied(false), 1500);
     } else {

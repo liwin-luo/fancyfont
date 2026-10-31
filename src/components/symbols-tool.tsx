@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { localePath } from "@/lib/i18n";
 import {
   displaySymbol,
+  joinBoard,
   searchSymbols,
   symbolCategories,
   symbolCombos,
@@ -12,6 +13,8 @@ import {
   type SymbolEntry,
 } from "@/lib/symbols-data";
 import { copyText } from "@/lib/copy";
+import { lengthBucket, measureText, sliceGraphemes } from "@/lib/measure";
+import { track } from "@/lib/analytics";
 import { useToast } from "@/components/toast";
 import { useLocalList } from "@/lib/storage";
 import { useLocale } from "@/components/locale-context";
@@ -19,21 +22,64 @@ import { getUi } from "@/lib/ui-strings";
 
 const RECENTS_KEY = "fancyfont:recent-symbols";
 const RECENTS_MAX = 12;
+const BOARD_KEY = "fancyfont:symbol-board";
+const BOARD_MAX = 40;
+const FAVORITES_KEY = "fancyfont:favorite-symbols";
+const FAVORITES_MAX = 80;
+const PREFIX_MAX = 120;
+
+function StarIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
+      <path d="M10 2.5l2.35 4.76 5.25.76-3.8 3.7.9 5.24L10 14.52l-4.7 2.44.9-5.24-3.8-3.7 5.25-.76L10 2.5z" />
+    </svg>
+  );
+}
+
+function savedEntry(symbol: string, idPrefix: string): SymbolEntry {
+  return (
+    symbols.find((entry) => entry.symbol === symbol) ?? {
+      id: `${idPrefix}-${symbol}`,
+      symbol,
+      category: idPrefix,
+      label: symbol,
+      keywords: [],
+    }
+  );
+}
 
 export function SymbolsTool() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
   const [lastCopied, setLastCopied] = useState<string | null>(null);
-  const [tray, setTray] = useState<string[]>([]);
+  const [prefix, setPrefix] = useState("");
+  const boardStore = useLocalList(BOARD_KEY, BOARD_MAX);
+  const favorites = useLocalList(FAVORITES_KEY, FAVORITES_MAX);
   const recents = useLocalList(RECENTS_KEY, RECENTS_MAX);
+  // ponytail: useLocalList keeps newest first and drops past 40. Reverse so the copy matches add order.
+  const board = useMemo(() => [...boardStore.items].reverse(), [boardStore.items]);
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
 
   const results = useMemo(() => searchSymbols(query, category), [query, category]);
 
+  useEffect(() => {
+    track("symbols_view", { tool: "symbols" });
+  }, []);
+
+  useEffect(() => {
+    const graphemes = measureText(query.trim()).graphemes;
+    if (graphemes === 0) return;
+    const timer = window.setTimeout(() => {
+      track("symbols_search", { tool: "symbols", length_bucket: lengthBucket(graphemes) });
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [query]);
+
   async function copySymbol(symbol: string, label: string, record = true) {
     const ok = await copyText(symbol);
+    track("symbol_copy", { tool: "symbols", ok });
     if (ok) {
       setLastCopied(symbol);
       if (record) recents.add(symbol);
@@ -47,39 +93,31 @@ export function SymbolsTool() {
   }
 
   function toggleTray(symbol: string) {
-    setTray((current) =>
-      current.includes(symbol)
-        ? current.filter((s) => s !== symbol)
-        : [...current, symbol],
-    );
+    const adding = !boardStore.items.includes(symbol);
+    boardStore.toggle(symbol);
+    if (adding) track("symbol_add_to_board", { tool: "symbols", ok: true });
   }
 
   async function copyTray() {
-    if (tray.length === 0) return;
-    const ok = await copyText(tray.join(""));
+    if (board.length === 0) return;
+    const joined = joinBoard(prefix, board);
+    const ok = await copyText(joined);
+    track("symbol_copy_all", {
+      tool: "symbols",
+      length_bucket: lengthBucket(measureText(joined).graphemes),
+      ok,
+    });
     if (ok) {
-      showToast(t.symbols.copiedBatch(tray.length));
-      recents.add(tray.join(""));
-      setTray([]);
+      showToast(t.symbols.copiedBatch(board.length));
+      recents.add(joined);
+      boardStore.clear();
     } else {
       showToast(t.symbols.batchFailed);
     }
   }
 
-  const recentEntries = recents.items
-    .map((symbol) => {
-      const direct = symbols.find((entry) => entry.symbol === symbol);
-      return (
-        direct ?? {
-          id: `recent-${symbol}`,
-          symbol,
-          category: "recent",
-          label: t.symbols.recent.toLowerCase(),
-          keywords: [],
-        }
-      );
-    })
-    .filter((entry): entry is SymbolEntry => Boolean(entry));
+  const recentEntries = recents.items.map((symbol) => savedEntry(symbol, "recent"));
+  const favoriteEntries = favorites.items.map((symbol) => savedEntry(symbol, "favorite"));
 
   const categoryName = (id: string) => t.symbolCats[id] ?? id;
   const showInvisibleNote =
@@ -125,7 +163,11 @@ export function SymbolsTool() {
                 key={cat.id}
                 type="button"
                 aria-pressed={active}
-                onClick={() => setCategory(active ? null : cat.id)}
+                onClick={() => {
+                  const next = active ? null : cat.id;
+                  setCategory(next);
+                  if (next) track("symbols_category_select", { tool: "symbols", category: next });
+                }}
                 className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                   active
                     ? "border-brand-600 bg-brand-100 text-brand-800"
@@ -156,6 +198,36 @@ export function SymbolsTool() {
           </p>
         )}
       </div>
+
+      {favoriteEntries.length > 0 && (
+        <section className="mt-6 w-full" aria-labelledby="favorites-heading">
+          <h2 id="favorites-heading" className="text-sm font-semibold text-ink-700">
+            {t.common.favorites}
+          </h2>
+          <ul className="mt-2 flex w-full flex-wrap gap-2">
+            {favoriteEntries.map((entry) => (
+              <li key={entry.id} className="relative max-w-full shrink-0">
+                <button
+                  type="button"
+                  onClick={() => copySymbol(entry.symbol, entry.label, false)}
+                  aria-label={t.symbols.copySymbol(entry.label)}
+                  className="flex h-11 min-w-11 max-w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-xl border border-line bg-surface px-2.5 text-xl text-ink-900 hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                >
+                  {displaySymbol(entry.symbol)}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => favorites.remove(entry.symbol)}
+                  aria-label={t.common.removeStyle(entry.label)}
+                  className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[10px] font-bold text-ink-500 hover:text-danger focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                >
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {recentEntries.length > 0 && (
         <section className="mt-6 w-full" aria-labelledby="recent-heading">
@@ -200,7 +272,8 @@ export function SymbolsTool() {
         <ul className="mt-6 grid grid-cols-5 gap-2 min-[420px]:grid-cols-6 sm:grid-cols-8 md:grid-cols-10">
           {results.map((entry) => {
             const justCopied = lastCopied === entry.symbol;
-            const inTray = tray.includes(entry.symbol);
+            const inTray = board.includes(entry.symbol);
+            const isFavorite = favorites.items.includes(entry.symbol);
             const wide = entry.category === "kaomoji";
             return (
               <li key={entry.id} className={wide ? "relative col-span-full" : "relative"}>
@@ -220,6 +293,23 @@ export function SymbolsTool() {
                   } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500`}
                 >
                   {displaySymbol(entry.symbol)}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => favorites.toggle(entry.symbol)}
+                  aria-pressed={isFavorite}
+                  aria-label={
+                    isFavorite
+                      ? t.common.removeStyle(entry.label)
+                      : t.common.saveStyle(entry.label)
+                  }
+                  className={`absolute top-1 left-1 flex h-6 w-6 items-center justify-center rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                    isFavorite
+                      ? "border-brand-600 bg-white text-brand-700"
+                      : "border-line bg-white/95 text-ink-500 hover:border-brand-300 hover:text-brand-700"
+                  }`}
+                >
+                  <StarIcon filled={isFavorite} />
                 </button>
                 <button
                   type="button"
@@ -273,30 +363,53 @@ export function SymbolsTool() {
         </ul>
       </section>
 
-      {tray.length > 0 && (
-        <div className="fixed inset-x-4 bottom-4 z-40 sm:left-1/2 sm:right-auto sm:w-auto sm:-translate-x-1/2">
-          <div className="flex items-center gap-3 rounded-2xl bg-ink-900 px-4 py-3 text-white shadow-xl">
-            <p className="text-sm">
-              <span className="font-bold">{t.symbols.batchSelected(tray.length)}</span>
-            </p>
-            <p className="hidden max-w-48 truncate text-lg sm:block" aria-hidden="true">
-              {tray.slice(0, 8).map((symbol) => displaySymbol(symbol)).join("")}
-            </p>
-            <div className="ml-auto flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setTray([])}
-                className="h-9 rounded-lg px-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                {t.symbols.batchClear}
-              </button>
-              <button
-                type="button"
-                onClick={copyTray}
-                className="h-9 rounded-lg bg-pixel-lime px-3 text-sm font-bold text-ink-900 transition-colors hover:bg-lime-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                {t.symbols.copyAll}
-              </button>
+      <nav aria-label={t.sections.related} className="mt-8">
+        <Link
+          href={localePath(locale, "/gaming-name-generator/")}
+          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
+        >
+          {t.nav.gaming}
+        </Link>
+      </nav>
+
+      {board.length > 0 && (
+        <div className="fixed inset-x-4 bottom-4 z-40 sm:left-1/2 sm:w-full sm:max-w-lg sm:-translate-x-1/2">
+          <div className="rounded-2xl bg-ink-900 px-4 py-3 text-white shadow-xl">
+            <label htmlFor="symbol-prefix" className="sr-only">
+              {t.symbols.prefixLabel}
+            </label>
+            <input
+              id="symbol-prefix"
+              type="text"
+              value={prefix}
+              onChange={(event) => setPrefix(sliceGraphemes(event.target.value, PREFIX_MAX))}
+              placeholder={t.symbols.prefixPlaceholder}
+              autoComplete="off"
+              className="mb-2 h-9 w-full rounded-lg border border-white/15 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            />
+            <div className="flex items-center gap-3">
+              <p className="text-sm">
+                <span className="font-bold">{t.symbols.batchSelected(board.length)}</span>
+              </p>
+              <p className="hidden max-w-48 truncate text-lg sm:block" aria-hidden="true">
+                {board.slice(0, 8).map((symbol) => displaySymbol(symbol)).join("")}
+              </p>
+              <div className="ml-auto flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => boardStore.clear()}
+                  className="h-9 rounded-lg px-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  {t.symbols.batchClear}
+                </button>
+                <button
+                  type="button"
+                  onClick={copyTray}
+                  className="h-9 rounded-lg bg-pixel-lime px-3 text-sm font-bold text-ink-900 transition-colors hover:bg-lime-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  {t.symbols.copyAll}
+                </button>
+              </div>
             </div>
           </div>
         </div>

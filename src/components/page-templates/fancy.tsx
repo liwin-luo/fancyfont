@@ -10,6 +10,7 @@ import {
 } from "@/components/sections";
 import { convertText } from "@/lib/text-styles";
 import { stylePages } from "@/lib/style-pages";
+import { coreFocus } from "@/lib/content/core-focus";
 import { fancyContent } from "@/lib/content/page-fancy";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
@@ -44,6 +45,7 @@ export function FancyPageTemplate({ locale }: { locale: Locale }) {
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
         <p className="mt-3 leading-relaxed text-ink-600">{c.intro}</p>
+        <p className="mt-2 text-sm leading-relaxed text-ink-700">{coreFocus[locale].fancy}</p>
       </header>
 
       <div className="mt-8">

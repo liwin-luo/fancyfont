@@ -68,6 +68,8 @@ export interface TextStyle {
   note: string;
   category: StyleCategory;
   coverage: StyleCoverage;
+  /** English search words. Localized names stay in ui-strings. */
+  aliases?: readonly string[];
   /** Optional warning about how the style may render somewhere. */
   risk?: string;
   transform: (text: string) => string;
@@ -315,6 +317,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "script",
     name: "Cursive",
+    aliases: ["cursive", "handwriting"],
     note: "Handwritten script look. Letters only.",
     category: "script",
     coverage: "letters",
@@ -347,6 +350,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "fraktur",
     name: "Gothic",
+    aliases: ["gothic", "old english"],
     note: "Old-style blackletter. Letters only.",
     category: "gothic",
     coverage: "letters",
@@ -446,6 +450,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "smallCaps",
     name: "Small Caps",
+    aliases: ["small caps"],
     note: "Small capital letters.",
     category: "small",
     coverage: "letters",
@@ -454,6 +459,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "superscript",
     name: "Tiny (Superscript)",
+    aliases: ["tiny"],
     note: "Raised tiny letters. Some capitals stay unchanged.",
     category: "small",
     coverage: "partial",
@@ -462,6 +468,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "subscript",
     name: "Subscript",
+    aliases: ["tiny"],
     note: "Sunken tiny letters. Letters without a subscript form stay unchanged.",
     category: "small",
     coverage: "partial",
@@ -470,6 +477,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "bubble",
     name: "Bubble",
+    aliases: ["bubble letters"],
     note: "Filled circles around letters.",
     category: "enclosed",
     coverage: "lettersDigits",
@@ -520,6 +528,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "upsideDown",
     name: "Upside Down",
+    aliases: ["upside down", "flip"],
     note: "Flips your text upside down, including punctuation.",
     category: "flipped",
     coverage: "lettersDigits",
@@ -593,6 +602,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "zalgoLight",
     name: "Glitch Light",
+    aliases: ["zalgo", "glitch"],
     note: "A few stray marks for a subtly cursed look.",
     category: "effects",
     coverage: "all",
@@ -602,6 +612,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "zalgoMedium",
     name: "Glitch Medium",
+    aliases: ["zalgo", "glitch"],
     note: "Medium glitch intensity.",
     category: "effects",
     coverage: "all",
@@ -611,6 +622,7 @@ export const textStyles: TextStyle[] = [
   {
     id: "zalgoHeavy",
     name: "Glitch Heavy",
+    aliases: ["zalgo", "glitch"],
     note: "Maximum cursed energy. Use with care.",
     category: "effects",
     coverage: "all",
@@ -622,6 +634,15 @@ export const textStyles: TextStyle[] = [
 // Shared helper for styles defined by a bare code-point mapper.
 function mapCodePointsWrap(map: (cp: number) => number | null) {
   return (text: string) => mapCodePoints(text, map);
+}
+
+/** True when the query appears in the English name, note, or aliases. */
+export function styleMatches(style: TextStyle, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  return [style.name, style.note, ...(style.aliases ?? [])].some((part) =>
+    part.toLowerCase().includes(q),
+  );
 }
 
 export function getStyle(id: TextStyleId): TextStyle {

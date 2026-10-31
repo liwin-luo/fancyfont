@@ -1,9 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { localePath } from "@/lib/i18n";
 import {
   convertAll,
+  getStyle,
   styleCategories,
+  styleMatches,
   type ConvertedText,
 } from "@/lib/text-styles";
 import {
@@ -14,7 +18,10 @@ import {
   type PasteTargetId,
   type WrapId,
 } from "@/lib/composer";
+import { lengthBucket, measureText, sliceGraphemes } from "@/lib/measure";
+import { track } from "@/lib/analytics";
 import { codePointLength } from "@/lib/platform-preview";
+import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
 import { PreviewOptions, ShareLinks } from "@/components/style-actions";
 import { useToast } from "@/components/toast";
@@ -26,6 +33,7 @@ import { getUi } from "@/lib/ui-strings";
 
 const MAX_LENGTH = 120;
 const FAVORITES_KEY = "fancyfont:favorite-styles";
+const RECENTS_KEY = "fancyfont:recent-styles";
 
 function StarIcon({ filled }: { filled: boolean }) {
   return (
@@ -51,45 +59,61 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
   const [transparentPng, setTransparentPng] = useState(false);
   const [wrapId, setWrapId] = useState<WrapId>("none");
   const [pasteId, setPasteId] = useState<PasteTargetId>("anywhere");
+  const [openReport, setOpenReport] = useState<string | null>(null);
   const favorites = useLocalList(FAVORITES_KEY);
+  const recents = useLocalList(RECENTS_KEY, 8);
+
+  useEffect(() => {
+    track("fancy_text_view", { tool: "fancy" });
+  }, []);
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
 
-  const charCount = Math.min(text.length, MAX_LENGTH);
+  const source = sliceGraphemes(text, MAX_LENGTH);
+  const measures = measureText(source);
+  const charCount = measures.graphemes;
   const all = useMemo(
     () =>
-      convertAll(text.slice(0, MAX_LENGTH)).map((result) => ({
+      convertAll(source).map((result) => ({
         ...result,
         localName: t.styleNames[result.id],
       })),
-    [text, t],
+    [source, t],
   );
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return all.filter((result) => {
+    const matched = all.filter((result) => {
       if (category === "favorites") return favorites.items.includes(result.id);
+      if (category === "recent") return recents.items.includes(result.id);
       if (category && result.category !== category) return false;
       if (!q) return true;
       return (
+        styleMatches(getStyle(result.id), q) ||
         result.localName.toLowerCase().includes(q) ||
-        result.name.toLowerCase().includes(q) ||
-        result.note.toLowerCase().includes(q) ||
         t.styleCategoryNames[result.category].toLowerCase().includes(q)
       );
     });
-  }, [all, category, query, favorites.items, t]);
+    if (category !== "recent") return matched;
+    const rank = new Map(recents.items.map((id, index) => [id, index]));
+    return matched.sort((a, b) => (rank.get(a.id) ?? 0) - (rank.get(b.id) ?? 0));
+  }, [all, category, query, favorites.items, recents.items, t]);
 
   async function handleDownload(result: ConvertedText & { localName: string }) {
     const ok = await downloadTextPng(result.text, `fancyfont-${result.id}.png`, {
       transparent: transparentPng,
     });
+    track("fancy_text_png_export", {
+      tool: "fancy",
+      style_id: result.id,
+      length_bucket: lengthBucket(measures.graphemes),
+      ok,
+    });
     showToast(ok ? t.common.savedAsPng : t.common.pngFailed);
   }
 
   const paste = pasteTargets.find((item) => item.id === pasteId) ?? pasteTargets[0];
-  const source = text.slice(0, MAX_LENGTH);
   const showHan = hasHan(source);
 
   function dressed(value: string) {
@@ -102,6 +126,11 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
       .map((result) => dressed(result.text))
       .filter((line) => line.trim().length > 0);
     const ok = lines.length > 0 && (await copyText(lines.join("\n")));
+    track("fancy_text_copy", {
+      tool: "fancy",
+      length_bucket: lengthBucket(measures.graphemes),
+      ok,
+    });
     showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
   }
 
@@ -128,6 +157,7 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
   const chips: { id: string; name: string }[] = [
     { id: "all", name: t.common.all },
     ...styleCategories.map((c) => ({ id: c.id, name: t.styleCategoryNames[c.id] })),
+    ...(recents.items.length > 0 ? [{ id: "recent", name: t.common.recent }] : []),
     {
       id: "favorites",
       name: `★ ${t.common.favorites}${favorites.items.length ? ` (${favorites.items.length})` : ""}`,
@@ -145,8 +175,7 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
             id="fancy-input"
             type="text"
             value={text}
-            maxLength={MAX_LENGTH}
-            onChange={(event) => setText(event.target.value)}
+            onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
             placeholder={t.common.yourText}
             autoComplete="off"
             spellCheck={false}
@@ -174,6 +203,16 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
         <p className="mt-2 text-xs text-ink-500">
           {charCount}/{MAX_LENGTH} {t.common.charactersInfo} · {t.common.browserOnly}
         </p>
+        <details className="mt-1">
+          <summary className="cursor-pointer text-xs text-ink-500">{t.common.countsSummary}</summary>
+          <p className="mt-1 text-xs leading-relaxed text-ink-500">
+            {t.common.visibleCount(measures.graphemes)}
+            <br />
+            {t.common.codePointCount(measures.codePoints)}
+            <br />
+            {t.common.utf16Count(measures.utf16)}
+          </p>
+        </details>
 
         <div className="mt-4">
           <p className="mb-2 text-sm font-semibold text-ink-700">{t.common.wrapLabel}</p>
@@ -236,7 +275,11 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                   key={chip.id}
                   type="button"
                   aria-pressed={active}
-                  onClick={() => setCategory(chip.id === "all" ? null : chip.id)}
+                  onClick={() => {
+                    const next = chip.id === "all" ? null : chip.id;
+                    setCategory(next);
+                    if (next) track("fancy_text_style_filter", { tool: "fancy", category: next });
+                  }}
                   className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                     active
                       ? "border-brand-600 bg-brand-100 text-brand-800"
@@ -301,8 +344,9 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
             return (
               <li
                 key={result.id}
-                className="flex flex-col gap-3 rounded-xl border border-line bg-surface p-4 transition-colors hover:border-brand-200 sm:flex-row sm:items-center sm:justify-between"
+                className="rounded-xl border border-line bg-surface p-4 transition-colors hover:border-brand-200"
               >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
                   <span className="flex flex-wrap items-center gap-2">
                     <button
@@ -313,7 +357,10 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                           ? t.common.removeStyle(result.localName)
                           : t.common.saveStyle(result.localName)
                       }
-                      onClick={() => favorites.toggle(result.id)}
+                      onClick={() => {
+                        favorites.toggle(result.id);
+                        track("fancy_text_favorite", { tool: "fancy", style_id: result.id });
+                      }}
                       className={`-ml-1 flex h-7 w-7 items-center justify-center rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                         isFavorite ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
                       }`}
@@ -366,14 +413,56 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                   <CopyButton
                     text={line}
                     ariaLabel={t.common.copyStyle(result.localName)}
+                    onCopied={() => {
+                      recents.add(result.id);
+                      track("fancy_text_copy", {
+                        tool: "fancy",
+                        style_id: result.id,
+                        length_bucket: lengthBucket(measures.graphemes),
+                        ok: true,
+                      });
+                    }}
                   />
                   <ShareLinks text={line} name={result.localName} />
+                  <button
+                    type="button"
+                    aria-expanded={openReport === result.id}
+                    aria-controls={openReport === result.id ? `fancy-report-${result.id}` : undefined}
+                    onClick={() => setOpenReport((current) => (current === result.id ? null : result.id))}
+                    className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                  >
+                    {t.gaming.checkResult}
+                  </button>
                 </div>
+                </div>
+                {openReport === result.id && (
+                  <CompatReport
+                    id={`fancy-report-${result.id}`}
+                    text={line}
+                    source={source}
+                    styleId={result.id}
+                    rule={null}
+                  />
+                )}
               </li>
             );
           })}
         </ul>
       )}
+      <nav aria-label={t.sections.related} className="mt-8 flex flex-wrap gap-x-4 gap-y-2">
+        <Link
+          href={localePath(locale, "/gaming-name-generator/")}
+          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
+        >
+          {t.nav.gaming}
+        </Link>
+        <Link
+          href={localePath(locale, "/symbols/")}
+          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
+        >
+          {t.nav.symbols}
+        </Link>
+      </nav>
     </div>
   );
 }

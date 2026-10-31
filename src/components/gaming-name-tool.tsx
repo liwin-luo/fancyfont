@@ -1,6 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { localePath } from "@/lib/i18n";
 import {
   buildCustomNickname,
   decoratorPairs,
@@ -15,11 +17,15 @@ import {
 import { styleCategories, textStyles } from "@/lib/text-styles";
 import { pasteTargets, type PasteTargetId } from "@/lib/composer";
 import { codePointLength } from "@/lib/platform-preview";
+import { confidenceLabel, previewNameRule } from "@/lib/platform-rules";
+import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
 import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { useToast } from "@/components/toast";
 import { copyText } from "@/lib/copy";
+import { lengthBucket, measureText } from "@/lib/measure";
+import { track } from "@/lib/analytics";
 import { useLocalList } from "@/lib/storage";
 import { useLocale } from "@/components/locale-context";
 import { getUi } from "@/lib/ui-strings";
@@ -73,11 +79,17 @@ export function GamingNameTool({
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
+  const nameBucket = lengthBucket(measureText(name.trim().slice(0, MAX_NICKNAME_LENGTH)).graphemes);
+
+  useEffect(() => {
+    track("gaming_name_view", { tool: "gaming" });
+  }, []);
 
   // Builder state: a decoration pair + a letter style, applied to the name.
   const [pairIndex, setPairIndex] = useState(1);
   const [builderTransform, setBuilderTransform] = useState<NicknameTransform>("script");
   const [pasteId, setPasteId] = useState<PasteTargetId>("anywhere");
+  const [checkOpen, setCheckOpen] = useState(false);
 
   const cleanName = name.trim().slice(0, MAX_NICKNAME_LENGTH);
   const results = useMemo(
@@ -86,6 +98,8 @@ export function GamingNameTool({
   );
   const canLoadMore = results.length >= shown;
   const paste = pasteTargets.find((item) => item.id === pasteId) ?? pasteTargets[0];
+  const platformRule = preview ? previewNameRule(preview.id) : null;
+  const platformMax = platformRule?.approxMax ?? null;
 
   const combo: CustomCombo = {
     left: decoratorPairs[pairIndex][0],
@@ -125,6 +139,14 @@ export function GamingNameTool({
           className="text-input"
         />
         <p className="mt-2 text-xs text-ink-500">{t.gaming.lengthInfo}</p>
+        {preview && platformMax !== null && (
+          <p className="mt-1 text-xs text-ink-500">{t.platformPreview.approxField(preview.platform, platformMax)}</p>
+        )}
+        {preview && platformRule && platformMax !== null && codePointLength(cleanName) > platformMax && confidenceLabel(platformRule) !== "verified" && (
+          <p className="mt-1 text-xs text-warning">
+            {t.common.overLimit(codePointLength(cleanName), platformMax)} {t.platformPreview.notTested}
+          </p>
+        )}
 
         <div role="group" aria-label={t.gaming.styleGroup} className="mt-4 flex flex-wrap gap-2">
           {chips.map((chip) => {
@@ -168,6 +190,7 @@ export function GamingNameTool({
               type="button"
               onClick={async () => {
                 const ok = await copyText(savedNames.items.join("\n"));
+                track("gaming_name_copy", { tool: "gaming", style_id: styleFilter, length_bucket: nameBucket, ok });
                 showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
               }}
               className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
@@ -182,6 +205,14 @@ export function GamingNameTool({
                   text={saved}
                   label={saved}
                   ariaLabel={t.gaming.copySaved(saved)}
+                  onCopied={() =>
+                    track("gaming_name_copy", {
+                      tool: "gaming",
+                      style_id: styleFilter,
+                      length_bucket: lengthBucket(measureText(saved).graphemes),
+                      ok: true,
+                    })
+                  }
                   className="inline-flex h-10 items-center gap-1.5 rounded-full border border-line bg-white pl-4 pr-3 text-sm font-medium text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
                 />
                 <button
@@ -267,11 +298,27 @@ export function GamingNameTool({
                 {t.common.overLimit(codePointLength(builderPreview), paste.limit)}
               </p>
             )}
+            {preview && platformRule && platformMax !== null && codePointLength(builderPreview) > platformMax && confidenceLabel(platformRule) !== "verified" && (
+              <p className="mt-1 text-xs text-warning">
+                {t.common.overLimit(codePointLength(builderPreview), platformMax)} {t.platformPreview.notTested}
+              </p>
+            )}
             {paste.plain && <p className="mt-1 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>}
           </div>
           <div className="flex shrink-0 gap-2">
             {preview && <PreviewButton onClick={() => setPreviewAt(0)} />}
-            <CopyButton text={builderPreview} ariaLabel={t.gaming.copyCombo} />
+            <CopyButton
+              text={builderPreview}
+              ariaLabel={t.gaming.copyCombo}
+              onCopied={() =>
+                track("gaming_name_copy", {
+                  tool: "gaming",
+                  style_id: builderTransform,
+                  length_bucket: nameBucket,
+                  ok: true,
+                })
+              }
+            />
             <button
               type="button"
               onClick={() => {
@@ -283,6 +330,26 @@ export function GamingNameTool({
               {t.gaming.saveCombo}
             </button>
           </div>
+        </div>
+        <div className="mt-3">
+          <button
+            type="button"
+            aria-expanded={checkOpen}
+            aria-controls="nickname-check"
+            onClick={() => setCheckOpen((open) => !open)}
+            className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+          >
+            {t.gaming.checkNickname}
+          </button>
+          {checkOpen && (
+            <CompatReport
+              id="nickname-check"
+              text={builderPreview}
+              source={cleanName}
+              styleId={builderTransform}
+              rule={platformRule}
+            />
+          )}
         </div>
         <div className="mt-3">
           <p className="mb-2 text-xs font-semibold text-ink-700">{t.common.pasteLabel}</p>
@@ -372,7 +439,18 @@ export function GamingNameTool({
                       aria-label={
                         isSaved ? t.gaming.removeName(nickname) : t.gaming.saveName(nickname)
                       }
-                      onClick={() => savedNames.toggle(nickname)}
+                      onClick={() => {
+                        const saving = !isSaved;
+                        savedNames.toggle(nickname);
+                        if (saving) {
+                          track("gaming_name_save", {
+                            tool: "gaming",
+                            style_id: styleFilter,
+                            length_bucket: nameBucket,
+                            ok: true,
+                          });
+                        }
+                      }}
                       className={`flex h-10 w-9 items-center justify-center rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                         isSaved ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
                       }`}
@@ -380,7 +458,19 @@ export function GamingNameTool({
                       <StarIcon filled={isSaved} />
                     </button>
                     {preview && <PreviewButton label={null} onClick={() => setPreviewAt(index + 1)} />}
-                    <CopyButton text={nickname} label={null} ariaLabel={t.gaming.copySaved(nickname)} />
+                    <CopyButton
+                      text={nickname}
+                      label={null}
+                      ariaLabel={t.gaming.copySaved(nickname)}
+                      onCopied={() =>
+                        track("gaming_name_copy", {
+                          tool: "gaming",
+                          style_id: styleFilter,
+                          length_bucket: nameBucket,
+                          ok: true,
+                        })
+                      }
+                    />
                   </div>
                 </li>
               );
@@ -392,12 +482,31 @@ export function GamingNameTool({
                 {t.gaming.loadMore}
               </button>
             )}
-            <button type="button" onClick={() => setNonce((n) => n + 1)} className="btn-primary">
+            <button
+              type="button"
+              onClick={() => {
+                setNonce((n) => n + 1);
+                track("gaming_name_generate", {
+                  tool: "gaming",
+                  style_id: styleFilter,
+                  length_bucket: nameBucket,
+                });
+              }}
+              className="btn-primary"
+            >
               <span aria-hidden="true">↻</span> {t.gaming.generateNew}
             </button>
           </div>
         </>
       )}
+      <nav aria-label={t.sections.related} className="mt-8">
+        <Link
+          href={localePath(locale, "/symbols/")}
+          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
+        >
+          {t.nav.symbols}
+        </Link>
+      </nav>
       {preview && (
         <PlatformPreviewDialog
           id={preview.id}

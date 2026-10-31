@@ -8,6 +8,7 @@ import {
   faqJsonLd,
 } from "@/components/sections";
 import { symbolCategories, symbols } from "@/lib/symbols-data";
+import { coreFocus } from "@/lib/content/core-focus";
 import { symbolsContent } from "@/lib/content/page-symbols-privacy";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
@@ -40,6 +41,7 @@ export function SymbolsPageTemplate({ locale }: { locale: Locale }) {
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
         <p className="mt-3 leading-relaxed text-ink-600">{c.intro(symbols.length, symbolCategories.length)}</p>
+        <p className="mt-2 text-sm leading-relaxed text-ink-700">{coreFocus[locale].symbols}</p>
       </header>
 
       <div className="mt-8">

@@ -39,7 +39,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Generate and Copy ",
       accent: "Fancy Text",
-      sub: "Style A–Z, decorate a name you already have, or copy one symbol. Accented letters, Chinese, and emoji stay as typed.",
+      sub: "Stylish text, gaming names, and symbols. Three tools on one site. Accented letters, Chinese, and emoji stay as typed.",
       ctaPrimary: "Try Fancy Text",
       ctaSecondary: "Make a Gaming Name",
       instantPreview: "Instant preview",
@@ -124,7 +124,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Genera y copia ",
       accent: "letras bonitas",
-      sub: "Dale estilo a A–Z, decora un nombre que ya tienes, o copia un símbolo. Las tildes, el chino y los emoji se quedan igual.",
+      sub: "Texto con estilo, nombres para juegos y símbolos. Tres herramientas en un sitio. Las tildes, el chino y los emoji se quedan igual.",
       ctaPrimary: "Probar letras bonitas",
       ctaSecondary: "Crear un nombre gamer",
       instantPreview: "Vista previa",
@@ -209,7 +209,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Gere e copie ",
       accent: "letras bonitas",
-      sub: "Estilize A–Z, decore um nome que você já tem, ou copie um símbolo. Acentos, chinês e emoji ficam como você digitou.",
+      sub: "Texto estiloso, nomes para jogos e símbolos. Três ferramentas em um site. Acentos, chinês e emoji ficam como você digitou.",
       ctaPrimary: "Testar letras bonitas",
       ctaSecondary: "Criar um nome de jogo",
       instantPreview: "Prévia instantânea",
@@ -294,7 +294,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "生成并复制",
       accent: "个性文字",
-      sub: "给 A–Z 换样式、装饰一个已有的名字，或复制一个符号。声调字母、中文和 emoji 保持原样。",
+      sub: "个性文字、游戏昵称和符号。一个站点上的三件事。声调字母、中文和 emoji 保持原样。",
       ctaPrimary: "试试个性字体",
       ctaSecondary: "生成游戏昵称",
       instantPreview: "即时预览",
@@ -376,7 +376,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       pre: "Buat dan salin ",
       accent: "teks keren",
-      sub: "Gayakan A–Z, hias nama yang sudah kamu punya, atau salin satu simbol. Huruf beraksen, Cina, dan emoji tetap seperti aslinya.",
+      sub: "Teks bergaya, nama game, dan simbol. Tiga alat di satu situs. Huruf beraksen, Cina, dan emoji tetap seperti aslinya.",
       ctaPrimary: "Coba huruf keren",
       ctaSecondary: "Buat nama game",
       instantPreview: "Pratinjau instan",

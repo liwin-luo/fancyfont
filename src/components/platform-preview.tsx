@@ -223,6 +223,8 @@ function PreviewDialog({
           </p>
         )}
         <p className="text-xs leading-relaxed text-ink-500">{t.note}</p>
+        <p className="text-xs leading-relaxed text-ink-500">{t.notTested}</p>
+        {fields.handle && <p className="text-xs leading-relaxed text-ink-500">{t.handleAscii}</p>}
       </div>
     </div>
   );

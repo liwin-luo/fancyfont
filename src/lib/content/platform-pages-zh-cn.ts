@@ -10,8 +10,13 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
     description:
       "给 Instagram 简介和昵称用的 Unicode 花体字——预览每种样式的效果，一键复制。",
     intro:
-      "Instagram 没有字体选择器——但 Unicode 文字可以用在昵称和简介里。在下方挑一个样式，复制后直接粘贴进你的资料。",
+      "Instagram 没有字体选择器。下面的草稿是给简介的，换行已经写好。昵称是较短的那一栏，大约 30 个字符，用户名保持原样。",
     defaultText: "Instagram",
+    bios: [
+      { id: "name", label: "名字和一行符号", text: "Alex\n\n♡ ✦ ♡" },
+      { id: "line", label: "一句话介绍", text: "咖啡和夜路\n\n✦" },
+      { id: "note", label: "名字加一句", text: "Alex\n\n刚来" },
+    ],
     presets: [
       { label: "柔和名字框", left: "✦ ", right: " ✦", transform: "script" },
       { label: "Aesthetic 间距", left: "", right: "", transform: "fullwidth" },
@@ -58,6 +63,11 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
     intro:
       "TikTok 自带的文字选项只到视频编辑器为止。你的昵称和简介接受 Unicode——在下方挑一个样式，粘贴进你的资料。",
     defaultText: "TikTok",
+    bios: [
+      { id: "name", label: "名字加一个记号", text: "Alex\n\n♪" },
+      { id: "line", label: "你在发什么", text: "日常片段\n\n★" },
+      { id: "note", label: "名字加一句", text: "Alex\n来看剪辑" },
+    ],
     presets: [
       { label: "Clan 框架", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "星光点缀", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
@@ -104,6 +114,11 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
     intro:
       "Discord 的昵称和自定义状态没有格式按钮——Unicode 正好补上这个空缺。挑一个样式，复制，粘贴进你的资料。",
     defaultText: "Discord",
+    bios: [
+      { id: "name", label: "名字和状态", text: "Alex\n\n在听歌" },
+      { id: "line", label: "你在做什么", text: "通话中\n\n✦" },
+      { id: "note", label: "一句离开说明", text: "Alex\n离开一下" },
+    ],
     presets: [
       { label: "服务器标签", left: "『", right: "』", transform: "monospace" },
       { label: "管理模式", left: "† ", right: " †", transform: "fraktur" },

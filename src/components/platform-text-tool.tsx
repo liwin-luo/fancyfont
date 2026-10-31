@@ -7,6 +7,9 @@ import { CopyButton } from "@/components/copy-button";
 import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
 import { useLocale } from "@/components/locale-context";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
+import { measureText, sliceGraphemes } from "@/lib/measure";
+import { codePointLength } from "@/lib/platform-preview";
+import { confidenceLabel, previewNameRule } from "@/lib/platform-rules";
 import { getUi } from "@/lib/ui-strings";
 
 const MAX_LENGTH = 120;
@@ -35,8 +38,10 @@ export function PlatformTextTool({
   const [previewAt, setPreviewAt] = useState<number | null>(null);
   const locale = useLocale();
   const t = getUi(locale);
-  const charCount = Math.min(text.length, MAX_LENGTH);
-  const previewText = text.slice(0, MAX_LENGTH);
+  const previewText = sliceGraphemes(text, MAX_LENGTH);
+  const charCount = measureText(previewText).graphemes;
+  const platformRule = previewNameRule(preview);
+  const platformMax = platformRule.approxMax;
 
   const styleRows = useMemo(
     () => featuredStyles.map((id) => ({ style: getStyle(id), text: convertText(previewText, id) })),
@@ -62,8 +67,7 @@ export function PlatformTextTool({
         id="platform-input"
         type="text"
         value={text}
-        maxLength={MAX_LENGTH}
-        onChange={(event) => setText(event.target.value)}
+        onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
         placeholder={t.common.yourText}
         autoComplete="off"
         spellCheck={false}
@@ -72,6 +76,14 @@ export function PlatformTextTool({
       <p className="mt-2 text-xs text-ink-500">
         {charCount}/{MAX_LENGTH} {t.common.charactersInfo} · {t.common.browserOnly}
       </p>
+      {platformMax !== null && (
+        <p className="mt-1 text-xs text-ink-500">{t.platformPreview.approxField(platform, platformMax)}</p>
+      )}
+      {platformMax !== null && codePointLength(previewText) > platformMax && confidenceLabel(platformRule) !== "verified" && (
+        <p className="mt-1 text-xs text-warning">
+          {t.common.overLimit(codePointLength(previewText), platformMax)} {t.platformPreview.notTested}
+        </p>
+      )}
 
       {charCount > 0 && (
         <>

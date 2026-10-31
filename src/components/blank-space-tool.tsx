@@ -15,6 +15,7 @@ import {
 } from "@/lib/blank-space";
 import { blankSpaceContent } from "@/lib/content/page-blank-space";
 import { convertAll } from "@/lib/text-styles";
+import { sliceGraphemes } from "@/lib/measure";
 import { getUi } from "@/lib/ui-strings";
 
 const MAX_LENGTH = 120;
@@ -32,7 +33,7 @@ export function BlankSpaceTool() {
 
   const kind = BLANK_KINDS.find((entry) => entry.id === kindId) ?? BLANK_KINDS[0];
   const line = repeatBlank(kind.char, 20);
-  const trimmed = name.slice(0, MAX_LENGTH);
+  const trimmed = sliceGraphemes(name, MAX_LENGTH);
 
   const results = useMemo(
     () =>
@@ -107,10 +108,9 @@ export function BlankSpaceTool() {
           <input
             id="blank-name"
             value={name}
-            maxLength={MAX_LENGTH}
             placeholder={c.namePlaceholder}
             autoComplete="off"
-            onChange={(event) => setName(event.target.value.slice(0, MAX_LENGTH))}
+            onChange={(event) => setName(sliceGraphemes(event.target.value, MAX_LENGTH))}
             className="text-input"
           />
 
