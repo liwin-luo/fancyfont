@@ -120,7 +120,11 @@ npx vercel --prod   # production
    before submitting to Search Console, and redeploy after changing it.
 2. **Search Console**: add `fancyfont.tools` as a property and submit
    `https://fancyfont.tools/sitemap.xml`.
-3. Spot-check: every page returns 200, canonicals point at `https://fancyfont.tools`,
+3. **Analytics (optional)**: add `NEXT_PUBLIC_GA_ID` (a `G-…` measurement ID) and
+   `NEXT_PUBLIC_CLARITY_ID` in the same place, then redeploy. Scripts load only when
+   the ID is set; the privacy page already describes what they collect. Events never
+   include the text a user typed (`src/lib/analytics.ts`).
+4. Spot-check: every page returns 200, canonicals point at `https://fancyfont.tools`,
    `/sitemap.xml` and `/robots.txt` resolve, and JSON-LD validates (Google Rich Results
    Test).
 
