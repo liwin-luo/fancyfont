@@ -522,3 +522,18 @@ UI 任务额外在本地走第 4 节该月的验收路径。没有浏览器自�
 | GSC 样本仍然很小 | 第 8、10 周默认「不新建页面」。数据不足是停的理由 |
 | 埋点被广告拦截器吃掉 | 接受。不自建采集服务 |
 | 范围滑向图片编辑器或账号系统 | 回到本文第 2 节。PNG 只修「导出打不开」类故障，不加大画布 |
+
+---
+
+## 11. 2026-11-01 缺口裁决
+
+对照本文第 4～7 节和仓库当前代码。下面这些已经在现有 URL 上能用完：字素 / 码点 / UTF-16 计数、样式别名和最近样式、平台规则与未实测文案、字符报告、符号收藏和托盘、简介草稿、八个核心页首屏说明、sitemap × 5 语、canonical、hreflang、`html lang`。倒转、乱码、小字、空白页打开同一份字符报告。
+
+没有 GSC 或 GA4 导出，所以这些停着，不拿猜测填：
+
+- 不新建 `/kaomoji/`、`/heart-symbols/`、`/aesthetic-symbols/`、`/text-reverser/`，不加日语。
+- 第 10 周不改 cursive、gothic、bubble、small caps、TikTok、Discord 的标题或 FAQ。
+- 首页卡片保持 Fancy 第一、Gaming 第二。
+- `keyword-intent-map.md` 的展示和点击留空。PageSpeed 的 LCP / INP / CLS 也留空，等到有一次真实测量再写进 `seo/tech-audit-2026-11.md`。
+
+本轮补上第 2 节留下的筛选深链：`/symbols/#hearts`、`#kaomoji` 这类现有分类 id 会选中该分类。地址能复制、能后退。不进 sitemap。

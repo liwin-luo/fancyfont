@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { localePath } from "@/lib/i18n";
 import {
+  categoryFromHash,
   displaySymbol,
   joinBoard,
   searchSymbols,
@@ -49,6 +51,7 @@ function savedEntry(symbol: string, idPrefix: string): SymbolEntry {
 }
 
 export function SymbolsTool() {
+  const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
   const [lastCopied, setLastCopied] = useState<string | null>(null);
@@ -120,6 +123,24 @@ export function SymbolsTool() {
   const favoriteEntries = favorites.items.map((symbol) => savedEntry(symbol, "favorite"));
 
   const categoryName = (id: string) => t.symbolCats[id] ?? id;
+
+  useEffect(() => {
+    const apply = () => setCategory(categoryFromHash(window.location.hash));
+    apply();
+    window.addEventListener("hashchange", apply);
+    window.addEventListener("popstate", apply);
+    return () => {
+      window.removeEventListener("hashchange", apply);
+      window.removeEventListener("popstate", apply);
+    };
+  }, []);
+
+  function selectCategory(next: string | null) {
+    setCategory(next);
+    const path = window.location.pathname + window.location.search;
+    window.history.pushState(null, "", next ? `${path}#${next}` : path);
+    if (next) track("symbols_category_select", { tool: "symbols", category: next });
+  }
   const showInvisibleNote =
     category === "invisible" ||
     (results.length > 0 && results.every((entry) => entry.category === "invisible"));
@@ -144,38 +165,40 @@ export function SymbolsTool() {
           aria-label={t.symbols.searchLabel}
           className="-mx-1 mt-4 flex gap-2 overflow-x-auto px-1 pb-1"
         >
-          <button
-            type="button"
-            aria-pressed={category === null}
-            onClick={() => setCategory(null)}
-            className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+          <a
+            href={pathname}
+            aria-current={category === null ? "true" : undefined}
+            onClick={(event) => {
+              event.preventDefault();
+              selectCategory(null);
+            }}
+            className={`inline-flex h-9 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-medium no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
               category === null
                 ? "border-brand-600 bg-brand-100 text-brand-800"
                 : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
             }`}
           >
             {t.common.all}
-          </button>
+          </a>
           {symbolCategories.map((cat) => {
             const active = category === cat.id;
             return (
-              <button
+              <a
                 key={cat.id}
-                type="button"
-                aria-pressed={active}
-                onClick={() => {
-                  const next = active ? null : cat.id;
-                  setCategory(next);
-                  if (next) track("symbols_category_select", { tool: "symbols", category: next });
+                href={`#${cat.id}`}
+                aria-current={active ? "true" : undefined}
+                onClick={(event) => {
+                  event.preventDefault();
+                  selectCategory(active ? null : cat.id);
                 }}
-                className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                className={`inline-flex h-9 shrink-0 items-center whitespace-nowrap rounded-full border px-4 text-sm font-medium no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                   active
                     ? "border-brand-600 bg-brand-100 text-brand-800"
                     : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
                 }`}
               >
                 {categoryName(cat.id)}
-              </button>
+              </a>
             );
           })}
         </div>

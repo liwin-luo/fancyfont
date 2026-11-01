@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  categoryFromHash,
   displaySymbol,
   joinBoard,
   searchSymbols,
@@ -37,6 +38,14 @@ describe("symbol data", () => {
         .map((s) => s.symbol);
       expect(new Set(inCategory).size).toBe(inCategory.length);
     }
+  });
+
+  it("reads a category only from a known hash", () => {
+    expect(categoryFromHash("#hearts")).toBe("hearts");
+    expect(categoryFromHash("#kaomoji")).toBe("kaomoji");
+    expect(categoryFromHash("#nope")).toBeNull();
+    expect(categoryFromHash("")).toBeNull();
+    expect(categoryFromHash("#%")).toBeNull();
   });
 
   it("has non-empty unique combos", () => {

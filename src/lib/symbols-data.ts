@@ -44,6 +44,17 @@ export const symbolCategories: SymbolCategory[] = [
   { id: "invisible", name: "Invisible" },
 ];
 
+/** `#hearts` opens that category. Anything else, including an empty hash, stays on all. */
+export function categoryFromHash(hash: string): string | null {
+  let id = hash.replace(/^#/, "");
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    return null;
+  }
+  return symbolCategories.some((category) => category.id === id) ? id : null;
+}
+
 type Row = [symbol: string, label: string, keywords: string];
 
 const DATA: Record<string, Row[]> = {
