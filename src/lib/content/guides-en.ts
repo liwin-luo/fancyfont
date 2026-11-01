@@ -281,6 +281,14 @@ export const GUIDES_EN: GuideDef[] = [
           "Paste the styled name into the field and save. If Roblox rejects it, the field tells you on the spot — nothing is spent yet.",
           "Confirm the name in-game: look at it above your head and in the player list. This matters because of what comes next.",
         ],
+        image: {
+          src: "/guides/roblox-tool.webp",
+          alt: "FancyFont's Roblox generator with ShadowHero typed in, showing the about-20 display name count",
+          width: 1200,
+          height: 650,
+          caption:
+            "Step 2's preparation screen: the Roblox generator keeps the login name plain, styles only the display name, and states the about-20 limit before you copy anything.",
+        },
         paragraphs: [
           "What comes next is the wait: Roblox applies a 7-day waiting period between display name changes. Every change you save locks you out of another one for about a week — so treat each change as spending a slot, and check the result in-game before you close the settings page.",
         ],
