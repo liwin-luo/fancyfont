@@ -76,6 +76,22 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
               ))}
             </ul>
           )}
+          {section.image && (
+            <figure className="mt-5">
+              <img
+                src={section.image.src}
+                alt={section.image.alt}
+                width={section.image.width}
+                height={section.image.height}
+                loading="lazy"
+                decoding="async"
+                className="w-full rounded-xl border border-line bg-surface"
+              />
+              <figcaption className="mt-2 text-xs leading-relaxed text-ink-500">
+                {section.image.caption}
+              </figcaption>
+            </figure>
+          )}
           {section.table && (
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[560px] border-collapse text-sm">

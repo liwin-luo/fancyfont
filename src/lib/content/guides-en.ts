@@ -49,6 +49,14 @@ export const GUIDES_EN: GuideDef[] = [
           "In Instagram, open your profile, tap Edit profile, and paste the line into the Bio field. Paste it the same way into Name if you want the styled look on top of your profile.",
           "Save and look at it in the app. Instagram shows roughly 150 characters in a bio; if your line is longer, the end can get cut, so trim before you publish.",
         ],
+        image: {
+          src: "/guides/ig-tool.webp",
+          alt: "FancyFont's Instagram tool with a bio draft picked and the Cursive style applied, next to a Copy button",
+          width: 1200,
+          height: 600,
+          caption:
+            "Steps 1–3 in one screen: pick a bio draft, choose the Cursive style, and copy. The line under the preview counts the about-150 limit before you paste.",
+        },
         paragraphs: [
           "A before/after example, straight from the generator: type coffee and late walks, choose the cursive style, and you copy out 𝒸ℴ𝒻𝒻ℯℯ 𝒶𝓃𝒹 𝓁𝒶𝓉ℯ 𝓌𝒶𝓁𝓀𝓈 — one tap, no app install.",
         ],
@@ -131,6 +139,14 @@ export const GUIDES_EN: GuideDef[] = [
           "Copy the combination you like, or build your own from a styled word plus one mark — one mark plus a short word fits more often than a frame on both sides.",
           "In the game, open the screen where names are changed (most players get there with a rename card or item), paste the name, confirm, and look at it in the lobby.",
         ],
+        image: {
+          src: "/guides/pubg-length-warning.webp",
+          alt: "FancyFont's PUBG preview flagging a decorated name at 17 code points against the usual 16",
+          width: 1200,
+          height: 850,
+          caption:
+            "Step 2's warning in action: ShadowWarrior plus decorations counts 17 code points against PUBG's usual 16 — flagged in orange before you copy, along with the standing not-tested-here notice.",
+        },
         paragraphs: [
           "An example that fits both games with room to spare: the base name Shadow in the bold style comes out as 𝗦𝗵𝗮𝗱𝗼𝘄 — 6 characters. Wrapped in corner brackets, 「𝗦𝗵𝗮𝗱𝗼𝘄」 counts 8, which still clears PUBG's usual 16 with half the budget to spare.",
         ],

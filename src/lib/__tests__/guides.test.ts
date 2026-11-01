@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { existsSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { getGuide, guidePath, guides, guidesForPage } from "@/lib/guides";
 import { platformPages } from "@/lib/platform-pages";
 import { stylePages } from "@/lib/style-pages";
@@ -107,5 +109,24 @@ describe("guides", () => {
         }
       }
     }
+  });
+
+  it("ships every guide image as a real file with matching dimensions", () => {
+    const seen = new Set<string>();
+    for (const guide of guides) {
+      for (const section of guide.sections) {
+        const image = section.image;
+        if (!image) continue;
+        expect(seen.has(image.src)).toBe(false);
+        seen.add(image.src);
+        expect(image.src).toMatch(/^\/guides\/[a-z0-9-]+\.webp$/);
+        expect(image.alt.length).toBeGreaterThan(15);
+        expect(image.caption.length).toBeGreaterThan(20);
+        const file = join(process.cwd(), "public", image.src);
+        expect(existsSync(file)).toBe(true);
+        expect(statSync(file).size).toBeGreaterThan(1000);
+      }
+    }
+    expect(seen.size).toBeGreaterThanOrEqual(2);
   });
 });

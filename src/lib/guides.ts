@@ -19,6 +19,15 @@ export interface GuideSeeAlso {
   href: string;
 }
 
+export interface GuideImage {
+  /** Path under /public, served as-is (e.g. /guides/ig-tool.webp). */
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+}
+
 export interface GuideSection {
   heading: string;
   paragraphs?: string[];
@@ -26,6 +35,7 @@ export interface GuideSection {
   bullets?: string[];
   table?: GuideSectionTable;
   seeAlso?: GuideSeeAlso[];
+  image?: GuideImage;
 }
 
 export interface GuideDef {
