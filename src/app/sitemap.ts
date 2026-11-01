@@ -3,6 +3,7 @@ import { contentUpdated, getSiteUrl } from "@/lib/site";
 import { defaultLocale, hreflang, localePath, locales } from "@/lib/i18n";
 import { stylePages } from "@/lib/style-pages";
 import { platformPages } from "@/lib/platform-pages";
+import { guidePath, guides } from "@/lib/guides";
 
 interface PathSpec {
   path: string;
@@ -37,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const lastModified = new Date(`${contentUpdated}T00:00:00.000Z`);
 
-  return PATHS.flatMap(({ path, changeFrequency, priority }) =>
+  const localeUrls: MetadataRoute.Sitemap = PATHS.flatMap(({ path, changeFrequency, priority }) =>
     locales.map((locale) => {
       const languages: Record<string, string> = {};
       for (const l of locales) {
@@ -54,4 +55,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       };
     }),
   );
+
+  // Guides are English-only pages: one URL each, no hreflang alternates.
+  const guideUrls: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${siteUrl}${guidePath(guide.slug)}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...localeUrls, ...guideUrls];
 }

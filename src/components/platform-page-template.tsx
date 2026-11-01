@@ -14,6 +14,7 @@ import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
 import { coreFocus, type CorePage } from "@/lib/content/core-focus";
 import { relatedToolLinks, type PlatformPageDef } from "@/lib/platform-pages";
+import { guidePath, guidesForPage } from "@/lib/guides";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
@@ -98,6 +99,8 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
       description: page.toolMode === "gaming" ? t.sections.browseSymbols : t.sections.browseFancy,
     },
   ];
+  // Guides exist only in English, so only the English template links them.
+  const pageGuides = locale === "en" ? guidesForPage(page.slug) : [];
 
   const webAppJsonLd = {
     "@context": "https://schema.org",
@@ -184,6 +187,26 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
       </section>
 
       <RelatedTools locale={locale} links={relatedLinks} />
+
+      {pageGuides.length > 0 && (
+        <section className="mt-12" aria-labelledby="guides-heading">
+          <h2 id="guides-heading" className="text-xl font-bold text-ink-900">
+            Related guides
+          </h2>
+          <div className="mt-4 space-y-3">
+            {pageGuides.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={guidePath(guide.slug)}
+                className="card group block p-4 transition-colors hover:border-brand-300"
+              >
+                <p className="font-semibold text-ink-900 group-hover:text-brand-700">{guide.h1}</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-600">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">

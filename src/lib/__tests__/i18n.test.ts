@@ -147,9 +147,21 @@ describe("i18n completeness", () => {
   it("lists every index path in five locales with its own canonical", () => {
     const entries = sitemap();
     expect(entries.some((entry) => entry.url.includes("/ja"))).toBe(false);
-    const paths = [...new Set(entries.map((entry) => indexPath(entry.url)))];
-    expect(entries).toHaveLength(paths.length * locales.length);
+    // English-only guide entries carry no alternates and sit outside the
+    // per-locale fan-out; the five-locale contract covers everything else.
+    const fanOut = entries.filter((entry) => entry.alternates);
+    const single = entries.filter((entry) => !entry.alternates);
+    const paths = [...new Set(fanOut.map((entry) => indexPath(entry.url)))];
+    expect(fanOut).toHaveLength(paths.length * locales.length);
     expect(paths).toHaveLength(40);
+    expect(single.map((entry) => entry.url)).toEqual(
+      expect.arrayContaining([expect.stringContaining("/learn/")]),
+    );
+    for (const entry of single) {
+      expect(indexPath(entry.url)).toMatch(/^\/learn\//);
+      expect(entry.alternates).toBeUndefined();
+    }
+    expect(entries).toHaveLength(paths.length * locales.length + single.length);
     const urls = new Set(entries.map((entry) => entry.url));
     for (const path of paths) {
       for (const locale of locales) {

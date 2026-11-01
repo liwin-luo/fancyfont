@@ -37,6 +37,30 @@ export function pageMetadata(locale: Locale, path: string, meta: PageMeta): Meta
   };
 }
 
+/** Metadata for English-only pages (the /learn/ guides): self-canonical, no
+ * hreflang siblings — the other locales have no equivalent page, and pointing
+ * alternates at 404s would invalidate the whole cluster. */
+export function enOnlyMetadata(path: string, meta: PageMeta): Metadata {
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: path,
+      siteName,
+      images: [{ url: ogImagePath, width: 1200, height: 630, alt: ogImageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [ogImagePath],
+    },
+  };
+}
+
 /** Fallback metadata for each locale group's root layout. */
 export function layoutMetadata(locale: Locale): Metadata {
   const meta = homeContent[locale].meta;

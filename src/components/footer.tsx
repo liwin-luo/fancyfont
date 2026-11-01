@@ -113,6 +113,14 @@ export function Footer({ locale }: { locale: Locale }) {
                 {t.tools.mcp}
               </Link>
             </li>
+            {/* Guides exist only in English, so only the English footer links them. */}
+            {locale === "en" && (
+              <li>
+                <Link className="text-ink-600 hover:text-brand-700" href="/learn/">
+                  Guides
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
