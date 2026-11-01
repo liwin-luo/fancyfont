@@ -13,6 +13,7 @@ export const platformTone: Record<PlatformPreviewId | "all", { bg: string; fg: s
   cod: { bg: "#3d4a28", fg: "#d5e2a8" },
   youtube: { bg: "#e10600", fg: "#ffffff" },
   roblox: { bg: "#e2231a", fg: "#ffffff" },
+  fortnite: { bg: "#2b3990", fg: "#cfe3ff" },
 };
 
 export function PlatformGlyph({ id, className }: { id: PlatformPreviewId | "all"; className?: string }) {
@@ -87,6 +88,13 @@ export function PlatformGlyph({ id, className }: { id: PlatformPreviewId | "all"
     return (
       <svg {...common} fill="currentColor">
         <rect x="1" y="4" width="14" height="8" rx="2" />
+      </svg>
+    );
+  }
+  if (id === "fortnite") {
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="square">
+        <path d="M9.5 1.5 4 9h3.2L6 14.5 12 7H8.6Z" fill="currentColor" stroke="none" />
       </svg>
     );
   }

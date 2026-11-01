@@ -69,6 +69,7 @@ describe("i18n completeness", () => {
       "roblox-name-generator",
       "adopt-me-fonts",
       "berry-avenue-fonts",
+      "fortnite-name-generator",
     ]);
     for (const locale of locales) {
       for (const page of platformPages) {
@@ -153,7 +154,7 @@ describe("i18n completeness", () => {
     const single = entries.filter((entry) => !entry.alternates);
     const paths = [...new Set(fanOut.map((entry) => indexPath(entry.url)))];
     expect(fanOut).toHaveLength(paths.length * locales.length);
-    expect(paths).toHaveLength(40);
+    expect(paths).toHaveLength(41);
     expect(single.map((entry) => entry.url)).toEqual(
       expect.arrayContaining([expect.stringContaining("/learn/")]),
     );

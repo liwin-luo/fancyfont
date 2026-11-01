@@ -51,6 +51,7 @@ export const platformFieldRules: PlatformFieldRule[] = [
   { platformId: "freefire", field: "player_name", approxMax: 12, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "cod", field: "player_name", approxMax: 16, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "cod", field: "username", approxMax: 4, unit: "code_points", unicodePolicy: "usually_stripped", emojiPolicy: "usually_stripped", confidence: "published_approx", sourceNote: "Clan tag is about 2–4 plain characters. The stored ceiling is 4.", testedAt: null },
+  { platformId: "fortnite", field: "player_name", approxMax: 16, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
 ];
 
 const NAME_FIELD: Record<string, PlatformFieldRule["field"]> = {
@@ -63,6 +64,7 @@ const NAME_FIELD: Record<string, PlatformFieldRule["field"]> = {
   pubg: "player_name",
   freefire: "player_name",
   cod: "player_name",
+  fortnite: "player_name",
 };
 
 const EXTRA_FIELD: Record<string, PlatformFieldRule["field"]> = {

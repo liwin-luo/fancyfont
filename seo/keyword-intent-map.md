@@ -54,6 +54,7 @@
 | `/youtube-fonts/` | youtube fonts | youtube channel name generator | YouTube 场景频道名/handle 区分 | 未知 | 低 |
 | `/adopt-me-fonts/` | adopt me fonts？ | adopt me name ideas | Adopt Me 玩家的 Roblox 显示名 | 未知 | 与 roblox 页按游戏分流；**主查询表述待 SERP 确认**（"fonts"是否是真实查询形态） |
 | `/berry-avenue-fonts/` | berry avenue fonts？ | berry avenue bio / display name | Berry Avenue 玩家的头顶名 | 未知 | 同上 |
+| `/fortnite-name-generator/` | fortnite name generator、fortnite name symbols | fortnite symbols name、change fortnite name | Fortnite 场景昵称（Epic 显示名，约 16 字符，未实测） | 已验证需求（YouTube《How To Add Symbols To Your Fortnite Name!》75,947 播放 + FRVR 教程文进 30 天新闻窗，见 guide-question-backlog）；待 GSC | 平台第 12 个场景页；与 pubg/cod/free-fire 按游戏分流 |
 | `/learn/` | 无独立查询（目录页） | — | 指南入口，把信息型流量分给三篇指南 | — | 不参与意图竞争 |
 | `/learn/change-instagram-bio-font/` | how to change instagram bio font | instagram font changer、how to add fonts to instagram bio | 步骤教程：换 IG 简介字体 | 已验证需求（YouTube 4 条合计 24.3 万播放，见 guide-question-backlog）；待 GSC | 与 `/instagram-fonts/` 按意图分流：该页是工具，本页是步骤；页面互链。日语以外四语无对应页（英语独有，无 hreflang） |
 | `/learn/pubg-free-fire-stylish-name/` | pubg stylish name、fix copy paste problem pubg | free fire stylish name、stylish name not working | 步骤 + 排障：改名与粘贴失败修复 | 已验证需求（38.2 万 + 4.3 万播放，见 guide-question-backlog）；待 GSC | 与三个游戏页按意图分流（工具 vs 排障叙事）；长度数字沿用"约 16/约 12，未实测"；含装饰开销实测表 |

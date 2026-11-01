@@ -17,7 +17,8 @@ export type PlatformPreviewId =
   | "youtube"
   | "pubg"
   | "freefire"
-  | "cod";
+  | "cod"
+  | "fortnite";
 
 export interface PreviewFields {
   nameLabel: "displayName" | "nickname";
@@ -43,6 +44,7 @@ export const previewFields: Record<PlatformPreviewId, PreviewFields> = {
   pubg: { nameLabel: "nickname", nameMax: previewNameMax("pubg") },
   freefire: { nameLabel: "nickname", nameMax: previewNameMax("freefire") },
   cod: { nameLabel: "nickname", nameMax: previewNameMax("cod") },
+  fortnite: { nameLabel: "nickname", nameMax: previewNameMax("fortnite") },
 };
 
 export function codePointLength(text: string): number {

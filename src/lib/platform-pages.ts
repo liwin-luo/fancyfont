@@ -125,6 +125,14 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     featuredStyles: ["boldScript", "smallCaps", "script"],
     related: ["coquette-font-generator", "adopt-me-fonts", "roblox-name-generator"],
   },
+  {
+    slug: "fortnite-name-generator",
+    platform: "Fortnite",
+    toolMode: "gaming",
+    preview: "fortnite",
+    featuredStyles: ["bold", "smallCaps", "fraktur", "sansBold"],
+    related: ["pubg-name-generator", "cod-name-generator", "free-fire-name-generator"],
+  },
 ];
 
 const COPY: Record<Locale, Record<string, PlatformPageCopy>> = {

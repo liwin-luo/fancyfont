@@ -133,7 +133,7 @@ npx vercel --prod   # production
 ```
 src/
   app/                    # routes (all static): pages, layout, sitemap, robots, icon, 404
-    [slug]/               # 11 style + 4 platform pages (generateStaticParams, data-driven)
+    [slug]/               # style + platform pages (generateStaticParams, data-driven)
     learn/                # English-only guides (index + [slug], self-canonical, no hreflang)
     fancy-text-generator/
     gaming-name-generator/

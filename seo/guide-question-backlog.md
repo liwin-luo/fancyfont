@@ -80,7 +80,7 @@
 
 | 日期 | 观察到的浪潮 | 证据 | 裁决 |
 |---|---|---|---|
-| 2026-11-01 | **Fortnite 名字符号**（上升中，最契合） | YouTube《How To Add Symbols To Your Fortnite Name!》75,947 播放 + 改名教程群（0.9–8.9K）+ Google News 30 天窗内 FRVR 教程文（10-13） | **待立项**：平台页模式已有 11 个先例，引擎直接可服务；按周 8 门槛类证据规则已过（≥2 条高播放 + 媒体覆盖）。建议建 `/fortnite-name-generator/`，Epic DisplayName 规则按 published_approx 表述。等用户批准（90 天计划限制了新索引 URL） |
+| 2026-11-01 | **Fortnite 名字符号**（上升中，最契合） | YouTube《How To Add Symbols To Your Fortnite Name!》75,947 播放 + 改名教程群（0.9–8.9K）+ Google News 30 天窗内 FRVR 教程文（10-13） | **已落地（2026-11-01）**：`/fortnite-name-generator/` 五语上线（平台第 12 个场景页），Epic 显示名按 published_approx「约 16、未实测」表述，无隶属声明照常保留 |
 | 2026-11-01 | 半年 · Discord 官方上线 Profile Frames（07-29）：整个资料页的装饰边框，商店购买（Nitro 折扣），与文字无关 | Discord 官方博客 RSS + 5.7K 播放展示视频 | **已落地（2026-11-01）**：`/discord-fonts/` 五语 guidance 加「资料框 vs 文字」定位卡——官方边框管视觉、文字字段仍只有 Unicode 可样式化 |
 | 2026-11-01 | 半年 · 空白消息需求持续：WhatsApp 34.2K 播放、Messenger 20.5K，媒体 05-20 亦有覆盖 | YouTube + Google News 180d（TyN Magazine） | **已落地（2026-11-01）**：`/blank-space/` 五语 about 加用例段 + FAQ「能用这些字符发空白消息吗」，均标注未实测、先发给自己试 |
 | 2026-11-01 | 半年 · BGMI stylish name 是印度市场持续内容主题（InsideSport「100 Best BGMI Stylish Names」06-12 进新闻窗） | Google News 180d | **已落地（2026-11-01，轻量版）**：`/pubg-name-generator/` 五语 guidance 加 BGMI 卡（同一字段、约 16 字符、未针对 BGMI 实测）；独立页维持不建，YouTube 证据弱于 Fortnite |

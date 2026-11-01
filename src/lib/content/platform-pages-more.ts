@@ -332,6 +332,60 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "fortnite-name-generator": {
+      navName: "Fortnite",
+      h1: "Fortnite Name Generator",
+      title: "Fortnite Name Generator – Stylish Display Names",
+      description:
+        "Stylish Unicode names for Fortnite. Preview the display name, copy it, and check the length before you save it to your Epic account.",
+      intro:
+        "Fortnite shows your Epic display name in every lobby, kill feed and replay — one field, usually around 16 characters. Generate a decorated name, preview it, and save it from your Epic account settings.",
+      defaultText: "Victory",
+      presets: [
+        { label: "Star wrap", left: "★ ", right: " ★", transform: "sansBold" },
+        { label: "Brackets", left: "「", right: "」", transform: "bold" },
+        { label: "Storm mark", left: "⚡ ", right: "", transform: "smallCaps" },
+        { label: "Dark frame", left: "༺", right: "༻", transform: "fraktur" },
+      ],
+      guidance: [
+        {
+          label: "Display name",
+          body: "One field shown everywhere you play, usually around 16 characters. The preview counts code points and flags a name that goes over.",
+        },
+        {
+          label: "It follows your Epic account",
+          body: "The display name is account-level: change it from your Epic account settings and the new name appears on every platform you log in from.",
+        },
+        {
+          label: "Symbols and the filter",
+          body: "Epic's filter decides which characters survive. One-character alphabets like bold and small caps hold up better than stacked-mark decorations — if the lobby shows boxes, pick a plainer style.",
+        },
+        {
+          label: "What stays plain",
+          body: "Your Epic account ID is a number. Style the display name only, then check it in the lobby so every character actually draws.",
+        },
+      ],
+      compatNote:
+        "Fortnite and Epic Games set their own name rules and can change them. Nothing here guarantees a decorated name will be accepted — generate, copy, and check it in the game. FancyFont is not affiliated with Epic Games or Fortnite.",
+      faq: [
+        {
+          q: "How long can a Fortnite name be?",
+          a: "Plan for around 16 characters. The preview counts code points and warns before you copy; the in-game field is the final judge.",
+        },
+        {
+          q: "How do I change my Fortnite name?",
+          a: "From your Epic account settings on the web, or the account section in the game. The display name is account-level, so the change follows you on every platform you play.",
+        },
+        {
+          q: "Can I put symbols in my Fortnite name?",
+          a: "Styled Unicode characters usually save, but Epic's filter can trim or reject them. Plainer alphabets — bold, small caps — survive more often than heavy decorations.",
+        },
+        {
+          q: "Is this an official Fortnite tool?",
+          a: "No. FancyFont is independent and is not affiliated with Epic Games or Fortnite.",
+        },
+      ],
+    },
   },
   es: {
     "pubg-name-generator": {
@@ -657,6 +711,60 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "¿Es una herramienta oficial de Berry Avenue?",
           a: "No. FancyFont es independiente. Berry Avenue y Roblox pertenecen a sus dueños.",
+        },
+      ],
+    },
+    "fortnite-name-generator": {
+      navName: "Fortnite",
+      h1: "Generador de nombres para Fortnite",
+      title: "Generador de nombres de Fortnite – nombres con estilo",
+      description:
+        "Nombres Unicode con estilo para Fortnite. Previsualiza el nombre, cópialo y revisa la longitud antes de guardarlo en tu cuenta de Epic.",
+      intro:
+        "Fortnite muestra tu nombre de Epic en cada lobby, marcador y repetición: un solo campo, normalmente unas 16 caracteres. Genera un nombre decorado, previsualízalo y guárdalo desde los ajustes de tu cuenta de Epic.",
+      defaultText: "Victory",
+      presets: [
+        { label: "Estrellas", left: "★ ", right: " ★", transform: "sansBold" },
+        { label: "Corchetes", left: "「", right: "」", transform: "bold" },
+        { label: "Marca tormenta", left: "⚡ ", right: "", transform: "smallCaps" },
+        { label: "Marco oscuro", left: "༺", right: "༻", transform: "fraktur" },
+      ],
+      guidance: [
+        {
+          label: "Nombre visible",
+          body: "Un campo que se ve en todo lo que juegas, normalmente unas 16 caracteres. La vista previa cuenta puntos de código y avisa si te pasas.",
+        },
+        {
+          label: "Sigue tu cuenta de Epic",
+          body: "El nombre visible es de la cuenta: cámbialo en los ajustes de Epic y el nuevo nombre aparece en todas las plataformas donde entres.",
+        },
+        {
+          label: "Símbolos y el filtro",
+          body: "El filtro de Epic decide qué caracteres sobreviven. Los alfabetos de un carácter por letra, como negrita y small caps, aguantan mejor que los adornos con marcas apiladas — si el lobby muestra cuadros, elige un estilo más llano.",
+        },
+        {
+          label: "Lo que queda plano",
+          body: "El ID de tu cuenta de Epic es un número. Da estilo solo al nombre visible y compruébalo en el lobby para que cada carácter se dibuje.",
+        },
+      ],
+      compatNote:
+        "Fortnite y Epic Games establecen sus propias reglas de nombre y pueden cambiarlas. Nada aquí garantiza que un nombre decorado se acepte — genera, copia y compruébalo en el juego. FancyFont no está afiliado a Epic Games ni a Fortnite.",
+      faq: [
+        {
+          q: "¿Cuánto puede medir un nombre de Fortnite?",
+          a: "Cuenta con unas 16 caracteres. La vista previa cuenta puntos de código y avisa antes de copiar; el campo del juego es el juez final.",
+        },
+        {
+          q: "¿Cómo cambio mi nombre de Fortnite?",
+          a: "Desde los ajustes de tu cuenta de Epic en la web, o la sección de cuenta en el juego. El nombre visible es de la cuenta, así que el cambio te sigue en todas las plataformas.",
+        },
+        {
+          q: "¿Puedo poner símbolos en mi nombre de Fortnite?",
+          a: "Los caracteres Unicode con estilo normalmente se guardan, pero el filtro de Epic puede recortarlos o rechazarlos. Los alfabetos más llanos — negrita, small caps — sobreviven más que los adornos pesados.",
+        },
+        {
+          q: "¿Es una herramienta oficial de Fortnite?",
+          a: "No. FancyFont es independiente y no está afiliado a Epic Games ni a Fortnite.",
         },
       ],
     },
@@ -988,6 +1096,60 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "fortnite-name-generator": {
+      navName: "Fortnite",
+      h1: "Gerador de nomes para Fortnite",
+      title: "Gerador de nomes de Fortnite – nomes com estilo",
+      description:
+        "Nomes Unicode estilosos para Fortnite. Veja a prévia do nome, copie e confira o tamanho antes de salvar na sua conta Epic.",
+      intro:
+        "O Fortnite mostra seu nome de exibição da Epic em todos os lobbies, telas de abate e replays — um campo, geralmente cerca de 16 caracteres. Gere um nome decorado, veja a prévia e salve nas configurações da sua conta Epic.",
+      defaultText: "Victory",
+      presets: [
+        { label: "Estrelas", left: "★ ", right: " ★", transform: "sansBold" },
+        { label: "Colchetes", left: "「", right: "」", transform: "bold" },
+        { label: "Marca tempestade", left: "⚡ ", right: "", transform: "smallCaps" },
+        { label: "Moldura sombria", left: "༺", right: "༻", transform: "fraktur" },
+      ],
+      guidance: [
+        {
+          label: "Nome de exibição",
+          body: "Um campo que aparece em tudo o que você joga, geralmente cerca de 16 caracteres. A prévia conta pontos de código e avisa quando passa.",
+        },
+        {
+          label: "Segue sua conta Epic",
+          body: "O nome de exibição é da conta: mude nas configurações da Epic e o novo nome aparece em todas as plataformas em que você entra.",
+        },
+        {
+          label: "Símbolos e o filtro",
+          body: "O filtro da Epic decide quais caracteres sobrevivem. Alfabetos de um caractere por letra, como negrito e small caps, aguentam mais que enfeites com marcas empilhadas — se o lobby mostra quadrados, escolha um estilo mais simples.",
+        },
+        {
+          label: "O que fica simples",
+          body: "O ID da sua conta Epic é um número. Estilize só o nome de exibição e confira no lobby se cada caractere aparece.",
+        },
+      ],
+      compatNote:
+        "Fortnite e a Epic Games definem as próprias regras de nome e podem mudá-las. Nada aqui garante que um nome decorado seja aceito — gere, copie e confira no jogo. O FancyFont não é afiliado à Epic Games nem ao Fortnite.",
+      faq: [
+        {
+          q: "Qual o tamanho de um nome no Fortnite?",
+          a: "Conte com cerca de 16 caracteres. A prévia conta pontos de código e avisa antes de copiar; o campo do jogo é o juiz final.",
+        },
+        {
+          q: "Como mudo meu nome no Fortnite?",
+          a: "Pelas configurações da sua conta Epic no site, ou na seção de conta no jogo. O nome de exibição é da conta, então a mudança te segue em todas as plataformas.",
+        },
+        {
+          q: "Posso colocar símbolos no meu nome do Fortnite?",
+          a: "Caracteres Unicode estilizados geralmente são salvos, mas o filtro da Epic pode cortar ou recusar. Alfabetos mais simples — negrito, small caps — sobrevivem mais que enfeites pesados.",
+        },
+        {
+          q: "Isso é uma ferramenta oficial do Fortnite?",
+          a: "Não. O FancyFont é independente e não é afiliado à Epic Games nem ao Fortnite.",
+        },
+      ],
+    },
   },
   "zh-cn": {
     "pubg-name-generator": {
@@ -1308,6 +1470,60 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "这是 Berry Avenue 官方工具吗？",
           a: "不是。FancyFont 是独立工具。Berry Avenue 和 Roblox 属于各自的权利人。",
+        },
+      ],
+    },
+    "fortnite-name-generator": {
+      navName: "Fortnite",
+      h1: "Fortnite 名字生成器",
+      title: "Fortnite 名字生成器 – 花体显示名",
+      description:
+        "给 Fortnite 用的 Unicode 花体名字。预览显示名、复制，并在保存到 Epic 账号前确认长度。",
+      intro:
+        "Fortnite 在每个大厅、击杀播报和回放里显示你的 Epic 显示名——只有一个字段，通常约 16 个字符。生成一个带装饰的名字，预览后到 Epic 账号设置里保存。",
+      defaultText: "Victory",
+      presets: [
+        { label: "星环", left: "★ ", right: " ★", transform: "sansBold" },
+        { label: "方括", left: "「", right: "」", transform: "bold" },
+        { label: "风暴标", left: "⚡ ", right: "", transform: "smallCaps" },
+        { label: "暗黑框", left: "༺", right: "༻", transform: "fraktur" },
+      ],
+      guidance: [
+        {
+          label: "显示名",
+          body: "你在所有对局里被看到的那个字段，通常约 16 个字符。预览按码点计数，超长会标出。",
+        },
+        {
+          label: "跟着 Epic 账号走",
+          body: "显示名是账号级的：在 Epic 账号设置里修改，新名字会出现在你登录的每个平台。",
+        },
+        {
+          label: "符号与过滤器",
+          body: "哪些字符能活下来由 Epic 的过滤器决定。粗体、小型大写这类单字符字母表比叠标记的装饰更稳——大厅里看到方块就换更朴素的样式。",
+        },
+        {
+          label: "保持原样的部分",
+          body: "你的 Epic 账号 ID 是数字。只给显示名加样式，然后到大厅确认每个字符都能画出来。",
+        },
+      ],
+      compatNote:
+        "Fortnite 和 Epic Games 自定名字规则且会改动。这里不保证带装饰的名字会被接受——生成、复制、到游戏里确认。FancyFont 与 Epic Games 和 Fortnite 没有隶属关系。",
+      faq: [
+        {
+          q: "Fortnite 名字能多长？",
+          a: "按约 16 个字符规划。预览按码点计数并在复制前警告；游戏内字段才是最终裁判。",
+        },
+        {
+          q: "怎么改 Fortnite 名字？",
+          a: "在网页端的 Epic 账号设置，或游戏内的账号分区修改。显示名是账号级的，改动会跟着你到每个平台。",
+        },
+        {
+          q: "Fortnite 名字里能用符号吗？",
+          a: "带样式的 Unicode 字符通常能保存，但 Epic 的过滤器可能裁掉或拒绝。朴素的字母表——粗体、小型大写——比厚重的装饰存活率高。",
+        },
+        {
+          q: "这是官方 Fortnite 工具吗？",
+          a: "不是。FancyFont 独立运营，与 Epic Games 和 Fortnite 没有隶属关系。",
         },
       ],
     },
@@ -1636,6 +1852,60 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           q: "Apakah ini alat resmi Berry Avenue?",
           a: "Bukan. FancyFont berdiri sendiri. Berry Avenue dan Roblox milik pemiliknya.",
+        },
+      ],
+    },
+    "fortnite-name-generator": {
+      navName: "Fortnite",
+      h1: "Generator Nama Fortnite",
+      title: "Generator Nama Fortnite – nama tampilan keren",
+      description:
+        "Nama Unicode keren untuk Fortnite. Pratinjau nama tampilan, salin, dan cek panjangnya sebelum menyimpannya ke akun Epic.",
+      intro:
+        "Fortnite menampilkan nama tampilan Epic-mu di setiap lobby, kill feed, dan replay — satu kolom, biasanya sekitar 16 karakter. Buat nama berhias, lihat pratinjaunya, lalu simpan dari pengaturan akun Epic.",
+      defaultText: "Victory",
+      presets: [
+        { label: "Bintang", left: "★ ", right: " ★", transform: "sansBold" },
+        { label: "Kurung", left: "「", right: "」", transform: "bold" },
+        { label: "Tanda badai", left: "⚡ ", right: "", transform: "smallCaps" },
+        { label: "Bingkai gelap", left: "༺", right: "༻", transform: "fraktur" },
+      ],
+      guidance: [
+        {
+          label: "Nama tampilan",
+          body: "Satu kolom yang terlihat di semua pertandingan, biasanya sekitar 16 karakter. Pratinjau menghitung titik kode dan menandai nama yang lebih panjang.",
+        },
+        {
+          label: "Mengikuti akun Epic",
+          body: "Nama tampilan ada di level akun: ubah dari pengaturan akun Epic dan nama baru muncul di semua platform tempatmu masuk.",
+        },
+        {
+          label: "Simbol dan filternya",
+          body: "Filter Epic menentukan karakter mana yang bertahan. Alfabet satu-karakter seperti bold dan small caps lebih kuat daripada hiasan bertanda menumpuk — kalau lobby memperlihatkan kotak, pilih gaya yang lebih polos.",
+        },
+        {
+          label: "Yang tetap biasa",
+          body: "ID akun Epic-mu adalah angka. Beri gaya hanya pada nama tampilan, lalu cek di lobby agar setiap karakter benar-benar tergambar.",
+        },
+      ],
+      compatNote:
+        "Fortnite dan Epic Games menetapkan aturan nama sendiri dan bisa mengubahnya. Tidak ada di sini yang menjamin nama berhias diterima — buat, salin, dan cek di game. FancyFont tidak berafiliasi dengan Epic Games atau Fortnite.",
+      faq: [
+        {
+          q: "Seberapa panjang nama Fortnite?",
+          a: "Rencanakan sekitar 16 karakter. Pratinjau menghitung titik kode dan memperingatkan sebelum kamu menyalin; kolom di game adalah hakim terakhir.",
+        },
+        {
+          q: "Bagaimana mengganti nama Fortnite?",
+          a: "Dari pengaturan akun Epic di web, atau bagian akun di dalam game. Nama tampilan ada di level akun, jadi perubahan mengikutimu di semua platform.",
+        },
+        {
+          q: "Bolehkah memakai simbol di nama Fortnite?",
+          a: "Karakter Unicode bergaya biasanya tersimpan, tetapi filter Epic bisa memotong atau menolaknya. Alfabet yang lebih polos — bold, small caps — lebih sering bertahan daripada hiasan berat.",
+        },
+        {
+          q: "Apakah ini alat resmi Fortnite?",
+          a: "Bukan. FancyFont berdiri sendiri dan tidak berafiliasi dengan Epic Games atau Fortnite.",
         },
       ],
     },
