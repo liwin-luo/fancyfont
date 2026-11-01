@@ -54,9 +54,10 @@
 | `/youtube-fonts/` | youtube fonts | youtube channel name generator | YouTube 场景频道名/handle 区分 | 未知 | 低 |
 | `/adopt-me-fonts/` | adopt me fonts？ | adopt me name ideas | Adopt Me 玩家的 Roblox 显示名 | 未知 | 与 roblox 页按游戏分流；**主查询表述待 SERP 确认**（"fonts"是否是真实查询形态） |
 | `/berry-avenue-fonts/` | berry avenue fonts？ | berry avenue bio / display name | Berry Avenue 玩家的头顶名 | 未知 | 同上 |
-| `/learn/` | 无独立查询（目录页） | — | 指南入口，把信息型流量分给两篇指南 | — | 不参与意图竞争 |
+| `/learn/` | 无独立查询（目录页） | — | 指南入口，把信息型流量分给三篇指南 | — | 不参与意图竞争 |
 | `/learn/change-instagram-bio-font/` | how to change instagram bio font | instagram font changer、how to add fonts to instagram bio | 步骤教程：换 IG 简介字体 | 已验证需求（YouTube 4 条合计 24.3 万播放，见 guide-question-backlog）；待 GSC | 与 `/instagram-fonts/` 按意图分流：该页是工具，本页是步骤；页面互链。日语以外四语无对应页（英语独有，无 hreflang） |
-| `/learn/pubg-free-fire-stylish-name/` | pubg stylish name、fix copy paste problem pubg | free fire stylish name、stylish name not working | 步骤 + 排障：改名与粘贴失败修复 | 已验证需求（38.2 万 + 4.3 万播放，见 guide-question-backlog）；待 GSC | 与三个游戏页按意图分流（工具 vs 排障叙事）；长度数字沿用"约 16/约 12，未实测" |
+| `/learn/pubg-free-fire-stylish-name/` | pubg stylish name、fix copy paste problem pubg | free fire stylish name、stylish name not working | 步骤 + 排障：改名与粘贴失败修复 | 已验证需求（38.2 万 + 4.3 万播放，见 guide-question-backlog）；待 GSC | 与三个游戏页按意图分流（工具 vs 排障叙事）；长度数字沿用"约 16/约 12，未实测"；含装饰开销实测表 |
+| `/learn/roblox-display-name-rules/` | roblox display name、roblox display name not working | roblox display name fonts、display name without waiting 7 days | 规则解释：用户名 vs 显示名、7 天冷却、被拒处理 | 已验证需求（5 条合计约 48 万播放，见 guide-question-backlog）；待 GSC | 与 `/roblox-name-generator/` 按意图分流（工具 vs 规则）；7 天冷却为公开规则，字符过滤沿用"约/未实测"；挂在 roblox/adopt-me/berry-avenue 三页 |
 | `/privacy/` `/terms/` `/about/` `/contact/` | 无搜索意图 | — | 信任与合规信息页 | — | 不参与意图竞争 |
 | `/mcp/` | fancyfont mcp（品牌长尾） | mcp server for fonts | 本机 agent 用户下载接入 | 未知（低优先） | 唯一入口 |
 

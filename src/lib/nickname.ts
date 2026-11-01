@@ -142,6 +142,24 @@ export function buildCustomNickname(name: string, combo: CustomCombo): string {
   return combo.left + inner + combo.right;
 }
 
+export interface DecorationCostRow {
+  /** Builder-style label, e.g. "★ name ★". */
+  label: string;
+  /** Code points the pair adds around the name, measured with an identity transform. */
+  cost: number;
+  /** The pair built around the sample name. */
+  example: string;
+}
+
+/** Measures each builder decoration pair's code-point cost from the engine itself. */
+export function decorationCostRows(name = "Shadow"): DecorationCostRow[] {
+  return decoratorPairs.map(([left, right]) => {
+    const label = left === "" && right === "" ? "none — plain name" : `${left} name ${right}`;
+    const out = buildCustomNickname(name, { left, right, transform: "identity" });
+    return { label, cost: [...out].length - [...name.trim()].length, example: out };
+  });
+}
+
 /** Deterministic string hash (xmur3). */
 function hashSeed(str: string): number {
   let h = 1779033703 ^ str.length;

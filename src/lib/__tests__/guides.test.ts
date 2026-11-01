@@ -100,6 +100,34 @@ describe("guides", () => {
     }
   });
 
+  it("publishes one measured row per decoration pair, hidden code points included", () => {
+    const table = getGuide("pubg-free-fire-stylish-name")?.sections.find(
+      (section) => section.table?.head[0] === "Decoration",
+    )?.table;
+    expect(table).toBeDefined();
+    expect(table!.rows).toHaveLength(20);
+    // ☠︎ carries an invisible variation selector per side, so its pair costs 4.
+    const skull = table!.rows.find((row) => row[0].includes("☠︎"));
+    expect(skull?.[1]).toBe("+4 code points");
+    // The clan frame ꧁༒ ༒꧂ also costs 4; a plain star pair costs 2.
+    expect(table!.rows.find((row) => row[0].includes("꧁༒"))?.[1]).toBe("+4 code points");
+    expect(table!.rows.find((row) => row[0].includes("★"))?.[1]).toBe("+2 code points");
+  });
+
+  it("keeps the Roblox guide inside the fact sheet's boundaries", () => {
+    const roblox = getGuide("roblox-display-name-rules");
+    expect(roblox).toBeDefined();
+    const dump = JSON.stringify(roblox);
+    expect(dump).toMatch(/7-day/);
+    expect(dump).toMatch(/about 20/);
+    // Free display name vs paid username change, without inventing prices.
+    expect(dump).toMatch(/free/i);
+    expect(dump).not.toMatch(/Robux \d/);
+    expect(roblox!.appearOn).toEqual(
+      expect.arrayContaining(["roblox-name-generator", "adopt-me-fonts", "berry-avenue-fonts"]),
+    );
+  });
+
   it("keeps see-also links inside /learn/", () => {
     for (const guide of guides) {
       for (const section of guide.sections) {

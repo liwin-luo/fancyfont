@@ -6,6 +6,7 @@
 
 import type { GuideDef } from "@/lib/guides";
 import { digitsText, styleRiskRows, styleRiskSummary } from "@/lib/style-risk";
+import { decorationCostRows } from "@/lib/nickname";
 
 const risk = styleRiskSummary();
 
@@ -17,6 +18,17 @@ const STYLE_RISK_TABLE = {
     digitsText(row.digitsStyledCount),
     row.note ?? "—",
   ]),
+};
+
+const DECORATION_ROWS = decorationCostRows();
+const decorationCostCounts = DECORATION_ROWS.reduce<Record<number, number>>((acc, row) => {
+  acc[row.cost] = (acc[row.cost] ?? 0) + 1;
+  return acc;
+}, {});
+
+const DECORATION_COST_TABLE = {
+  head: ["Decoration", "Adds around your name", "Example with Shadow"],
+  rows: DECORATION_ROWS.map((row) => [row.label, `+${row.cost} code points`, row.example]),
 };
 
 export const GUIDES_EN: GuideDef[] = [
@@ -152,6 +164,15 @@ export const GUIDES_EN: GuideDef[] = [
         ],
       },
       {
+        heading: "What each decoration costs you",
+        paragraphs: [
+          `Every decoration pair in the builder was measured against a plain name: ${decorationCostCounts[2] ?? 0} of the ${DECORATION_ROWS.length} pairs add exactly 2 code points, the heavy frames add 4, and the star-dust frame (⋆｡˚ name ˚｡⋆) adds 6. Two details the table makes visible: the skull pair looks like 2 characters but carries a hidden variation-selector code point on each side, and the dot/dash pairs include their spacing spaces in the count.`,
+          `That math is the whole game on short fields: a +6 frame eats half of Free Fire's about-12 budget before your name starts, while a +2 pair leaves room for an 8-letter styled word inside PUBG's about-16.`,
+        ],
+        table: DECORATION_COST_TABLE,
+        seeAlso: [],
+      },
+      {
         heading: "If the name will not paste (iPhone and iPad)",
         paragraphs: [
           "The paste failure is usually the phone, not the game: the clipboard never picked the styled string up cleanly, or the game's field ignored the long-press. Players fix it with this sequence:",
@@ -228,6 +249,107 @@ export const GUIDES_EN: GuideDef[] = [
         href: "/gaming-name-generator/",
         title: "Gaming Name Generator",
         description: "Frames, marks and styled alphabets you can combine yourself.",
+      },
+    ],
+  },
+  {
+    slug: "roblox-display-name-rules",
+    title: "Roblox Display Name: Fonts, the 7-Day Wait & Rejections | FancyFont",
+    h1: "Roblox Display Names: Which Fonts and Symbols Work, and the Rules Around Them",
+    description:
+      "How Roblox display names differ from usernames, which fonts and symbols survive the filter, the 7-day wait between changes, and what to do when a name is rejected.",
+    published: "2026-11-01",
+    updated: "2026-11-01",
+    intro: [
+      "Roblox gives you two names, and they play by completely different rules. The username is your login handle — plain characters only, forever. The display name is what other players see above your head and in chat, and it is where fonts and symbols can go. Most confusion (and most rejected names) comes from mixing up which field is which.",
+      "This guide covers the difference, how to change a display name, why Roblox makes you wait 7 days between changes, and how to pick a styled name that survives the filter the first time.",
+    ],
+    sections: [
+      {
+        heading: "Username vs display name: two fields, two rulebooks",
+        bullets: [
+          "Username — your login handle, about 3–20 characters of letters, digits and a single underscore. No symbols, no spaces, no styled characters, ever. Changing it costs Robux.",
+          "Display name — the name other players see, about 20 characters, changeable for free. Styled Unicode characters can go here, and Roblox's filter decides what passes.",
+          "Both fields are filtered — the display name more loosely, but a decorated name can still be rejected or quietly changed by Roblox's automated filters.",
+        ],
+      },
+      {
+        heading: "Change your display name in four steps",
+        steps: [
+          "Log in and open Settings → Account Info, and find the Display Name field (Roblox moves settings around now and then — look for the display name entry, not the username one).",
+          "Prepare the styled name first in the Roblox name generator, and check the length: the display name takes about 20 characters, and the preview flags longer ones.",
+          "Paste the styled name into the field and save. If Roblox rejects it, the field tells you on the spot — nothing is spent yet.",
+          "Confirm the name in-game: look at it above your head and in the player list. This matters because of what comes next.",
+        ],
+        paragraphs: [
+          "What comes next is the wait: Roblox applies a 7-day waiting period between display name changes. Every change you save locks you out of another one for about a week — so treat each change as spending a slot, and check the result in-game before you close the settings page.",
+        ],
+      },
+      {
+        heading: "Which fonts and symbols survive Roblox's filter",
+        paragraphs: [
+          "The same rule of thumb holds here as everywhere else: styles that swap each letter for exactly one character (bold, cursive, small caps) pass far more often than styles that stack combining marks on every letter. Roblox's filter is stricter than most apps, and it changes over time — a name that passed last month can fail this month.",
+          "A practical habit from players who change names often: keep the base name plain and add decoration you can strip. If an update rejects the symbols, you still have a clean name underneath instead of a week-long wait with a broken one.",
+        ],
+        seeAlso: [
+          {
+            label: "All 30 styles measured — which travel best",
+            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
+          },
+          {
+            label: "What each decoration pair costs in code points",
+            href: "/learn/pubg-free-fire-stylish-name/#guide-what-each-decoration-costs-you",
+          },
+        ],
+      },
+      {
+        heading: "If the name is rejected or reverts",
+        bullets: [
+          "Drop the decoration first. A plain short name Roblox accepts beats a styled one it bounces — especially with the 7-day wait behind it.",
+          "Re-type rather than re-paste once. Some paste operations carry invisible characters along; typing the styled name's characters fresh rules that out.",
+          "Remember the experience games. Adopt Me and Berry Avenue show your Roblox display name, so the same rules (and the same about-20 limit) follow you there — Berry Avenue's overhead name preview truncates past about 20.",
+          "Wait out the filter. Roblox's automated moderation can change a display name on its own; a rejected style usually stays rejected until you pick a plainer one.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How often can I change my Roblox display name?",
+        a: "Roblox applies a 7-day waiting period between display name changes. The change itself is free — it is the wait that makes each one count.",
+      },
+      {
+        q: "Can my Roblox display name have symbols and fonts?",
+        a: "It can take styled Unicode characters, but Roblox's filter decides what stays. One-character-per-letter styles survive far more often than stacked-mark decorations, and nothing is guaranteed — test in-game right after saving.",
+      },
+      {
+        q: "Can my Roblox username have symbols or fonts?",
+        a: "No. Usernames are locked to letters, digits and a single underscore. Styled text only ever belongs in the display name.",
+      },
+      {
+        q: "Does changing your display name cost Robux?",
+        a: "No — display name changes are free. Changing the username itself is the paid one, and it keeps the plain-character rules.",
+      },
+      {
+        q: "How long can a Roblox display name be?",
+        a: "About 20 characters, and decorations count toward it. The generator's preview counts code points and warns before you copy.",
+      },
+    ],
+    appearOn: ["roblox-name-generator", "adopt-me-fonts", "berry-avenue-fonts"],
+    relatedTools: [
+      {
+        href: "/roblox-name-generator/",
+        title: "Roblox Name Generator",
+        description: "Display-name ideas with the username rules kept separate.",
+      },
+      {
+        href: "/berry-avenue-fonts/",
+        title: "Berry Avenue Fonts",
+        description: "Head-name preview that truncates past about 20 characters.",
+      },
+      {
+        href: "/adopt-me-fonts/",
+        title: "Adopt Me Fonts",
+        description: "Adopt Me display names inherit the Roblox rules.",
       },
     ],
   },

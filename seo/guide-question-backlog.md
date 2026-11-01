@@ -24,6 +24,11 @@
 | YouTube《How to fix copy and paste problem in Pubg mobile iphone iPad…》(id HxX02VLy0TM) | 6,035 播放 | 同一排障问题的新版本追问 |
 | YouTube《PUBG Stylish Name Trick 2025》(AN Tech) | 43,326 播放 | 花体游戏名改法教程 |
 | Roblox DevForum《Say "Hello" to Display Names!》 | 1,765 回复 | 显示名话题在官方开发论坛热度高（devforum.roblox.com search.json，2026-11-01） |
+| YouTube《How to Make Display Name Tricks on Roblox! (2025)》(Syruproot) | 231,170 播放 | Roblox 显示名玩法教程最大单条（2026-11-01 补采） |
+| YouTube《How to Get CUSTOM FONTS in Roblox》(xvappa) | 126,444 播放 | 同集群（2026-11-01 补采） |
+| YouTube《How To Change Font In Roblox Mobile》(Trevor Nace) | 62,770 播放 | 同频道也做了 IG 字体教程，集群稳定（2026-11-01 补采） |
+| YouTube《How To Change Display Name Without Waiting 7 Days Roblox》(Ned HELP) | 51,208 播放 | 暴露"7 天冷却"子意图：改名等待是真实痛点（2026-11-01 补采） |
+| YouTube《How to Change Your Roblox Display Name With Special Characters (2026)》(Core Method) | 7,168 播放 | 特殊字符角度，集群合计约 48 万播放（2026-11-01 补采） |
 | 竞品差距 | — | 90 天规划 §2.2 已记录：YayText 有 How-to 教程 + Unicode FAQ，本站无对应物 |
 
 ## 候选选题表（2026-11-01 裁决）
@@ -32,8 +37,8 @@
 |---|---|---|---|---|---|---|
 | 1 | How to Change Your Instagram Bio Font (Step-by-Step) | 怎么给 IG 简介换花体 | 步骤教程 | `/instagram-fonts/` | 已验证（4 条视频合计 24.3 万播放，标题即查询形态） | **立项，2026-11-01 建页** |
 | 2 | PUBG / Free Fire Stylish Name：改名步骤与粘贴失败修复 | 名字改不上、iOS 粘贴失败、超长被截 | 排障 | `/pubg-name-generator/` `/free-fire-name-generator/` | 已验证（38.2 万 + 6 千 + 4.3 万播放） | **立项，2026-11-01 建页** |
-| 3 | Why Your Fancy Font Shows Squares (□□□) — and Where It Works | 方块字/豆腐块跨平台排障 | 排障 | 字符报告（Fancy/Gaming 内） | 待采集（无论坛原帖） | **不建**：风格页 FAQ 已两句答清（立项规则 #2），且无外部证据；继续挂在 backlog 等 Reddit/PAA 证据 |
-| 4 | Roblox Display Name vs Username：What Symbols Are Allowed | 两者规则差异、哪些符号能过 | 规则解释 | `/roblox-name-generator/` `/adopt-me-fonts/` | 部分（仅 DevForum 开发侧热度，无玩家提问原帖） | **不建**：证据不过门槛（规则 #1 要求玩家侧提问 ≥2 条）；等 Reddit 可达后复核 |
+| 3 | Why Your Fancy Font Shows Squares (□□□) — and Where It Works | 方块字/豆腐块跨平台排障 | 排障 | 字符报告（Fancy/Gaming 内） | 已否决（2026-11-01 复采：YouTube 四组查询只返回桌面字体/开发类结果，无玩家侧提问；与指南 1 的样式表 section 重叠） | **不建**：无玩家侧证据（规则 #1）+ 指南 1 表格已承接机制解释（规则 #2）；继续留在 backlog，待 Reddit/PAA 证据 |
+| 4 | Roblox Display Name：规则、字体符号与 7 天冷却 | 用户名 vs 显示名、哪些符号能过、改名被拒、7 天等待 | 规则解释 | `/roblox-name-generator/` `/adopt-me-fonts/` `/berry-avenue-fonts/` | 已验证（5 条视频合计约 48 万播放；"Without Waiting 7 Days"类标题证实冷却规则是真实痛点） | **立项，2026-11-01 建页**（`/learn/roblox-display-name-rules/`） |
 
 ## 待采集清单（方法与阻塞原因；2026-11-01 实测）
 
@@ -60,6 +65,7 @@
 |---|---|---|---|---|---|
 | `/learn/change-instagram-bio-font/` | 2026-11-01 |  |  |  |  |
 | `/learn/pubg-free-fire-stylish-name/` | 2026-11-01 |  |  |  |  |
+| `/learn/roblox-display-name-rules/` | 2026-11-01 |  |  |  |  |
 
 ## 明确不做
 
