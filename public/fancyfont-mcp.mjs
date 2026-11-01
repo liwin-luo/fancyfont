@@ -346,6 +346,7 @@ var textStyles = [
   {
     id: "script",
     name: "Cursive",
+    aliases: ["cursive", "handwriting"],
     note: "Handwritten script look. Letters only.",
     category: "script",
     coverage: "letters",
@@ -389,6 +390,7 @@ var textStyles = [
   {
     id: "fraktur",
     name: "Gothic",
+    aliases: ["gothic", "old english"],
     note: "Old-style blackletter. Letters only.",
     category: "gothic",
     coverage: "letters",
@@ -501,6 +503,7 @@ var textStyles = [
   {
     id: "smallCaps",
     name: "Small Caps",
+    aliases: ["small caps"],
     note: "Small capital letters.",
     category: "small",
     coverage: "letters",
@@ -509,6 +512,7 @@ var textStyles = [
   {
     id: "superscript",
     name: "Tiny (Superscript)",
+    aliases: ["tiny"],
     note: "Raised tiny letters. Some capitals stay unchanged.",
     category: "small",
     coverage: "partial",
@@ -517,6 +521,7 @@ var textStyles = [
   {
     id: "subscript",
     name: "Subscript",
+    aliases: ["tiny"],
     note: "Sunken tiny letters. Letters without a subscript form stay unchanged.",
     category: "small",
     coverage: "partial",
@@ -525,6 +530,7 @@ var textStyles = [
   {
     id: "bubble",
     name: "Bubble",
+    aliases: ["bubble letters"],
     note: "Filled circles around letters.",
     category: "enclosed",
     coverage: "lettersDigits",
@@ -575,6 +581,7 @@ var textStyles = [
   {
     id: "upsideDown",
     name: "Upside Down",
+    aliases: ["upside down", "flip"],
     note: "Flips your text upside down, including punctuation.",
     category: "flipped",
     coverage: "lettersDigits",
@@ -648,6 +655,7 @@ var textStyles = [
   {
     id: "zalgoLight",
     name: "Glitch Light",
+    aliases: ["zalgo", "glitch"],
     note: "A few stray marks for a subtly cursed look.",
     category: "effects",
     coverage: "all",
@@ -657,6 +665,7 @@ var textStyles = [
   {
     id: "zalgoMedium",
     name: "Glitch Medium",
+    aliases: ["zalgo", "glitch"],
     note: "Medium glitch intensity.",
     category: "effects",
     coverage: "all",
@@ -666,6 +675,7 @@ var textStyles = [
   {
     id: "zalgoHeavy",
     name: "Glitch Heavy",
+    aliases: ["zalgo", "glitch"],
     note: "Maximum cursed energy. Use with care.",
     category: "effects",
     coverage: "all",
@@ -803,9 +813,11 @@ function shuffle(items, seed) {
   }
   return out;
 }
-function generateNicknames(rawName, style = "all", nonce = 0, count = 24) {
-  const name = rawName.trim().replace(/\s+/g, " ").slice(0, MAX_NICKNAME_LENGTH);
-  if (!name) return [];
+var SUGGESTED_BASES = ["Nova", "Luna", "Rex", "Milo", "Aria", "Kai", "Nyx", "Juno"];
+function suggestedBases(style, nonce) {
+  return shuffle([...SUGGESTED_BASES], hashSeed(`suggest|${style}|${nonce}`)).slice(0, 4);
+}
+function poolFor(name, style) {
   const selected = style === "all" ? vibeStyles : vibeStyles.filter((s) => s.id === style);
   const pool = [];
   for (const vibe of selected) {
@@ -816,8 +828,13 @@ function generateNicknames(rawName, style = "all", nonce = 0, count = 24) {
       }
     }
   }
-  const unique = Array.from(new Set(pool));
-  const seed = hashSeed(`${name.toLowerCase()}|${style}|${nonce}`);
+  return pool;
+}
+function generateNicknames(rawName, style = "all", nonce = 0, count = 24) {
+  const name = rawName.trim().replace(/\s+/g, " ").slice(0, MAX_NICKNAME_LENGTH);
+  const names = name ? [name] : suggestedBases(style, nonce);
+  const unique = Array.from(new Set(names.flatMap((base) => poolFor(base, style))));
+  const seed = hashSeed(`${(name || "suggest").toLowerCase()}|${style}|${nonce}`);
   return shuffle(unique, seed).slice(0, count);
 }
 
@@ -832,6 +849,7 @@ var symbolCategories = [
   { id: "brackets", name: "Brackets" },
   { id: "lines", name: "Lines & Borders" },
   { id: "faces", name: "Faces" },
+  { id: "kaomoji", name: "Kaomoji" },
   { id: "vibes", name: "Music & Vibes" },
   { id: "checks", name: "Check & Cross" },
   { id: "math", name: "Math" },
@@ -1237,6 +1255,20 @@ var DATA = {
     ["\u2301", "Electric arrow", "zigzag bolt"],
     ["\u2042", "Asterism", "dots three stars"],
     ["\u27E1", "Concave rotated diamond", "sparkle diamond"]
+  ],
+  kaomoji: [
+    ["(\u02F6\u1D54 \u1D55 \u1D54\u02F6)", "Soft smile", "kaomoji cute face"],
+    ["(\u1D54\u15DC\u1D54)", "Happy face", "kaomoji cute"],
+    ["(\uFF61\u2022\u0301\uFE3F\u2022\u0300\uFF61)", "Sad face", "kaomoji sad"],
+    ["(\u256F\xB0\u25A1\xB0)\u256F", "Table flip", "kaomoji angry"],
+    ["(\u273F\u25E0\u203F\u25E0)", "Flower smile", "kaomoji cute flower"],
+    ["(\u3065\uFF61\u25D5\u203F\u203F\u25D5\uFF61)\u3065", "Hug", "kaomoji hug"],
+    ["(\xAC\u203F\xAC)", "Smirk", "kaomoji smirk"],
+    ["(\u2022\u0300\u1D17\u2022\u0301)\u0648", "Cheering", "kaomoji cheer"],
+    ["( \u02D8\u0348 \u1D55 \u02D8\u0348\u2661)", "Love face", "kaomoji heart"],
+    ["(\uFF61\u2665\u203F\u2665\uFF61)", "Heart eyes", "kaomoji heart eyes"],
+    ["(\u1D55\u2014\u1D17\u2014)", "Calm smile", "kaomoji calm"],
+    ["(\u0E51\u02C3\u0335\u1D17\u02C2\u0335)", "Shy face", "kaomoji shy"]
   ],
   // Blank code points used for empty game names. The UI draws U+25CC (◌)
   // as a marker; copying still writes the real character.
