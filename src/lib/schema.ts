@@ -11,7 +11,9 @@ export function workMeta(): {
   dateModified: string;
 } {
   return {
-    author: { "@type": "Organization", name: siteName, url: getSiteUrl(), email: contactEmail },
+    // The About page is the publisher identity crawlers can verify, so schema
+    // points there rather than at the bare domain.
+    author: { "@type": "Organization", name: siteName, url: `${getSiteUrl()}/about/`, email: contactEmail },
     datePublished: contentPublished,
     dateModified: contentUpdated,
   };

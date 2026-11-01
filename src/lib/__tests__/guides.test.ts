@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getGuide, guidePath, guides, guidesForPage } from "@/lib/guides";
 import { platformPages } from "@/lib/platform-pages";
 import { stylePages } from "@/lib/style-pages";
+import { styleRiskRows } from "@/lib/style-risk";
 
 // Guides are English-only pages. Every claim rule here mirrors
 // seo/guide-question-backlog.md's 立项规则: a page may only go out when the
@@ -80,6 +81,30 @@ describe("guides", () => {
     for (const guide of guides) {
       for (const slug of guide.appearOn) {
         expect(guidesForPage(slug)).toContain(guide);
+      }
+    }
+  });
+
+  it("publishes one measured row per style, matching the engine", () => {
+    const table = getGuide("change-instagram-bio-font")?.sections.find(
+      (section) => section.table,
+    )?.table;
+    expect(table).toBeDefined();
+    const engineRows = styleRiskRows();
+    expect(table!.head).toEqual(["Style", "Each letter becomes", "Digits", "Notes"]);
+    expect(table!.rows).toHaveLength(engineRows.length);
+    for (const [index, row] of table!.rows.entries()) {
+      expect(row[0]).toBe(engineRows[index].name);
+    }
+  });
+
+  it("keeps see-also links inside /learn/", () => {
+    for (const guide of guides) {
+      for (const section of guide.sections) {
+        for (const link of section.seeAlso ?? []) {
+          expect(link.href).toMatch(/^\/learn\//);
+          expect(link.label).toBeTruthy();
+        }
       }
     }
   });

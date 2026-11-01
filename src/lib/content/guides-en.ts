@@ -1,8 +1,23 @@
 // English copy for the /learn/ guides. Sources for every limit and claim:
 // seo/产品事实底稿.md and the platform pages' own FAQ wording. Sample outputs
 // were generated from src/lib/text-styles.ts (convertText), not typed by hand.
+// The style-risk table is computed from the engine at build time
+// (src/lib/style-risk.ts), so it can never drift from what the tool does.
 
 import type { GuideDef } from "@/lib/guides";
+import { digitsText, styleRiskRows, styleRiskSummary } from "@/lib/style-risk";
+
+const risk = styleRiskSummary();
+
+const STYLE_RISK_TABLE = {
+  head: ["Style", "Each letter becomes", "Digits", "Notes"],
+  rows: styleRiskRows().map((row) => [
+    row.name,
+    row.stacking,
+    digitsText(row.digitsStyledCount),
+    row.note ?? "—",
+  ]),
+};
 
 export const GUIDES_EN: GuideDef[] = [
   {
@@ -47,9 +62,18 @@ export const GUIDES_EN: GuideDef[] = [
         ],
       },
       {
+        heading: "Which styles travel best",
+        paragraphs: [
+          `Most "my font turned into boxes" trouble comes from how a style is built, not from Instagram. We measured every style the generator ships, straight from the conversion engine: ${risk.single} of ${risk.total} swap each letter for exactly one new Unicode character — the safest kind, because there is simply one glyph for the reader's phone to draw. The other ${risk.marked} (${risk.markFamilies.strike} strikethrough and underline variants plus ${risk.markFamilies.zalgo} strengths of glitch) stack combining marks after each letter, and each stacked mark is another chance for a device to render unevenly.`,
+          `Digits are their own split: ${risk.digitsAll} styles also restyle all ten digits, ${risk.digitsPartly} restyle some of them, and ${risk.digitsPlain} leave digits plain — which is why a bold "2026" keeps its numbers while a cursive one does not.`,
+        ],
+        table: STYLE_RISK_TABLE,
+        seeAlso: [],
+      },
+      {
         heading: "If the paste fails or shows boxes",
         paragraphs: [
-          "Boxes (□□□) mean the viewer's device is missing a glyph — the characters arrived, but the phone has nothing to draw for them. The fix is to pick a more common style: cursive, bold and small caps are covered nearly everywhere, while heavy glitch or rare decorations are the ones that break.",
+          "Boxes (□□□) mean the viewer's device is missing a glyph — the characters arrived, but the phone has nothing to draw for them. The fix is to pick a more common style: the table above puts the one-character-per-letter alphabets in one place, and those are covered nearly everywhere. The mark-stacking styles are the ones that break.",
           "If a paste into the bio comes out wrong, copy the line again from the generator and check the character report for combining-mark styles; strikethrough and zalgo stack marks on every letter and can render unevenly inside Instagram's fields. These are Unicode characters, not an Instagram feature — Instagram can change how it renders them at any time, so paste and check on your own account first.",
         ],
       },
@@ -57,15 +81,15 @@ export const GUIDES_EN: GuideDef[] = [
     faq: [
       {
         q: "Can I put a fancy font in my Instagram username?",
-        a: "No. The username only accepts plain letters, digits, periods and underscores. Style your display name or bio instead — that is where fonts are visible anyway.",
+        a: "No. The @handle field only accepts plain letters, digits, periods and underscores for every account — there is no workaround, and apps claiming to style usernames are not doing anything real. Style the display name and bio instead; they are the fields people actually see.",
       },
       {
-        q: "Can I get banned for using fonts in my bio?",
-        a: "Styled text in a name or bio is normal profile content, not a known violation. Keep it out of your username, follow Instagram's rules, and you are using it the same way millions of profiles do.",
+        q: "Do I need an app or a font keyboard to change my bio font?",
+        a: "No. The whole method on this page runs in a browser: type, copy, paste — nothing to install and no Instagram login anywhere. That is also a useful filter: styling text never requires your password, so be careful with any app that asks for one just to give you fonts.",
       },
       {
-        q: "Why does my bio font show squares to some followers?",
-        a: "Their device or Instagram version is missing a glyph for those characters. Sticking to popular styles like cursive, small caps and bold keeps that risk low.",
+        q: "Which bio styles are least likely to show as boxes?",
+        a: "The one-character-per-letter alphabets: cursive, bold, small caps and their cousins — the table above lists all of them. The stacked-mark styles (strikethrough, underline, glitch) are the ones most likely to render unevenly on some devices.",
       },
       {
         q: "How many characters fit in an Instagram bio?",
@@ -135,8 +159,15 @@ export const GUIDES_EN: GuideDef[] = [
         bullets: [
           "Count symbols as characters. A 16-character PUBG budget includes every bracket and mark; Free Fire's 12 goes fast.",
           "Drop the decoration first when a name is rejected. A plain short name the game accepts beats a styled one it cuts off.",
+          "Prefer one-character-per-letter styles inside games. Of the 30 styles in the generator, 10 stack extra marks onto every letter — strikethrough, underline and the three glitch strengths. Each stacked mark is another chance for the game's field or another player's phone to trip.",
           "Remember the ID never changes. The numeric player ID cannot be styled — only the nickname is a text field.",
           "Re-check after game updates. Both games can tighten their filters; a name that worked last season can turn into boxes this one.",
+        ],
+        seeAlso: [
+          {
+            label: "Which styles travel best — all 30 measured",
+            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
+          },
         ],
       },
       {

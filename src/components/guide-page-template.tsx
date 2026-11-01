@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { Faq, JsonLd, RelatedTools, Steps, faqJsonLd } from "@/components/sections";
 import { guidePath, type GuideDef } from "@/lib/guides";
 import { getSiteUrl } from "@/lib/site";
+import { siteName } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
 
 const siteUrl = getSiteUrl();
@@ -23,6 +25,7 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
     ...workMeta(),
     datePublished: guide.published,
     dateModified: guide.updated,
+    publisher: { "@type": "Organization", name: siteName, url: `${siteUrl}/about/` },
   };
 
   return (
@@ -72,6 +75,49 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
                 </li>
               ))}
             </ul>
+          )}
+          {section.table && (
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[560px] border-collapse text-sm">
+                <thead>
+                  <tr>
+                    {section.table.head.map((head) => (
+                      <th
+                        key={head}
+                        scope="col"
+                        className="border-b border-line px-3 py-2 text-left font-semibold text-ink-900"
+                      >
+                        {head}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {section.table.rows.map((row) => (
+                    <tr key={row[0]} className="border-b border-line/60 align-top">
+                      {row.map((cell, index) => (
+                        <td key={index} className="px-3 py-2 text-ink-600">
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {section.seeAlso && section.seeAlso.length > 0 && (
+            <p className="mt-3 text-sm text-ink-600">
+              See also:{" "}
+              {section.seeAlso.map((link, index) => (
+                <Fragment key={link.href}>
+                  {index > 0 && " · "}
+                  <Link href={link.href} className="font-semibold text-brand-700 hover:text-brand-800">
+                    {link.label}
+                  </Link>
+                </Fragment>
+              ))}
+            </p>
           )}
         </section>
       ))}

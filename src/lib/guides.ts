@@ -9,11 +9,23 @@
 import type { FaqItem, RelatedLink } from "@/components/sections";
 import { GUIDES_EN } from "@/lib/content/guides-en";
 
+export interface GuideSectionTable {
+  head: string[];
+  rows: string[][];
+}
+
+export interface GuideSeeAlso {
+  label: string;
+  href: string;
+}
+
 export interface GuideSection {
   heading: string;
   paragraphs?: string[];
   steps?: string[];
   bullets?: string[];
+  table?: GuideSectionTable;
+  seeAlso?: GuideSeeAlso[];
 }
 
 export interface GuideDef {
