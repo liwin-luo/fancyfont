@@ -75,6 +75,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       "Hangul filler is U+3164, Braille blank is U+2800, and ideographic space is U+3000. Each one takes a character position. Hangul filler and Braille blank draw nothing; ideographic space is a wide space.",
       `Fancy letters are the same ${styles} Unicode styles as the fancy text generator. The style is applied first. The blank is then inserted between grapheme clusters, so a strikethrough or glitch mark stays on its letter.`,
       "With the gap at 0, the line matches that style and keeps the spaces you typed. Above 0, those spaces are removed and the selected blank is used for every gap.",
+      "People also use these blanks to send a message that looks empty in chat apps. Whether a given app accepts a particular blank is up to that app and is not tested here — copy one and send it to yourself in that app first.",
     ],
     faqHeading: "FAQ",
     faq: [
@@ -89,6 +90,10 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       {
         q: "Where are zero-width characters?",
         a: "They stay in the invisible category of the symbol library. This page does not insert them: repeating a zero-width character still takes no space, and between letters it can change how marks or emoji display.",
+      },
+      {
+        q: "Can I send a blank message with these?",
+        a: "People use them for that in chat apps. Whether WhatsApp, Messenger or any other app accepts a particular blank is up to that app and is not tested here — copy the blank and send it to yourself in that app first.",
       },
     ],
     related: [
@@ -143,6 +148,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       "El relleno hangul es U+3164, el espacio braille es U+2800 y el espacio ideográfico es U+3000. Cada uno ocupa una posición. El hangul y el braille no dibujan nada; el ideográfico es un espacio ancho.",
       `Las letras usan los mismos ${styles} estilos Unicode que el generador de letras bonitas. Primero se aplica el estilo. Después se inserta el blanco entre grupos de grafemas, así que un tachado o un glitch se queda en su letra.`,
       "Con el hueco en 0, la línea coincide con ese estilo y conserva los espacios que escribiste. Por encima de 0, esos espacios se quitan y cada hueco usa el blanco elegido.",
+      "Estos blancos también sirven para enviar un mensaje que parece vacío en apps de chat. Que una app acepte o no un blanco concreto depende de la app y no está probado aquí: copia uno y envíatelo primero a ti.",
     ],
     faqHeading: "Preguntas frecuentes",
     faq: [
@@ -157,6 +163,10 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       {
         q: "¿Dónde están los caracteres de ancho cero?",
         a: "Siguen en la categoría invisible de la biblioteca de símbolos. Esta página no los inserta: repetir un carácter de ancho cero sigue sin ocupar espacio, y entre letras puede cambiar marcas o emojis.",
+      },
+      {
+        q: "¿Puedo enviar un mensaje en blanco con estos caracteres?",
+        a: "La gente los usa para eso en apps de chat. Que WhatsApp, Messenger o cualquier otra app acepte un blanco concreto depende de la app y no está probado aquí: copia el blanco y envíatelo primero en esa app.",
       },
     ],
     related: [
@@ -211,6 +221,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       "O preenchimento hangul é U+3164, o espaço braille é U+2800 e o espaço ideográfico é U+3000. Cada um ocupa uma posição. Hangul e braille não desenham nada; o ideográfico é um espaço largo.",
       `As letras usam os mesmos ${styles} estilos Unicode do gerador de letras bonitas. O estilo é aplicado primeiro. O branco entra depois, entre grupos de grafemas, então um riscado ou um glitch fica na letra.`,
       "Com o vão em 0, a linha coincide com esse estilo e mantém os espaços digitados. Acima de 0, esses espaços saem e cada vão usa o branco escolhido.",
+      "Esses brancos também servem para enviar uma mensagem que parece vazia em apps de conversa. Se um app aceita ou não um branco específico depende do app e não foi testado aqui: copie um e envie primeiro para você.",
     ],
     faqHeading: "Perguntas frequentes",
     faq: [
@@ -225,6 +236,10 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       {
         q: "Onde ficam os caracteres de largura zero?",
         a: "Continuam na categoria invisível da biblioteca de símbolos. Esta página não os insere: repetir um caractere de largura zero continua sem ocupar espaço, e entre letras pode mudar marcas ou emoji.",
+      },
+      {
+        q: "Posso enviar uma mensagem em branco com esses caracteres?",
+        a: "As pessoas usam para isso em apps de conversa. Se o WhatsApp, o Messenger ou outro app aceita um branco específico depende do app e não foi testado aqui: copie o branco e envie primeiro para você nesse app.",
       },
     ],
     related: [
@@ -276,6 +291,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       "韩文填充符是 U+3164，盲文空位是 U+2800，表意空格是 U+3000。三个都占一个字符位置。前两个画出来是空的，表意空格是一个宽空格。",
       `花体字母用的是个性字体生成器里的 ${styles} 种 Unicode 样式。先转换样式，再把空白插在字形簇之间，所以删除线或故障记号留在字母上。`,
       "间隙为 0 时，这一行与该样式一致，并保留你打的空格。大于 0 时，这些空格会被去掉，每个间隙都用所选空白。",
+      "也有人用这些空白在聊天应用里发送看起来是空的消息。某个应用是否接受某一种空白，由该应用决定，本站未实测——先复制一个发给自己试试。",
     ],
     faqHeading: "常见问题",
     faq: [
@@ -290,6 +306,10 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       {
         q: "零宽字符在哪里？",
         a: "在符号库的隐形字符分类里。这一页不插入它们：零宽字符重复多少次都不占宽度，夹在字母之间还可能改变记号或表情的显示。",
+      },
+      {
+        q: "能用这些字符发空白消息吗？",
+        a: "有人这么用。但 WhatsApp、Messenger 或其他应用是否接受某一种空白，由应用决定，本站未实测——复制空白后先在那个应用里发给自己试试。",
       },
     ],
     related: [
@@ -344,6 +364,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       "Pengisi Hangul adalah U+3164, spasi Braille adalah U+2800, dan spasi ideografis adalah U+3000. Masing-masing memakai satu posisi karakter. Hangul dan Braille tidak menggambar apa-apa; spasi ideografis adalah spasi lebar.",
       `Huruf memakai ${styles} gaya Unicode yang sama dengan generator huruf keren. Gaya diterapkan dulu. Spasi disisipkan setelahnya, di antara gugus grafem, jadi coretan atau glitch tetap menempel pada hurufnya.`,
       "Saat celah 0, barisnya sama dengan gaya itu dan spasi yang kamu ketik tetap ada. Di atas 0, spasi itu dihapus dan setiap celah memakai spasi yang dipilih.",
+      "Blank ini juga dipakai untuk mengirim pesan yang terlihat kosong di aplikasi chat. Apakah sebuah aplikasi menerima blank tertentu tergantung aplikasinya dan belum diuji di sini — salin satu dan kirim ke dirimu sendiri dulu.",
     ],
     faqHeading: "Pertanyaan umum",
     faq: [
@@ -358,6 +379,10 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
       {
         q: "Di mana karakter lebar nol?",
         a: "Tetap di kategori tak terlihat pada pustaka simbol. Halaman ini tidak menyisipkannya: mengulang karakter lebar nol tetap tidak memakan tempat, dan di antara huruf bisa mengubah tanda atau emoji.",
+      },
+      {
+        q: "Bisakah mengirim pesan kosong dengan karakter ini?",
+        a: "Banyak yang memakainya untuk itu di aplikasi chat. Apakah WhatsApp, Messenger, atau aplikasi lain menerima blank tertentu tergantung aplikasinya dan belum diuji di sini — salin blanknya dan kirim ke dirimu sendiri dulu di aplikasi itu.",
       },
     ],
     related: [

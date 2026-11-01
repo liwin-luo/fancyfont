@@ -142,6 +142,10 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
         label: "Mensagens",
         body: "As mensagens do Discord têm markdown de verdade: **negrito**, *itálico*, __sublinhado__ e ~~riscado~~. Prefira markdown no chat — os estilos Unicode são para o que o markdown não alcança.",
       },
+      {
+        label: "Molduras de perfil vs. texto",
+        body: "A loja do Discord vende Molduras de Perfil — bordas pagas que enfeitam a aparência do perfil inteiro. Elas não mexem no seu texto: o apelido, o status personalizado e o Sobre mim continuam aceitando apenas caracteres comuns, então os estilos Unicode seguem sendo a única forma de deixar esses campos em negrito ou cursivo.",
+      },
     ],
     compatNote:
       "São caracteres Unicode, não um recurso do Discord. Donos de servidor também podem mudar as permissões de apelido a qualquer momento. Hoje os estilos funcionam em apelidos e status — cole e confira no seu servidor primeiro.",

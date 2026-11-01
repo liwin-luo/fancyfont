@@ -142,6 +142,10 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
         label: "Pesan",
         body: "Pesan Discord mendukung markdown asli: **tebal**, *miring*, __garis bawah__, dan ~~coret~~. Utamakan markdown di chat — gaya Unicode untuk bagian profil yang tak dijangkau markdown.",
       },
+      {
+        label: "Frame profil vs. teks",
+        body: "Toko Discord menjual Profile Frames — bingkai berbayar yang menghias tampilan seluruh profilmu. Ini tidak menyentuh teksmu: nama panggilan, status kustom, dan About Me tetap hanya menerima karakter biasa, jadi gaya Unicode tetap satu-satunya cara membuatnya tebal atau miring.",
+      },
     ],
     compatNote:
       "Ini karakter Unicode, bukan fitur Discord. Pemilik server juga bisa mengubah izin nama kapan saja. Saat ini gaya berfungsi di nama dan status — tempel dan cek di servermu dulu.",

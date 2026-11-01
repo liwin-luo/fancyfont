@@ -179,6 +179,10 @@ export const platformPagesEn: Record<string, PlatformPageCopy> = {
         label: "Messages",
         body: "Discord messages support real markdown: **bold**, *italic*, __underline__ and ~~strikethrough~~. Prefer markdown in chat — Unicode styles are for the parts of your profile markdown can't reach.",
       },
+      {
+        label: "Profile frames vs text",
+        body: "Discord's shop sells Profile Frames — paid borders that decorate the look of your whole profile. They never touch your text: the nickname, custom status and About Me still take plain characters only, so Unicode styles remain the only way to bold or curve those.",
+      },
     ],
     compatNote:
       "These are Unicode characters, not a Discord feature. Server owners can also change nickname permissions at any time. Styles work in nicknames and statuses today — paste and check in your server first.",

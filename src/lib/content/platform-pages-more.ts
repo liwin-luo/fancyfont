@@ -34,6 +34,10 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
           label: "What stays plain",
           body: "Your player ID is a number. Style the name other players see, then paste it in the game and check that every character actually draws.",
         },
+        {
+          label: "BGMI",
+          body: "BGMI — Battlegrounds Mobile India — is PUBG Mobile's Indian build and keeps the same name field. Plan for the same about 16 characters. Nothing here is tested against BGMI specifically, so let the game have the final word.",
+        },
       ],
       compatNote:
         "PUBG applies its own filters and can change them. A styled name can turn into boxes or be rejected. Generate, copy, and test it in the game before you rely on it. FancyFont is not affiliated with PUBG.",
@@ -357,6 +361,10 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           label: "Lo que queda plano",
           body: "El ID de jugador es un número. Dale estilo al nombre que ven los demás y comprueba en el juego que cada carácter se dibuja.",
+        },
+        {
+          label: "BGMI",
+          body: "BGMI — Battlegrounds Mobile India — es la versión india de PUBG Mobile y usa el mismo campo de nombre. Cuenta con los mismos 16 caracteres aproximados. Nada aquí está probado específicamente en BGMI: deja que el juego decida.",
         },
       ],
       compatNote:
@@ -682,6 +690,10 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
           label: "O que fica simples",
           body: "O ID do jogador é um número. Estilize o nome que os outros veem e confira no jogo se cada caractere aparece.",
         },
+        {
+          label: "BGMI",
+          body: "O BGMI — Battlegrounds Mobile India — é a versão indiana do PUBG Mobile e usa o mesmo campo de nome. Conte com os mesmos 16 caracteres aproximados. Nada aqui foi testado especificamente no BGMI: deixe o jogo ter a palavra final.",
+        },
       ],
       compatNote:
         "O PUBG aplica os próprios filtros e pode mudá-los. Um nome estilizado pode virar quadrados ou ser recusado. Teste no jogo. O FancyFont não é afiliado ao PUBG.",
@@ -1005,6 +1017,10 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
           label: "保持原样的部分",
           body: "玩家 ID 是数字。只给别人看见的名字加样式，然后在游戏里确认每个字符都能画出来。",
         },
+        {
+          label: "BGMI",
+          body: "BGMI（Battlegrounds Mobile India）是 PUBG Mobile 的印度版本，用的是同一个名字字段。同样按约 16 个字符来规划。本站未针对 BGMI 专门实测，以游戏内为准。",
+        },
       ],
       compatNote:
         "PUBG 有自己的过滤规则，而且会改。有样式的名字可能变成方框，也可能被拒绝。先在游戏里试过再拿去用。FancyFont 与 PUBG 没有隶属关系。",
@@ -1324,6 +1340,10 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         {
           label: "Yang tetap biasa",
           body: "ID pemain adalah angka. Beri gaya pada nama yang dilihat pemain lain, lalu cek di game bahwa setiap karakter benar-benar tergambar.",
+        },
+        {
+          label: "BGMI",
+          body: "BGMI — Battlegrounds Mobile India — adalah versi India dari PUBG Mobile dan memakai kolom nama yang sama. Tetap rencanakan sekitar 16 karakter. Tidak ada yang diuji khusus untuk BGMI di sini — biarkan gamenya yang memutuskan.",
         },
       ],
       compatNote:

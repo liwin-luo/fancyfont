@@ -142,6 +142,10 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
         label: "消息",
         body: "Discord 消息支持真正的 markdown：**粗体**、*斜体*、__下划线__ 和 ~~删除线~~。聊天里优先用 markdown——Unicode 样式留给 markdown 够不着的资料位置。",
       },
+      {
+        label: "资料框与文字的区别",
+        body: "Discord 商店出售「资料框」（Profile Frames）——付费的整页资料装饰边框。它们不碰你的文字：昵称、自定义状态和 About Me 仍然只收普通字符，想把这些字段加粗或变成花体，Unicode 样式仍是唯一的办法。",
+      },
     ],
     compatNote:
       "这些是 Unicode 字符，不是 Discord 的功能。服务器管理员也可能随时修改昵称权限。目前样式在昵称和状态里可用——请先粘贴到你的服务器里确认。",

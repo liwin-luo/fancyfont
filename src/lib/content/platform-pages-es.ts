@@ -142,6 +142,10 @@ export const platformPagesEs: Record<string, PlatformPageCopy> = {
         label: "Mensajes",
         body: "Los mensajes de Discord tienen markdown real: **negrita**, *itálica*, __subrayado__ y ~~tachado~~. Usa markdown en el chat — los estilos Unicode son para lo que el markdown no alcanza.",
       },
+      {
+        label: "Marcos de perfil vs. texto",
+        body: "La tienda de Discord vende Marcos de Perfil: bordes de pago que decoran el aspecto de todo tu perfil. No tocan tu texto: el apodo, el estado personal y Acerca de mí siguen aceptando solo caracteres normales, así que los estilos Unicode siguen siendo la única forma de ponerlos en negrita o cursiva.",
+      },
     ],
     compatNote:
       "Son caracteres Unicode, no una función de Discord. Los dueños de servidores también pueden cambiar los permisos de apodo en cualquier momento. Hoy los estilos funcionan en apodos y estados — pega y revisa en tu servidor primero.",
