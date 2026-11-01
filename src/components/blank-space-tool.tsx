@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
 import { useLocale } from "@/components/locale-context";
 import {
@@ -30,6 +31,7 @@ export function BlankSpaceTool() {
   const [kindId, setKindId] = useState<BlankKindId>("hangul");
   const [name, setName] = useState("Luna");
   const [gap, setGap] = useState(1);
+  const [openReport, setOpenReport] = useState(false);
 
   const kind = BLANK_KINDS.find((entry) => entry.id === kindId) ?? BLANK_KINDS[0];
   const line = repeatBlank(kind.char, 20);
@@ -95,6 +97,18 @@ export function BlankSpaceTool() {
           ))}
         </div>
         <p className="mt-3 text-sm leading-relaxed text-ink-600">{c.spaceNote}</p>
+        <button
+          type="button"
+          aria-expanded={openReport}
+          aria-controls={openReport ? "blank-report" : undefined}
+          onClick={() => setOpenReport((open) => !open)}
+          className="mt-3 text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+        >
+          {t.gaming.checkResult}
+        </button>
+        {openReport && (
+          <CompatReport id="blank-report" text={kind.char} source={kind.char} styleId="identity" rule={null} />
+        )}
       </div>
 
       <section className="mt-10" aria-labelledby="fancy-blank-heading">

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { convertText, withWrapper, type TextStyleId } from "@/lib/text-styles";
+import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
 import { PreviewOptions, ShareLinks } from "@/components/style-actions";
 import { useToast } from "@/components/toast";
@@ -33,6 +34,7 @@ export function SingleStyleTool({
   const [text, setText] = useState(defaultText);
   const [previewSize, setPreviewSize] = useState(24);
   const [transparentPng, setTransparentPng] = useState(false);
+  const [openReport, setOpenReport] = useState<string | null>(null);
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
@@ -110,7 +112,8 @@ export function SingleStyleTool({
         </p>
       ) : (
         <ul className="mt-5 space-y-3">
-          {outputs.map(({ key, label, text: value }) => {
+          {outputs.map(({ key, label, text: value }, index) => {
+            const reportId = `style-report-${index}`;
             return (
               <li
                 key={key}
@@ -132,6 +135,15 @@ export function SingleStyleTool({
                     </button>
                     <CopyButton text={value} ariaLabel={t.common.copyStyle(label)} />
                     <ShareLinks text={value} name={label} />
+                    <button
+                      type="button"
+                      aria-expanded={openReport === key}
+                      aria-controls={openReport === key ? reportId : undefined}
+                      onClick={() => setOpenReport((current) => (current === key ? null : key))}
+                      className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                    >
+                      {t.gaming.checkResult}
+                    </button>
                   </div>
                 </div>
                 <p
@@ -140,6 +152,15 @@ export function SingleStyleTool({
                 >
                   {value}
                 </p>
+                {openReport === key && (
+                  <CompatReport
+                    id={reportId}
+                    text={value}
+                    source={previewText}
+                    styleId={styleIds.includes(key as TextStyleId) ? (key as TextStyleId) : styleIds[0]}
+                    rule={null}
+                  />
+                )}
               </li>
             );
           })}
