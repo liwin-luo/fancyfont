@@ -76,13 +76,16 @@
 
 ## 趋势监测记录（产品触发器，非选题）
 
-监测方法（2026-11-01）：RSS 多源扫描——Emojipedia、Discord 官方博客、Instagram 博客（feed 空）、Reddit（首页 + 月内关键词搜索）、Roblox DevForum、Google News RSS（30 天窗口 ×3 组查询）、Bing News RSS；TikTok Newsroom 与 Roblox 官方博客 feed 不可达。需求量级用 YouTube 播放量验证。
+监测方法（2026-11-01，两轮）：RSS 多源扫描——Emojipedia、Discord 官方博客、Instagram 博客（feed 空）、Reddit（首页 + 关键词检索）、Roblox DevForum、Google News RSS（30 天窗 ×3 组 + 180 天窗 ×2 组）、Bing News RSS；TikTok Newsroom 与 Roblox 官方博客 feed 不可达。第一轮 30 天窗，第二轮扩至半年窗（官方 feed 全量回溯 + 180d 新闻 + YouTube 播放量验证）。
 
 | 日期 | 观察到的浪潮 | 证据 | 裁决 |
 |---|---|---|---|
 | 2026-11-01 | **Fortnite 名字符号**（上升中，最契合） | YouTube《How To Add Symbols To Your Fortnite Name!》75,947 播放 + 改名教程群（0.9–8.9K）+ Google News 30 天窗内 FRVR 教程文（10-13） | **待立项**：平台页模式已有 11 个先例，引擎直接可服务；按周 8 门槛类证据规则已过（≥2 条高播放 + 媒体覆盖）。建议建 `/fortnite-name-generator/`，Epic DisplayName 规则按 published_approx 表述。等用户批准（90 天计划限制了新索引 URL） |
-| 2026-11-01 | Emoji 18.0 支持是**分批落地**：Google/安卓 2026-09-16 已上线，Windows 11 仍在 17.0（08-28），iPhone 预计 2027 春 | Emojipedia RSS：09-16《Google Debuts Emoji 18.0 Support》、08-28《Windows 11 Now Supports Emoji 17.0》 | 维持「符号页等 iOS 落地」的触发器；新增中间机会候选：信息型指南《New Emoji 2026: which devices show them》——与兼容性报告品牌契合，但按规则 #1 还差用户侧提问证据，先记候选 |
+| 2026-11-01 | 半年 · Discord 官方上线 Profile Frames（07-29）：整个资料页的装饰边框，商店购买（Nitro 折扣），与文字无关 | Discord 官方博客 RSS + 5.7K 播放展示视频 | **待办（内容更新）**：`/discord-fonts/` 加一句定位——官方边框管视觉、文字字段（昵称/状态/About Me）仍只有 Unicode 可样式化，两者互补不冲突。现有 FAQ「Discord has markdown」条目依然成立 |
+| 2026-11-01 | 半年 · 空白消息需求持续：WhatsApp 34.2K 播放、Messenger 20.5K，媒体 05-20 亦有覆盖 | YouTube + Google News 180d（TyN Magazine） | **待办（内容更新）**：`/blank-space/` 加用例段「在聊天应用发空白消息」，措辞守纪律：应用是否接受该字符未实测，先发给自己试 |
+| 2026-11-01 | 半年 · BGMI stylish name 是印度市场持续内容主题（InsideSport「100 Best BGMI Stylish Names」06-12 进新闻窗） | Google News 180d | **低优先候选**：YouTube 侧最高仅 1.1 万播放（证据弱于 Fortnite）；BGMI 即 PUBG Mobile 印度版，可先在 `/pubg-name-generator/` 文案中点名 BGMI（如实标注同一机制、未实测），暂不建独立页 |
+| 2026-11-01 | 半年 · 隐形字符进安全新闻（Microsoft 钓鱼报告 09 月、Claude Code 修复 10 月） | Google News 180d | 仅记录。消费级用例（空白消息/空昵称）与滥用是两回事；页面保持现有诚实提示即可 |
+| 2026-11-01 | Emoji 18.0 支持分批落地：Google/安卓 2026-09-16 已上线，Windows 11 仍在 17.0（08-28），iPhone 预计 2027 春 | Emojipedia RSS：09-16《Google Debuts Emoji 18.0 Support》、08-28《Windows 11 Now Supports Emoji 17.0》 | 维持「符号页等 iOS 落地」的触发器；新增中间机会候选：信息型指南《New Emoji 2026: which devices show them》——与兼容性报告品牌契合，但按规则 #1 还差用户侧提问证据，先记候选 |
 | 2026-11-01 | 竞品动态：Fontplop 以浏览器端转换器定位 relaunch，发雅虎财经通稿（10-06） | Google News RSS 30 天窗 | 仅记录。利基仍有人投入，不触发动作 |
 | 2026-11-01 | **否定性证据：Reddit 30 天内核心词无浪潮**（fancy fonts / display name font / invisible character 月内搜索均无高热帖） | Reddit RSS 月内检索 | 不因恐慌加功能。另记录单个无障碍讨论帖（花体字与屏幕阅读器，10-21）——我们 CompatNote 已覆盖此点 |
-| 2026-11-01 | Unicode 18.0 发布（2026-09-16，+13,007 字符） | Google News RSS：Emojipedia 2026-09-16 | 已并入上行条目的分批落地裁决 |
 | 2026-11-01 | 2027/28 草案 emoji 公布（2026-10-26） | Google News RSS：Emojipedia | 仅新闻。草案离可用还有数年，不动作 |
