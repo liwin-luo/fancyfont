@@ -337,11 +337,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Are Berry Avenue fonts for the username?",
-          a: "No. Berry Avenue fonts belong on the display name other players see overhead. The username stays letters, digits, and one underscore. A longer roleplay line belongs in chat, not in that login name.",
+          a: "Cause: Roblox's Help article treats the display name and the username as different fields. The display name is what other players see. The @username is the login name: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Fix: put styled letters on the display name only. On this page the username fitting rule is plain letters, digits, and one underscore. A longer roleplay line belongs in chat.",
         },
         {
           q: "Why did Roblox reject my Berry Avenue name?",
-          a: "Roblox filters display names and can change the rules. Stacked bows and rare symbols fail first. Try the plain small-caps row, then read the name on Roblox's own screen before you spend a change.",
+          a: "Cause: that Help article says display names are filtered, and a name that breaks the rules can be reset to your username: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox also filters text other players can see, including a phone number on a sign: https://create.roblox.com/docs/en-us/ui/text-filtering . Fix: drop rare symbols, keep the display name inside the announced 3–20, leave out personal details, and save only after Roblox's own screen accepts it.",
         },
         {
           q: "Is this a Berry Avenue font generator?",
@@ -736,11 +736,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "¿Las fuentes de Berry Avenue van en el usuario?",
-          a: "No. Van en el nombre visible, el que se ve sobre el personaje. El usuario se queda en letras, dígitos y un guion bajo. Una frase de rol más larga va en el chat.",
+          a: "Causa: la ayuda de Roblox trata el nombre visible y el usuario como campos distintos. El nombre visible es el que ven los demás. El @usuario es el nombre para entrar: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Arreglo: pon las letras con estilo solo en el nombre visible. En esta página la regla de ajuste del usuario es letras, dígitos y un guion bajo. Una frase de rol más larga va al chat.",
         },
         {
           q: "¿Por qué Roblox rechazó mi nombre de Berry Avenue?",
-          a: "Roblox filtra el nombre visible y puede cambiar las reglas. Los lazos apilados y los símbolos raros fallan primero. Prueba las versalitas sin adorno y lee el nombre en la pantalla de Roblox antes de gastar un cambio.",
+          a: "Causa: ese artículo dice que los nombres visibles se filtran, y un nombre que rompe las reglas puede volver a ser tu usuario: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox también filtra el texto que otros jugadores ven, incluido un teléfono en un letrero: https://create.roblox.com/docs/en-us/ui/text-filtering . Arreglo: quita los símbolos raros, deja el nombre visible dentro del 3–20 anunciado, no pongas datos personales, y guarda solo cuando la pantalla de Roblox lo acepte.",
         },
         {
           q: "¿Esto es un generador de fuentes para Berry Avenue?",
@@ -1135,11 +1135,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Fontes de Berry Avenue entram no usuário?",
-          a: "Não. Elas ficam no nome de exibição, o que aparece sobre o personagem. O usuário continua letras, dígitos e um sublinhado. Uma fala de RP mais longa fica no chat.",
+          a: "Causa: a ajuda da Roblox trata o nome de exibição e o usuário como campos diferentes. O nome de exibição é o que os outros veem. O @usuário é o nome de login: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Correção: ponha as letras estilizadas só no nome de exibição. Nesta página a regra de encaixe do usuário é letras, dígitos e um sublinhado. Uma fala de RP mais longa fica no chat.",
         },
         {
           q: "Por que o Roblox rejeitou meu nome de Berry Avenue?",
-          a: "O Roblox filtra o nome de exibição e pode mudar as regras. Laços empilhados e símbolos raros falham primeiro. Tente os versaletes sem enfeite e leia o nome na tela do Roblox antes de gastar uma troca.",
+          a: "Causa: esse artigo diz que os nomes de exibição são filtrados, e um nome que fere as regras pode voltar a ser o seu usuário: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . A Roblox também filtra texto que outros jogadores veem, inclusive um telefone numa placa: https://create.roblox.com/docs/en-us/ui/text-filtering . Correção: tire os símbolos raros, deixe o nome de exibição dentro do 3–20 anunciado, não coloque dados pessoais, e salve só depois que a tela da Roblox aceitar.",
         },
         {
           q: "Isto é um gerador de fontes para Berry Avenue?",
@@ -1528,11 +1528,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Berry Avenue 字体能放进用户名吗？",
-          a: "不能。字体放在别人看得到的头顶展示名上。用户名只留字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
+          a: "原因：Roblox 的帮助文章把展示名和用户名分成两个字段。展示名是别人看到的名字。@用户名是登录名：https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name 。处理：花体只放在展示名上。这一页给用户名的适配规则是字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
         },
         {
           q: "为什么 Roblox 拒绝了我的 Berry Avenue 名字？",
-          a: "Roblox 会过滤展示名，规则也会变。叠在一起的蝴蝶结和生僻符号最先失败。先试没有装饰的小型大写，在 Roblox 自己的改名页看过，再花掉一次修改机会。",
+          a: "原因：同一篇帮助文章写明展示名会被过滤，违反规则的名字可能被改回用户名：https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name 。别人能看见的文字也会被过滤，包括牌子上的电话号码：https://create.roblox.com/docs/en-us/ui/text-filtering 。处理：去掉生僻符号，把展示名留在公告里的 3–20，不要写个人信息，等 Roblox 自己的页面接受了再保存。",
         },
         {
           q: "这是 Berry Avenue 字体生成器吗？",
@@ -1927,11 +1927,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Apakah font Berry Avenue untuk username?",
-          a: "Bukan. Fontnya untuk nama tampilan yang terlihat di atas karakter. Username tetap huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
+          a: "Penyebab: artikel bantuan Roblox memperlakukan nama tampilan dan username sebagai kolom yang berbeda. Nama tampilan adalah yang dilihat pemain lain. @username adalah nama masuk: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Perbaikan: taruh huruf bergaya hanya di nama tampilan. Di halaman ini aturan kecocokan username adalah huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
         },
         {
           q: "Kenapa Roblox menolak nama Berry Avenue saya?",
-          a: "Roblox memfilter nama tampilan dan bisa mengubah aturannya. Pita yang ditumpuk dan simbol langka gagal lebih dulu. Coba small caps polos, lalu baca namanya di layar Roblox sebelum kamu memakai satu kesempatan ganti nama.",
+          a: "Penyebab: artikel yang sama menulis bahwa nama tampilan difilter, dan nama yang melanggar aturan bisa dikembalikan menjadi username: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox juga memfilter teks yang pemain lain lihat, termasuk nomor telepon di papan: https://create.roblox.com/docs/en-us/ui/text-filtering . Perbaikan: buang simbol langka, jaga nama tampilan di dalam 3–20 yang diumumkan, jangan taruh data pribadi, dan simpan hanya setelah layar Roblox menerimanya.",
         },
         {
           q: "Apakah ini generator font Berry Avenue?",
