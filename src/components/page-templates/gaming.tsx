@@ -11,6 +11,7 @@ import {
 } from "@/components/sections";
 import { coreFocus } from "@/lib/content/core-focus";
 import { gamingContent } from "@/lib/content/page-gaming";
+import { guidePath, guidesForPage } from "@/lib/guides";
 import { getPlatformPage } from "@/lib/platform-pages";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
@@ -21,6 +22,8 @@ const siteUrl = getSiteUrl();
 export function GamingPageTemplate({ locale }: { locale: Locale }) {
   const c = gamingContent[locale];
   const path = localePath(locale, "/gaming-name-generator/");
+  // Guides exist only in English, so only the English template links them.
+  const pageGuides = locale === "en" ? guidesForPage("gaming-name-generator") : [];
 
   const webAppJsonLd = {
     "@context": "https://schema.org",
@@ -98,6 +101,26 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
           description: link.description,
         }))}
       />
+
+      {pageGuides.length > 0 && (
+        <section className="mt-12" aria-labelledby="guides-heading">
+          <h2 id="guides-heading" className="text-xl font-bold text-ink-900">
+            Related guides
+          </h2>
+          <div className="mt-4 space-y-3">
+            {pageGuides.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={guidePath(guide.slug)}
+                className="card group block p-4 transition-colors hover:border-brand-300"
+              >
+                <p className="font-semibold text-ink-900 group-hover:text-brand-700">{guide.h1}</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-600">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
