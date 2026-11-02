@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { faqJsonLd, splitLinkedText } from "@/components/sections";
+import { faqJsonLd, linkLabels, type TextLink } from "@/components/sections";
 import { buildCodScenario, COD_KIT_TEMPLATES, COD_SOURCES } from "@/lib/cod-scenarios";
 import { buildCoquetteScenario, COQUETTE_KIT_TEMPLATES } from "@/lib/coquette-scenarios";
 import { codExtra, codPageFaq } from "@/lib/content/cod-extra";
@@ -18,8 +18,8 @@ const NOT_UPLOADED: Record<Locale, string> = {
   id: "tidak diunggah",
 };
 
-function urlsIn(text: string): string[] {
-  return splitLinkedText(text)
+function hrefsIn(text: string, links: readonly TextLink[]): string[] {
+  return linkLabels(text, links)
     .filter((part) => part.href)
     .map((part) => part.href as string);
 }
@@ -56,18 +56,25 @@ describe("COD, Coquette, and Roblox info-gain modules", () => {
       id: "tidak menetapkan batas resmi 16",
     };
     for (const locale of locales) {
+      const extra = codExtra[locale];
       const faq = codPageFaq(locale, page.copy[locale].faq);
-      const visible = [...faq.map((item) => item.a), codExtra[locale].safety.body].join("\n");
-      expect(visible).toContain(COD_SOURCES.mobile);
-      expect(visible).toContain(COD_SOURCES.activisionId);
+      const visible = [...faq.map((item) => item.a), extra.safety.body].join("\n");
+      expect(visible).not.toMatch(/https?:\/\//);
       expect(visible).toContain("500");
       expect(visible).toMatch(/3|三|tiga/);
       expect(visible).toMatch(/6|六|enam/);
       expect(visible).toContain(denial[locale]);
       expect(visible).not.toMatch(/official limit of 16/i);
-      expect(codExtra[locale].safety.body).toContain(NOT_UPLOADED[locale]);
-      expect(splitLinkedText(visible).map((part) => part.value).join("")).toBe(visible);
-      for (const href of urlsIn(visible)) expect(allowed.has(href), href).toBe(true);
+      expect(extra.safety.body).toContain(NOT_UPLOADED[locale]);
+      expect(linkLabels(visible, extra.links).map((part) => part.value).join("")).toBe(visible);
+      const hrefs = new Set(hrefsIn(visible, extra.links));
+      expect(hrefs.has(COD_SOURCES.mobile)).toBe(true);
+      expect(hrefs.has(COD_SOURCES.activisionId)).toBe(true);
+      for (const link of extra.links) {
+        expect(allowed.has(link.href), link.href).toBe(true);
+        expect(visible).toContain(link.label);
+        expect(link.label).not.toMatch(/https?:\/\//);
+      }
     }
     const en = codPageFaq("en", page.copy.en.faq).map((item) => item.a).join("\n");
     expect(en).toMatch(/three days/);
@@ -82,15 +89,21 @@ describe("COD, Coquette, and Roblox info-gain modules", () => {
       const extra = robloxExtra[locale];
       const faq = robloxPageFaq(locale, page.copy[locale].faq);
       const visible = [...faq.map((item) => `${item.q}\n${item.a}`), extra.safety.body].join("\n");
-      expect(visible).toContain(ROBLOX_ACCOUNT_SOURCES.displayNameHelp);
+      expect(visible).not.toMatch(/https?:\/\//);
       expect(visible).toContain("7");
-      expect(extra.safety.body).toContain(ROBLOX_ACCOUNT_SOURCES.communityStandards);
-      expect(extra.safety.body).toContain(ROBLOX_ACCOUNT_SOURCES.safety);
       expect(visible).not.toMatch(/3[–-]20/);
       expect(visible).not.toContain("####");
       expect(extra.berryLabel.toLowerCase()).toContain("berry");
-      expect(splitLinkedText(visible).map((part) => part.value).join("")).toBe(visible);
-      for (const href of urlsIn(visible)) expect(allowed.has(href), href).toBe(true);
+      expect(linkLabels(visible, extra.links).map((part) => part.value).join("")).toBe(visible);
+      const hrefs = new Set(hrefsIn(visible, extra.links));
+      expect(hrefs.has(ROBLOX_ACCOUNT_SOURCES.displayNameHelp)).toBe(true);
+      expect(hrefs.has(ROBLOX_ACCOUNT_SOURCES.communityStandards)).toBe(true);
+      expect(hrefs.has(ROBLOX_ACCOUNT_SOURCES.safety)).toBe(true);
+      for (const link of extra.links) {
+        expect(allowed.has(link.href), link.href).toBe(true);
+        expect(visible).toContain(link.label);
+        expect(link.label).not.toMatch(/https?:\/\//);
+      }
     }
   });
 
@@ -117,8 +130,8 @@ describe("COD, Coquette, and Roblox info-gain modules", () => {
         true,
       );
       const visible = coquetteExtra[locale].safety.body;
-      expect(urlsIn(visible)).toEqual([]);
-      expect(splitLinkedText(visible).map((part) => part.value).join("")).toBe(visible);
+      expect(visible).not.toMatch(/https?:\/\//);
+      expect(linkLabels(visible).map((part) => part.value).join("")).toBe(visible);
     }
     const clan = buildCodScenario("Nova", COD_KIT_TEMPLATES.clan);
     expect(clan.find((piece) => piece.key === "plain")!.text).toBe("Nova");

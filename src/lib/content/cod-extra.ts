@@ -1,7 +1,7 @@
 // COD rename FAQ, a short screen-reader note, and three preview sets.
 // Counts of 16 and clan length stay estimates. Official facts are the two Activision articles.
 
-import type { FaqItem } from "@/components/sections";
+import type { FaqItem, TextLink } from "@/components/sections";
 import type { Locale } from "../i18n";
 import { COD_KIT_TEMPLATES, COD_SOURCES, type CodKitId, type CodPieceKey, type CodTemplate } from "../cod-scenarios";
 
@@ -17,6 +17,7 @@ export interface CodKitCopy {
 
 export interface CodExtra {
   faq: FaqItem[];
+  links: TextLink[];
   safety: { heading: string; body: string };
   kits: {
     heading: string;
@@ -38,16 +39,20 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "Why should I preview a COD name before I confirm a rename?",
-        a: `Styled letters are Unicode characters, and the game box can show them as □. A Call of Duty: Mobile rename costs 500 COD Points and can be done once every three days, so read the name back in the game's own preview before you confirm: ${MOBILE}`,
+        a: "Styled letters are Unicode characters, and the game box can show them as □. A Call of Duty: Mobile rename costs 500 COD Points and can be done once every three days, so read the name back in the game's own preview before you confirm. Activision's Mobile account article lists that cost and wait.",
       },
       {
         q: "How much does a Call of Duty: Mobile name change cost, and how often?",
-        a: `Activision's Mobile account article says a rename costs 500 COD Points and you can change the name once every three days. The flow uses a Name Changing Card (Rename Card); if you do not have one, the game prompts a purchase. The steps there are: tap the name, open Player Profile, choose Edit, type the new name, then Change. ${MOBILE}`,
+        a: "Activision's Mobile account article says a rename costs 500 COD Points and you can change the name once every three days. The flow uses a Name Changing Card (Rename Card); if you do not have one, the game prompts a purchase. The steps there are: tap the name, open Player Profile, choose Edit, type the new name, then Change.",
       },
       {
         q: "How do Activision ID / Warzone display name changes work?",
-        a: `Games that use an Activision ID, including Warzone, spend rename tokens. You receive one new token every six months and can hold at most two. A name that fails the filter can be replaced with anon followed by digits, such as anon123456789012. If the name was changed for invalid characters and you held fewer than two tokens, Activision says a token is returned. A Code of Conduct change does not return one. ${ACTIVISION}`,
+        a: "Activision's name-change article says games that use an Activision ID, including Warzone, spend rename tokens. You receive one new token every six months and can hold at most two. A name that fails the filter can be replaced with anon followed by digits, such as anon123456789012. If the name was changed for invalid characters and you held fewer than two tokens, Activision says a token is returned. A Code of Conduct change does not return one.",
       },
+    ],
+    links: [
+      { label: "Mobile account article", href: MOBILE },
+      { label: "name-change article", href: ACTIVISION },
     ],
     safety: {
       heading: "Read it back before you pay",
@@ -80,16 +85,20 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "¿Por qué conviene previsualizar un nombre de COD antes de confirmar el cambio?",
-        a: `Las letras con estilo son caracteres Unicode, y el recuadro del juego puede mostrarlas como □. En Call of Duty: Mobile el cambio cuesta 500 COD Points y solo se puede hacer una vez cada tres días, así que lee el nombre en la vista previa del propio juego antes de confirmar: ${MOBILE}`,
+        a: "Las letras con estilo son caracteres Unicode, y el recuadro del juego puede mostrarlas como □. En Call of Duty: Mobile el cambio cuesta 500 COD Points y solo se puede hacer una vez cada tres días, así que lee el nombre en la vista previa del propio juego antes de confirmar. El artículo de cuenta de Mobile describe ese coste y esa espera.",
       },
       {
         q: "¿Cuánto cuesta cambiar el nombre en Call of Duty: Mobile y cada cuánto se puede?",
-        a: `El artículo de cuenta de Mobile dice que el cambio cuesta 500 COD Points y que el nombre se puede cambiar una vez cada tres días. El flujo usa una Name Changing Card (Rename Card); si no la tienes, el juego propone comprarla. Los pasos que describe: toca el nombre, abre Player Profile, elige Edit, escribe el nombre nuevo y pulsa Change. ${MOBILE}`,
+        a: "El artículo de cuenta de Mobile dice que el cambio cuesta 500 COD Points y que el nombre se puede cambiar una vez cada tres días. El flujo usa una Name Changing Card (Rename Card); si no la tienes, el juego propone comprarla. Los pasos que describe: toca el nombre, abre Player Profile, elige Edit, escribe el nombre nuevo y pulsa Change.",
       },
       {
         q: "¿Cómo funcionan los cambios de nombre visible del ID de Activision y de Warzone?",
-        a: `Los juegos que usan un ID de Activision, Warzone incluido, gastan rename tokens. Recibes un token nuevo cada seis meses y puedes guardar dos como máximo. Un nombre que no pasa el filtro puede quedar como anon seguido de dígitos, por ejemplo anon123456789012. Si el cambio fue por caracteres no válidos y tenías menos de dos tokens, Activision dice que devuelve un token. Un cambio por el Code of Conduct no lo devuelve. ${ACTIVISION}`,
+        a: "El artículo de cambio de nombre de Activision dice que los juegos con un ID de Activision, Warzone incluido, gastan rename tokens. Recibes un token nuevo cada seis meses y puedes guardar dos como máximo. Un nombre que no pasa el filtro puede quedar como anon seguido de dígitos, por ejemplo anon123456789012. Si el cambio fue por caracteres no válidos y tenías menos de dos tokens, Activision dice que devuelve un token. Un cambio por el Code of Conduct no lo devuelve.",
       },
+    ],
+    links: [
+      { label: "artículo de cuenta de Mobile", href: MOBILE },
+      { label: "artículo de cambio de nombre", href: ACTIVISION },
     ],
     safety: {
       heading: "Léelo antes de pagar",
@@ -122,16 +131,20 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "Por que ver o nome de COD antes de confirmar a troca?",
-        a: `Letras estilizadas são caracteres Unicode, e a caixa do jogo pode mostrá-las como □. No Call of Duty: Mobile a troca custa 500 COD Points e só pode ser feita uma vez a cada três dias, então leia o nome na prévia do próprio jogo antes de confirmar: ${MOBILE}`,
+        a: "Letras estilizadas são caracteres Unicode, e a caixa do jogo pode mostrá-las como □. No Call of Duty: Mobile a troca custa 500 COD Points e só pode ser feita uma vez a cada três dias, então leia o nome na prévia do próprio jogo antes de confirmar. O artigo de conta do Mobile descreve esse custo e essa espera.",
       },
       {
         q: "Quanto custa trocar o nome no Call of Duty: Mobile e qual é o intervalo?",
-        a: `O artigo de conta do Mobile diz que a troca custa 500 COD Points e que o nome só muda uma vez a cada três dias. O fluxo usa um Name Changing Card (Rename Card); se você não tiver, o jogo pede para comprar. Os passos descritos: toque no nome, abra Player Profile, escolha Edit, digite o nome novo e toque em Change. ${MOBILE}`,
+        a: "O artigo de conta do Mobile diz que a troca custa 500 COD Points e que o nome só muda uma vez a cada três dias. O fluxo usa um Name Changing Card (Rename Card); se você não tiver, o jogo pede para comprar. Os passos descritos: toque no nome, abra Player Profile, escolha Edit, digite o nome novo e toque em Change.",
       },
       {
         q: "Como funciona a troca do nome de exibição do ID Activision e do Warzone?",
-        a: `Jogos que usam um ID Activision, inclusive o Warzone, gastam rename tokens. Você recebe um token novo a cada seis meses e pode guardar no máximo dois. Um nome que não passa no filtro pode virar anon seguido de dígitos, por exemplo anon123456789012. Se a troca foi por caracteres inválidos e você tinha menos de dois tokens, a Activision diz que devolve um token. Uma troca por Code of Conduct não devolve. ${ACTIVISION}`,
+        a: "O artigo de troca de nome da Activision diz que jogos com um ID Activision, inclusive o Warzone, gastam rename tokens. Você recebe um token novo a cada seis meses e pode guardar no máximo dois. Um nome que não passa no filtro pode virar anon seguido de dígitos, por exemplo anon123456789012. Se a troca foi por caracteres inválidos e você tinha menos de dois tokens, a Activision diz que devolve um token. Uma troca por Code of Conduct não devolve.",
       },
+    ],
+    links: [
+      { label: "artigo de conta do Mobile", href: MOBILE },
+      { label: "artigo de troca de nome", href: ACTIVISION },
     ],
     safety: {
       heading: "Leia de novo antes de pagar",
@@ -164,16 +177,20 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "为什么要在确认 COD 改名之前先预览？",
-        a: `花体是 Unicode 字符，游戏输入框里可能变成 □。使命召唤手游改名花费 500 COD Points，而且每三天只能改一次，所以确认前先在游戏自己的预览框里读一遍：${MOBILE}`,
+        a: "花体是 Unicode 字符，游戏输入框里可能变成 □。使命召唤手游改名花费 500 COD Points，而且每三天只能改一次，所以确认前先在游戏自己的预览框里读一遍。这笔费用和间隔写在 Activision 的手游账号文章里。",
       },
       {
         q: "使命召唤手游改名要多少钱，多久能改一次？",
-        a: `Activision 的手游账号文章写明，改名花费 500 COD Points，每三天只能改一次。流程需要 Name Changing Card（Rename Card）；没有的话游戏会提示购买。文章里的步骤是：点名字，打开 Player Profile，选 Edit，输入新名字，再点 Change。${MOBILE}`,
+        a: "Activision 的手游账号文章写明，改名花费 500 COD Points，每三天只能改一次。流程需要 Name Changing Card（Rename Card）；没有的话游戏会提示购买。文章里的步骤是：点名字，打开 Player Profile，选 Edit，输入新名字，再点 Change。",
       },
       {
         q: "Activision ID 和 Warzone 的显示名怎么改？",
-        a: `使用 Activision ID 的游戏（包括 Warzone）改显示名要消耗 rename token。每六个月获得 1 个新 token，同时最多持有两个。过滤后不合格的名字会变成 anon 加数字，例如 anon123456789012。如果是因为无效字符被改、而且当时持有的 token 少于两个，Activision 会补发一个 token。因 Code of Conduct 违规被改则不发。${ACTIVISION}`,
+        a: "Activision 的改名文章写明，使用 Activision ID 的游戏（包括 Warzone）改显示名要消耗 rename token。每六个月获得 1 个新 token，同时最多持有两个。过滤后不合格的名字会变成 anon 加数字，例如 anon123456789012。如果是因为无效字符被改、而且当时持有的 token 少于两个，Activision 会补发一个 token。因 Code of Conduct 违规被改则不发。",
       },
+    ],
+    links: [
+      { label: "手游账号文章", href: MOBILE },
+      { label: "改名文章", href: ACTIVISION },
     ],
     safety: {
       heading: "付款前先读一遍",
@@ -201,16 +218,20 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "Mengapa nama COD perlu dilihat dulu sebelum mengganti nama dikonfirmasi?",
-        a: `Huruf bergaya adalah karakter Unicode, dan kotak game bisa menampilkannya sebagai □. Ganti nama Call of Duty: Mobile berharga 500 COD Points dan hanya bisa dilakukan sekali setiap tiga hari, jadi baca namanya di pratinjau milik game sebelum kamu mengonfirmasi: ${MOBILE}`,
+        a: "Huruf bergaya adalah karakter Unicode, dan kotak game bisa menampilkannya sebagai □. Ganti nama Call of Duty: Mobile berharga 500 COD Points dan hanya bisa dilakukan sekali setiap tiga hari, jadi baca namanya di pratinjau milik game sebelum kamu mengonfirmasi. Artikel akun Mobile menjelaskan biaya dan jeda itu.",
       },
       {
         q: "Berapa biaya ganti nama Call of Duty: Mobile, dan seberapa sering?",
-        a: `Artikel akun Mobile dari Activision mengatakan ganti nama berharga 500 COD Points dan nama hanya bisa diganti sekali setiap tiga hari. Alurnya memakai Name Changing Card (Rename Card); kalau belum punya, game meminta pembelian. Langkah di artikel itu: ketuk nama, buka Player Profile, pilih Edit, ketik nama baru, lalu Change. ${MOBILE}`,
+        a: "Artikel akun Mobile dari Activision mengatakan ganti nama berharga 500 COD Points dan nama hanya bisa diganti sekali setiap tiga hari. Alurnya memakai Name Changing Card (Rename Card); kalau belum punya, game meminta pembelian. Langkah di artikel itu: ketuk nama, buka Player Profile, pilih Edit, ketik nama baru, lalu Change.",
       },
       {
         q: "Bagaimana ganti nama tampilan Activision ID dan Warzone bekerja?",
-        a: `Game yang memakai Activision ID, termasuk Warzone, menghabiskan rename token. Kamu menerima satu token baru setiap enam bulan dan bisa menyimpan paling banyak dua. Nama yang gagal di filter bisa menjadi anon diikuti angka, misalnya anon123456789012. Jika nama diubah karena karakter tidak valid dan kamu memegang kurang dari dua token, Activision mengatakan satu token dikembalikan. Perubahan karena Code of Conduct tidak mengembalikan token. ${ACTIVISION}`,
+        a: "Artikel ganti nama Activision mengatakan game yang memakai Activision ID, termasuk Warzone, menghabiskan rename token. Kamu menerima satu token baru setiap enam bulan dan bisa menyimpan paling banyak dua. Nama yang gagal di filter bisa menjadi anon diikuti angka, misalnya anon123456789012. Jika nama diubah karena karakter tidak valid dan kamu memegang kurang dari dua token, Activision mengatakan satu token dikembalikan. Perubahan karena Code of Conduct tidak mengembalikan token.",
       },
+    ],
+    links: [
+      { label: "Artikel akun Mobile", href: MOBILE },
+      { label: "Artikel ganti nama", href: ACTIVISION },
     ],
     safety: {
       heading: "Baca ulang sebelum membayar",

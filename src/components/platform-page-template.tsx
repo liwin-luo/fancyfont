@@ -224,7 +224,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
             {cod.safety.heading}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-ink-700">
-            <LinkedText text={cod.safety.body} />
+            <LinkedText text={cod.safety.body} links={cod.links} />
           </p>
         </section>
       ) : null}
@@ -235,7 +235,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
             {roblox.safety.heading}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-ink-700">
-            <LinkedText text={roblox.safety.body} />
+            <LinkedText text={roblox.safety.body} links={roblox.links} />
           </p>
           <p className="mt-3 text-sm leading-relaxed text-ink-700">
             {roblox.berryBefore}
@@ -254,7 +254,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
           {t.sections.faq}
         </h2>
-        <Faq items={faq} />
+        <Faq items={faq} links={cod?.links ?? roblox?.links} />
       </section>
 
       <p className="mt-10 text-center">
