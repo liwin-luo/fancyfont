@@ -2,16 +2,19 @@ import Link from "next/link";
 import { BioTool } from "@/components/bio-tool";
 import { PlatformTextTool } from "@/components/platform-text-tool";
 import { GamingNameTool } from "@/components/gaming-name-tool";
+import { BerryScenarioKits } from "@/components/berry-scenario-kits";
 import {
   CompatNote,
   Faq,
   JsonLd,
+  LinkedText,
   RelatedTools,
   Steps,
   faqJsonLd,
 } from "@/components/sections";
 import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
+import { berryExtra, berryPageFaq } from "@/lib/content/berry-avenue-extra";
 import { coreFocus, type CorePage } from "@/lib/content/core-focus";
 import { relatedToolLinks, type PlatformPageDef } from "@/lib/platform-pages";
 import { guidePath, guidesForPage } from "@/lib/guides";
@@ -90,6 +93,8 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   const c = page.copy[locale];
   const t = getUi(locale);
   const path = localePath(locale, `/${page.slug}/`);
+  const berry = page.slug === "berry-avenue-fonts" ? berryExtra[locale] : null;
+  const faq = berry ? berryPageFaq(locale, c.faq) : c.faq;
 
   const relatedLinks = [
     ...relatedToolLinks(locale, page.related),
@@ -118,7 +123,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <JsonLd data={webAppJsonLd} />
-      <JsonLd data={faqJsonLd(c.faq)} />
+      <JsonLd data={faqJsonLd(faq)} />
 
       <PlatformChips locale={locale} active={page.slug} />
 
@@ -156,6 +161,8 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
           />
         )}
       </div>
+
+      {berry ? <BerryScenarioKits copy={berry.kits} defaultName={c.defaultText} /> : null}
 
       <CompatNote locale={locale} />
 
@@ -209,11 +216,22 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         </section>
       )}
 
+      {berry ? (
+        <section className="mt-12" aria-labelledby="berry-safety-heading">
+          <h2 id="berry-safety-heading" className="text-xl font-bold text-ink-900">
+            {berry.safety.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            <LinkedText text={berry.safety.body} />
+          </p>
+        </section>
+      ) : null}
+
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
           {t.sections.faq}
         </h2>
-        <Faq items={c.faq} />
+        <Faq items={faq} />
       </section>
 
       <p className="mt-10 text-center">
