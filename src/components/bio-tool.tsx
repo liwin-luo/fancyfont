@@ -70,66 +70,70 @@ export function BioTool({
 
   return (
     <div className="card p-4 sm:p-6">
-      <section aria-labelledby="inline-preview-heading" className="mb-4 overflow-hidden rounded-2xl border border-line">
-        <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
-          {t.platformPreview.heading(platform)}
-        </h2>
-        <PlatformPreviewScreen id={platformId} platform={platform} raw={template?.text ?? ""} styled={draft.text} />
-      </section>
-      <div role="group" aria-label={t.bio.drafts} className="flex flex-wrap gap-2">
-        {templates.map((item) => {
-          const active = item.id === template?.id;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              aria-pressed={active}
-              onClick={() => {
-                setTemplateId(item.id);
-                track("bio_template_select", {
-                  tool: "bio",
-                  platform: platformId,
-                  category: item.id,
-                });
-              }}
-              className={`h-9 rounded-full border px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-                active
-                  ? "border-brand-600 bg-brand-100 text-brand-800"
-                  : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
-              }`}
-            >
-              {item.label}
+      <div className="grid items-start gap-4 md:grid-cols-2">
+        <div>
+          <div role="group" aria-label={t.bio.drafts} className="flex flex-wrap gap-2">
+            {templates.map((item) => {
+              const active = item.id === template?.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => {
+                    setTemplateId(item.id);
+                    track("bio_template_select", {
+                      tool: "bio",
+                      platform: platformId,
+                      category: item.id,
+                    });
+                  }}
+                  className={`h-9 rounded-full border px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                    active
+                      ? "border-brand-600 bg-brand-100 text-brand-800"
+                      : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+          <label htmlFor="bio-style" className="mt-4 mb-2 block text-sm font-semibold text-ink-700">
+            {t.gaming.letterStyle}
+          </label>
+          <select
+            id="bio-style"
+            value={styleId}
+            onChange={(event) => setStyleId(event.target.value as TextStyleId | "plain")}
+            className="text-input h-11"
+          >
+            <option value="plain">{t.gaming.normalLetters}</option>
+            {styles.map((id) => (
+              <option key={id} value={id}>
+                {t.styleNames[id]}
+              </option>
+            ))}
+          </select>
+          <p className="result-text mt-4 text-lg whitespace-pre-wrap text-ink-900">{draft.text}</p>
+          <p className="mt-3 text-sm text-ink-600">{t.bio.boardTail}</p>
+          <p className="mt-1 text-sm text-ink-600">{t.platformPreview.approxField(platform, max)}</p>
+          {draft.over && <p className="mt-1 text-sm text-warning">{t.common.overLimit(points, max)}</p>}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button type="button" onClick={copyDraft} className="btn-primary">
+              {t.common.copy}
             </button>
-          );
-        })}
-      </div>
-      <label htmlFor="bio-style" className="mt-4 mb-2 block text-sm font-semibold text-ink-700">
-        {t.gaming.letterStyle}
-      </label>
-      <select
-        id="bio-style"
-        value={styleId}
-        onChange={(event) => setStyleId(event.target.value as TextStyleId | "plain")}
-        className="text-input h-11"
-      >
-        <option value="plain">{t.gaming.normalLetters}</option>
-        {styles.map((id) => (
-          <option key={id} value={id}>
-            {t.styleNames[id]}
-          </option>
-        ))}
-      </select>
-      <p className="result-text mt-4 text-lg whitespace-pre-wrap text-ink-900">{draft.text}</p>
-      <p className="mt-3 text-sm text-ink-600">{t.bio.boardTail}</p>
-      <p className="mt-1 text-sm text-ink-600">{t.platformPreview.approxField(platform, max)}</p>
-      {draft.over && <p className="mt-1 text-sm text-warning">{t.common.overLimit(points, max)}</p>}
-      <div className="mt-4 flex flex-wrap gap-2">
-        <button type="button" onClick={copyDraft} className="btn-primary">
-          {t.common.copy}
-        </button>
-        <button type="button" onClick={savePng} className="btn-secondary">
-          {t.bio.png}
-        </button>
+            <button type="button" onClick={savePng} className="btn-secondary">
+              {t.bio.png}
+            </button>
+          </div>
+        </div>
+        <section aria-labelledby="inline-preview-heading" className="overflow-hidden rounded-2xl border border-line">
+          <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
+            {t.platformPreview.heading(platform)}
+          </h2>
+          <PlatformPreviewScreen id={platformId} platform={platform} raw={template?.text ?? ""} styled={draft.text} />
+        </section>
       </div>
     </div>
   );

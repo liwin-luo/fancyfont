@@ -130,9 +130,9 @@ export function PlatformTextTool({
   return (
     <div className="card p-4 sm:p-6">
       {previewPane ? (
-        <div className="grid items-start gap-4 lg:grid-cols-2">
-          <div className="order-2 lg:order-1">{inputFields}</div>
-          <div className="order-1 lg:order-2">{previewPane}</div>
+        <div className="grid items-start gap-4 md:grid-cols-2">
+          <div>{inputFields}</div>
+          <div>{previewPane}</div>
         </div>
       ) : (
         inputFields

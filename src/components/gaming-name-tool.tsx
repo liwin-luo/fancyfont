@@ -131,70 +131,74 @@ export function GamingNameTool({
   return (
     <div>
       <div className="card p-4 sm:p-6">
-        {showScreen && preview ? (
-          <section aria-labelledby="inline-preview-heading" className="mb-4 overflow-hidden rounded-2xl border border-line">
-            <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
-              {t.platformPreview.heading(preview.platform)}
-            </h2>
-            <PlatformPreviewScreen id={preview.id} platform={preview.platform} raw={sampleBase} styled={activePreview} />
-          </section>
-        ) : null}
-        <label htmlFor="name-input" className="mb-2 block text-sm font-semibold text-ink-700">
-          {t.gaming.yourName}
-        </label>
-        <input
-          id="name-input"
-          type="text"
-          value={name}
-          maxLength={MAX_NICKNAME_LENGTH}
-          onChange={(event) => {
-            setName(event.target.value);
-            resetPaging();
-          }}
-          placeholder={t.gaming.namePlaceholder}
-          autoComplete="off"
-          spellCheck={false}
-          className="text-input"
-        />
-        <p className="mt-2 text-xs text-ink-500">{t.gaming.lengthInfo}</p>
-        {preview && platformMax !== null && (
-          <p className="mt-1 text-xs text-ink-500">{t.platformPreview.approxField(preview.platform, platformMax)}</p>
-        )}
-        {preview && platformRule && platformMax !== null && codePointLength(cleanName) > platformMax && confidenceLabel(platformRule) !== "verified" && (
-          <p className="mt-1 text-xs text-warning">
-            {t.common.overLimit(codePointLength(cleanName), platformMax)} {t.platformPreview.notTested}
-          </p>
-        )}
+        <div className={`grid items-start gap-4 ${showScreen ? "md:grid-cols-2" : ""}`}>
+          <div>
+            <label htmlFor="name-input" className="mb-2 block text-sm font-semibold text-ink-700">
+              {t.gaming.yourName}
+            </label>
+            <input
+              id="name-input"
+              type="text"
+              value={name}
+              maxLength={MAX_NICKNAME_LENGTH}
+              onChange={(event) => {
+                setName(event.target.value);
+                resetPaging();
+              }}
+              placeholder={t.gaming.namePlaceholder}
+              autoComplete="off"
+              spellCheck={false}
+              className="text-input"
+            />
+            <p className="mt-2 text-xs text-ink-500">{t.gaming.lengthInfo}</p>
+            {preview && platformMax !== null && (
+              <p className="mt-1 text-xs text-ink-500">{t.platformPreview.approxField(preview.platform, platformMax)}</p>
+            )}
+            {preview && platformRule && platformMax !== null && codePointLength(cleanName) > platformMax && confidenceLabel(platformRule) !== "verified" && (
+              <p className="mt-1 text-xs text-warning">
+                {t.common.overLimit(codePointLength(cleanName), platformMax)} {t.platformPreview.notTested}
+              </p>
+            )}
 
-        <div role="group" aria-label={t.gaming.styleGroup} className="mt-4 flex flex-wrap gap-2">
-          {chips.map((chip) => {
-            const active = styleFilter === chip.id;
-            return (
-              <button
-                key={chip.id}
-                type="button"
-                aria-pressed={active}
-                onClick={() => {
-                  setStyleFilter(chip.id);
-                  resetPaging();
-                }}
-                className={`inline-flex h-9 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-                  active
-                    ? "border-brand-600 bg-brand-100 text-brand-800"
-                    : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
-                }`}
-              >
-                {chip.accent && (
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 rounded-full"
-                    style={{ backgroundColor: chip.accent }}
-                  />
-                )}
-                {chip.name}
-              </button>
-            );
-          })}
+            <div role="group" aria-label={t.gaming.styleGroup} className="mt-4 flex flex-wrap gap-2">
+              {chips.map((chip) => {
+                const active = styleFilter === chip.id;
+                return (
+                  <button
+                    key={chip.id}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => {
+                      setStyleFilter(chip.id);
+                      resetPaging();
+                    }}
+                    className={`inline-flex h-9 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                      active
+                        ? "border-brand-600 bg-brand-100 text-brand-800"
+                        : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
+                    }`}
+                  >
+                    {chip.accent && (
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 rounded-full"
+                        style={{ backgroundColor: chip.accent }}
+                      />
+                    )}
+                    {chip.name}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {showScreen && preview ? (
+            <section aria-labelledby="inline-preview-heading" className="overflow-hidden rounded-2xl border border-line">
+              <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
+                {t.platformPreview.heading(preview.platform)}
+              </h2>
+              <PlatformPreviewScreen id={preview.id} platform={preview.platform} raw={sampleBase} styled={activePreview} />
+            </section>
+          ) : null}
         </div>
       </div>
 
