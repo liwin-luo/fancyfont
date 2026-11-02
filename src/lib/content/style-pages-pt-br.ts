@@ -556,7 +556,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Posso colar letras coquette no usuário do Instagram?",
-        a: "Não. O usuário continua em letras comuns, dígitos, pontos e sublinhados. Cole o nome com laço no nome de exibição ou na bio.",
+        a: "Não. O usuário continua em letras comuns, dígitos, pontos e sublinhados. O nome de exibição e a bio podem ser testados. O conjunto de caracteres fica a critério do app; esta página não publica uma lista completa.",
       },
     ],
   },

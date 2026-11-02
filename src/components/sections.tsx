@@ -65,29 +65,58 @@ export interface FaqItem {
   a: string;
 }
 
-/** Visible characters stay equal to `text`. A trailing period is not part of the href. */
-export function splitLinkedText(text: string): { href: string | null; value: string }[] {
-  const parts: { href: string | null; value: string }[] = [];
-  const pattern = /https?:\/\/[^\s<>"']+/g;
-  let cursor = 0;
-  for (const match of text.matchAll(pattern)) {
-    const start = match.index ?? 0;
-    if (start > cursor) parts.push({ href: null, value: text.slice(cursor, start) });
-    const raw = match[0];
-    const trimmed = raw.replace(/[.,;:]+$/, "");
-    const trail = raw.slice(trimmed.length);
-    parts.push({ href: trimmed, value: trimmed });
-    if (trail) parts.push({ href: null, value: trail });
-    cursor = start + raw.length;
+export interface TextLink {
+  label: string;
+  href: string;
+}
+
+/** Visible characters stay equal to `text`. The href is not shown. Longer labels win overlaps. */
+export function linkLabels(
+  text: string,
+  links: readonly TextLink[] = [],
+): { href: string | null; value: string }[] {
+  const hits: { start: number; end: number; href: string }[] = [];
+  for (const link of links) {
+    if (!link.label) continue;
+    let from = 0;
+    while (from < text.length) {
+      const start = text.indexOf(link.label, from);
+      if (start < 0) break;
+      hits.push({ start, end: start + link.label.length, href: link.href });
+      from = start + link.label.length;
+    }
   }
-  if (cursor < text.length) parts.push({ href: null, value: text.slice(cursor) });
+  hits.sort((a, b) => a.start - b.start || b.end - a.end);
+  const taken: typeof hits = [];
+  let cursor = 0;
+  for (const hit of hits) {
+    if (hit.start < cursor) continue;
+    taken.push(hit);
+    cursor = hit.end;
+  }
+  const parts: { href: string | null; value: string }[] = [];
+  cursor = 0;
+  for (const hit of taken) {
+    if (hit.start > cursor) parts.push({ href: null, value: text.slice(cursor, hit.start) });
+    parts.push({ href: hit.href, value: text.slice(hit.start, hit.end) });
+    cursor = hit.end;
+  }
+  if (cursor < text.length || parts.length === 0) parts.push({ href: null, value: text.slice(cursor) });
   return parts;
 }
 
-export function LinkedText({ text, className }: { text: string; className?: string }) {
+export function LinkedText({
+  text,
+  links,
+  className,
+}: {
+  text: string;
+  links?: readonly TextLink[];
+  className?: string;
+}) {
   return (
     <span className={className}>
-      {splitLinkedText(text).map((part, index) =>
+      {linkLabels(text, links).map((part, index) =>
         part.href ? (
           <a
             key={index}
@@ -106,7 +135,7 @@ export function LinkedText({ text, className }: { text: string; className?: stri
   );
 }
 
-export function Faq({ items }: { items: FaqItem[] }) {
+export function Faq({ items, links }: { items: FaqItem[]; links?: readonly TextLink[] }) {
   return (
     <div className="mt-4 space-y-3">
       {items.map((item) => (
@@ -124,7 +153,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
             </span>
           </summary>
           <p className="mt-2 text-sm leading-relaxed text-ink-600">
-            <LinkedText text={item.a} />
+            <LinkedText text={item.a} links={links} />
           </p>
         </details>
       ))}

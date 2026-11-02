@@ -556,7 +556,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
       {
         q: "¿Puedo pegar fuentes coquette en mi usuario de Instagram?",
-        a: "No. El usuario se queda en letras planas, dígitos, puntos y guiones bajos. Pega el nombre con lazo en el nombre visible o en la bio.",
+        a: "No. El usuario se queda en letras planas, dígitos, puntos y guiones bajos. El nombre visible y la bio sí se pueden probar. El conjunto de caracteres lo decide la app; esta página no publica una lista completa.",
       },
     ],
   },

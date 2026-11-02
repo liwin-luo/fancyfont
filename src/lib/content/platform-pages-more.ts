@@ -182,11 +182,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Can my COD clan tag use these fonts?",
-          a: "The clan tag is only a few characters, about 4. A styled name will not fit. Keep the tag short and plain, and style the player name.",
+          a: "The clan tag is only a few characters, about 4. That figure is a planning estimate, not an official cap. A styled name will not fit. Keep the tag short and plain, and style the player name.",
         },
         {
           q: "How long is a Call of Duty name?",
-          a: "Plan for around 16 characters. Warzone, Mobile, and older titles are not identical, so the game's own field is the real limit.",
+          a: "Plan for around 16 characters. Warzone, Mobile, and older titles are not identical, so the game's own field is the real limit. Activision's rename articles do not state a hard cap of 16.",
         },
         {
           q: "Is this an official Call of Duty tool?",
@@ -337,11 +337,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Are Berry Avenue fonts for the username?",
-          a: "Cause: Roblox's Help article treats the display name and the username as different fields. The display name is what other players see. The @username is the login name: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Fix: put styled letters on the display name only. On this page the username fitting rule is plain letters, digits, and one underscore. A longer roleplay line belongs in chat.",
+          a: "Cause: Roblox's Help article treats the display name and the username as different fields. The display name is what other players see. The @username is the login name. Fix: put styled letters on the display name only. On this page the username fitting rule is plain letters, digits, and one underscore. A longer roleplay line belongs in chat.",
         },
         {
           q: "Why did Roblox reject my Berry Avenue name?",
-          a: "Cause: that Help article says display names are filtered, and a name that breaks the rules can be reset to your username: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox also filters text other players can see, including a phone number on a sign: https://create.roblox.com/docs/en-us/ui/text-filtering . Fix: drop rare symbols, keep the display name inside the announced 3–20, leave out personal details, and save only after Roblox's own screen accepts it.",
+          a: "Cause: that Help article says display names are filtered, and a name that breaks the rules can be reset to your username. Roblox's text filtering page also covers text other players can see, including a phone number on a sign. Fix: drop rare symbols, keep the display name inside the announced 3–20, leave out personal details, and save only after Roblox's own screen accepts it.",
         },
         {
           q: "Is this a Berry Avenue font generator?",
@@ -581,11 +581,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "¿La etiqueta de clan de COD admite estas fuentes?",
-          a: "La etiqueta mide solo unos 4 caracteres. Un nombre con estilo no cabe. Déjala corta y plana, y dale estilo al nombre.",
+          a: "La etiqueta mide solo unos 4 caracteres. Esa cifra es una estimación para planear, no un tope oficial. Un nombre con estilo no cabe. Déjala corta y plana, y dale estilo al nombre.",
         },
         {
           q: "¿Cuánto mide un nombre de Call of Duty?",
-          a: "Cuenta con unas 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real.",
+          a: "Cuenta con unas 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real. Los artículos de cambio de nombre de Activision no fijan un tope oficial de 16.",
         },
         {
           q: "¿Es una herramienta oficial de Call of Duty?",
@@ -736,11 +736,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "¿Las fuentes de Berry Avenue van en el usuario?",
-          a: "Causa: la ayuda de Roblox trata el nombre visible y el usuario como campos distintos. El nombre visible es el que ven los demás. El @usuario es el nombre para entrar: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Arreglo: pon las letras con estilo solo en el nombre visible. En esta página la regla de ajuste del usuario es letras, dígitos y un guion bajo. Una frase de rol más larga va al chat.",
+          a: "Causa: el artículo de ayuda de Roblox trata el nombre visible y el usuario como campos distintos. El nombre visible es el que ven los demás. El @usuario es el nombre para entrar. Arreglo: pon las letras con estilo solo en el nombre visible. En esta página la regla de ajuste del usuario es letras, dígitos y un guion bajo. Una frase de rol más larga va al chat.",
         },
         {
           q: "¿Por qué Roblox rechazó mi nombre de Berry Avenue?",
-          a: "Causa: ese artículo dice que los nombres visibles se filtran, y un nombre que rompe las reglas puede volver a ser tu usuario: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox también filtra el texto que otros jugadores ven, incluido un teléfono en un letrero: https://create.roblox.com/docs/en-us/ui/text-filtering . Arreglo: quita los símbolos raros, deja el nombre visible dentro del 3–20 anunciado, no pongas datos personales, y guarda solo cuando la pantalla de Roblox lo acepte.",
+          a: "Causa: ese artículo de ayuda dice que los nombres visibles se filtran, y un nombre que rompe las reglas puede volver a ser tu usuario. La página de filtrado de texto de Roblox cubre el texto que otros jugadores ven, incluido un teléfono en un letrero. Arreglo: quita los símbolos raros, deja el nombre visible dentro del 3–20 anunciado, no pongas datos personales, y guarda solo cuando la pantalla de Roblox lo acepte.",
         },
         {
           q: "¿Esto es un generador de fuentes para Berry Avenue?",
@@ -980,15 +980,15 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Como faço um cod nome que caiba?",
-          a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. O número daqui é aproximado e não foi medido neste site.",
+          a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. Os artigos da Activision sobre troca de nome não fixam um teto oficial de 16. O número daqui é aproximado e não foi medido neste site.",
         },
         {
           q: "Nomes para Call of Duty cabem na tag do clã?",
-          a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Deixe a tag curta e ponha o estilo no nome.",
+          a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Essa faixa é uma estimativa para planejar, não um teto oficial. Deixe a tag curta e ponha o estilo no nome.",
         },
         {
           q: "O gerador de nick COD Mobile encolhe o nome?",
-          a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
+          a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa, não como teto oficial, e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
         },
       ],
     },
@@ -1135,11 +1135,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Fontes de Berry Avenue entram no usuário?",
-          a: "Causa: a ajuda da Roblox trata o nome de exibição e o usuário como campos diferentes. O nome de exibição é o que os outros veem. O @usuário é o nome de login: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Correção: ponha as letras estilizadas só no nome de exibição. Nesta página a regra de encaixe do usuário é letras, dígitos e um sublinhado. Uma fala de RP mais longa fica no chat.",
+          a: "Causa: o artigo de ajuda da Roblox trata o nome de exibição e o usuário como campos diferentes. O nome de exibição é o que os outros veem. O @usuário é o nome de login. Correção: ponha as letras estilizadas só no nome de exibição. Nesta página a regra de encaixe do usuário é letras, dígitos e um sublinhado. Uma fala de RP mais longa fica no chat.",
         },
         {
           q: "Por que o Roblox rejeitou meu nome de Berry Avenue?",
-          a: "Causa: esse artigo diz que os nomes de exibição são filtrados, e um nome que fere as regras pode voltar a ser o seu usuário: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . A Roblox também filtra texto que outros jogadores veem, inclusive um telefone numa placa: https://create.roblox.com/docs/en-us/ui/text-filtering . Correção: tire os símbolos raros, deixe o nome de exibição dentro do 3–20 anunciado, não coloque dados pessoais, e salve só depois que a tela da Roblox aceitar.",
+          a: "Causa: esse artigo de ajuda diz que os nomes de exibição são filtrados, e um nome que fere as regras pode voltar a ser o seu usuário. A página de filtragem de texto da Roblox cobre o texto que outros jogadores veem, inclusive um telefone numa placa. Correção: tire os símbolos raros, deixe o nome de exibição dentro do 3–20 anunciado, não coloque dados pessoais, e salve só depois que a tela da Roblox aceitar.",
         },
         {
           q: "Isto é um gerador de fontes para Berry Avenue?",
@@ -1375,11 +1375,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "COD 战队标签能用这些字体吗？",
-          a: "战队标签只有大约 4 个字符。有样式的长名字放不下。标签保持短而普通，样式放在玩家名上。",
+          a: "战队标签只有大约 4 个字符。这个数字是规划时的估计，不是核实过的官方上限。有样式的长名字放不下。标签保持短而普通，样式放在玩家名上。",
         },
         {
           q: "使命召唤的名字有多长？",
-          a: "按大约 16 个字符来准备。Warzone、Mobile 和旧作并不一样，游戏自己的输入框才是真正的上限。",
+          a: "按大约 16 个字符来准备。Warzone、Mobile 和旧作并不一样，游戏自己的输入框才是真正的上限。Activision 的改名文章没有写死 16 这个硬上限。",
         },
         {
           q: "这是使命召唤官方工具吗？",
@@ -1528,11 +1528,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Berry Avenue 字体能放进用户名吗？",
-          a: "原因：Roblox 的帮助文章把展示名和用户名分成两个字段。展示名是别人看到的名字。@用户名是登录名：https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name 。处理：花体只放在展示名上。这一页给用户名的适配规则是字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
+          a: "原因：Roblox 的帮助文章把展示名和用户名分成两个字段。展示名是别人看到的名字。@用户名是登录名。处理：花体只放在展示名上。这一页给用户名的适配规则是字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
         },
         {
           q: "为什么 Roblox 拒绝了我的 Berry Avenue 名字？",
-          a: "原因：同一篇帮助文章写明展示名会被过滤，违反规则的名字可能被改回用户名：https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name 。别人能看见的文字也会被过滤，包括牌子上的电话号码：https://create.roblox.com/docs/en-us/ui/text-filtering 。处理：去掉生僻符号，把展示名留在公告里的 3–20，不要写个人信息，等 Roblox 自己的页面接受了再保存。",
+          a: "原因：同一篇帮助文章写明展示名会被过滤，违反规则的名字可能被改回用户名。Roblox 的文字过滤页面也覆盖别人能看见的文字，包括牌子上的电话号码。处理：去掉生僻符号，把展示名留在公告里的 3–20，不要写个人信息，等 Roblox 自己的页面接受了再保存。",
         },
         {
           q: "这是 Berry Avenue 字体生成器吗？",
@@ -1772,11 +1772,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Bisakah tag klan COD memakai font ini?",
-          a: "Tag klan hanya beberapa karakter, sekitar 4. Nama bergaya tidak muat. Biarkan tag pendek dan biasa, lalu beri gaya pada nama pemain.",
+          a: "Tag klan hanya beberapa karakter, sekitar 4. Angka itu perkiraan untuk merencanakan, bukan batas resmi. Nama bergaya tidak muat. Biarkan tag pendek dan biasa, lalu beri gaya pada nama pemain.",
         },
         {
           q: "Berapa panjang nama Call of Duty?",
-          a: "Siapkan sekitar 16 karakter. Warzone, Mobile, dan judul lama tidak sama, jadi kolom di game itulah batas yang sebenarnya.",
+          a: "Siapkan sekitar 16 karakter. Warzone, Mobile, dan judul lama tidak sama, jadi kolom di game itulah batas yang sebenarnya. Artikel ganti nama Activision tidak menetapkan batas resmi 16.",
         },
         {
           q: "Apakah ini alat resmi Call of Duty?",
@@ -1927,11 +1927,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Apakah font Berry Avenue untuk username?",
-          a: "Penyebab: artikel bantuan Roblox memperlakukan nama tampilan dan username sebagai kolom yang berbeda. Nama tampilan adalah yang dilihat pemain lain. @username adalah nama masuk: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Perbaikan: taruh huruf bergaya hanya di nama tampilan. Di halaman ini aturan kecocokan username adalah huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
+          a: "Penyebab: artikel bantuan Roblox memperlakukan nama tampilan dan username sebagai kolom yang berbeda. Nama tampilan adalah yang dilihat pemain lain. @username adalah nama masuk. Perbaikan: taruh huruf bergaya hanya di nama tampilan. Di halaman ini aturan kecocokan username adalah huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
         },
         {
           q: "Kenapa Roblox menolak nama Berry Avenue saya?",
-          a: "Penyebab: artikel yang sama menulis bahwa nama tampilan difilter, dan nama yang melanggar aturan bisa dikembalikan menjadi username: https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name . Roblox juga memfilter teks yang pemain lain lihat, termasuk nomor telepon di papan: https://create.roblox.com/docs/en-us/ui/text-filtering . Perbaikan: buang simbol langka, jaga nama tampilan di dalam 3–20 yang diumumkan, jangan taruh data pribadi, dan simpan hanya setelah layar Roblox menerimanya.",
+          a: "Penyebab: artikel bantuan yang sama menulis bahwa nama tampilan difilter, dan nama yang melanggar aturan bisa dikembalikan menjadi username. Halaman pemfilteran teks Roblox juga mencakup teks yang pemain lain lihat, termasuk nomor telepon di papan. Perbaikan: buang simbol langka, jaga nama tampilan di dalam 3–20 yang diumumkan, jangan taruh data pribadi, dan simpan hanya setelah layar Roblox menerimanya.",
         },
         {
           q: "Apakah ini generator font Berry Avenue?",

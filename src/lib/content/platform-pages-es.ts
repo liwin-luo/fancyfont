@@ -1,6 +1,7 @@
 // Spanish copy for the platform preset pages.
 
 import type { PlatformPageCopy } from "./platform-pages-en";
+import { robloxWhyAnswer } from "./roblox-extra";
 
 export const platformPagesEs: Record<string, PlatformPageCopy> = {
   "instagram-fonts": {
@@ -202,7 +203,7 @@ export const platformPagesEs: Record<string, PlatformPageCopy> = {
       },
       {
         q: "¿Por qué me cambiaron el nombre visible?",
-        a: "Roblox pasa los nombres visibles por filtros automáticos, y los nombres con muchos símbolos son blanco frecuente. Una combinación más simple, o tu base con un solo símbolo, sobrevive más seguido.",
+        a: robloxWhyAnswer("es"),
       },
       {
         q: "¿Este generador tiene relación con Roblox?",

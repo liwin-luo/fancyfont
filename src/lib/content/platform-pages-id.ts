@@ -1,6 +1,7 @@
 // Indonesian copy for the platform preset pages.
 
 import type { PlatformPageCopy } from "./platform-pages-en";
+import { robloxWhyAnswer } from "./roblox-extra";
 
 export const platformPagesId: Record<string, PlatformPageCopy> = {
   "instagram-fonts": {
@@ -202,7 +203,7 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
       },
       {
         q: "Kenapa nama tampilanku diubah?",
-        a: "Roblox menjalankan filter otomatis pada nama tampilan, dan nama yang penuh simbol sering jadi sasaran. Kombinasi yang lebih polos, atau nama dasar dengan satu simbol, lebih sering selamat.",
+        a: robloxWhyAnswer("id"),
       },
       {
         q: "Apakah generator ini berafiliasi dengan Roblox?",

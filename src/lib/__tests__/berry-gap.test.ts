@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { faqJsonLd, splitLinkedText } from "@/components/sections";
+import { faqJsonLd, linkLabels } from "@/components/sections";
 import { buildScenario, DISPLAY_NAME_MAX, DISPLAY_NAME_MIN, ROBLOX_SOURCES } from "@/lib/berry-scenarios";
 import { berryExtra, berryPageFaq } from "@/lib/content/berry-avenue-extra";
 import { locales, type Locale } from "@/lib/i18n";
@@ -55,18 +55,29 @@ describe("Berry Avenue troubleshooting and scenario kits", () => {
       expect(joined).toMatch(/3/);
       expect(joined).toMatch(/20/);
       expect(joined).toContain("####");
-      expect(joined).toContain(ROBLOX_SOURCES.displayNameHelp);
-      expect(joined).toContain(ROBLOX_SOURCES.displayNameAnnouncement);
-      expect(joined).toContain(ROBLOX_SOURCES.experienceChat);
+      expect(joined).not.toMatch(/https?:\/\//);
       expect(berryExtra[locale].safety.body).toContain(NOT_UPLOADED[locale]);
-      expect(berryExtra[locale].safety.body).toContain(ROBLOX_SOURCES.communityStandards);
 
-      const visible = [...faq.map((item) => item.a), berryExtra[locale].safety.body].join("\n");
-      for (const part of splitLinkedText(visible)) {
-        if (part.href) expect(allowed.has(part.href), part.href).toBe(true);
-        expect(part.value.length).toBeGreaterThan(0);
+      const extra = berryExtra[locale];
+      const visible = [...faq.map((item) => item.a), extra.safety.body].join("\n");
+      expect(visible).not.toMatch(/https?:\/\//);
+      expect(linkLabels(visible, extra.links).map((part) => part.value).join("")).toBe(visible);
+      const hrefs = new Set(
+        linkLabels(visible, extra.links)
+          .filter((part) => part.href)
+          .map((part) => part.href as string),
+      );
+      expect(hrefs.has(ROBLOX_SOURCES.displayNameHelp)).toBe(true);
+      expect(hrefs.has(ROBLOX_SOURCES.displayNameAnnouncement)).toBe(true);
+      expect(hrefs.has(ROBLOX_SOURCES.experienceChat)).toBe(true);
+      expect(hrefs.has(ROBLOX_SOURCES.safety)).toBe(true);
+      expect(hrefs.has(ROBLOX_SOURCES.communityStandards)).toBe(true);
+      expect(hrefs.has(ROBLOX_SOURCES.textFiltering)).toBe(true);
+      for (const link of extra.links) {
+        expect(allowed.has(link.href), link.href).toBe(true);
+        expect(visible).toContain(link.label);
+        expect(link.label).not.toMatch(/https?:\/\//);
       }
-      expect(splitLinkedText(visible).map((part) => part.value).join("")).toBe(visible);
 
       const ld = faqJsonLd(faq);
       expect(ld.mainEntity.map((entry) => entry.name)).toEqual(faq.map((item) => item.q));

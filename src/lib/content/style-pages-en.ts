@@ -577,7 +577,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       },
       {
         q: "Can I put a coquette name in my Instagram username?",
-        a: "No. The username stays plain. Paste the styled name into the display name or the bio.",
+        a: "No. The username stays plain letters, digits, and a few marks. You can try the styled name in the display name or the bio. The app decides which characters it accepts; this page does not list a full character set.",
       },
     ],
   },

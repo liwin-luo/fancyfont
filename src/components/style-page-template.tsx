@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
+import { CoquetteScenarioKits } from "@/components/coquette-scenario-kits";
 import { SingleStyleTool } from "@/components/single-style-tool";
 import {
   CompatNote,
   Faq,
   JsonLd,
+  LinkedText,
   RelatedTools,
   Steps,
   faqJsonLd,
 } from "@/components/sections";
+import { coquetteExtra, coquettePageFaq } from "@/lib/content/coquette-extra";
 import { relatedToolLinks } from "@/lib/platform-pages";
 import { previewStylePage, type StylePageDef } from "@/lib/style-pages";
 import { getSiteUrl } from "@/lib/site";
@@ -22,6 +25,8 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
   const c = page.copy[locale];
   const t = getUi(locale);
   const path = localePath(locale, `/${page.slug}/`);
+  const coquette = page.slug === "coquette-font-generator" ? coquetteExtra[locale] : null;
+  const faq = coquette ? coquettePageFaq(locale, c.faq) : c.faq;
 
   const relatedLinks = relatedToolLinks(locale, page.related);
 
@@ -41,7 +46,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <JsonLd data={webAppJsonLd} />
-      <JsonLd data={faqJsonLd(c.faq)} />
+      <JsonLd data={faqJsonLd(faq)} />
 
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">{c.h1}</h1>
@@ -82,6 +87,8 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
           defaultText={c.sampleInputs[0]}
         />
       </div>
+
+      {coquette ? <CoquetteScenarioKits copy={coquette.kits} defaultName={c.sampleInputs[0]} /> : null}
 
       <CompatNote locale={locale} />
 
@@ -156,11 +163,22 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
         ]}
       />
 
+      {coquette ? (
+        <section className="mt-12" aria-labelledby="coquette-safety-heading">
+          <h2 id="coquette-safety-heading" className="text-xl font-bold text-ink-900">
+            {coquette.safety.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            <LinkedText text={coquette.safety.body} />
+          </p>
+        </section>
+      ) : null}
+
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
           {t.sections.faq}
         </h2>
-        <Faq items={c.faq} />
+        <Faq items={faq} />
       </section>
 
       <p className="mt-10 text-center">
