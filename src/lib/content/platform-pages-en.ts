@@ -25,6 +25,20 @@ export interface BioTemplate {
   text: string;
 }
 
+/** Above-the-fold fitting card. `{count}`, `{max}`, and `{label}` are filled in the component. */
+export interface PinnedFieldPreview {
+  heading: string;
+  displayName: string;
+  username: string;
+  sign: string;
+  showing: string;
+  counter: string;
+  over: string;
+  usernameNote: string;
+  signNote: string;
+  approxNote: string;
+}
+
 export interface PlatformPageCopy {
   navName: string;
   h1: string;
@@ -37,6 +51,7 @@ export interface PlatformPageCopy {
   guidance: PlatformGuidance[];
   compatNote: string;
   faq: PlatformPageFaq[];
+  pinnedPreview?: PinnedFieldPreview;
 }
 
 export const platformPagesEn: Record<string, PlatformPageCopy> = {

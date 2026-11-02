@@ -288,12 +288,25 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
-      h1: "Berry Avenue Fonts",
-      title: "Berry Avenue Fonts – RP Names That Fit",
+      h1: "Berry Avenue Fonts Generator",
+      title: "Fonts for Berry Avenue — Copy a Display Name (~20)",
       description:
-        "Berry Avenue name fonts for a Roblox display name of about 20 characters, plus shorter ribbon looks you can test before you change it.",
+        "Type a Berry Avenue display name, preview it on a Roblox card and a sign, and copy styles that stay near ~20 characters. Not for the @username.",
       intro:
-        "Berry Avenue shows your Roblox display name over your character. That field is about 20 characters, and the username stays plain. Roleplay lines in chat can be longer than the name overhead. These rows are the ribbon look, kept short for the display name.",
+        "Berry Avenue shows your Roblox display name over your character. That field is about 20 characters, and the username stays plain. The card on this page is a fitting sketch, not the font inside the game.",
+      pinnedPreview: {
+        heading: "Live display-name preview",
+        displayName: "Display name",
+        username: "Username",
+        sign: "Sign",
+        showing: "Showing the {label} row. Copy another row below if you want a different look.",
+        counter: "{count} / ~{max} characters",
+        over: "Over the approximate display-name length.",
+        usernameNote: "The @username stays plain letters, digits, and one underscore. These fonts are not for that field.",
+        signNote: "A yard sign or a chat line can run longer. This page does not store a published limit for those fields.",
+        approxNote:
+          "The ~20 figure is approximate and was not tested inside Berry Avenue on this site. The count is visible characters (graphemes).",
+      },
       defaultText: "Blair",
       presets: [
         { label: "Ribbon", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
@@ -319,16 +332,20 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Berry Avenue runs on Roblox. These are Unicode characters, not a game feature, and Roblox can reject them. FancyFont is not affiliated with Roblox or Berry Avenue.",
       faq: [
         {
-          q: "Which Berry Avenue fonts actually fit?",
-          a: "Start with a display name of about 20 characters or fewer. The quiet small-caps row has no extra symbols. Add one bow only if Roblox's own name preview still accepts it.",
+          q: "What fonts work for Berry Avenue?",
+          a: "Start with a display name of about 20 characters. The quiet small-caps row adds no extra symbols. Add one bow only if Roblox's own name screen still accepts it. These are Unicode characters you paste, not a font file you install.",
         },
         {
-          q: "Can I use a long RP name as my Berry Avenue username?",
-          a: "No. The username stays plain. A longer roleplay line belongs in chat, not in the username or a crowded display name.",
+          q: "Are Berry Avenue fonts for the username?",
+          a: "No. Berry Avenue fonts belong on the display name other players see overhead. The username stays letters, digits, and one underscore. A longer roleplay line belongs in chat, not in that login name.",
         },
         {
-          q: "Is this an official Berry Avenue tool?",
-          a: "No. FancyFont is independent. Berry Avenue and Roblox belong to their owners.",
+          q: "Why did Roblox reject my Berry Avenue name?",
+          a: "Roblox filters display names and can change the rules. Stacked bows and rare symbols fail first. Try the plain small-caps row, then read the name on Roblox's own screen before you spend a change.",
+        },
+        {
+          q: "Is this a Berry Avenue font generator?",
+          a: "It drafts a display name you can copy. It is not an official Berry Avenue or Roblox tool, and nothing here guarantees the game will accept the characters.",
         },
       ],
     },
@@ -670,12 +687,25 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
-      h1: "Fuentes para Berry Avenue",
-      title: "Fuentes para Berry Avenue – Nombres de rol que caben",
+      h1: "Generador de fuentes para Berry Avenue",
+      title: "Fuentes para Berry Avenue — copia el nombre visible",
       description:
-        "Fuentes para un nombre visible de Berry Avenue de unos 20 caracteres, con looks de cinta cortos para probar antes de cambiarlo.",
+        "Escribe un nombre visible de Berry Avenue, míralo en una ficha de Roblox y en un letrero, y copia estilos cerca de ~20 caracteres. No es para el @usuario.",
       intro:
-        "Berry Avenue muestra tu nombre visible de Roblox sobre el personaje. Ese campo ronda los 20 caracteres, y el usuario se queda plano. Una frase de rol en el chat puede ser más larga que el nombre de encima. Estas filas son el look de cinta, corto para el nombre visible.",
+        "Berry Avenue muestra tu nombre visible de Roblox sobre el personaje. Ese campo ronda los 20 caracteres, y el usuario se queda plano. La ficha de esta página es un boceto, no la fuente de dentro del juego.",
+      pinnedPreview: {
+        heading: "Vista previa del nombre visible",
+        displayName: "Nombre visible",
+        username: "Usuario",
+        sign: "Letrero",
+        showing: "Ves la fila {label}. Copia otra fila de abajo si quieres otro look.",
+        counter: "{count} / ~{max} caracteres",
+        over: "Pasa la longitud aproximada del nombre visible.",
+        usernameNote: "El @usuario se queda en letras, dígitos y un guion bajo. Estas fuentes no van en ese campo.",
+        signNote: "Un letrero o una frase de chat puede ser más largo. Esta página no guarda un límite publicado para esos campos.",
+        approxNote:
+          "El ~20 es aproximado y no se midió dentro de Berry Avenue en este sitio. La cuenta es de caracteres visibles (grafemas).",
+      },
       defaultText: "Blair",
       presets: [
         { label: "Cinta", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
@@ -701,16 +731,20 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Berry Avenue corre en Roblox. Estos son caracteres Unicode, no una función del juego, y Roblox puede rechazarlos. FancyFont no está afiliado a Roblox ni a Berry Avenue.",
       faq: [
         {
-          q: "¿Qué fuentes de Berry Avenue caben de verdad?",
-          a: "Empieza con un nombre visible de unos 20 caracteres o menos. La fila quieta de versalitas no añade símbolos. Suma un lazo solo si la vista previa de nombre de Roblox todavía lo acepta.",
+          q: "¿Qué fuentes sirven para Berry Avenue?",
+          a: "Empieza con un nombre visible de unos 20 caracteres. La fila quieta de versalitas no añade símbolos. Suma un lazo solo si la pantalla de nombre de Roblox todavía lo acepta. Son caracteres Unicode para pegar, no un archivo de fuente.",
         },
         {
-          q: "¿Puedo usar un nombre de rol largo como usuario de Berry Avenue?",
-          a: "No. El usuario se queda plano. Una frase de rol más larga va en el chat, no en el usuario ni en un nombre visible abarrotado.",
+          q: "¿Las fuentes de Berry Avenue van en el usuario?",
+          a: "No. Van en el nombre visible, el que se ve sobre el personaje. El usuario se queda en letras, dígitos y un guion bajo. Una frase de rol más larga va en el chat.",
         },
         {
-          q: "¿Es una herramienta oficial de Berry Avenue?",
-          a: "No. FancyFont es independiente. Berry Avenue y Roblox pertenecen a sus dueños.",
+          q: "¿Por qué Roblox rechazó mi nombre de Berry Avenue?",
+          a: "Roblox filtra el nombre visible y puede cambiar las reglas. Los lazos apilados y los símbolos raros fallan primero. Prueba las versalitas sin adorno y lee el nombre en la pantalla de Roblox antes de gastar un cambio.",
+        },
+        {
+          q: "¿Esto es un generador de fuentes para Berry Avenue?",
+          a: "Prepara un nombre visible para copiar. No es una herramienta oficial de Berry Avenue ni de Roblox, y nada aquí garantiza que el juego acepte los caracteres.",
         },
       ],
     },
@@ -914,12 +948,12 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "cod-name-generator": {
       navName: "COD",
-      h1: "Gerador de nomes para COD",
-      title: "Gerador de nomes para COD – Call of Duty",
+      h1: "Gerador de nomes para Call of Duty",
+      title: "Nomes para Call of Duty — copie o nome e a clan tag",
       description:
-        "Nomes com estilo para Call of Duty. O nome é curto e a tag do clã é mais curta. Veja a prévia e teste no jogo.",
+        "Crie um cod nome e a clan tag para Call of Duty, com contador e prévia no cartão. Os estilos são Unicode. Teste no jogo antes de salvar.",
       intro:
-        "Os nomes de Call of Duty ficam em geral em torno de 16 caracteres, e o limite muda conforme o título. A tag do clã é outro campo de cerca de 4 caracteres: um nome decorado não entra ali.",
+        "Nomes para Call of Duty ficam, em geral, em torno de 16 caracteres, e o teto muda conforme o título. A tag do clã é outro campo, cerca de 2 a 4 caracteres: um cod nome decorado não entra ali.",
       defaultText: "COD",
       presets: [
         { label: "Tag", left: "「", right: "」", transform: "bold" },
@@ -945,16 +979,16 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Call of Duty define os próprios limites de nome e de tag, e eles mudam por título. Um nome estilizado pode ser recusado. O FancyFont não é afiliado à Activision.",
       faq: [
         {
-          q: "A tag de clã do COD aceita essas fontes?",
-          a: "A tag tem só uns 4 caracteres. Um nome com estilo não cabe. Deixe a tag curta e simples, e estilize o nome do jogador.",
+          q: "Como faço um cod nome que caiba?",
+          a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. O número daqui é aproximado e não foi medido neste site.",
         },
         {
-          q: "Qual o tamanho de um nome de Call of Duty?",
-          a: "Conte com cerca de 16 caracteres. Warzone, Mobile e títulos antigos não são iguais, então o campo do jogo é o limite real.",
+          q: "Nomes para Call of Duty cabem na tag do clã?",
+          a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Deixe a tag curta e ponha o estilo no nome.",
         },
         {
-          q: "Esta é uma ferramenta oficial de Call of Duty?",
-          a: "Não. O FancyFont é independente e não é afiliado à Activision.",
+          q: "O gerador de nick COD Mobile encolhe o nome?",
+          a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
         },
       ],
     },
@@ -1052,12 +1086,25 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
-      h1: "Fontes para Berry Avenue",
-      title: "Fontes para Berry Avenue – Nomes de RP que cabem",
+      h1: "Gerador de fontes para Berry Avenue",
+      title: "Fontes para Berry Avenue — copie o nome de exibição",
       description:
-        "Fontes para um nome de exibição do Berry Avenue de cerca de 20 caracteres, com visuais de fita curtos para testar antes de trocar.",
+        "Digite um nome de exibição do Berry Avenue, veja numa ficha do Roblox e numa placa, e copie estilos perto de ~20 caracteres. Não é para o @usuário.",
       intro:
-        "O Berry Avenue mostra seu nome de exibição do Roblox sobre o personagem. Esse campo fica em torno de 20 caracteres, e o usuário continua comum. Uma fala de RP no chat pode ser mais longa do que o nome acima da cabeça. Estas linhas são o visual de fita, curto para o nome de exibição.",
+        "O Berry Avenue mostra seu nome de exibição do Roblox sobre o personagem. Esse campo fica em torno de 20 caracteres, e o usuário continua comum. A ficha desta página é um esboço, não a fonte de dentro do jogo.",
+      pinnedPreview: {
+        heading: "Prévia do nome de exibição",
+        displayName: "Nome de exibição",
+        username: "Usuário",
+        sign: "Placa",
+        showing: "Você está vendo a linha {label}. Copie outra linha abaixo se quiser outro visual.",
+        counter: "{count} / ~{max} caracteres",
+        over: "Passou do tamanho aproximado do nome de exibição.",
+        usernameNote: "O @usuário fica em letras, dígitos e um sublinhado. Essas fontes não entram nesse campo.",
+        signNote: "Uma placa ou uma fala no chat pode ser mais longa. Esta página não guarda um limite publicado para esses campos.",
+        approxNote:
+          "O ~20 é aproximado e não foi medido dentro do Berry Avenue neste site. A conta é de caracteres visíveis (grafemas).",
+      },
       defaultText: "Blair",
       presets: [
         { label: "Fita", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
@@ -1083,16 +1130,20 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Berry Avenue roda no Roblox. Estes são caracteres Unicode, não um recurso do jogo, e o Roblox pode rejeitá-los. O FancyFont não é afiliado ao Roblox nem ao Berry Avenue.",
       faq: [
         {
-          q: "Quais fontes do Berry Avenue realmente cabem?",
-          a: "Comece com um nome de exibição de cerca de 20 caracteres ou menos. A linha quieta de versaletes não acrescenta símbolos. Some um laço só se a prévia de nome do próprio Roblox ainda aceitar.",
+          q: "Quais fontes servem para Berry Avenue?",
+          a: "Comece com um nome de exibição de cerca de 20 caracteres. A linha quieta de versaletes não acrescenta símbolos. Some um laço só se a tela de nome do próprio Roblox ainda aceitar. São caracteres Unicode para colar, não um arquivo de fonte.",
         },
         {
-          q: "Posso usar um nome de RP longo como usuário do Berry Avenue?",
-          a: "Não. O usuário continua comum. Uma fala de RP mais longa fica no chat, não no usuário nem num nome de exibição lotado.",
+          q: "Fontes de Berry Avenue entram no usuário?",
+          a: "Não. Elas ficam no nome de exibição, o que aparece sobre o personagem. O usuário continua letras, dígitos e um sublinhado. Uma fala de RP mais longa fica no chat.",
         },
         {
-          q: "Esta é uma ferramenta oficial do Berry Avenue?",
-          a: "Não. O FancyFont é independente. Berry Avenue e Roblox pertencem aos seus donos.",
+          q: "Por que o Roblox rejeitou meu nome de Berry Avenue?",
+          a: "O Roblox filtra o nome de exibição e pode mudar as regras. Laços empilhados e símbolos raros falham primeiro. Tente os versaletes sem enfeite e leia o nome na tela do Roblox antes de gastar uma troca.",
+        },
+        {
+          q: "Isto é um gerador de fontes para Berry Avenue?",
+          a: "Ele rascunha um nome de exibição para copiar. Não é uma ferramenta oficial do Berry Avenue nem do Roblox, e nada aqui garante que o jogo aceite os caracteres.",
         },
       ],
     },
@@ -1429,12 +1480,24 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
-      h1: "Berry Avenue 字体",
-      title: "Berry Avenue 字体 – 放得下的 RP 名字",
+      h1: "Berry Avenue 字体生成器",
+      title: "Berry Avenue 字体生成器 — 约 20 字展示名可复制",
       description:
-        "给 Berry Avenue 用的名字字体。Roblox 展示名大约 20 个字符，丝带样式剪短，改名之前可以先试。",
+        "在名片和牌子上预览 Berry Avenue 的 Roblox 展示名，复制大约 20 个字符以内的样式。这是给头顶名字用的，不是用户名。本站没有在游戏里实测这个上限。",
       intro:
-        "Berry Avenue 在角色头顶显示你的 Roblox 展示名。这个框大约 20 个字符，用户名保持普通字母。聊天里的角色扮演句子可以比头顶名字更长。下面是丝带样子，并且按展示名的长度收短。",
+        "Berry Avenue 在角色头顶显示 Roblox 展示名。这个框大约 20 个字符，用户名保持普通字母。这一页的名片是示意，不是游戏里的字体。",
+      pinnedPreview: {
+        heading: "展示名实时预览",
+        displayName: "展示名",
+        username: "用户名",
+        sign: "牌子",
+        showing: "现在看的是「{label}」这一行。想要别的样子，复制下面另一行。",
+        counter: "{count} / 约 {max} 个字符",
+        over: "超过了展示名的大约长度。",
+        usernameNote: "用户名只留字母、数字和一个下划线。这些字体不放在这个字段。",
+        signNote: "牌子或聊天句子可以更长。这一页没有这两处的公开字数上限。",
+        approxNote: "约 20 是估计值，本站没有在 Berry Avenue 里实测。计数按可见字符（字素）。",
+      },
       defaultText: "Blair",
       presets: [
         { label: "丝带", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
@@ -1460,16 +1523,20 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Berry Avenue 运行在 Roblox 上。这些是 Unicode 字符，不是游戏功能，Roblox 可以拒绝它们。FancyFont 与 Roblox 和 Berry Avenue 没有隶属关系。",
       faq: [
         {
-          q: "哪些 Berry Avenue 字体真的放得下？",
-          a: "先从大约 20 个字符以内的展示名开始。安静的小型大写那一行没有额外符号。只有 Roblox 自己的改名预览还接受时，再加一个蝴蝶结。",
+          q: "哪些字体适合 Berry Avenue？",
+          a: "先从大约 20 个字符的展示名开始。安静的小型大写那一行不加符号。只有 Roblox 自己的改名页还接受时，再加一个蝴蝶结。这些是用来粘贴的 Unicode 字符，不是要安装的字体文件。",
         },
         {
-          q: "能把很长的 RP 名字当成 Berry Avenue 用户名吗？",
-          a: "不能。用户名保持普通字符。更长的角色扮演句子放在聊天里，不要塞进用户名或挤满的展示名。",
+          q: "Berry Avenue 字体能放进用户名吗？",
+          a: "不能。字体放在别人看得到的头顶展示名上。用户名只留字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
         },
         {
-          q: "这是 Berry Avenue 官方工具吗？",
-          a: "不是。FancyFont 是独立工具。Berry Avenue 和 Roblox 属于各自的权利人。",
+          q: "为什么 Roblox 拒绝了我的 Berry Avenue 名字？",
+          a: "Roblox 会过滤展示名，规则也会变。叠在一起的蝴蝶结和生僻符号最先失败。先试没有装饰的小型大写，在 Roblox 自己的改名页看过，再花掉一次修改机会。",
+        },
+        {
+          q: "这是 Berry Avenue 字体生成器吗？",
+          a: "它帮你起草一个可以复制的展示名。不是 Berry Avenue 或 Roblox 的官方工具，也不保证游戏会收下这些字符。",
         },
       ],
     },
@@ -1811,12 +1878,25 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
-      h1: "Font Berry Avenue",
-      title: "Font Berry Avenue – Nama RP yang muat",
+      h1: "Generator font Berry Avenue",
+      title: "Font Berry Avenue — salin nama tampilan ~20 karakter",
       description:
-        "Font nama Berry Avenue untuk nama tampilan Roblox sekitar 20 karakter, dengan tampilan pita yang pendek untuk dicoba sebelum diganti.",
+        "Ketik nama tampilan Berry Avenue, lihat di kartu Roblox dan di papan, lalu salin gaya di sekitar ~20 karakter. Bukan untuk username.",
       intro:
-        "Berry Avenue menampilkan nama tampilan Roblox-mu di atas karakter. Kolom itu sekitar 20 karakter, dan username tetap biasa. Kalimat roleplay di chat bisa lebih panjang daripada nama di atas kepala. Baris ini adalah tampilan pita, dijaga pendek untuk nama tampilan.",
+        "Berry Avenue menampilkan nama tampilan Roblox di atas karakter. Kolom itu sekitar 20 karakter, dan username tetap biasa. Kartu di halaman ini hanya sketsa, bukan font di dalam game.",
+      pinnedPreview: {
+        heading: "Pratinjau nama tampilan",
+        displayName: "Nama tampilan",
+        username: "Username",
+        sign: "Papan",
+        showing: "Yang tampil adalah baris {label}. Salin baris lain di bawah kalau kamu mau tampilan berbeda.",
+        counter: "{count} / ~{max} karakter",
+        over: "Melebihi panjang kira-kira untuk nama tampilan.",
+        usernameNote: "Username tetap huruf, angka, dan satu garis bawah. Font ini bukan untuk kolom itu.",
+        signNote: "Tulisan di papan atau chat bisa lebih panjang. Halaman ini tidak menyimpan batas yang dipublikasikan untuk kolom itu.",
+        approxNote:
+          "Angka ~20 bersifat kira-kira dan tidak diuji di dalam Berry Avenue di situs ini. Hitungan adalah karakter yang terlihat (grafem).",
+      },
       defaultText: "Blair",
       presets: [
         { label: "Pita", left: "𝜗𝜚 ", right: " 𝜗𝜚", transform: "boldScript" },
@@ -1842,16 +1922,20 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Berry Avenue berjalan di Roblox. Ini karakter Unicode, bukan fitur game, dan Roblox bisa menolaknya. FancyFont tidak berafiliasi dengan Roblox atau Berry Avenue.",
       faq: [
         {
-          q: "Font Berry Avenue yang mana yang benar-benar muat?",
-          a: "Mulai dengan nama tampilan sekitar 20 karakter atau kurang. Baris small caps yang tenang tidak menambah simbol. Tambahkan satu pita hanya jika pratinjau nama Roblox masih menerimanya.",
+          q: "Font apa yang cocok untuk Berry Avenue?",
+          a: "Mulai dengan nama tampilan sekitar 20 karakter. Baris small caps yang tenang tidak menambah simbol. Tambahkan satu pita hanya jika layar nama Roblox masih menerimanya. Ini karakter Unicode untuk ditempel, bukan berkas font.",
         },
         {
-          q: "Bisakah nama RP yang panjang jadi username Berry Avenue?",
-          a: "Tidak. Username tetap biasa. Kalimat roleplay yang lebih panjang ada di chat, bukan di username atau nama tampilan yang penuh.",
+          q: "Apakah font Berry Avenue untuk username?",
+          a: "Bukan. Fontnya untuk nama tampilan yang terlihat di atas karakter. Username tetap huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
         },
         {
-          q: "Apakah ini alat resmi Berry Avenue?",
-          a: "Bukan. FancyFont berdiri sendiri. Berry Avenue dan Roblox milik pemiliknya.",
+          q: "Kenapa Roblox menolak nama Berry Avenue saya?",
+          a: "Roblox memfilter nama tampilan dan bisa mengubah aturannya. Pita yang ditumpuk dan simbol langka gagal lebih dulu. Coba small caps polos, lalu baca namanya di layar Roblox sebelum kamu memakai satu kesempatan ganti nama.",
+        },
+        {
+          q: "Apakah ini generator font Berry Avenue?",
+          a: "Halaman ini merancang nama tampilan untuk disalin. Bukan alat resmi Berry Avenue atau Roblox, dan tidak menjamin game akan menerima karakternya.",
         },
       ],
     },

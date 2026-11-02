@@ -1,5 +1,6 @@
 // Brazilian Portuguese copy for the dedicated style generator pages.
 
+import { coquetteCopyExamples } from "../coquette-examples";
 import type { StylePageCopy } from "./style-pages-en";
 
 export const stylePagesPtBr: Record<string, StylePageCopy> = {
@@ -519,11 +520,15 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
   },
   "coquette-font-generator": {
     navName: "Coquette",
-    h1: "Gerador de letras coquette",
+    h1: "Letras coquette para copiar e colar",
+    title: "Letras coquette para copiar e colar — laço e script",
     description:
-      "Texto coquette para copiar e colar: letras script com um laço de fita. Para o nome de exibição do Instagram e o apelido do Discord, não para baixar uma fonte.",
+      "Gere letras coquette com laço, copie e cole no Instagram ou no Discord. Veja a prévia e estilos que costumam aparecer bem no celular. Não é um arquivo de fonte.",
     intro:
-      "Letras script e um laço só. As linhas são um laço pequeno, um par de fitas e o emoji de fita. O fofo deste site são as letras bolha. Esta página fica no laço.",
+      "Letras coquette para copiar e colar: script e um laço só. As linhas são um laço pequeno, um par de fitas e o emoji de fita. O fofo deste site são as letras bolha, e a página elegante leva coroa. Esta página fica no laço.",
+    examplesHeading: "Letras coquette para copiar",
+    examplesHint: "O laço já está no texto. Toque para copiar a linha inteira.",
+    copyExamples: coquetteCopyExamples,
     howItWorks:
       "O laço envolve o script pesado, Unicode Bold Script, porque esse alfabeto tem e, g e o de verdade. O script fino fica embaixo, sem laço, e nessa linha e, g e o são substitutos, então um nome como Belle fica na linha pesada. Os laços e a fita são símbolos separados, só na linha pesada.",
     coverageNote:
@@ -538,16 +543,20 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       "Cole no nome de exibição do Instagram ou no apelido do Discord. Esses usuários só aceitam letras comuns, dígitos e algumas marcas, então o laço fica fora do usuário. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord. Se o laço pequeno falhar, o emoji de fita ainda copia.",
     faq: [
       {
-        q: "Coquette é uma fonte para baixar?",
-        a: "Não. Você copia caracteres. Um arquivo de fonte precisaria ser instalado, e este site não oferece isso.",
+        q: "Onde acho letras coquette para copiar e colar?",
+        a: "Na fileira de cima, cada exemplo já traz o laço. Toque e ele copia. Se quiser o seu nome, digite no gerador e copie a linha do emoji 🎀 quando o laço pequeno aparecer como um quadrado.",
       },
       {
-        q: "Qual a diferença para as letras fofas?",
-        a: "O fofo são letras bolha com um coração, o laço ୨୧ ou uma flor. Coquette é script com um laço de fita. As duas páginas não compartilham enfeites.",
+        q: "O que é uma letra coquette?",
+        a: "É script com um laço de fita. Não é a página fofa, que usa letras bolha, nem a elegante, que usa coroa. Aqui você copia caracteres, não um arquivo de fonte.",
       },
       {
-        q: "Posso colocar um nome coquette no usuário do Instagram?",
-        a: "Não. O usuário continua comum. Cole o nome estilizado no nome de exibição ou na bio.",
+        q: "O gerador de letras coquette baixa uma fonte?",
+        a: "Não. Não há arquivo para instalar. O resultado cola em apps que aceitam texto puro, como o nome de exibição do Instagram ou o apelido do Discord.",
+      },
+      {
+        q: "Posso colar letras coquette no usuário do Instagram?",
+        a: "Não. O usuário continua em letras comuns, dígitos, pontos e sublinhados. Cole o nome com laço no nome de exibição ou na bio.",
       },
     ],
   },

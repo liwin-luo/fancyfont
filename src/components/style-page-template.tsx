@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CopyButton } from "@/components/copy-button";
 import { SingleStyleTool } from "@/components/single-style-tool";
 import {
   CompatNote,
@@ -51,6 +52,28 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
           </p>
         ) : null}
       </header>
+
+      {c.copyExamples && c.copyExamples.length > 0 && c.examplesHeading && (
+        <section className="mt-6" aria-labelledby="copy-examples-heading">
+          <h2 id="copy-examples-heading" className="text-xl font-bold text-ink-900">
+            {c.examplesHeading}
+          </h2>
+          {c.examplesHint ? <p className="mt-1 text-sm leading-relaxed text-ink-600">{c.examplesHint}</p> : null}
+          <ul className="mt-3 flex gap-2 overflow-x-auto pb-1">
+            {c.copyExamples.map((example) => (
+              <li key={example} className="shrink-0">
+                <CopyButton
+                  text={example}
+                  label={example}
+                  ariaLabel={t.common.copyStyle(example)}
+                  className="result-text inline-flex h-11 items-center gap-2 rounded-full border border-line bg-white px-3 text-base text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                  copiedClassName="result-text inline-flex h-11 items-center gap-2 rounded-full border border-success/30 bg-success-bg px-3 text-base text-success focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className="mt-8">
         <SingleStyleTool

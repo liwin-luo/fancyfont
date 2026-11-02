@@ -168,3 +168,12 @@ export function serpTitle(head: string, locale: Locale, detail?: string): string
 export function styleSerpTitle(h1: string, slug: string, locale: Locale): string {
   return serpTitle(h1, locale, styleDetail[slug]?.[locale]);
 }
+
+/** Pages that name a real query use their own title. Everyone else keeps the script line. */
+export function resolvedStyleTitle(
+  copy: { h1: string; title?: string },
+  slug: string,
+  locale: Locale,
+): string {
+  return copy.title ?? styleSerpTitle(copy.h1, slug, locale);
+}

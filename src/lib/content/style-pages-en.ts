@@ -19,6 +19,11 @@ export interface StylePageCopy {
   sampleInputs: string[];
   platformTip: string;
   faq: StylePageFaq[];
+  /** Plain SERP title. Omit to keep the shared script title. */
+  title?: string;
+  examplesHeading?: string;
+  examplesHint?: string;
+  copyExamples?: readonly string[];
 }
 
 export interface StylePageShared {

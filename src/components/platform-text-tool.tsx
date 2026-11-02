@@ -4,11 +4,13 @@ import { useMemo, useState } from "react";
 import { convertText, getStyle, type TextStyleId } from "@/lib/text-styles";
 import { buildCustomNickname, type CustomCombo } from "@/lib/nickname";
 import { CopyButton } from "@/components/copy-button";
+import { PinnedFieldPreview } from "@/components/pinned-field-preview";
 import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
 import { useLocale } from "@/components/locale-context";
+import type { PinnedFieldPreview as PinnedFieldPreviewCopy } from "@/lib/content/platform-pages-en";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { measureText, sliceGraphemes } from "@/lib/measure";
-import { codePointLength } from "@/lib/platform-preview";
+import { codePointLength, plainHandle, previewFields } from "@/lib/platform-preview";
 import { confidenceLabel, previewNameRule } from "@/lib/platform-rules";
 import { getUi } from "@/lib/ui-strings";
 
@@ -27,12 +29,14 @@ export function PlatformTextTool({
   defaultText,
   featuredStyles,
   presets,
+  pinnedPreview,
 }: {
   platform: string;
   preview: PlatformPreviewId;
   defaultText: string;
   featuredStyles: TextStyleId[];
   presets: PlatformPreset[];
+  pinnedPreview?: PinnedFieldPreviewCopy;
 }) {
   const [text, setText] = useState(defaultText);
   const [previewAt, setPreviewAt] = useState<number | null>(null);
@@ -57,9 +61,15 @@ export function PlatformTextTool({
     [presets, previewText],
   );
   const previewItems = [...styleRows.map((row) => row.text), ...presetRows.map((row) => row.text)];
+  const leadRow = presetRows[0];
+  const showPinned = Boolean(pinnedPreview && leadRow && platformMax !== null);
+  // Same string as the first preset row. Graphemes come from Intl.Segmenter in measureText.
+  const pinnedStyled = leadRow?.text ?? "";
+  const pinnedCount = showPinned ? measureText(pinnedStyled).graphemes : 0;
+  const handleKind = previewFields[preview].handle;
 
-  return (
-    <div className="card p-4 sm:p-6">
+  const inputFields = (
+    <>
       <label htmlFor="platform-input" className="mb-2 block text-sm font-semibold text-ink-700">
         {t.common.yourText}
       </label>
@@ -76,13 +86,38 @@ export function PlatformTextTool({
       <p className="mt-2 text-xs text-ink-500">
         {charCount}/{MAX_LENGTH} {t.common.charactersInfo} · {t.common.browserOnly}
       </p>
-      {platformMax !== null && (
+      {platformMax !== null && !showPinned && (
         <p className="mt-1 text-xs text-ink-500">{t.platformPreview.approxField(platform, platformMax)}</p>
       )}
-      {platformMax !== null && codePointLength(previewText) > platformMax && confidenceLabel(platformRule) !== "verified" && (
-        <p className="mt-1 text-xs text-warning">
-          {t.common.overLimit(codePointLength(previewText), platformMax)} {t.platformPreview.notTested}
-        </p>
+      {platformMax !== null &&
+        !showPinned &&
+        codePointLength(previewText) > platformMax &&
+        confidenceLabel(platformRule) !== "verified" && (
+          <p className="mt-1 text-xs text-warning">
+            {t.common.overLimit(codePointLength(previewText), platformMax)} {t.platformPreview.notTested}
+          </p>
+        )}
+    </>
+  );
+
+  return (
+    <div className="card p-4 sm:p-6">
+      {showPinned && pinnedPreview && platformMax !== null && leadRow ? (
+        <div className="grid items-start gap-4 lg:grid-cols-2">
+          <div className="order-2 lg:order-1">{inputFields}</div>
+          <div className="order-1 lg:order-2">
+            <PinnedFieldPreview
+              copy={pinnedPreview}
+              styled={pinnedStyled}
+              handle={handleKind ? plainHandle(previewText, handleKind) : platform}
+              label={leadRow.label}
+              count={pinnedCount}
+              max={platformMax}
+            />
+          </div>
+        </div>
+      ) : (
+        inputFields
       )}
 
       {charCount > 0 && (
