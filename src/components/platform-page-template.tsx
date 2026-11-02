@@ -3,6 +3,7 @@ import { BioTool } from "@/components/bio-tool";
 import { PlatformTextTool } from "@/components/platform-text-tool";
 import { CodScenarioKits } from "@/components/cod-scenario-kits";
 import { GamingNameTool } from "@/components/gaming-name-tool";
+import { BerryScenarioKits } from "@/components/berry-scenario-kits";
 import {
   CompatNote,
   Faq,
@@ -14,6 +15,7 @@ import {
 } from "@/components/sections";
 import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
+import { berryExtra, berryPageFaq } from "@/lib/content/berry-avenue-extra";
 import { codExtra, codPageFaq } from "@/lib/content/cod-extra";
 import { coreFocus, type CorePage } from "@/lib/content/core-focus";
 import { robloxExtra, robloxPageFaq } from "@/lib/content/roblox-extra";
@@ -94,9 +96,16 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   const c = page.copy[locale];
   const t = getUi(locale);
   const path = localePath(locale, `/${page.slug}/`);
+  const berry = page.slug === "berry-avenue-fonts" ? berryExtra[locale] : null;
   const cod = page.slug === "cod-name-generator" ? codExtra[locale] : null;
   const roblox = page.slug === "roblox-name-generator" ? robloxExtra[locale] : null;
-  const faq = cod ? codPageFaq(locale, c.faq) : roblox ? robloxPageFaq(locale, c.faq) : c.faq;
+  const faq = berry
+    ? berryPageFaq(locale, c.faq)
+    : cod
+      ? codPageFaq(locale, c.faq)
+      : roblox
+        ? robloxPageFaq(locale, c.faq)
+        : c.faq;
 
   const relatedLinks = [
     ...relatedToolLinks(locale, page.related),
@@ -164,6 +173,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         )}
       </div>
 
+      {berry ? <BerryScenarioKits copy={berry.kits} defaultName={c.defaultText} /> : null}
       {cod ? <CodScenarioKits copy={cod.kits} defaultName={c.defaultText} /> : null}
 
       <CompatNote locale={locale} />
@@ -218,6 +228,17 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         </section>
       )}
 
+      {berry ? (
+        <section className="mt-12" aria-labelledby="berry-safety-heading">
+          <h2 id="berry-safety-heading" className="text-xl font-bold text-ink-900">
+            {berry.safety.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            <LinkedText text={berry.safety.body} links={berry.links} />
+          </p>
+        </section>
+      ) : null}
+
       {cod ? (
         <section className="mt-12" aria-labelledby="cod-safety-heading">
           <h2 id="cod-safety-heading" className="text-xl font-bold text-ink-900">
@@ -254,7 +275,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
           {t.sections.faq}
         </h2>
-        <Faq items={faq} links={cod?.links ?? roblox?.links} />
+        <Faq items={faq} links={berry?.links ?? cod?.links ?? roblox?.links} />
       </section>
 
       <p className="mt-10 text-center">
