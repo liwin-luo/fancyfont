@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef } from "react";
 import { clipCodePoints, codePointLength, plainHandle, previewFields, type PlatformPreviewId } from "@/lib/platform-preview";
+import { BerryFieldCard } from "@/components/pinned-field-preview";
 import { PlatformGlyph, platformTone } from "@/components/platform-mark";
 import { CopyButton } from "@/components/copy-button";
 import { useLocale } from "@/components/locale-context";
@@ -62,6 +63,7 @@ export function PlatformPreviewDialog({
   items,
   index,
   onIndex,
+  fieldCard,
 }: {
   id: PlatformPreviewId;
   platform: string;
@@ -69,6 +71,8 @@ export function PlatformPreviewDialog({
   items: string[];
   index: number | null;
   onIndex: (index: number | null) => void;
+  /** Berry's dialog uses the same display-name card as the page. */
+  fieldCard?: { displayName: string; username: string; sign: string; handle: string };
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
@@ -117,6 +121,7 @@ export function PlatformPreviewDialog({
           total={items.length}
           onIndex={onIndex}
           onClose={() => onIndex(null)}
+          fieldCard={fieldCard}
         />
       )}
     </dialog>
@@ -133,6 +138,7 @@ function PreviewDialog({
   total,
   onIndex,
   onClose,
+  fieldCard,
 }: {
   id: PlatformPreviewId;
   titleId: string;
@@ -143,16 +149,9 @@ function PreviewDialog({
   total: number;
   onIndex: (index: number | null) => void;
   onClose: () => void;
+  fieldCard?: { displayName: string; username: string; sign: string; handle: string };
 }) {
-  const ui = getUi(useLocale());
-  const t = ui.platformPreview;
-  const fields = previewFields[id];
-  const handle = fields.handle ? plainHandle(raw, fields.handle) : "";
-  const name = styled ? clipCodePoints(styled, fields.nameMax) : handle || clipCodePoints(raw, fields.nameMax);
-  const extra = fields.extra && styled ? clipCodePoints(styled, fields.extra.max) : "";
-  const nameOver = codePointLength(styled) > fields.nameMax;
-  const extraOver = fields.extra ? codePointLength(styled) > fields.extra.max : false;
-  const toast = ui.platformTool.openToPaste(platform);
+  const t = getUi(useLocale()).platformPreview;
 
   return (
     <div>
@@ -170,24 +169,18 @@ function PreviewDialog({
           ×
         </button>
       </div>
-      {id === "instagram" && (
-        <InstagramScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} posts={t.posts} followers={t.followers} following={t.following} follow={t.follow} message={t.message} />
-      )}
-      {id === "tiktok" && (
-        <TikTokScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} following={t.following} followers={t.followers} likes={t.likes} follow={t.follow} />
-      )}
-      {id === "discord" && <DiscordScreen name={name} handle={handle} status={extra} copyText={styled} toast={toast} />}
-      {id === "roblox" && (
-        <RobloxScreen name={name} handle={handle} copyText={styled} toast={toast} addFriend={t.addFriend} friends={t.friends} followers={t.followers} following={t.following} />
-      )}
-      {id === "facebook" && (
-        <FacebookScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} friends={t.friends} addFriend={t.addFriend} />
-      )}
-      {id === "youtube" && (
-        <YouTubeScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} subscribers={t.subscribers} subscribe={t.subscribe} />
-      )}
-      {(id === "pubg" || id === "freefire" || id === "cod") && (
-        <GameScreen name={name} copyText={styled} toast={toast} tone={id} />
+      {fieldCard ? (
+        <div className="p-4">
+          <BerryFieldCard
+            displayName={fieldCard.displayName}
+            username={fieldCard.username}
+            sign={fieldCard.sign}
+            styled={styled}
+            handle={fieldCard.handle}
+          />
+        </div>
+      ) : (
+        <PlatformPreviewScreen id={id} platform={platform} raw={raw} styled={styled} />
       )}
       {total > 1 && (
         <div className="flex items-center justify-between gap-3 border-t border-line px-4 py-3">
@@ -211,6 +204,53 @@ function PreviewDialog({
             {t.next}
           </button>
         </div>
+      )}
+    </div>
+  );
+}
+
+/** The same profile card the dialog uses, shown on the page without a click. */
+export function PlatformPreviewScreen({
+  id,
+  platform,
+  raw,
+  styled,
+}: {
+  id: PlatformPreviewId;
+  platform: string;
+  raw: string;
+  styled: string;
+}) {
+  const ui = getUi(useLocale());
+  const t = ui.platformPreview;
+  const fields = previewFields[id];
+  const handle = fields.handle ? plainHandle(raw, fields.handle) : "";
+  const name = styled ? clipCodePoints(styled, fields.nameMax) : handle || clipCodePoints(raw, fields.nameMax);
+  const extra = fields.extra && styled ? clipCodePoints(styled, fields.extra.max) : "";
+  const nameOver = codePointLength(styled) > fields.nameMax;
+  const extraOver = fields.extra ? codePointLength(styled) > fields.extra.max : false;
+  const toast = ui.platformTool.openToPaste(platform);
+
+  return (
+    <div>
+      {id === "instagram" && (
+        <InstagramScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} posts={t.posts} followers={t.followers} following={t.following} follow={t.follow} message={t.message} />
+      )}
+      {id === "tiktok" && (
+        <TikTokScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} following={t.following} followers={t.followers} likes={t.likes} follow={t.follow} />
+      )}
+      {id === "discord" && <DiscordScreen name={name} handle={handle} status={extra} copyText={styled} toast={toast} />}
+      {id === "roblox" && (
+        <RobloxScreen name={name} handle={handle} copyText={styled} toast={toast} addFriend={t.addFriend} friends={t.friends} followers={t.followers} following={t.following} />
+      )}
+      {id === "facebook" && (
+        <FacebookScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} friends={t.friends} addFriend={t.addFriend} />
+      )}
+      {id === "youtube" && (
+        <YouTubeScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} subscribers={t.subscribers} subscribe={t.subscribe} />
+      )}
+      {(id === "pubg" || id === "freefire" || id === "cod") && (
+        <GameScreen name={name} copyText={styled} toast={toast} tone={id} />
       )}
       <div className="space-y-1 px-4 py-3">
         {(nameOver || extraOver) && (

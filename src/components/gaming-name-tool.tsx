@@ -20,7 +20,7 @@ import { codePointLength } from "@/lib/platform-preview";
 import { confidenceLabel, previewNameRule } from "@/lib/platform-rules";
 import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
-import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
+import { PlatformPreviewDialog, PlatformPreviewScreen, PreviewButton } from "@/components/platform-preview";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { useToast } from "@/components/toast";
 import { copyText } from "@/lib/copy";
@@ -70,6 +70,7 @@ export function GamingNameTool({
   preview?: { id: PlatformPreviewId; platform: string };
 }) {
   const [name, setName] = useState(defaultName);
+  const [selected, setSelected] = useState(0);
   const [previewAt, setPreviewAt] = useState<number | null>(null);
   const [styleFilter, setStyleFilter] = useState<StyleFilter>("all");
   const [nonce, setNonce] = useState(0);
@@ -108,6 +109,15 @@ export function GamingNameTool({
   };
   const sampleBase = cleanName || suggestedBases(styleFilter, nonce)[0] || "Nova";
   const builderPreview = buildCustomNickname(sampleBase, combo);
+  const previewItems = [builderPreview, ...results];
+  const activeIndex = Math.min(selected, previewItems.length - 1);
+  const activePreview = previewItems[activeIndex] ?? builderPreview;
+  const showScreen = preview !== undefined && preview.id !== "fortnite";
+
+  function openPreview(index: number) {
+    setSelected(index);
+    setPreviewAt(index);
+  }
 
   function resetPaging() {
     setShown(NICKNAME_PAGE_SIZE);
@@ -121,6 +131,14 @@ export function GamingNameTool({
   return (
     <div>
       <div className="card p-4 sm:p-6">
+        {showScreen && preview ? (
+          <section aria-labelledby="inline-preview-heading" className="mb-4 overflow-hidden rounded-2xl border border-line">
+            <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
+              {t.platformPreview.heading(preview.platform)}
+            </h2>
+            <PlatformPreviewScreen id={preview.id} platform={preview.platform} raw={sampleBase} styled={activePreview} />
+          </section>
+        ) : null}
         <label htmlFor="name-input" className="mb-2 block text-sm font-semibold text-ink-700">
           {t.gaming.yourName}
         </label>
@@ -290,7 +308,9 @@ export function GamingNameTool({
             </select>
           </div>
         </div>
-        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-xl border border-brand-100 bg-brand-50 p-4">
+        <div className={`mt-4 flex flex-wrap items-center gap-3 rounded-xl border bg-brand-50 p-4 ${
+          activeIndex === 0 ? "border-brand-400 ring-1 ring-brand-200" : "border-brand-100"
+        }`}>
           <div className="min-w-0 flex-1">
             <p className="result-text text-xl font-medium text-ink-900">{builderPreview}</p>
             {paste.limit !== null && codePointLength(builderPreview) > paste.limit && (
@@ -306,7 +326,7 @@ export function GamingNameTool({
             {paste.plain && <p className="mt-1 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>}
           </div>
           <div className="flex shrink-0 gap-2">
-            {preview && <PreviewButton onClick={() => setPreviewAt(0)} />}
+            {preview && <PreviewButton onClick={() => openPreview(0)} />}
             <CopyButton
               text={builderPreview}
               ariaLabel={t.gaming.copyCombo}
@@ -429,7 +449,9 @@ export function GamingNameTool({
               return (
                 <li
                   key={nickname}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-line bg-surface p-4"
+                  className={`flex items-center justify-between gap-3 rounded-xl border bg-surface p-4 ${
+                    preview && activeIndex === index + 1 ? "border-brand-400 ring-1 ring-brand-200" : "border-line"
+                  }`}
                 >
                   <p className="result-text min-w-0 flex-1 text-lg font-medium text-ink-900">{nickname}</p>
                   <div className="flex shrink-0 items-center gap-1.5">
@@ -457,7 +479,7 @@ export function GamingNameTool({
                     >
                       <StarIcon filled={isSaved} />
                     </button>
-                    {preview && <PreviewButton label={null} onClick={() => setPreviewAt(index + 1)} />}
+                    {preview && <PreviewButton label={null} onClick={() => openPreview(index + 1)} />}
                     <CopyButton
                       text={nickname}
                       label={null}
@@ -514,7 +536,10 @@ export function GamingNameTool({
           raw={sampleBase}
           items={[builderPreview, ...results]}
           index={previewAt}
-          onIndex={setPreviewAt}
+          onIndex={(index) => {
+            setPreviewAt(index);
+            if (index !== null) setSelected(index);
+          }}
         />
       )}
     </div>

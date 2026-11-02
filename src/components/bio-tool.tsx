@@ -10,8 +10,10 @@ import { useLocalList } from "@/lib/storage";
 import { track } from "@/lib/analytics";
 import type { BioTemplate } from "@/lib/content/platform-pages-en";
 import type { TextStyleId } from "@/lib/text-styles";
+import { PlatformPreviewScreen } from "@/components/platform-preview";
 import { useToast } from "@/components/toast";
 import { useLocale } from "@/components/locale-context";
+import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { getUi } from "@/lib/ui-strings";
 
 const BOARD_KEY = "fancyfont:symbol-board";
@@ -22,7 +24,7 @@ export function BioTool({
   templates,
   styles,
 }: {
-  platformId: string;
+  platformId: PlatformPreviewId;
   platform: string;
   templates: BioTemplate[];
   styles: TextStyleId[];
@@ -68,6 +70,12 @@ export function BioTool({
 
   return (
     <div className="card p-4 sm:p-6">
+      <section aria-labelledby="inline-preview-heading" className="mb-4 overflow-hidden rounded-2xl border border-line">
+        <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
+          {t.platformPreview.heading(platform)}
+        </h2>
+        <PlatformPreviewScreen id={platformId} platform={platform} raw={template?.text ?? ""} styled={draft.text} />
+      </section>
       <div role="group" aria-label={t.bio.drafts} className="flex flex-wrap gap-2">
         {templates.map((item) => {
           const active = item.id === template?.id;

@@ -5,7 +5,7 @@ import { convertText, getStyle, type TextStyleId } from "@/lib/text-styles";
 import { buildCustomNickname, type CustomCombo } from "@/lib/nickname";
 import { CopyButton } from "@/components/copy-button";
 import { PinnedFieldPreview } from "@/components/pinned-field-preview";
-import { PlatformPreviewDialog, PreviewButton } from "@/components/platform-preview";
+import { PlatformPreviewDialog, PlatformPreviewScreen, PreviewButton } from "@/components/platform-preview";
 import { useLocale } from "@/components/locale-context";
 import type { PinnedFieldPreview as PinnedFieldPreviewCopy } from "@/lib/content/platform-pages-en";
 import type { PlatformPreviewId } from "@/lib/platform-preview";
@@ -39,6 +39,7 @@ export function PlatformTextTool({
   pinnedPreview?: PinnedFieldPreviewCopy;
 }) {
   const [text, setText] = useState(defaultText);
+  const [selected, setSelected] = useState(0);
   const [previewAt, setPreviewAt] = useState<number | null>(null);
   const locale = useLocale();
   const t = getUi(locale);
@@ -60,13 +61,20 @@ export function PlatformTextTool({
       })),
     [presets, previewText],
   );
-  const previewItems = [...styleRows.map((row) => row.text), ...presetRows.map((row) => row.text)];
-  const leadRow = presetRows[0];
-  const showPinned = Boolean(pinnedPreview && leadRow && platformMax !== null);
-  // Same string as the first preset row. Graphemes come from Intl.Segmenter in measureText.
-  const pinnedStyled = leadRow?.text ?? "";
-  const pinnedCount = showPinned ? measureText(pinnedStyled).graphemes : 0;
+  const rows = [
+    ...styleRows.map((row) => ({ label: t.styleNames[row.style.id], text: row.text })),
+    ...presetRows,
+  ];
+  const previewItems = rows.map((row) => row.text);
+  const activeIndex = rows.length === 0 ? 0 : Math.min(selected, rows.length - 1);
+  const active = rows[activeIndex];
+  const showPinned = Boolean(pinnedPreview && active && platformMax !== null);
   const handleKind = previewFields[preview].handle;
+
+  function openPreview(index: number) {
+    setSelected(index);
+    setPreviewAt(index);
+  }
 
   const inputFields = (
     <>
@@ -100,21 +108,31 @@ export function PlatformTextTool({
     </>
   );
 
+  const previewPane =
+    charCount > 0 && active && showPinned && pinnedPreview && platformMax !== null ? (
+      <PinnedFieldPreview
+        copy={pinnedPreview}
+        styled={active.text}
+        handle={handleKind ? plainHandle(previewText, handleKind) : platform}
+        label={active.label}
+        count={measureText(active.text).graphemes}
+        max={platformMax}
+      />
+    ) : charCount > 0 && active ? (
+      <section aria-labelledby="inline-preview-heading" className="overflow-hidden rounded-2xl border border-line">
+        <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
+          {t.platformPreview.heading(platform)}
+        </h2>
+        <PlatformPreviewScreen id={preview} platform={platform} raw={previewText} styled={active.text} />
+      </section>
+    ) : null;
+
   return (
     <div className="card p-4 sm:p-6">
-      {showPinned && pinnedPreview && platformMax !== null && leadRow ? (
+      {previewPane ? (
         <div className="grid items-start gap-4 lg:grid-cols-2">
           <div className="order-2 lg:order-1">{inputFields}</div>
-          <div className="order-1 lg:order-2">
-            <PinnedFieldPreview
-              copy={pinnedPreview}
-              styled={pinnedStyled}
-              handle={handleKind ? plainHandle(previewText, handleKind) : platform}
-              label={leadRow.label}
-              count={pinnedCount}
-              max={platformMax}
-            />
-          </div>
+          <div className="order-1 lg:order-2">{previewPane}</div>
         </div>
       ) : (
         inputFields
@@ -129,7 +147,9 @@ export function PlatformTextTool({
             {styleRows.map(({ style, text: value }, index) => (
               <li
                 key={style.id}
-                className="flex items-center justify-between gap-3 rounded-xl border border-line bg-white p-3"
+                className={`flex items-center justify-between gap-3 rounded-xl border bg-white p-3 ${
+                  index === activeIndex ? "border-brand-400 ring-1 ring-brand-200" : "border-line"
+                }`}
               >
                 <div className="min-w-0 flex-1">
                   <span
@@ -141,7 +161,7 @@ export function PlatformTextTool({
                   <p className="result-text text-lg text-ink-900 select-all">{value}</p>
                 </div>
                 <div className="flex shrink-0 items-center gap-1.5">
-                  <PreviewButton onClick={() => setPreviewAt(index)} />
+                  <PreviewButton onClick={() => openPreview(index)} />
                   <CopyButton
                     text={value}
                     ariaLabel={t.common.copyStyle(t.styleNames[style.id])}
@@ -160,7 +180,11 @@ export function PlatformTextTool({
             {presetRows.map((preset, index) => (
               <li
                 key={preset.label}
-                className="flex items-center justify-between gap-3 rounded-xl border border-line bg-white p-3"
+                className={`flex items-center justify-between gap-3 rounded-xl border bg-white p-3 ${
+                  styleRows.length + index === activeIndex
+                    ? "border-brand-400 ring-1 ring-brand-200"
+                    : "border-line"
+                }`}
               >
                 <div className="min-w-0 flex-1">
                   <span className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase">
@@ -169,7 +193,7 @@ export function PlatformTextTool({
                   <p className="result-text text-lg text-ink-900 select-all">{preset.text}</p>
                 </div>
                 <div className="flex shrink-0 items-center gap-1.5">
-                  <PreviewButton onClick={() => setPreviewAt(styleRows.length + index)} />
+                  <PreviewButton onClick={() => openPreview(styleRows.length + index)} />
                   <CopyButton
                     text={preset.text}
                     ariaLabel={t.symbols.copyCombo(preset.label)}
@@ -187,7 +211,20 @@ export function PlatformTextTool({
         raw={previewText}
         items={previewItems}
         index={charCount > 0 ? previewAt : null}
-        onIndex={setPreviewAt}
+        onIndex={(index) => {
+          setPreviewAt(index);
+          if (index !== null) setSelected(index);
+        }}
+        fieldCard={
+          showPinned && pinnedPreview
+            ? {
+                displayName: pinnedPreview.displayName,
+                username: pinnedPreview.username,
+                sign: pinnedPreview.sign,
+                handle: handleKind ? plainHandle(previewText, handleKind) : platform,
+              }
+            : undefined
+        }
       />
     </div>
   );
