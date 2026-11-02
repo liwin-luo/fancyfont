@@ -36,6 +36,12 @@ export interface GuideSection {
   table?: GuideSectionTable;
   seeAlso?: GuideSeeAlso[];
   image?: GuideImage;
+  /**
+   * External source links resolved inside this section's own paragraphs.
+   * Each label must appear verbatim in the section's copy, and hrefs are
+   * absolute https (official documentation, never competitor pages).
+   */
+  links?: GuideSeeAlso[];
 }
 
 export interface GuideDef {

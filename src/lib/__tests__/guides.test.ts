@@ -139,6 +139,23 @@ describe("guides", () => {
     }
   });
 
+  it("keeps in-body source links external and anchored in the same section", () => {
+    for (const guide of guides) {
+      for (const section of guide.sections) {
+        for (const link of section.links ?? []) {
+          expect(link.href).toMatch(/^https:\/\//);
+          expect(link.label.length).toBeGreaterThan(0);
+          const copy = [
+            ...(section.paragraphs ?? []),
+            ...(section.steps ?? []),
+            ...(section.bullets ?? []),
+          ].join("\n");
+          expect(copy).toContain(link.label);
+        }
+      }
+    }
+  });
+
   it("ships every guide image as a real file with matching dimensions", () => {
     const seen = new Set<string>();
     for (const guide of guides) {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import { Faq, JsonLd, RelatedTools, Steps, faqJsonLd } from "@/components/sections";
+import { Faq, JsonLd, LinkedText, RelatedTools, Steps, faqJsonLd } from "@/components/sections";
 import { guidePath, type GuideDef } from "@/lib/guides";
 import { getSiteUrl } from "@/lib/site";
 import { siteName } from "@/lib/site";
@@ -62,7 +62,11 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
           </h2>
           {section.paragraphs?.map((paragraph) => (
             <p key={paragraph.slice(0, 32)} className="mt-3 leading-relaxed text-ink-600">
-              {paragraph}
+              {section.links?.length ? (
+                <LinkedText text={paragraph} links={section.links} />
+              ) : (
+                paragraph
+              )}
             </p>
           ))}
           {section.steps && <Steps items={section.steps} />}

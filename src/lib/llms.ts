@@ -31,7 +31,7 @@ export function llmsTxt(siteUrl: string): string {
 - Platform generators, in filter order: ${platforms}
 - [Symbols](${siteUrl}/symbols/): searchable symbols and decorative combos
 - [Blank Space](${siteUrl}/blank-space/): copy Hangul filler (U+3164), Braille blank (U+2800), or ideographic space (U+3000) — 1, 20, or 100 — or insert 0–5 of that blank between the Unicode letter styles
-- [Guides](${siteUrl}/learn/): step-by-step how-tos, English only — change your Instagram bio font; stylish PUBG & Free Fire names and what to do when the paste fails
+- [Guides](${siteUrl}/learn/): step-by-step how-tos, English only — change your Instagram bio font; stylish PUBG & Free Fire names and what to do when the paste fails; Roblox display-name rules; why a Twitch display name cannot use fancy fonts (and where styled text can go instead)
 - [MCP for local AI agents](${siteUrl}/mcp/): download ${siteUrl}/fancyfont-mcp.mjs and run it with node
 - [Privacy](${siteUrl}/privacy/): text stays on the device
 - [Terms](${siteUrl}/terms/): independent site, no affiliation with the named apps

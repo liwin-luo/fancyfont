@@ -361,4 +361,153 @@ export const GUIDES_EN: GuideDef[] = [
       },
     ],
   },
+  {
+    slug: "twitch-display-name-fancy-text",
+    title: "Twitch Display Names Can't Use Fancy Fonts (Bio Instead) | FancyFont",
+    h1: "Twitch Display Names Can't Use Fancy Unicode Fonts",
+    description:
+      "Twitch display names only change your username's capitalization, and localized names follow a separate script rule. Where styled Unicode can still go: About, panels, chat.",
+    published: "2026-11-02",
+    updated: "2026-11-02",
+    intro: [
+      "No — a normal Twitch display name cannot hold fancy Unicode. Twitch's Help article on display names defines the field in one line: your display name is a change in capitalization from your username. That is the whole feature. The cursive or bold characters a generator produces are different Unicode letters, not capitalization, so a paste into the display name has nothing to land on — the field keeps showing your username in whatever letter case you saved.",
+      "This guide covers what Twitch officially says, the one real exception (localized display names), where styled text may still paste — channel About, panels, chat — and how to get a readable name without any Unicode. Claims about the display name come from Twitch's own Help article; the fields it does not cover are marked check-it-yourself throughout.",
+    ],
+    sections: [
+      {
+        heading: "What Twitch officially says a display name is",
+        paragraphs: [
+          "Twitch's Help article About display names states the rule plainly: \"Your display name is a change in capitalization from your username. Your display name capitalization appears most everywhere on Twitch. Unlike usernames, display names can be changed at any time.\" No cooldown on the casing, and no path for styled alphabets — 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 is a different set of characters than coolgamer, not a re-capitalization of it.",
+          "Changing the case takes under a minute, and it can be redone whenever you like:",
+        ],
+        steps: [
+          "Open your Profile Settings on Twitch.",
+          "Enter the custom capitalization for your username — upper- and lower-case letters are the only thing this field edits.",
+          "Save Changes. The new casing shows across Twitch, and you can set it again at any time.",
+        ],
+        links: [
+          {
+            label: "About display names",
+            href: "https://help.twitch.tv/s/article/display-names-on-twitch",
+          },
+        ],
+      },
+      {
+        heading: "Username vs display name: which field is which",
+        bullets: [
+          "Username — the login handle you registered. Changing the letters themselves means a username change, and Twitch's FAQ puts those at once every 60 days. The display-name article does not define the username character rules — those live in Twitch's account docs, and this page does not restate them.",
+          "Display name — the same username with your chosen capitalization, shown most everywhere on Twitch. No cooldown: change the casing as often as you like.",
+          "The practical split: case is free and instant, letters are a 60-day decision. Generators blur this because they only produce letters.",
+        ],
+      },
+      {
+        heading: "Localized display names: the real exception, and still not a fancy font",
+        paragraphs: [
+          "Twitch does offer a way to put different characters ahead of your username, but it is a language feature, not a style feature. With the website language set to Arabic, Chinese (Simplified), Chinese (Traditional), Korean, or Japanese, you can add a localized display name in that language's script, shown ahead of your username. Twitch describes it as affecting display names only — it is not a name change.",
+          "That rule rules out the generator use case on its own: a Latin cursive or bold alphabet is neither an Arabic nor a CJK script, so there is no way to smuggle English fancy text into this feature. A name like 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 is exactly what the no-English rule excludes. One quirk if you do use a localized name: Twitch's search guidance says to find localized names through search results, not search suggestions — suggestion clicks can error out.",
+        ],
+        bullets: [
+          "Unique — no two users can hold the same localized name.",
+          "Script-locked — localized display names cannot mix English characters or symbols.",
+          "Cooldown — localized names can be changed once every 60 days.",
+          "No recycle period — once you change away from one, anyone can claim it.",
+          "Removal — switch the website language back to English, then set your display name to match your username.",
+        ],
+      },
+      {
+        heading: "Where styled text may still help on Twitch",
+        paragraphs: [
+          "The display-name article covers names only. It says nothing about the channel About section, panels, stream titles, or chat — the plain-text fields where creators commonly paste Unicode. Treat those fields as paste-and-check: nothing on this page represents Twitch confirming them, so save, then look at your own channel in the app — and for chat, look in a channel whose bots you don't control.",
+          "Aim any styling at a short line — a panel heading, one About line — rather than a decorated wall. The styles that travel best swap each letter for exactly one character, so the reader's device has a single glyph to draw per letter; the mark-stacking styles (strikethrough, glitch) are the ones most likely to come out uneven.",
+        ],
+        table: {
+          head: ["Twitch field", "Styled Unicode?", "What Twitch documents"],
+          rows: [
+            ["Display name", "No", "Capitalization of your username only — Help, About display names"],
+            ["Localized display name", "No", "Own-script names; cannot mix English characters or symbols; once per 60 days"],
+            ["Username", "No", "Plain handle; changes once per 60 days per the Help FAQ"],
+            ["Channel About / bio", "Paste and check", "Not covered by the display-name article"],
+            ["Panels", "Paste and check", "Not covered by the display-name article"],
+            ["Chat", "Paste and check", "Not covered; some channels' bots filter unusual characters"],
+          ],
+        },
+        seeAlso: [
+          {
+            label: "Which styles travel best — all 30 measured",
+            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
+          },
+        ],
+      },
+      {
+        heading: "A readable display name without any Unicode",
+        bullets: [
+          "Use the casing you already own: coolgamer → CoolGamer reads as two words in chat, clips, and tags — and with no cooldown, a wrong guess costs nothing.",
+          "Capitalize each word (CoolGamerTV) or split a long name at a natural boundary. Capitalization is the only edit this field takes, so make it carry the whole job.",
+          "If the letters themselves must change, that is a username change: budget it against the once-every-60-days rule instead of experimenting.",
+          "Save the decoration for fields that take it — a panel heading in small caps, an About line with a few symbols — not the name Twitch shows in every chat.",
+        ],
+      },
+      {
+        heading: "Why Twitch is different from Discord (and why generators confuse people)",
+        paragraphs: [
+          "On Discord, a nickname is a plain text field, and a pasted 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 simply stays — our Discord fonts page is built around that behavior. People carry the expectation across, paste into the Twitch display name, and the paste goes nowhere, because Twitch defines the field as capitalization rather than free text.",
+          "That mismatch is also the honest answer to most \"Twitch font generator\" pages: they emit Unicode without telling you which Twitch field can hold it. On Twitch the generator's job is narrow — styled lines for panels, About, chat — while the name itself is Twitch's to render from your username.",
+        ],
+      },
+      {
+        heading: "Sources and how far this page goes",
+        paragraphs: [
+          "Every display-name claim on this page — the capitalization definition, the no-cooldown casing change, the localized-name script rules, the 60-day timers — comes from Twitch's Help article About display names, re-read on 2026-11-02. The username-change timer is from the same article's FAQ.",
+          "Nothing on this page was checked inside a logged-in Twitch account, and the fields the article does not cover are labeled paste-and-check above rather than presented as Twitch-approved. If Twitch updates the article, the wording here should be re-checked against it.",
+        ],
+        links: [
+          {
+            label: "About display names",
+            href: "https://help.twitch.tv/s/article/display-names-on-twitch",
+          },
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I use a fancy font in my Twitch display name?",
+        a: "No — not for a normal Twitch display name. Twitch Help describes your display name as a capitalization change of your existing username (for example, coolgamer → CoolGamer). It is not a place to paste cursive, bold, or symbol-decorated Unicode from a fancy-text generator. Changing the letters themselves means changing your username, which Twitch allows once every 60 days.",
+      },
+      {
+        q: "What about Twitch's localized display names?",
+        a: "If your Twitch website language is set to Arabic, Chinese (Simplified or Traditional), Korean, or Japanese, you can add a localized display name in that language's script, shown ahead of your username. Twitch Help says localized display names must be unique and cannot mix English characters or symbols — so English fancy-font characters are excluded by rule — and localized names can only be changed once every 60 days.",
+      },
+      {
+        q: "Where can I use fancy Unicode on Twitch instead?",
+        a: "Creators commonly paste styled Unicode into plain-text areas such as the channel About/bio, panel text, or chat messages. Twitch's display-name Help article does not document those fields, so treat them as paste-and-check: save, then look at your channel in the Twitch app. Prefer short panel headings over decorated paragraphs, and expect some channels' chat bots to filter unusual characters.",
+      },
+      {
+        q: "How do I change my Twitch display name capitalization?",
+        a: "Open Profile Settings on Twitch, enter the custom capitalization for your username, and save. There is no cooldown — you can change the capitalization again at any time. Removing a localized display name is different: switch your website language back to English, then set your display name to match your username.",
+      },
+    ],
+    appearOn: ["discord-fonts", "gaming-name-generator"],
+    relatedTools: [
+      {
+        href: "/fancy-text-generator/",
+        title: "Fancy Text Generator",
+        description: "All 30 Unicode styles for a short line — panel headings and About lines, not display names.",
+      },
+      {
+        href: "/small-caps-generator/",
+        title: "Small Caps Generator",
+        description: "The quiet one-character-per-letter alphabet that renders on the most devices.",
+      },
+      {
+        href: "/symbols/",
+        title: "Symbols & Decorators",
+        description: "Hearts, crowns and brackets for panel headings — not for display names.",
+      },
+      {
+        href: "/discord-fonts/",
+        title: "Discord Fonts",
+        description: "Where a pasted styled name actually works: Discord's nickname field.",
+      },
+    ],
+  },
 ];
