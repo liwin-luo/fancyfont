@@ -1,3 +1,5 @@
+import { robloxWhyAnswer } from "./roblox-extra";
+
 // English copy for the platform preset pages.
 // Each page carries real, platform-specific guidance with honest wording —
 // platform rules change, so nothing promises a character "will work".
@@ -254,7 +256,7 @@ export const platformPagesEn: Record<string, PlatformPageCopy> = {
       },
       {
         q: "Why did my display name get changed?",
-        a: "Roblox runs automated filters on display names, and styled or symbol-heavy names are frequent targets. A plainer combo, or your base name with a single symbol, survives more often.",
+        a: robloxWhyAnswer("en"),
       },
       {
         q: "Is this generator affiliated with Roblox?",

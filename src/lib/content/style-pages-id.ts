@@ -547,7 +547,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
       {
         q: "Bisakah nama coquette jadi username Instagram?",
-        a: "Tidak. Username tetap biasa. Tempel nama bergaya ke nama tampilan atau bio.",
+        a: "Tidak. Username tetap huruf biasa, angka, dan sedikit tanda. Nama tampilan dan bio boleh dicoba. Karakter yang diterima ditentukan aplikasi; halaman ini tidak memuat daftar karakter lengkap.",
       },
     ],
   },

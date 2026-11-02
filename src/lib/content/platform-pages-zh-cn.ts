@@ -1,6 +1,7 @@
 // Simplified Chinese copy for the platform preset pages.
 
 import type { PlatformPageCopy } from "./platform-pages-en";
+import { robloxWhyAnswer } from "./roblox-extra";
 
 export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
   "instagram-fonts": {
@@ -202,7 +203,7 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
       },
       {
         q: "为什么我的显示名被改了？",
-        a: "Roblox 会对显示名跑自动过滤，符号多的装饰名是被拦截的常客。更朴素的组合，或基础名只加一个符号，存活率高得多。",
+        a: robloxWhyAnswer("zh-cn"),
       },
       {
         q: "这个生成器和 Roblox 有关系吗？",

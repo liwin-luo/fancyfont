@@ -1,18 +1,22 @@
 import Link from "next/link";
 import { BioTool } from "@/components/bio-tool";
 import { PlatformTextTool } from "@/components/platform-text-tool";
+import { CodScenarioKits } from "@/components/cod-scenario-kits";
 import { GamingNameTool } from "@/components/gaming-name-tool";
 import {
   CompatNote,
   Faq,
   JsonLd,
+  LinkedText,
   RelatedTools,
   Steps,
   faqJsonLd,
 } from "@/components/sections";
 import { PlatformChips } from "@/components/platform-chips";
 import { PlatformMark, platformTone } from "@/components/platform-mark";
+import { codExtra, codPageFaq } from "@/lib/content/cod-extra";
 import { coreFocus, type CorePage } from "@/lib/content/core-focus";
+import { robloxExtra, robloxPageFaq } from "@/lib/content/roblox-extra";
 import { relatedToolLinks, type PlatformPageDef } from "@/lib/platform-pages";
 import { guidePath, guidesForPage } from "@/lib/guides";
 import { getSiteUrl } from "@/lib/site";
@@ -90,6 +94,9 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   const c = page.copy[locale];
   const t = getUi(locale);
   const path = localePath(locale, `/${page.slug}/`);
+  const cod = page.slug === "cod-name-generator" ? codExtra[locale] : null;
+  const roblox = page.slug === "roblox-name-generator" ? robloxExtra[locale] : null;
+  const faq = cod ? codPageFaq(locale, c.faq) : roblox ? robloxPageFaq(locale, c.faq) : c.faq;
 
   const relatedLinks = [
     ...relatedToolLinks(locale, page.related),
@@ -118,7 +125,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <JsonLd data={webAppJsonLd} />
-      <JsonLd data={faqJsonLd(c.faq)} />
+      <JsonLd data={faqJsonLd(faq)} />
 
       <PlatformChips locale={locale} active={page.slug} />
 
@@ -156,6 +163,8 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
           />
         )}
       </div>
+
+      {cod ? <CodScenarioKits copy={cod.kits} defaultName={c.defaultText} /> : null}
 
       <CompatNote locale={locale} />
 
@@ -209,11 +218,43 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
         </section>
       )}
 
+      {cod ? (
+        <section className="mt-12" aria-labelledby="cod-safety-heading">
+          <h2 id="cod-safety-heading" className="text-xl font-bold text-ink-900">
+            {cod.safety.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            <LinkedText text={cod.safety.body} />
+          </p>
+        </section>
+      ) : null}
+
+      {roblox ? (
+        <section className="mt-12" aria-labelledby="roblox-safety-heading">
+          <h2 id="roblox-safety-heading" className="text-xl font-bold text-ink-900">
+            {roblox.safety.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            <LinkedText text={roblox.safety.body} />
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-ink-700">
+            {roblox.berryBefore}
+            <Link
+              href={localePath(locale, "/berry-avenue-fonts/")}
+              className="font-medium text-brand-700 underline-offset-2 hover:underline"
+            >
+              {roblox.berryLabel}
+            </Link>
+            {roblox.berryAfter}
+          </p>
+        </section>
+      ) : null}
+
       <section className="mt-12" aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="text-xl font-bold text-ink-900">
           {t.sections.faq}
         </h2>
-        <Faq items={c.faq} />
+        <Faq items={faq} />
       </section>
 
       <p className="mt-10 text-center">

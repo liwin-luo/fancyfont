@@ -65,6 +65,47 @@ export interface FaqItem {
   a: string;
 }
 
+/** Visible characters stay equal to `text`. A trailing period is not part of the href. */
+export function splitLinkedText(text: string): { href: string | null; value: string }[] {
+  const parts: { href: string | null; value: string }[] = [];
+  const pattern = /https?:\/\/[^\s<>"']+/g;
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)) {
+    const start = match.index ?? 0;
+    if (start > cursor) parts.push({ href: null, value: text.slice(cursor, start) });
+    const raw = match[0];
+    const trimmed = raw.replace(/[.,;:]+$/, "");
+    const trail = raw.slice(trimmed.length);
+    parts.push({ href: trimmed, value: trimmed });
+    if (trail) parts.push({ href: null, value: trail });
+    cursor = start + raw.length;
+  }
+  if (cursor < text.length) parts.push({ href: null, value: text.slice(cursor) });
+  return parts;
+}
+
+export function LinkedText({ text, className }: { text: string; className?: string }) {
+  return (
+    <span className={className}>
+      {splitLinkedText(text).map((part, index) =>
+        part.href ? (
+          <a
+            key={index}
+            href={part.href}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="font-medium text-brand-700 underline-offset-2 hover:underline"
+          >
+            {part.value}
+          </a>
+        ) : (
+          <span key={index}>{part.value}</span>
+        ),
+      )}
+    </span>
+  );
+}
+
 export function Faq({ items }: { items: FaqItem[] }) {
   return (
     <div className="mt-4 space-y-3">
@@ -82,7 +123,9 @@ export function Faq({ items }: { items: FaqItem[] }) {
               ＋
             </span>
           </summary>
-          <p className="mt-2 text-sm leading-relaxed text-ink-600">{item.a}</p>
+          <p className="mt-2 text-sm leading-relaxed text-ink-600">
+            <LinkedText text={item.a} />
+          </p>
         </details>
       ))}
     </div>

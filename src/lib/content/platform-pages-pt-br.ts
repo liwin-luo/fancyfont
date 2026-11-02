@@ -1,6 +1,7 @@
 // Brazilian Portuguese copy for the platform preset pages.
 
 import type { PlatformPageCopy } from "./platform-pages-en";
+import { robloxWhyAnswer } from "./roblox-extra";
 
 export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
   "instagram-fonts": {
@@ -202,7 +203,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
       },
       {
         q: "Por que meu nome de exibição foi alterado?",
-        a: "O Roblox passa os nomes de exibição por filtros automáticos, e nomes com muitos símbolos são alvo frequente. Uma combinação mais simples, ou o nome base com um símbolo só, sobrevive mais vezes.",
+        a: robloxWhyAnswer("pt-br"),
       },
       {
         q: "Esse gerador tem ligação com o Roblox?",

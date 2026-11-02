@@ -550,7 +550,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "能把 Coquette 名字放进 Instagram 用户名吗？",
-        a: "不能。用户名保持普通字符。花字贴到展示名或简介。",
+        a: "不能。用户名保持普通字母、数字和少量符号。展示名和简介可以试。能用哪些字符以 App 为准，本页不提供完整字符表。",
       },
     ],
   },

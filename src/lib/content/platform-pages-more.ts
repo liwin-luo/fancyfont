@@ -182,11 +182,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Can my COD clan tag use these fonts?",
-          a: "The clan tag is only a few characters, about 4. A styled name will not fit. Keep the tag short and plain, and style the player name.",
+          a: "The clan tag is only a few characters, about 4. That figure is a planning estimate, not an official cap. A styled name will not fit. Keep the tag short and plain, and style the player name.",
         },
         {
           q: "How long is a Call of Duty name?",
-          a: "Plan for around 16 characters. Warzone, Mobile, and older titles are not identical, so the game's own field is the real limit.",
+          a: "Plan for around 16 characters. Warzone, Mobile, and older titles are not identical, so the game's own field is the real limit. Activision's rename articles do not state a hard cap of 16.",
         },
         {
           q: "Is this an official Call of Duty tool?",
@@ -581,11 +581,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "¿La etiqueta de clan de COD admite estas fuentes?",
-          a: "La etiqueta mide solo unos 4 caracteres. Un nombre con estilo no cabe. Déjala corta y plana, y dale estilo al nombre.",
+          a: "La etiqueta mide solo unos 4 caracteres. Esa cifra es una estimación para planear, no un tope oficial. Un nombre con estilo no cabe. Déjala corta y plana, y dale estilo al nombre.",
         },
         {
           q: "¿Cuánto mide un nombre de Call of Duty?",
-          a: "Cuenta con unas 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real.",
+          a: "Cuenta con unas 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real. Los artículos de cambio de nombre de Activision no fijan un tope oficial de 16.",
         },
         {
           q: "¿Es una herramienta oficial de Call of Duty?",
@@ -980,15 +980,15 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Como faço um cod nome que caiba?",
-          a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. O número daqui é aproximado e não foi medido neste site.",
+          a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. Os artigos da Activision sobre troca de nome não fixam um teto oficial de 16. O número daqui é aproximado e não foi medido neste site.",
         },
         {
           q: "Nomes para Call of Duty cabem na tag do clã?",
-          a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Deixe a tag curta e ponha o estilo no nome.",
+          a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Essa faixa é uma estimativa para planejar, não um teto oficial. Deixe a tag curta e ponha o estilo no nome.",
         },
         {
           q: "O gerador de nick COD Mobile encolhe o nome?",
-          a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
+          a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa, não como teto oficial, e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
         },
       ],
     },
@@ -1375,11 +1375,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "COD 战队标签能用这些字体吗？",
-          a: "战队标签只有大约 4 个字符。有样式的长名字放不下。标签保持短而普通，样式放在玩家名上。",
+          a: "战队标签只有大约 4 个字符。这个数字是规划时的估计，不是核实过的官方上限。有样式的长名字放不下。标签保持短而普通，样式放在玩家名上。",
         },
         {
           q: "使命召唤的名字有多长？",
-          a: "按大约 16 个字符来准备。Warzone、Mobile 和旧作并不一样，游戏自己的输入框才是真正的上限。",
+          a: "按大约 16 个字符来准备。Warzone、Mobile 和旧作并不一样，游戏自己的输入框才是真正的上限。Activision 的改名文章没有写死 16 这个硬上限。",
         },
         {
           q: "这是使命召唤官方工具吗？",
@@ -1772,11 +1772,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Bisakah tag klan COD memakai font ini?",
-          a: "Tag klan hanya beberapa karakter, sekitar 4. Nama bergaya tidak muat. Biarkan tag pendek dan biasa, lalu beri gaya pada nama pemain.",
+          a: "Tag klan hanya beberapa karakter, sekitar 4. Angka itu perkiraan untuk merencanakan, bukan batas resmi. Nama bergaya tidak muat. Biarkan tag pendek dan biasa, lalu beri gaya pada nama pemain.",
         },
         {
           q: "Berapa panjang nama Call of Duty?",
-          a: "Siapkan sekitar 16 karakter. Warzone, Mobile, dan judul lama tidak sama, jadi kolom di game itulah batas yang sebenarnya.",
+          a: "Siapkan sekitar 16 karakter. Warzone, Mobile, dan judul lama tidak sama, jadi kolom di game itulah batas yang sebenarnya. Artikel ganti nama Activision tidak menetapkan batas resmi 16.",
         },
         {
           q: "Apakah ini alat resmi Call of Duty?",
