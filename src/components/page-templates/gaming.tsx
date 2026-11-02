@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GamingNameTool } from "@/components/gaming-name-tool";
 import { PlatformChips } from "@/components/platform-chips";
 import {
@@ -10,6 +11,7 @@ import {
 } from "@/components/sections";
 import { coreFocus } from "@/lib/content/core-focus";
 import { gamingContent } from "@/lib/content/page-gaming";
+import { getPlatformPage } from "@/lib/platform-pages";
 import { getSiteUrl } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -49,6 +51,8 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
       <div className="mt-8">
         <GamingNameTool />
       </div>
+
+      {c.hub && <GameHub locale={locale} hub={c.hub} />}
 
       <CompatNote locale={locale} />
 
@@ -102,5 +106,41 @@ export function GamingPageTemplate({ locale }: { locale: Locale }) {
         <Faq items={c.faq} />
       </section>
     </div>
+  );
+}
+
+function GameHub({
+  locale,
+  hub,
+}: {
+  locale: Locale;
+  hub: NonNullable<(typeof gamingContent)[Locale]["hub"]>;
+}) {
+  const cards = hub.cards.flatMap((card) => {
+    const page = getPlatformPage(locale, card.slug);
+    if (!page) return [];
+    return [{ ...card, href: localePath(locale, `/${page.slug}/`) }];
+  });
+  if (cards.length === 0) return null;
+
+  return (
+    <section className="mt-8" aria-labelledby="game-hub-heading">
+      <h2 id="game-hub-heading" className="text-xl font-bold text-ink-900">
+        {hub.heading}
+      </h2>
+      <p className="mt-2 text-sm leading-relaxed text-ink-600">{hub.intro}</p>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        {cards.map((card) => (
+          <Link
+            key={card.href}
+            href={card.href}
+            className="card group block p-4 transition-colors hover:border-brand-300"
+          >
+            <p className="font-semibold text-ink-900 group-hover:text-brand-700">{card.title}</p>
+            <p className="mt-1 text-sm leading-relaxed text-ink-600">{card.description}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

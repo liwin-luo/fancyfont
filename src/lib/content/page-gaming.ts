@@ -15,6 +15,12 @@ export interface GamingContent {
   faqHeading: string;
   faq: { q: string; a: string }[];
   related: { path: string; title: string; description: string }[];
+  /** Game-specific entrances. Cards whose slug is missing are not rendered. */
+  hub?: {
+    heading: string;
+    intro: string;
+    cards: { slug: string; title: string; description: string }[];
+  };
 }
 
 export const gamingContent: Record<Locale, GamingContent> = {
@@ -145,6 +151,33 @@ export const gamingContent: Record<Locale, GamingContent> = {
         description: "Texto con estilo para apodos y estados de Discord.",
       },
     ],
+    hub: {
+      heading: "Nombres por juego",
+      intro:
+        "El generador de arriba decora cualquier nick. Si buscas nombres gamer para un juego concreto, entra en su página: cada una cuenta su propio largo.",
+      cards: [
+        {
+          slug: "cod-name-generator",
+          title: "Nombres para Call of Duty",
+          description: "Nombre de jugador y tag de clan, con largos distintos. Prueba el nombre en el juego.",
+        },
+        {
+          slug: "pubg-name-generator",
+          title: "Nombres para PUBG",
+          description: "Un campo corto, en general unos 16 caracteres. El número es aproximado.",
+        },
+        {
+          slug: "free-fire-name-generator",
+          title: "Nombres para Free Fire",
+          description: "Nicks más cortos, cerca de 12 caracteres contando los símbolos.",
+        },
+        {
+          slug: "roblox-name-generator",
+          title: "Nombres para Roblox",
+          description: "El nombre visible admite estilo. El usuario se queda en letras planas.",
+        },
+      ],
+    },
   },
   "pt-br": {
     meta: {

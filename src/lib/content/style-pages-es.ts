@@ -1,5 +1,6 @@
 // Spanish copy for the dedicated style generator pages.
 
+import { coquetteCopyExamples } from "../coquette-examples";
 import type { StylePageCopy } from "./style-pages-en";
 
 export const stylePagesEs: Record<string, StylePageCopy> = {
@@ -519,11 +520,15 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
   },
   "coquette-font-generator": {
     navName: "Coquette",
-    h1: "Generador de letras coquette",
+    h1: "Letras coquette para copiar y pegar",
+    title: "Letras coquette para copiar y pegar — script y lazo",
     description:
-      "Texto coquette para copiar y pegar: letras script con un lazo de cinta. Para el nombre visible de Instagram y el apodo de Discord, no para descargar una fuente.",
+      "Genera letras coquette con lazo, cópialas y pégalas en Instagram o Discord. Vista previa y estilos que suelen verse en el móvil. No es un archivo de fuente.",
     intro:
-      "Letras script y un solo lazo. Las filas son un lazo pequeño, un par de cintas y el emoji de cinta. Lo tierno de este sitio son las letras burbuja. Esta página se queda en el lazo.",
+      "Letras coquette para copiar y pegar: script y un solo lazo. Las filas son un lazo pequeño, un par de cintas y el emoji de cinta. Lo tierno de este sitio son las letras burbuja, y la página elegante lleva corona. Esta página se queda en el lazo.",
+    examplesHeading: "Letras coquette para copiar",
+    examplesHint: "Ya llevan el lazo. Toca una y se copia entera.",
+    copyExamples: coquetteCopyExamples,
     howItWorks:
       "El lazo envuelve el script grueso, Unicode Bold Script, porque esa letra tiene e, g y o de verdad. El script fino queda debajo, sin lazo, y en esa fila e, g y o son sustitutos, así que un nombre como Belle va en la fila gruesa. Los lazos y la cinta son símbolos aparte, solo en la fila gruesa.",
     coverageNote:
@@ -538,16 +543,20 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       "Pégalo en el nombre visible de Instagram o en el apodo de Discord. Esos usuarios solo aceptan letras planas, dígitos y unas pocas marcas, así que el lazo no va en el usuario. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord. Si el lazo pequeño falla, el emoji de cinta igual se copia.",
     faq: [
       {
-        q: "¿Coquette es una fuente que descargo?",
-        a: "No. Copias caracteres. Un archivo de fuente habría que instalarlo, y este sitio no lo ofrece.",
+        q: "¿Dónde encuentro letras coquette para copiar y pegar?",
+        a: "En la fila de arriba, cada ejemplo ya trae el lazo. Tócalo y se copia. Si quieres tu propio nombre, escríbelo en el generador y copia la fila del emoji 🎀 cuando el lazo pequeño salga como un cuadro.",
       },
       {
-        q: "¿En qué se diferencia de las letras tiernas?",
-        a: "Lo tierno son letras burbuja con un corazón, el lazo ୨୧ o una flor. Coquette es script con un lazo de cinta. Las dos páginas no comparten adornos.",
+        q: "¿Qué es una letra coquette?",
+        a: "Es script con un lazo de cinta. No es la página tierna, que usa letras burbuja, ni la elegante, que usa corona. Aquí copias caracteres, no un archivo de fuente.",
       },
       {
-        q: "¿Puedo poner un nombre coquette en mi usuario de Instagram?",
-        a: "No. El usuario se queda plano. Pega el nombre con estilo en el nombre visible o en la bio.",
+        q: "¿El generador de letras coquette descarga una fuente?",
+        a: "No. No hay archivo para instalar. El resultado se pega en apps que aceptan texto plano, como el nombre visible de Instagram o el apodo de Discord.",
+      },
+      {
+        q: "¿Puedo pegar fuentes coquette en mi usuario de Instagram?",
+        a: "No. El usuario se queda en letras planas, dígitos, puntos y guiones bajos. Pega el nombre con lazo en el nombre visible o en la bio.",
       },
     ],
   },

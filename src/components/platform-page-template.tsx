@@ -152,6 +152,7 @@ export function PlatformPageTemplate({ page, locale }: { page: PlatformPageDef; 
             defaultText={c.defaultText}
             featuredStyles={page.featuredStyles}
             presets={c.presets}
+            pinnedPreview={c.pinnedPreview}
           />
         )}
       </div>
