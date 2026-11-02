@@ -214,7 +214,7 @@ export const codExtra: Record<Locale, CodExtra> = {
     ],
     safety: {
       heading: "Baca ulang sebelum membayar",
-      body: "Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan cadangan teks biasa. FancyFont mengubah nama di browser kamu dan tidak diunggah.",
+      body: "Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan cadangan teks biasa. FancyFont mengubah nama di browser kamu dan nama itu tidak diunggah.",
     },
     kits: {
       heading: "Set nama untuk pratinjau",

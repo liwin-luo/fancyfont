@@ -37,7 +37,7 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     safety: {
       heading: "Children, safety, and screen readers",
-      body: `Do not put a phone number, home address, or full legal name in a display name. Roblox's Community Standards limit sharing that personal information: ${STANDARDS} . Parents can limit a child's chat from the controls in Roblox's safety article: ${SAFETY} . Screen readers often cannot speak styled Unicode as the word you typed. The name is converted in your browser and is not uploaded.`,
+      body: `Do not put a phone number, home address, or full legal name in a display name. Roblox's Community Standards limit sharing that personal information: ${STANDARDS}. Parents can limit a child's chat from the controls in Roblox's safety article: ${SAFETY}. Screen readers often cannot speak styled Unicode as the word you typed. The name is converted in your browser and is not uploaded.`,
     },
     berryBefore: "In-experience character names and signs are on the ",
     berryLabel: "Berry Avenue fonts",
@@ -56,7 +56,7 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     safety: {
       heading: "Niños, seguridad y lectores de pantalla",
-      body: `No pongas un teléfono, una dirección ni tu nombre legal completo en el nombre visible. Las Community Standards de Roblox limitan compartir esos datos: ${STANDARDS} . Un padre puede limitar el chat de un niño desde los controles del artículo de seguridad de Roblox: ${SAFETY} . Los lectores de pantalla a menudo no pronuncian el Unicode con estilo como la palabra que escribiste. El nombre se convierte en tu navegador y no se sube.`,
+      body: `No pongas un teléfono, una dirección ni tu nombre legal completo en el nombre visible. Las Community Standards de Roblox limitan compartir esos datos: ${STANDARDS}. Un padre puede limitar el chat de un niño desde los controles del artículo de seguridad de Roblox: ${SAFETY}. Los lectores de pantalla a menudo no pronuncian el Unicode con estilo como la palabra que escribiste. El nombre se convierte en tu navegador y no se sube.`,
     },
     berryBefore: "Los nombres de personaje y los letreros dentro de la experiencia están en la página de ",
     berryLabel: "fuentes de Berry Avenue",
@@ -75,7 +75,7 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     safety: {
       heading: "Crianças, segurança e leitores de tela",
-      body: `Não coloque telefone, endereço nem o nome legal completo no nome de exibição. As Community Standards do Roblox limitam compartilhar esses dados: ${STANDARDS} . Um responsável pode limitar o chat de uma criança nos controles do artigo de segurança do Roblox: ${SAFETY} . Leitores de tela em geral não falam o Unicode estilizado como a palavra que você digitou. O nome é convertido no seu navegador e não é enviado.`,
+      body: `Não coloque telefone, endereço nem o nome legal completo no nome de exibição. As Community Standards do Roblox limitam compartilhar esses dados: ${STANDARDS}. Um responsável pode limitar o chat de uma criança nos controles do artigo de segurança do Roblox: ${SAFETY}. Leitores de tela em geral não falam o Unicode estilizado como a palavra que você digitou. O nome é convertido no seu navegador e não é enviado.`,
     },
     berryBefore: "Nomes de personagem e placas dentro da experiência ficam na página de ",
     berryLabel: "fontes de Berry Avenue",
@@ -94,7 +94,7 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     safety: {
       heading: "儿童、安全与读屏",
-      body: `不要在显示名里写电话、住址或完整法定姓名。Roblox 的 Community Standards 限制分享这些个人信息：${STANDARDS} 。家长可以根据 Roblox 安全文章里的控制项限制孩子的聊天：${SAFETY} 。读屏软件通常没法把花体 Unicode 读成你输入的那个词。名字在你的浏览器里转换，不会上传。`,
+      body: `不要在显示名里写电话、住址或完整法定姓名。Roblox 的 Community Standards 限制分享这些个人信息：${STANDARDS}。家长可以根据 Roblox 安全文章里的控制项限制孩子的聊天：${SAFETY}。读屏软件通常没法把花体 Unicode 读成你输入的那个词。名字在你的浏览器里转换，不会上传。`,
     },
     berryBefore: "体验内的角色名和牌子在",
     berryLabel: "Berry Avenue 字体",
@@ -113,7 +113,7 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     safety: {
       heading: "Anak, keamanan, dan pembaca layar",
-      body: `Jangan tulis nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan. Community Standards Roblox membatasi pembagian informasi pribadi itu: ${STANDARDS} . Orang tua dapat membatasi chat anak dari kontrol di artikel keamanan Roblox: ${SAFETY} . Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Nama diubah di browser kamu dan tidak diunggah.`,
+      body: `Jangan tulis nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan. Community Standards Roblox membatasi pembagian informasi pribadi itu: ${STANDARDS}. Orang tua dapat membatasi chat anak dari kontrol di artikel keamanan Roblox: ${SAFETY}. Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Nama diubah di browser kamu dan nama itu tidak diunggah.`,
     },
     berryBefore: "Nama karakter dan papan di dalam experience ada di halaman ",
     berryLabel: "font Berry Avenue",

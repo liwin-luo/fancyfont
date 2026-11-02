@@ -157,7 +157,7 @@ export const coquetteExtra: Record<Locale, CoquetteExtra> = {
     faq: [],
     safety: {
       heading: "Pembaca layar",
-      body: "Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan teks biasa. FancyFont mengubah nama di browser kamu dan tidak diunggah.",
+      body: "Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan teks biasa. FancyFont mengubah nama di browser kamu dan nama itu tidak diunggah.",
     },
     kits: {
       heading: "Set untuk ditempel",

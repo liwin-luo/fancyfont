@@ -68,7 +68,7 @@ export interface FaqItem {
 /** Visible characters stay equal to `text`. A trailing period is not part of the href. */
 export function splitLinkedText(text: string): { href: string | null; value: string }[] {
   const parts: { href: string | null; value: string }[] = [];
-  const pattern = /https?:\/\/[^\s<>"']+/g;
+  const pattern = /https?:\/\/[^\s<>"'。]+/g;
   let cursor = 0;
   for (const match of text.matchAll(pattern)) {
     const start = match.index ?? 0;
