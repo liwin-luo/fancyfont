@@ -289,9 +289,9 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Berry Avenue Fonts Generator",
-      title: "Fonts for Berry Avenue — Copy a Display Name (~20)",
+      title: "Berry Avenue Fonts — Free Copy & Paste (~20 Chars)",
       description:
-        "Type a Berry Avenue display name, preview it on a Roblox card and a sign, and copy styles that stay near ~20 characters. Not for the @username.",
+        "Free Berry Avenue fonts: type a Roblox display name, preview it on a card and a sign, then copy styles near ~20 characters. Not for the @username.",
       intro:
         "Berry Avenue shows your Roblox display name over your character. That field is about 20 characters, and the username stays plain. The card on this page is a fitting sketch, not the font inside the game.",
       pinnedPreview: {
@@ -688,9 +688,9 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Generador de fuentes para Berry Avenue",
-      title: "Fuentes para Berry Avenue — copia el nombre visible",
+      title: "Fuentes Berry Avenue — copia y pega el nombre (~20)",
       description:
-        "Escribe un nombre visible de Berry Avenue, míralo en una ficha de Roblox y en un letrero, y copia estilos cerca de ~20 caracteres. No es para el @usuario.",
+        "Fuentes gratis para Berry Avenue: escribe el nombre visible de Roblox, míralo en ficha y letrero, y copia estilos cerca de ~20 caracteres. No es para el @usuario.",
       intro:
         "Berry Avenue muestra tu nombre visible de Roblox sobre el personaje. Ese campo ronda los 20 caracteres, y el usuario se queda plano. La ficha de esta página es un boceto, no la fuente de dentro del juego.",
       pinnedPreview: {
@@ -1087,9 +1087,9 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Gerador de fontes para Berry Avenue",
-      title: "Fontes para Berry Avenue — copie o nome de exibição",
+      title: "Fontes para Berry Avenue — copie grátis (~20 chars)",
       description:
-        "Digite um nome de exibição do Berry Avenue, veja numa ficha do Roblox e numa placa, e copie estilos perto de ~20 caracteres. Não é para o @usuário.",
+        "Fontes grátis para Berry Avenue: digite o nome de exibição do Roblox, veja numa ficha e numa placa, e copie estilos perto de ~20 caracteres. Não é para o @usuário.",
       intro:
         "O Berry Avenue mostra seu nome de exibição do Roblox sobre o personagem. Esse campo fica em torno de 20 caracteres, e o usuário continua comum. A ficha desta página é um esboço, não a fonte de dentro do jogo.",
       pinnedPreview: {

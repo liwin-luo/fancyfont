@@ -550,8 +550,9 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
   "coquette-font-generator": {
     navName: "Coquette",
     h1: "Coquette Font Generator",
+    title: "Coquette Font Generator — Copy Paste Ribbon Letters",
     description:
-      "Coquette copy-and-paste text: script letters with one ribbon bow. For Instagram display names and Discord nicknames, not a font download.",
+      "Free coquette letters with a ribbon bow. Copy and paste script text for Instagram display names and Discord nicknames. Not a font file to install.",
     intro:
       "Script letters, then one bow. The rows are a small bow, a ribbon pair, and a ribbon emoji. Cute text on this site is round bubble letters. This page stays the ribbon look.",
     howItWorks:
