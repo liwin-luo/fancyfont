@@ -2,7 +2,6 @@
 // Platform acceptance is not stated here: the shared compat note covers testing.
 
 import type { Locale, PageMeta } from "../i18n";
-import { serpScript } from "../serp-title";
 import { siteName } from "../site";
 import type { BlankKindId } from "../blank-space";
 
@@ -31,8 +30,10 @@ export interface BlankSpaceContent {
   related: { path: string; title: string; description: string }[];
 }
 
-function title(head: string, locale: Locale): string {
-  return `${head} — ${serpScript(locale)} | ${siteName}`;
+// Every locale's head already contains the copy-paste keyword, so the title
+// is head | brand — no phrase after the dash.
+function title(head: string, _locale: Locale): string {
+  return `${head} | ${siteName}`;
 }
 
 export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {

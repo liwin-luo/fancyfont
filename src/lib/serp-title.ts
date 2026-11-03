@@ -1,14 +1,13 @@
-// Search-result titles. The fancy phrase is Mathematical Bold Script:
-// one even alphabet. The thin script competitors use has no e, g, or o
-// and substitutes a different cut (ℯ ℊ ℴ), so words like "Paste" look broken.
+// Search-result titles. The middle phrase is plain text — the 2026-11 tech
+// audit flagged the previous decorative Unicode script in titles: users
+// arriving on non-brand queries should see words that match their query,
+// not decoration that some devices render as boxes.
 //
-// Shape when a detail is passed: query — ♡ script detail | FancyFont.
-// The script is the click style. The detail stays plain text so it can match
-// a query. The brand is last, so a narrow screen clips it before the query.
+// Shape: query — phrase detail | FancyFont. The brand is last, so a narrow
+// screen clips it before the query.
 
 import type { Locale } from "./i18n";
 import { siteName } from "./site";
-import { convertText } from "./text-styles";
 
 const PHRASE: Record<Locale, string> = {
   en: "Copy & Paste",
@@ -155,14 +154,14 @@ const styleDetail: Record<string, Record<Locale, string>> = {
   },
 };
 
-export function serpScript(locale: Locale): string {
-  return `\u2661 ${convertText(PHRASE[locale], "boldScript")}`;
+export function serpPhrase(locale: Locale): string {
+  return PHRASE[locale];
 }
 
 export function serpTitle(head: string, locale: Locale, detail?: string): string {
-  const script = serpScript(locale);
-  if (!detail) return `${head} \u2014 ${script}`;
-  return `${head} \u2014 ${script} ${detail} | ${siteName}`;
+  const phrase = serpPhrase(locale);
+  if (!detail) return `${head} \u2014 ${phrase}`;
+  return `${head} \u2014 ${phrase} ${detail} | ${siteName}`;
 }
 
 export function styleSerpTitle(h1: string, slug: string, locale: Locale): string {
