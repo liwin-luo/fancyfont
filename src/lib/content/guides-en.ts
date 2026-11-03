@@ -486,6 +486,13 @@ export const GUIDES_EN: GuideDef[] = [
         a: "Open Profile Settings on Twitch, enter the custom capitalization for your username, and save. There is no cooldown — you can change the capitalization again at any time. Removing a localized display name is different: switch your website language back to English, then set your display name to match your username.",
       },
     ],
+    cta: {
+      after: "Where styled text may still help on Twitch",
+      heading: "Try it: build your panel heading",
+      body: "Type your line, pick a one-character-per-letter style like small caps or bold, and copy it into the fields that take styled text — panel headings and About lines, not the display name.",
+      label: "Open the Fancy Text Generator",
+      href: "/fancy-text-generator/",
+    },
     appearOn: ["discord-fonts", "gaming-name-generator"],
     relatedTools: [
       {

@@ -19,6 +19,16 @@ export interface GuideSeeAlso {
   href: string;
 }
 
+/** Mid-article call to action, rendered as a branded box after one section. */
+export interface GuideCta {
+  /** The section heading the box follows. */
+  after: string;
+  heading: string;
+  body: string;
+  label: string;
+  href: string;
+}
+
 export interface GuideImage {
   /** Path under /public, served as-is (e.g. /guides/ig-tool.webp). */
   src: string;
@@ -59,6 +69,8 @@ export interface GuideDef {
   appearOn: string[];
   /** Cards in the guide's "Try it" section, linking back into the tools. */
   relatedTools: RelatedLink[];
+  /** Optional in-body call to action; href must be a page in the sitemap. */
+  cta?: GuideCta;
 }
 
 export function guidePath(slug: string): string {

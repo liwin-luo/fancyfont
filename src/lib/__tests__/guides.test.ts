@@ -156,6 +156,18 @@ describe("guides", () => {
     }
   });
 
+  it("anchors the guide CTA on a real section and a real tool page", () => {
+    for (const guide of guides) {
+      const cta = guide.cta;
+      if (!cta) continue;
+      expect(guide.sections.map((section) => section.heading)).toContain(cta.after);
+      expect(knownPaths.has(cta.href)).toBe(true);
+      expect(cta.heading.length).toBeGreaterThan(0);
+      expect(cta.body.length).toBeGreaterThan(0);
+      expect(cta.label.length).toBeGreaterThan(0);
+    }
+  });
+
   it("ships every guide image as a real file with matching dimensions", () => {
     const seen = new Set<string>();
     for (const guide of guides) {

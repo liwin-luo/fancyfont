@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { Faq, JsonLd, LinkedText, RelatedTools, Steps, faqJsonLd } from "@/components/sections";
-import { guidePath, type GuideDef } from "@/lib/guides";
+import { guidePath, type GuideCta, type GuideDef } from "@/lib/guides";
 import { getSiteUrl } from "@/lib/site";
 import { siteName } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
@@ -56,7 +56,8 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
       </div>
 
       {guide.sections.map((section) => (
-        <section key={section.heading} className="mt-10" aria-labelledby={sectionId(section.heading)}>
+        <Fragment key={section.heading}>
+          <section className="mt-10" aria-labelledby={sectionId(section.heading)}>
           <h2 id={sectionId(section.heading)} className="text-xl font-bold text-ink-900">
             {section.heading}
           </h2>
@@ -139,7 +140,9 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
               ))}
             </p>
           )}
-        </section>
+          </section>
+          {guide.cta?.after === section.heading && <GuideCtaBox cta={guide.cta} />}
+        </Fragment>
       ))}
 
       <RelatedTools locale="en" links={guide.relatedTools} />
@@ -151,6 +154,19 @@ export function GuidePageTemplate({ guide }: { guide: GuideDef }) {
         <Faq items={guide.faq} />
       </section>
     </div>
+  );
+}
+
+function GuideCtaBox({ cta }: { cta: GuideCta }) {
+  return (
+    <aside className="mt-6 rounded-xl border border-brand-200 bg-brand-50 p-5" aria-label={cta.heading}>
+      <p className="text-base font-bold text-brand-800">{cta.heading}</p>
+      <p className="mt-2 text-sm leading-relaxed text-ink-700">{cta.body}</p>
+      <Link href={cta.href} className="btn-primary mt-4">
+        {cta.label}
+        <span aria-hidden="true">→</span>
+      </Link>
+    </aside>
   );
 }
 
