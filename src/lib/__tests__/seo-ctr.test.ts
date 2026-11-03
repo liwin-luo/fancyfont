@@ -43,14 +43,28 @@ describe("strike-zone titles, FAQ, and above-the-fold modules", () => {
     const ptCoquette = getStylePage("pt-br", "coquette-font-generator")!.copy["pt-br"];
     const zhCursive = getStylePage("zh-cn", "cursive-text-generator")!.copy["zh-cn"];
     const ptCod = getPlatformPage("pt-br", "cod-name-generator")!.copy["pt-br"];
+    const enCoquette = getStylePage("en", "coquette-font-generator")!.copy.en;
     titles.push(
+      resolvedStyleTitle(enCoquette, "coquette-font-generator", "en"),
       resolvedStyleTitle(esCoquette, "coquette-font-generator", "es"),
       resolvedStyleTitle(ptCoquette, "coquette-font-generator", "pt-br"),
       resolvedStyleTitle(zhCursive, "cursive-text-generator", "zh-cn"),
       ptCod.title,
     );
-    expect(getStylePage("en", "coquette-font-generator")!.copy.en.title).toBeUndefined();
+    expect(enCoquette.title).toBe("Coquette Font Generator — Copy Paste Ribbon Letters");
+    expect(resolvedStyleTitle(enCoquette, "coquette-font-generator", "en")).toBe(enCoquette.title);
     expect(resolvedStyleTitle(esCoquette, "coquette-font-generator", "es")).toBe(esCoquette.title);
+    expect(getPlatformPage("en", "berry-avenue-fonts")!.copy.en.title).toBe(
+      "Berry Avenue Fonts — Free Copy & Paste (~20 Chars)",
+    );
+    expect(getPlatformPage("es", "berry-avenue-fonts")!.copy.es.title).toBe(
+      "Fuentes Berry Avenue — copia y pega el nombre (~20)",
+    );
+    expect(getPlatformPage("pt-br", "berry-avenue-fonts")!.copy["pt-br"].title).toBe(
+      "Fontes para Berry Avenue — copie grátis (~20 chars)",
+    );
+    expect(esCoquette.title).toBe("Letras coquette para copiar y pegar — lazo en bios");
+    expect(ptCoquette.title).toBe("Letras coquette para copiar e colar — laço na bios");
     expectVisibleFaq(esCoquette.faq);
     expectVisibleFaq(ptCoquette.faq);
     expectVisibleFaq(zhCursive.faq);

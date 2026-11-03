@@ -521,9 +521,9 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
   "coquette-font-generator": {
     navName: "Coquette",
     h1: "Letras coquette para copiar y pegar",
-    title: "Letras coquette para copiar y pegar — script y lazo",
+    title: "Letras coquette para copiar y pegar — lazo en bios",
     description:
-      "Genera letras coquette con lazo, cópialas y pégalas en Instagram o Discord. Vista previa y estilos que suelen verse en el móvil. No es un archivo de fuente.",
+      "Letras coquette gratis con lazo. Copia y pega script para el nombre de Instagram o el apodo de Discord. Vista previa en el móvil. No es un archivo de fuente.",
     intro:
       "Letras coquette para copiar y pegar: script y un solo lazo. Las filas son un lazo pequeño, un par de cintas y el emoji de cinta. Lo tierno de este sitio son las letras burbuja, y la página elegante lleva corona. Esta página se queda en el lazo.",
     examplesHeading: "Letras coquette para copiar",
