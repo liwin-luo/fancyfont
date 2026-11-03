@@ -119,7 +119,15 @@ describe("guides", () => {
     expect(roblox).toBeDefined();
     const dump = JSON.stringify(roblox);
     expect(dump).toMatch(/7-day/);
-    expect(dump).toMatch(/about 20/);
+    // 3–20 comes from the staff announcement; the Help article does not restate it.
+    expect(dump).toMatch(/3–20|3-20/);
+    expect(dump).toMatch(/Japanese/);
+    expect(dump).toMatch(/filtered/);
+    expect(dump).toMatch(/checked 2026-11-03/i);
+    // No "about 20" hedging and no styled-Unicode promises may creep back in.
+    expect(dump).not.toMatch(/about 20/);
+    expect(dump).not.toMatch(/can take styled Unicode/i);
+    expect(dump).not.toMatch(/fonts and symbols can go/i);
     // Free display name vs paid username change, without inventing prices.
     expect(dump).toMatch(/free/i);
     expect(dump).not.toMatch(/Robux \d/);

@@ -268,50 +268,78 @@ export const GUIDES_EN: GuideDef[] = [
   },
   {
     slug: "roblox-display-name-rules",
-    title: "Roblox Display Name: Fonts, the 7-Day Wait & Rejections | FancyFont",
-    h1: "Roblox Display Names: Which Fonts and Symbols Work, and the Rules Around Them",
+    title: "Roblox Display Names: 3–20, 7-Day Wait & What Help Says | FancyFont",
+    h1: "Roblox Display Names: Official Rules, the 7-Day Wait, and What Help Does Not Promise",
     description:
-      "How Roblox display names differ from usernames, which fonts and symbols survive the filter, the 7-day wait between changes, and what to do when a name is rejected.",
+      "Username vs display name on Roblox: the 7-day wait, 3–20 length from Roblox's staff announcement, free display-name changes, and why Help does not promise fancy Unicode or symbols. Checked against Roblox Support on 2026-11-03.",
     published: "2026-11-01",
-    updated: "2026-11-01",
+    updated: "2026-11-03",
     intro: [
-      "Roblox gives you two names, and they play by completely different rules. The username is your login handle — plain characters only, forever. The display name is what other players see above your head and in chat, and it is where fonts and symbols can go. Most confusion (and most rejected names) comes from mixing up which field is which.",
-      "This guide covers the difference, how to change a display name, why Roblox makes you wait 7 days between changes, and how to pick a styled name that survives the filter the first time.",
+      "Roblox gives you two names with different jobs. The username is your unique login handle. The display name is what other players see above your head, in chat, and on your profile. Most rejected names come from treating those fields as the same box.",
+      "This guide restates what Roblox Support publishes (checked 2026-11-03), cites the staff announcement for the 3–20 length, and clearly marks where Help is silent — especially about fancy Unicode letters and symbols. FancyFont cannot promise that a styled paste will save.",
     ],
     sections: [
       {
         heading: "Username vs display name: two fields, two rulebooks",
+        paragraphs: [
+          "Both fields have published rules — just not all in one place. The free weekly change, the continuous filtering, and the reset-to-username rule come from Roblox Help: Changing Your Display Name; the paid username change is described in Roblox Help: Changing Your Username; the username character limits are stated in Roblox Help: username character guidelines; and the 3–20 display-name length comes from the Roblox staff display-name announcement, which the current Help article does not repeat.",
+        ],
         bullets: [
-          "Username — your login handle, about 3–20 characters of letters, digits and a single underscore. No symbols, no spaces, no styled characters, ever. Changing it costs Robux.",
-          "Display name — the name other players see, about 20 characters, changeable for free. Styled Unicode characters can go here, and Roblox's filter decides what passes.",
-          "Both fields are filtered — the display name more loosely, but a decorated name can still be rejected or quietly changed by Roblox's automated filters.",
+          "Username — your unique login id. Roblox Help's signup guidelines say 3–20 characters, letters and digits only (A–Z, 0–9), and at most one underscore that is not the first or last character. No spaces, symbols, emoji, or styled letters. Changing it costs Robux (Roblox Help: Changing Your Username). See also Roblox Help: username character guidelines.",
+          "Display name — what others see. Roblox Help: Changing Your Display Name says you can change it for free, once every seven days, that it is filtered under the Community Rules, and that a name which breaks the rules may be reset to your username. Help does not publish a full list of allowed letters or symbols, and it does not say mathematical bold, script, or emoji will save.",
+          "Length for display names: Roblox's staff announcement set display names at 3–20 characters. The current Help article does not repeat that number. Treat 3–20 as the announced cap, then confirm on Roblox's own save screen.",
+        ],
+        links: [
+          {
+            label: "Roblox Help: username character guidelines",
+            href: "https://en.help.roblox.com/hc/en-us/articles/4412614080532-Xbox-Error-901",
+          },
+          {
+            label: "Roblox Help: Changing Your Username",
+            href: "https://en.help.roblox.com/hc/en-us/articles/203313130-Changing-Your-Username",
+          },
+          {
+            label: "Roblox Help: Changing Your Display Name",
+            href: "https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name",
+          },
+          {
+            label: "Roblox staff display-name announcement",
+            href: "https://devforum.roblox.com/t/say-hello-to-display-names/1036435",
+          },
         ],
       },
       {
         heading: "Change your display name in four steps",
         steps: [
-          "Log in and open Settings → Account Info, and find the Display Name field (Roblox moves settings around now and then — look for the display name entry, not the username one).",
-          "Prepare the styled name first in the Roblox name generator, and check the length: the display name takes about 20 characters, and the preview flags longer ones.",
-          "Paste the styled name into the field and save. If Roblox rejects it, the field tells you on the spot — nothing is spent yet.",
-          "Confirm the name in-game: look at it above your head and in the player list. This matters because of what comes next.",
+          "Log in and open Settings → Account Info, then open the Change Display Name entry (Roblox moves settings around now and then — look for the display name field, not the username one).",
+          "Draft a short plain name first (3–20 characters). If you try decorations, keep a plain backup — Help does not guarantee styled characters will save.",
+          "Paste into Roblox's field and save. Rejection happens in that UI; a failed save does not spend Robux on the display name.",
+          "After a successful save, check the name in an experience. You can change the display name only once every seven days, so what you saved is what you wear for the week.",
         ],
         image: {
           src: "/guides/roblox-tool.webp",
-          alt: "FancyFont's Roblox generator with ShadowHero typed in, showing the about-20 display name count",
+          alt: "FancyFont's Roblox generator with ShadowHero typed in, counting the display name against the announced 3–20 range",
           width: 1200,
           height: 650,
           caption:
-            "Step 2's preparation screen: the Roblox generator keeps the login name plain, styles only the display name, and states the about-20 limit before you copy anything.",
+            "Step 2's preparation screen: the Roblox generator keeps the login username plain, drafts the display name separately, and counts it against the announced 3–20 range — whether a styled draft saves is Roblox's to decide, not the preview's.",
         },
         paragraphs: [
-          "What comes next is the wait: Roblox applies a 7-day waiting period between display name changes. Every change you save locks you out of another one for about a week — so treat each change as spending a slot, and check the result in-game before you close the settings page.",
+          "What comes next is the wait: you can change a display name only once every seven days, and every successful save occupies that week-long window. Check the saved name in an experience before you rely on it.",
         ],
       },
       {
-        heading: "Which fonts and symbols survive Roblox's filter",
+        heading: "What Roblox publishes about characters (and what it does not)",
         paragraphs: [
-          "The same rule of thumb holds here as everywhere else: styles that swap each letter for exactly one character (bold, cursive, small caps) pass far more often than styles that stack combining marks on every letter. Roblox's filter is stricter than most apps, and it changes over time — a name that passed last month can fail this month.",
-          "A practical habit from players who change names often: keep the base name plain and add decoration you can strip. If an update rejects the symbols, you still have a clean name underneath instead of a week-long wait with a broken one.",
+          "Roblox Help: Changing Your Display Name states that display names are filtered continuously and must follow Community Rules. It notes Japanese characters in a beta for some users, with more character support planned. It does not list Latin \"fancy font\" alphabets, emoji, or punctuation symbols as allowed. Checked 2026-11-03.",
+          "Because Help is silent on a full allow-list, this page does not invent one. Independent testers who ran names through Roblox's own validation (for example Alt Typist's 15 October 2026 write-up) report that symbols, emoji, and styled Unicode letters are commonly refused, while plain letters and digits — with at most one space and one underscore — are the dependable set. That is a third-party test, not a Roblox document: always believe the Save result on your own account.",
+          "Practical habit: keep a plain base name you can fall back to. If a paste fails or is later reset to your username, wait out the seven-day timer only after a successful save — not after a rejected attempt that never applied.",
+        ],
+        links: [
+          {
+            label: "Roblox Help: Changing Your Display Name",
+            href: "https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name",
+          },
         ],
         seeAlso: [
           {
@@ -327,39 +355,39 @@ export const GUIDES_EN: GuideDef[] = [
       {
         heading: "If the name is rejected or reverts",
         bullets: [
-          "Drop the decoration first. A plain short name Roblox accepts beats a styled one it bounces — especially with the 7-day wait behind it.",
-          "Re-type rather than re-paste once. Some paste operations carry invisible characters along; typing the styled name's characters fresh rules that out.",
-          "Remember the experience games. Adopt Me and Berry Avenue show your Roblox display name, so the same rules (and the same about-20 limit) follow you there — Berry Avenue's overhead name preview truncates past about 20.",
-          "Wait out the filter. Roblox's automated moderation can change a display name on its own; a rejected style usually stays rejected until you pick a plainer one.",
+          "Drop the decoration first and shorten toward the 3–20 range. A plain short name Roblox accepts beats a styled one it bounces — especially with the 7-day wait behind it.",
+          "Re-type rather than re-paste once. Some paste operations carry invisible characters along; typing the name fresh rules that out.",
+          "Remember the experience games. Adopt Me and Berry Avenue show your Roblox display name, so the same rules (and the same 3–20 range) follow you there — Berry Avenue's overhead name preview can truncate long names.",
+          "Expect resets, not leniency. Roblox's automated moderation can reset a display name to the username on its own, and Help offers no appeal that makes a styled name pass — a rejected style usually stays rejected until you pick a plainer one.",
         ],
       },
     ],
     faq: [
       {
         q: "How often can I change my Roblox display name?",
-        a: "Roblox applies a 7-day waiting period between display name changes. The change itself is free — it is the wait that makes each one count.",
+        a: "Once every seven days, according to Roblox Help: Changing Your Display Name. The change is free; the wait is what makes each successful save count.",
       },
       {
         q: "Can my Roblox display name have symbols and fonts?",
-        a: "It can take styled Unicode characters, but Roblox's filter decides what stays. One-character-per-letter styles survive far more often than stacked-mark decorations, and nothing is guaranteed — test in-game right after saving.",
+        a: "Roblox Help does not publish a list of fancy Unicode fonts or symbols that display names accept. It says names are filtered and mentions Japanese characters only as a beta for some users (checked 2026-11-03). Third-party checks against Roblox's validation often see symbols, emoji, and styled letters rejected. Do not rely on a generator preview — only Roblox's save screen decides.",
       },
       {
         q: "Can my Roblox username have symbols or fonts?",
-        a: "No. Usernames are locked to letters, digits and a single underscore. Styled text only ever belongs in the display name.",
+        a: "No. Roblox Help: username character guidelines limit usernames to 3–20 letters and digits with at most one underscore that is not first or last. Styled text does not belong in the username.",
       },
       {
         q: "Does changing your display name cost Robux?",
-        a: "No — display name changes are free. Changing the username itself is the paid one, and it keeps the plain-character rules.",
+        a: "No. Roblox Help: Changing Your Display Name describes display-name changes as free. Username changes require Robux (Roblox Help: Changing Your Username). This page does not invent a Robux price.",
       },
       {
         q: "How long can a Roblox display name be?",
-        a: "About 20 characters, and decorations count toward it. The generator's preview counts code points and warns before you copy.",
+        a: "Roblox's staff display-name announcement said 3–20 characters. The current Help article does not repeat that figure. Use 3–20 as the announced range, count decorations as characters if you attempt any, and confirm in Settings.",
       },
     ],
     cta: {
-      after: "Which fonts and symbols survive Roblox's filter",
-      heading: "Try it: build a display name that passes",
-      body: "Type your base name and pick a one-character-per-letter style — the Roblox preview counts the about-20 display name limit and keeps your login username plain.",
+      after: "What Roblox publishes about characters (and what it does not)",
+      heading: "Try it: draft a display name that fits",
+      body: "Type your base name and the Roblox preview counts it against the announced 3–20 range while keeping your login username plain — the save screen, not the preview, decides what Roblox accepts.",
       label: "Open the Roblox Name Generator",
       href: "/roblox-name-generator/",
     },
@@ -373,7 +401,7 @@ export const GUIDES_EN: GuideDef[] = [
       {
         href: "/berry-avenue-fonts/",
         title: "Berry Avenue Fonts",
-        description: "Head-name preview that truncates past about 20 characters.",
+        description: "Head-name preview that truncates past 20 characters.",
       },
       {
         href: "/adopt-me-fonts/",
