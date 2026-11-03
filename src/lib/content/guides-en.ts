@@ -116,6 +116,13 @@ export const GUIDES_EN: GuideDef[] = [
         a: "About 150 characters. Instagram counts its own way, so the generator's count is a guide, not a guarantee — if the line is longer, trim it and check the saved profile.",
       },
     ],
+    cta: {
+      after: "Where styled text works on Instagram — and where it never does",
+      heading: "Try it: style your bio line",
+      body: "Type your bio line, pick a style, and copy — the Instagram tool keeps your line breaks and counts the about-150 bio limit before you paste.",
+      label: "Open the Instagram Fonts Generator",
+      href: "/instagram-fonts/",
+    },
     appearOn: ["instagram-fonts"],
     relatedTools: [
       {
@@ -233,6 +240,13 @@ export const GUIDES_EN: GuideDef[] = [
         a: "Only if their game build has the glyph and the name passes the filter. Paste it in and look at the lobby — if you see a box, pick a plainer style.",
       },
     ],
+    cta: {
+      after: "What each decoration costs you",
+      heading: "Try it: build a name that fits",
+      body: "Type your base name, add one decoration pair, and check the code-point count before you copy — the builder flags names over the about-16 PUBG and about-12 Free Fire budgets.",
+      label: "Open the Gaming Name Generator",
+      href: "/gaming-name-generator/",
+    },
     appearOn: ["pubg-name-generator", "free-fire-name-generator", "cod-name-generator"],
     relatedTools: [
       {
@@ -342,6 +356,13 @@ export const GUIDES_EN: GuideDef[] = [
         a: "About 20 characters, and decorations count toward it. The generator's preview counts code points and warns before you copy.",
       },
     ],
+    cta: {
+      after: "Which fonts and symbols survive Roblox's filter",
+      heading: "Try it: build a display name that passes",
+      body: "Type your base name and pick a one-character-per-letter style — the Roblox preview counts the about-20 display name limit and keeps your login username plain.",
+      label: "Open the Roblox Name Generator",
+      href: "/roblox-name-generator/",
+    },
     appearOn: ["roblox-name-generator", "adopt-me-fonts", "berry-avenue-fonts"],
     relatedTools: [
       {
