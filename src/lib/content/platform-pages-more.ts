@@ -148,6 +148,57 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "whatsapp-fonts": {
+      navName: "WhatsApp",
+      h1: "WhatsApp Fonts Generator",
+      title: "WhatsApp Fonts Generator – Stylish Text, Name & About",
+      description:
+        "Unicode fonts for WhatsApp: style your name (about 25 characters), your About line (about 139) and your chat messages. How the built-in formatting differs. Free, no sign-up.",
+      intro:
+        "WhatsApp has no font picker, but chat text is plain text, so Unicode styles show up in messages, in the profile name (about 25 characters) and in the About line (about 139). The *bold* and _italic_ asterisk tricks are a separate built-in feature.",
+      defaultText: "WhatsApp",
+      presets: [
+        { label: "Clean bold", left: "", right: "", transform: "bold" },
+        { label: "Soft script", left: "", right: "", transform: "script" },
+        { label: "Small caps", left: "", right: "", transform: "smallCaps" },
+        { label: "Wide", left: "", right: "", transform: "fullwidth" },
+      ],
+      guidance: [
+        {
+          label: "Name",
+          body: "Around 25 characters. WhatsApp shows it next to your photo in chats and groups, so a short styled name fits best.",
+        },
+        {
+          label: "About",
+          body: "The About line is around 139 characters. One styled line fits; a long decorated paragraph does not.",
+        },
+        {
+          label: "Messages",
+          body: "Chat text is plain text, so Unicode styles render in messages, group names and your About. WhatsApp's own *bold*, _italic_ and ~strikethrough~ tricks are separate built-in formatting and work alongside these fonts.",
+        },
+      ],
+      compatNote:
+        "These are Unicode characters, not a WhatsApp feature. Rendering can differ on WhatsApp Web and older devices. Generate, paste, and check in the chat or profile you are styling. FancyFont is not affiliated with Meta or WhatsApp.",
+      faq: [
+        {
+          q: "Can I use fonts in WhatsApp?",
+          a: "Yes. WhatsApp chats are plain text, so Unicode styles show up in messages, the profile name (around 25 characters) and the About line (around 139). The person reading needs a device that can display those characters.",
+        },
+        {
+          q: "Does WhatsApp have its own text formatting?",
+          a: "Yes. WhatsApp has built-in formatting: *bold*, _italic_, ~strikethrough~ and monospace with triple backticks. That is separate from the Unicode fonts on this page, and both can be used together.",
+        },
+        {
+          q: "How long can my WhatsApp name and About be?",
+          a: "The profile name is around 25 characters and the About line around 139. The preview on this page warns when the text goes over those fits.",
+        },
+        {
+          q: "Is this an official WhatsApp tool?",
+          a: "No. FancyFont is independent. WhatsApp and its marks belong to Meta.",
+        },
+      ],
+    },
+
     "cod-name-generator": {
       navName: "COD",
       h1: "COD Name Generator",
@@ -547,6 +598,57 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "whatsapp-fonts": {
+      navName: "WhatsApp",
+      h1: "Generador de fuentes para WhatsApp",
+      title: "Fuentes para WhatsApp – Texto, nombre y recado con estilo",
+      description:
+        "Fuentes Unicode para WhatsApp: estiliza tu nombre (unas 25 letras), tu recado (unas 139) y los mensajes. Cómo funciona el formato integrado. Gratis, sin registro.",
+      intro:
+        "WhatsApp no tiene selector de fuentes, pero los chats son texto plano: los estilos Unicode se ven en los mensajes, en el nombre (unas 25 letras) y en el recado (unas 139). Los trucos de *negrita* y _cursiva_ son una función integrada distinta.",
+      defaultText: "WhatsApp",
+      presets: [
+        { label: "Negrita limpia", left: "", right: "", transform: "bold" },
+        { label: "Script suave", left: "", right: "", transform: "script" },
+        { label: "Versalitas", left: "", right: "", transform: "smallCaps" },
+        { label: "Ancha", left: "", right: "", transform: "fullwidth" },
+      ],
+      guidance: [
+        {
+          label: "Nombre",
+          body: "Unas 25 letras. WhatsApp lo muestra junto a tu foto en chats y grupos, así que un nombre corto con estilo encaja mejor.",
+        },
+        {
+          label: "Recado",
+          body: "El recado ronda las 139 letras. Una línea con estilo cabe; un párrafo decorado largo no.",
+        },
+        {
+          label: "Mensajes",
+          body: "El texto del chat es plano, así que los estilos Unicode se ven en mensajes, nombres de grupo y tu recado. El *negrita*, _cursiva_ y ~tachado~ de WhatsApp son formato integrado aparte y se pueden combinar con estas fuentes.",
+        },
+      ],
+      compatNote:
+        "Estos son caracteres Unicode, no una función de WhatsApp. El renderizado puede variar en WhatsApp Web y en dispositivos antiguos. Genera, pega y comprueba en el chat o perfil que estés estilizando. FancyFont no está afiliado a Meta ni a WhatsApp.",
+      faq: [
+        {
+          q: "¿Puedo usar fuentes en WhatsApp?",
+          a: "Sí. Los chats de WhatsApp son texto plano, así que los estilos Unicode se ven en mensajes, en el nombre (unas 25 letras) y en el recado (unas 139). Quien lo lea necesita un dispositivo que muestre esos caracteres.",
+        },
+        {
+          q: "¿WhatsApp tiene su propio formato de texto?",
+          a: "Sí. WhatsApp tiene formato integrado: *negrita*, _cursiva_, ~tachado~ y monoespaciado con triple acento grave. Es independiente de las fuentes Unicode de esta página, y se pueden usar a la vez.",
+        },
+        {
+          q: "¿Cuánto miden el nombre y el recado de WhatsApp?",
+          a: "El nombre ronda las 25 letras y el recado las 139. La vista previa de esta página avisa cuando el texto se pasa de esas medidas.",
+        },
+        {
+          q: "¿Es una herramienta oficial de WhatsApp?",
+          a: "No. FancyFont es independiente. WhatsApp y sus marcas pertenecen a Meta.",
+        },
+      ],
+    },
+
     "cod-name-generator": {
       navName: "COD",
       h1: "Generador de nombres para COD",
@@ -946,6 +1048,57 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "whatsapp-fonts": {
+      navName: "WhatsApp",
+      h1: "Gerador de fontes para WhatsApp",
+      title: "Fontes para WhatsApp – Texto, nome e recado com estilo",
+      description:
+        "Fontes Unicode para WhatsApp: estilize o nome (cerca de 25 caracteres), o recado (cerca de 139) e as mensagens. Como funciona a formatação nativa. Grátis, sem cadastro.",
+      intro:
+        "O WhatsApp não tem seletor de fontes, mas o texto do chat é texto simples: os estilos Unicode aparecem nas mensagens, no nome (cerca de 25 caracteres) e no recado (cerca de 139). Os truques de *negrito* e _itálico_ são um recurso nativo diferente.",
+      defaultText: "WhatsApp",
+      presets: [
+        { label: "Negrito limpo", left: "", right: "", transform: "bold" },
+        { label: "Script suave", left: "", right: "", transform: "script" },
+        { label: "Versaletes", left: "", right: "", transform: "smallCaps" },
+        { label: "Larga", left: "", right: "", transform: "fullwidth" },
+      ],
+      guidance: [
+        {
+          label: "Nome",
+          body: "Cerca de 25 caracteres. O WhatsApp mostra ele ao lado da sua foto nos chats e grupos, então um nome curto estilizado cabe melhor.",
+        },
+        {
+          label: "Recado",
+          body: "O recado tem cerca de 139 caracteres. Uma linha estilizada cabe; um parágrafo decorado longo não.",
+        },
+        {
+          label: "Mensagens",
+          body: "O texto do chat é texto simples, então estilos Unicode aparecem em mensagens, nomes de grupo e no seu recado. O *negrito*, _itálico_ e ~tachado~ do WhatsApp são formatação nativa separada e funcionam junto com estas fontes.",
+        },
+      ],
+      compatNote:
+        "Estes são caracteres Unicode, não um recurso do WhatsApp. A renderização pode variar no WhatsApp Web e em aparelhos mais antigos. Gere, cole e confira no chat ou perfil que você está estilizando. FancyFont não é afiliado à Meta nem ao WhatsApp.",
+      faq: [
+        {
+          q: "Posso usar fontes no WhatsApp?",
+          a: "Sim. Os chats do WhatsApp são texto simples, então estilos Unicode aparecem em mensagens, no nome (cerca de 25 caracteres) e no recado (cerca de 139). Quem lê precisa de um aparelho que mostre esses caracteres.",
+        },
+        {
+          q: "O WhatsApp tem formatação de texto própria?",
+          a: "Sim. O WhatsApp tem formatação nativa: *negrito*, _itálico_, ~tachado~ e monoespaçado com três crases. É separado das fontes Unicode desta página, e os dois podem ser usados juntos.",
+        },
+        {
+          q: "Qual é o limite do nome e do recado no WhatsApp?",
+          a: "O nome tem cerca de 25 caracteres e o recado cerca de 139. A prévia desta página avisa quando o texto passa dessas medidas.",
+        },
+        {
+          q: "Isto é uma ferramenta oficial do WhatsApp?",
+          a: "Não. FancyFont é independente. WhatsApp e suas marcas pertencem à Meta.",
+        },
+      ],
+    },
+
     "cod-name-generator": {
       navName: "COD",
       h1: "Gerador de nomes para Call of Duty",
@@ -1342,6 +1495,57 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "whatsapp-fonts": {
+      navName: "WhatsApp",
+      h1: "WhatsApp 字体生成器",
+      title: "WhatsApp 字体 – 消息、名字与简介样式",
+      description:
+        "用 Unicode 样式装饰 WhatsApp 的名字（约 25 字）、简介（约 139 字）和聊天消息，并说明内置格式的区别。免费、无需注册。",
+      intro:
+        "WhatsApp 没有自带的字体选择，但聊天是纯文本，所以 Unicode 样式在消息、名字（约 25 字）和简介（约 139 字）里都能显示。星号加粗、下划线斜体是内置格式，与这里的字体是两回事。",
+      defaultText: "WhatsApp",
+      presets: [
+        { label: "干净加粗", left: "", right: "", transform: "bold" },
+        { label: "柔和花体", left: "", right: "", transform: "script" },
+        { label: "小型大写", left: "", right: "", transform: "smallCaps" },
+        { label: "全角宽体", left: "", right: "", transform: "fullwidth" },
+      ],
+      guidance: [
+        {
+          label: "名字",
+          body: "约 25 字。WhatsApp 在聊天和群聊里把它显示在头像旁边，短的带样式名字正好。",
+        },
+        {
+          label: "简介",
+          body: "简介约 139 字。一行带样式的刚好，长段装饰放不下。",
+        },
+        {
+          label: "消息",
+          body: "聊天是纯文本，所以 Unicode 样式在消息、群名和简介里都能显示。WhatsApp 的 *加粗*、_斜体_、~删除线~ 是内置格式，与本页字体互不冲突，可以同时使用。",
+        },
+      ],
+      compatNote:
+        "这些是 Unicode 字符，不是 WhatsApp 的功能。WhatsApp Web 和旧设备的显示可能不同。生成后请粘贴到你要用的聊天或资料里确认。FancyFont 与 Meta 或 WhatsApp 无隶属关系。",
+      faq: [
+        {
+          q: "WhatsApp 里能用字体吗？",
+          a: "可以。WhatsApp 聊天是纯文本，Unicode 样式在消息、名字（约 25 字）和简介（约 139 字）里都能显示。对方设备也要能显示这些字符。",
+        },
+        {
+          q: "WhatsApp 有自己的文字格式吗？",
+          a: "有。WhatsApp 内置格式：*加粗*、_斜体_、~删除线~，以及三个反引号的等宽字体。这与本页的 Unicode 字体是两回事，也可以同时使用。",
+        },
+        {
+          q: "WhatsApp 名字和简介能有多长？",
+          a: "名字约 25 字，简介约 139 字。本页预览会在超出时提醒。",
+        },
+        {
+          q: "这是 WhatsApp 官方工具吗？",
+          a: "不是。FancyFont 独立运营。WhatsApp 及其标志属于 Meta。",
+        },
+      ],
+    },
+
     "cod-name-generator": {
       navName: "COD",
       h1: "COD 名字生成器",
@@ -1738,6 +1942,57 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
       ],
     },
+    "whatsapp-fonts": {
+      navName: "WhatsApp",
+      h1: "Generator Font WhatsApp",
+      title: "Font WhatsApp – Teks, nama, dan info bergaya",
+      description:
+        "Font Unicode untuk WhatsApp: hias nama (sekitar 25 karakter), info (sekitar 139), dan pesan chat. Perbedaan format bawaan dijelaskan. Gratis, tanpa daftar.",
+      intro:
+        "WhatsApp tidak punya pemilih font, tapi teks chat adalah teks biasa, jadi gaya Unicode tampil di pesan, nama (sekitar 25 karakter), dan info (sekitar 139). Trik *tebal* dan _miring_ adalah fitur bawaan yang berbeda.",
+      defaultText: "WhatsApp",
+      presets: [
+        { label: "Tebal bersih", left: "", right: "", transform: "bold" },
+        { label: "Script lembut", left: "", right: "", transform: "script" },
+        { label: "Small caps", left: "", right: "", transform: "smallCaps" },
+        { label: "Lebar", left: "", right: "", transform: "fullwidth" },
+      ],
+      guidance: [
+        {
+          label: "Nama",
+          body: "Sekitar 25 karakter. WhatsApp menampilkannya di samping foto kamu di chat dan grup, jadi nama pendek bergaya paling pas.",
+        },
+        {
+          label: "Info",
+          body: "Info sekitar 139 karakter. Satu baris bergaya muat; paragraf dekorasi panjang tidak.",
+        },
+        {
+          label: "Pesan",
+          body: "Teks chat adalah teks biasa, jadi gaya Unicode tampil di pesan, nama grup, dan info. *Tebal*, _miring_, ~coret~ WhatsApp adalah format bawaan terpisah dan bisa dipakai bersama font ini.",
+        },
+      ],
+      compatNote:
+        "Ini karakter Unicode, bukan fitur WhatsApp. Tampilan bisa berbeda di WhatsApp Web dan perangkat lama. Buat, tempel, dan periksa di chat atau profil yang kamu hias. FancyFont tidak berafiliasi dengan Meta atau WhatsApp.",
+      faq: [
+        {
+          q: "Apakah bisa memakai font di WhatsApp?",
+          a: "Bisa. Chat WhatsApp adalah teks biasa, jadi gaya Unicode tampil di pesan, nama (sekitar 25 karakter), dan info (sekitar 139). Yang membaca butuh perangkat yang bisa menampilkan karakter tersebut.",
+        },
+        {
+          q: "Apakah WhatsApp punya format teks sendiri?",
+          a: "Ya. WhatsApp punya format bawaan: *tebal*, _miring_, ~coret~, dan monospace dengan tiga backtick. Itu terpisah dari font Unicode di halaman ini, dan keduanya bisa dipakai bersama.",
+        },
+        {
+          q: "Berapa panjang nama dan info di WhatsApp?",
+          a: "Nama sekitar 25 karakter dan info sekitar 139. Pratinjau di halaman ini memperingatkan saat teks melewati batas itu.",
+        },
+        {
+          q: "Apakah ini alat resmi WhatsApp?",
+          a: "Bukan. FancyFont independen. WhatsApp dan mereknya milik Meta.",
+        },
+      ],
+    },
+
     "cod-name-generator": {
       navName: "COD",
       h1: "Generator nama COD",

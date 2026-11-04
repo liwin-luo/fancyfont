@@ -14,6 +14,7 @@ export type PlatformPreviewId =
   | "discord"
   | "roblox"
   | "facebook"
+  | "whatsapp"
   | "youtube"
   | "pubg"
   | "freefire"
@@ -41,6 +42,7 @@ export const previewFields: Record<PlatformPreviewId, PreviewFields> = {
   roblox: { nameLabel: "displayName", nameMax: previewNameMax("roblox"), handle: "roblox" },
   facebook: { nameLabel: "displayName", nameMax: previewNameMax("facebook"), extra: { label: "bio", max: extraMax("facebook") }, handle: "social" },
   youtube: { nameLabel: "displayName", nameMax: previewNameMax("youtube"), extra: { label: "bio", max: extraMax("youtube") }, handle: "youtube" },
+  whatsapp: { nameLabel: "displayName", nameMax: previewNameMax("whatsapp"), extra: { label: "status", max: extraMax("whatsapp") } },
   pubg: { nameLabel: "nickname", nameMax: previewNameMax("pubg") },
   freefire: { nameLabel: "nickname", nameMax: previewNameMax("freefire") },
   cod: { nameLabel: "nickname", nameMax: previewNameMax("cod") },

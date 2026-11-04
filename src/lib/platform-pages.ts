@@ -86,6 +86,14 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
     related: ["roblox-name-generator", "instagram-fonts", "coquette-font-generator"],
   },
   {
+    slug: "whatsapp-fonts",
+    platform: "WhatsApp",
+    toolMode: "text",
+    preview: "whatsapp",
+    featuredStyles: ["bold", "script", "smallCaps", "fullwidth", "bubble"],
+    related: ["instagram-fonts", "facebook-fonts", "tiktok-fonts"],
+  },
+  {
     slug: "cod-name-generator",
     platform: "COD",
     toolMode: "gaming",

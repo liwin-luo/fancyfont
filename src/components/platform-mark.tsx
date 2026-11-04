@@ -14,6 +14,7 @@ export const platformTone: Record<PlatformPreviewId | "all", { bg: string; fg: s
   youtube: { bg: "#e10600", fg: "#ffffff" },
   roblox: { bg: "#e2231a", fg: "#ffffff" },
   fortnite: { bg: "#2b3990", fg: "#cfe3ff" },
+  whatsapp: { bg: "#25d366", fg: "#ffffff" },
 };
 
 export function PlatformGlyph({ id, className }: { id: PlatformPreviewId | "all"; className?: string }) {

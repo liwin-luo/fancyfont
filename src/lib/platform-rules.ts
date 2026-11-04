@@ -47,6 +47,8 @@ export const platformFieldRules: PlatformFieldRule[] = [
   { platformId: "youtube", field: "display_name", approxMax: 100, unit: "code_points", unicodePolicy: "often_shown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "youtube", field: "bio", approxMax: 1000, unit: "code_points", unicodePolicy: "often_shown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "youtube", field: "username", approxMax: 30, unit: "code_points", unicodePolicy: "usually_stripped", emojiPolicy: "usually_stripped", confidence: "published_approx", sourceNote: "Handle is about 30 lowercase ASCII characters.", testedAt: null },
+  { platformId: "whatsapp", field: "display_name", approxMax: 25, unit: "code_points", unicodePolicy: "often_shown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
+  { platformId: "whatsapp", field: "status", approxMax: 139, unit: "code_points", unicodePolicy: "often_shown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "pubg", field: "player_name", approxMax: 16, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "freefire", field: "player_name", approxMax: 12, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
   { platformId: "cod", field: "player_name", approxMax: 16, unit: "code_points", unicodePolicy: "unknown", emojiPolicy: "unknown", confidence: "published_approx", sourceNote: NOTE, testedAt: null },
@@ -61,6 +63,7 @@ const NAME_FIELD: Record<string, PlatformFieldRule["field"]> = {
   roblox: "display_name",
   facebook: "display_name",
   youtube: "display_name",
+  whatsapp: "display_name",
   pubg: "player_name",
   freefire: "player_name",
   cod: "player_name",
@@ -73,6 +76,7 @@ const EXTRA_FIELD: Record<string, PlatformFieldRule["field"]> = {
   discord: "status",
   facebook: "bio",
   youtube: "bio",
+  whatsapp: "status",
 };
 
 export function fieldRule(platformId: string, field: PlatformFieldRule["field"]): PlatformFieldRule | undefined {

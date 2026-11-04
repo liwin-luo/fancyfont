@@ -215,6 +215,8 @@ export interface UiStrings {
     friends: string;
     subscribers: string;
     subscribe: string;
+    /** WhatsApp profile: the About field label. */
+    whatsappInfo: string;
   };
   bio: { drafts: string; fillHint: string; boardTail: string; png: string };
   symbolCatNotes: { invisible: string; blankLink: string };
@@ -512,6 +514,7 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Friends",
       subscribers: "subscribers",
       subscribe: "Subscribe",
+      whatsappInfo: "About",
     },
     bio: {
       drafts: "Draft",
@@ -824,6 +827,7 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Amigos",
       subscribers: "suscriptores",
       subscribe: "Suscribirse",
+      whatsappInfo: "Info",
     },
     bio: {
       drafts: "Borrador",
@@ -1144,6 +1148,7 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Amigos",
       subscribers: "inscritos",
       subscribe: "Inscrever-se",
+      whatsappInfo: "Recado",
     },
     bio: {
       drafts: "Rascunho",
@@ -1455,6 +1460,7 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "好友",
       subscribers: "位订阅者",
       subscribe: "订阅",
+      whatsappInfo: "简介",
     },
     bio: {
       drafts: "草稿",
@@ -1766,6 +1772,7 @@ export const ui: Record<Locale, UiStrings> = {
       friends: "Teman",
       subscribers: "subscriber",
       subscribe: "Berlangganan",
+      whatsappInfo: "Info",
     },
     bio: {
       drafts: "Draf",

@@ -246,6 +246,9 @@ export function PlatformPreviewScreen({
       {id === "facebook" && (
         <FacebookScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} friends={t.friends} addFriend={t.addFriend} />
       )}
+      {id === "whatsapp" && (
+        <WhatsAppScreen name={name} about={extra} copyText={styled} toast={toast} infoLabel={t.whatsappInfo} />
+      )}
       {id === "youtube" && (
         <YouTubeScreen name={name} handle={handle} bio={extra} copyText={styled} toast={toast} subscribers={t.subscribers} subscribe={t.subscribe} />
       )}
@@ -496,6 +499,50 @@ function FacebookScreen({
         <p className="mt-2 text-sm font-semibold text-[#65676b]">{lucky.followers} {friends}</p>
         <div className="mt-4 inline-flex h-9 items-center rounded-md bg-[#0866ff] px-4 text-sm font-semibold text-white">
           {addFriend}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WhatsAppScreen({
+  name,
+  about,
+  copyText,
+  toast,
+  infoLabel,
+}: {
+  name: string;
+  about: string;
+  copyText: string;
+  toast: string;
+  infoLabel: string;
+}) {
+  return (
+    <div className="bg-[#ece5dd] text-[#111b21]" style={{ fontFamily: APP_FONT }}>
+      <div className="flex items-center gap-3 bg-[#075e54] px-4 pb-3 pt-5 text-white">
+        <span aria-hidden="true" className="text-xl leading-none opacity-80">
+          ‹
+        </span>
+        <img src={AVATAR} alt="" className="h-11 w-11 rounded-full border border-white/40 object-cover" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2">
+            <p className="result-text min-w-0 truncate text-base font-semibold">{name}</p>
+            <NameCopy text={copyText} toast={toast} />
+          </div>
+          <p className="text-xs text-white/70">online</p>
+        </div>
+      </div>
+      <div className="px-4 py-4">
+        <div className="overflow-hidden rounded-lg border border-line bg-white">
+          <p className="border-b border-line px-3 py-2 text-xs font-semibold text-[#075e54]">{infoLabel}</p>
+          {about ? <p className="result-text px-3 py-2 text-sm leading-5">{about}</p> : null}
+        </div>
+        <div className="mt-4 flex justify-end">
+          <div className="max-w-[80%] rounded-lg bg-[#dcf8c6] px-3 py-2 shadow-sm">
+            <p className="result-text text-sm leading-5">{copyText}</p>
+            <p className="mt-0.5 text-right text-[10px] text-[#8696a0]">11:20 ✓✓</p>
+          </div>
         </div>
       </div>
     </div>
