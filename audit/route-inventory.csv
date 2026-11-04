@@ -1,0 +1,46 @@
+path,page_type,tool_mode,locales,sitemap_priority,hreflang_group,notes
+/,home,-,all5,1.0,yes,首页：H1 "Generate and Copy Fancy Text"；hero 无输入框（静态示例预览卡）；三工具卡/热门风格/热门符号/全量目录/How/兼容性提示/FAQ；WebSite+FAQPage JSON-LD
+/fancy-text-generator/,tool,text,all5,0.9,yes,FancyTextTool：30 风格/9 分类/搜索/收藏/最近/字数三口径/PNG/分享；WebApplication+FAQPage
+/gaming-name-generator/,tool,gaming,all5,0.9,yes,GamingNameTool：5 vibe 风格/装饰对/自定义组合/保存+全复制/兼容分析+平台预览卡；24 字符上限
+/symbols/,tool,library,all5,0.9,yes,SymbolsTool：388 符号/18 分类/搜索/board 多选 40/一键复制/收藏/最近/#分类深链/13 组合
+/blank-space/,tool,text,all5,0.8,yes,BlankSpaceTool：不可见字符复制与说明
+/privacy/,legal,-,all5,0.3,yes,隐私政策（含分析工具说明）
+/terms/,legal,-,all5,0.3,yes,条款
+/about/,info,-,all5,0.5,yes,关于
+/contact/,info,-,all5,0.3,yes,联系（hello@fancyfont.tools）
+/mcp/,info,-,all5,0.5,yes,本地 MCP 服务器安装页（public/fancyfont-mcp.mjs 下载）
+/cursive-text-generator/,style-convert,text,all5,0.8,yes,script+boldScript；related: bold/cute/elegant
+/gothic-text-generator/,style-convert,text,all5,0.8,yes,fraktur+boldFraktur；FAQ 声明 Fraktur=Old English 同页
+/bold-text-generator/,style-convert,text,all5,0.8,yes,bold+sansBold+boldItalic
+/italic-text-generator/,style-convert,text,all5,0.8,yes,italic+sansItalic
+/bubble-letters-generator/,style-convert,text,all5,0.8,yes,bubble+circled+squared
+/small-caps-generator/,style-convert,text,all5,0.8,yes,smallCaps
+/strikethrough-text-generator/,style-convert,text,all5,0.8,yes,strike+slash+boldStrike
+/glitch-text-generator/,style-convert,text,all5,0.8,yes,zalgoLight/Medium/Heavy
+/upside-down-text-generator/,style-convert,text,all5,0.8,yes,upsideDown
+/tiny-text-generator/,style-convert,text,all5,0.8,yes,superscript+subscript
+/cute-font-generator/,style-look,text,all5,0.8,yes,Look 页：bubble/script/circled × 4 组专属装饰(♡ ୨୧ ✿ ꒰꒱)
+/cool-font-generator/,style-look,text,all5,0.8,yes,Look 页：bold/smallCaps × 4 组专属装饰(⚡ ★彡 ꧁༒ 『』)
+/dark-font-generator/,style-look,text,all5,0.8,yes,Look 页：boldFraktur/fraktur × 3 组专属装饰(☠︎ † ☾☽)
+/elegant-font-generator/,style-look,text,all5,0.8,yes,Look 页：boldScript/script × 3 组专属装饰(♛ ⚜ ❦)
+/aesthetic-text-generator/,style-look,text,all5,0.8,yes,Look 页：fullwidth/smallCaps × 2 组专属装饰(·˚ ✧･ﾟ)
+/coquette-font-generator/,style-look,text,all5,0.8,yes,Look 页：boldScript/script × 3 组专属装饰(𐙚 𝜗𝜚 🎀)；已换 CTR title(e8b85c3)
+/preppy-font-generator/,style-look,text,all5,0.8,yes,Look 页：smallCaps/script × 3 组专属装饰(🤍 ♥ ❥)
+/heart-font-generator/,style-look,text,all5,0.8,yes,Look 页：boldScript/script/bubble × 12 组爱心装饰
+/chicano-font-generator/,style-look,text,all5,0.8,yes,Look 页（较新，README 未记）：fraktur/boldFraktur/boldScript × 12 组装饰
+/pubg-name-generator/,platform-gaming,gaming,all5,0.8,yes,toolMode=gaming；preview:pubg；related: freefire/cod
+/free-fire-name-generator/,platform-gaming,gaming,all5,0.8,yes,toolMode=gaming；preview:freefire
+/cod-name-generator/,platform-gaming,gaming,all5,0.8,yes,toolMode=gaming；preview:cod；含 clan tag 字段规则
+/roblox-name-generator/,platform-gaming,gaming,all5,0.8,yes,toolMode=gaming；preview:roblox；username/display name 区分文案已按官方 Help 刷新(#5)
+/fortnite-name-generator/,platform-gaming,gaming,all5,0.8,yes,toolMode=gaming；preview:fortnite（较新，README 未记）
+/facebook-fonts/,platform-text,text,all5,0.8,yes,preview:facebook
+/instagram-fonts/,platform-text,bio,all5,0.8,yes,preview:instagram；bioMode=BioTool（模板+风格+符号板）
+/tiktok-fonts/,platform-text,bio,all5,0.8,yes,preview:tiktok；bioMode
+/discord-fonts/,platform-text,bio,all5,0.8,yes,preview:discord；bioMode
+/youtube-fonts/,platform-text,text,all5,0.8,yes,preview:youtube
+/adopt-me-fonts/,platform-text,text,all5,0.8,yes,preview:roblox（复用 Roblox 预览卡）
+/berry-avenue-fonts/,platform-text,text,all5,0.8,yes,preview:roblox；含 Berry 场景套件；已换 CTR title(e8b85c3)
+/learn/change-instagram-bio-font/,guide,-,en,0.7,no,英文专属指南；自 canonical、无 hreflang；2026-11-01 上线；配图 /guides/*.webp
+/learn/pubg-free-fire-stylish-name/,guide,-,en,0.7,no,英文专属指南
+/learn/roblox-display-name-rules/,guide,-,en,0.7,no,2026-11-03 已按 Roblox 官方 Help 刷新(#5)
+/learn/twitch-display-name-fancy-text/,guide,-,en,0.7,no,2026-11-02 简报产出的新页(#4 ff53781)；引 Twitch Help；FAQ JSON-LD

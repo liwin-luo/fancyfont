@@ -1,0 +1,6 @@
+locale,route_group,url_prefix,html_lang,hreflang,default,ui_strings,content_files(风格页),content_files(平台页),content_files(其他),switcher_behavior,notes
+en,(en),/,en,en,yes,ui-strings.ts 全量键,style-pages-en.ts(687行),platform-pages-en.ts(267行)+platform-pages-more.ts,page-home/page-fancy/page-gaming/page-symbols-privacy/page-blank-space/page-about-contact/page-terms/page-mcp/guides-en.ts,下拉切换仅换 URL 前缀=跳等价页;hrefLang 属性随链接输出;5 语言+x-default 全声明,根路径即英文;学习指南 EN 专属
+es,(es),/es/,es,es,no,同上(同接口强制),style-pages-es.ts(665行),platform-pages-es.ts+more,page-*.ts per-locale 同结构,同上+不匹配时一次性建议条(sessionStorage 记忆,6s 自动消失),canonical 指自身;tech-audit 2026-11-01 抽查通过
+pt-br,(pt-br),/pt-br/,pt-BR,pt-BR,no,同上,style-pages-pt-br.ts(665行),platform-pages-pt-br.ts+more,同上,同上,90天规划写 /pt/ 已过时;实际 /pt-br/
+zh-cn,(zh-cn),/zh-cn/,zh-CN,zh-Hans,no,同上,style-pages-zh-cn.ts(659行),platform-pages-zh-cn.ts+more,同上,同上,风格仅转换拉丁字母;中文原样保留并在每 zh 页诚实声明(roadmap §6.3);hreflang 用 zh-Hans
+id,(id),/id/,id,id,no,同上,style-pages-id.ts(656行),platform-pages-id.ts+more,同上,同上,无区域子集

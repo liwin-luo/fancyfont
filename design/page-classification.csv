@@ -1,0 +1,47 @@
+path,grade,action,primary_intent,locales,rationale
+/,A,optimize,brand + tool hub,all5,按 D3 重构首页（homepage-spec）；URL 不变
+/fancy-text-generator/,A,optimize,tool: fancy text generator,all5,核心工具；第四阶段补样式对比与复制全部风格（tool-page-spec §4）
+/gaming-name-generator/,A,optimize,tool: gaming name generator,all5,核心工具；装饰/组合/保存/兼容分析已上线（audit）；可选补 vibe 风格
+/symbols/,A,optimize,tool: symbols copy and paste,all5,核心工具；补符号码点 tooltip（tool-page-spec §4）
+/blank-space/,A,keep,tool: invisible characters,all5,A 级资产（规范 §4.2）；已上线无缺口
+/privacy/,B,keep,trust,all5,D1 移除埋点后改写 analytics 段落（5 语言）；内容变更不改 URL
+/terms/,B,keep,trust,all5,无变化
+/about/,B,keep,trust,all5,无变化
+/contact/,B,keep,trust,all5,无变化
+/mcp/,B,keep,tool: local mcp,all5,差异化资产；保留
+/cursive-text-generator/,B,keep,tool: cursive generator,all5,明确风格意图；双字重覆盖已标注；SERP title 已优化
+/gothic-text-generator/,B,keep,tool: gothic/fraktur generator,all5,同上；FAQ 已声明 Fraktur=Old English 同页
+/bold-text-generator/,B,keep,tool: bold generator,all5,三字重；SERP title 已优化
+/italic-text-generator/,B,keep,tool: italic generator,all5,无缺口
+/bubble-letters-generator/,B,keep,tool: bubble letters,all5,三种 enclosed 变体同页
+/small-caps-generator/,B,keep,tool: small caps,all5,无缺口
+/strikethrough-text-generator/,B,keep,tool: strikethrough,all5,三变体；无缺口
+/glitch-text-generator/,B,keep,tool: glitch/zalgo,all5,三档强度
+/upside-down-text-generator/,B,keep,tool: upside down text,all5,无缺口
+/tiny-text-generator/,B,keep,tool: tiny text,all5,上下标两变体
+/cute-font-generator/,C,keep,look: cute style,all5,Look 页：专属装饰 wrapper 已差异化（audit R8）；28 天后看 GSC 再评估；不合并
+/cool-font-generator/,C,keep,look: cool style,all5,同上；近重复风险由专属装饰化解
+/dark-font-generator/,C,keep,look: dark style,all5,同上
+/elegant-font-generator/,C,keep,look: elegant style,all5,同上
+/aesthetic-text-generator/,C,keep,look: aesthetic style,all5,同上；排期 Site fix B 对比表可直接复用本表
+/coquette-font-generator/,C,keep,look: coquette style,all5,已换 CTR title（e8b85c3）；其余同 Look 页结论
+/preppy-font-generator/,C,keep,look: preppy style,all5,同 Look 页结论
+/heart-font-generator/,C,keep,look: heart decorations,all5,12 组专属爱心装饰；独立意图成立
+/chicano-font-generator/,C,keep,look: chicano/blackletter,all5,较新页面（README 未记）；12 组专属装饰
+/pubg-name-generator/,B,optimize,platform: pubg names,all5,90 天规划的规则深化仍有效；当前无 testedAt 记录，维持诚实标注
+/free-fire-name-generator/,B,optimize,platform: free fire names,all5,同上
+/cod-name-generator/,B,keep,platform: cod names,all5,含 clan tag 字段规则与专属 FAQ
+/roblox-name-generator/,B,keep,platform: roblox names,all5,2026-11-03 已按官方 Help 刷新（#5）；username/display 区分正确
+/fortnite-name-generator/,B,keep,platform: fortnite names,all5,较新页面；无缺口
+/facebook-fonts/,B,keep,platform: facebook fonts,all5,无缺口
+/instagram-fonts/,B,optimize,platform: instagram fonts + bio,all5,bio 工具已上线；第四阶段按需打磨模板
+/tiktok-fonts/,B,optimize,platform: tiktok fonts + bio,all5,同上
+/discord-fonts/,B,optimize,platform: discord fonts + bio,all5,同上；Twitch 指南已从相关页回链（en）
+/youtube-fonts/,B,optimize,platform: youtube fonts,all5,11 月排期 Week 2 将刷新（D4 内容轨负责）；工程侧不动
+/adopt-me-fonts/,B,keep,platform: adopt me fonts,all5,复用 Roblox 预览；无缺口
+/berry-avenue-fonts/,B,keep,platform: berry avenue fonts,all5,已换 CTR title；专属场景套件
+/learn/change-instagram-bio-font/,B,keep,guide: instagram bio,en,EN-only（R6 豁免）；Week 2 刷新由内容轨负责
+/learn/pubg-free-fire-stylish-name/,B,keep,guide: pubg/free fire names,en,EN-only；保留
+/learn/roblox-display-name-rules/,B,keep,guide: roblox rules,en,2026-11-03 已核实刷新（#5）
+/learn/twitch-display-name-fancy-text/,B,keep,guide: twitch display names,en,2026-11-02 上线（#1）；诚实标注范式
+汇总,,,,,45 行全量：0 MERGE / 0 REPOSITION / 0 NOINDEX / 0 删除；URL 全部冻结（D2）
