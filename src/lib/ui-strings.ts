@@ -97,7 +97,6 @@ export interface UiStrings {
     copiedToClipboard: string;
     copyFailed: string;
     browserOnly: string;
-    stylePageInputLabel: string;
     typeToConvert: string;
     wrapLabel: string;
     pasteLabel: string;
@@ -162,7 +161,6 @@ export interface UiStrings {
     copySaved: (name: string) => string;
     removeSaved: (name: string) => string;
     saveName: (name: string) => string;
-    removeName: (name: string) => string;
     emptyName: string;
     loadMore: string;
     generateNew: string;
@@ -346,7 +344,6 @@ export const ui: Record<Locale, UiStrings> = {
       copiedToClipboard: "Copied to clipboard",
       copyFailed: "Couldn't copy — select the text and copy manually",
       browserOnly: "Conversions run in your browser — nothing is uploaded.",
-      stylePageInputLabel: "Your text",
       typeToConvert: "Type something above to see it converted.",
       wrapLabel: "Decoration",
       pasteLabel: "Where you'll paste",
@@ -412,7 +409,6 @@ export const ui: Record<Locale, UiStrings> = {
       copySaved: (name) => `Copy ${name}`,
       removeSaved: (name) => `Remove ${name} from saved names`,
       saveName: (name) => `Save ${name}`,
-      removeName: (name) => `Remove ${name} from saved names`,
       emptyName: "No name yet — these use short suggestions. Type yours to replace them.",
       loadMore: "Load more",
       generateNew: "Generate new combinations",
@@ -624,7 +620,6 @@ export const ui: Record<Locale, UiStrings> = {
       copiedToClipboard: "Copiado al portapapeles",
       copyFailed: "No se pudo copiar — selecciona el texto y cópialo a mano",
       browserOnly: "Las conversiones ocurren en tu navegador — nada se envía a ningún servidor.",
-      stylePageInputLabel: "Tu texto",
       typeToConvert: "Escribe algo arriba para verlo convertido.",
       wrapLabel: "Decoración",
       pasteLabel: "Dónde lo vas a pegar",
@@ -690,7 +685,6 @@ export const ui: Record<Locale, UiStrings> = {
       copySaved: (name) => `Copiar ${name}`,
       removeSaved: (name) => `Quitar ${name} de nombres guardados`,
       saveName: (name) => `Guardar ${name}`,
-      removeName: (name) => `Quitar ${name} de nombres guardados`,
       emptyName: "Aún no hay nombre — estas usan sugerencias cortas. Escribe el tuyo para reemplazarlas.",
       loadMore: "Cargar más",
       generateNew: "Generar nuevas combinaciones",
@@ -942,7 +936,6 @@ export const ui: Record<Locale, UiStrings> = {
       copiedToClipboard: "Copiado para a área de transferência",
       copyFailed: "Não foi possível copiar — selecione o texto e copie manualmente",
       browserOnly: "As conversões acontecem no seu navegador — nada é enviado a servidores.",
-      stylePageInputLabel: "Seu texto",
       typeToConvert: "Digite algo acima para ver a conversão.",
       wrapLabel: "Decoração",
       pasteLabel: "Onde você vai colar",
@@ -1008,7 +1001,6 @@ export const ui: Record<Locale, UiStrings> = {
       copySaved: (name) => `Copiar ${name}`,
       removeSaved: (name) => `Remover ${name} dos nomes salvos`,
       saveName: (name) => `Salvar ${name}`,
-      removeName: (name) => `Remover ${name} dos nomes salvos`,
       emptyName: "Ainda sem nome — estas usam sugestões curtas. Digite o seu para substituí-las.",
       loadMore: "Carregar mais",
       generateNew: "Gerar novas combinações",
@@ -1252,7 +1244,6 @@ export const ui: Record<Locale, UiStrings> = {
       copiedToClipboard: "已复制到剪贴板",
       copyFailed: "复制失败——请选中文本手动复制",
       browserOnly: "转换全部在你的浏览器中完成——不会上传任何内容。",
-      stylePageInputLabel: "你的文字",
       typeToConvert: "在上方输入文字即可看到转换效果。",
       wrapLabel: "装饰",
       pasteLabel: "准备贴到哪里",
@@ -1318,7 +1309,6 @@ export const ui: Record<Locale, UiStrings> = {
       copySaved: (name) => `复制${name}`,
       removeSaved: (name) => `从已保存中移除${name}`,
       saveName: (name) => `保存${name}`,
-      removeName: (name) => `从已保存中移除${name}`,
       emptyName: "还没输入名字——下面用的是短建议。输入你的名字就会换成你的。",
       loadMore: "加载更多",
       generateNew: "换一批组合",
@@ -1559,9 +1549,8 @@ export const ui: Record<Locale, UiStrings> = {
       copiedToClipboard: "Tersalin ke papan klip",
       copyFailed: "Gagal menyalin — pilih teksnya dan salin manual",
       browserOnly: "Semua konversi berjalan di browser kamu — tidak ada yang diunggah.",
-      stylePageInputLabel: "Teks kamu",
       typeToConvert: "Ketik sesuatu di atas untuk melihat hasilnya.",
-      wrapLabel: "Hiasan",
+      wrapLabel: "Dekorasi",
       pasteLabel: "Tempel di mana",
       wrapNone: "Tanpa",
       wrapStar: "Bintang",
@@ -1627,7 +1616,6 @@ export const ui: Record<Locale, UiStrings> = {
       copySaved: (name) => `Salin ${name}`,
       removeSaved: (name) => `Hapus ${name} dari nama tersimpan`,
       saveName: (name) => `Simpan ${name}`,
-      removeName: (name) => `Hapus ${name} dari nama tersimpan`,
       emptyName: "Belum ada nama — ini memakai saran pendek. Ketik namamu untuk menggantinya.",
       loadMore: "Muat lebih banyak",
       generateNew: "Buat kombinasi baru",

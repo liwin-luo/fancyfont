@@ -10,7 +10,8 @@
     "start": "next start",
     "test": "vitest run",
     "mcp": "npx -y tsx src/mcp/stdio.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "i18n:export": "npx -y tsx scripts/export-ui-dictionary.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

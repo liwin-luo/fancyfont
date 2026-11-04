@@ -439,7 +439,7 @@ export function GamingNameTool({
                       type="button"
                       aria-pressed={isSaved}
                       aria-label={
-                        isSaved ? t.gaming.removeName(nickname) : t.gaming.saveName(nickname)
+                        isSaved ? t.gaming.removeSaved(nickname) : t.gaming.saveName(nickname)
                       }
                       onClick={() => {
                         savedNames.toggle(nickname);

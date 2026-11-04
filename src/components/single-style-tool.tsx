@@ -73,7 +73,7 @@ export function SingleStyleTool({
   return (
     <div className="card p-4 sm:p-6">
       <label htmlFor="style-page-input" className="mb-2 block text-sm font-semibold text-ink-700">
-        {t.common.stylePageInputLabel}
+        {t.common.yourText}
       </label>
       <div className="flex gap-2">
         <input
@@ -81,7 +81,7 @@ export function SingleStyleTool({
           type="text"
           value={text}
           onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
-          placeholder={t.common.stylePageInputLabel}
+          placeholder={t.common.yourText}
           autoComplete="off"
           spellCheck={false}
           className="text-input"
