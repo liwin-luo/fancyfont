@@ -56,6 +56,8 @@ describe("blank space page", () => {
       expect(copy.related.map((link) => link.path)).toEqual([
         "/fancy-text-generator/",
         "/symbols/",
+        "/discord-fonts/",
+        "/tiktok-fonts/",
       ]);
     }
     const entries = sitemap().filter((entry) => entry.url.includes("/blank-space/"));

@@ -23,7 +23,7 @@
 | `/fancy-text-generator/` | fancy text generator | stylish text generator、font changer | 一次输入看全部 30 种风格并复制 | 候选表（§5.2A） | 各风格页从这里分流并链回，标准辐射结构 |
 | `/gaming-name-generator/` | gaming name generator | nickname generator、clan name generator | 把基础名变成带装饰的昵称组合 | 候选表（§5.2B） | 游戏场景页共用引擎但带游戏专属限制，靠"游戏字段+预览"区分 |
 | `/symbols/` | symbols copy and paste | text symbols、star/wing/crown symbols | 找单个符号浏览、搜索、复制 | 候选表（§5.2E） | 心形单符号意图在本页；文字加心形装饰在 heart 页 |
-| `/blank-space/` | invisible character / blank space copy | empty name、blank text | 复制可见宽度的空白字符或给文字加间隙 | 未知 | 与 `/symbols/` 的零宽分区不同用途，页面文案已区分；需 SERP 确认查询归本页 |
+| `/blank-space/` | invisible character / blank space copy | invisible name（tiktok/discord/instagram）、empty name、blank text | 复制可见宽度的空白字符、给文字加间隙、把名字变隐形（FAQ 已覆盖平台接受度与被拒处理） | 未知（invisible name 簇来自联想词 2026-11-04：invisible name tiktok/discord/instagram/generator/copy paste） | 与 `/symbols/` 零宽分区不同用途；invisible name 的平台接受度已在 FAQ 诚实标注（test-in-app） |
 | `/cursive-text-generator/` | cursive text generator | handwriting font generator | 专用花体转换 | 候选表（§5.2D） | 低（字母表被 look 页复用但意图不同） |
 | `/gothic-text-generator/` | gothic text generator | fraktur、old english font generator、medieval font generator | 专用黑字母转换 | 候选表（§5.2D） | 与 chicano/dark 共用 fraktur；2026-11-04 起标题 detail 改为 Old English & Medieval，FAQ 声明 Fraktur/Old English/medieval/blackletter 同页，文案互相路由。**GSC 盯：old english / medieval 查询是否归本页** |
 | `/bold-text-generator/` | bold text generator | bold font generator | 专用粗体转换 | 候选表（§5.2D） | 低 |

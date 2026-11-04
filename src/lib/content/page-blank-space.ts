@@ -96,6 +96,14 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         q: "Can I send a blank message with these?",
         a: "People use them for that in chat apps. Whether WhatsApp, Messenger or any other app accepts a particular blank is up to that app and is not tested here — copy the blank and send it to yourself in that app first.",
       },
+      {
+        q: "Can I make an invisible name on TikTok, Discord or Instagram?",
+        a: "Often yes. Replace your whole display name with one blank character, save, and check the app's own preview. Some apps accept a blank name; others strip it on save or reject it — the rules change, so test in the app you are styling.",
+      },
+      {
+        q: "Why was my invisible name rejected?",
+        a: "Blank-only names are a common thing for apps to filter. Try the Hangul filler (U+3164) first — it is the most widely accepted — or keep one real letter and pad with blanks. If the app removes it, there is no workaround; the rule is theirs.",
+      },
     ],
     related: [
       {
@@ -108,6 +116,8 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         title: "Symbols",
         description: "Hearts, stars, and the invisible category, including zero-width characters.",
       },
+      { path: "/discord-fonts/", title: "Discord Fonts", description: "Discord display names and statuses accept these blanks — the Discord page has the field details." },
+      { path: "/tiktok-fonts/", title: "TikTok Fonts", description: "TikTok display names take styled Unicode; the TikTok page covers the fields." },
     ],
   },
   es: {
@@ -169,6 +179,14 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         q: "¿Puedo enviar un mensaje en blanco con estos caracteres?",
         a: "La gente los usa para eso en apps de chat. Que WhatsApp, Messenger o cualquier otra app acepte un blanco concreto depende de la app y no está probado aquí: copia el blanco y envíatelo primero en esa app.",
       },
+      {
+        q: "¿Puedo poner un nombre invisible en TikTok, Discord o Instagram?",
+        a: "A menudo sí. Sustituye todo tu nombre visible por un carácter en blanco, guarda y revisa la vista previa de la app. Algunas apps aceptan un nombre en blanco; otras lo quitan al guardar o lo rechatan. Las reglas cambian: pruébalo en la app que estés usando.",
+      },
+      {
+        q: "¿Por qué rechazaron mi nombre invisible?",
+        a: "Los nombres solo con blancos son un filtro habitual. Prueba primero el relleno hangul (U+3164), que es el más aceptado, o deja una letra real y rellena con blancos. Si la app lo quita, no hay truco: la regla es suya.",
+      },
     ],
     related: [
       {
@@ -181,17 +199,19 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         title: "Símbolos",
         description: "Corazones, estrellas y la categoría invisible, incluidos los de ancho cero.",
       },
+      { path: "/discord-fonts/", title: "Fuentes de Discord", description: "El nombre visible y el estado de Discord aceptan estos blancos; la página de Discord detalla los campos." },
+      { path: "/tiktok-fonts/", title: "Fuentes de TikTok", description: "El nombre de TikTok acepta Unicode con estilo; la página de TikTok cubre los campos." },
     ],
   },
   "pt-br": {
     meta: {
       title: title("Espaço em branco para copiar e colar", "pt-br"),
       description:
-        "Copie um preenchimento hangul (U+3164), um espaço braille (U+2800) ou um espaço ideográfico (U+3000): um, uma linha de 20 ou um bloco de 100. Coloque de 0 a 5 desse espaço entre letras Unicode.",
+        "Copie um preenchimento hangul (U+3164), um espaço braille (U+2800) ou um espaço ideográfico (U+3000): um, uma linha de 20 ou um bloco de 100. Use como nome invisível no TikTok, Discord ou Instagram, ou ponha de 0 a 5 entre letras estilizadas.",
     },
     h1: "Espaço em branco para copiar e colar",
     intro: (styles) =>
-      `Escolha um caractere em branco e copie, ou coloque esse mesmo branco entre as letras de qualquer um dos ${styles} estilos. Sem cadastro.`,
+      `Escolha um caractere em branco e copie, ou coloque esse mesmo branco entre as letras de qualquer um dos ${styles} estilos. Também funciona como nome invisível no TikTok, Discord e Instagram. Sem cadastro.`,
     blankLabel: "Caractere em branco",
     blanks: {
       hangul: { name: "Preenchimento hangul", note: "U+3164. Ocupa um caractere e é desenhado em branco." },
@@ -242,6 +262,14 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         q: "Posso enviar uma mensagem em branco com esses caracteres?",
         a: "As pessoas usam para isso em apps de conversa. Se o WhatsApp, o Messenger ou outro app aceita um branco específico depende do app e não foi testado aqui: copie o branco e envie primeiro para você nesse app.",
       },
+      {
+        q: "Posso ter um nome invisível no TikTok, Discord ou Instagram?",
+        a: "Muitas vezes sim. Substitua todo o seu nome de exibição por um caractere em branco, salve e confira a prévia do próprio app. Alguns apps aceitam nome em branco; outros removem ao salvar ou rejeitam. As regras mudam: teste no app que você está usando.",
+      },
+      {
+        q: "Por que meu nome invisível foi rejeitado?",
+        a: "Nomes só com espaços em branco são um filtro comum. Tente primeiro o preenchimento hangul (U+3164), que é o mais aceito, ou deixe uma letra real e complete com brancos. Se o app remover, não há truque: a regra é deles.",
+      },
     ],
     related: [
       {
@@ -254,17 +282,19 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         title: "Símbolos",
         description: "Corações, estrelas e a categoria invisível, inclusive os de largura zero.",
       },
+      { path: "/discord-fonts/", title: "Fontes do Discord", description: "O nome de exibição e o status do Discord aceitam esses brancos; a página do Discord detalha os campos." },
+      { path: "/tiktok-fonts/", title: "Fontes do TikTok", description: "O nome do TikTok aceita Unicode estilizado; a página do TikTok cobre os campos." },
     ],
   },
   "zh-cn": {
     meta: {
       title: title("空白复制粘贴", "zh-cn"),
       description:
-        "复制韩文填充符（U+3164）、盲文空位（U+2800）或表意空格（U+3000）：1 个、一行 20 个或一段 100 个。也可以把同一种空白以 0–5 个夹进花体字母之间。",
+        "复制韩文填充符（U+3164）、盲文空位（U+2800）或表意空格（U+3000）：1 个、一行 20 个或一段 100 个。可以用作 TikTok、Discord、Instagram 的隐形名字，也可以把空白夹进花体字母之间。",
     },
     h1: "空白复制粘贴",
     intro: (styles) =>
-      `选一种空白字符复制，或把同一种空白夹进 ${styles} 种花体字母之间。无需注册。`,
+      `选一种空白字符复制，或把同一种空白夹进 ${styles} 种花体字母之间。也可以用作 TikTok、Discord、Instagram 的隐形名字。无需注册。`,
     blankLabel: "空白字符",
     blanks: {
       hangul: { name: "韩文填充符", note: "U+3164。占一个字宽，画出来是空的。" },
@@ -312,6 +342,14 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         q: "能用这些字符发空白消息吗？",
         a: "有人这么用。但 WhatsApp、Messenger 或其他应用是否接受某一种空白，由应用决定，本站未实测——复制空白后先在那个应用里发给自己试试。",
       },
+      {
+        q: "TikTok、Discord 或 Instagram 能用隐形名字吗？",
+        a: "通常可以。把整个显示名替换成一个空白字符，保存后看应用自己的预览。有的应用接受空白名字，有的会在保存时删掉或直接拒绝。规则一直在变，请在你要用的应用里实测。",
+      },
+      {
+        q: "为什么我的隐形名字被拒绝了？",
+        a: "纯空白名字是应用常见的过滤对象。先试韩文填充符（U+3164），它被接受得最多；或者保留一个真实字母，其余用空白填充。如果应用把它删了，那就没有办法——规则是对方的。",
+      },
     ],
     related: [
       {
@@ -324,17 +362,19 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         title: "特殊符号",
         description: "爱心、星星，以及包含零宽字符的隐形分类。",
       },
+      { path: "/discord-fonts/", title: "Discord 字体", description: "Discord 的显示名和状态接受这些空白；Discord 页有字段细节。" },
+      { path: "/tiktok-fonts/", title: "TikTok 字体", description: "TikTok 名字接受带样式的 Unicode；TikTok 页覆盖各字段。" },
     ],
   },
   id: {
     meta: {
       title: title("Spasi kosong copy paste", "id"),
       description:
-        "Salin pengisi Hangul (U+3164), spasi Braille (U+2800), atau spasi ideografis (U+3000): satu, sebaris 20, atau satu blok 100. Sisipkan 0–5 spasi yang sama di antara huruf Unicode.",
+        "Salin pengisi Hangul (U+3164), spasi Braille (U+2800), atau spasi ideografis (U+3000): satu, satu baris 20, atau satu blok 100. Pakai sebagai nama tak terlihat di TikTok, Discord, atau Instagram, atau selipkan 0–5 di antara huruf bergaya.",
     },
     h1: "Spasi kosong copy paste",
     intro: (styles) =>
-      `Pilih satu karakter kosong dan salin, atau selipkan spasi yang sama di antara huruf pada ${styles} gaya. Tanpa daftar.`,
+      `Pilih satu karakter kosong dan salin, atau selipkan spasi yang sama di antara huruf pada ${styles} gaya. Juga berfungsi sebagai nama tak terlihat di TikTok, Discord, dan Instagram. Tanpa daftar.`,
     blankLabel: "Karakter kosong",
     blanks: {
       hangul: { name: "Pengisi Hangul", note: "U+3164. Selebar satu karakter, dan tampil kosong." },
@@ -385,6 +425,14 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         q: "Bisakah mengirim pesan kosong dengan karakter ini?",
         a: "Banyak yang memakainya untuk itu di aplikasi chat. Apakah WhatsApp, Messenger, atau aplikasi lain menerima blank tertentu tergantung aplikasinya dan belum diuji di sini — salin blanknya dan kirim ke dirimu sendiri dulu di aplikasi itu.",
       },
+      {
+        q: "Bisakah pakai nama tak terlihat di TikTok, Discord, atau Instagram?",
+        a: "Sering kali bisa. Ganti seluruh nama tampilanmu dengan satu karakter kosong, simpan, lalu periksa pratinjau aplikasinya. Beberapa aplikasi menerima nama kosong; yang lain menghapusnya saat menyimpan atau menolak. Aturannya berubah: uji di aplikasi yang kamu pakai.",
+      },
+      {
+        q: "Kenapa nama tak terlihatku ditolak?",
+        a: "Nama yang hanya berisi spasi kosong adalah filter yang umum. Coba dulu pengisi Hangul (U+3164) — yang paling banyak diterima — atau sisakan satu huruf asli dan isi sisanya dengan spasi. Kalau aplikasinya menghapusnya, tidak ada trik: aturannya milik mereka.",
+      },
     ],
     related: [
       {
@@ -397,6 +445,8 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
         title: "Simbol",
         description: "Hati, bintang, dan kategori tak terlihat, termasuk karakter lebar nol.",
       },
+      { path: "/discord-fonts/", title: "Font Discord", description: "Nama tampilan dan status Discord menerima spasi kosong ini; halaman Discord menjelaskan kolomnya." },
+      { path: "/tiktok-fonts/", title: "Font TikTok", description: "Nama TikTok menerima Unicode bergaya; halaman TikTok membahas kolomnya." },
     ],
   },
 };
