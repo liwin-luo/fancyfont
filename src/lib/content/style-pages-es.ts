@@ -18,7 +18,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     bestFor: [
       "Bios de Instagram y nombres visibles con un toque manuscrito y suave",
       "Perfiles de belleza, bodas y lifestyle",
-      "Frases cortas donde una letra cursiva caería perfecta",
+      "Frases cortas donde la cursiva quedaría perfecta",
     ],
     sampleInputs: ["Tu Nombre", "Dulce Tea", "fyL"],
     platformTip:
@@ -64,7 +64,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
       {
         q: "¿En qué se diferencian los dos estilos góticos?",
-        a: "El primero es fraktur clásico, de trazo fino; el segundo es el grosor negrito, más legible en tamaños pequeños.",
+        a: "El primero es fraktur clásico, de trazo fino; el segundo es la variante negrita, más legible en tamaños pequeños.",
       },
       {
         q: "¿Por qué algunas letras se ven diferentes?",
@@ -102,7 +102,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
       {
         q: "¿Las letras en negrita afectan a los lectores de pantalla?",
-        a: "Algunos las leten letra por letra o las deletrean raro. Para párrafos largos es mejor el formato nativo; para un nombre o una palabra, no hay problema.",
+        a: "Algunos las leen letra por letra o las deletrean raro. Para párrafos largos es mejor el formato nativo; para un nombre o una palabra, no hay problema.",
       },
       {
         q: "¿Hay números en negrita?",
@@ -252,7 +252,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     description:
       "Corrompe tu texto con marcas malditas — tres intensidades de glitch, de sutil a zalgo total. Copia en un toque.",
     intro:
-      "Llena tu texto de marcas reptaestilos. Elige el nivel de corrupción — de apenas raro a zalgo total — y pega el caos donde quieras.",
+      "Llena tu texto de marcas que reptan. Elige el nivel de corrupción — de apenas raro a zalgo total — y pega el caos donde quieras.",
     howItWorks:
       "El texto zalgo apila marcas combinables de Unicode encima y debajo de cada carácter. Este generador elige las marcas con un proceso determinista y sembrado — la misma entrada produce siempre el mismo glitch, así que la vista previa es exactamente lo que copias.",
     coverageNote:
@@ -366,7 +366,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Momo", "Suave", "Melocotón"],
     platformTip:
-      "Estas letras funcionan en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord. Los usuarios que solo aceptan letras planas las rechazan. Si un lazo o un corchete sale como un cuadro vacío, copia la fila del corazón.",
+      "Estas letras funcionan en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord. Los nombres de usuario que solo aceptan letras planas las rechazan. Si un lazo o un corchete sale como un cuadro vacío, copia la fila del corazón.",
     faq: [
       {
         q: "¿La letra tierna es un archivo que descargo?",
@@ -426,7 +426,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     description:
       "Nombres oscuros para copiar y pegar: letra gótica con una calavera, una daga o una luna. Para bios y nombres visibles, no para descargar una fuente.",
     intro:
-      "Letra gótica con un símbolo oscuro — una calavera, una daga o una luna. La letra emo es esta mezcla. La página gótica es el alfabeto pelado, sin calaveras. Esta es la versión decorada.",
+      "Letra gótica con un símbolo oscuro — una calavera, una daga o una luna. El estilo emo es esta mezcla. La página gótica es el alfabeto pelado, sin calaveras. Esta es la versión decorada.",
     howItWorks:
       "Las letras son Unicode Fraktur. El corte grueso va decorado; el corte normal queda pelado debajo. Calaveras, dagas y lunas son símbolos aparte, solo en la fila gruesa.",
     coverageNote:
@@ -472,7 +472,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Rosa", "Reina", "Ada"],
     platformTip:
-      "La cursiva funciona en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord, no en usuarios limitados a letras planas. Si la cursiva gruesa sale en cuadros, copia la fila fina.",
+      "La cursiva funciona en la mayoría de nombres visibles y bios de Instagram, TikTok y Discord, no en nombres de usuario limitados a letras planas. Si la cursiva gruesa sale en cuadros, copia la fila fina.",
     faq: [
       {
         q: "¿Elegante es lo mismo que cursiva?",
@@ -548,7 +548,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Mia", "Lila", "Belle"],
     platformTip:
-      "Pégalo en el nombre visible de Instagram o en el apodo de Discord. Esos usuarios solo aceptan letras planas, dígitos y unas pocas marcas, así que el lazo no va en el usuario. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord. Si el lazo pequeño falla, el emoji de cinta igual se copia.",
+      "Pégalo en el nombre visible de Instagram o en el apodo de Discord. Esos campos solo aceptan letras planas, dígitos y unas pocas marcas, así que el lazo no va en el nombre de usuario. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord. Si el lazo pequeño falla, el emoji de cinta igual se copia.",
     faq: [
       {
         q: "¿Dónde encuentro letras coquette para copiar y pegar?",
@@ -575,9 +575,9 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     description:
       "Las letras preppy son versalitas Unicode limpias con un corazón ordenado. Genera, copia y pega en tu bio, nombre de TikTok o Adopt Me — gratis, sin registro.",
     intro:
-      "Las letras preppy son versalitas limpias con un corazón ordenado: blanco, de palo o girado. Sin lazos y sin letras burbuja — ese look más ruidoso está en la otra página. Este se mantiene ordenado, que es lo que suelen buscar los nombres preppy de Adopt Me.",
+      "Las letras preppy son versalitas limpias con un corazón ordenado: blanco, de naipe o girado. Sin lazos y sin letras burbuja — ese look más ruidoso está en la otra página. Este se mantiene ordenado, que es lo que suelen buscar los nombres preppy de Adopt Me.",
     howItWorks:
-      "Las versalitas son letras modificadoras de Unicode que parecen mayúsculas más bajas. El script es la segunda fila, sin adorno. Cada corazón es un símbolo solo en la fila de versalitas, un par o un lado, para que el nombre siga corto.",
+      "Las versalitas son letras modificadoras de Unicode que parecen mayúsculas de menor altura. El script es la segunda fila, sin adorno. Cada corazón es un símbolo solo en la fila de versalitas, un par o un lado, para que el nombre siga corto.",
     coverageNote:
       "Las versalitas cubren la mayoría de las letras y dejan unas pocas iguales cuando Unicode no tiene forma. El script solo convierte letras, así que los dígitos de esa fila quedan normales. Los corazones son caracteres extra. El corazón blanco es un emoji y suele ser el primero que rechaza el filtro de un juego.",
     bestFor: [
@@ -603,7 +603,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
       {
         q: "¿Cómo se llaman las letras preppy?",
-        a: "No hay una sola letra preppy. Lo que las redes llaman preppy suelen ser versalitas —mayúsculas más bajas— con un corazón o lazo limpio al lado. Todo es texto Unicode, no una fuente instalada; por eso sobrevive al copiar y pegar.",
+        a: "No hay una sola letra preppy. Lo que las redes llaman preppy suelen ser versalitas —mayúsculas de menor altura— con un corazón o lazo limpio al lado. Todo es texto Unicode, no una fuente instalada; por eso sobrevive al copiar y pegar.",
       },
       {
         q: "¿Cómo consigo letras preppy?",
@@ -629,7 +629,7 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Love", "Mia", "Honey"],
     platformTip:
-      "Pega el nombre con corazón en el nombre visible o la bio de Instagram, en la bio de TikTok o en el apodo de Discord. Los usuarios que solo aceptan letras planas rechazan los corazones. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord, así que un corazón a cada lado de una palabra corta cabe más a menudo que una pila de símbolos.",
+      "Pega el nombre con corazón en el nombre visible o la bio de Instagram, en la bio de TikTok o en el apodo de Discord. Los nombres de usuario que solo aceptan letras planas rechazan los corazones. El nombre visible ronda los 30 caracteres en Instagram y el apodo los 32 en Discord, así que un corazón a cada lado de una palabra corta cabe más a menudo que una pila de símbolos.",
     faq: [
       {
         q: "¿La fuente de corazón es un archivo que descargo?",

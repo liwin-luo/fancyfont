@@ -134,7 +134,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       convertLink: "Abrir el generador completo →",
     },
     toolsSection: {
-      h2: "Tres trabajos",
+      h2: "Tres tareas",
       sub: "Cada tarjeta es un trabajo distinto. Elige el que coincide con lo que vas a pegar.",
       cards: [
         {

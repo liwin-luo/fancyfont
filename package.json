@@ -11,7 +11,8 @@
     "test": "vitest run",
     "mcp": "npx -y tsx src/mcp/stdio.ts",
     "typecheck": "tsc --noEmit",
-    "i18n:export": "npx -y tsx scripts/export-ui-dictionary.ts"
+    "i18n:export": "npx -y tsx scripts/export-ui-dictionary.ts",
+    "content:export": "npx -y tsx scripts/export-content-dictionary.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

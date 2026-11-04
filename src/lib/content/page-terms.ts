@@ -56,7 +56,7 @@ export const termsContent: Record<Locale, TermsContent> = {
     sections: [
       {
         h2: "Un sitio independiente",
-        body: "FancyFont en fancyfont.tools es un sitio independiente. No lo hacen, ni está vinculado a, Instagram, TikTok, Discord, Facebook, YouTube, Roblox, PUBG, Free Fire o Call of Duty. Esos nombres son de sus dueños. Aparecen aquí solo para indicar dónde se suele pegar un resultado.",
+        body: "FancyFont en fancyfont.tools es un sitio independiente. No está hecho por Instagram, TikTok, Discord, Facebook, YouTube, Roblox, PUBG, Free Fire ni Call of Duty, y no está vinculado a ellos. Esos nombres son de sus dueños. Aparecen aquí solo para indicar dónde se suele pegar un resultado.",
       },
       {
         h2: "Sin cuenta y sin envío",

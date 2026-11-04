@@ -67,7 +67,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "Qué hacen las herramientas",
-        body: "Todos los generadores funcionan con el mismo principio: sustituyen las letras que escribes por caracteres parecidos de bloques Unicode — cursiva, gótica, burbuja, mini, glitch y más. El resultado es texto normal, no un archivo de fuente, así que lo pegas en nombres de perfil, bios, chats y apodos de juegos. El sitio también reúne 388 símbolos y una herramienta de espacio en blanco para nombres que parecen vacíos.",
+        body: "Todos los generadores funcionan con el mismo principio: sustituyen las letras que escribes por caracteres parecidos de bloques Unicode — cursiva, gótica, burbuja, letras pequeñas, glitch y más. El resultado es texto normal, no un archivo de fuente, así que lo pegas en nombres de perfil, bios, chats y apodos de juegos. El sitio también reúne 388 símbolos y una herramienta de espacio en blanco para nombres que parecen vacíos.",
       },
       {
         h2: "Quién lo mantiene",

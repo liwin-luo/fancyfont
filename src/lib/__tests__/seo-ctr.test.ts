@@ -58,7 +58,7 @@ describe("strike-zone titles, FAQ, and above-the-fold modules", () => {
       "Berry Avenue Fonts — Free Copy & Paste (~20 Chars)",
     );
     expect(getPlatformPage("es", "berry-avenue-fonts")!.copy.es.title).toBe(
-      "Fuentes Berry Avenue — copia y pega el nombre (~20)",
+      "Fuentes para Berry Avenue — copia y pega el nombre (~20)",
     );
     expect(getPlatformPage("pt-br", "berry-avenue-fonts")!.copy["pt-br"].title).toBe(
       "Fontes para Berry Avenue — copie grátis (~20 chars)",

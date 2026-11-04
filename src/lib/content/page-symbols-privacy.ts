@@ -87,7 +87,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
     ],
     aboutHeading: "Sobre la colección",
     about: (count, categories) => [
-      `Cada símbolo es un carácter Unicode estándar, así que se copia como texto plano y viaja con tu mensaje. La colección abarca ${categories} categorías: corazones, estrellas, flechas, coronas, flores, alas y lazos, corchetes, líneas y bordes, caras, música y vibra, y más.`,
+      `Cada símbolo es un carácter Unicode estándar, así que se copia como texto plano y viaja con tu mensaje. La colección abarca ${categories} categorías: corazones, estrellas, flechas, coronas, flores, alas y lazos, corchetes, líneas y bordes, caras, música y ambiente, y más.`,
       "Las combinaciones decorativas son pares de símbolos y líneas listos para usar — útiles como divisores en bios o alrededor de un apodo que ya tengas con estilo. Esta página no cambia las letras. Para convertir A–Z, usa el generador de letras bonitas.",
     ],
     faqHeading: "Preguntas frecuentes",
@@ -102,7 +102,7 @@ export const symbolsContent: Record<Locale, SymbolsContent> = {
       },
       {
         q: "¿Puedo usar estos símbolos en mi usuario o bio?",
-        a: "La mayoría de bios, nombres y mensajes los aceptan sin problema. Los usuarios suelen ser más estrictos — muchas plataformas solo permiten letras, números y guiones bajos ahí. Prueba en la app antes de decidirte.",
+        a: "La mayoría de bios, nombres y mensajes los aceptan sin problema. Los nombres de usuario suelen ser más estrictos — muchas plataformas solo permiten letras, números y guiones bajos ahí. Prueba en la app antes de decidirte.",
       },
     ],
     related: [

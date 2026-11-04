@@ -136,7 +136,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
     namePlaceholder: "Luna",
     gapLabel: "Blancos entre letras",
     gapNote:
-      "0 deja el texto con estilo igual, incluidos los espacios que escribiste. 1–5 quita esos espacios y usa el blanco elegido en cada hueco.",
+      "0 deja el texto con estilo igual, incluidos los espacios que escribiste. 1–5 quitan esos espacios y usan el blanco elegido en cada hueco.",
     countLabel: (count) => `${count} caracteres`,
     howHeading: "Cómo usarlo",
     steps: [

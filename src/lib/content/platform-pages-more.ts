@@ -412,7 +412,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       description:
         "Nombres Unicode para PUBG. Mira el nombre en una ficha de lobby, cópialo y revisa la longitud antes de pegarlo en el juego.",
       intro:
-        "PUBG no tiene selector de fuentes. El nombre es un campo corto, normalmente unas 16 caracteres, y algunos modos aceptan menos. Genera el nombre, míralo en la vista previa y pégalo en la pantalla del juego.",
+        "PUBG no tiene selector de fuentes. El nombre es un campo corto, normalmente unos 16 caracteres, y algunos modos aceptan menos. Genera el nombre, míralo en la vista previa y pégalo en la pantalla del juego.",
       defaultText: "PUBG",
       presets: [
         { label: "Escuadra", left: "「", right: "」", transform: "bold" },
@@ -435,7 +435,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "BGMI",
-          body: "BGMI — Battlegrounds Mobile India — es la versión india de PUBG Mobile y usa el mismo campo de nombre. Cuenta con los mismos 16 caracteres aproximados. Nada aquí está probado específicamente en BGMI: deja que el juego decida.",
+          body: "BGMI — Battlegrounds Mobile India — es la versión india de PUBG Mobile y usa el mismo campo de nombre. Cuenta con unos 16 caracteres, igual que en PUBG. Nada aquí está probado específicamente en BGMI: deja que el juego decida.",
         },
       ],
       compatNote:
@@ -443,7 +443,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "¿Cuánto puede medir un nombre de PUBG?",
-          a: "Cuenta con unas 16 caracteres. Algunos modos, incluido parte de PUBG Mobile, son más cortos. La vista previa cuenta puntos de código y avisa al pasar de 16.",
+          a: "Cuenta con unos 16 caracteres. Algunos modos, incluido parte de PUBG Mobile, son más cortos. La vista previa cuenta puntos de código y avisa al pasar de 16.",
         },
         {
           q: "¿Los demás jugadores verán el nombre con estilo?",
@@ -460,9 +460,9 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       h1: "Generador de nombres para Free Fire",
       title: "Generador de nombres para Free Fire – Apodos cortos",
       description:
-        "Apodos Unicode cortos para Free Fire. El campo mide unas 12 caracteres: míralo, cópialo y pruébalo en el juego.",
+        "Apodos Unicode cortos para Free Fire. El campo mide unos 12 caracteres: míralo, cópialo y pruébalo en el juego.",
       intro:
-        "Los apodos de Free Fire son muy cortos, normalmente unas 12 caracteres. Un adorno largo no cabe. Deja el nombre base corto, míralo en la vista previa y pégalo en el juego.",
+        "Los apodos de Free Fire son muy cortos, normalmente unos 12 caracteres. Un adorno largo no cabe. Deja el nombre base corto, míralo en la vista previa y pégalo en el juego.",
       defaultText: "Fire",
       presets: [
         { label: "Rayo", left: "⚡", right: "", transform: "bold" },
@@ -481,7 +481,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "Si lo rechaza",
-          body: "Quita primero el adorno. Un nombre corto y plano que el juego acepte sirve más que uno con estilo que recorta.",
+          body: "Quita primero el adorno. Un nombre corto y plano que el juego acepte sirve más que uno con estilo que el juego recorta.",
         },
       ],
       compatNote:
@@ -489,7 +489,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "¿Por qué se corta mi nombre de Free Fire?",
-          a: "El apodo mide unas 12 caracteres. Las letras Unicode anchas también cuentan. Acorta la palabra o quita un símbolo y vuelve a mirar la vista previa.",
+          a: "El apodo mide unos 12 caracteres. Las letras Unicode anchas también cuentan. Acorta la palabra o quita un símbolo y vuelve a mirar la vista previa.",
         },
         {
           q: "¿Puedo darle estilo a mi ID de Free Fire?",
@@ -585,7 +585,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "¿Cuánto mide un nombre de Call of Duty?",
-          a: "Cuenta con unas 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real. Los artículos de cambio de nombre de Activision no fijan un tope oficial de 16.",
+          a: "Cuenta con unos 16 caracteres. Warzone, Mobile y los títulos antiguos no coinciden, así que el campo del juego es el límite real. Los artículos de cambio de nombre de Activision no fijan un tope oficial de 16.",
         },
         {
           q: "¿Es una herramienta oficial de Call of Duty?",
@@ -646,7 +646,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       description:
         "Fuentes cortas para tu nombre visible de Adopt Me en Roblox. Unos 20 caracteres, usuario plano y una vista previa antes de cambiarlo.",
       intro:
-        "Adopt Me usa tu nombre de Roblox. El usuario se queda en letras, dígitos y un guion bajo. El nombre visible que ven los demás ronda los 20 caracteres, y Roblox todavía puede rechazar un símbolo. Estas filas son los looks preppy y tierno, recortados para probar.",
+        "Adopt Me usa tu nombre de Roblox. El usuario se queda en letras, dígitos y un guion bajo. El nombre visible que ven los demás ronda los 20 caracteres, y Roblox todavía puede rechazar un símbolo. Estas filas son los estilos preppy y tierno, ajustados para que quepan.",
       defaultText: "Mila",
       presets: [
         { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
@@ -688,9 +688,9 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Generador de fuentes para Berry Avenue",
-      title: "Fuentes Berry Avenue — copia y pega el nombre (~20)",
+      title: "Fuentes para Berry Avenue — copia y pega el nombre (~20)",
       description:
-        "Fuentes gratis para Berry Avenue: escribe el nombre visible de Roblox, míralo en ficha y letrero, y copia estilos cerca de ~20 caracteres. No es para el @usuario.",
+        "Fuentes gratis para Berry Avenue: escribe el nombre visible de Roblox, míralo en la ficha y en el letrero, y copia estilos cerca de ~20 caracteres. No es para el @usuario.",
       intro:
         "Berry Avenue muestra tu nombre visible de Roblox sobre el personaje. Ese campo ronda los 20 caracteres, y el usuario se queda plano. La ficha de esta página es un boceto, no la fuente de dentro del juego.",
       pinnedPreview: {
@@ -755,7 +755,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       description:
         "Nombres Unicode con estilo para Fortnite. Previsualiza el nombre, cópialo y revisa la longitud antes de guardarlo en tu cuenta de Epic.",
       intro:
-        "Fortnite muestra tu nombre de Epic en cada lobby, marcador y repetición: un solo campo, normalmente unas 16 caracteres. Genera un nombre decorado, previsualízalo y guárdalo desde los ajustes de tu cuenta de Epic.",
+        "Fortnite muestra tu nombre de Epic en cada lobby, marcador y repetición: un solo campo, normalmente unos 16 caracteres. Genera un nombre decorado, previsualízalo y guárdalo desde los ajustes de tu cuenta de Epic.",
       defaultText: "Victory",
       presets: [
         { label: "Estrellas", left: "★ ", right: " ★", transform: "sansBold" },
@@ -766,7 +766,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nombre visible",
-          body: "Un campo que se ve en todo lo que juegas, normalmente unas 16 caracteres. La vista previa cuenta puntos de código y avisa si te pasas.",
+          body: "Un campo que se ve en todo lo que juegas, normalmente unos 16 caracteres. La vista previa cuenta puntos de código y avisa si te pasas.",
         },
         {
           label: "Sigue tu cuenta de Epic",
@@ -774,7 +774,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "Símbolos y el filtro",
-          body: "El filtro de Epic decide qué caracteres sobreviven. Los alfabetos de un carácter por letra, como negrita y small caps, aguantan mejor que los adornos con marcas apiladas — si el lobby muestra cuadros, elige un estilo más llano.",
+          body: "El filtro de Epic decide qué caracteres sobreviven. Los alfabetos de un carácter por letra, como la negrita y las versalitas, aguantan mejor que los adornos con marcas apiladas — si el lobby muestra cuadros, elige un estilo más llano.",
         },
         {
           label: "Lo que queda plano",
@@ -786,7 +786,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "¿Cuánto puede medir un nombre de Fortnite?",
-          a: "Cuenta con unas 16 caracteres. La vista previa cuenta puntos de código y avisa antes de copiar; el campo del juego es el juez final.",
+          a: "Cuenta con unos 16 caracteres. La vista previa cuenta puntos de código y avisa antes de copiar; el campo del juego es el juez final.",
         },
         {
           q: "¿Cómo cambio mi nombre de Fortnite?",
@@ -794,7 +794,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "¿Puedo poner símbolos en mi nombre de Fortnite?",
-          a: "Los caracteres Unicode con estilo normalmente se guardan, pero el filtro de Epic puede recortarlos o rechazarlos. Los alfabetos más llanos — negrita, small caps — sobreviven más que los adornos pesados.",
+          a: "Los caracteres Unicode con estilo normalmente se guardan, pero el filtro de Epic puede recortarlos o rechazarlos. Los alfabetos más llanos — negrita, versalitas — sobreviven más que los adornos pesados.",
         },
         {
           q: "¿Es una herramienta oficial de Fortnite?",

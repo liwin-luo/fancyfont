@@ -161,7 +161,7 @@ export const platformPagesEs: Record<string, PlatformPageCopy> = {
       },
       {
         q: "¿Por qué mi apodo con estilo se restablece en algunos servidores?",
-        a: "Los dueños y los bots pueden restablecer o moderar apodos. Si solo cambia en un servidor, la culpa son las reglas de ese servidor — no los caracteres.",
+        a: "Los dueños y los bots pueden restablecer o moderar apodos. Si solo cambia en un servidor, la culpa es de las reglas de ese servidor — no los caracteres.",
       },
     ],
   },
@@ -183,7 +183,7 @@ export const platformPagesEs: Record<string, PlatformPageCopy> = {
     guidance: [
       {
         label: "Usuario",
-        body: "Tu identificador de acceso: 3–20 caracteres, letras, números y un solo guion bajo. Se aplica estricto — sin símbolos, espacios ni caracteres con estilo, nunca.",
+        body: "Tu identificador de acceso: 3–20 caracteres, letras, números y un solo guion bajo. Se aplica de forma estricta — sin símbolos, espacios ni caracteres con estilo, nunca.",
       },
       {
         label: "Nombre visible",
@@ -199,7 +199,7 @@ export const platformPagesEs: Record<string, PlatformPageCopy> = {
     faq: [
       {
         q: "¿Mi usuario de Roblox puede tener símbolos o fuentes?",
-        a: "No. Los usuarios están limitados a letras, números y un guion bajo. Los estilos decorados solo aplican al nombre visible — y aun ahí, deciden los filtros de Roblox.",
+        a: "No. Los nombres de usuario están limitados a letras, números y un guion bajo. Los estilos decorados solo aplican al nombre visible — y aun ahí, deciden los filtros de Roblox.",
       },
       {
         q: "¿Por qué me cambiaron el nombre visible?",

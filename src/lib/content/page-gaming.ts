@@ -154,7 +154,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     hub: {
       heading: "Nombres por juego",
       intro:
-        "El generador de arriba decora cualquier nick. Si buscas nombres gamer para un juego concreto, entra en su página: cada una cuenta su propio largo.",
+        "El generador de arriba decora cualquier nombre. Si buscas nombres gamer para un juego concreto, entra en su página: cada una cuenta su propio largo.",
       cards: [
         {
           slug: "cod-name-generator",
@@ -169,7 +169,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
         {
           slug: "free-fire-name-generator",
           title: "Nombres para Free Fire",
-          description: "Nicks más cortos, cerca de 12 caracteres contando los símbolos.",
+          description: "Nombres más cortos, cerca de 12 caracteres contando los símbolos.",
         },
         {
           slug: "roblox-name-generator",
