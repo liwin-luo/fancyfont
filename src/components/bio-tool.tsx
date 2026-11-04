@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { composeBio } from "@/lib/bio";
 import { copyText } from "@/lib/copy";
 import { downloadTextPng } from "@/lib/export-image";
-import { measureText } from "@/lib/measure";
+import { measureText, sliceGraphemes } from "@/lib/measure";
 import { previewExtraMax } from "@/lib/platform-rules";
 import { useLocalList } from "@/lib/storage";
 import type { BioTemplate } from "@/lib/content/platform-pages-en";
@@ -16,6 +16,7 @@ import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { getUi } from "@/lib/ui-strings";
 
 const BOARD_KEY = "fancyfont:symbol-board";
+const MAX_LENGTH = 300;
 
 export function BioTool({
   platformId,
@@ -31,14 +32,13 @@ export function BioTool({
   const locale = useLocale();
   const t = getUi(locale);
   const showToast = useToast();
-  const [templateId, setTemplateId] = useState(templates[0]?.id ?? "");
+  const [text, setText] = useState(templates[0]?.text ?? "");
   const [styleId, setStyleId] = useState<TextStyleId | "plain">(styles[0] ?? "plain");
   const boardStore = useLocalList(BOARD_KEY, 40);
   // ponytail: the board stores newest first. Reverse so the tail matches the order symbols were added.
   const board = useMemo(() => [...boardStore.items].reverse(), [boardStore.items]);
-  const template = templates.find((item) => item.id === templateId) ?? templates[0];
   const max = previewExtraMax(platformId) ?? 0;
-  const draft = composeBio(template?.text ?? "", styleId, board, max);
+  const draft = composeBio(text, styleId, board, max);
   const points = measureText(draft.text).codePoints;
 
   async function copyDraft() {
@@ -55,17 +55,28 @@ export function BioTool({
     <div className="card p-4 sm:p-6">
       <div className="grid items-start gap-4 md:grid-cols-2">
         <div>
-          <div role="group" aria-label={t.bio.drafts} className="flex flex-wrap gap-2">
+          <label htmlFor="bio-input" className="mb-2 block text-sm font-semibold text-ink-700">
+            {t.common.yourText}
+          </label>
+          <textarea
+            id="bio-input"
+            value={text}
+            onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
+            rows={4}
+            placeholder={t.common.yourText}
+            autoComplete="off"
+            spellCheck={false}
+            className="text-input h-auto resize-y py-3"
+          />
+          <div role="group" aria-label={t.bio.drafts} className="mt-4 flex flex-wrap gap-2">
             {templates.map((item) => {
-              const active = item.id === template?.id;
+              const active = item.text === text;
               return (
                 <button
                   key={item.id}
                   type="button"
                   aria-pressed={active}
-                  onClick={() => {
-                    setTemplateId(item.id);
-                  }}
+                  onClick={() => setText(item.text)}
                   className={`h-9 rounded-full border px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                     active
                       ? "border-brand-600 bg-brand-100 text-brand-800"
@@ -77,6 +88,7 @@ export function BioTool({
               );
             })}
           </div>
+          <p className="mt-2 text-xs text-ink-500">{t.bio.fillHint}</p>
           <label htmlFor="bio-style" className="mt-4 mb-2 block text-sm font-semibold text-ink-700">
             {t.gaming.letterStyle}
           </label>
@@ -110,7 +122,7 @@ export function BioTool({
           <h2 id="inline-preview-heading" className="border-b border-line px-4 py-3 text-sm font-bold text-ink-900">
             {t.platformPreview.heading(platform)}
           </h2>
-          <PlatformPreviewScreen id={platformId} platform={platform} raw={template?.text ?? ""} styled={draft.text} />
+          <PlatformPreviewScreen id={platformId} platform={platform} raw={text} styled={draft.text} />
         </section>
       </div>
     </div>

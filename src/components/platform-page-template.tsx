@@ -66,27 +66,27 @@ function textSteps(locale: Locale, platform: string): [string, string, string] {
 
 const bioSteps: Record<Locale, [string, string, string]> = {
   en: [
-    "Pick a draft. The line breaks are already in it.",
+    "Type your own text, or pick a draft that already has the line breaks.",
     "Choose a letter style. Symbols on your board are added at the end.",
     "Copy the draft or save a PNG, then paste it into the app and check it there.",
   ],
   es: [
-    "Elige un borrador. Los saltos de línea ya están puestos.",
+    "Escribe tu texto o elige un borrador que ya trae los saltos de línea.",
     "Elige un estilo de letra. Los símbolos de tu bandeja se añaden al final.",
     "Copia el borrador o guarda un PNG, pégalo en la app y revísalo allí.",
   ],
   "pt-br": [
-    "Escolha um rascunho. As quebras de linha já estão nele.",
+    "Digite o seu texto ou escolha um rascunho que já tem as quebras de linha.",
     "Escolha um estilo de letra. Os símbolos da sua bandeja entram no final.",
     "Copie o rascunho ou salve um PNG, cole no app e confira lá.",
   ],
   "zh-cn": [
-    "选一份草稿，换行已经写好。",
+    "自己输入文字，或点一份已经排好换行的草稿。",
     "选一个字母样式。托盘里的符号会加在末尾。",
     "复制整段或保存 PNG，贴进应用里再看一眼。",
   ],
   id: [
-    "Pilih satu draf. Pemisah barisnya sudah ada.",
+    "Ketik teks kamu sendiri, atau pilih draf yang sudah punya pemisah baris.",
     "Pilih gaya huruf. Simbol di baki kamu ditambahkan di akhir.",
     "Salin draf atau simpan PNG, tempel ke aplikasinya, lalu cek di sana.",
   ],

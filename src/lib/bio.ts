@@ -1,4 +1,4 @@
-// Turns a fixed bio draft into the string the user copies.
+// Turns the bio text the user typed into the string they copy.
 // The symbol board is appended at the end. Nothing is truncated:
 // cutting a string can split an emoji.
 
@@ -11,12 +11,12 @@ export interface BioDraft {
 }
 
 export function composeBio(
-  template: string,
+  input: string,
   styleId: TextStyleId | "plain",
   symbols: string[],
   max: number,
 ): BioDraft {
-  const styled = styleId === "plain" ? template : convertText(template, styleId);
+  const styled = styleId === "plain" ? input : convertText(input, styleId);
   const text = styled + symbols.join("");
   return { text, over: measureText(text).codePoints > max };
 }
