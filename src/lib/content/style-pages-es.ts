@@ -662,4 +662,43 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       },
     ],
   },
+
+  "crazy-font-generator": {
+    navName: "Loca",
+    h1: "Generador de letras locas",
+    description:
+      "Mezcla estilos Unicode letra a letra y vuelve a mezclar hasta lograr el efecto más dispar. Copia letras locas para bios, nombres de juego y chats — gratis y sin registro.",
+    intro:
+      "Un solo estilo nunca es suficiente locura. Este generador mezcla varios alfabetos Unicode dentro de una misma palabra, envuelve el resultado en decoraciones y lo vuelve a mezclar hasta que quede dispar. Mismo texto, locura distinta.",
+    howItWorks:
+      "En vez de convertir el texto entero con un alfabeto, el mezclador recorre tu texto letra por letra y sortea un estilo distinto para cada posición: script junto a fraktur junto a burbuja. El sorteo es determinista: el mismo texto, nivel y mezcla reconstruyen exactamente el mismo resultado, y cada nueva mezcla te da un set distinto.",
+    coverageNote:
+      "Los estilos del mezclador convierten A–Z y a–z (algunos también dígitos). Los caracteres sin equivalente con estilo — tildes, emoji, chino — pasan igual, así que un resultado puede mezclar a propósito letras con estilo y letras normales. La decoración suma al límite de caracteres del campo de destino.",
+    bestFor: [
+      "Nombres de juego y clanes que deben verse caóticos a propósito",
+      "Perfiles que ya probaron los estilos cool y glitch y quieren algo más ruidoso",
+      "Bromas, títulos de stream y apodos de chat con energía dispar",
+    ],
+    sampleInputs: ["Tu Nombre", "Cha0s", "Reina Glitch"],
+    platformTip:
+      "Las letras mezcladas son tan portables como los estilos que las forman: cada carácter es Unicode normal. Los juegos con campos solo ASCII rechazan la mayoría; las bios y los nombres visibles de las apps sociales son terreno más amable. Pega y previsualiza antes de guardar.",
+    faq: [
+      {
+        q: "¿Qué son las letras locas?",
+        a: "No son fuentes: cada resultado es texto normal donde cada letra se cambió por un carácter Unicode parecido de otro estilo. Por eso puedes copiarlas y pegarlas donde vaya texto plano.",
+      },
+      {
+        q: "¿En qué se diferencia del generador glitch?",
+        a: "El glitch (zalgo) apila marcas combinantes sobre letras normales. Las letras locas cambian las propias letras por caracteres de otros alfabetos, así que el resultado parece varios estilos peleándose por una palabra.",
+      },
+      {
+        q: "¿Por qué el mismo texto sale igual?",
+        a: "El sorteo lleva una semilla, no es aleatorio. El mismo texto, nivel y número de mezcla reconstruyen el mismo resultado; dale otra vez a mezclar y tendrás un set nuevo.",
+      },
+      {
+        q: "¿Funcionan en el nombre de mi juego?",
+        a: "Depende del juego. Muchos juegos móviles aceptan Unicode decorativo; los campos solo ASCII no. Copia una variante, pégala en el campo real y comprueba antes de guardar.",
+      },
+    ],
+  },
 };

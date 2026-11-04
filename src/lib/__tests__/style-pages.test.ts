@@ -54,12 +54,21 @@ describe("look pages", () => {
   });
 
   it("leaves letter pages undecorated", () => {
-    const letters = stylePages.filter((page) => !isLookPage(page));
+    const letters = stylePages.filter((page) => !isLookPage(page) && page.tool !== "crazy");
     expect(letters.map((page) => page.slug)).toContain("cursive-text-generator");
     expect(letters.map((page) => page.slug)).not.toContain("cute-font-generator");
     for (const page of letters) {
       expect(page.wrappers).toBeUndefined();
       expect(previewStylePage("Name", page)).toBe(convertText("Name", page.styleIds[0]));
     }
+  });
+
+  it("renders the crazy page through the mixed-style engine", () => {
+    const crazy = stylePages.find((page) => page.slug === "crazy-font-generator");
+    expect(crazy?.tool).toBe("crazy");
+    expect(crazy?.wrappers).toBeUndefined();
+    // Seeded: the static example rebuilds identically on every render.
+    expect(previewStylePage("Name", crazy!)).toBe(previewStylePage("Name", crazy!));
+    expect(previewStylePage("Name", crazy!)).not.toBe(convertText("Name", crazy!.styleIds[0]));
   });
 });

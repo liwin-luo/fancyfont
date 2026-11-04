@@ -7,6 +7,7 @@
 
 import type { Locale } from "./i18n";
 import { convertText, withWrapper, type TextStyleId } from "./text-styles";
+import { crazyVariant } from "./crazy-style";
 import { stylePagesEn, type StylePageCopy } from "./content/style-pages-en";
 import { stylePagesEs } from "./content/style-pages-es";
 import { stylePagesPtBr } from "./content/style-pages-pt-br";
@@ -18,6 +19,11 @@ export type { StylePageCopy, StylePageFaq } from "./content/style-pages-en";
 export interface StylePageDef {
   slug: string;
   styleIds: TextStyleId[];
+  /**
+   * "single" (default) renders the per-style converter; "crazy" renders the
+   * per-character mixed-style shuffle tool instead.
+   */
+  tool?: "single" | "crazy";
   /** [left, right] pairs. Only the first style is wrapped. */
   wrappers?: readonly (readonly [string, string])[];
   related: string[];
@@ -127,8 +133,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
   },
   {
     slug: "chicano-font-generator",
-    styleIds: ["fraktur", "boldFraktur", "boldScript"],
-    wrappers: [
+    styleIds: ["fraktur", "boldFraktur", "boldScript"],    wrappers: [
       ["✠ ", " ✠"],
       ["❧ ", " ❧"],
       ["༺", "༻"],
@@ -143,6 +148,14 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       ["☙ ", " ☙"],
     ],
     related: ["gothic-text-generator", "dark-font-generator", "cursive-text-generator", "elegant-font-generator"],
+  },
+  {
+    slug: "crazy-font-generator",
+    // styles listed here are the mixing pool's headline alphabets; the tool
+    // draws per character from its own level definitions.
+    styleIds: ["script", "boldFraktur", "bubble", "smallCaps"],
+    tool: "crazy",
+    related: ["cool-font-generator", "glitch-text-generator", "tiny-text-generator"],
   },
 ];
 
@@ -169,8 +182,13 @@ export function isLookPage(page: StylePageDef): boolean {
   return Boolean(page.wrappers?.length);
 }
 
-/** Static example: primary alphabet, first decoration if this is a look page. */
-export function previewStylePage(text: string, page: Pick<StylePageDef, "styleIds" | "wrappers">): string {
+/** Static example: the primary alphabet with the first decoration for look
+ * pages; a seeded wild mix for the crazy page. */
+export function previewStylePage(
+  text: string,
+  page: Pick<StylePageDef, "styleIds" | "wrappers" | "tool">,
+): string {
+  if (page.tool === "crazy") return crazyVariant(text, "wild", 0);
   const inner = convertText(text, page.styleIds[0]);
   const wrap = page.wrappers?.[0];
   return wrap ? withWrapper(inner, wrap) : inner;

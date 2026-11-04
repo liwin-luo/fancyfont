@@ -1,6 +1,6 @@
 # 关键词与搜索意图地图（Keyword Intent Map）
 
-- 站点：https://fancyfont.tools（40 路径 × 5 语言，URL 结构各语言一致）
+- 站点：https://fancyfont.tools（42 路径 × 5 语言，URL 结构各语言一致）
 - 站点上线：2026-10-26；GSC 属性已验证（`google824e0769c16d7fbd.html`）
 - 本表基准：2026-10-29，对应代码 commit 840a06e
 - 配套文件：`seo/产品事实底稿.md`（能力/限制的唯一事实来源）
@@ -37,6 +37,7 @@
 | `/aesthetic-text-generator/` | aesthetic text generator | aesthetic font generator | 专用宽体+装饰组合 | 候选表（§5.2D） | 低 |
 | `/cute-font-generator/` | cute font generator | cute text generator | 可爱风字母+装饰组合 | 未知 | 与 heart/preppy 装饰相邻；文案已互相区分 |
 | `/cool-font-generator/` | cool fonts generator（§5.2A 有近似候选词） | cool text generator | 酷炫风字母+装饰组合 | 候选表（近似词） | 低 |
+| `/crazy-font-generator/` | crazy font generator | crazy fonts、crazy text、weird text（相邻） | 逐字符混搭多种字母风格 + 疯狂装饰，可重掷出新版本 | unverified（第三方工具显示约 1.0K/KD19，来自 2026-11-04 用户截图，工具名未注明；待 Keyword Planner 复核后升级） | 与 cool（单字母表+装饰）、glitch（纯 zalgo）意图已区分；SERP 快照 2026-11-04（DDG）：glyphy weird-text、fontylish /crazy/、lingojam weird、crazy-fonts.com 均为工具页，角度=weird/wild/混搭 |
 | `/dark-font-generator/` | dark font generator | emo font generator | 暗黑风字母+装饰组合 | 未知 | **高：与 chicano 共用 fraktur 系字母表**。文案路由已做（"装饰里没有 dark 页的骷髅月亮"）。**GSC 盯：两页查询重合度** |
 | `/elegant-font-generator/` | elegant font generator | fancy script generator | 优雅风字母+装饰组合 | 未知 | **高：与 coquette 共用完全相同的字母表对（boldScript+script）**。文案路由已做。**GSC 盯：两页查询重合度** |
 | `/coquette-font-generator/` | coquette font generator | coquette text、ribbon font | coquette 趋势字母+丝带装饰 | 未知 | 同上（与 elegant 成对监控） |

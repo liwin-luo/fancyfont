@@ -30,7 +30,7 @@ bows, brackets, lines, faces, music & vibes, check & cross, math, Greek, currenc
 numbers & Roman, dots & marks, and invisible blanks for empty game names — plus 14
 ready-made decorative combos. Searchable by name and keyword.
 
-**41 index paths in 5 languages (205 URLs)** plus 4 English-only guides, all static: home, three core tools,
+**42 index paths in 5 languages (210 URLs)** plus 4 English-only guides, all static: home, three core tools,
 style and platform pages, blank space, privacy, terms, about, contact, and a local
 MCP page. Custom 404 stays out of the sitemap. Each index path is localized in
 **English, Español (`/es/`), Português-BR (`/pt-br/`), 简体中文 (`/zh-cn/`) and
@@ -59,7 +59,7 @@ CoolSymbol, fsymbols, LingoJam):
   translation completeness at build time (`ui-strings.ts` + i18n unit tests).
 - `<html lang>` is correct per locale via five route-group root layouts
   (`en`, `es`, `pt-BR`, `zh-CN`, `id`).
-- `sitemap.xml` lists all 209 URLs (205 localized + 4 English guides), each localized entry
+- `sitemap.xml` lists all 214 URLs (210 localized + 4 English guides), each localized entry
   carrying its hreflang alternates.
   `lastmod` is a fixed content date, so it does not change on every request.
 - Chinese note (roadmap §6.3): styles convert Latin letters only — Chinese
@@ -72,7 +72,7 @@ CoolSymbol, fsymbols, LingoJam):
 
 - Unique `<title>`, meta description, and single `<h1>` per page.
 - Canonical URLs with trailing slashes (`trailingSlash: true`; non-slash URLs 308-redirect).
-- `sitemap.xml` with all 41 index paths + guides (`src/app/sitemap.ts`), `robots.txt` (including
+- `sitemap.xml` with all 42 index paths + guides (`src/app/sitemap.ts`), `robots.txt` (including
   an explicit allow for common AI crawlers), and `/llms.txt` for agents that
   cite the site.
 - Default Open Graph image at `/og/` and `summary_large_image` Twitter cards.
@@ -145,7 +145,7 @@ src/
     text-styles.ts        # 30-style Unicode conversion engine (coverage metadata, zalgo)
     nickname.ts           # seeded, deterministic nickname combinator + custom builder API
     symbols-data.ts       # 388 symbols, 18 categories, search, combos
-    style-pages.ts        # hand-written content for the 19 style pages (10 letter + 9 look)
+    style-pages.ts        # hand-written content for the 20 style pages (11 letter + 9 look)
     platform-pages.ts     # hand-written content for the 12 platform pages
     storage.ts            # SSR-safe localStorage lists (favorites/recents/saved)
     export-image.ts       # canvas PNG export

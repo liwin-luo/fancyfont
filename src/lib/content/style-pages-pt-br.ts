@@ -662,4 +662,43 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
     ],
   },
+
+  "crazy-font-generator": {
+    navName: "Maluca",
+    h1: "Gerador de letras malucas",
+    description:
+      "Misture estilos Unicode letra por letra e embaralhe até ficar devidamente maluco. Copie letras malucas para bios, nomes de jogo e chats — grátis, sem cadastro.",
+    intro:
+      "Um estilo só nunca é maluco o suficiente. Este gerador mistura vários alfabetos Unicode dentro da mesma palavra, embrulha o resultado em decorações e reembaralha até ficar devidamente maluco. Mesmo texto, maluqueira diferente.",
+    howItWorks:
+      "Em vez de converter o texto inteiro com um alfabeto, o misturador percorre seu texto letra por letra e sorteia um estilo diferente para cada posição: script ao lado de fraktur ao lado de bolha. O sorteio é determinístico: o mesmo texto, nível e embaralhamento reconstruem exatamente o mesmo resultado, e cada novo embaralhamento traz um set diferente.",
+    coverageNote:
+      "Os estilos do misturador convertem A–Z e a–z (alguns também dígitos). Caracteres sem equivalente estilizado — acentos, emoji, chinês — passam como estão, então um resultado pode de propósito misturar letras estilizadas e letras normais. A decoração soma no limite de caracteres do campo de destino.",
+    bestFor: [
+      "Nomes de jogo e tags de clã que devem parecer caóticos de propósito",
+      "Perfis que já testaram os estilos cool e glitch e querem algo mais barulhento",
+      "Zoeiras, títulos de live e apelidos de chat com energia maluca",
+    ],
+    sampleInputs: ["Seu Nome", "Cha0s", "Rainha Glitch"],
+    platformTip:
+      "Letras misturadas são tão portáveis quanto os estilos que as formam: cada caractere é Unicode normal. Jogos com campos só ASCII rejeitam a maioria; bios e nomes visíveis em apps sociais são terreno mais amigável. Cole e confira antes de salvar.",
+    faq: [
+      {
+        q: "O que são letras malucas?",
+        a: "Não são fontes: cada resultado é texto comum onde cada letra foi trocada por um caractere Unicode parecido de outro estilo. É por isso que dá para copiar e colar em qualquer lugar que aceite texto simples.",
+      },
+      {
+        q: "Qual é a diferença do gerador glitch?",
+        a: "O glitch (zalgo) empilha marcas combinantes sobre letras normais. As letras malucas trocam as próprias letras por caracteres de outros alfabetos — o resultado parece vários estilos brigando por uma palavra.",
+      },
+      {
+        q: "Por que o mesmo texto sempre sai igual?",
+        a: "O embaralhamento tem semente, não é aleatório. O mesmo texto, nível e número reconstruem o mesmo resultado; embaralhe de novo e você ganha um set novo.",
+      },
+      {
+        q: "Funciona no nome do meu jogo?",
+        a: "Depende do jogo. Muitos jogos mobile aceitam Unicode decorativo; campos só ASCII não. Copie uma variante, cole no campo real e confira antes de salvar.",
+      },
+    ],
+  },
 };

@@ -684,4 +684,43 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       },
     ],
   },
+
+  "crazy-font-generator": {
+    navName: "Crazy",
+    h1: "Crazy Font Generator",
+    description:
+      "Mix wild Unicode styles letter by letter and shuffle until it looks properly unhinged. Copy crazy fonts for bios, game names and chats — free, no sign-up.",
+    intro:
+      "One style is never crazy enough. This generator mixes several Unicode letter styles inside a single word, wraps the result in decorations, and reshuffles on demand until it looks properly unhinged. Same text in, different madness out.",
+    howItWorks:
+      "Instead of converting the whole string with one alphabet, the mixer walks through your text character by character and draws a different style for each position from a seeded shuffle — script next to fraktur next to bubble. The shuffle is deterministic: the same text, level and shuffle always rebuild the exact same result, and every reshuffle gives you a genuinely new set.",
+    coverageNote:
+      "The mixing styles convert A–Z and a–z (some also digits). Characters without a styled lookalike — accented letters, emoji, Chinese — pass through untouched, so a mixed result can deliberately blend styled and plain characters. Decorations add to the length your target field counts.",
+    bestFor: [
+      "Game names and clan tags that should look chaotic on purpose",
+      "Profiles that already tried the cool and glitch styles and want something louder",
+      "One-off jokes, stream titles and chat handles with unhinged energy",
+    ],
+    sampleInputs: ["Your Name", "Cha0s", "GlitchQueen"],
+    platformTip:
+      "Mixed styles are exactly as portable as the styles they are made of — every character is plain Unicode. Games with ASCII-only name fields reject most of it; bios and display names on social apps are friendlier ground. Paste and preview before you commit.",
+    faq: [
+      {
+        q: "What are crazy fonts?",
+        a: "They are not fonts at all — each crazy result is ordinary text where every letter has been swapped for a lookalike Unicode character from a different style. That is why you can copy and paste them anywhere plain text goes.",
+      },
+      {
+        q: "How is this different from the glitch generator?",
+        a: "Glitch (zalgo) stacks combining marks on top of normal letters. Crazy text swaps the letters themselves for characters from different alphabets, so the result reads like several styles fighting over one word.",
+      },
+      {
+        q: "Why does the same text keep coming back the same?",
+        a: "The shuffle is seeded, not random. The same text, level and shuffle number always rebuild the identical result — hit shuffle again and you get a genuinely new set.",
+      },
+      {
+        q: "Will crazy text work in my game name?",
+        a: "It depends on the game. Many mobile games accept decorative Unicode; ASCII-only fields do not. Copy a variant, paste it into the actual field, and check before you save.",
+      },
+    ],
+  },
 };

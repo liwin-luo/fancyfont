@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
 import { CoquetteScenarioKits } from "@/components/coquette-scenario-kits";
+import { CrazyTextTool } from "@/components/crazy-text-tool";
 import { SingleStyleTool } from "@/components/single-style-tool";
 import {
   CompatNote,
@@ -81,11 +82,15 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
       )}
 
       <div className="mt-8">
-        <SingleStyleTool
-          styleIds={page.styleIds}
-          wrappers={page.wrappers}
-          defaultText={c.sampleInputs[0]}
-        />
+        {page.tool === "crazy" ? (
+          <CrazyTextTool defaultText={c.sampleInputs[0]} />
+        ) : (
+          <SingleStyleTool
+            styleIds={page.styleIds}
+            wrappers={page.wrappers}
+            defaultText={c.sampleInputs[0]}
+          />
+        )}
       </div>
 
       {coquette ? <CoquetteScenarioKits copy={coquette.kits} defaultName={c.sampleInputs[0]} /> : null}

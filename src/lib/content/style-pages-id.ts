@@ -653,4 +653,43 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
     ],
   },
+
+  "crazy-font-generator": {
+    navName: "Gila",
+    h1: "Generator Huruf Gila",
+    description:
+      "Campur beberapa gaya Unicode huruf demi huruf, lalu acak sampai terlihat cukup gila. Salin huruf gila untuk bio, nama game, dan chat — gratis, tanpa daftar.",
+    intro:
+      "Satu gaya saja tidak pernah cukup gila. Generator ini mencampur beberapa alfabet Unicode di dalam satu kata, membungkus hasilnya dengan dekorasi, lalu mengacak ulang sampai terlihat benar-benar gila. Teks sama, kegilaan berbeda.",
+    howItWorks:
+      "Alih-alih mengubah seluruh teks dengan satu alfabet, pencampur berjalan huruf demi huruf dan mengundi gaya berbeda untuk setiap posisi: script bersama fraktur bersama gelembung. Undian ini deterministik: teks, level, dan nomor acak yang sama selalu membangun hasil yang persis sama, dan setiap putaran baru memberi set berbeda.",
+    coverageNote:
+      "Gaya pencampur mengubah A–Z dan a–z (sebagian juga angka). Karakter tanpa padanan bergaya — huruf beraksen, emoji, bahasa Mandarin — dibiarkan apa adanya, jadi hasil bisa sengaja mencampur huruf bergaya dan huruf biasa. Dekorasi menambah jumlah karakter yang dihitung kolom tujuan.",
+    bestFor: [
+      "Nama game dan tag klan yang memang harus terlihat kacau",
+      "Profil yang sudah mencoba gaya cool dan glitch dan ingin yang lebih berisik",
+      "Candaan sesaat, judul stream, dan nama panggilan chat bernuansa gila",
+    ],
+    sampleInputs: ["Nama Kamu", "Cha0s", "Ratu Glitch"],
+    platformTip:
+      "Huruf campuran sama portabelnya dengan gaya pembentuknya: setiap karakter adalah Unicode biasa. Game dengan kolom khusus ASCII menolak sebagian besar; bio dan nama tampilan di aplikasi sosial lebih ramah. Tempel dan periksa sebelum menyimpan.",
+    faq: [
+      {
+        q: "Apa itu huruf gila?",
+        a: "Bukan font: setiap hasil adalah teks biasa yang setiap hurufnya diganti karakter Unicode mirip dari gaya lain. Itulah sebabnya bisa disalin ke mana pun teks biasa diterima.",
+      },
+      {
+        q: "Apa bedanya dengan generator glitch?",
+        a: "Glitch (zalgo) menumpuk tanda kombinasinya di atas huruf biasa. Huruf gila mengganti hurufnya sendiri dengan karakter dari alfabet lain — hasilnya seperti beberapa gaya berebut satu kata.",
+      },
+      {
+        q: "Kenapa teks yang sama selalu hasilnya sama?",
+        a: "Pengacakan memakai seed, bukan murni acak. Teks, level, dan nomor yang sama selalu membangun hasil yang sama; acak lagi dan Anda dapat set baru.",
+      },
+      {
+        q: "Apakah bisa dipakai di nama game saya?",
+        a: "Tergantung game-nya. Banyak game mobile menerima Unicode dekoratif; kolom khusus ASCII tidak. Salin satu varian, tempel di kolom aslinya, dan periksa sebelum menyimpan.",
+      },
+    ],
+  },
 };

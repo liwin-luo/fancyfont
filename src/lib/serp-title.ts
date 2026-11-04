@@ -152,6 +152,13 @@ const styleDetail: Record<string, Record<Locale, string>> = {
     "zh-cn": "黑字母名字",
     id: "nama blackletter",
   },
+  "crazy-font-generator": {
+    en: "Mixed & Wild",
+    es: "mezclas locas",
+    "pt-br": "misturas malucas",
+    "zh-cn": "混搭与狂野",
+    id: "campuran liar",
+  },
 };
 
 export function serpPhrase(locale: Locale): string {

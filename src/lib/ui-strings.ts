@@ -93,6 +93,7 @@ export interface UiStrings {
     compareRemove: (name: string) => string;
     compareHeading: string;
     compareLimit: string;
+    shuffle: string;
     copiedToClipboard: string;
     copyFailed: string;
     browserOnly: string;
@@ -183,6 +184,7 @@ export interface UiStrings {
   styleNames: Record<TextStyleId, string>;
   styleCategoryNames: Record<StyleCategory, string>;
   vibeNames: Record<VibeStyleId, string>;
+  crazyLevelNames: { mild: string; wild: string; chaos: string };
   symbolCats: Record<string, string>;
   platformTool: {
     stylesFit: (platform: string) => string;
@@ -340,6 +342,7 @@ export const ui: Record<Locale, UiStrings> = {
     compareRemove: (name) => `Remove ${name} from compare`,
     compareHeading: "Compare styles",
     compareLimit: "Compare holds up to 4 styles — remove one first.",
+    shuffle: "Shuffle",
       copiedToClipboard: "Copied to clipboard",
       copyFailed: "Couldn't copy — select the text and copy manually",
       browserOnly: "Conversions run in your browser — nothing is uploaded.",
@@ -453,6 +456,11 @@ export const ui: Record<Locale, UiStrings> = {
       minimal: "Minimal",
       gothic: "Gothic",
       aesthetic: "Aesthetic",
+    },
+    crazyLevelNames: {
+      mild: "Mild",
+      wild: "Wild",
+      chaos: "Chaos",
     },
     symbolCats: {
       hearts: "Hearts",
@@ -612,6 +620,7 @@ export const ui: Record<Locale, UiStrings> = {
     compareRemove: (name) => `Quitar ${name} de la comparación`,
     compareHeading: "Comparar estilos",
     compareLimit: "La comparación admite 4 estilos como máximo; quita uno primero.",
+    shuffle: "Mezclar",
       copiedToClipboard: "Copiado al portapapeles",
       copyFailed: "No se pudo copiar — selecciona el texto y cópialo a mano",
       browserOnly: "Las conversiones ocurren en tu navegador — nada se envía a ningún servidor.",
@@ -757,6 +766,11 @@ export const ui: Record<Locale, UiStrings> = {
       minimal: "Minimalista",
       gothic: "Gótico",
       aesthetic: "Estética",
+    },
+    crazyLevelNames: {
+      mild: "Suave",
+      wild: "Salvaje",
+      chaos: "Caos",
     },
     symbolCats: {
       hearts: "Corazones",
@@ -924,6 +938,7 @@ export const ui: Record<Locale, UiStrings> = {
     compareRemove: (name) => `Remover ${name} da comparação`,
     compareHeading: "Comparar estilos",
     compareLimit: "A comparação aceita até 4 estilos; remova um primeiro.",
+    shuffle: "Misturar",
       copiedToClipboard: "Copiado para a área de transferência",
       copyFailed: "Não foi possível copiar — selecione o texto e copie manualmente",
       browserOnly: "As conversões acontecem no seu navegador — nada é enviado a servidores.",
@@ -1069,6 +1084,11 @@ export const ui: Record<Locale, UiStrings> = {
       minimal: "Minimalista",
       gothic: "Gótico",
       aesthetic: "Estético",
+    },
+    crazyLevelNames: {
+      mild: "Leve",
+      wild: "Selvagem",
+      chaos: "Caos",
     },
     symbolCats: {
       hearts: "Corações",
@@ -1228,6 +1248,7 @@ export const ui: Record<Locale, UiStrings> = {
     compareRemove: (name) => `把「${name}」移出对比`,
     compareHeading: "对比样式",
     compareLimit: "对比最多放 4 个样式，请先移除一个。",
+    shuffle: "换一批",
       copiedToClipboard: "已复制到剪贴板",
       copyFailed: "复制失败——请选中文本手动复制",
       browserOnly: "转换全部在你的浏览器中完成——不会上传任何内容。",
@@ -1372,6 +1393,11 @@ export const ui: Record<Locale, UiStrings> = {
       minimal: "极简",
       gothic: "哥特",
       aesthetic: "氛围感",
+    },
+    crazyLevelNames: {
+      mild: "轻微",
+      wild: "狂野",
+      chaos: "混乱",
     },
     symbolCats: {
       hearts: "爱心",
@@ -1529,6 +1555,7 @@ export const ui: Record<Locale, UiStrings> = {
     compareRemove: (name) => `Hapus ${name} dari perbandingan`,
     compareHeading: "Bandingkan gaya",
     compareLimit: "Perbandingan maksimal 4 gaya — hapus satu dulu.",
+    shuffle: "Acak",
       copiedToClipboard: "Tersalin ke papan klip",
       copyFailed: "Gagal menyalin — pilih teksnya dan salin manual",
       browserOnly: "Semua konversi berjalan di browser kamu — tidak ada yang diunggah.",
@@ -1675,6 +1702,11 @@ export const ui: Record<Locale, UiStrings> = {
       minimal: "Minimalis",
       gothic: "Gothic",
       aesthetic: "Estetik",
+    },
+    crazyLevelNames: {
+      mild: "Ringan",
+      wild: "Liar",
+      chaos: "Kacau",
     },
     symbolCats: {
       hearts: "Hati",
