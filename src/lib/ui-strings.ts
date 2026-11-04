@@ -36,6 +36,10 @@ export interface UiStrings {
     /** Footer byline: who publishes the site, and the last content revision date. */
     publishedBy: string;
     lastUpdated: string;
+    /** Footer bookmark link. */
+    bookmarkLabel: string;
+    bookmarkHint: (keys: string) => string;
+    bookmarkMobile: string;
     letterGenerators: string;
     lookGenerators: string;
     forPlatforms: string;
@@ -285,6 +289,9 @@ export const ui: Record<Locale, UiStrings> = {
         "All results are Unicode characters, not installed fonts. This site runs entirely in your browser.",
       publishedBy: "Published by",
       lastUpdated: "Last updated",
+      bookmarkLabel: "Bookmark this site",
+      bookmarkHint: (keys) => `Press ${keys} to bookmark FancyFont.`,
+      bookmarkMobile: "Use your browser's share menu to add FancyFont to your bookmarks or home screen.",
       letterGenerators: "Letter styles",
       lookGenerators: "Looks",
       forPlatforms: "For platforms",
@@ -562,6 +569,9 @@ export const ui: Record<Locale, UiStrings> = {
         "Todos los resultados son caracteres Unicode, no fuentes instaladas. Este sitio funciona por completo en tu navegador.",
       publishedBy: "Publicado por",
       lastUpdated: "Última actualización",
+      bookmarkLabel: "Añadir a marcadores",
+      bookmarkHint: (keys) => `Pulsa ${keys} para añadir FancyFont a marcadores.`,
+      bookmarkMobile: "Usa el menú compartir de tu navegador para añadir FancyFont a marcadores o a tu pantalla de inicio.",
       letterGenerators: "Estilos de letra",
       lookGenerators: "Apariencias",
       forPlatforms: "Por plataforma",
@@ -879,6 +889,9 @@ export const ui: Record<Locale, UiStrings> = {
         "Todos os resultados são caracteres Unicode, não fontes instaladas. Este site funciona inteiramente no seu navegador.",
       publishedBy: "Publicado por",
       lastUpdated: "Última atualização",
+      bookmarkLabel: "Adicionar aos favoritos",
+      bookmarkHint: (keys) => `Pressione ${keys} para adicionar o FancyFont aos favoritos.`,
+      bookmarkMobile: "Use o menu de compartilhar do navegador para adicionar o FancyFont aos favoritos ou à tela inicial.",
       letterGenerators: "Estilos de letra",
       lookGenerators: "Visuais",
       forPlatforms: "Por plataforma",
@@ -1188,6 +1201,9 @@ export const ui: Record<Locale, UiStrings> = {
         "所有结果均为 Unicode 字符，而非已安装的字体文件。本网站完全在你的浏览器中运行。",
       publishedBy: "发布者",
       lastUpdated: "最后更新",
+      bookmarkLabel: "收藏本站",
+      bookmarkHint: (keys) => `按 ${keys} 收藏 FancyFont。`,
+      bookmarkMobile: "用浏览器的分享菜单把 FancyFont 加入书签或添加到主屏幕。",
       letterGenerators: "字母",
       lookGenerators: "外观",
       forPlatforms: "按平台",
@@ -1494,6 +1510,9 @@ export const ui: Record<Locale, UiStrings> = {
         "Semua hasil adalah karakter Unicode, bukan font yang terpasang. Situs ini berjalan sepenuhnya di browser kamu.",
       publishedBy: "Diterbitkan oleh",
       lastUpdated: "Terakhir diperbarui",
+      bookmarkLabel: "Bookmark situs ini",
+      bookmarkHint: (keys) => `Tekan ${keys} untuk menandai FancyFont.`,
+      bookmarkMobile: "Gunakan menu bagikan browser untuk menandai FancyFont atau menambahkannya ke layar utama.",
       letterGenerators: "Huruf",
       lookGenerators: "Tampilan",
       forPlatforms: "Per platform",

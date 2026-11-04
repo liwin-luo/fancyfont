@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PixelStar } from "@/components/pixel-star";
+import { BookmarkButton } from "@/components/bookmark-button";
 import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
 import { getSiteUrl, siteName, contentUpdated } from "@/lib/site";
@@ -134,6 +135,9 @@ export function Footer({ locale }: { locale: Locale }) {
             {siteName}
           </Link>{" "}
           · {t.tools.lastUpdated} <time dateTime={contentUpdated}>{contentUpdated}</time>
+        </p>
+        <p className="mt-2">
+          <BookmarkButton />
         </p>
       </div>
     </footer>
