@@ -22,7 +22,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       "美妆、婚礼、生活方式类账号的品牌名",
       "适合用花体的短句和个性签名",
     ],
-    sampleInputs: ["Your Name", "Sweet Tea", "Lily"],
+    sampleInputs: ["Luna", "Sweet Tea", "Lily"],
     platformTip:
       "花体字母在 Instagram、TikTok、Discord 的简介和昵称里普遍可用。部分游戏因内置字体只覆盖基础英文字符而拒绝它们——用之前先在游戏里预览。",
     faq: [
@@ -48,9 +48,9 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     intro:
       "输入英文单词，把它变成 Fraktur，也就是常被叫作 Old English 的哥特黑体。金属乐队 Logo、战队标签和暗黑简介用的就是这套字母。两款粗细，一键复制。",
     howItWorks:
-      "哥体效果来自 Unicode 的 Mathematical Fraktur 字符区。Fraktur 也常被叫作 Old English，是一种历史悠久的德文黑体书法，Unicode 为它提供了完整的形近字母表——包括 C、H、I、R、Z 的特殊字形。",
+      "哥特效果来自 Unicode 的 Mathematical Fraktur 字符区。Fraktur 也常被叫作 Old English，是一种历史悠久的德文黑体书法，Unicode 为它提供了完整的形近字母表——包括 C、H、I、R、Z 的特殊字形。",
     coverageNote:
-      "两种哥体样式只转换英文字母 A–Z 和 a–z。数字、带声调字母和 emoji 保持原样，因为 Unicode 没有哥特数字。",
+      "两种哥特样式只转换英文字母 A–Z 和 a–z。数字、带声调字母和 emoji 保持原样，因为 Unicode 没有哥特数字。",
     bestFor: [
       "金属、游戏、暗黑审美的昵称和战队标签",
       "万圣节简介与活动宣传",
@@ -65,7 +65,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
         a: "不是。这一页就是这几个名字。Fraktur、Old English、medieval（中世纪）和 blackletter 说的都是同一套黑体字母，哥特是这些字符的常见叫法。没有单独的字体文件。",
       },
       {
-        q: "两种哥体样式有什么区别？",
+        q: "两种哥特样式有什么区别？",
         a: "第一款是笔画较细的经典 Fraktur；第二款是加粗版，小字号下更清晰。",
       },
       {
@@ -182,7 +182,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
   },
   "small-caps-generator": {
     navName: "小型大写",
-    h1: "小型大写字生成器",
+    h1: "小型大写字母生成器",
     description:
       "用小型大写字母书写——简介、昵称和文案里安静高级的质感。即时转换，一键复制。",
     intro:
@@ -230,7 +230,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       "帖子里的划掉旧价格",
       "群聊里的修改与撤回说明",
     ],
-    sampleInputs: ["bad idea", "was $99", "never mind"],
+    sampleInputs: ["bad idea", "原价 $99", "never mind"],
     platformTip:
       "删除线在多数现代应用里都能显示。Discord 的消息本身支持 markdown（~~这样~~）——Unicode 删除线用于简介、昵称以及一切用不了 markdown 的地方。",
     faq: [
@@ -270,7 +270,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     faq: [
       {
         q: "什么是 zalgo？",
-        a: "2004 年一部漫画诞生的网络传说：被堆叠变音符号腐蚀到像被附身的文字。这个名字后来成了这种样式的名字。",
+        a: "2004 年一部漫画里诞生的网络传说：被堆叠变音符号腐蚀到像被附身的文字。这个名字后来成了这种样式的名字。",
       },
       {
         q: "为什么我的乱码在某些 App 里变淡了？",
@@ -362,13 +362,13 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "气泡和圆圈能转换 A–Z、a–z 和数字。花体只转换字母，所以那一行里的数字保持原样。带声调的字母、emoji 和中文会原样保留。装饰是加在词两边的额外字符。",
     bestFor: [
-      "想要软一点的展示名和简介",
+      "想要软一点的显示名和简介",
       "一个短名字，只加一颗心或一个蝴蝶结",
       "短文案，不适合整段话",
     ],
     sampleInputs: ["Momo", "Soft", "Peach"],
     platformTip:
-      "可爱字母能用在大多数 Instagram、TikTok 和 Discord 的展示名和简介里。只允许普通字母的用户名会拒绝它们。蝴蝶结或软括号如果显示成空方块，就复制爱心那一行。",
+      "可爱字母能用在大多数 Instagram、TikTok 和 Discord 的显示名和简介里。只允许普通字母的用户名会拒绝它们。蝴蝶结或软括号如果显示成空方块，就复制爱心那一行。",
     faq: [
       {
         q: "可爱字体是要下载的文件吗？",
@@ -380,7 +380,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "能用作 Instagram 用户名吗？",
-        a: "不能。Instagram 用户名只允许字母、数字、句点和下划线。可爱名字贴到展示名或简介里。",
+        a: "不能。Instagram 用户名只允许字母、数字、句点和下划线。可爱名字贴到显示名或简介里。",
       },
     ],
   },
@@ -396,7 +396,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "粗体能转换字母和数字。小型大写能转换大多数字母，Unicode 没有小型大写字形的那几个会保持原样。装饰会计入名字的长度限制。",
     bestFor: [
-      "Discord 展示名和游戏标签",
+      "Discord 显示名和游戏标签",
       "只加一对翼的战队名",
       "要比花体更重的一个词",
     ],
@@ -426,7 +426,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     navName: "暗黑",
     h1: "暗黑字体生成器",
     description:
-      "可复制的暗黑名字：黑体字母加上骷髅、匕首或月亮。给简介和展示名用，不是下载字体。",
+      "可复制的暗黑名字：黑体字母加上骷髅、匕首或月亮。给简介和显示名用，不是下载字体。",
     intro:
       "黑体字母配一个暗色符号——骷髅、匕首或月亮。emo 字体就是这个组合。哥特页是不带骷髅的裸字母。这一页是加上装饰的版本。",
     howItWorks:
@@ -468,13 +468,13 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "两种花体都只转换字母。数字、带声调的字母和 emoji 保持原样。每一顶王冠或一朵鸢尾都是名字一侧多出来的字符。中文会原样保留。",
     bestFor: [
-      "婚礼、美妆和正式的展示名",
+      "婚礼、美妆和正式的显示名",
       "简介里的公主风或皇室风名字",
       "需要打扮一下的短文案",
     ],
     sampleInputs: ["Rose", "Royal", "Ada"],
     platformTip:
-      "花体能用在大多数 Instagram、TikTok 和 Discord 的展示名和简介里，不能用在只允许普通字母的用户名里。粗花体如果显示成方块，就复制细花体那一行。",
+      "花体能用在大多数 Instagram、TikTok 和 Discord 的显示名和简介里，不能用在只允许普通字母的用户名里。粗花体如果显示成方块，就复制细花体那一行。",
     faq: [
       {
         q: "优雅和花体是同一个吗？",
@@ -532,7 +532,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     navName: "Coquette",
     h1: "Coquette 字体生成器",
     description:
-      "可复制的 Coquette 文字：花体字母加一个丝带蝴蝶结。用于 Instagram 展示名和 Discord 昵称，不是字体下载。",
+      "可复制的 Coquette 文字：花体字母加一个丝带蝴蝶结。用于 Instagram 显示名和 Discord 昵称，不是字体下载。",
     intro:
       "花体字母，再加一个蝴蝶结。三行分别是小蝴蝶结、一对丝带，以及丝带 emoji。本站的可爱字体是圆气泡字。这一页只做丝带这一挂。",
     howItWorks:
@@ -540,13 +540,13 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "花体转换 A–Z 和 a–z。数字保持原样。小蝴蝶结是生僻字符，可能显示成空方块。如果这样，就复制丝带 emoji 那一行。装饰计入名字长度。中文原样保留。",
     bestFor: [
-      "Instagram 展示名和简介",
+      "Instagram 显示名和简介",
       "Discord 昵称和短状态",
       "一个词的名字，只加一个蝴蝶结",
     ],
     sampleInputs: ["Mia", "Lila", "Belle"],
     platformTip:
-      "贴到 Instagram 展示名或 Discord 昵称。这两处的用户名只收普通字母、数字和少量符号，蝴蝶结不要放进用户名。Instagram 展示名大约 30 个字符，Discord 昵称大约 32 个。小蝴蝶结如果失败，丝带 emoji 仍然可以复制。",
+      "贴到 Instagram 显示名或 Discord 昵称。这两处的用户名只收普通字母、数字和少量符号，蝴蝶结不要放进用户名。Instagram 显示名大约 30 个字符，Discord 昵称大约 32 个。小蝴蝶结如果失败，丝带 emoji 仍然可以复制。",
     faq: [
       {
         q: "Coquette 是要下载的字体文件吗？",
@@ -558,7 +558,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "能把 Coquette 名字放进 Instagram 用户名吗？",
-        a: "不能。用户名保持普通字母、数字和少量符号。展示名和简介可以试。能用哪些字符以 App 为准，本页不提供完整字符表。",
+        a: "不能。用户名保持普通字母、数字和少量符号。显示名和简介可以试。能用哪些字符以 App 为准，本页不提供完整字符表。",
       },
     ],
   },
@@ -567,7 +567,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     h1: "Preppy 字体生成器",
     title: "Preppy 字体 — 生成器与复制粘贴 | FancyFont",
     description:
-      "Preppy 字体就是干净的小型大写加一颗整齐的心。生成、复制、粘贴到简介、TikTok 名字或 Adopt Me 展示名——免费、无需注册。",
+      "Preppy 字体就是干净的小型大写加一颗整齐的心。生成、复制、粘贴到简介、TikTok 名字或 Adopt Me 显示名——免费、无需注册。",
     intro:
       "Preppy 字体就是干净的小型大写加一颗整齐的心：白心、扑克心，或侧过来的心。没有蝴蝶结，也没有气泡字——更闹的在可爱那一页。这一页保持整齐，Adopt Me 里的 preppy 名字要的就是这个。",
     howItWorks:
@@ -575,13 +575,13 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "小型大写覆盖大多数字母，Unicode 没有对应字形的会保持原样。花体只转换字母，所以那一行里的数字保持原样。爱心是额外字符。白心是 emoji，游戏过滤通常最先拒绝它。中文原样保留。",
     bestFor: [
-      "短的 Adopt Me 展示名",
+      "短的 Adopt Me 显示名",
       "干净的名字，只加一颗心",
       "想整齐、不想圆气泡的简介",
     ],
     sampleInputs: ["Mila", "Blair", "Tess"],
     platformTip:
-      "Adopt Me 显示的是你的 Roblox 展示名，通常大约 20 个字符，用户名不能用花字。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放进这个框。先贴到 Roblox 自己的改名页，确认预览通过再保存。",
+      "Adopt Me 显示的是你的 Roblox 显示名，通常大约 20 个字符，用户名不能用花字。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放进这个框。先贴到 Roblox 自己的改名页，确认预览通过再保存。",
     faq: [
       {
         q: "Preppy 和 Coquette 是同一种吗？",
@@ -589,15 +589,15 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "这能当 Adopt Me 的用户名吗？",
-        a: "Roblox 用户名只能是字母、数字和一个下划线。花字拿去试展示名，而且要等游戏自己的预览接受了再确认。",
+        a: "Roblox 用户名只能是字母、数字和一个下划线。花字拿去试显示名，而且要等游戏自己的预览接受了再确认。",
       },
       {
         q: "为什么爱心这么简单？",
-        a: "一串蝴蝶结会吃掉展示名的 20 个字符，也更容易被过滤。一颗心就是 preppy 的记号，还留得下名字。",
+        a: "一串蝴蝶结会吃掉显示名的 20 个字符，也更容易被过滤。一颗心就是 preppy 的记号，还留得下名字。",
       },
       {
         q: "Preppy 字体叫什么名字？",
-        a: "没有唯一一种 preppy 字体。社交媒体说的 preppy 通常指小型大写——矮一号的大写——旁边配一颗干净的心或蝴蝶结。这些都是 Unicode 文本，不是安装的字体，所以能复制粘贴。",
+        a: "没有唯一一种 preppy 字体。社交媒体上说的 preppy 通常指小型大写——矮一号的大写——旁边配一颗干净的心或蝴蝶结。这些都是 Unicode 文本，不是安装的字体，所以能复制粘贴。",
       },
       {
         q: "怎么做出 preppy 字体？",
@@ -617,13 +617,13 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     coverageNote:
       "花体和粗花体转换 A–Z 和 a–z。数字保持原样。气泡字能转换字母和数字。带声调的字母、emoji 和中文原样保留。爱心是额外字符，计入名字长度。较小的心比较少见，可能显示成空方块——如果失败，就复制红心或闪光心那一行。",
     bestFor: [
-      "Instagram 和 TikTok 的展示名、简介",
+      "Instagram 和 TikTok 的显示名、简介",
       "一个词的名字，或一句短配文",
       "两侧各一颗心就够用的 Discord 昵称",
     ],
     sampleInputs: ["Love", "Mia", "Honey"],
     platformTip:
-      "贴到 Instagram 展示名或简介、TikTok 简介，或 Discord 昵称。只收普通字母的用户名会拒绝爱心。Instagram 展示名大约 30 个字符，Discord 昵称大约 32 个，短词两侧各一颗心，比一串符号更容易放进去。",
+      "贴到 Instagram 显示名或简介、TikTok 简介，或 Discord 昵称。只收普通字母的用户名会拒绝爱心。Instagram 显示名大约 30 个字符，Discord 昵称大约 32 个，短词两侧各一颗心，比一串符号更容易放进去。",
     faq: [
       {
         q: "爱心字体是要下载的文件吗？",
@@ -635,7 +635,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "能把爱心名字放进 Instagram 用户名吗？",
-        a: "不能。Instagram 用户名只收字母、数字、句点和下划线。爱心名字贴到展示名或简介。",
+        a: "不能。Instagram 用户名只收字母、数字、句点和下划线。爱心名字贴到显示名或简介。",
       },
     ],
   },
@@ -643,21 +643,21 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
     navName: "Chicano",
     h1: "Chicano 字体生成器",
     description:
-      "可复制的 Chicano 风格文字：黑字母每行一个装饰，下面另有一行花体。在浏览器里完成。不是字体文件，也不是纹身针稿。",
+      "可复制的 Chicano 风格文字：黑字母每行一个装饰，下面另有一行花体。在浏览器里完成。不是字体文件，也不是纹身手稿。",
     intro:
-      "经典黑字母，每行一个装饰，一共十二种，没有暗黑页上的骷髅和月亮。不带装饰的黑字母在哥特字体页。你复制的是字符。这不是手绘的 Chicano 字母，也不是针稿。",
+      "经典黑字母，每行一个装饰，一共十二种，没有暗黑页上的骷髅和月亮。不带装饰的黑字母在哥特字体页。你复制的是字符。这不是手绘的 Chicano 字母，也不是手稿。",
     howItWorks:
       "带装饰的几行套在 Unicode Fraktur 上，也就是常被叫作 Old English 的黑字母。较粗的黑字母放在下面，不带装饰，小字号也还读得清。粗花体是第三行，不加装饰：它用来代替这种风格里的手写那一半，字母并不连笔。每个装饰都是单独的符号，只套在经典黑字母那一行。",
     coverageNote:
       "两种黑字母只转换 A–Z 和 a–z。数字、á、é、ñ 这类带声调的字母，以及 emoji，都会原样保留，因为 Unicode 没有它们的黑字母形式。粗花体只转换字母。装饰是额外字符，计入名字长度。生僻装饰可能显示成空方块——如果这样，就复制十字那一行，或不带装饰的黑字母。中文原样保留。",
     bestFor: [
       "简介里的短名字，或一个词的短语",
-      "交给字母师傅之前，先比较黑字母和花体",
-      "想要黑字母、又不想要暗黑页骷髅的展示名",
+      "交给纹身师之前，先比较黑字母和花体",
+      "想要黑字母、又不想要暗黑页骷髅的显示名",
     ],
     sampleInputs: ["Rosa", "Luz", "Vida"],
     platformTip:
-      "贴到展示名或简介，再在那个 App 里看一遍。只收普通字母的游戏会拒绝黑字母。这些字符不是纹身针稿：笔画是文字字形，不是按皮肤尺寸画的图。",
+      "贴到显示名或简介，再在那个 App 里看一遍。只收普通字母的游戏会拒绝黑字母。这些字符不是纹身手稿：笔画是文字字形，不是按皮肤尺寸画的图。",
     faq: [
       {
         q: "这是可以下载的 Chicano 字体吗？",
@@ -665,7 +665,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       },
       {
         q: "这是传统的 Chicano 字母吗？",
-        a: "不是。Chicano 字母是墨西哥裔美国人图形传统里的手绘黑字母和手写体，出现在壁画、汽车和纹身上。这里的几行只是接近黑字母的样子，再加一套花体。它不是针稿，也不能代替字母师傅。",
+        a: "不是。Chicano 字母是墨西哥裔美国人图形传统里的手绘黑字母和手写体，出现在壁画、汽车和纹身上。这里的几行只是接近黑字母的样子，再加一套花体。它不是手稿，也不能代替纹身师。",
       },
       {
         q: "为什么 ñ 和带声调的字母还是普通字形？",
@@ -690,7 +690,7 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       "已经试过酷炫和故障风格、想要更吵闹的资料页",
       "一次性的玩笑、直播标题和聊天昵称",
     ],
-    sampleInputs: ["Your Name", "Cha0s", "GlitchQueen"],
+    sampleInputs: ["Neon", "Cha0s", "GlitchQueen"],
     platformTip:
       "混搭结果和它用到的风格一样可移植——每个字符都是普通 Unicode。只收 ASCII 的游戏字段会拒绝大部分；社交应用的简介和显示名更友好。先粘贴预览再保存。",
     faq: [

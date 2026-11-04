@@ -237,7 +237,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     ],
     examplesHeading: "示例",
     examples: [
-      { label: "Instagram 简介", input: "Your Name", styleId: "script", left: "✦ ", right: " ✦" },
+      { label: "Instagram 简介", input: "Luna", styleId: "script", left: "✦ ", right: " ✦" },
       { label: "游戏标签", input: "Alex", styleId: "fraktur", left: "꧁༒", right: "༒꧂" },
       { label: "Discord 昵称", input: "river", styleId: "smallCaps", right: " ✧" },
       { label: "Aesthetic 文案", input: "soft launch", styleId: "fullwidth" },

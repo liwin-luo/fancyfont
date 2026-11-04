@@ -20,7 +20,7 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
     ],
     presets: [
       { label: "柔和名字框", left: "✦ ", right: " ✦", transform: "script" },
-      { label: "Aesthetic 间距", left: "", right: "", transform: "fullwidth" },
+      { label: "氛围间距", left: "", right: "", transform: "fullwidth" },
       { label: "可爱蝴蝶结", left: "୨୧ ", right: " ୨୧", transform: "smallCaps" },
       { label: "粗体开场", left: "「 ", right: " 」", transform: "sansBold" },
     ],
@@ -47,7 +47,7 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
       },
       {
         q: "在简介里用字体会被封号吗？",
-        a: "在名字或简介里使用带样式的文字属于正常资料内容，并不是已知的违规行为。别用在用户名上，遵守 Instagram 的规则即可——无数用户都是这么用的。",
+        a: "在名字或简介里使用带样式的文字属于正常资料内容，并不是已知的违规行为。别用在用户名上，遵守 Instagram 的规则即可——不少用户都是这么用的。",
       },
       {
         q: "为什么有些粉丝看到的是方块？",
@@ -70,9 +70,9 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
       { id: "note", label: "名字加一句", text: "Alex\n来看剪辑" },
     ],
     presets: [
-      { label: "Clan 框架", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
+      { label: "战队标签框", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "星光点缀", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
-      { label: "全角 vibe", left: "", right: "", transform: "fullwidth" },
+      { label: "全角氛围", left: "", right: "", transform: "fullwidth" },
       { label: "爱心框", left: "♡ ", right: " ♡", transform: "script" },
     ],
     guidance: [
@@ -145,7 +145,7 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
       },
       {
         label: "资料框与文字的区别",
-        body: "Discord 商店出售「资料框」（Profile Frames）——付费的整页资料装饰边框。它们不碰你的文字：昵称、自定义状态和 About Me 仍然只收普通字符，想把这些字段加粗或变成花体，Unicode 样式仍是唯一的办法。",
+        body: "Discord 商店出售「资料框」（Profile Frames）——付费的整页资料装饰边框。它们不碰你的文字：昵称、自定义状态和关于我仍然只收普通字符，想把这些字段加粗或变成花体，Unicode 样式仍是唯一的办法。",
       },
     ],
     compatNote:
@@ -176,14 +176,14 @@ export const platformPagesZhCn: Record<string, PlatformPageCopy> = {
     defaultText: "ShadowHero",
     presets: [
       { label: "竞技框", left: "꧁ ", right: " ꧂", transform: "bold" },
-      { label: "Pro 标签", left: "✪ ", right: "", transform: "smallCaps" },
+      { label: "竞技标签", left: "✪ ", right: "", transform: "smallCaps" },
       { label: "星星环绕", left: "★ ", right: " ★", transform: "identity" },
       { label: "括号款", left: "『", right: "』", transform: "bold" },
     ],
     guidance: [
       {
         label: "用户名",
-        body: "你的登录标识：3–20 个字符，英文字母、数字和一个下划线。执行非常严格——永远不允许符号、空格或带样式的字符。",
+        body: "你的登录标识：3–20 个字符，英文字母、数字和一个下划线。限制非常严格——永远不允许符号、空格或带样式的字符。",
       },
       {
         label: "显示名",

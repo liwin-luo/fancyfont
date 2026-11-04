@@ -138,7 +138,7 @@ export const coquetteExtra: Record<Locale, CoquetteExtra> = {
         "输入名字后，这些行在浏览器里重做。小蝴蝶结 𐙚 可能变成空方框；如果这样，就复制带 🎀 的那一行。每套都留纯文本。用户名保持普通字符。App 收哪些字符，以 App 为准。",
       nameLabel: "你的名字",
       pieces: {
-        display: "展示名",
+        display: "显示名",
         bio: "简介一行",
         tiktok: "TikTok 名字",
         caption: "配文",
@@ -146,8 +146,8 @@ export const coquetteExtra: Record<Locale, CoquetteExtra> = {
       },
       count: "{count} 个字符",
       items: [
-        kit("bio", "Instagram 简介", "带丝带的展示名，再加一行短简介。不要放进用户名。"),
-        kit("tiktok", "TikTok 名字", "一个短的展示名风格。到 App 里再看一眼。"),
+        kit("bio", "Instagram 简介", "带丝带的显示名，再加一行短简介。不要放进用户名。"),
+        kit("tiktok", "TikTok 名字", "一个短的显示名风格。到 App 里再看一眼。"),
         kit("caption", "配文", "配文用小蝴蝶结。如果它变成方框，改用丝带那一套。"),
         kit("discord", "Discord 昵称", "一个带丝带的短昵称。这不是用户名。"),
       ],

@@ -258,7 +258,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Display name",
-          body: "About 20 characters, including every heart. This is the name above your avatar in Adopt Me. The preview clips past 20. A short small-caps name with one heart fits more often than a bow on both sides.",
+          body: "About 20 characters, including every heart. This is the name above your avatar in Adopt Me. The preview flags anything past 20. A short small-caps name with one heart fits more often than a bow on both sides.",
         },
         {
           label: "Username",
@@ -317,7 +317,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Display name",
-          body: "About 20 characters. This is the overhead name in Berry Avenue. Hearts, bows, and script letters all count. The preview clips past 20.",
+          body: "About 20 characters. This is the overhead name in Berry Avenue. Hearts, bows, and script letters all count. The preview flags anything past 20.",
         },
         {
           label: "Username",
@@ -657,7 +657,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nombre visible",
-          body: "Unos 20 caracteres, corazón incluido. Es el nombre sobre tu avatar en Adopt Me. La vista previa corta a partir de 20. Un nombre corto en versalitas con un corazón cabe más a menudo que un lazo a cada lado.",
+          body: "Unos 20 caracteres, corazón incluido. Es el nombre sobre tu avatar en Adopt Me. La vista previa avisa cuando pasa de 20. Un nombre corto en versalitas con un corazón cabe más a menudo que un lazo a cada lado.",
         },
         {
           label: "Usuario",
@@ -716,7 +716,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nombre visible",
-          body: "Unos 20 caracteres. Es el nombre sobre la cabeza en Berry Avenue. Corazones, lazos y letras script cuentan. La vista previa corta a partir de 20.",
+          body: "Unos 20 caracteres. Es el nombre sobre la cabeza en Berry Avenue. Corazones, lazos y letras script cuentan. La vista previa avisa cuando pasa de 20.",
         },
         {
           label: "Usuario",
@@ -1056,7 +1056,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nome de exibição",
-          body: "Cerca de 20 caracteres, coração incluído. É o nome acima do avatar no Adopt Me. A prévia corta depois de 20. Um nome curto em versaletes com um coração cabe mais vezes do que um laço dos dois lados.",
+          body: "Cerca de 20 caracteres, coração incluído. É o nome acima do avatar no Adopt Me. A prévia avisa quando passa de 20. Um nome curto em versaletes com um coração cabe mais vezes do que um laço dos dois lados.",
         },
         {
           label: "Usuário",
@@ -1115,7 +1115,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nome de exibição",
-          body: "Cerca de 20 caracteres. É o nome acima da cabeça no Berry Avenue. Corações, laços e letras script contam. A prévia corta depois de 20.",
+          body: "Cerca de 20 caracteres. É o nome acima da cabeça no Berry Avenue. Corações, laços e letras script contam. A prévia avisa quando passa de 20.",
         },
         {
           label: "Usuário",
@@ -1240,7 +1240,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "PUBG 名字可以多长？",
-          a: "按大约 16 个字符来准备。有的模式，包括 PUBG Mobile 的一部分，更短。预览按码位计数，超过 16 会提示。",
+          a: "按大约 16 个字符来准备。有的模式，包括 PUBG Mobile 的一部分，更短。超长提示按码位计算，超过 16 会给出提示。",
         },
         {
           q: "其他玩家能看到这个样式吗？",
@@ -1273,7 +1273,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "玩家 ID",
-          body: "数字 ID 不能加样式。只有昵称是文字，游戏仍然会过滤。",
+          body: "数字 ID 不能加样式。只有昵称是文字，而且游戏仍会过滤。",
         },
         {
           label: "如果被拒绝",
@@ -1412,7 +1412,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "简介",
-          body: "大约 1000 个字符。一个有样式的名字加一句普通的话很容易放下。先用完的是频道名。",
+          body: "大约 1000 个字符。一个有样式的名字加一句普通的话很容易放下。先碰到上限的是频道名。",
         },
       ],
       compatNote:
@@ -1435,11 +1435,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "adopt-me-fonts": {
       navName: "Adopt Me",
       h1: "Adopt Me 字体",
-      title: "能放进 Adopt Me 的字体 – Roblox 展示名",
+      title: "能放进 Adopt Me 的字体 – Roblox 显示名",
       description:
-        "给 Adopt Me 用的短名字字体，贴在 Roblox 展示名上。大约 20 个字符，用户名保持普通字母，改名之前先看预览。",
+        "给 Adopt Me 用的短名字字体，贴在 Roblox 显示名上。大约 20 个字符，用户名保持普通字母，改名之前先看预览。",
       intro:
-        "Adopt Me 用的是你的 Roblox 名字。用户名只能是字母、数字和一个下划线。别人看到的展示名大约 20 个字符，Roblox 仍可能拒绝某个符号。下面是 preppy 和可爱两种样子，并且剪短到可以拿去试。",
+        "Adopt Me 用的是你的 Roblox 名字。用户名只能是字母、数字和一个下划线。别人看到的显示名大约 20 个字符，Roblox 仍可能拒绝某个符号。下面是 preppy 和可爱两种样子，并且缩短到可以直接试用。",
       defaultText: "Mila",
       presets: [
         { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
@@ -1449,16 +1449,16 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       ],
       guidance: [
         {
-          label: "展示名",
-          body: "大约 20 个字符，爱心也算。这是 Adopt Me 里头像上方的名字。预览超过 20 会截断。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放下。",
+          label: "显示名",
+          body: "大约 20 个字符，爱心也算。这是 Adopt Me 里头像上方的名字。预览超过 20 会提示。短的小型大写加一颗心，比两侧都加蝴蝶结更容易放下。",
         },
         {
           label: "用户名",
-          body: "字母、数字和一个下划线，3 到 20 个字符。不能用花字，也不能有空格。预览里用户名保持普通字符，花字只放在展示名。",
+          body: "字母、数字和一个下划线，3 到 20 个字符。不能用花字，也不能有空格。预览里用户名保持普通字符，花字只放在显示名。",
         },
         {
           label: "真正能通过的",
-          body: "Roblox 会过滤展示名，规则也会变。花字可能变成方块，或直接被拒绝。先贴到 Roblox 自己的改名页，看它的预览，再确认。展示名不能频繁改，没看过的名字不要拿去用掉一次机会。中文通常过不了这个过滤。",
+          body: "Roblox 会过滤显示名，规则也会变。花字可能变成方块，或直接被拒绝。先贴到 Roblox 自己的改名页，看它的预览，再确认。显示名不能频繁改，没看过的名字不要拿去用掉一次机会。中文通常过不了这个过滤。",
         },
       ],
       compatNote:
@@ -1466,34 +1466,34 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Adopt Me 的用户名能用这些字体吗？",
-          a: "不能。用户名是 Roblox 的登录名：字母、数字和一个下划线。花字放进展示名。",
+          a: "不能。用户名是 Roblox 的登录名：字母、数字和一个下划线。花字放进显示名。",
         },
         {
           q: "为什么我的 Adopt Me 花字名字被拒绝了？",
-          a: "Roblox 会过滤展示名。叠在一起的蝴蝶结和生僻符号最先失败。试一试只有一颗心的那一行，或没有装饰的小型大写，并看游戏自己的预览。",
+          a: "Roblox 会过滤显示名。叠在一起的蝴蝶结和生僻符号最先失败。试一试只有一颗心的那一行，或没有装饰的小型大写，并看游戏自己的预览。",
         },
         {
           q: "这是 Adopt Me 官方工具吗？",
-          a: "不是。FancyFont 是独立工具。Adopt Me 和 Roblox 属于各自的权利人。这一页只帮你起草一个符合常见展示名长度的名字。",
+          a: "不是。FancyFont 是独立工具。Adopt Me 和 Roblox 属于各自的权利人。这一页只帮你起草一个符合常见显示名长度的名字。",
         },
       ],
     },
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Berry Avenue 字体生成器",
-      title: "Berry Avenue 字体生成器 — 约 20 字展示名可复制",
+      title: "Berry Avenue 字体生成器 — 约 20 字显示名可复制",
       description:
-        "在名片和牌子上预览 Berry Avenue 的 Roblox 展示名，复制大约 20 个字符以内的样式。这是给头顶名字用的，不是用户名。本站没有在游戏里实测这个上限。",
+        "在资料卡和牌子上预览 Berry Avenue 的 Roblox 显示名，复制大约 20 个字符以内的样式。这是给头顶名字用的，不是用户名。本站没有在游戏里实测这个上限。",
       intro:
-        "Berry Avenue 在角色头顶显示 Roblox 展示名。这个框大约 20 个字符，用户名保持普通字母。这一页的名片是示意，不是游戏里的字体。",
+        "Berry Avenue 在角色头顶显示 Roblox 显示名。这个框大约 20 个字符，用户名保持普通字母。这一页的资料卡只是示意，不是游戏里的字体。",
       pinnedPreview: {
-        heading: "展示名实时预览",
-        displayName: "展示名",
+        heading: "显示名实时预览",
+        displayName: "显示名",
         username: "用户名",
         sign: "牌子",
         showing: "现在看的是「{label}」这一行。想要别的样子，复制下面另一行。",
         counter: "{count} / 约 {max} 个字符",
-        over: "超过了展示名的大约长度。",
+        over: "超过了显示名的大约长度。",
         usernameNote: "用户名只留字母、数字和一个下划线。这些字体不放在这个字段。",
         signNote: "牌子或聊天句子可以更长。这一页没有这两处的公开字数上限。",
         approxNote: "约 20 是估计值，本站没有在 Berry Avenue 里实测。计数按可见字符（字素）。",
@@ -1507,8 +1507,8 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       ],
       guidance: [
         {
-          label: "展示名",
-          body: "大约 20 个字符。这是 Berry Avenue 里头顶的名字。爱心、蝴蝶结和花体字母都要算进去。预览超过 20 会截断。",
+          label: "显示名",
+          body: "大约 20 个字符。这是 Berry Avenue 里头顶的名字。爱心、蝴蝶结和花体字母都要算进去。预览超过 20 会提示。",
         },
         {
           label: "用户名",
@@ -1516,7 +1516,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "聊天句子",
-          body: "聊天里的角色介绍可以比头顶名字更长。展示名保持一行短的，长句子先在你自己的设备上看它画得出来，再贴进聊天。小蝴蝶结可能变成方块，丝带 emoji 是退路。中文原样保留，但展示名过滤通常不收中文。",
+          body: "聊天里的角色介绍可以比头顶名字更长。显示名保持一行短的，长句子先在你自己的设备上看它画得出来，再贴进聊天。小蝴蝶结可能变成方块，丝带 emoji 是退路。中文原样保留，但显示名过滤通常不收中文。",
         },
       ],
       compatNote:
@@ -1524,19 +1524,19 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "哪些字体适合 Berry Avenue？",
-          a: "先从大约 20 个字符的展示名开始。安静的小型大写那一行不加符号。只有 Roblox 自己的改名页还接受时，再加一个蝴蝶结。这些是用来粘贴的 Unicode 字符，不是要安装的字体文件。",
+          a: "先从大约 20 个字符的显示名开始。安静的小型大写那一行不加符号。只有 Roblox 自己的改名页还接受时，再加一个蝴蝶结。这些是用来粘贴的 Unicode 字符，不是要安装的字体文件。",
         },
         {
-          q: "Berry Avenue 字体能放进用户名吗？",
-          a: "原因：Roblox 的帮助文章把展示名和用户名分成两个字段。展示名是别人看到的名字。@用户名是登录名。处理：花体只放在展示名上。这一页给用户名的适配规则是字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
+          q: "Berry Avenue 字体是给用户名用的吗？",
+          a: "不能。原因：Roblox 的帮助文章把显示名和用户名分成两个字段。显示名是别人看到的名字。@用户名是登录名。处理：花体只放在显示名上。这一页给用户名的适配规则是字母、数字和一个下划线。更长的角色扮演句子放在聊天里。",
         },
         {
           q: "为什么 Roblox 拒绝了我的 Berry Avenue 名字？",
-          a: "原因：同一篇帮助文章写明展示名会被过滤，违反规则的名字可能被改回用户名。Roblox 的文字过滤页面也覆盖别人能看见的文字，包括牌子上的电话号码。处理：去掉生僻符号，把展示名留在公告里的 3–20，不要写个人信息，等 Roblox 自己的页面接受了再保存。",
+          a: "原因：同一篇帮助文章写明显示名会被过滤，违反规则的名字可能被改回用户名。Roblox 的文字过滤页面也覆盖别人能看见的文字，包括牌子上的电话号码。处理：去掉生僻符号，把显示名保持在官方公布的 3–20 个字符以内，不要写个人信息，等 Roblox 自己的页面接受了再保存。",
         },
         {
           q: "这是 Berry Avenue 字体生成器吗？",
-          a: "它帮你起草一个可以复制的展示名。不是 Berry Avenue 或 Roblox 的官方工具，也不保证游戏会收下这些字符。",
+          a: "它帮你起草一个可以复制的显示名。不是 Berry Avenue 或 Roblox 的官方工具，也不保证游戏会收下这些字符。",
         },
       ],
     },
@@ -1551,14 +1551,14 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       defaultText: "Victory",
       presets: [
         { label: "星环", left: "★ ", right: " ★", transform: "sansBold" },
-        { label: "方括", left: "「", right: "」", transform: "bold" },
+        { label: "方括号", left: "「", right: "」", transform: "bold" },
         { label: "风暴标", left: "⚡ ", right: "", transform: "smallCaps" },
         { label: "暗黑框", left: "༺", right: "༻", transform: "fraktur" },
       ],
       guidance: [
         {
           label: "显示名",
-          body: "你在所有对局里被看到的那个字段，通常约 16 个字符。预览按码点计数，超长会标出。",
+          body: "你在所有对局里被看到的那个字段，通常约 16 个字符。超长提示按码点计算，超过长度会标出。",
         },
         {
           label: "跟着 Epic 账号走",
@@ -1566,7 +1566,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "符号与过滤器",
-          body: "哪些字符能活下来由 Epic 的过滤器决定。粗体、小型大写这类单字符字母表比叠标记的装饰更稳——大厅里看到方块就换更朴素的样式。",
+          body: "哪些字符能活下来由 Epic 的过滤器决定。粗体、小型大写这类单个字符一一对应的字母表，比叠加符号的装饰更稳——大厅里看到方块就换更朴素的样式。",
         },
         {
           label: "保持原样的部分",
@@ -1578,7 +1578,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Fortnite 名字能多长？",
-          a: "按约 16 个字符规划。预览按码点计数并在复制前警告；游戏内字段才是最终裁判。",
+          a: "按约 16 个字符规划。超长提示按码点计算，并在复制前警告；游戏内字段才是最终裁判。",
         },
         {
           q: "怎么改 Fortnite 名字？",
@@ -1848,7 +1848,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nama tampilan",
-          body: "Sekitar 20 karakter, hati ikut dihitung. Ini nama di atas avatar di Adopt Me. Pratinjau memotong lewat 20. Nama small caps yang pendek dengan satu hati lebih sering muat daripada pita di kedua sisi.",
+          body: "Sekitar 20 karakter, hati ikut dihitung. Ini nama di atas avatar di Adopt Me. Pratinjau memberi tanda jika lewat 20. Nama small caps yang pendek dengan satu hati lebih sering muat daripada pita di kedua sisi.",
         },
         {
           label: "Username",
@@ -1907,7 +1907,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       guidance: [
         {
           label: "Nama tampilan",
-          body: "Sekitar 20 karakter. Ini nama di atas kepala di Berry Avenue. Hati, pita, dan huruf script semuanya dihitung. Pratinjau memotong lewat 20.",
+          body: "Sekitar 20 karakter. Ini nama di atas kepala di Berry Avenue. Hati, pita, dan huruf script semuanya dihitung. Pratinjau memberi tanda jika lewat 20.",
         },
         {
           label: "Username",
