@@ -117,6 +117,16 @@ export interface UiStrings {
     usernamePlain: string;
     hanFrames: string;
     hanNote: string;
+    /** Glitch page: the clean-zalgo tool. */
+    zalgoClean: {
+      heading: string;
+      inputLabel: string;
+      pasteButton: string;
+      pasteFailed: string;
+      resultLabel: string;
+      empty: string;
+      removed: (count: number) => string;
+    };
   };
   symbols: {
     searchLabel: string;
@@ -350,6 +360,15 @@ export const ui: Record<Locale, UiStrings> = {
     compareHeading: "Compare styles",
     compareLimit: "Compare holds up to 4 styles — remove one first.",
     shuffle: "Shuffle",
+    zalgoClean: {
+      heading: "Clean zalgo text",
+      inputLabel: "Paste zalgo text",
+      pasteButton: "Paste from clipboard",
+      pasteFailed: "Couldn't read the clipboard — paste the text manually.",
+      resultLabel: "Cleaned result",
+      empty: "Paste zalgo above, or generate it here, to strip the stacked marks.",
+      removed: (count) => `Removed ${count} stacked marks.`,
+    },
       copiedToClipboard: "Copied to clipboard",
       copyFailed: "Couldn't copy — select the text and copy manually",
       browserOnly: "Conversions run in your browser — nothing is uploaded.",
@@ -631,6 +650,15 @@ export const ui: Record<Locale, UiStrings> = {
     compareHeading: "Comparar estilos",
     compareLimit: "La comparación admite 4 estilos como máximo; quita uno primero.",
     shuffle: "Mezclar",
+    zalgoClean: {
+      heading: "Limpiar texto zalgo",
+      inputLabel: "Pega el texto zalgo",
+      pasteButton: "Pegar desde el portapapeles",
+      pasteFailed: "No se pudo leer el portapapeles: pega el texto a mano.",
+      resultLabel: "Resultado limpio",
+      empty: "Pega texto zalgo arriba, o genéralo aquí, para quitar las marcas apiladas.",
+      removed: (count) => `Quitadas ${count} marcas apiladas.`,
+    },
       copiedToClipboard: "Copiado al portapapeles",
       copyFailed: "No se pudo copiar — selecciona el texto y cópialo a mano",
       browserOnly: "Las conversiones ocurren en tu navegador — nada se envía a ningún servidor.",
@@ -952,6 +980,15 @@ export const ui: Record<Locale, UiStrings> = {
     compareHeading: "Comparar estilos",
     compareLimit: "A comparação aceita até 4 estilos; remova um primeiro.",
     shuffle: "Misturar",
+    zalgoClean: {
+      heading: "Limpar texto zalgo",
+      inputLabel: "Cole o texto zalgo",
+      pasteButton: "Colar da área de transferência",
+      pasteFailed: "Não foi possível ler a área de transferência: cole o texto manualmente.",
+      resultLabel: "Resultado limpo",
+      empty: "Cole texto zalgo acima, ou gere aqui, para remover as marcas empilhadas.",
+      removed: (count) => `${count} marcas empilhadas removidas.`,
+    },
       copiedToClipboard: "Copiado para a área de transferência",
       copyFailed: "Não foi possível copiar — selecione o texto e copie manualmente",
       browserOnly: "As conversões acontecem no seu navegador — nada é enviado a servidores.",
@@ -1265,6 +1302,15 @@ export const ui: Record<Locale, UiStrings> = {
     compareHeading: "对比样式",
     compareLimit: "对比最多放 4 个样式，请先移除一个。",
     shuffle: "换一批",
+    zalgoClean: {
+      heading: "清除 zalgo 乱码",
+      inputLabel: "粘贴 zalgo 文本",
+      pasteButton: "从剪贴板粘贴",
+      pasteFailed: "无法读取剪贴板——请手动粘贴文本。",
+      resultLabel: "清理结果",
+      empty: "在上方粘贴 zalgo 文本，或在这里生成，即可剥离叠加的符号。",
+      removed: (count) => `已移除 ${count} 个叠加符号。`,
+    },
       copiedToClipboard: "已复制到剪贴板",
       copyFailed: "复制失败——请选中文本手动复制",
       browserOnly: "转换全部在你的浏览器中完成——不会上传任何内容。",
@@ -1575,6 +1621,15 @@ export const ui: Record<Locale, UiStrings> = {
     compareHeading: "Bandingkan gaya",
     compareLimit: "Perbandingan maksimal 4 gaya — hapus satu dulu.",
     shuffle: "Acak",
+    zalgoClean: {
+      heading: "Bersihkan teks zalgo",
+      inputLabel: "Tempel teks zalgo",
+      pasteButton: "Tempel dari papan klip",
+      pasteFailed: "Tidak bisa membaca papan klip — tempel teksnya secara manual.",
+      resultLabel: "Hasil bersih",
+      empty: "Tempel teks zalgo di atas, atau buat di sini, untuk melepas tandanya.",
+      removed: (count) => `${count} tanda bertumpuk dihapus.`,
+    },
       copiedToClipboard: "Tersalin ke papan klip",
       copyFailed: "Gagal menyalin — pilih teksnya dan salin manual",
       browserOnly: "Semua konversi berjalan di browser kamu — tidak ada yang diunggah.",

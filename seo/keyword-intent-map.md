@@ -31,7 +31,7 @@
 | `/bubble-letters-generator/` | bubble letters generator | bubble font、bubble text | 专用圆体转换 | 候选表（§5.2D） | 低 |
 | `/small-caps-generator/` | small caps generator | small text generator（相邻） | 专用小型大写转换 | 候选表（§5.2D） | 低 |
 | `/strikethrough-text-generator/` | strikethrough text generator | strike through text | 专用删除线转换 | 候选表（§5.2D） | 低 |
-| `/glitch-text-generator/` | zalgo text generator | glitch text generator | 专用故障字转换 | 候选表（§5.2D，标题 detail 已写 Zalgo Text） | 低 |
+| `/glitch-text-generator/` | zalgo text generator | glitch text generator、zalgo text remover/converter（清除向） | 专用故障字转换 + zalgo 清除工具（生成→清除闭环，剥离组合符号） | 候选表（§5.2D，标题 detail 已写 Old English…glitch detail 见 serp-title）；remover 由联想词 2026-11-04 发现 | 低（remover 是全站首个清理向工具，竞品少） |
 | `/upside-down-text-generator/` | upside down text generator | flip text generator | 专用倒转转换 | 候选表（§5.2D） | 低 |
 | `/tiny-text-generator/` | tiny text generator | superscript generator | 专用上下标转换 | 候选表（§5.2D） | 低 |
 | `/aesthetic-text-generator/` | aesthetic text generator | aesthetic font generator | 专用宽体+装饰组合 | 候选表（§5.2D） | 低 |

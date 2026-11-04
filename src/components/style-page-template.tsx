@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
+import { ZalgoCleaner } from "@/components/zalgo-cleaner";
 import { CoquetteScenarioKits } from "@/components/coquette-scenario-kits";
 import { CrazyTextTool } from "@/components/crazy-text-tool";
 import { SingleStyleTool } from "@/components/single-style-tool";
@@ -93,6 +94,7 @@ export function StylePageTemplate({ page, locale }: { page: StylePageDef; locale
         )}
       </div>
 
+      {page.slug === "glitch-text-generator" ? <ZalgoCleaner /> : null}
       {coquette ? <CoquetteScenarioKits copy={coquette.kits} defaultName={c.sampleInputs[0]} /> : null}
 
       <CompatNote locale={locale} />
