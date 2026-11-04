@@ -9,7 +9,18 @@ export interface UiStrings {
   languageLabel: string;
   /** Shown when the page locale differs from the browser language. `{name}` is the language name. */
   localeSuggest: { message: string; action: string };
-  nav: { fancy: string; gaming: string; symbols: string; home: string };
+  nav: {
+    fancy: string;
+    gaming: string;
+    symbols: string;
+    home: string;
+    /** Header dropdown: all text style generators. */
+    textStyles: string;
+    /** Header dropdown: gaming name generators. */
+    nameMaker: string;
+    /** Header link to /learn/ — rendered in the English locale only. */
+    guides: string;
+  };
   tools: {
     fancy: string;
     gaming: string;
@@ -76,6 +87,12 @@ export interface UiStrings {
     transparentBg: string;
     previewSize: string;
     copyAllFavorites: string;
+    /** Label shows the live style count. */
+    copyAllStyles: (count: number) => string;
+    compareAdd: (name: string) => string;
+    compareRemove: (name: string) => string;
+    compareHeading: string;
+    compareLimit: string;
     copiedToClipboard: string;
     copyFailed: string;
     browserOnly: string;
@@ -252,7 +269,7 @@ export const ui: Record<Locale, UiStrings> = {
   en: {
     languageLabel: "Language",
     localeSuggest: { message: "Your system language is {name}", action: "Switch" },
-    nav: { fancy: "Fancy Text", gaming: "Gaming Names", symbols: "Symbols", home: "Home" },
+    nav: { fancy: "Fancy Text", gaming: "Gaming Names", symbols: "Symbols", home: "Home", textStyles: "Text Styles", nameMaker: "Name Maker", guides: "Guides" },
     tools: {
       fancy: "Fancy Text Generator",
       gaming: "Gaming Name Generator",
@@ -318,6 +335,11 @@ export const ui: Record<Locale, UiStrings> = {
       transparentBg: "Transparent background",
       previewSize: "Preview size",
       copyAllFavorites: "Copy all favorites",
+    copyAllStyles: (count) => `Copy all ${count} styles`,
+    compareAdd: (name) => `Add ${name} to compare`,
+    compareRemove: (name) => `Remove ${name} from compare`,
+    compareHeading: "Compare styles",
+    compareLimit: "Compare holds up to 4 styles — remove one first.",
       copiedToClipboard: "Copied to clipboard",
       copyFailed: "Couldn't copy — select the text and copy manually",
       browserOnly: "Conversions run in your browser — nothing is uploaded.",
@@ -429,6 +451,8 @@ export const ui: Record<Locale, UiStrings> = {
       cute: "Cute",
       pro: "Pro",
       minimal: "Minimal",
+      gothic: "Gothic",
+      aesthetic: "Aesthetic",
     },
     symbolCats: {
       hearts: "Hearts",
@@ -517,7 +541,7 @@ export const ui: Record<Locale, UiStrings> = {
   es: {
     languageLabel: "Idioma",
     localeSuggest: { message: "El idioma del sistema es {name}", action: "Cambiar" },
-    nav: { fancy: "Letras bonitas", gaming: "Nombres gamer", symbols: "Símbolos", home: "Inicio" },
+    nav: { fancy: "Letras bonitas", gaming: "Nombres gamer", symbols: "Símbolos", home: "Inicio", textStyles: "Estilos de texto", nameMaker: "Nombres gamer", guides: "Guías" },
     tools: {
       fancy: "Generador de letras bonitas",
       gaming: "Generador de nombres para juegos",
@@ -583,6 +607,11 @@ export const ui: Record<Locale, UiStrings> = {
       transparentBg: "Fondo transparente",
       previewSize: "Tamaño de vista previa",
       copyAllFavorites: "Copiar todos los favoritos",
+    copyAllStyles: (count) => `Copiar los ${count} estilos`,
+    compareAdd: (name) => `Añadir ${name} para comparar`,
+    compareRemove: (name) => `Quitar ${name} de la comparación`,
+    compareHeading: "Comparar estilos",
+    compareLimit: "La comparación admite 4 estilos como máximo; quita uno primero.",
       copiedToClipboard: "Copiado al portapapeles",
       copyFailed: "No se pudo copiar — selecciona el texto y cópialo a mano",
       browserOnly: "Las conversiones ocurren en tu navegador — nada se envía a ningún servidor.",
@@ -726,6 +755,8 @@ export const ui: Record<Locale, UiStrings> = {
       cute: "Tierna",
       pro: "Pro",
       minimal: "Minimalista",
+      gothic: "Gótico",
+      aesthetic: "Estética",
     },
     symbolCats: {
       hearts: "Corazones",
@@ -819,6 +850,9 @@ export const ui: Record<Locale, UiStrings> = {
       gaming: "Nomes de jogo",
       symbols: "Símbolos",
       home: "Início",
+      textStyles: "Estilos de texto",
+      nameMaker: "Nomes de jogo",
+      guides: "Guias",
     },
     tools: {
       fancy: "Gerador de letras bonitas",
@@ -885,6 +919,11 @@ export const ui: Record<Locale, UiStrings> = {
       transparentBg: "Fundo transparente",
       previewSize: "Tamanho da prévia",
       copyAllFavorites: "Copiar todos os favoritos",
+    copyAllStyles: (count) => `Copiar todos os ${count} estilos`,
+    compareAdd: (name) => `Adicionar ${name} para comparar`,
+    compareRemove: (name) => `Remover ${name} da comparação`,
+    compareHeading: "Comparar estilos",
+    compareLimit: "A comparação aceita até 4 estilos; remova um primeiro.",
       copiedToClipboard: "Copiado para a área de transferência",
       copyFailed: "Não foi possível copiar — selecione o texto e copie manualmente",
       browserOnly: "As conversões acontecem no seu navegador — nada é enviado a servidores.",
@@ -1028,6 +1067,8 @@ export const ui: Record<Locale, UiStrings> = {
       cute: "Fofo",
       pro: "Pro",
       minimal: "Minimalista",
+      gothic: "Gótico",
+      aesthetic: "Estético",
     },
     symbolCats: {
       hearts: "Corações",
@@ -1116,7 +1157,7 @@ export const ui: Record<Locale, UiStrings> = {
   "zh-cn": {
     languageLabel: "语言",
     localeSuggest: { message: "系统语言是{name}", action: "切换" },
-    nav: { fancy: "个性字体", gaming: "游戏昵称", symbols: "特殊符号", home: "首页" },
+    nav: { fancy: "个性字体", gaming: "游戏昵称", symbols: "特殊符号", home: "首页", textStyles: "文字样式", nameMaker: "游戏昵称", guides: "指南" },
     tools: {
       fancy: "个性字体生成器",
       gaming: "游戏昵称生成器",
@@ -1182,6 +1223,11 @@ export const ui: Record<Locale, UiStrings> = {
       transparentBg: "透明背景",
       previewSize: "预览字号",
       copyAllFavorites: "复制全部收藏",
+    copyAllStyles: (count) => `复制全部 ${count} 种样式`,
+    compareAdd: (name) => `把「${name}」加入对比`,
+    compareRemove: (name) => `把「${name}」移出对比`,
+    compareHeading: "对比样式",
+    compareLimit: "对比最多放 4 个样式，请先移除一个。",
       copiedToClipboard: "已复制到剪贴板",
       copyFailed: "复制失败——请选中文本手动复制",
       browserOnly: "转换全部在你的浏览器中完成——不会上传任何内容。",
@@ -1324,6 +1370,8 @@ export const ui: Record<Locale, UiStrings> = {
       cute: "可爱",
       pro: "竞技",
       minimal: "极简",
+      gothic: "哥特",
+      aesthetic: "氛围感",
     },
     symbolCats: {
       hearts: "爱心",
@@ -1410,7 +1458,7 @@ export const ui: Record<Locale, UiStrings> = {
   id: {
     languageLabel: "Bahasa",
     localeSuggest: { message: "Bahasa sistem adalah {name}", action: "Ganti" },
-    nav: { fancy: "Huruf Keren", gaming: "Nama Game", symbols: "Simbol", home: "Beranda" },
+    nav: { fancy: "Huruf Keren", gaming: "Nama Game", symbols: "Simbol", home: "Beranda", textStyles: "Gaya Teks", nameMaker: "Nama Game", guides: "Panduan" },
     tools: {
       fancy: "Generator Huruf Keren",
       gaming: "Generator Nama Game",
@@ -1476,6 +1524,11 @@ export const ui: Record<Locale, UiStrings> = {
       transparentBg: "Latar transparan",
       previewSize: "Ukuran pratinjau",
       copyAllFavorites: "Salin semua favorit",
+    copyAllStyles: (count) => `Salin semua ${count} gaya`,
+    compareAdd: (name) => `Tambahkan ${name} ke perbandingan`,
+    compareRemove: (name) => `Hapus ${name} dari perbandingan`,
+    compareHeading: "Bandingkan gaya",
+    compareLimit: "Perbandingan maksimal 4 gaya — hapus satu dulu.",
       copiedToClipboard: "Tersalin ke papan klip",
       copyFailed: "Gagal menyalin — pilih teksnya dan salin manual",
       browserOnly: "Semua konversi berjalan di browser kamu — tidak ada yang diunggah.",
@@ -1620,6 +1673,8 @@ export const ui: Record<Locale, UiStrings> = {
       cute: "Imut",
       pro: "Pro",
       minimal: "Minimalis",
+      gothic: "Gothic",
+      aesthetic: "Estetik",
     },
     symbolCats: {
       hearts: "Hati",

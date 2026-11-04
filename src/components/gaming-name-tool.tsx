@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { localePath } from "@/lib/i18n";
 import {
@@ -24,8 +24,6 @@ import { PlatformPreviewDialog, PlatformPreviewScreen, PreviewButton } from "@/c
 import type { PlatformPreviewId } from "@/lib/platform-preview";
 import { useToast } from "@/components/toast";
 import { copyText } from "@/lib/copy";
-import { lengthBucket, measureText } from "@/lib/measure";
-import { track } from "@/lib/analytics";
 import { useLocalList } from "@/lib/storage";
 import { useLocale } from "@/components/locale-context";
 import { getUi } from "@/lib/ui-strings";
@@ -80,11 +78,6 @@ export function GamingNameTool({
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
-  const nameBucket = lengthBucket(measureText(name.trim().slice(0, MAX_NICKNAME_LENGTH)).graphemes);
-
-  useEffect(() => {
-    track("gaming_name_view", { tool: "gaming" });
-  }, []);
 
   // Builder state: a decoration pair + a letter style, applied to the name.
   const [pairIndex, setPairIndex] = useState(1);
@@ -212,7 +205,6 @@ export function GamingNameTool({
               type="button"
               onClick={async () => {
                 const ok = await copyText(savedNames.items.join("\n"));
-                track("gaming_name_copy", { tool: "gaming", style_id: styleFilter, length_bucket: nameBucket, ok });
                 showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
               }}
               className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
@@ -227,14 +219,6 @@ export function GamingNameTool({
                   text={saved}
                   label={saved}
                   ariaLabel={t.gaming.copySaved(saved)}
-                  onCopied={() =>
-                    track("gaming_name_copy", {
-                      tool: "gaming",
-                      style_id: styleFilter,
-                      length_bucket: lengthBucket(measureText(saved).graphemes),
-                      ok: true,
-                    })
-                  }
                   className="inline-flex h-10 items-center gap-1.5 rounded-full border border-line bg-white pl-4 pr-3 text-sm font-medium text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
                 />
                 <button
@@ -334,14 +318,6 @@ export function GamingNameTool({
             <CopyButton
               text={builderPreview}
               ariaLabel={t.gaming.copyCombo}
-              onCopied={() =>
-                track("gaming_name_copy", {
-                  tool: "gaming",
-                  style_id: builderTransform,
-                  length_bucket: nameBucket,
-                  ok: true,
-                })
-              }
             />
             <button
               type="button"
@@ -466,16 +442,7 @@ export function GamingNameTool({
                         isSaved ? t.gaming.removeName(nickname) : t.gaming.saveName(nickname)
                       }
                       onClick={() => {
-                        const saving = !isSaved;
                         savedNames.toggle(nickname);
-                        if (saving) {
-                          track("gaming_name_save", {
-                            tool: "gaming",
-                            style_id: styleFilter,
-                            length_bucket: nameBucket,
-                            ok: true,
-                          });
-                        }
                       }}
                       className={`flex h-10 w-9 items-center justify-center rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                         isSaved ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
@@ -488,14 +455,6 @@ export function GamingNameTool({
                       text={nickname}
                       label={null}
                       ariaLabel={t.gaming.copySaved(nickname)}
-                      onCopied={() =>
-                        track("gaming_name_copy", {
-                          tool: "gaming",
-                          style_id: styleFilter,
-                          length_bucket: nameBucket,
-                          ok: true,
-                        })
-                      }
                     />
                   </div>
                 </li>
@@ -512,11 +471,6 @@ export function GamingNameTool({
               type="button"
               onClick={() => {
                 setNonce((n) => n + 1);
-                track("gaming_name_generate", {
-                  tool: "gaming",
-                  style_id: styleFilter,
-                  length_bucket: nameBucket,
-                });
               }}
               className="btn-primary"
             >

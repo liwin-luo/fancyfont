@@ -783,6 +783,37 @@ var vibeStyles = [
       ["", " \u2727"]
     ],
     transforms: ["smallCaps", "identity"]
+  },
+  {
+    id: "gothic",
+    name: "Gothic",
+    accent: "#3F3F46",
+    wrappers: [
+      ["\u269C", "\u269C"],
+      ["\u2767", "\u2767"],
+      ["\u2720", "\u2720"],
+      ["\u276E", "\u276F"],
+      ["\u27E6", "\u27E7"],
+      ["\u231C", "\u231D"],
+      ["\u0F3A", "\u0F3B"],
+      ["\u2694", "\u2694"]
+    ],
+    transforms: ["fraktur", "boldFraktur", "boldScript", "identity"]
+  },
+  {
+    id: "aesthetic",
+    name: "Aesthetic",
+    accent: "#A5B4FC",
+    wrappers: [
+      ["\xB7\u02DA", "\u02DA\xB7"],
+      ["\u2727\uFF65\uFF9F", "\uFF65\uFF9F\u2727"],
+      ["\u22C6", "\u22C6"],
+      ["\u22B9", "\u22B9"],
+      ["\u2661", "\u2661"],
+      ["\u02D6", "\u02D6"],
+      ["\u22C6\u02DA", "\u02DA\u22C6"]
+    ],
+    transforms: ["fullwidth", "smallCaps", "script", "identity"]
   }
 ];
 var MAX_NICKNAME_LENGTH = 24;

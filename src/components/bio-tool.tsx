@@ -4,10 +4,9 @@ import { useMemo, useState } from "react";
 import { composeBio } from "@/lib/bio";
 import { copyText } from "@/lib/copy";
 import { downloadTextPng } from "@/lib/export-image";
-import { lengthBucket, measureText } from "@/lib/measure";
+import { measureText } from "@/lib/measure";
 import { previewExtraMax } from "@/lib/platform-rules";
 import { useLocalList } from "@/lib/storage";
-import { track } from "@/lib/analytics";
 import type { BioTemplate } from "@/lib/content/platform-pages-en";
 import type { TextStyleId } from "@/lib/text-styles";
 import { PlatformPreviewScreen } from "@/components/platform-preview";
@@ -44,27 +43,11 @@ export function BioTool({
 
   async function copyDraft() {
     const ok = await copyText(draft.text);
-    track("bio_copy", {
-      tool: "bio",
-      platform: platformId,
-      style_id: styleId,
-      category: template?.id,
-      length_bucket: lengthBucket(measureText(draft.text).graphemes),
-      ok,
-    });
     showToast(ok ? t.common.copied : t.common.copyFailed);
   }
 
   async function savePng() {
     const ok = await downloadTextPng(draft.text, `${platformId}-bio.png`);
-    track("bio_png_export", {
-      tool: "bio",
-      platform: platformId,
-      style_id: styleId,
-      category: template?.id,
-      length_bucket: lengthBucket(measureText(draft.text).graphemes),
-      ok,
-    });
     showToast(ok ? t.common.savedAsPng : t.common.pngFailed);
   }
 
@@ -82,11 +65,6 @@ export function BioTool({
                   aria-pressed={active}
                   onClick={() => {
                     setTemplateId(item.id);
-                    track("bio_template_select", {
-                      tool: "bio",
-                      platform: platformId,
-                      category: item.id,
-                    });
                   }}
                   className={`h-9 rounded-full border px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                     active

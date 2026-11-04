@@ -15,8 +15,8 @@ import {
   type SymbolEntry,
 } from "@/lib/symbols-data";
 import { copyText } from "@/lib/copy";
-import { lengthBucket, measureText, sliceGraphemes } from "@/lib/measure";
-import { track } from "@/lib/analytics";
+import { sliceGraphemes } from "@/lib/measure";
+import { formatCodePoint } from "@/lib/unicode-analyze";
 import { useToast } from "@/components/toast";
 import { useLocalList } from "@/lib/storage";
 import { useLocale } from "@/components/locale-context";
@@ -50,6 +50,14 @@ function savedEntry(symbol: string, idPrefix: string): SymbolEntry {
   );
 }
 
+/** Hover/long-press detail: Unicode name plus the U+ code points behind it.
+ * Sequences longer than six points (kaomoji) truncate instead of wrapping. */
+function symbolTitle(symbol: string, label: string): string {
+  const points = [...symbol].map((char) => formatCodePoint(char.codePointAt(0) ?? 0));
+  const shown = points.slice(0, 6).join(" ");
+  return points.length > 6 ? `${label} · ${shown} …` : `${label} · ${shown}`;
+}
+
 export function SymbolsTool() {
   const pathname = usePathname();
   const [query, setQuery] = useState("");
@@ -67,22 +75,8 @@ export function SymbolsTool() {
 
   const results = useMemo(() => searchSymbols(query, category), [query, category]);
 
-  useEffect(() => {
-    track("symbols_view", { tool: "symbols" });
-  }, []);
-
-  useEffect(() => {
-    const graphemes = measureText(query.trim()).graphemes;
-    if (graphemes === 0) return;
-    const timer = window.setTimeout(() => {
-      track("symbols_search", { tool: "symbols", length_bucket: lengthBucket(graphemes) });
-    }, 500);
-    return () => window.clearTimeout(timer);
-  }, [query]);
-
   async function copySymbol(symbol: string, label: string, record = true) {
     const ok = await copyText(symbol);
-    track("symbol_copy", { tool: "symbols", ok });
     if (ok) {
       setLastCopied(symbol);
       if (record) recents.add(symbol);
@@ -96,20 +90,13 @@ export function SymbolsTool() {
   }
 
   function toggleTray(symbol: string) {
-    const adding = !boardStore.items.includes(symbol);
     boardStore.toggle(symbol);
-    if (adding) track("symbol_add_to_board", { tool: "symbols", ok: true });
   }
 
   async function copyTray() {
     if (board.length === 0) return;
     const joined = joinBoard(prefix, board);
     const ok = await copyText(joined);
-    track("symbol_copy_all", {
-      tool: "symbols",
-      length_bucket: lengthBucket(measureText(joined).graphemes),
-      ok,
-    });
     if (ok) {
       showToast(t.symbols.copiedBatch(board.length));
       recents.add(joined);
@@ -139,7 +126,6 @@ export function SymbolsTool() {
     setCategory(next);
     const path = window.location.pathname + window.location.search;
     window.history.pushState(null, "", next ? `${path}#${next}` : path);
-    if (next) track("symbols_category_select", { tool: "symbols", category: next });
   }
   const showInvisibleNote =
     category === "invisible" ||
@@ -233,6 +219,7 @@ export function SymbolsTool() {
                 <button
                   type="button"
                   onClick={() => copySymbol(entry.symbol, entry.label, false)}
+                  title={symbolTitle(entry.symbol, entry.label)}
                   aria-label={t.symbols.copySymbol(entry.label)}
                   className="flex h-11 min-w-11 max-w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-xl border border-line bg-surface px-2.5 text-xl text-ink-900 hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
                 >
@@ -263,6 +250,7 @@ export function SymbolsTool() {
                 <button
                   type="button"
                   onClick={() => copySymbol(entry.symbol, entry.label)}
+                  title={symbolTitle(entry.symbol, entry.label)}
                   aria-label={t.symbols.copySymbol(entry.label)}
                   // ponytail: batch joins can be long; grow the chip, clip instead of painting over neighbors
                   className={`flex h-11 min-w-11 max-w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-xl border px-2.5 text-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
@@ -303,7 +291,7 @@ export function SymbolsTool() {
                 <button
                   type="button"
                   onClick={() => copySymbol(entry.symbol, entry.label)}
-                  title={entry.label}
+                  title={symbolTitle(entry.symbol, entry.label)}
                   aria-label={t.symbols.copySymbol(entry.label)}
                   className={`flex w-full items-center justify-center rounded-xl border transition-colors active:scale-95 ${
                     wide

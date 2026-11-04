@@ -322,7 +322,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Usage measurement",
-        body: "When analytics is turned on for this deployment, the page loads Google Analytics 4 and Microsoft Clarity. They receive the page address and events such as which style id was copied, which tool was used, and a character-length range (such as 1–20). They do not receive the text you type, a generated nickname, a copied symbol, or a search query. You can block these scripts in your browser; the tools keep working. If no measurement ID is configured, those scripts are not loaded.",
+        body: "This site loads Vercel Analytics, a cookie-free page-view counter. It records page paths and rough visit details (such as referrer, browser type, and country) so we can see which tools are used most. It does not receive the text you type, a generated nickname, a copied symbol, or a search query, and it does not use cookies or advertising identifiers. There is no Google Analytics, Clarity, or event tracking on this site.",
       },
       {
         h2: "Changes to this policy",
@@ -361,7 +361,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Medición de uso",
-        body: "Cuando esta instalación tiene activada la medición, la página carga Google Analytics 4 y Microsoft Clarity. Reciben la dirección de la página y eventos como qué identificador de estilo se copió, qué herramienta se usó y un rango de longitud (por ejemplo, 1–20). No reciben el texto que escribes, un apodo generado, un símbolo copiado ni el texto de una búsqueda. Puedes bloquear estos scripts en tu navegador; las herramientas siguen funcionando. Si no hay un ID de medición, esos scripts no se cargan.",
+        body: "El sitio carga Vercel Analytics, un contador de visitas sin cookies. Registra las rutas de página y detalles aproximados de la visita (como el referrer, el tipo de navegador y el país) para saber qué herramientas se usan más. No recibe el texto que escribes, un apodo generado, un símbolo copiado ni una búsqueda, y no usa cookies ni identificadores publicitarios. No hay Google Analytics, Clarity ni seguimiento de eventos en este sitio.",
       },
       {
         h2: "Cambios en esta política",
@@ -400,7 +400,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Medição de uso",
-        body: "Quando esta instalação tem a medição ligada, a página carrega o Google Analytics 4 e o Microsoft Clarity. Eles recebem o endereço da página e eventos como qual id de estilo foi copiado, qual ferramenta foi usada e uma faixa de tamanho (por exemplo, 1–20). Não recebem o texto que você digita, um apelido gerado, um símbolo copiado nem o texto de uma busca. Você pode bloquear esses scripts no navegador; as ferramentas continuam funcionando. Sem um ID de medição, esses scripts não são carregados.",
+        body: "O site carrega o Vercel Analytics, um contador de visitas sem cookies. Ele registra os caminhos das páginas e detalhes aproximados da visita (como o referrer, o tipo de navegador e o país) para sabermos quais ferramentas são mais usadas. Ele não recebe o texto que você digita, um apelido gerado, um símbolo copiado nem uma busca, e não usa cookies nem identificadores de publicidade. Não há Google Analytics, Clarity nem rastreamento de eventos neste site.",
       },
       {
         h2: "Mudanças nesta política",
@@ -438,7 +438,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "使用情况统计",
-        body: "当这次部署打开了统计时，页面会加载 Google Analytics 4 和 Microsoft Clarity。它们收到的是页面地址，以及这些事件：复制了哪个样式编号、用了哪个工具、字符长度落在哪个区间（例如 1–20）。它们收不到你输入的文字、生成的昵称、复制的符号，也收不到搜索词。你可以在浏览器里拦截这些脚本，工具仍然可用。没有配置测量 ID 时，这些脚本不会加载。",
+        body: "本站加载 Vercel Analytics——一个不使用 cookie 的页面访问计数器。它记录页面路径和大致的访问信息（如来源页、浏览器类型和国家/地区），用于了解哪些工具最常被使用。它不会收到你输入的文字、生成的昵称、复制的符号或搜索词，也不使用 cookie 或广告标识符。本站没有 Google Analytics、Clarity 或任何事件埋点。",
       },
       {
         h2: "政策的变更",
@@ -477,7 +477,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       },
       {
         h2: "Pengukuran penggunaan",
-        body: "Saat pengukuran diaktifkan untuk pemasangan ini, halaman memuat Google Analytics 4 dan Microsoft Clarity. Keduanya menerima alamat halaman dan peristiwa seperti id gaya yang disalin, alat yang dipakai, dan rentang panjang karakter (misalnya 1–20). Keduanya tidak menerima teks yang kamu ketik, nama yang dibuat, simbol yang disalin, atau kata yang dicari. Kamu bisa memblokir skrip ini di browser; alatnya tetap jalan. Jika tidak ada ID pengukuran, skrip itu tidak dimuat.",
+        body: "Situs ini memuat Vercel Analytics, penghitung kunjungan halaman tanpa cookie. Ia mencatat jalur halaman dan detail kunjungan secara umum (seperti referrer, jenis peramban, dan negara) agar kami tahu alat mana yang paling banyak dipakai. Ia tidak menerima teks yang kamu ketik, nama yang dibuat, simbol yang disalin, atau kata yang dicari, dan tidak memakai cookie atau pengenal iklan. Tidak ada Google Analytics, Clarity, atau pelacakan peristiwa di situs ini.",
       },
       {
         h2: "Perubahan kebijakan ini",

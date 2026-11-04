@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { localePath } from "@/lib/i18n";
 import {
@@ -18,8 +18,7 @@ import {
   type PasteTargetId,
   type WrapId,
 } from "@/lib/composer";
-import { lengthBucket, measureText, sliceGraphemes } from "@/lib/measure";
-import { track } from "@/lib/analytics";
+import { measureText, sliceGraphemes } from "@/lib/measure";
 import { codePointLength } from "@/lib/platform-preview";
 import { CompatReport } from "@/components/compat-report";
 import { CopyButton } from "@/components/copy-button";
@@ -32,6 +31,7 @@ import { useLocale } from "@/components/locale-context";
 import { getUi } from "@/lib/ui-strings";
 
 const MAX_LENGTH = 120;
+const COMPARE_MAX = 4;
 const FAVORITES_KEY = "fancyfont:favorite-styles";
 const RECENTS_KEY = "fancyfont:recent-styles";
 
@@ -62,10 +62,8 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
   const [openReport, setOpenReport] = useState<string | null>(null);
   const favorites = useLocalList(FAVORITES_KEY);
   const recents = useLocalList(RECENTS_KEY, 8);
+  const [compareIds, setCompareIds] = useState<string[]>([]);
 
-  useEffect(() => {
-    track("fancy_text_view", { tool: "fancy" });
-  }, []);
   const showToast = useToast();
   const locale = useLocale();
   const t = getUi(locale);
@@ -104,12 +102,6 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
     const ok = await downloadTextPng(result.text, `fancyfont-${result.id}.png`, {
       transparent: transparentPng,
     });
-    track("fancy_text_png_export", {
-      tool: "fancy",
-      style_id: result.id,
-      length_bucket: lengthBucket(measures.graphemes),
-      ok,
-    });
     showToast(ok ? t.common.savedAsPng : t.common.pngFailed);
   }
 
@@ -126,11 +118,28 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
       .map((result) => dressed(result.text))
       .filter((line) => line.trim().length > 0);
     const ok = lines.length > 0 && (await copyText(lines.join("\n")));
-    track("fancy_text_copy", {
-      tool: "fancy",
-      length_bucket: lengthBucket(measures.graphemes),
-      ok,
-    });
+    showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
+  }
+
+  function toggleCompare(id: string) {
+    if (compareIds.includes(id)) {
+      setCompareIds(compareIds.filter((existing) => existing !== id));
+      return;
+    }
+    if (compareIds.length >= COMPARE_MAX) {
+      showToast(t.common.compareLimit);
+      return;
+    }
+    setCompareIds([...compareIds, id]);
+  }
+
+  async function copyAllStylesText() {
+    // Empty conversions stay out; a wrapped empty input would otherwise
+    // paste decoration frames with nothing inside.
+    const lines = all
+      .filter((result) => result.text.trim().length > 0)
+      .map((result) => dressed(result.text));
+    const ok = lines.length > 0 && (await copyText(lines.join("\n")));
     showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
   }
 
@@ -278,7 +287,6 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                   onClick={() => {
                     const next = chip.id === "all" ? null : chip.id;
                     setCategory(next);
-                    if (next) track("fancy_text_style_filter", { tool: "fancy", category: next });
                   }}
                   className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                     active
@@ -297,9 +305,61 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
             transparent={transparentPng}
             onTransparent={setTransparentPng}
             onCopyFavorites={favorites.items.length > 0 ? copyFavorites : undefined}
+            onCopyAllStyles={copyAllStylesText}
+            allStylesCount={charCount > 0 ? all.length : 0}
           />
         </div>
       </div>
+
+      {compareIds.length > 0 && (
+        <section className="mt-6" aria-labelledby="compare-heading">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="compare-heading" className="text-sm font-semibold text-ink-700">
+              {t.common.compareHeading}
+            </h2>
+            <button
+              type="button"
+              onClick={() => setCompareIds([])}
+              className="text-xs font-medium text-ink-500 transition-colors hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+            >
+              {t.common.clear}
+            </button>
+          </div>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+            {compareIds.map((id) => {
+              const result = all.find((item) => item.id === id);
+              if (!result) return null;
+              const line = dressed(result.text);
+              return (
+                <li key={id} className="rounded-xl border border-line bg-surface p-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
+                      {result.localName}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => toggleCompare(id)}
+                      aria-label={t.common.compareRemove(result.localName)}
+                      className="flex h-6 w-6 items-center justify-center rounded-md text-sm font-bold text-ink-500 transition-colors hover:text-danger focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <p className="result-text mt-2 break-all text-ink-900" style={{ fontSize: previewSize }}>
+                    {line}
+                  </p>
+                  <div className="mt-2">
+                    <CopyButton text={line} ariaLabel={t.common.copyStyle(result.localName)} />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+          {compareIds.length >= COMPARE_MAX && (
+            <p className="mt-2 text-xs text-ink-500">{t.common.compareLimit}</p>
+          )}
+        </section>
+      )}
 
       {showHan && (
         <section className="mt-6" aria-labelledby="han-frames-heading">
@@ -338,6 +398,7 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
         <ul className="mt-6 space-y-3">
           {results.map((result) => {
             const isFavorite = favorites.items.includes(result.id);
+            const inCompare = compareIds.includes(result.id);
             const line = dressed(result.text);
             const points = codePointLength(line);
             const over = paste.limit !== null && points > paste.limit;
@@ -359,13 +420,27 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                       }
                       onClick={() => {
                         favorites.toggle(result.id);
-                        track("fancy_text_favorite", { tool: "fancy", style_id: result.id });
                       }}
                       className={`-ml-1 flex h-7 w-7 items-center justify-center rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
                         isFavorite ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
                       }`}
                     >
                       <StarIcon filled={isFavorite} />
+                    </button>
+                    <button
+                      type="button"
+                      aria-pressed={inCompare}
+                      aria-label={
+                        inCompare
+                          ? t.common.compareRemove(result.localName)
+                          : t.common.compareAdd(result.localName)
+                      }
+                      onClick={() => toggleCompare(result.id)}
+                      className={`flex h-7 w-7 items-center justify-center rounded-md text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
+                        inCompare ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
+                      }`}
+                    >
+                      ⇄
                     </button>
                     <span
                       className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase"
@@ -415,12 +490,6 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                     ariaLabel={t.common.copyStyle(result.localName)}
                     onCopied={() => {
                       recents.add(result.id);
-                      track("fancy_text_copy", {
-                        tool: "fancy",
-                        style_id: result.id,
-                        length_bucket: lengthBucket(measures.graphemes),
-                        ok: true,
-                      });
                     }}
                   />
                   <ShareLinks text={line} name={result.localName} />

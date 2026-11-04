@@ -19,13 +19,14 @@ describe("core page focus", () => {
     expect(coreFocus.en["pubg-name-generator"]).not.toContain("12");
   });
 
-  it("names the three homepage jobs without changing the headline", () => {
-    expect(homeContent.en.hero.pre + homeContent.en.hero.accent).toBe("Generate and Copy Fancy Text");
-    expect(homeContent.en.hero.sub).toContain("Stylish text");
-    expect(homeContent.en.hero.sub).toContain("gaming names");
-    expect(homeContent.en.hero.sub).toContain("symbols");
-    expect(homeContent.es.hero.sub).toContain("nombres para juegos");
-    expect(homeContent["pt-br"].hero.sub).toContain("nomes para jogos");
+  it("names the three homepage jobs in the new hero", () => {
+    expect(homeContent.en.hero.pre).toBe("Fancy Font Generator");
+    expect(homeContent.en.hero.accent).toBe("Stylish Text, Names & Symbols");
+    expect(homeContent.en.hero.sub).toContain("stylish Unicode text");
+    expect(homeContent.en.hero.sub).toContain("gaming name");
+    expect(homeContent.en.hero.sub).toContain("symbol");
+    expect(homeContent.es.hero.sub).toContain("nombre gamer");
+    expect(homeContent["pt-br"].hero.sub).toContain("nome de jogo");
     expect(homeContent["zh-cn"].hero.sub).toContain("游戏昵称");
     expect(homeContent.id.hero.sub).toContain("nama game");
   });

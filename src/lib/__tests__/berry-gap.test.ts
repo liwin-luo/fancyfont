@@ -85,15 +85,18 @@ describe("Berry Avenue troubleshooting and scenario kits", () => {
     }
   });
 
-  it("converts names locally: the Berry tool and the kits do not upload the text", () => {
+  it("converts names locally: no uploads, and event tracking stays removed", () => {
     const tool = readFileSync("src/components/platform-text-tool.tsx", "utf8");
     const kits = readFileSync("src/components/berry-scenario-kits.tsx", "utf8");
     const scenarios = readFileSync("src/lib/berry-scenarios.ts", "utf8");
-    const analytics = readFileSync("src/lib/analytics.ts", "utf8");
     for (const source of [tool, kits, scenarios]) {
       expect(source).not.toMatch(/\bfetch\s*\(/);
+      expect(source).not.toMatch(/@\/lib\/analytics/);
     }
-    expect(analytics).toMatch(/There is no text field/);
-    expect(analytics).not.toMatch(/\btext\?:/);
+    // D1 (2026-11-04): GA4/Clarity event tracking was removed. The shell
+    // keeps Vercel Analytics (cookie-free page views) as its only script.
+    const shell = readFileSync("src/components/app-shell.tsx", "utf8");
+    expect(shell).toContain("@vercel/analytics");
+    expect(shell).not.toMatch(/gtag|clarity/i);
   });
 });

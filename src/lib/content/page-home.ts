@@ -1,17 +1,19 @@
 // Homepage copy per locale.
 
 import type { Locale, PageMeta } from "../i18n";
-import { serpTitle } from "../serp-title";
+import { siteName } from "../site";
 
 export interface HomeContent {
   meta: PageMeta;
   hero: {
+    /** Main H1 line. */
     pre: string;
+    /** Second H1 line, rendered in the brand color. */
     accent: string;
     sub: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    instantPreview: string;
+    /** Link under the hero converter rows into the full generator. */
     convertLink: string;
   };
   toolsSection: {
@@ -19,12 +21,12 @@ export interface HomeContent {
     sub: string;
     cards: { icon: string; title: string; description: string; cta: string }[];
   };
+  popularTools: { h2: string };
   popularStyles: { h2: string; seeAll: string };
-  popularSymbols: { h2: string; browse: string };
+  useCases: { h2: string; sub: string; social: string; gaming: string; roleplay: string };
   directory: { h2: string; sub: string };
   how: { h2: string; steps: { title: string; body: string }[] };
   compat: string;
-  what: { h2: string; body: string };
   faqHeading: string;
   faq: { q: string; a: string }[];
 }
@@ -32,18 +34,17 @@ export interface HomeContent {
 export const homeContent: Record<Locale, HomeContent> = {
   en: {
     meta: {
-      title: serpTitle("Fancy Text", "en", "Names & Symbols"),
+      title: `Fancy Font Generator — Stylish Text, Names & Symbols | ${siteName}`,
       description:
-        "Free fancy text generator with 30 Unicode styles, gaming nicknames, and symbols like hearts, stars, and wings. Copy and paste into a bio, chat, or profile — no sign-up, no font to install.",
+        "Type in the converter on this page and copy 30 Unicode styles, decorated gaming names, and symbols like hearts, stars, and wings. Free, no sign-up, no font to install.",
     },
     hero: {
-      pre: "Generate and Copy ",
-      accent: "Fancy Text",
-      sub: "Stylish text, gaming names, and symbols. Three tools on one site. Accented letters, Chinese, and emoji stay as typed.",
+      pre: "Fancy Font Generator",
+      accent: "Stylish Text, Names & Symbols",
+      sub: "Type below to turn plain letters into stylish Unicode text, decorate a gaming name, or grab a symbol — three tools on one site. Accented letters, Chinese, and emoji stay as typed.",
       ctaPrimary: "Try Fancy Text",
       ctaSecondary: "Make a Gaming Name",
-      instantPreview: "Instant preview",
-      convertLink: "Convert your own text →",
+      convertLink: "Open the full generator →",
     },
     toolsSection: {
       h2: "Three jobs",
@@ -72,11 +73,18 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
       ],
     },
+    popularTools: { h2: "Popular tools" },
     popularStyles: {
       h2: "Popular text styles",
       seeAll: "See all 30 styles in the Fancy Text Generator →",
     },
-    popularSymbols: { h2: "Popular symbols", browse: "Browse and copy all symbols →" },
+    useCases: {
+      h2: "Use it on your platform",
+      sub: "Each platform page fits the tool to that platform's fields — display name, bio, or player name.",
+      social: "Social",
+      gaming: "Gaming",
+      roleplay: "Roleplay",
+    },
     directory: {
       h2: "All generators",
       sub: "Every tool has its own page with a dedicated converter, examples and honest compatibility notes.",
@@ -91,10 +99,6 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     compat:
       "These styles use Unicode characters, not installed font files. Display and availability may vary by device, app, game, and platform rules. Please test your result where you plan to use it.",
-    what: {
-      h2: "What FancyFont is",
-      body: "FancyFont is a free tool at fancyfont.tools that turns A–Z letters into stylish Unicode text, decorates gaming nicknames, and offers symbols you can copy. These are characters, and the site does not install font files. Everything runs in your browser, so the text you type is not uploaded. Paste the result into a game, bio, or chat, then check that it displays the way you want.",
-    },
     faqHeading: "Frequently asked questions",
     faq: [
       {
@@ -117,18 +121,17 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   es: {
     meta: {
-      title: serpTitle("Letras bonitas", "es", "nombres y símbolos"),
+      title: `Generador de letras bonitas — Texto con estilo, nombres y símbolos | ${siteName}`,
       description:
-        "Generador gratis de letras bonitas: 30 estilos Unicode, nombres gamer y símbolos (corazones, estrellas, alas). Copia y pega en tu bio, chat o perfil, sin registro ni instalar fuentes.",
+        "Escribe en el conversor de esta página y copia 30 estilos Unicode, nombres gamer decorados y símbolos como corazones, estrellas y alas. Gratis, sin registro ni instalar fuentes.",
     },
     hero: {
-      pre: "Genera y copia ",
-      accent: "letras bonitas",
-      sub: "Texto con estilo, nombres para juegos y símbolos. Tres herramientas en un sitio. Las tildes, el chino y los emoji se quedan igual.",
+      pre: "Generador de letras bonitas",
+      accent: "Texto con estilo, nombres y símbolos",
+      sub: "Escribe abajo para convertir tus letras en texto Unicode con estilo, decorar un nombre gamer o tomar un símbolo — tres herramientas en un sitio. Las tildes, el chino y los emoji se quedan igual.",
       ctaPrimary: "Probar letras bonitas",
       ctaSecondary: "Crear un nombre gamer",
-      instantPreview: "Vista previa",
-      convertLink: "Convertir tu propio texto →",
+      convertLink: "Abrir el generador completo →",
     },
     toolsSection: {
       h2: "Tres trabajos",
@@ -157,11 +160,18 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
       ],
     },
+    popularTools: { h2: "Herramientas populares" },
     popularStyles: {
       h2: "Estilos de texto populares",
       seeAll: "Ver los 30 estilos en el Generador de letras bonitas →",
     },
-    popularSymbols: { h2: "Símbolos populares", browse: "Ver y copiar todos los símbolos →" },
+    useCases: {
+      h2: "Úsalo en tu plataforma",
+      sub: "Cada página de plataforma adapta la herramienta a sus campos: nombre visible, bio o nombre de jugador.",
+      social: "Redes sociales",
+      gaming: "Juegos",
+      roleplay: "Rol",
+    },
     directory: {
       h2: "Todos los generadores",
       sub: "Cada herramienta tiene su propia página con conversor dedicado, ejemplos y notas honestas de compatibilidad.",
@@ -176,10 +186,6 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     compat:
       "Estos estilos usan caracteres Unicode, no archivos de fuentes instaladas. La visualización y disponibilidad varían según el dispositivo, la app, el juego y las reglas de cada plataforma. Prueba tu resultado donde lo vayas a usar.",
-    what: {
-      h2: "Qué es FancyFont",
-      body: "FancyFont es una herramienta gratuita en fancyfont.tools que convierte letras A–Z en texto Unicode con estilo, decora nombres para juegos y ofrece símbolos para copiar. Son caracteres, y el sitio no instala archivos de fuente. Todo ocurre en tu navegador, así que el texto que escribes no se sube. Pégalo en un juego, una bio o un chat y comprueba que se vea como quieres.",
-    },
     faqHeading: "Preguntas frecuentes",
     faq: [
       {
@@ -202,18 +208,17 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   "pt-br": {
     meta: {
-      title: serpTitle("Letras bonitas", "pt-br", "nomes e símbolos"),
+      title: `Gerador de letras bonitas — Texto estiloso, nomes e símbolos | ${siteName}`,
       description:
-        "Gerador grátis de letras bonitas: 30 estilos Unicode, nomes de jogo e símbolos (corações, estrelas, asas). Copie e cole na bio, no chat ou no perfil, sem cadastro e sem instalar fontes.",
+        "Digite no conversor desta página e copie 30 estilos Unicode, nomes de jogo decorados e símbolos como corações, estrelas e asas. Grátis, sem cadastro e sem instalar fontes.",
     },
     hero: {
-      pre: "Gere e copie ",
-      accent: "letras bonitas",
-      sub: "Texto estiloso, nomes para jogos e símbolos. Três ferramentas em um site. Acentos, chinês e emoji ficam como você digitou.",
+      pre: "Gerador de letras bonitas",
+      accent: "Texto estiloso, nomes e símbolos",
+      sub: "Digite abaixo para transformar letras comuns em texto Unicode estiloso, decorar um nome de jogo ou pegar um símbolo — três ferramentas em um site. Acentos, chinês e emoji ficam como você digitou.",
       ctaPrimary: "Testar letras bonitas",
       ctaSecondary: "Criar um nome de jogo",
-      instantPreview: "Prévia instantânea",
-      convertLink: "Converter o seu texto →",
+      convertLink: "Abrir o gerador completo →",
     },
     toolsSection: {
       h2: "Três tarefas",
@@ -242,11 +247,18 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
       ],
     },
+    popularTools: { h2: "Ferramentas populares" },
     popularStyles: {
       h2: "Estilos de texto populares",
       seeAll: "Ver os 30 estilos no Gerador de letras bonitas →",
     },
-    popularSymbols: { h2: "Símbolos populares", browse: "Ver e copiar todos os símbolos →" },
+    useCases: {
+      h2: "Use na sua plataforma",
+      sub: "Cada página de plataforma adapta a ferramenta aos campos dela: nome visível, bio ou nome de jogador.",
+      social: "Redes sociais",
+      gaming: "Jogos",
+      roleplay: "Roleplay",
+    },
     directory: {
       h2: "Todos os geradores",
       sub: "Cada ferramenta tem sua própria página com conversor dedicado, exemplos e notas honestas de compatibilidade.",
@@ -261,10 +273,6 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     compat:
       "Estes estilos usam caracteres Unicode, não arquivos de fontes instaladas. A exibição e a disponibilidade variam conforme o aparelho, o app, o jogo e as regras da plataforma. Teste seu resultado onde você for usar.",
-    what: {
-      h2: "O que é o FancyFont",
-      body: "FancyFont é uma ferramenta gratuita em fancyfont.tools que transforma letras de A a Z em texto Unicode estilizado, decora nomes de jogos e oferece símbolos para copiar. São caracteres, e o site não instala arquivos de fonte. Tudo roda no seu navegador, então o texto que você digita não é enviado. Cole o resultado no jogo, na bio ou no chat e confira se a aparência ficou como você queria.",
-    },
     faqHeading: "Perguntas frequentes",
     faq: [
       {
@@ -287,18 +295,17 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   "zh-cn": {
     meta: {
-      title: serpTitle("花体字生成器", "zh-cn", "昵称与符号"),
+      title: `花体字生成器 — 个性文字、昵称与符号 | ${siteName}`,
       description:
-        "免费花体字生成器：30 种 Unicode 样式、游戏昵称，以及爱心、星星、翅膀等符号。浏览器里预览，复制粘贴到简介、聊天或昵称，无需注册，也不安装字体。",
+        "在页面上的转换器里输入，直接复制 30 种 Unicode 样式、装饰好的游戏昵称，以及爱心、星星、翅膀等符号。免费、无需注册、不安装字体。",
     },
     hero: {
-      pre: "生成并复制",
-      accent: "个性文字",
-      sub: "个性文字、游戏昵称和符号。一个站点上的三件事。声调字母、中文和 emoji 保持原样。",
+      pre: "花体字生成器",
+      accent: "个性文字 · 昵称 · 特殊符号",
+      sub: "在下方输入，把普通字母变成有风格的 Unicode 文字，装饰游戏昵称，或挑一个符号——一个站点上的三件事。声调字母、中文和 emoji 保持原样。",
       ctaPrimary: "试试个性字体",
       ctaSecondary: "生成游戏昵称",
-      instantPreview: "即时预览",
-      convertLink: "转换你自己的文字 →",
+      convertLink: "打开完整生成器 →",
     },
     toolsSection: {
       h2: "三件不同的事",
@@ -324,11 +331,18 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
       ],
     },
+    popularTools: { h2: "热门工具" },
     popularStyles: {
       h2: "热门文字样式",
       seeAll: "在个性字体生成器中查看全部 30 种样式 →",
     },
-    popularSymbols: { h2: "热门符号", browse: "浏览并复制全部符号 →" },
+    useCases: {
+      h2: "按你的平台使用",
+      sub: "每个平台页都会把工具适配到那个平台的字段：显示名、简介或玩家名。",
+      social: "社交平台",
+      gaming: "游戏",
+      roleplay: "角色扮演类",
+    },
     directory: {
       h2: "全部生成器",
       sub: "每个工具都有独立页面：专属转换器、示例和诚实的兼容性说明。",
@@ -343,10 +357,6 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     compat:
       "这些效果使用 Unicode 字符，而非已安装的字体文件。显示效果和可用性可能因设备、应用、游戏及平台规则而异，请在实际使用位置测试。",
-    what: {
-      h2: "FancyFont 是什么",
-      body: "FancyFont 是 fancyfont.tools 上的免费工具，把 A–Z 字母转成有风格的 Unicode 文字，装饰游戏昵称，并提供可复制的符号。这些是字符，网站不会安装字体文件。转换在浏览器里完成，你输入的文字不会上传。把结果粘贴到游戏、简介或聊天里，再确认显示效果符合预期。",
-    },
     faqHeading: "常见问题",
     faq: [
       {
@@ -369,18 +379,17 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
   id: {
     meta: {
-      title: serpTitle("Huruf keren", "id", "nama & simbol"),
+      title: `Generator Huruf Keren — Teks bergaya, nama, & simbol | ${siteName}`,
       description:
-        "Generator huruf keren gratis: 30 gaya Unicode, nama game, dan simbol seperti hati, bintang, dan sayap. Salin tempel ke bio, chat, atau profil — tanpa daftar, tanpa memasang font.",
+        "Ketik di konverter halaman ini dan salin 30 gaya Unicode, nama game yang dihias, serta simbol seperti hati, bintang, dan sayap. Gratis, tanpa daftar, tanpa memasang font.",
     },
     hero: {
-      pre: "Buat dan salin ",
-      accent: "teks keren",
-      sub: "Teks bergaya, nama game, dan simbol. Tiga alat di satu situs. Huruf beraksen, Cina, dan emoji tetap seperti aslinya.",
+      pre: "Generator Huruf Keren",
+      accent: "Teks bergaya, nama, & simbol",
+      sub: "Ketik di bawah untuk mengubah huruf biasa menjadi teks Unicode bergaya, menghias nama game, atau mengambil satu simbol — tiga alat di satu situs. Huruf beraksen, Cina, dan emoji tetap seperti aslinya.",
       ctaPrimary: "Coba huruf keren",
       ctaSecondary: "Buat nama game",
-      instantPreview: "Pratinjau instan",
-      convertLink: "Konversi teksmu sendiri →",
+      convertLink: "Buka generator lengkap →",
     },
     toolsSection: {
       h2: "Tiga pekerjaan",
@@ -409,11 +418,18 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
       ],
     },
+    popularTools: { h2: "Alat populer" },
     popularStyles: {
       h2: "Gaya teks populer",
       seeAll: "Lihat semua 30 gaya di Generator Huruf Keren →",
     },
-    popularSymbols: { h2: "Simbol populer", browse: "Lihat dan salin semua simbol →" },
+    useCases: {
+      h2: "Pakai di platformmu",
+      sub: "Setiap halaman platform menyesuaikan alat dengan kolom platform itu: nama tampilan, bio, atau nama pemain.",
+      social: "Sosial",
+      gaming: "Game",
+      roleplay: "Roleplay",
+    },
     directory: {
       h2: "Semua generator",
       sub: "Setiap alat punya halaman sendiri dengan konverter khusus, contoh, dan catatan kompatibilitas yang jujur.",
@@ -428,10 +444,6 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     compat:
       "Gaya-gaya ini menggunakan karakter Unicode, bukan file font yang terpasang. Tampilan dan ketersediaan bisa berbeda tergantung perangkat, aplikasi, game, dan aturan platform. Uji hasilnya di tempat kamu akan memakainya.",
-    what: {
-      h2: "Apa itu FancyFont",
-      body: "FancyFont adalah alat gratis di fancyfont.tools yang mengubah huruf A–Z menjadi teks Unicode bergaya, menghias nama game, dan menyediakan simbol untuk disalin. Ini karakter, dan situs ini tidak memasang berkas font. Semuanya berjalan di browser, jadi teks yang kamu ketik tidak diunggah. Tempel hasilnya ke game, bio, atau chat, lalu pastikan tampilannya sesuai.",
-    },
     faqHeading: "Pertanyaan umum",
     faq: [
       {

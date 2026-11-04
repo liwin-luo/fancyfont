@@ -97,6 +97,37 @@ export const vibeStyles: VibeStyle[] = [
     ],
     transforms: ["smallCaps", "identity"],
   },
+  {
+    id: "gothic",
+    name: "Gothic",
+    accent: "#3F3F46",
+    wrappers: [
+      ["⚜", "⚜"],
+      ["❧", "❧"],
+      ["✠", "✠"],
+      ["❮", "❯"],
+      ["⟦", "⟧"],
+      ["⌜", "⌝"],
+      ["༺", "༻"],
+      ["⚔", "⚔"],
+    ],
+    transforms: ["fraktur", "boldFraktur", "boldScript", "identity"],
+  },
+  {
+    id: "aesthetic",
+    name: "Aesthetic",
+    accent: "#A5B4FC",
+    wrappers: [
+      ["·˚", "˚·"],
+      ["✧･ﾟ", "･ﾟ✧"],
+      ["⋆", "⋆"],
+      ["⊹", "⊹"],
+      ["♡", "♡"],
+      ["˖", "˖"],
+      ["⋆˚", "˚⋆"],
+    ],
+    transforms: ["fullwidth", "smallCaps", "script", "identity"],
+  },
 ];
 
 export type VibeStyleId = (typeof vibeStyles)[number]["id"];

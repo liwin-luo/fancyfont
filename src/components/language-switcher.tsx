@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -13,6 +13,7 @@ import {
   type Locale,
 } from "@/lib/i18n";
 import { getUi } from "@/lib/ui-strings";
+import { useDismiss } from "@/components/use-dismiss";
 
 /** Keep in sync with the progress-bar animation duration below. */
 const DISMISS_MS = 6000;
@@ -28,6 +29,9 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
   const current = localeFromPathname(pathname);
   const pathWithoutLocale =
     current === "en" ? pathname : pathname.replace(`/${current}`, "") || "/";
+  const [menuOpen, setMenuOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useDismiss(rootRef, menuOpen, () => setMenuOpen(false));
   const [suggest, setSuggest] = useState<Locale | null>(null);
 
   useEffect(() => {
@@ -58,22 +62,27 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
   const suggested = suggest ? getUi(suggest) : null;
 
   return (
-    <div className="relative">
-      <details className="group relative">
-        <summary
-          aria-label={`${t.languageLabel}: ${localeNames[locale]}`}
-          className="flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-full border border-line bg-white pr-2.5 pl-3 text-sm font-semibold text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 [&::-webkit-details-marker]:hidden"
+    <div className="relative" ref={rootRef}>
+      <button
+        type="button"
+        aria-label={`${t.languageLabel}: ${localeNames[locale]}`}
+        aria-expanded={menuOpen}
+        aria-haspopup="true"
+        onClick={() => setMenuOpen((value) => !value)}
+        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-full border border-line bg-white pr-2.5 pl-3 text-sm font-semibold text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+      >
+        {localeNames[locale]}
+        <svg
+          aria-hidden
+          viewBox="0 0 12 12"
+          className={`size-3 text-ink-500 transition-transform ${menuOpen ? "rotate-180" : ""}`}
+          fill="none"
         >
-          {localeNames[locale]}
-          <svg
-            aria-hidden
-            viewBox="0 0 12 12"
-            className="size-3 text-ink-500 transition-transform group-open:rotate-180"
-            fill="none"
-          >
-            <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </summary>
+          <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {menuOpen && (
         <div className="absolute top-full right-0 z-50 mt-1.5 min-w-48 rounded-2xl border border-line bg-white p-1 shadow-lg">
           {locales.map((code) => {
             const active = code === locale;
@@ -83,6 +92,7 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
                 href={localePath(code, pathWithoutLocale)}
                 hrefLang={code}
                 aria-current={active ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm transition-colors ${
                   active
                     ? "bg-brand-50 font-semibold text-brand-700"
@@ -97,7 +107,7 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
             );
           })}
         </div>
-      </details>
+      )}
 
       {suggest && suggested && (
         <div

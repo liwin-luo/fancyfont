@@ -99,7 +99,11 @@ describe("i18n completeness", () => {
 
   it("core page content is complete in every locale", () => {
     for (const locale of locales) {
-      expect(homeContent[locale].what.body.length).toBeGreaterThan(40);
+      expect(homeContent[locale].hero.accent.length).toBeGreaterThan(3);
+      expect(homeContent[locale].popularTools.h2.length).toBeGreaterThan(3);
+      expect(homeContent[locale].useCases.social.length).toBeGreaterThan(2);
+      expect(homeContent[locale].useCases.gaming.length).toBeGreaterThanOrEqual(2);
+      expect(homeContent[locale].useCases.roleplay.length).toBeGreaterThan(2);
       expect(homeContent[locale].faq.length).toBeGreaterThanOrEqual(4);
       expect(mcpContent[locale].tools).toHaveLength(4);
       expect(mcpContent[locale].steps.length).toBeGreaterThanOrEqual(3);
@@ -119,16 +123,25 @@ describe("i18n completeness", () => {
   });
 
   it("keeps the homepage headline and Chinese hub descriptions specific", () => {
-    expect(homeContent.en.hero.pre + homeContent.en.hero.accent).toBe("Generate and Copy Fancy Text");
+    expect(homeContent.en.hero.pre).toBe("Fancy Font Generator");
+    expect(homeContent.en.hero.accent).toBe("Stylish Text, Names & Symbols");
     expect(homeContent.en.toolsSection.cards[0].description).toMatch(/A–Z/);
     expect(homeContent.en.toolsSection.cards[1].description).toMatch(/does not invent/);
     expect(
       stylePages.find((page) => page.slug === "cursive-text-generator")!.copy.en.coverageNote,
     ).toMatch(/e, g, and o/);
-    expect(homeContent.es.hero.pre + homeContent.es.hero.accent).toBe("Genera y copia letras bonitas");
-    expect(homeContent["pt-br"].hero.pre + homeContent["pt-br"].hero.accent).toBe("Gere e copie letras bonitas");
-    expect(homeContent["zh-cn"].hero.pre + homeContent["zh-cn"].hero.accent).toBe("生成并复制个性文字");
-    expect(homeContent.id.hero.pre + homeContent.id.hero.accent).toBe("Buat dan salin teks keren");
+    expect(homeContent.es.hero.pre + homeContent.es.hero.accent).toBe(
+      "Generador de letras bonitasTexto con estilo, nombres y símbolos",
+    );
+    expect(homeContent["pt-br"].hero.pre + homeContent["pt-br"].hero.accent).toBe(
+      "Gerador de letras bonitasTexto estiloso, nomes e símbolos",
+    );
+    expect(homeContent["zh-cn"].hero.pre + homeContent["zh-cn"].hero.accent).toBe(
+      "花体字生成器个性文字 · 昵称 · 特殊符号",
+    );
+    expect(homeContent.id.hero.pre + homeContent.id.hero.accent).toBe(
+      "Generator Huruf KerenTeks bergaya, nama, & simbol",
+    );
 
     const related = gamingContent["pt-br"].related.map((item) => `${item.title} ${item.description}`).join("\n");
     expect(related).not.toMatch(/Generador|Convierte|tu propio|apodos/);

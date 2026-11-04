@@ -159,12 +159,17 @@ export function PreviewOptions({
   transparent,
   onTransparent,
   onCopyFavorites,
+  onCopyAllStyles,
+  allStylesCount,
 }: {
   size: number;
   onSize: (size: number) => void;
   transparent: boolean;
   onTransparent: (transparent: boolean) => void;
   onCopyFavorites?: () => void;
+  onCopyAllStyles?: () => void;
+  /** Live count of styles for the current input; 0 hides the button. */
+  allStylesCount?: number;
 }) {
   const t = getUi(useLocale());
   return (
@@ -198,6 +203,15 @@ export function PreviewOptions({
           className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
         >
           {t.common.copyAllFavorites}
+        </button>
+      )}
+      {onCopyAllStyles && (allStylesCount ?? 0) > 0 && (
+        <button
+          type="button"
+          onClick={onCopyAllStyles}
+          className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+        >
+          {t.common.copyAllStyles(allStylesCount ?? 0)}
         </button>
       )}
     </div>

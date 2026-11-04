@@ -7,16 +7,15 @@ import { homeContent } from "@/lib/content/page-home";
 import { getUi } from "@/lib/ui-strings";
 import { hreflang, localePath, type Locale } from "@/lib/i18n";
 import { PixelHeart, PixelSpark, PixelStar } from "@/components/pixel-star";
-import { PlatformChips } from "@/components/platform-chips";
 import { Faq, JsonLd, faqJsonLd } from "@/components/sections";
 import { contactEmail, getSiteUrl, siteName } from "@/lib/site";
 import { workMeta } from "@/lib/schema";
 import { sampleNames } from "@/lib/sample-names";
 import { SampleNameProvider, SampleStyledName } from "@/components/sample-name";
+import { HeroConverter } from "@/components/hero-converter";
 
 const siteUrl = getSiteUrl();
 
-const heroStyleIds = ["script", "bold", "fraktur"] as const;
 const popularStyleIds = [
   "boldScript",
   "smallCaps",
@@ -26,30 +25,42 @@ const popularStyleIds = [
   "monospace",
 ] as const;
 
-const popularSymbolIds = [
-  "hearts-1",
-  "hearts-2",
-  "hearts-24",
-  "stars-1",
-  "stars-2",
-  "stars-3",
-  "stars-4",
-  "crowns-5",
-  "crowns-6",
-  "flowers-1",
-  "flowers-13",
-  "arrows-1",
-  "wings-3",
-  "brackets-17",
-  "lines-2",
-  "faces-1",
-  "vibes-1",
-  "vibes-16",
+const cardSymbolIds = ["hearts-1", "stars-1", "crowns-5", "flowers-1", "arrows-1", "faces-1"];
+
+const popularToolHrefs = [
+  "/fancy-text-generator/",
+  "/gaming-name-generator/",
+  "/symbols/",
+  "/blank-space/",
+  "/instagram-fonts/",
+  "/pubg-name-generator/",
+] as const;
+
+const useCaseGroups = [
+  {
+    key: "social" as const,
+    slugs: ["instagram-fonts", "tiktok-fonts", "discord-fonts", "facebook-fonts", "youtube-fonts"],
+  },
+  {
+    key: "gaming" as const,
+    slugs: [
+      "pubg-name-generator",
+      "free-fire-name-generator",
+      "cod-name-generator",
+      "roblox-name-generator",
+      "fortnite-name-generator",
+    ],
+  },
+  { key: "roleplay" as const, slugs: ["adopt-me-fonts", "berry-avenue-fonts"] },
 ];
 
 export function HomePageTemplate({ locale }: { locale: Locale }) {
   const c = homeContent[locale];
   const t = getUi(locale);
+  const sampleName = sampleNames[locale][0] ?? "Alex";
+  const cardSymbols = cardSymbolIds
+    .map((id) => symbols.find((s) => s.id === id))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -62,16 +73,27 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
     ...workMeta(),
   };
 
-  const popularSymbols = popularSymbolIds
-    .map((id) => symbols.find((s) => s.id === id))
-    .filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const popularToolLinks = popularToolHrefs.map((href) => {
+    const slug = href.replaceAll("/", "");
+    const platform = platformPages.find((page) => page.slug === slug);
+    const label = platform
+      ? platform.copy[locale].h1
+      : href === "/fancy-text-generator/"
+        ? t.tools.fancy
+        : href === "/gaming-name-generator/"
+          ? t.tools.gaming
+          : href === "/symbols/"
+            ? t.tools.symbols
+            : t.tools.blank;
+    return { href, label };
+  });
 
   return (
     <SampleNameProvider names={sampleNames[locale]}>
       <JsonLd data={jsonLd} />
       <JsonLd data={faqJsonLd(c.faq)} />
 
-      {/* Hero */}
+      {/* Hero: H1, pitch, and a converter the visitor can use right here */}
       <section className="relative overflow-hidden">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
           <PixelStar className="pixel-float absolute top-14 left-[7%] h-8 w-8 text-brand-200" />
@@ -84,10 +106,12 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
         <div className="mx-auto max-w-3xl px-4 pt-14 pb-12 text-center sm:px-6">
           <h1 className="text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
             {c.hero.pre}
-            <span className="text-brand-600">{c.hero.accent}</span>
+            <span className="mt-2 block text-2xl font-bold text-brand-600 sm:text-3xl">
+              {c.hero.accent}
+            </span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-600">{c.hero.sub}</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link href={localePath(locale, "/fancy-text-generator/")} className="btn-primary w-full sm:w-auto">
               <span aria-hidden="true">✦</span> {c.hero.ctaPrimary}
             </Link>
@@ -96,28 +120,11 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
             </Link>
           </div>
 
-          <div className="mt-8 text-left">
-            <PlatformChips locale={locale} includeAll={false} />
-          </div>
-
-          <div className="card mx-auto mt-10 max-w-xl p-5 text-left">
-            <p className="text-xs font-semibold tracking-wider text-ink-500 uppercase">
-              {c.hero.instantPreview}
-            </p>
-            <ul className="mt-3 space-y-2.5">
-              {heroStyleIds.map((id) => (
-                <li key={id} className="flex items-baseline justify-between gap-4">
-                  <span className="w-20 shrink-0 text-xs text-ink-500">{t.styleNames[id]}</span>
-                  <SampleStyledName
-                    styleId={id}
-                    className="result-text text-lg font-medium text-ink-900"
-                  />
-                </li>
-              ))}
-            </ul>
+          <div className="mx-auto mt-8 max-w-xl">
+            <HeroConverter defaultText={sampleName} />
             <Link
               href={localePath(locale, "/fancy-text-generator/")}
-              className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800"
+              className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800"
             >
               {c.hero.convertLink}
             </Link>
@@ -125,14 +132,7 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 pt-4 sm:px-6" aria-labelledby="what-heading">
-        <h2 id="what-heading" className="text-2xl font-bold tracking-tight text-ink-900">
-          {c.what.h2}
-        </h2>
-        <p className="mt-2 text-base leading-relaxed text-ink-600">{c.what.body}</p>
-      </section>
-
-      {/* Tool cards */}
+      {/* Main categories: the three jobs, each with live examples */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6" aria-labelledby="tools-heading">
         <h2 id="tools-heading" className="text-2xl font-bold tracking-tight text-ink-900">
           {c.toolsSection.h2}
@@ -156,12 +156,70 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
                 <h3 className="mt-3 font-bold text-ink-900 group-hover:text-brand-700">
                   {card.title}
                 </h3>
-                <p className="mt-1 flex-1 text-sm leading-relaxed text-ink-600">{card.description}</p>
-                <span className="mt-4 text-sm font-semibold text-brand-700">{card.cta} →</span>
+                <p className="mt-1 text-sm leading-relaxed text-ink-600">{card.description}</p>
+                {index === 0 && (
+                  <span className="mt-3 space-y-1.5">
+                    {(["script", "smallCaps"] as const).map((id) => (
+                      <span key={id} className="flex items-baseline justify-between gap-2">
+                        <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-ink-500">
+                          {t.styleNames[id]}
+                        </span>
+                        <SampleStyledName
+                          styleId={id}
+                          className="result-text min-w-0 truncate text-base font-medium text-ink-900"
+                        />
+                      </span>
+                    ))}
+                  </span>
+                )}
+                {index === 1 && (
+                  <span className="mt-3 space-y-1.5">
+                    {[`꧁༒ ${sampleName} ༒꧂`, `★ ${sampleName} ★`].map((line) => (
+                      <span key={line} className="result-text block truncate text-base font-medium text-ink-900">
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+                )}
+                {index === 2 && (
+                  <span className="mt-3 flex flex-wrap gap-1.5">
+                    {cardSymbols.map((entry) => (
+                      <span
+                        key={entry.id}
+                        title={entry.label}
+                        aria-hidden="true"
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-surface text-base text-ink-900"
+                      >
+                        {entry.symbol}
+                      </span>
+                    ))}
+                  </span>
+                )}
+                <span className="mt-4 flex-1" />
+                <span className="text-sm font-semibold text-brand-700">{card.cta} →</span>
               </Link>
             );
           })}
         </div>
+      </section>
+
+      {/* Popular tools */}
+      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="popular-heading">
+        <h2 id="popular-heading" className="text-2xl font-bold tracking-tight text-ink-900">
+          {c.popularTools.h2}
+        </h2>
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {popularToolLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={localePath(locale, link.href)}
+                className="inline-flex h-10 items-center rounded-full border border-line bg-white px-4 text-sm font-semibold text-ink-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Popular styles */}
@@ -209,30 +267,72 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
         </p>
       </section>
 
-      {/* Popular symbols */}
-      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="symbols-heading">
-        <h2 id="symbols-heading" className="text-2xl font-bold tracking-tight text-ink-900">
-          {c.popularSymbols.h2}
+      {/* Use cases: platform pages grouped by job */}
+      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="use-cases-heading">
+        <h2 id="use-cases-heading" className="text-2xl font-bold tracking-tight text-ink-900">
+          {c.useCases.h2}
         </h2>
-        <ul className="mt-6 flex flex-wrap gap-2">
-          {popularSymbols.map((entry) => (
-            <li
-              key={entry.id}
-              title={entry.label}
-              className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-surface text-xl text-ink-900"
-            >
-              {entry.symbol}
+        <p className="mt-2 max-w-2xl text-ink-600">{c.useCases.sub}</p>
+        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+          {useCaseGroups.map((group) => (
+            <div key={group.key}>
+              <h3 className="text-sm font-semibold tracking-wide text-ink-500 uppercase">
+                {c.useCases[group.key]}
+              </h3>
+              <ul className="mt-3 space-y-2">
+                {group.slugs.map((slug) => {
+                  const page = platformPages.find((item) => item.slug === slug);
+                  if (!page) return null;
+                  return (
+                    <li key={slug}>
+                      <Link
+                        href={localePath(locale, `/${page.slug}/`)}
+                        className="flex items-start justify-between gap-3 border-b border-line pb-2 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:text-brand-700"
+                      >
+                        <span className="min-w-0">{page.copy[locale].h1}</span>
+                        <span aria-hidden="true" className="text-ink-500">
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="how-heading">
+        <h2 id="how-heading" className="text-2xl font-bold tracking-tight text-ink-900">
+          {c.how.h2}
+        </h2>
+        <ol className="mt-6 grid gap-4 sm:grid-cols-3">
+          {c.how.steps.map((step) => (
+            <li key={step.title} className="card p-5">
+              <h3 className="font-bold text-ink-900">{step.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-ink-600">{step.body}</p>
             </li>
           ))}
-        </ul>
-        <p className="mt-4">
-          <Link
-            href={localePath(locale, "/symbols/")}
-            className="text-sm font-semibold text-brand-700 hover:text-brand-800"
-          >
-            {c.popularSymbols.browse}
-          </Link>
-        </p>
+        </ol>
+      </section>
+
+      {/* Compatibility */}
+      <section className="mx-auto mt-14 max-w-3xl px-4 sm:px-6">
+        <div className="rounded-xl border border-warning/20 bg-warning-bg p-4 text-sm leading-relaxed text-warning">
+          <p>
+            <strong className="font-semibold">{t.compat.lead}</strong> {c.compat}
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto mt-14 max-w-3xl px-4 sm:px-6" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className="text-2xl font-bold tracking-tight text-ink-900">
+          {c.faqHeading}
+        </h2>
+        <Faq items={c.faq} />
       </section>
 
       {/* All generators directory */}
@@ -273,38 +373,6 @@ export function HomePageTemplate({ locale }: { locale: Locale }) {
             </div>
           </div>
         ))}
-      </section>
-
-      {/* How it works */}
-      <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6" aria-labelledby="how-heading">
-        <h2 id="how-heading" className="text-2xl font-bold tracking-tight text-ink-900">
-          {c.how.h2}
-        </h2>
-        <ol className="mt-6 grid gap-4 sm:grid-cols-3">
-          {c.how.steps.map((step) => (
-            <li key={step.title} className="card p-5">
-              <h3 className="font-bold text-ink-900">{step.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-ink-600">{step.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* Compatibility */}
-      <section className="mx-auto mt-14 max-w-3xl px-4 sm:px-6">
-        <div className="rounded-xl border border-warning/20 bg-warning-bg p-4 text-sm leading-relaxed text-warning">
-          <p>
-            <strong className="font-semibold">{t.compat.lead}</strong> {c.compat}
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mx-auto mt-14 max-w-3xl px-4 sm:px-6" aria-labelledby="faq-heading">
-        <h2 id="faq-heading" className="text-2xl font-bold tracking-tight text-ink-900">
-          {c.faqHeading}
-        </h2>
-        <Faq items={c.faq} />
       </section>
     </SampleNameProvider>
   );
