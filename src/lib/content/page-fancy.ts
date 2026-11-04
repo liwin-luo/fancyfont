@@ -181,7 +181,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     ],
     aboutHeading: "Como funciona?",
     about: [
-      "Esta ferramenta troca suas letras por caracteres parecidos de outras partes do padrão Unicode — negrito matemático, script, fraktur, caracteres delimitados e mais. O resultado é texto de verdade, não formatação, então dá para colar em quase todo lugar que aceita texto simples: bios do Instagram e TikTok, nomes do Discord, mensagens e muitos jogos.",
+      "Esta ferramenta troca suas letras por caracteres parecidos de outras partes do padrão Unicode — negrito matemático, script, fraktur, caracteres delimitados e mais. O resultado é texto de verdade, não formatação, então dá para colar em quase qualquer lugar que aceita texto simples: bios do Instagram e TikTok, nomes do Discord, mensagens e muitos jogos.",
       "Cada estilo cobre uma faixa diferente. Os estilos marcados como “parcial” pulam os caracteres sem forma no Unicode, e letras com acento, emoji e outros alfabetos sempre ficam como você digitou. A cursiva em negrito mantém cada letra num só alfabeto; a cursiva fina troca e, g e o por outro traço.",
     ],
     dedicatedHeading: "Geradores por estilo",

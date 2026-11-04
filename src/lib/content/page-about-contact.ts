@@ -98,7 +98,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     sections: [
       {
         h2: "O que as ferramentas fazem",
-        body: "Todos os geradores seguem o mesmo princípio: trocam as letras digitadas por caracteres parecidos de blocos Unicode — cursiva, gótica, bolha, mini, glitch e mais. O resultado é texto comum, não um arquivo de fonte, então você cola em nomes de perfil, bios, chats e apelidos de jogos. O site também reúne 388 símbolos e uma ferramenta de espaço em branco para nomes que parecem vazios.",
+        body: "Todos os geradores seguem o mesmo princípio: trocam as letras digitadas por caracteres parecidos de blocos Unicode — cursiva, gótica, bolha, letras pequenas, glitch e mais. O resultado é texto comum, não um arquivo de fonte, então você cola em nomes de perfil, bios, chats e apelidos de jogos. O site também reúne 388 símbolos e uma ferramenta de espaço em branco para nomes que parecem vazios.",
       },
       {
         h2: "Quem mantém o site",

@@ -61,10 +61,10 @@ describe("strike-zone titles, FAQ, and above-the-fold modules", () => {
       "Fuentes para Berry Avenue — copia y pega el nombre (~20)",
     );
     expect(getPlatformPage("pt-br", "berry-avenue-fonts")!.copy["pt-br"].title).toBe(
-      "Fontes para Berry Avenue — copie grátis (~20 chars)",
+      "Fontes para Berry Avenue — copie grátis (~20 caracteres)",
     );
     expect(esCoquette.title).toBe("Letras coquette para copiar y pegar — lazo en bios");
-    expect(ptCoquette.title).toBe("Letras coquette para copiar e colar — laço na bios");
+    expect(ptCoquette.title).toBe("Letras coquette para copiar e colar — laço nas bios");
     expectVisibleFaq(esCoquette.faq);
     expectVisibleFaq(ptCoquette.faq);
     expectVisibleFaq(zhCursive.faq);

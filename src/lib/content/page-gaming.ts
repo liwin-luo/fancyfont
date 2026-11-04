@@ -213,7 +213,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
       },
       {
         q: "Qual a diferença entre usuário e nome de exibição?",
-        a: "Muitos jogos e plataformas usam um usuário fixo para entrar (normalmente só A–Z, 0–9 e underline) e um nome de exibição ou apelido no jogo, mais flexível. Nomes decorados costumam caber no nome de exibição, não no usuário.",
+        a: "Muitos jogos e plataformas usam um usuário fixo para entrar (normalmente só A–Z, 0–9 e sublinhado) e um nome de exibição ou apelido no jogo, mais flexível. Nomes decorados costumam caber no nome de exibição, não no usuário.",
       },
       {
         q: "Posso usar esses nomes no Discord ou Instagram?",

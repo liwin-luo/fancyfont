@@ -834,7 +834,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "BGMI",
-          body: "O BGMI — Battlegrounds Mobile India — é a versão indiana do PUBG Mobile e usa o mesmo campo de nome. Conte com os mesmos 16 caracteres aproximados. Nada aqui foi testado especificamente no BGMI: deixe o jogo ter a palavra final.",
+          body: "O BGMI — Battlegrounds Mobile India — é a versão indiana do PUBG Mobile e usa o mesmo campo de nome. Conte com uns 16 caracteres, como no PUBG Mobile. Nada aqui foi testado especificamente no BGMI: deixe o jogo ter a palavra final.",
         },
       ],
       compatNote:
@@ -949,11 +949,11 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "cod-name-generator": {
       navName: "COD",
       h1: "Gerador de nomes para Call of Duty",
-      title: "Nomes para Call of Duty — copie o nome e a clan tag",
+      title: "Nomes para Call of Duty — copie o nome e a tag do clã",
       description:
-        "Crie um cod nome e a clan tag para Call of Duty, com contador e prévia no cartão. Os estilos são Unicode. Teste no jogo antes de salvar.",
+        "Crie um nome no COD e a tag do clã para Call of Duty, com contador e prévia no cartão. Os estilos são Unicode. Teste no jogo antes de salvar.",
       intro:
-        "Nomes para Call of Duty ficam, em geral, em torno de 16 caracteres, e o teto muda conforme o título. A tag do clã é outro campo, cerca de 2 a 4 caracteres: um cod nome decorado não entra ali.",
+        "Nomes para Call of Duty ficam, em geral, em torno de 16 caracteres, e o teto muda conforme o título. A tag do clã é outro campo, cerca de 2 a 4 caracteres: um nome decorado no COD não entra ali.",
       defaultText: "COD",
       presets: [
         { label: "Tag", left: "「", right: "」", transform: "bold" },
@@ -979,7 +979,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         "Call of Duty define os próprios limites de nome e de tag, e eles mudam por título. Um nome estilizado pode ser recusado. O FancyFont não é afiliado à Activision.",
       faq: [
         {
-          q: "Como faço um cod nome que caiba?",
+          q: "Como faço um nome no COD que caiba?",
           a: "Conte com cerca de 16 caracteres no nome do jogador. Warzone, Mobile e os títulos antigos não usam o mesmo teto, então o campo do jogo é o limite de verdade. Os artigos da Activision sobre troca de nome não fixam um teto oficial de 16. O número daqui é aproximado e não foi medido neste site.",
         },
         {
@@ -987,7 +987,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
           a: "Não. A tag fica em torno de 2 a 4 caracteres e costuma aceitar só texto simples. Essa faixa é uma estimativa para planejar, não um teto oficial. Deixe a tag curta e ponha o estilo no nome.",
         },
         {
-          q: "O gerador de nick COD Mobile encolhe o nome?",
+          q: "O gerador de nomes do COD Mobile encolhe o nome?",
           a: "Mobile também usa um nome curto, mas o teto não é o mesmo de Warzone. Trate os 16 caracteres como uma estimativa, não como teto oficial, e confira no jogo antes de salvar. O FancyFont não é afiliado à Activision.",
         },
       ],
@@ -1045,7 +1045,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       description:
         "Fontes curtas para o nome de exibição do Adopt Me no Roblox. Cerca de 20 caracteres, usuário comum e uma prévia antes de trocar.",
       intro:
-        "O Adopt Me usa seu nome do Roblox. O usuário fica em letras, dígitos e um sublinhado. O nome de exibição que os outros veem fica em torno de 20 caracteres, e o Roblox ainda pode rejeitar um símbolo. Estas linhas são os visuais preppy e fofo, encurtados para testar.",
+        "O Adopt Me usa seu nome do Roblox. O usuário fica em letras, dígitos e um sublinhado. O nome de exibição que os outros veem fica em torno de 20 caracteres, e o Roblox ainda pode rejeitar um símbolo. Estas linhas são os visuais preppy e fofo, encurtados o bastante para caber.",
       defaultText: "Mila",
       presets: [
         { label: "Preppy", left: "🤍 ", right: " 🤍", transform: "smallCaps" },
@@ -1087,7 +1087,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
     "berry-avenue-fonts": {
       navName: "Berry Avenue",
       h1: "Gerador de fontes para Berry Avenue",
-      title: "Fontes para Berry Avenue — copie grátis (~20 chars)",
+      title: "Fontes para Berry Avenue — copie grátis (~20 caracteres)",
       description:
         "Fontes grátis para Berry Avenue: digite o nome de exibição do Roblox, veja numa ficha e numa placa, e copie estilos perto de ~20 caracteres. Não é para o @usuário.",
       intro:
@@ -1123,7 +1123,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "Frases do chat",
-          body: "Uma apresentação de RP no chat pode ser mais longa do que o nome acima da cabeça. Deixe o nome de exibição em uma linha curta, e ponha a frase longa no chat só depois de ver que ela desenha no seu aparelho. O laço pequeno pode aparecer como um quadrado; o emoji de fita é o reserva.",
+          body: "Uma apresentação de RP no chat pode ser mais longa do que o nome acima da cabeça. Deixe o nome de exibição em uma linha curta, e ponha a frase longa no chat só depois de ver como ela aparece no seu aparelho. O laço pequeno pode aparecer como um quadrado; o emoji de fita é o reserva.",
         },
       ],
       compatNote:
@@ -1139,7 +1139,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Por que o Roblox rejeitou meu nome de Berry Avenue?",
-          a: "Causa: esse artigo de ajuda diz que os nomes de exibição são filtrados, e um nome que fere as regras pode voltar a ser o seu usuário. A página de filtragem de texto da Roblox cobre o texto que outros jogadores veem, inclusive um telefone numa placa. Correção: tire os símbolos raros, deixe o nome de exibição dentro do 3–20 anunciado, não coloque dados pessoais, e salve só depois que a tela da Roblox aceitar.",
+          a: "Causa: esse artigo de ajuda diz que os nomes de exibição são filtrados, e um nome que fere as regras pode voltar a ser o seu usuário. A página de filtragem de texto da Roblox cobre o texto que outros jogadores veem, inclusive um telefone numa placa. Correção: tire os símbolos raros, deixe o nome de exibição dentro dos 3–20 informados pela Roblox, não coloque dados pessoais, e salve só depois que a tela da Roblox aceitar.",
         },
         {
           q: "Isto é um gerador de fontes para Berry Avenue?",
@@ -1173,7 +1173,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           label: "Símbolos e o filtro",
-          body: "O filtro da Epic decide quais caracteres sobrevivem. Alfabetos de um caractere por letra, como negrito e small caps, aguentam mais que enfeites com marcas empilhadas — se o lobby mostra quadrados, escolha um estilo mais simples.",
+          body: "O filtro da Epic decide quais caracteres sobrevivem. Alfabetos de um caractere por letra, como negrito e versaletes, aguentam mais que enfeites com marcas empilhadas — se o lobby mostra quadrados, escolha um estilo mais simples.",
         },
         {
           label: "O que fica simples",
@@ -1193,7 +1193,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Posso colocar símbolos no meu nome do Fortnite?",
-          a: "Caracteres Unicode estilizados geralmente são salvos, mas o filtro da Epic pode cortar ou recusar. Alfabetos mais simples — negrito, small caps — sobrevivem mais que enfeites pesados.",
+          a: "Caracteres Unicode estilizados geralmente são salvos, mas o filtro da Epic pode cortar ou recusar. Alfabetos mais simples — negrito, versaletes — sobrevivem mais que enfeites pesados.",
         },
         {
           q: "Isso é uma ferramenta oficial do Fortnite?",

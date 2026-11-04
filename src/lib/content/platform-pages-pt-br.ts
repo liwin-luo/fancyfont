@@ -11,7 +11,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     description:
       "Letras Unicode estilosas para a bio e o nome do seu Instagram — veja como cada estilo fica e copie em um toque.",
     intro:
-      "O Instagram não tem seletor de fontes. O rascunho abaixo é para a bio, e as quebras de linha já estão nele. O nome visível é o campo curto, cerca de 30 caracteres, e o usuário fica simples.",
+      "O Instagram não tem seletor de fontes. O rascunho abaixo é para a bio, e as quebras de linha já estão nele. O nome de exibição é o campo curto, cerca de 30 caracteres, e o usuário fica simples.",
     defaultText: "Instagram",
     bios: [
       { id: "name", label: "Nome e símbolos", text: "Alex\n\n♡ ✦ ♡" },
@@ -35,7 +35,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
       },
       {
         label: "Usuário",
-        body: "Só letras, números, pontos e underline. Nada de fontes Unicode aqui — deixe o @ simples e ponha o estilo no nome.",
+        body: "Só letras, números, pontos e sublinhado. Nada de fontes Unicode aqui — deixe o @ simples e ponha o estilo no nome.",
       },
     ],
     compatNote:
@@ -86,7 +86,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
       },
       {
         label: "Usuário",
-        body: "Só letras, números, pontos e underline. O usuário nunca aceita fontes estilizadas — estilize o apelido em vez disso.",
+        body: "Só letras, números, pontos e sublinhado. O usuário nunca aceita fontes estilizadas — estilize o apelido em vez disso.",
       },
     ],
     compatNote:
@@ -137,7 +137,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
       },
       {
         label: "Usuário",
-        body: "Letras, números, pontos e underline, em minúsculas. Nada de fontes estilizadas — o Discord é rigoroso aqui.",
+        body: "Letras, números, pontos e sublinhado, em minúsculas. Nada de fontes estilizadas — o Discord é rigoroso aqui.",
       },
       {
         label: "Mensagens",
@@ -183,7 +183,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     guidance: [
       {
         label: "Usuário",
-        body: "Seu login: 3–20 caracteres, letras, números e um underline. Aplicado à risca — sem símbolos, espaços ou caracteres estilizados, nunca.",
+        body: "Seu login: 3–20 caracteres, letras, números e um sublinhado. Aplicado com rigor — sem símbolos, espaços ou caracteres estilizados, nunca.",
       },
       {
         label: "Nome de exibição",
@@ -199,7 +199,7 @@ export const platformPagesPtBr: Record<string, PlatformPageCopy> = {
     faq: [
       {
         q: "Meu usuário do Roblox pode ter símbolos ou fontes?",
-        a: "Não. Os usuários ficam limitados a letras, números e um underline. Estilos decorados só valem no nome de exibição — e mesmo lá, quem decide são os filtros do Roblox.",
+        a: "Não. Os nomes de usuário ficam limitados a letras, números e um sublinhado. Estilos decorados só valem no nome de exibição — e mesmo lá, quem decide são os filtros do Roblox.",
       },
       {
         q: "Por que meu nome de exibição foi alterado?",

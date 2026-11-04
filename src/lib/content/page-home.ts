@@ -254,7 +254,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     useCases: {
       h2: "Use na sua plataforma",
-      sub: "Cada página de plataforma adapta a ferramenta aos campos dela: nome visível, bio ou nome de jogador.",
+      sub: "Cada página de plataforma adapta a ferramenta aos campos dela: nome de exibição, bio ou nome de jogador.",
       social: "Redes sociais",
       gaming: "Jogos",
       roleplay: "Roleplay",
@@ -285,7 +285,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         q: "O texto estilizado funciona no Instagram, TikTok ou Discord?",
-        a: "O usuário costuma ficar em letras comuns. O texto estilizado vai no nome visível, na bio ou na mensagem. Instagram, TikTok e Discord têm cada um uma página com os campos daquela plataforma. Cole no app e confira.",
+        a: "O usuário costuma ficar em letras comuns. O texto estilizado vai no nome de exibição, na bio ou na mensagem. Instagram, TikTok e Discord têm cada um uma página com os campos daquela plataforma. Cole no app e confira.",
       },
       {
         q: "O FancyFont guarda o que eu digito?",

@@ -30,11 +30,11 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Por que aparecem quadradinhos em alguns aparelhos?",
-        a: "O aparelho não tem fonte para esses caracteres. É comum em Androids antigos. Use a cursiva negrito ou troque de estilo se o seu público tiver esse problema.",
+        a: "O aparelho não tem fonte para esses caracteres. É comum em Androids antigos. Use a cursiva em negrito ou troque de estilo se o seu público tiver esse problema.",
       },
       {
         q: "Posso usar cursiva no meu usuário do Instagram?",
-        a: "Não — o usuário do Instagram aceita só letras, números, pontos e underline. A cursiva vai no nome visível e na bio.",
+        a: "Não — o usuário do Instagram aceita só letras, números, pontos e sublinhado. A cursiva vai no nome de exibição e na bio.",
       },
     ],
   },
@@ -170,7 +170,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Por que o zero é diferente?",
-        a: "O Unicode codifica o zero de forma diferente dos outros dígitos e dá a ele um caractere próprio. Os estilos bolha e circulado cobrem — só o entre parênteses pula o zero.",
+        a: "O Unicode codifica o zero de forma diferente dos outros dígitos e dá a ele um caractere próprio. Os estilos bolha e circulado também cobrem o zero — só o estilo entre parênteses o salta por completo.",
       },
       {
         q: "Posso usar letras de bolha em nome de jogo?",
@@ -184,9 +184,9 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     description:
       "Escreva em versalete — um visual discreto e premium para bios, nomes e legendas. Converta e copie na hora.",
     intro:
-      "O versalete transforma seu texto em minúsculas-maiúsculas — o visual discreto e premium de bios limpas e perfis aesthetic. Digite, converta, copie.",
+      "O versalete transforma seu texto em maiúsculas em miniatura — o visual discreto e premium de bios limpas e perfis aesthetic. Digite, converta, copie.",
     howItWorks:
-      "O versalete usa as Phonetic Extensions e Small Form Variants do Unicode: um conjunto de maiúsculas em miniatura que tipógrafos usam em notação acadêmica. Letras sem forma de versalete — como o x minúsculo — ficam como estão, e é por isso que o estilo continua lendo natural.",
+      "O versalete usa as Phonetic Extensions e Small Form Variants do Unicode: um conjunto de maiúsculas em miniatura que tipógrafos usam em notação acadêmica. Letras sem forma de versalete — como o x minúsculo — ficam como estão, e é por isso que o estilo continua legível.",
     coverageNote:
       "O versalete converte A–Z e a–z. Dígitos e pontuação não mudam. Uma curiosidade: o x minúsculo não tem forma de versalete em nenhum lugar do Unicode, então continua minúsculo.",
     bestFor: [
@@ -196,7 +196,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["aesthetic", "Capítulo um", "mood"],
     platformTip:
-      "O versalete está entre os caracteres estilizados mais seguros — renderiza em quase todo aparelho e é aceito em quase todo lugar, inclusive na maioria dos jogos.",
+      "O versalete está entre os caracteres estilizados mais seguros — renderiza em quase qualquer aparelho e é aceito em quase qualquer lugar, inclusive na maioria dos jogos.",
     faq: [
       {
         q: "Por que o x continua pequeno?",
@@ -237,7 +237,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
         a: "Cada app desenha as marcas combináveis com suas próprias fontes, e algumas alinham mal. Se a linha parecer quebrada, o negrito riscado costuma alinhar melhor porque as letras são mais largas.",
       },
       {
-        q: "Posso risar emoji?",
+        q: "Posso riscar emoji?",
         a: "Sim — a marca entra depois do emoji e a linha o atravessa. O resultado varia um pouco por plataforma porque cada uma desenha emoji do seu jeito.",
       },
       {
@@ -366,7 +366,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Momo", "Doce", "Pêssego"],
     platformTip:
-      "Essas letras funcionam na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord. Usuários que só aceitam letras simples vão rejeitar. Se um laço ou colchete virar um quadrado vazio, copie a linha do coração.",
+      "Essas letras funcionam na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord. Nomes de usuário que só aceitam letras simples vão rejeitar. Se um laço ou colchete virar um quadrado vazio, copie a linha do coração.",
     faq: [
       {
         q: "Letra fofa é um arquivo para baixar?",
@@ -378,7 +378,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Posso usar isso como usuário do Instagram?",
-        a: "Não. O usuário do Instagram só aceita letras, números, pontos e underlines. Cole o nome fofo no nome de exibição ou na bio.",
+        a: "Não. O usuário do Instagram só aceita letras, números, pontos e sublinhados. Cole o nome fofo no nome de exibição ou na bio.",
       },
     ],
   },
@@ -426,7 +426,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     description:
       "Nomes sombrios para copiar e colar: letra gótica com uma caveira, uma adaga ou uma lua. Para bios e nomes de exibição, não para baixar uma fonte.",
     intro:
-      "Letra gótica com um símbolo sombrio — uma caveira, uma adaga ou uma lua. Letra emo é essa mistura. A página gótica é o alfabeto nu, sem caveiras. Esta é a versão decorada.",
+      "Letra gótica com um símbolo sombrio — uma caveira, uma adaga ou uma lua. O estilo emo é essa mistura. A página gótica é o alfabeto nu, sem caveiras. Esta é a versão decorada.",
     howItWorks:
       "As letras são Unicode Fraktur. O corte grosso vai decorado; o corte normal fica nu embaixo. Caveiras, adagas e luas são símbolos à parte, só na linha grossa.",
     coverageNote:
@@ -472,7 +472,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Rosa", "Rainha", "Ada"],
     platformTip:
-      "A cursiva funciona na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord, não em usuários limitados a letras simples. Se a cursiva grossa virar quadrados, copie a linha fina.",
+      "A cursiva funciona na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord, não em nomes de usuário limitados a letras simples. Se a cursiva grossa virar quadrados, copie a linha fina.",
     faq: [
       {
         q: "Elegante é a mesma coisa que cursiva?",
@@ -529,11 +529,11 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
   "coquette-font-generator": {
     navName: "Coquette",
     h1: "Letras coquette para copiar e colar",
-    title: "Letras coquette para copiar e colar — laço na bios",
+    title: "Letras coquette para copiar e colar — laço nas bios",
     description:
       "Letras coquette grátis com laço. Copie e cole o script no nome do Instagram ou no apelido do Discord. Prévia no celular. Não é um arquivo de fonte.",
     intro:
-      "Letras coquette para copiar e colar: script e um laço só. As linhas são um laço pequeno, um par de fitas e o emoji de fita. O fofo deste site são as letras bolha, e a página elegante leva coroa. Esta página fica no laço.",
+      "Letras coquette para copiar e colar: script e um laço só. As linhas são um laço pequeno, um par de fitas e o emoji de fita. O estilo fofo deste site são as letras bolha, e a página elegante leva coroa. Esta página fica no laço.",
     examplesHeading: "Letras coquette para copiar",
     examplesHint: "O laço já está no texto. Toque para copiar a linha inteira.",
     copyExamples: coquetteCopyExamples,
@@ -548,7 +548,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Mia", "Lila", "Belle"],
     platformTip:
-      "Cole no nome de exibição do Instagram ou no apelido do Discord. Esses usuários só aceitam letras comuns, dígitos e algumas marcas, então o laço fica fora do usuário. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord. Se o laço pequeno falhar, o emoji de fita ainda copia.",
+      "Cole no nome de exibição do Instagram ou no apelido do Discord. Esses nomes de usuário só aceitam letras comuns, dígitos e algumas marcas, então o laço fica fora do nome de usuário. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord. Se o laço pequeno falhar, o emoji de fita ainda copia.",
     faq: [
       {
         q: "Onde acho letras coquette para copiar e colar?",
@@ -577,7 +577,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     intro:
       "Fontes preppy são versaletes limpos com um coração arrumado: branco, de naipe ou virado. Sem laços e sem letras bolha — o visual mais barulhento fica na outra página. Este fica arrumado, que é o que os nomes preppy do Adopt Me costumam querer.",
     howItWorks:
-      "Versaletes são letras modificadoras do Unicode que parecem maiúsculas mais baixas. O script é a segunda linha, sem enfeite. Cada coração é um símbolo só na linha de versaletes, um par ou um lado, para o nome continuar curto.",
+      "Versaletes são letras modificadoras do Unicode que parecem maiúsculas de menor altura. O script é a segunda linha, sem enfeite. Cada coração é um símbolo só na linha de versaletes, um par ou um lado, para o nome continuar curto.",
     coverageNote:
       "Os versaletes cobrem a maioria das letras e deixam algumas iguais quando o Unicode não tem a forma. O script só converte letras, então os dígitos dessa linha ficam normais. Os corações são caracteres extras. O coração branco é um emoji e costuma ser o primeiro que o filtro de um jogo rejeita.",
     bestFor: [
@@ -595,7 +595,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Isso funciona como usuário do Adopt Me?",
-        a: "O usuário do Roblox continua letras, dígitos e um sublinhado. Teste o nome estilizado como nome de exibição, e só depois que a prévia do próprio jogo aceitar.",
+        a: "O nome de usuário do Roblox aceita só letras, dígitos e um sublinhado. Teste o nome estilizado como nome de exibição, e só depois que a prévia do próprio jogo aceitar.",
       },
       {
         q: "Por que os corações são tão simples?",
@@ -603,7 +603,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       },
       {
         q: "Como se chama a fonte preppy?",
-        a: "Não existe uma única fonte preppy. O que as redes chamam de preppy costumam ser versaletes — maiúsculas mais baixas — com um coração ou laço limpo ao lado. Tudo é texto Unicode, não uma fonte instalada; por isso sobrevive ao copiar e colar.",
+        a: "Não existe uma única fonte preppy. O que as redes chamam de preppy costumam ser versaletes — maiúsculas de menor altura — com um coração ou laço limpo ao lado. Tudo é texto Unicode, não uma fonte instalada; por isso sobrevive ao copiar e colar.",
       },
       {
         q: "Como consigo fontes preppy?",
@@ -629,7 +629,7 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Love", "Mia", "Honey"],
     platformTip:
-      "Cole o nome com coração no nome de exibição ou na bio do Instagram, na bio do TikTok ou no apelido do Discord. Usuários que só aceitam letras comuns rejeitam os corações. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord, então um coração de cada lado de uma palavra curta cabe mais vezes do que uma pilha de símbolos.",
+      "Cole o nome com coração no nome de exibição ou na bio do Instagram, na bio do TikTok ou no apelido do Discord. Nomes de usuário que só aceitam letras comuns rejeitam os corações. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord, então um coração de cada lado de uma palavra curta cabe mais vezes do que uma pilha de símbolos.",
     faq: [
       {
         q: "A fonte de coração é um arquivo para baixar?",

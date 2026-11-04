@@ -209,7 +209,7 @@ export const blankSpaceContent: Record<Locale, BlankSpaceContent> = {
     namePlaceholder: "Luna",
     gapLabel: "Brancos entre letras",
     gapNote:
-      "0 deixa o texto estilizado igual, inclusive os espaços que você digitou. 1–5 remove esses espaços e usa o branco escolhido em cada vão.",
+      "0 deixa o texto estilizado igual, inclusive os espaços que você digitou. 1–5 removem esses espaços e usam o branco escolhido em cada vão.",
     countLabel: (count) => `${count} caracteres`,
     howHeading: "Como usar",
     steps: [
