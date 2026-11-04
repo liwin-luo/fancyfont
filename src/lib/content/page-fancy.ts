@@ -299,7 +299,7 @@ export const fancyContent: Record<Locale, FancyContent> = {
     ],
     examplesHeading: "Contoh",
     examples: [
-      { label: "Bio Instagram", input: "Nama Kamu", styleId: "script", left: "✦ ", right: " ✦" },
+      { label: "Bio Instagram", input: "Luna", styleId: "script", left: "✦ ", right: " ✦" },
       { label: "Tag game", input: "Alex", styleId: "fraktur", left: "꧁༒", right: "༒꧂" },
       { label: "Nama Discord", input: "river", styleId: "smallCaps", right: " ✧" },
       { label: "Caption aesthetic", input: "soft launch", styleId: "fullwidth" },

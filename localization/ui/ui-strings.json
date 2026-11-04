@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T08:04:33.088Z",
-  "sourceCommit": "a51e32a",
+  "generatedAt": "2026-11-04T10:54:08.664Z",
+  "sourceCommit": "6948b7a",
   "source": "src/lib/ui-strings.ts",
   "sourceLocale": "en",
   "locales": [
@@ -12,8 +12,8 @@
     "id"
   ],
   "counts": {
-    "entries": 268,
-    "text": 223,
+    "entries": 269,
+    "text": 224,
     "template": 44,
     "enum": 1
   },
@@ -8194,7 +8194,7 @@
         "es": "Unos {max} caracteres en {platform}, contados como puntos de código. No lo hemos probado en este sitio.",
         "pt-br": "Cerca de {max} caracteres no {platform}, contados como pontos de código. Não testado neste site.",
         "zh-cn": "{platform} 大约 {max} 个字符（按码点计）。未在本站实测。",
-        "id": "Sekitar {max} karakter di {platform}, dihitung sebagai code point. Belum diuji di situs ini."
+        "id": "Sekitar {max} karakter di {platform}, dihitung sebagai titik kode. Belum diuji di situs ini."
       },
       "placeholders": [
         "{max}",
@@ -8629,6 +8629,40 @@
       "sourceLength": 5,
       "maxTargetLength": 8,
       "lengthRatio": 1.6,
+      "review": {
+        "en": "source",
+        "es": "pending",
+        "pt-br": "pending",
+        "zh-cn": "pending",
+        "id": "pending"
+      }
+    },
+    {
+      "key": "bio.fillHint",
+      "kind": "text",
+      "context": "bio",
+      "description": "Bio draft tool",
+      "source": "src/lib/ui-strings.ts",
+      "sourceLocale": "en",
+      "values": {
+        "en": "Pick one to fill the box, then edit it.",
+        "es": "Elige uno para rellenar el campo y edítalo.",
+        "pt-br": "Escolha um para preencher o campo e edite.",
+        "zh-cn": "点选一个填入输入框，再自行修改。",
+        "id": "Pilih salah satu untuk mengisi kotak, lalu ubah."
+      },
+      "placeholders": [],
+      "lengths": {
+        "en": 39,
+        "es": 43,
+        "pt-br": 42,
+        "zh-cn": 16,
+        "id": 48
+      },
+      "riskLocales": [],
+      "sourceLength": 39,
+      "maxTargetLength": 48,
+      "lengthRatio": 1.23,
       "review": {
         "en": "source",
         "es": "pending",

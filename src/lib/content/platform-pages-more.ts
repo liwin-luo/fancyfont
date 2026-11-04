@@ -1634,7 +1634,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
       faq: [
         {
           q: "Berapa panjang nama PUBG?",
-          a: "Siapkan sekitar 16 karakter. Beberapa mode, termasuk bagian PUBG Mobile, lebih pendek. Pratinjau menghitung code point dan memperingatkan di atas 16.",
+          a: "Siapkan sekitar 16 karakter. Beberapa mode, termasuk bagian PUBG Mobile, lebih pendek. Pratinjau menghitung titik kode dan memperingatkan di atas 16.",
         },
         {
           q: "Apakah pemain lain melihat gayanya?",
@@ -1927,7 +1927,7 @@ export const morePlatformCopy: Record<Locale, Record<string, PlatformPageCopy>> 
         },
         {
           q: "Apakah font Berry Avenue untuk username?",
-          a: "Penyebab: artikel bantuan Roblox memperlakukan nama tampilan dan username sebagai kolom yang berbeda. Nama tampilan adalah yang dilihat pemain lain. @username adalah nama masuk. Perbaikan: taruh huruf bergaya hanya di nama tampilan. Di halaman ini aturan kecocokan username adalah huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
+          a: "Tidak. Penyebab: artikel bantuan Roblox memperlakukan nama tampilan dan username sebagai kolom yang berbeda. Nama tampilan adalah yang dilihat pemain lain. @username adalah nama masuk. Perbaikan: taruh huruf bergaya hanya di nama tampilan. Di halaman ini aturan kecocokan username adalah huruf, angka, dan satu garis bawah. Kalimat roleplay yang lebih panjang ada di chat.",
         },
         {
           q: "Kenapa Roblox menolak nama Berry Avenue saya?",

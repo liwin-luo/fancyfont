@@ -311,7 +311,7 @@ export const gamingContent: Record<Locale, GamingContent> = {
     meta: {
       title: "Generator Nama Game – nama keren & simbol",
       description:
-        "Ketik nama dan hias dengan simbol, bingkai, dan gaya huruf. Pratinjau tampilan cool, dark, cute, pro, dan minimal, lalu salin tempel favoritmu. Gratis, tanpa daftar.",
+        "Ketik nama dan hias dengan simbol, bingkai, dan gaya huruf. Pratinjau gaya keren, gelap, imut, pro, dan minimalis, lalu salin favoritmu. Gratis, tanpa daftar.",
     },
     h1: "Generator Nama Game",
     intro:

@@ -313,7 +313,7 @@ export function GamingNameTool({
             )}
             {paste.plain && <p className="mt-1 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>}
           </div>
-          <div className="flex shrink-0 gap-2">
+          <div className="flex flex-wrap gap-2">
             {preview && <PreviewButton onClick={() => openPreview(0)} />}
             <CopyButton
               text={builderPreview}

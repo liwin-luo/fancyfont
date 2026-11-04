@@ -303,7 +303,7 @@ export const berryExtra: Record<Locale, BerryExtra> = {
       },
       {
         q: "Kenapa nama tampilan Berry Avenue saya terpotong, dan kapan saya bisa menggantinya?",
-        a: "Penyebab: pengumuman display name Roblox menulis bahwa panjangnya harus antara 3 dan 20 karakter, dan hati ikut dihitung. Artikel bantuan yang sekarang tidak mengulang angka itu. Artikel itu menulis bahwa nama tampilan hanya bisa diganti sekali setiap tujuh hari. Perbaikan: jaga nama tampilan di dalam 3–20 sebelum menyimpan. Kalimat yang lebih panjang taruh di chat atau di papan. Kalau sudah tersimpan, tunggu tujuh hari dan baca namanya di layar Roblox.",
+        a: "Penyebab: pengumuman nama tampilan Roblox menulis bahwa panjangnya harus antara 3 dan 20 karakter, dan hati ikut dihitung. Artikel bantuan yang sekarang tidak mengulang angka itu. Artikel itu menulis bahwa nama tampilan hanya bisa diganti sekali setiap tujuh hari. Perbaikan: jaga nama tampilan di dalam 3–20 sebelum menyimpan. Kalimat yang lebih panjang taruh di chat atau di papan. Kalau sudah tersimpan, tunggu tujuh hari dan baca namanya di layar Roblox.",
       },
       {
         q: "Kenapa chat Roblox mengubah teks saya menjadi ####?",
@@ -315,17 +315,17 @@ export const berryExtra: Record<Locale, BerryExtra> = {
       },
     ],
     links: [
-      { label: "pengumuman display name", href: ANNOUNCE },
+      { label: "pengumuman nama tampilan", href: ANNOUNCE },
       { label: "Artikel bantuan", href: HELP },
       { label: "artikel bantuan", href: HELP },
       { label: "bantuan Experience Chat", href: CHAT },
       { label: "artikel keamanan", href: SAFETY },
-      { label: "Standar komunitas", href: STANDARDS },
+      { label: "Standar Komunitas", href: STANDARDS },
       { label: "Halaman pemfilteran teks", href: FILTER },
     ],
     safety: {
       heading: "Membacanya dengan suara, dan jangan taruh data pribadi",
-      body: "Pembaca layar biasanya tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan cadangan teks biasa di setiap set untuk apa pun yang harus didengar orang. Jangan taruh nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan, bio, atau papan. Standar komunitas Roblox membatasi berbagi informasi pribadi itu. Orang tua bisa membatasi chat anak dari kontrol di artikel keamanan Roblox. Nama dikonversi di browser kamu dan nama itu tidak diunggah.",
+      body: "Pembaca layar biasanya tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Simpan cadangan teks biasa di setiap set untuk apa pun yang harus didengar orang. Jangan taruh nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan, bio, atau papan. Standar Komunitas Roblox membatasi berbagi informasi pribadi itu. Orang tua bisa membatasi chat anak dari kontrol di artikel keamanan Roblox. Nama dikonversi di browser kamu dan nama itu tidak diunggah.",
     },
     kits: {
       heading: "Contoh nama Berry Avenue",

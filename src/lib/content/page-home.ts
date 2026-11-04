@@ -438,7 +438,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       h2: "Cara kerja",
       steps: [
         { title: "1. Ketik teksmu", body: "Sebuah nama, kata, atau frasa pendek — apa pun yang ingin kamu hias." },
-        { title: "2. Pilih gaya", body: "Lihat pratinjau semua hasil seketika dan pilih vibe yang paling kamu." },
+        { title: "2. Pilih gaya", body: "Lihat pratinjau semua hasil seketika dan pilih vibe yang paling cocok untukmu." },
         { title: "3. Salin & tempel", body: "Sekali ketuk menyalin hasilnya. Tempel ke game, bio, atau chat." },
       ],
     },

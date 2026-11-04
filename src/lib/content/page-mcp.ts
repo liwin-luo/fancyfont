@@ -256,13 +256,13 @@ export const mcpContent: Record<Locale, McpContent> = {
     },
     h1: "FancyFont untuk agen AI lokal",
     intro:
-      "Agen di komputer kamu bisa memakai mesin yang sama dengan situs ini: gaya teks Unicode, nama game, dan daftar simbol. Server-nya proses lokal. Ia membaca dan menulis di mesin kamu, dan FancyFont tidak menerima teks itu.",
+      "Agen di komputer kamu bisa memakai mesin yang sama dengan situs ini: gaya teks Unicode, nama game, dan daftar simbol. Server-nya berjalan sebagai proses lokal. Ia membaca dan menulis di mesin kamu, dan FancyFont tidak menerima teks itu.",
     installHeading: "Unduh server lokal",
     downloadLabel: "Unduh fancyfont-mcp.mjs",
     steps: [
       "Unduh fancyfont-mcp.mjs dan catat folder tempat kamu menyimpannya.",
       "Di Cursor atau Claude Desktop, tambahkan server MCP dengan konfigurasi di bawah. Ganti jalurnya dengan file itu.",
-      "Mulai ulang agen. Minta ia memberi gaya pada sebuah nama, misalnya “buat Alex jadi tebal”.",
+      "Mulai ulang agen. Minta ia menghias sebuah nama, misalnya “buat Alex jadi tebal”.",
     ],
     configNote:
       "Node 20 atau yang lebih baru menjalankan file ini dengan perintah node. Konversi tetap di mesin kamu. Ganti jalur di args dengan file yang kamu unduh.",

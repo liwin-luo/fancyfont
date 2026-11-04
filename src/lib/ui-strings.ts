@@ -212,7 +212,7 @@ export interface UiStrings {
     subscribers: string;
     subscribe: string;
   };
-  bio: { drafts: string; boardTail: string; png: string };
+  bio: { drafts: string; fillHint: string; boardTail: string; png: string };
   symbolCatNotes: { invisible: string; blankLink: string };
   sections: {
     howToUse: string;
@@ -508,6 +508,7 @@ export const ui: Record<Locale, UiStrings> = {
     },
     bio: {
       drafts: "Draft",
+      fillHint: "Pick one to fill the box, then edit it.",
       boardTail: "Symbols on your board are added at the end.",
       png: "Save PNG",
     },
@@ -816,6 +817,7 @@ export const ui: Record<Locale, UiStrings> = {
     },
     bio: {
       drafts: "Borrador",
+      fillHint: "Elige uno para rellenar el campo y edítalo.",
       boardTail: "Los símbolos de tu bandeja se añaden al final.",
       png: "Guardar PNG",
     },
@@ -1132,6 +1134,7 @@ export const ui: Record<Locale, UiStrings> = {
     },
     bio: {
       drafts: "Rascunho",
+      fillHint: "Escolha um para preencher o campo e edite.",
       boardTail: "Os símbolos da sua bandeja são adicionados no final.",
       png: "Salvar PNG",
     },
@@ -1439,6 +1442,7 @@ export const ui: Record<Locale, UiStrings> = {
     },
     bio: {
       drafts: "草稿",
+      fillHint: "点选一个填入输入框，再自行修改。",
       boardTail: "托盘里的符号会加在末尾。",
       png: "保存 PNG",
     },
@@ -1731,7 +1735,7 @@ export const ui: Record<Locale, UiStrings> = {
       note: "Digambar di browser kamu dengan tata letak profil. Aplikasi aslinya memakai fontnya sendiri — tempel teksnya di sana dan cek sebelum kamu mengandalkannya.",
       over: "melebihi batas umum",
       notTested: "Belum diuji di situs ini.",
-      approxField: (platform, max) => `Sekitar ${max} karakter di ${platform}, dihitung sebagai code point. Belum diuji di situs ini.`,
+      approxField: (platform, max) => `Sekitar ${max} karakter di ${platform}, dihitung sebagai titik kode. Belum diuji di situs ini.`,
       handleAscii: "Nama login hanya menyimpan ASCII yang sudah didokumentasikan platform.",
       posts: "postingan",
       followers: "pengikut",
@@ -1746,6 +1750,7 @@ export const ui: Record<Locale, UiStrings> = {
     },
     bio: {
       drafts: "Draf",
+      fillHint: "Pilih salah satu untuk mengisi kotak, lalu ubah.",
       boardTail: "Simbol di baki kamu ditambahkan di akhir.",
       png: "Simpan PNG",
     },

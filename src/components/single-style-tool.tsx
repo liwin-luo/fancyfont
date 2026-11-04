@@ -119,11 +119,11 @@ export function SingleStyleTool({
                 key={key}
                 className="rounded-xl border border-line bg-white p-4 transition-colors hover:border-brand-200"
               >
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase">
                     {label}
                   </span>
-                  <div className="flex shrink-0 items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <button
                       type="button"
                       onClick={() => handleDownload(label, value)}

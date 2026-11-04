@@ -218,11 +218,11 @@ export const codExtra: Record<Locale, CodExtra> = {
     faq: [
       {
         q: "Mengapa nama COD perlu dilihat dulu sebelum mengganti nama dikonfirmasi?",
-        a: "Huruf bergaya adalah karakter Unicode, dan kotak game bisa menampilkannya sebagai □. Ganti nama Call of Duty: Mobile berharga 500 COD Points dan hanya bisa dilakukan sekali setiap tiga hari, jadi baca namanya di pratinjau milik game sebelum kamu mengonfirmasi. Artikel akun Mobile menjelaskan biaya dan jeda itu.",
+        a: "Huruf bergaya adalah karakter Unicode, dan kotak game bisa menampilkannya sebagai □. Ganti nama Call of Duty: Mobile dikenai biaya 500 COD Points dan hanya bisa dilakukan sekali setiap tiga hari, jadi baca namanya di pratinjau milik game sebelum kamu mengonfirmasi. Artikel akun Mobile menjelaskan biaya dan jeda itu.",
       },
       {
         q: "Berapa biaya ganti nama Call of Duty: Mobile, dan seberapa sering?",
-        a: "Artikel akun Mobile dari Activision mengatakan ganti nama berharga 500 COD Points dan nama hanya bisa diganti sekali setiap tiga hari. Alurnya memakai Name Changing Card (Rename Card); kalau belum punya, game meminta pembelian. Langkah di artikel itu: ketuk nama, buka Player Profile, pilih Edit, ketik nama baru, lalu Change.",
+        a: "Artikel akun Mobile dari Activision mengatakan biaya ganti nama 500 COD Points dan nama hanya bisa diganti sekali setiap tiga hari. Alurnya memakai Name Changing Card (Rename Card); kalau belum punya, game meminta pembelian. Langkah di artikel itu: ketuk nama, buka Player Profile, pilih Edit, ketik nama baru, lalu Change.",
       },
       {
         q: "Bagaimana ganti nama tampilan Activision ID dan Warzone bekerja?",

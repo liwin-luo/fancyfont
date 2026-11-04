@@ -134,12 +134,12 @@ export const robloxExtra: Record<Locale, RobloxExtra> = {
     ],
     links: [
       { label: "Artikel bantuan", href: HELP },
-      { label: "Community Standards", href: STANDARDS },
+      { label: "Standar Komunitas", href: STANDARDS },
       { label: "artikel keamanan", href: SAFETY },
     ],
     safety: {
       heading: "Anak, keamanan, dan pembaca layar",
-      body: "Jangan tulis nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan. Community Standards Roblox membatasi pembagian informasi pribadi itu. Orang tua dapat membatasi chat anak dari kontrol di artikel keamanan Roblox. Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Nama diubah di browser kamu dan nama itu tidak diunggah.",
+      body: "Jangan tulis nomor telepon, alamat rumah, atau nama legal lengkap di nama tampilan. Standar Komunitas Roblox membatasi pembagian informasi pribadi itu. Orang tua dapat membatasi chat anak dari kontrol di artikel keamanan Roblox. Pembaca layar sering tidak mengucapkan Unicode bergaya sebagai kata yang kamu ketik. Nama diubah di browser kamu dan nama itu tidak diunggah.",
     },
     berryBefore: "Nama karakter dan papan di dalam experience ada di halaman ",
     berryLabel: "font Berry Avenue",
@@ -165,5 +165,5 @@ export function robloxWhyAnswer(locale: Locale): string {
   if (locale === "zh-cn") {
     return "Roblox 帮助文章写明，显示名会经过过滤，违反规则的名字可能被重置为用户名。Community Standards 说明这些规则。在 Roblox 自己的界面里确认已经保存的名字。";
   }
-  return "Artikel bantuan Roblox mengatakan nama tampilan melewati filter, dan nama yang melanggar aturan dapat dikembalikan menjadi username. Community Standards menjelaskan aturan itu. Konfirmasi nama yang tersimpan di layar Roblox.";
+  return "Artikel bantuan Roblox mengatakan nama tampilan melewati filter, dan nama yang melanggar aturan dapat dikembalikan menjadi username. Standar Komunitas menjelaskan aturan itu. Konfirmasi nama yang tersimpan di layar Roblox.";
 }

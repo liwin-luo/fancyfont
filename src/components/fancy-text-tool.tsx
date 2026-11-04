@@ -475,7 +475,7 @@ export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: str
                     <p className="mt-1 text-xs text-warning">{t.common.overLimit(points, paste.limit)}</p>
                   )}
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <button
                     type="button"
                     onClick={() => handleDownload({ ...result, text: line })}

@@ -19,7 +19,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       "Branding kecantikan, pernikahan, dan lifestyle",
       "Kutipan pendek dan caption bergaya tulisan tangan",
     ],
-    sampleInputs: ["Nama Kamu", "Sweet Tea", "Lily"],
+    sampleInputs: ["Luna", "Sweet Tea", "Lily"],
     platformTip:
       "Huruf cursive berfungsi di hampir semua bio dan nama tampilan Instagram, TikTok, dan Discord. Beberapa game menolaknya karena font bawaan mereka hanya mendukung huruf dasar — pratinjau dulu sebelum dipakai.",
     faq: [
@@ -41,15 +41,15 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     navName: "Gothic",
     h1: "Generator Huruf Gothic",
     description:
-      "Generator huruf Fraktur dan Old English, blackletter gothic. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan clan.",
+      "Generator huruf Fraktur dan Old English, blackletter gothic. Dua ketebalan, pratinjau langsung, salin sekali ketuk untuk nama, bio, dan klan.",
     intro:
-      "Ketik apa saja dan ubah menjadi Fraktur, blackletter Old English pada logo band metal, tag clan, dan bio gelap. Dua ketebalan, salin dalam satu klik.",
+      "Ketik apa saja dan ubah menjadi Fraktur, blackletter Old English pada logo band metal, tag klan, dan bio gelap. Dua ketebalan, salin dalam satu klik.",
     howItWorks:
       "Huruf gothic memakai rentang Unicode Mathematical Fraktur. Fraktur, yang sering disebut Old English, adalah gaya tulisan tangan Jerman bersejarah, dan Unicode menyediakan alfabet lengkapnya — termasuk bentuk khusus untuk C, H, I, R, dan Z.",
     coverageNote:
       "Kedua gaya gothic hanya mengonversi A–Z dan a–z. Angka, huruf beraksen, dan emoji tetap seperti aslinya karena Unicode tidak punya angka fraktur.",
     bestFor: [
-      "Nama game dan tag clan dengan estetika metal atau gelap",
+      "Nama game dan tag klan dengan estetika metal atau gelap",
       "Bio Halloween dan promosi acara",
       "Wordmark bergaya band di profil sosial",
     ],
@@ -161,7 +161,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     ],
     sampleInputs: ["Balon", "Pesta 2026", "ABC"],
     platformTip:
-      "Karakter berlingkar didukung baik di ponsel — tempat mereka paling sering dipakai. Pengecualiananya adalah gaya kotak: banyak perangkat merendernya sebagai emoji, jadi cek dulu tampilannya di tempat tujuan.",
+      "Karakter berlingkar didukung baik di ponsel — tempat mereka paling sering dipakai. Pengecualiannya adalah gaya kotak: banyak perangkat merendernya sebagai emoji, jadi cek dulu tampilannya di tempat tujuan.",
     faq: [
       {
         q: "Apa bedanya balon dan lingkaran?",
@@ -173,7 +173,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
       {
         q: "Bolehkah huruf balon dipakai di nama game?",
-        a: "Beberapa game mengizinkan karakter berlingkar, yang ketat tidak. Copy kombinasi dari Generator Nama Game yang membiarkan nama dasarmu polos, jadi selalu ada cadangan.",
+        a: "Beberapa game mengizinkan karakter berlingkar, yang ketat tidak. Salin kombinasi dari Generator Nama Game yang membiarkan nama dasarmu polos, jadi selalu ada cadangan.",
       },
     ],
   },
@@ -249,7 +249,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
     navName: "Glitch",
     h1: "Generator Huruf Glitch (Zalgo)",
     description:
-      "Rusak teksmu dengan tanda kombinsi berbahaya — tiga tingkat glitch, dari halus sampai zalgo total. Salin sekali ketuk.",
+      "Rusak teksmu dengan tanda kombinasi berbahaya — tiga tingkat glitch, dari halus sampai zalgo total. Salin sekali ketuk.",
     intro:
       "Ramasukkan tanda merayap ke teksmu. Pilih tingkat kerusakan — dari sedikit janggal sampai zalgo penuh — lalu tempel kekacauannya ke mana saja.",
     howItWorks:
@@ -527,7 +527,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
   },
   "coquette-font-generator": {
     navName: "Coquette",
-    h1: "Generator huruf coquette",
+    h1: "Generator Huruf Coquette",
     description:
       "Teks coquette untuk disalin: huruf script dengan satu pita. Untuk nama tampilan Instagram dan nama panggilan Discord, bukan unduhan font.",
     intro:
@@ -561,7 +561,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
   },
   "preppy-font-generator": {
     navName: "Preppy",
-    h1: "Generator huruf preppy",
+    h1: "Generator Huruf Preppy",
     title: "Font preppy — Generator salin tempel | FancyFont",
     description:
       "Font preppy adalah small caps Unicode yang bersih dengan satu hati rapi. Buat, salin, dan tempel ke bio, nama TikTok, atau Adopt Me — gratis, tanpa daftar.",
@@ -604,7 +604,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
   },
   "heart-font-generator": {
     navName: "Hati",
-    h1: "Generator huruf hati",
+    h1: "Generator Huruf Hati",
     description:
       "Teks hati untuk disalin: huruf script dengan hati yang berbeda di masing-masing dari dua belas baris. Gratis di browser, tanpa menginstal apa pun.",
     intro:
@@ -638,7 +638,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
   },
   "chicano-font-generator": {
     navName: "Chicano",
-    h1: "Generator huruf chicano",
+    h1: "Generator Huruf Chicano",
     description:
       "Teks bergaya chicano untuk disalin: blackletter dengan satu hiasan per baris, plus satu baris script. Gratis di browser. Bukan berkas font dan bukan stensil tato.",
     intro:
@@ -687,7 +687,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       "Profil yang sudah mencoba gaya cool dan glitch dan ingin yang lebih berisik",
       "Candaan sesaat, judul stream, dan nama panggilan chat bernuansa gila",
     ],
-    sampleInputs: ["Nama Kamu", "Cha0s", "Ratu Glitch"],
+    sampleInputs: ["Neon", "Cha0s", "Ratu Glitch"],
     platformTip:
       "Huruf campuran sama portabelnya dengan gaya pembentuknya: setiap karakter adalah Unicode biasa. Game dengan kolom khusus ASCII menolak sebagian besar; bio dan nama tampilan di aplikasi sosial lebih ramah. Tempel dan periksa sebelum menyimpan.",
     faq: [
@@ -701,7 +701,7 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       },
       {
         q: "Kenapa teks yang sama selalu hasilnya sama?",
-        a: "Pengacakan memakai seed, bukan murni acak. Teks, level, dan nomor yang sama selalu membangun hasil yang sama; acak lagi dan Anda dapat set baru.",
+        a: "Pengacakan memakai seed, bukan murni acak. Teks, level, dan nomor yang sama selalu membangun hasil yang sama; acak lagi dan kamu dapat set baru.",
       },
       {
         q: "Apakah bisa dipakai di nama game saya?",

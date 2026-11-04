@@ -47,10 +47,10 @@ export const coreFocus: Record<Locale, Record<CorePage, string>> = {
   },
   id: {
     fancy: "Angka di atas kotak menghitung grafem. Pencarian cocok dengan nama gaya dan aliasnya, seperti cursive atau glitch.",
-    gaming: "Buat sendiri ada di bawah kotak nama. Periksa nama ini membuka laporan karakter, dan laporan itu tidak mengatakan game menerima namanya.",
-    symbols: "Baki tetap di browser ini setelah dimuat ulang. Salin menggabungkan awalan dan simbol sesuai urutan kamu menambahkannya.",
-    "pubg-name-generator": "Sekitar 16 code point adalah angka kecocokan pratinjau ini. Pemeriksaan tetap di perlu verifikasi. Ini bukan batas resmi.",
-    "free-fire-name-generator": "Sekitar 12 code point adalah angka kecocokan halaman ini sendiri. Contohnya kata pendek dengan satu tanda, seperti petir. Pemeriksaan tetap di perlu verifikasi.",
+    gaming: "Buat sendiri ada di bawah kotak nama. Memeriksa nama ini membuka laporan karakter, dan laporan itu tidak mengatakan game menerima namanya.",
+    symbols: "Baki tetap di browser ini setelah dimuat ulang. Salin menggabungkan awalan dan simbol sesuai urutan saat kamu menambahkannya.",
+    "pubg-name-generator": "Sekitar 16 titik kode adalah patokan muat pratinjau ini. Pemeriksaan tetap di perlu verifikasi. Ini bukan batas resmi.",
+    "free-fire-name-generator": "Sekitar 12 titik kode adalah patokan muat halaman ini sendiri. Contohnya kata pendek dengan satu tanda, seperti petir. Pemeriksaan tetap di perlu verifikasi.",
     "roblox-name-generator": "Username dan nama tampilan adalah kolom yang berbeda. Username di pratinjau menyimpan huruf, angka, dan satu garis bawah. Hiasan tetap di nama tampilan.",
   },
 };

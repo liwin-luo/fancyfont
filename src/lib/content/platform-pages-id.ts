@@ -47,7 +47,7 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
       },
       {
         q: "Apakah bisa kena banned karena pakai font di bio?",
-        a: "Teks bergaya di nama atau bio adalah konten profil normal, bukan pelanggaran yang diketahui. Jangan pakai di username, ikuti aturan Instagram, dan kamu sama seperti jutaan profil lain.",
+        a: "Teks bergaya di nama atau bio adalah konten profil normal, bukan pelanggaran yang diketahui. Jangan pakai di username, ikuti aturan Instagram, dan kamu sama seperti banyak profil lain.",
       },
       {
         q: "Kenapa beberapa pengikut melihat kotak-kotak?",
@@ -70,7 +70,7 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
       { id: "note", label: "Nama dan catatan", text: "Alex\nbuat editannya" },
     ],
     presets: [
-      { label: "Bingkai clan", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
+      { label: "Bingkai klan", left: "꧁༒ ", right: " ༒꧂", transform: "boldScript" },
       { label: "Aksen berkilau", left: "⋆｡˚ ", right: " ˚｡⋆", transform: "smallCaps" },
       { label: "Vibe lebar", left: "", right: "", transform: "fullwidth" },
       { label: "Bingkai hati", left: "♡ ", right: " ♡", transform: "script" },
@@ -145,7 +145,7 @@ export const platformPagesId: Record<string, PlatformPageCopy> = {
       },
       {
         label: "Frame profil vs. teks",
-        body: "Toko Discord menjual Profile Frames — bingkai berbayar yang menghias tampilan seluruh profilmu. Ini tidak menyentuh teksmu: nama panggilan, status kustom, dan About Me tetap hanya menerima karakter biasa, jadi gaya Unicode tetap satu-satunya cara membuatnya tebal atau miring.",
+        body: "Toko Discord menjual Profile Frames — bingkai berbayar yang menghias tampilan seluruh profilmu. Ini tidak menyentuh teksmu: nama panggilan, status kustom, dan Tentang Saya tetap hanya menerima karakter biasa, jadi gaya Unicode tetap satu-satunya cara membuatnya tebal atau miring.",
       },
     ],
     compatNote:
