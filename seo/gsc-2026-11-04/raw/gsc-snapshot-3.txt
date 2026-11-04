@@ -1,0 +1,98 @@
+uid=3_1 RootWebArea "Performance on Search results" focusable focused url="https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Ffancyfont.tools%2F&type=search&startDate=20261026&endDate=20261103&breakdown=date"
+  uid=3_2 banner
+    uid=3_3 button "Main menu" expandable focusable
+    uid=3_4 search
+      uid=3_5 button "Search" focusable invalid="false"
+    uid=3_6 button "Help" focusable invalid="false"
+    uid=3_7 button "User settings" focusable invalid="false"
+    uid=3_8 button "Unread messages: 1" focusable invalid="false"
+    uid=3_9 StaticText "1"
+    uid=3_10 button "Google apps" expandable focusable
+    uid=3_11 button "Google Account: [REDACTED]" expandable focusable
+  uid=3_12 navigation "Breadcrumbs"
+    uid=3_13 heading "Performance" level="1"
+  uid=3_14 button "EXPORT" expandable focusable hasPopup="menu"
+  uid=3_15 radio "24 hours" checked="false" focusable invalid="false"
+  uid=3_16 radio "7 days" checked="false" focusable invalid="false"
+  uid=3_17 radio "28 days" checked="false" focusable invalid="false"
+  uid=3_18 radio "3 months" checked="true" focusable invalid="false"
+  uid=3_19 button "More time ranges" focusable invalid="false"
+  uid=3_20 list focusable
+    uid=3_21 button "Search type: Web" describedby="tt-i11" description="Search type: Web" focusable invalid="false"
+    uid=3_22 button "Add filter" describedby="tt-i12" description="Add filter" expandable focusable hasPopup="menu" invalid="false"
+    uid=3_23 button "Customize your Performance report using AI" focusable invalid="false"
+  uid=3_24 StaticText "Last update: 4.5 hours ago"
+  uid=3_25 main
+    uid=3_26 button "Total clicks 23" focusable
+    uid=3_27 button "null" expandable focusable
+    uid=3_28 button "Total impressions 2.2K" focusable
+    uid=3_29 button "null" expandable focusable
+    uid=3_30 button "Average CTR 1%" focusable
+    uid=3_31 button "null" expandable focusable
+    uid=3_32 button "Average position 28.9" focusable
+    uid=3_33 button "null" expandable focusable
+    uid=3_34 button "Selected Time Granularity: Daily" expandable focusable hasPopup="menu" invalid="false"
+    uid=3_35 application "chart" focusable
+      uid=3_36 StaticText "Chart, containing counts of Total clicks, Total impressions, Average CTR, and Average position from October 25, 2026 to November 2, 2026"
+    uid=3_37 link "Open the Google Search generative AI features performance report." focusable url="https://search.google.com/search-console/performance/search-analytics/ai?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+    uid=3_38 tab "QUERIES" focusable focused selectable
+    uid=3_39 tab "PAGES" focusable selectable
+    uid=3_40 tab "COUNTRIES" focusable selectable
+    uid=3_41 tab "DEVICES" focusable selectable
+    uid=3_42 tab "SEARCH APPEARANCE" focusable selectable
+    uid=3_43 tab "DAYS" controls="6" focusable selectable selected
+    uid=3_44 button "Filter table rows" expandable focusable hasPopup="menu"
+    uid=3_45 StaticText "Day"
+    uid=3_46 button "Sort Day" focusable invalid="false"
+    uid=3_47 button "Sort Clicks" focusable invalid="false"
+    uid=3_48 StaticText "Clicks"
+    uid=3_49 button "Sort Impressions" focusable invalid="false"
+    uid=3_50 StaticText "Impressions"
+    uid=3_51 row focusable
+      uid=3_52 StaticText "Nov 2, 2026"
+      uid=3_53 StaticText "2"
+      uid=3_54 StaticText "388"
+    uid=3_55 row focusable
+      uid=3_56 StaticText "Nov 1, 2026"
+      uid=3_57 StaticText "5"
+      uid=3_58 StaticText "364"
+    uid=3_59 row focusable
+      uid=3_60 StaticText "Oct 31, 2026"
+      uid=3_61 StaticText "6"
+      uid=3_62 StaticText "290"
+    uid=3_63 row focusable
+      uid=3_64 StaticText "Oct 30, 2026"
+      uid=3_65 StaticText "0"
+      uid=3_66 StaticText "333"
+    uid=3_67 row focusable
+      uid=3_68 StaticText "Oct 29, 2026"
+      uid=3_69 StaticText "3"
+      uid=3_70 StaticText "345"
+    uid=3_71 row focusable
+      uid=3_72 StaticText "Oct 28, 2026"
+      uid=3_73 StaticText "3"
+      uid=3_74 StaticText "287"
+    uid=3_75 row focusable
+      uid=3_76 StaticText "Oct 27, 2026"
+      uid=3_77 StaticText "1"
+      uid=3_78 StaticText "170"
+    uid=3_79 row focusable
+      uid=3_80 StaticText "Oct 26, 2026"
+      uid=3_81 StaticText "3"
+      uid=3_82 StaticText "19"
+    uid=3_83 row focusable
+      uid=3_84 StaticText "Oct 25, 2026"
+      uid=3_85 StaticText "0"
+      uid=3_86 StaticText "0"
+    uid=3_87 StaticText "Rows per page:"
+    uid=3_88 listbox "Number of rows per page" orientation="vertical"
+      uid=3_89 option "5" focusable selectable
+      uid=3_90 option "10" focusable selectable selected
+      uid=3_91 option "25" focusable selectable
+      uid=3_92 option "50" focusable selectable
+      uid=3_93 option "100" focusable selectable
+      uid=3_94 option "250" focusable selectable
+      uid=3_95 option "500" focusable selectable
+    uid=3_96 StaticText "1-9 of 9"
+    uid=3_97 button "Previous page" disableable disabled invalid="false"
+    uid=3_98 button "Next page" disableable disabled invalid="false"

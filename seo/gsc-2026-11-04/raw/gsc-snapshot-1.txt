@@ -1,0 +1,102 @@
+uid=1_1 RootWebArea "Performance on Search results" focusable url="https://search.google.com/search-console/performance/search-analytics?resource_id=https://fancyfont.tools/&type=search&startDate=20261026&endDate=20261103"
+  uid=1_2 banner
+    uid=1_3 button "Main menu" expandable focusable
+    uid=1_4 search
+      uid=1_5 button "Search" focusable invalid="false"
+    uid=1_6 button "Help" focusable invalid="false"
+    uid=1_7 button "User settings" focusable invalid="false"
+    uid=1_8 button "Unread messages: 1" focusable invalid="false"
+    uid=1_9 StaticText "1"
+    uid=1_10 button "Google apps" expandable focusable
+    uid=1_11 button "Google Account: [REDACTED]" expandable focusable
+  uid=1_12 navigation "Breadcrumbs"
+    uid=1_13 heading "Performance" level="1"
+  uid=1_14 button "EXPORT" expandable focusable hasPopup="menu"
+  uid=1_15 radio "24 hours" checked="false" focusable invalid="false"
+  uid=1_16 radio "7 days" checked="false" focusable invalid="false"
+  uid=1_17 radio "28 days" checked="false" focusable invalid="false"
+  uid=1_18 radio "3 months" checked="true" focusable invalid="false"
+  uid=1_19 button "More time ranges" focusable invalid="false"
+  uid=1_20 list focusable
+    uid=1_21 button "Search type: Web" describedby="tt-i11" description="Search type: Web" focusable invalid="false"
+    uid=1_22 button "Add filter" describedby="tt-i12" description="Add filter" expandable focusable hasPopup="menu" invalid="false"
+    uid=1_23 button "Customize your Performance report using AI" focusable invalid="false"
+  uid=1_24 StaticText "Last update: 4.5 hours ago"
+  uid=1_25 main
+    uid=1_26 button "Total clicks 23" focusable
+    uid=1_27 button "null" expandable focusable
+    uid=1_28 button "Total impressions 2.2K" focusable
+    uid=1_29 button "null" expandable focusable
+    uid=1_30 button "Average CTR 1%" focusable
+    uid=1_31 button "null" expandable focusable
+    uid=1_32 button "Average position 28.9" focusable
+    uid=1_33 button "null" expandable focusable
+    uid=1_34 button "Selected Time Granularity: Daily" expandable focusable hasPopup="menu" invalid="false"
+    uid=1_35 application "chart" focusable
+      uid=1_36 StaticText "Chart, containing counts of Total clicks, Total impressions, Average CTR, and Average position from October 25, 2026 to November 2, 2026"
+    uid=1_37 link "Open the Google Search generative AI features performance report." focusable url="https://search.google.com/search-console/performance/search-analytics/ai?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+    uid=1_38 tab "QUERIES" controls="1" focusable selectable selected
+    uid=1_39 tab "PAGES" focusable selectable
+    uid=1_40 tab "COUNTRIES" focusable selectable
+    uid=1_41 tab "DEVICES" focusable selectable
+    uid=1_42 tab "SEARCH APPEARANCE" focusable selectable
+    uid=1_43 tab "DAYS" focusable selectable
+    uid=1_44 button "Filter table rows" expandable focusable hasPopup="menu"
+    uid=1_45 StaticText "Top queries"
+    uid=1_46 button "Sort Top queries" focusable invalid="false"
+    uid=1_47 button "Sort Clicks" focusable invalid="false"
+    uid=1_48 StaticText "Clicks"
+    uid=1_49 button "Sort Impressions" focusable invalid="false"
+    uid=1_50 StaticText "Impressions"
+    uid=1_51 row focusable
+      uid=1_52 StaticText "letras coquette"
+      uid=1_53 StaticText "3"
+      uid=1_54 StaticText "86"
+    uid=1_55 row focusable
+      uid=1_56 StaticText "fonts for berry avenue"
+      uid=1_57 StaticText "2"
+      uid=1_58 StaticText "116"
+    uid=1_59 row focusable
+      uid=1_60 StaticText "berry avenue fonts"
+      uid=1_61 StaticText "0"
+      uid=1_62 StaticText "68"
+    uid=1_63 row focusable
+      uid=1_64 StaticText "generador de nombres gamer"
+      uid=1_65 StaticText "0"
+      uid=1_66 StaticText "27"
+    uid=1_67 row focusable
+      uid=1_68 StaticText "generador de nombres para juegos"
+      uid=1_69 StaticText "0"
+      uid=1_70 StaticText "27"
+    uid=1_71 row focusable
+      uid=1_72 StaticText "gerador de caracteres 5e"
+      uid=1_73 StaticText "0"
+      uid=1_74 StaticText "22"
+    uid=1_75 row focusable
+      uid=1_76 StaticText "pubg name generator"
+      uid=1_77 StaticText "0"
+      uid=1_78 StaticText "22"
+    uid=1_79 row focusable
+      uid=1_80 StaticText "berry avenue font"
+      uid=1_81 StaticText "0"
+      uid=1_82 StaticText "20"
+    uid=1_83 row focusable
+      uid=1_84 StaticText "letra coquette"
+      uid=1_85 StaticText "0"
+      uid=1_86 StaticText "19"
+    uid=1_87 row focusable
+      uid=1_88 StaticText "upside down text generator"
+      uid=1_89 StaticText "0"
+      uid=1_90 StaticText "19"
+    uid=1_91 StaticText "Rows per page:"
+    uid=1_92 listbox "Number of rows per page" orientation="vertical"
+      uid=1_93 option "5" focusable selectable
+      uid=1_94 option "10" focusable selectable selected
+      uid=1_95 option "25" focusable selectable
+      uid=1_96 option "50" focusable selectable
+      uid=1_97 option "100" focusable selectable
+      uid=1_98 option "250" focusable selectable
+      uid=1_99 option "500" focusable selectable
+    uid=1_100 StaticText "1-10 of 363"
+    uid=1_101 button "Previous page" disableable disabled invalid="false"
+    uid=1_102 button "Next page" focusable invalid="false"

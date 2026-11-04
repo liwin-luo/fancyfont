@@ -1,0 +1,142 @@
+uid=5_1 RootWebArea "Performance on Search results" focusable url="https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Ffancyfont.tools%2F&type=search&startDate=20261026&endDate=20261103&breakdown=query"
+  uid=5_2 banner
+    uid=5_3 button "Main menu" expandable focusable
+    uid=5_4 link "Google Search Console" focusable url="https://search.google.com/search-console?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+    uid=5_5 search
+      uid=5_6 button "Search" focusable invalid="false"
+    uid=5_7 button "Help" focusable invalid="false"
+    uid=5_8 button "User settings" focusable invalid="false"
+    uid=5_9 button "Unread messages: 1" focusable invalid="false"
+    uid=5_10 StaticText "1"
+    uid=5_11 button "Google apps" expandable focusable
+    uid=5_12 button "Google Account: [REDACTED]" expandable focusable
+  uid=5_13 navigation "Primary"
+    uid=5_14 button "Search property" expandable focusable hasPopup="menu"
+      uid=5_15 combobox "https://fancyfont.tools/" autocomplete="both" controls="nngdp10" editable="plaintext" expandable focusable hasPopup="menu" invalid="false" value="https://fancyfont.tools/"
+    uid=5_16 link "Overview" focusable url="https://search.google.com/search-console?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_17 StaticText "Overview"
+    uid=5_18 link "Insights" focusable url="https://search.google.com/search-console/performance/insights?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_19 StaticText "Insights"
+    uid=5_20 link "Performance" focusable url="https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_21 StaticText "Performance"
+    uid=5_22 button "Performance report section" expandable focusable
+    uid=5_23 button "URL inspection" focusable
+    uid=5_24 StaticText "Indexing"
+    uid=5_25 button "Indexing report section" expandable expanded focusable
+    uid=5_26 link "Pages" focusable url="https://search.google.com/search-console/index?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_27 StaticText "Pages"
+    uid=5_28 link "Sitemaps" focusable url="https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_29 StaticText "Sitemaps"
+    uid=5_30 link "Removals" focusable url="https://search.google.com/search-console/removals?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_31 StaticText "Removals"
+    uid=5_32 StaticText "Experience"
+    uid=5_33 button "Experience report section" expandable expanded focusable
+    uid=5_34 link "Core Web Vitals" focusable url="https://search.google.com/search-console/core-web-vitals?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_35 StaticText "Core Web Vitals"
+    uid=5_36 link "HTTPS" focusable url="https://search.google.com/search-console/https?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_37 StaticText "HTTPS"
+    uid=5_38 StaticText "Security & Manual Actions"
+    uid=5_39 button "Security & Manual Actions report section" expandable focusable
+    uid=5_40 link "Links report" focusable url="https://search.google.com/search-console/links?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_41 StaticText "Links"
+    uid=5_42 link "Achievements" focusable url="https://search.google.com/search-console/achievements?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_43 StaticText "Achievements"
+    uid=5_44 link "Settings" focusable url="https://search.google.com/search-console/settings?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+      uid=5_45 StaticText "Settings"
+    uid=5_46 button "Submit feedback" focusable
+    uid=5_47 button "About Search Console" focusable
+    uid=5_48 link "Privacy" focusable url="https://myaccount.google.com/privacypolicy?hl=en"
+      uid=5_49 StaticText "Privacy"
+    uid=5_50 link "Terms" focusable url="https://myaccount.google.com/termsofservice?hl=en"
+      uid=5_51 StaticText "Terms"
+  uid=5_52 navigation "Breadcrumbs"
+    uid=5_53 heading "Performance" level="1"
+  uid=5_54 button "EXPORT" expandable focusable hasPopup="menu"
+  uid=5_55 radio "24 hours" checked="false" focusable invalid="false"
+  uid=5_56 radio "7 days" checked="false" focusable invalid="false"
+  uid=5_57 radio "28 days" checked="false" focusable invalid="false"
+  uid=5_58 radio "3 months" checked="true" focusable invalid="false"
+  uid=5_59 button "More time ranges" focusable invalid="false"
+  uid=5_60 list focusable
+    uid=5_61 button "Search type: Web" describedby="tt-i11" description="Search type: Web" focusable invalid="false"
+    uid=5_62 button "Add filter" describedby="tt-i12" description="Add filter" expandable focusable hasPopup="menu" invalid="false"
+    uid=5_63 button "Customize your Performance report using AI" focusable invalid="false"
+  uid=5_64 StaticText "Last update: 4.5 hours ago"
+  uid=5_65 main
+    uid=5_66 button "Total clicks 23" focusable
+    uid=5_67 button "null" expandable focusable
+    uid=5_68 button "Total impressions 2.2K" focusable
+    uid=5_69 button "null" expandable focusable
+    uid=5_70 button "Average CTR 1%" focusable
+    uid=5_71 button "null" expandable focusable
+    uid=5_72 button "Average position 28.9" focusable
+    uid=5_73 button "null" expandable focusable
+    uid=5_74 button "Selected Time Granularity: Daily" expandable focusable hasPopup="menu" invalid="false"
+    uid=5_75 application "chart" focusable
+      uid=5_76 StaticText "Chart, containing counts of Total clicks, Total impressions, Average CTR, and Average position from October 25, 2026 to November 2, 2026"
+    uid=5_77 link "Open the Google Search generative AI features performance report." focusable url="https://search.google.com/search-console/performance/search-analytics/ai?resource_id=https%3A%2F%2Ffancyfont.tools%2F"
+    uid=5_78 tab "QUERIES" controls="1" focusable selectable selected
+    uid=5_79 tab "PAGES" focusable selectable
+    uid=5_80 tab "COUNTRIES" focusable selectable
+    uid=5_81 tab "DEVICES" focusable selectable
+    uid=5_82 tab "SEARCH APPEARANCE" focusable selectable
+    uid=5_83 tab "DAYS" focusable selectable
+    uid=5_84 button "Filter table rows" expandable focusable hasPopup="menu"
+    uid=5_85 StaticText "Top queries"
+    uid=5_86 button "Sort Top queries" focusable invalid="false"
+    uid=5_87 button "Sort Clicks" focusable invalid="false"
+    uid=5_88 StaticText "Clicks"
+    uid=5_89 button "Sort Impressions" focusable invalid="false"
+    uid=5_90 StaticText "Impressions"
+    uid=5_91 row focusable
+      uid=5_92 StaticText "letras coquette"
+      uid=5_93 StaticText "3"
+      uid=5_94 StaticText "86"
+    uid=5_95 row focusable
+      uid=5_96 StaticText "fonts for berry avenue"
+      uid=5_97 StaticText "2"
+      uid=5_98 StaticText "116"
+    uid=5_99 row focusable
+      uid=5_100 StaticText "berry avenue fonts"
+      uid=5_101 StaticText "0"
+      uid=5_102 StaticText "68"
+    uid=5_103 row focusable
+      uid=5_104 StaticText "generador de nombres gamer"
+      uid=5_105 StaticText "0"
+      uid=5_106 StaticText "27"
+    uid=5_107 row focusable
+      uid=5_108 StaticText "generador de nombres para juegos"
+      uid=5_109 StaticText "0"
+      uid=5_110 StaticText "27"
+    uid=5_111 row focusable
+      uid=5_112 StaticText "gerador de caracteres 5e"
+      uid=5_113 StaticText "0"
+      uid=5_114 StaticText "22"
+    uid=5_115 row focusable
+      uid=5_116 StaticText "pubg name generator"
+      uid=5_117 StaticText "0"
+      uid=5_118 StaticText "22"
+    uid=5_119 row focusable
+      uid=5_120 StaticText "berry avenue font"
+      uid=5_121 StaticText "0"
+      uid=5_122 StaticText "20"
+    uid=5_123 row focusable
+      uid=5_124 StaticText "letra coquette"
+      uid=5_125 StaticText "0"
+      uid=5_126 StaticText "19"
+    uid=5_127 row focusable
+      uid=5_128 StaticText "upside down text generator"
+      uid=5_129 StaticText "0"
+      uid=5_130 StaticText "19"
+    uid=5_131 StaticText "Rows per page:"
+    uid=5_132 listbox "Number of rows per page" orientation="vertical"
+      uid=5_133 option "5" focusable selectable
+      uid=5_134 option "10" focusable selectable selected
+      uid=5_135 option "25" focusable selectable
+      uid=5_136 option "50" focusable selectable
+      uid=5_137 option "100" focusable selectable
+      uid=5_138 option "250" focusable selectable
+      uid=5_139 option "500" focusable selectable
+    uid=5_140 StaticText "1-10 of 363"
+    uid=5_141 button "Previous page" disableable disabled invalid="false"
+    uid=5_142 button "Next page" focusable invalid="false"

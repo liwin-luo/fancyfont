@@ -88,9 +88,9 @@
 
 ## GSC 回填计划（SOP STEP 0/6 检查点）
 
-- ~2026-11-02（上线 7 天）：索引与抓取检查；确认 200 条 URL 开始被抓取，无 noindex 异常。
-- ~2026-11-09（14 天）：按页面拉取查询/曝光初值，回填"待 GSC"行；检查成组监控清单的查询重合。
-- ~2026-11-23（28 天）：产出 SEO Baseline Report（28 天曝光/点击/CTR/平均排名，按页面与查询细分，区分品牌词与非品牌词）；据此决定花体标题实验是否立项。
+- ~2026-11-02（上线 7 天）：索引与抓取检查；确认 200 条 URL 开始被抓取，无 noindex 异常。**部分完成（11-04）**：URL 巡检 209→214 全 200（`tech-audit-2026-11-04.md`），156 个 URL 已有展示；Page Indexing 报告与 URL Inspection 单页状态**仍未取**。
+- ~2026-11-09（14 天）：按页面拉取查询/曝光初值，回填"待 GSC"行；检查成组监控清单的查询重合。**提前完成（11-04）**：见上节；查询重合**未能判定**（查询表阈值截断，见修正 #4）。
+- ~2026-11-23（28 天）：产出 SEO Baseline Report（28 天曝光/点击/CTR/平均排名，按页面与查询细分，区分品牌词与非品牌词）；据此决定花体标题实验是否立项。**未到期**，届时用同口径重跑，并把品牌词与非品牌词分开（本轮未做）。
 
 ## 第 8 周页面裁决（2026-11-01）
 
@@ -108,8 +108,50 @@
 
 ## 缺失数据（不得用猜测填充）
 
-- GSC 28 天表现数据（站点上线不足，客观缺失）
+- ~~GSC 28 天表现数据~~ → **首批已到位**：8 天窗口（2026-10-26→11-02），见 `seo/gsc-2026-11-04/report.md`。28 天基线仍在 2026-11-23。
 - 全部目标查询的 SERP 前 10 名快照（未采集）
-- 关键词搜索量/难度（未使用关键词工具）
+- 关键词搜索量/难度（未使用关键词工具；preppy 与 crazy 的第三方数字仍标 unverified）
 - 竞品页面功能与内容覆盖清单（未采集）
-- es / pt-br / zh-cn / id 各语言市场查询是否与英语一致（未研究；seo方法论 步骤 1 要求按地区/语言分别锁定）
+- ~~es / pt-br / zh-cn / id 各语言市场查询是否与英语一致（未研究）~~ → **部分已验证**：见下节，西语 `letras coquette` / `letras preppy` / `generador de nombres...` 与葡语查询确认为独立词形而非英语直译；完整分语言研究仍需按地区做（seo方法论 步骤 1）。
+- 品牌词与非品牌词拆分（未做正则过滤，本轮未取）
+- Page Indexing 收录数与未收录原因（本轮未取）
+
+## 首批 GSC 数据回填（2026-11-04，窗口 2026-10-26→11-02）
+
+原始数据与采集方式见 `seo/gsc-2026-11-04/`（`report.md` + 5 个 CSV + `raw/`）。站点总量：23 次点击、2,196 次展示、平均位置 28.9、156 个 URL 有展示。
+
+**主表证据状态更新**（只列本轮拿到真实数字的行；未列出的行仍是原状态，表示展示 <27、未进前 30）：
+
+| 路径 | 点击 | 展示 | 状态变化 |
+|---|---|---|---|
+| `/berry-avenue-fonts/` | 4 | 317 | 「主查询表述待 SERP 确认」→ **已验证**：`fonts for berry avenue` 116 展示 + `berry avenue fonts` 68 展示，两种词形都真实存在 |
+| `/pt-br/coquette-font-generator/` | 5 | 160 | coquette 集群的最大实际转化页，**是葡语页而非英语页** |
+| `/es/coquette-font-generator/` | 2 | 34 | 西语需求真实存在：`letras coquette` 是该词形（86 展示）。注意查询维度跨语言聚合，该查询的 3 次点击不等于本页 2 次，见修正 #4 |
+| `/cod-name-generator/` | 0 | 123 | **情况 E**：零点击页面中展示最高（全站第三） |
+| `/zh-cn/cod-name-generator/` | 2 | 6 | 中文游戏名需求真实存在，CTR 33%（派生） |
+| `/es/gaming-name-generator/` | 0 | 91 | 情况 E |
+| `/pubg-name-generator/` | 0 | 79 | 情况 E |
+| `/roblox-name-generator`、`/es/roblox-name-generator/` | 0 | 60 / 35 | 情况 E |
+| `/es/free-fire-name-generator/`、`/pt-br/free-fire-name-generator/` | 0 | 60 / 30 | 情况 E |
+| `/strikethrough-text-generator/` | 0 | 58 | 情况 E |
+| `/zh-cn/cursive-text-generator/` | 0 | 46 | 中文花体有展示零点击（注意 zh 页只透传中文、转换针对拉丁字母） |
+| `/upside-down-text-generator/`、`/es/upside-down-text-generator/` | 0 | 40 / 31 | 情况 E；印尼语 `d terbalik` 6 展示 |
+| `/pt-br/fancy-text-generator/` | 0 | 35 | 情况 E |
+| `/bold-text-generator/`、`/italic-text-generator/` | 0 | 32 / 27 | 情况 E |
+| `/facebook-fonts/` | 0 | 29 | 情况 E |
+| `/tiktok-fonts/` | 1 | 26 | `tiktok font generator` 13 展示 |
+| `/es/symbols/` | 1 | 7 | 符号页首次点击来自西语 |
+| `/zh-cn/blank-space/` | 1 | 3 | 「需 SERP 确认查询归本页」→ **部分确认**：中文空白/隐形字符查询确实落到 blank-space |
+| `/es/fortnite-name-generator/` | 1 | 2 | Fortnite 需求在非英语也有落地 |
+| `/zh-cn/mcp/` | 1 | 1 | `/mcp/` 原标「未知（低优先）」→ 有真实点击，仍不立项优先级 |
+| `/`、`/pt-br/` | 2 / 1 | 27 / 11 | 首页与葡语首页均有点击 |
+
+**分语言（派生，仅前 30 页）**：en 7 点击 / 818 展示（CTR 0.86%）、pt-br 7 / 320（2.19%）、es 5 / 329（1.52%）、zh-cn 4 / 56（7.14%）。国家维度：Brazil 7/480、China 6/48、US 3/422、Mexico 2/137、Indonesia 0/147。
+
+**对本表判断的修正**：
+
+1. **成组监控 elegant↔coquette**：coquette 集群的点击集中在 pt-br/es 的 coquette 页，elegant 页未进前 30（展示 <27）。当前证据**不支持合并**，但样本太小，11-23 再判。
+2. **SERP 快照优先级需要重排**：原列表第 1 项 `coquette font generator` 已有真实查询与点击数据，不必再靠人工 SERP 快照判断需求；优先级应让给完全没有数据的页（`/dark-font-generator/`、`/chicano-font-generator/`、`/heart-font-generator/`、`/aesthetic-text-generator/`、`/adopt-me-fonts/`、`/kaomoji` 类）。
+3. **`gerador de caracteres 5e`（葡语，22 展示 0 点击）** 是桌游角色卡意图，与本站能力无关。记为**不建页**，避免下次看到展示就误判为机会。
+4. **查询表的点击合计只有 5 / 23**（页面与国家两个维度都能对齐到 23）。GSC 查询列表存在阈值截断——今后**不得**用查询表点击做除法或归因，查询维度只用于判断词形是否存在与相对热度。
+
