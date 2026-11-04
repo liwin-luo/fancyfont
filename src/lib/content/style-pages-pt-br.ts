@@ -59,8 +59,8 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       "Os caracteres blackletter funcionam bem em celulares modernos, mas alguns aparelhos antigos mostram quadradinhos. Teste no app que você vai usar — principalmente em jogos.",
     faq: [
       {
-        q: "Fraktur ou Old English é outro gerador, diferente do gótico?",
-        a: "Não. Esta página cobre os três nomes. Fraktur e Old English são o mesmo alfabeto gótico, e «gótica» é como se busca esse texto. Não há um arquivo de fonte separado.",
+        q: "Fraktur, Old English ou medieval é outro gerador, diferente do gótico?",
+        a: "Não. Esta página cobre todos esses nomes. Fraktur, Old English, medieval e blackletter descrevem o mesmo alfabeto gótico, e «gótica» é como se busca esse texto. Não há um arquivo de fonte separado.",
       },
       {
         q: "Qual a diferença entre os dois estilos góticos?",
@@ -414,6 +414,10 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
         q: "Uma tag de clã cabe num usuário de jogo?",
         a: "Muitas vezes o símbolo é a parte rejeitada. Se as asas sumirem na prévia do jogo, use a linha de negrito sem enfeite.",
       },
+      {
+        q: "Letras cool e cool fonts são a mesma coisa?",
+        a: "Sim: letras cool, cool fonts e texto cool descrevem a mesma coisa — letras Unicode em negrito ou versaletes com estrelas, asas ou colchetes. Digite acima, escolha um visual e copie.",
+      },
     ],
   },
   "dark-font-generator": {
@@ -481,6 +485,10 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       {
         q: "Isso é um arquivo de caligrafia?",
         a: "Não. Você copia caracteres. Arquivos de caligrafia se instalam, e este site não oferece isso.",
+      },
+      {
+        q: "Isso é o que chamam de fonte de luxo?",
+        a: "Quase sempre sim. Quem busca fonte de luxo quer o mesmo visual formal: script com coroas, enfeites e espaçamento fino. Como tudo nesta página, é texto Unicode e não um arquivo de fonte, então dá para colar em bios e perfis.",
       },
     ],
   },

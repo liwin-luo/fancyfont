@@ -88,8 +88,8 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       "Blackletter characters are widely supported on modern phones, but a few older devices show boxes. Test in the app you are targeting — especially inside games.",
     faq: [
       {
-        q: "Is Fraktur or Old English a different generator from gothic?",
-        a: "No. This page is all three names. Fraktur and Old English are names for the same blackletter alphabet, and gothic is the usual search name for those characters. There is no separate font file.",
+        q: "Is Fraktur, Old English or medieval a different generator from gothic?",
+        a: "No. This page is all these names. Fraktur, Old English, medieval and blackletter all describe the same alphabet, and gothic is the usual search name for those characters. There is no separate font file.",
       },
       {
         q: "What is the difference between the two gothic styles?",
@@ -443,6 +443,10 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
         q: "Will a clan tag fit a game username?",
         a: "Often the symbol is the part that gets rejected. If the wings disappear in the game's preview, use the plain bold row.",
       },
+      {
+        q: "Are cool letters the same as cool fonts?",
+        a: "Yes — cool letters, cool fonts and cool text all describe the same thing: bold or small-caps Unicode letters dressed with stars, wings or brackets. Type above, pick a look and copy it.",
+      },
     ],
   },
   "dark-font-generator": {
@@ -510,6 +514,10 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       {
         q: "Is this a calligraphy font file?",
         a: "No. You copy characters. Calligraphy font files are something you install, and this site does not offer those.",
+      },
+      {
+        q: "Is this what people mean by a luxury font?",
+        a: "Often, yes. Luxury font searches usually want the same formal look — script with crowns, ornate marks and tidy spacing. Like everything on this page it is Unicode text rather than a font file, so you can paste it into bios and profiles.",
       },
     ],
   },

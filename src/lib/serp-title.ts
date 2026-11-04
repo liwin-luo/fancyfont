@@ -27,11 +27,11 @@ const styleDetail: Record<string, Record<Locale, string>> = {
     id: "bio & nama",
   },
   "gothic-text-generator": {
-    en: "Fraktur & Old English",
-    es: "fraktur y Old English",
-    "pt-br": "fraktur e Old English",
-    "zh-cn": "Fraktur 与 Old English",
-    id: "fraktur & Old English",
+    en: "Old English & Medieval",
+    es: "Old English y medieval",
+    "pt-br": "Old English e medieval",
+    "zh-cn": "Old English 与中世纪",
+    id: "Old English & medieval",
   },
   "bold-text-generator": {
     en: "Chats & Names",

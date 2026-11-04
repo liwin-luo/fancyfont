@@ -59,8 +59,8 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       "Los caracteres blackletter funcionan bien en móviles modernos, pero algunos equipos viejos muestran cuadritos. Prueba en la app que vayas a usar — sobre todo en juegos.",
     faq: [
       {
-        q: "¿Fraktur u Old English es otro generador distinto del gótico?",
-        a: "No. Esta página cubre los tres nombres. Fraktur y Old English son el mismo alfabeto gótico, y «gótica» es como se busca ese texto. No hay un archivo de fuente aparte.",
+        q: "¿Fraktur, Old English o medieval es otro generador distinto del gótico?",
+        a: "No. Esta página cubre todos estos nombres. Fraktur, Old English, medieval y blackletter describen el mismo alfabeto gótico, y «gótica» es como se busca ese texto. No hay un archivo de fuente aparte.",
       },
       {
         q: "¿En qué se diferencian los dos estilos góticos?",
@@ -414,6 +414,10 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
         q: "¿Un tag de clan cabe en un usuario de juego?",
         a: "Muchas veces el símbolo es lo que rechazan. Si las alas desaparecen en la vista previa del juego, usa la fila de negrita sin adorno.",
       },
+      {
+        q: "¿Las letras cool y las cool fonts son lo mismo?",
+        a: "Sí: letras cool, cool fonts y texto cool describen lo mismo — letras Unicode en negrita o versalitas con estrellas, alas o corchetes. Escribe arriba, elige un look y cópialo.",
+      },
     ],
   },
   "dark-font-generator": {
@@ -481,6 +485,10 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       {
         q: "¿Esto es un archivo de caligrafía?",
         a: "No. Copias caracteres. Los archivos de caligrafía se instalan, y este sitio no los ofrece.",
+      },
+      {
+        q: "¿Esto es lo que llaman una fuente de lujo?",
+        a: "Casi siempre sí. Quien busca fuente de lujo quiere ese mismo look formal: script con coronas, adornos y espaciado fino. Como todo en esta página, es texto Unicode y no un archivo de fuente, así que puedes pegarlo en bios y perfiles.",
       },
     ],
   },

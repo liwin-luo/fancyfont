@@ -21,8 +21,8 @@ describe("serp titles", () => {
       `Fancy Text Generator \u2014 Copy & Paste 30 Styles | ${siteName}`,
     );
     const gothic = styleSerpTitle("Gothic Text Generator", "gothic-text-generator", "en");
-    expect(gothic).toContain("Fraktur");
     expect(gothic).toContain("Old English");
+    expect(gothic).toContain("Medieval");
   });
 
   it("keeps decorative Unicode out of every English page title", () => {

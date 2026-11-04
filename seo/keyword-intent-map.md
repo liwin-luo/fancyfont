@@ -25,7 +25,7 @@
 | `/symbols/` | symbols copy and paste | text symbols、star/wing/crown symbols | 找单个符号浏览、搜索、复制 | 候选表（§5.2E） | 心形单符号意图在本页；文字加心形装饰在 heart 页 |
 | `/blank-space/` | invisible character / blank space copy | empty name、blank text | 复制可见宽度的空白字符或给文字加间隙 | 未知 | 与 `/symbols/` 的零宽分区不同用途，页面文案已区分；需 SERP 确认查询归本页 |
 | `/cursive-text-generator/` | cursive text generator | handwriting font generator | 专用花体转换 | 候选表（§5.2D） | 低（字母表被 look 页复用但意图不同） |
-| `/gothic-text-generator/` | gothic text generator | fraktur、old english font generator | 专用黑字母转换 | 候选表（§5.2D） | 与 chicano/dark 共用 fraktur；FAQ 已声明"三个名字同一页"，文案互相路由。**GSC 盯：old english 查询是否归本页** |
+| `/gothic-text-generator/` | gothic text generator | fraktur、old english font generator、medieval font generator | 专用黑字母转换 | 候选表（§5.2D） | 与 chicano/dark 共用 fraktur；2026-11-04 起标题 detail 改为 Old English & Medieval，FAQ 声明 Fraktur/Old English/medieval/blackletter 同页，文案互相路由。**GSC 盯：old english / medieval 查询是否归本页** |
 | `/bold-text-generator/` | bold text generator | bold font generator | 专用粗体转换 | 候选表（§5.2D） | 低 |
 | `/italic-text-generator/` | italic text generator | — | 专用斜体转换 | 候选表（§5.2D） | 低 |
 | `/bubble-letters-generator/` | bubble letters generator | bubble font、bubble text | 专用圆体转换 | 候选表（§5.2D） | 低 |
@@ -36,10 +36,10 @@
 | `/tiny-text-generator/` | tiny text generator | superscript generator | 专用上下标转换 | 候选表（§5.2D） | 低 |
 | `/aesthetic-text-generator/` | aesthetic text generator | aesthetic font generator | 专用宽体+装饰组合 | 候选表（§5.2D） | 低 |
 | `/cute-font-generator/` | cute font generator | cute text generator | 可爱风字母+装饰组合 | 未知 | 与 heart/preppy 装饰相邻；文案已互相区分 |
-| `/cool-font-generator/` | cool fonts generator（§5.2A 有近似候选词） | cool text generator | 酷炫风字母+装饰组合 | 候选表（近似词） | 低 |
+| `/cool-font-generator/` | cool fonts generator（§5.2A 有近似候选词） | cool text generator、cool letters | 酷炫风字母+装饰组合 | 候选表（近似词） | 低；2026-11-04 FAQ 补 "cool letters = cool fonts" 信息型问答 |
 | `/crazy-font-generator/` | crazy font generator | crazy fonts、crazy text、weird text（相邻） | 逐字符混搭多种字母风格 + 疯狂装饰，可重掷出新版本 | unverified（第三方工具显示约 1.0K/KD19，来自 2026-11-04 用户截图，工具名未注明；待 Keyword Planner 复核后升级） | 与 cool（单字母表+装饰）、glitch（纯 zalgo）意图已区分；SERP 快照 2026-11-04（DDG）：glyphy weird-text、fontylish /crazy/、lingojam weird、crazy-fonts.com 均为工具页，角度=weird/wild/混搭 |
 | `/dark-font-generator/` | dark font generator | emo font generator | 暗黑风字母+装饰组合 | 未知 | **高：与 chicano 共用 fraktur 系字母表**。文案路由已做（"装饰里没有 dark 页的骷髅月亮"）。**GSC 盯：两页查询重合度** |
-| `/elegant-font-generator/` | elegant font generator | fancy script generator | 优雅风字母+装饰组合 | 未知 | **高：与 coquette 共用完全相同的字母表对（boldScript+script）**。文案路由已做。**GSC 盯：两页查询重合度** |
+| `/elegant-font-generator/` | elegant font generator | fancy script generator、luxury font generator | 优雅风字母+装饰组合 | 未知 | **高：与 coquette 共用完全相同的字母表对（boldScript+script）**。文案路由已做；2026-11-04 FAQ 补 luxury font 问答。**GSC 盯：两页查询重合度** |
 | `/coquette-font-generator/` | coquette font generator | coquette text、ribbon font | coquette 趋势字母+丝带装饰 | 未知 | 同上（与 elegant 成对监控） |
 | `/preppy-font-generator/` | preppy fonts（头部词，标题已随之升级） | preppy font、preppy font generator、preppy fonts copy and paste、preppy fonts for adopt me | 干净小型大写+单心装饰；FAQ 回答 what-is / how-to 信息型问题 | unverified（第三方工具 2026-11-04 截图：preppy fonts 9.9K/KD18、generator 390/KD16；待 Keyword Planner 复核） | SERP 快照 2026-11-04（DDG）：instafonts、preppyfonts.com/.org、pretty-fonts 均为工具页，fontspace 一例字体文件收集页；adopt me 变体由本页 related 与 adopt-me 页分接 |
 | `/heart-font-generator/` | heart font generator | heart text generator、text with hearts | 文字加心形装饰组合 | 未知 | 单符号意图在 `/symbols/`；12 组心形装饰独占。需 SERP 确认"heart symbols copy paste"查询归 symbols 而非本页 |
@@ -66,7 +66,7 @@
 ## 成组监控清单（GSC 查询重合是合并/分化的裁决依据）
 
 1. **elegant ↔ coquette**：同一字母表对，仅装饰不同。若两页开始对同一批查询轮替排名，优先进一步分化（装饰/示例/FAQ 已部分分化）或考虑合并表述。
-2. **dark ↔ chicano ↔ gothic**：fraktur 三页梯度。gothic 已用标题与 FAQ 明确承接 Fraktur/Old English；dark/chicano 按装饰语义切分。观察三页各自触发的查询集合是否互斥。
+2. **dark ↔ chicano ↔ gothic**：fraktur 三页梯度。gothic 已用标题（Old English & Medieval）与 FAQ 明确承接 Fraktur/Old English/medieval；dark/chicano 按装饰语义切分。观察三页各自触发的查询集合是否互斥。
 3. **heart ↔ cute ↔ preppy**：心形装饰相邻。观察 heart 页是否吸附 cute/preppy 的查询。
 4. **symbols ↔ blank-space**：零宽（invisible 分类）与可见宽度空白是两个决定。观察 invisible character 类查询落在哪页。
 5. **风格页 ↔ fancy-text-generator**：辐射结构属预期，不算蚕食；观察风格页是否反向吸附通用查询（若吸附，说明风格页意图不够专）。

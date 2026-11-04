@@ -61,8 +61,8 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       "黑体字符在现代手机上支持良好，但少数老设备会显示方块。请在你目标的应用里测试——游戏内尤其要试。",
     faq: [
       {
-        q: "Fraktur 或 Old English 是另一个生成器吗？",
-        a: "不是。这一页就是这几个名字。Fraktur 和 Old English 是同一套黑体字母，哥特是这些字符的常见叫法。没有单独的字体文件。",
+        q: "Fraktur、Old English 或 medieval（中世纪）是另一个生成器吗？",
+        a: "不是。这一页就是这几个名字。Fraktur、Old English、medieval（中世纪）和 blackletter 说的都是同一套黑体字母，哥特是这些字符的常见叫法。没有单独的字体文件。",
       },
       {
         q: "两种哥体样式有什么区别？",
@@ -416,6 +416,10 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
         q: "战队标签能放进游戏用户名吗？",
         a: "被拒绝的常常是符号。如果翼在游戏预览里消失，就用没有装饰的粗体那一行。",
       },
+      {
+        q: "cool letters 和 cool fonts 是一回事吗？",
+        a: "是。cool letters、cool fonts、cool text 说的是同一种东西：加粗或小型大写的 Unicode 字母，配上星星、翅膀或括号。在上方输入，选一个样式复制即可。",
+      },
     ],
   },
   "dark-font-generator": {
@@ -483,6 +487,10 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       {
         q: "这是书法字体文件吗？",
         a: "不是。你复制的是字符。书法字体文件需要安装，本站不提供那种文件。",
+      },
+      {
+        q: "这就是大家说的 luxury font（奢华字体）吗？",
+        a: "通常是的。搜奢华字体的人要的往往是同一种正式感——花体配皇冠、花纹和整齐的间距。和本页所有内容一样，它是 Unicode 文本而不是字体文件，可以直接粘贴进简介和资料页。",
       },
     ],
   },

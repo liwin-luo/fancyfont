@@ -58,8 +58,8 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       "Karakter blackletter didukung baik di ponsel modern, tapi beberapa perangkat lama menampilkan kotak. Uji di aplikasi yang kamu tuju — terutama di dalam game.",
     faq: [
       {
-        q: "Apakah Fraktur atau Old English generator yang berbeda dari gothic?",
-        a: "Bukan. Halaman ini mencakup ketiga nama itu. Fraktur dan Old English adalah alfabet blackletter yang sama, dan gothic adalah nama pencarian untuk karakter yang sama. Tidak ada berkas font terpisah.",
+        q: "Apakah Fraktur, Old English, atau medieval generator yang berbeda dari gothic?",
+        a: "Bukan. Halaman ini mencakup semua nama itu. Fraktur, Old English, medieval, dan blackletter adalah alfabet blackletter yang sama, dan gothic adalah nama pencarian untuk karakter yang sama. Tidak ada berkas font terpisah.",
       },
       {
         q: "Apa bedanya dua gaya gothic ini?",
@@ -413,6 +413,10 @@ export const stylePagesId: Record<string, StylePageCopy> = {
         q: "Apakah tag klan muat di username game?",
         a: "Sering kali simbolnya yang ditolak. Kalau sayap hilang di pratinjau game, pakai baris tebal tanpa hiasan.",
       },
+      {
+        q: "Apakah cool letters sama dengan cool fonts?",
+        a: "Ya — cool letters, cool fonts, dan cool text adalah hal yang sama: huruf Unicode tebal atau small caps dengan bintang, sayap, atau tanda kurung. Ketik di atas, pilih tampilan, lalu salin.",
+      },
     ],
   },
   "dark-font-generator": {
@@ -480,6 +484,10 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       {
         q: "Apakah ini berkas font kaligrafi?",
         a: "Bukan. Kamu menyalin karakter. Berkas kaligrafi dipasang, dan situs ini tidak menawarkannya.",
+      },
+      {
+        q: "Apakah ini yang disebut font luxury?",
+        a: "Sering kali ya. Yang mencari font luxury biasanya menginginkan tampilan formal yang sama: script dengan mahkota, ornamen, dan spasi rapi. Seperti semua di halaman ini, ini teks Unicode bukan berkas font, jadi bisa ditempel ke bio dan profil.",
       },
     ],
   },
