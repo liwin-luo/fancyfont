@@ -41,7 +41,7 @@
 | `/dark-font-generator/` | dark font generator | emo font generator | 暗黑风字母+装饰组合 | 未知 | **高：与 chicano 共用 fraktur 系字母表**。文案路由已做（"装饰里没有 dark 页的骷髅月亮"）。**GSC 盯：两页查询重合度** |
 | `/elegant-font-generator/` | elegant font generator | fancy script generator | 优雅风字母+装饰组合 | 未知 | **高：与 coquette 共用完全相同的字母表对（boldScript+script）**。文案路由已做。**GSC 盯：两页查询重合度** |
 | `/coquette-font-generator/` | coquette font generator | coquette text、ribbon font | coquette 趋势字母+丝带装饰 | 未知 | 同上（与 elegant 成对监控） |
-| `/preppy-font-generator/` | preppy font generator | preppy text | preppy 风字母+装饰 | 未知 | 与 heart/cute 相邻，文案已区分 |
+| `/preppy-font-generator/` | preppy fonts（头部词，标题已随之升级） | preppy font、preppy font generator、preppy fonts copy and paste、preppy fonts for adopt me | 干净小型大写+单心装饰；FAQ 回答 what-is / how-to 信息型问题 | unverified（第三方工具 2026-11-04 截图：preppy fonts 9.9K/KD18、generator 390/KD16；待 Keyword Planner 复核） | SERP 快照 2026-11-04（DDG）：instafonts、preppyfonts.com/.org、pretty-fonts 均为工具页，fontspace 一例字体文件收集页；adopt me 变体由本页 related 与 adopt-me 页分接 |
 | `/heart-font-generator/` | heart font generator | heart text generator、text with hearts | 文字加心形装饰组合 | 未知 | 单符号意图在 `/symbols/`；12 组心形装饰独占。需 SERP 确认"heart symbols copy paste"查询归 symbols 而非本页 |
 | `/chicano-font-generator/` | chicano font generator | chicano text、chicano lettering（相邻） | chicano 风黑字母+装饰 | 未知 | **与 dark/gothic 成组监控**（fraktur 三页梯度：裸/暗黑装饰/chicano 装饰）；页面明示非手绘字、非纹身模板 |
 | `/instagram-fonts/` | instagram fonts | instagram font generator、instagram bio symbols | IG 场景的名字/简介生成与字段指引 | 候选表（§5.2C） | 与 fancy 生成器按"场景+限制"区分，标准结构 |

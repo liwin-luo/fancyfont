@@ -554,10 +554,11 @@ export const stylePagesId: Record<string, StylePageCopy> = {
   "preppy-font-generator": {
     navName: "Preppy",
     h1: "Generator huruf preppy",
+    title: "Font preppy — Generator salin tempel | FancyFont",
     description:
-      "Nama preppy untuk disalin: small caps dengan satu hati yang bersih. Cukup pendek untuk dicoba sebagai nama tampilan Adopt Me.",
+      "Font preppy adalah small caps Unicode yang bersih dengan satu hati rapi. Buat, salin, dan tempel ke bio, nama TikTok, atau Adopt Me — gratis, tanpa daftar.",
     intro:
-      "Small caps, lalu satu hati: putih, hati kartu, atau hati miring. Tanpa pita dan tanpa huruf balon. Tampilan yang lebih ramai ada di halaman lain. Yang ini tetap bersih, seperti nama preppy di Adopt Me.",
+      "Font preppy adalah small caps bersih dengan satu hati rapi: putih, hati kartu, atau miring. Tanpa pita dan tanpa huruf balon — tampilan yang lebih ramai ada di halaman lain. Yang ini tetap rapi, seperti yang biasa dicari nama preppy di Adopt Me.",
     howItWorks:
       "Small caps adalah huruf pengubah Unicode yang terlihat seperti huruf besar yang lebih pendek. Script adalah baris kedua yang polos. Setiap hati hanya ada di baris small caps, sepasang atau satu sisi, supaya namanya tetap pendek.",
     coverageNote:
@@ -582,6 +583,14 @@ export const stylePagesId: Record<string, StylePageCopy> = {
       {
         q: "Kenapa hatinya sesederhana ini?",
         a: "Tumpukan pita menghabiskan 20 karakter nama tampilan dan lebih sering difilter. Satu hati adalah tanda preppy, dan nama masih muat.",
+      },
+      {
+        q: "Apa nama font preppy?",
+        a: "Tidak ada satu font preppy. Yang dimaksud preppy di media sosial biasanya small caps — huruf besar yang lebih pendek — dengan satu hati atau pita bersih di sisinya. Semuanya teks Unicode, bukan font yang dipasang, karena itu tetap bisa disalin.",
+      },
+      {
+        q: "Bagaimana cara mendapat font preppy?",
+        a: "Ketik namamu di atas, pilih baris gaya dan satu hati, lalu salin. Tempel ke bio Instagram, nama tampilan TikTok, atau profil Adopt Me, dan periksa pratinjau platform sebelum menyimpan.",
       },
     ],
   },

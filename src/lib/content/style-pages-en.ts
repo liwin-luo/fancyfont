@@ -585,10 +585,11 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
   "preppy-font-generator": {
     navName: "Preppy",
     h1: "Preppy Font Generator",
+    title: "Preppy Fonts — Generator, Copy & Paste Styles | FancyFont",
     description:
-      "Preppy copy-and-paste names: small caps with one clean heart. Short enough to try on an Adopt Me display name.",
+      "Preppy fonts are clean small-cap Unicode styles with one tidy heart. Generate, copy and paste them into bios, TikTok names and Adopt Me display names — free, no sign-up.",
     intro:
-      "Small caps, then one heart: white, a suit heart, or a rotated heart. No bows and no bubble letters. That louder cute look is the other page. This one stays clean, which is what preppy names in Adopt Me usually want.",
+      "Preppy fonts are the clean small-cap look with one tidy heart — white, a suit heart, or a rotated one. No bows and no bubble letters: the louder cute look is the other page. This one stays tidy, which is what preppy names in Adopt Me usually want.",
     howItWorks:
       "Small caps are Unicode modifier letters that look like shorter capitals. Script is the bare second row. Each heart is a symbol on the small-caps row only, one pair or one side, so the name stays short.",
     coverageNote:
@@ -613,6 +614,14 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
       {
         q: "Why keep the hearts so plain?",
         a: "A stack of bows eats the 20-character display name and gets filtered more often. One heart is the preppy mark, and it still leaves room for the name.",
+      },
+      {
+        q: "What is the preppy font called?",
+        a: "There is no single preppy font. What social media calls preppy is usually small caps — shorter capitals — often with one clean heart or bow next to it. It is all Unicode text, not an installed font, which is why it survives copy and paste.",
+      },
+      {
+        q: "How do I get preppy fonts?",
+        a: "Type your name above, pick a style row and a heart, then copy. Paste it into your Instagram bio, TikTok display name or Adopt Me profile, and check the platform's own preview before saving.",
       },
     ],
   },

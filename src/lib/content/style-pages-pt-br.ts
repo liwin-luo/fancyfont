@@ -563,10 +563,11 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
   "preppy-font-generator": {
     navName: "Preppy",
     h1: "Gerador de letras preppy",
+    title: "Fontes preppy — Gerador para copiar e colar | FancyFont",
     description:
-      "Nomes preppy para copiar e colar: versaletes com um coração limpo. Curtos para testar num nome de exibição do Adopt Me.",
+      "Fontes preppy são versaletes Unicode limpos com um coração arrumado. Gere, copie e cole na bio, no nome do TikTok ou no Adopt Me — grátis, sem cadastro.",
     intro:
-      "Versaletes e um coração só: branco, de naipe ou virado. Sem laços e sem letras bolha. Esse visual mais barulhento está na outra página. Este fica limpo, que é o que os nomes preppy do Adopt Me costumam querer.",
+      "Fontes preppy são versaletes limpos com um coração arrumado: branco, de naipe ou virado. Sem laços e sem letras bolha — o visual mais barulhento fica na outra página. Este fica arrumado, que é o que os nomes preppy do Adopt Me costumam querer.",
     howItWorks:
       "Versaletes são letras modificadoras do Unicode que parecem maiúsculas mais baixas. O script é a segunda linha, sem enfeite. Cada coração é um símbolo só na linha de versaletes, um par ou um lado, para o nome continuar curto.",
     coverageNote:
@@ -591,6 +592,14 @@ export const stylePagesPtBr: Record<string, StylePageCopy> = {
       {
         q: "Por que os corações são tão simples?",
         a: "Uma pilha de laços come os 20 caracteres do nome de exibição e o filtro corta com mais frequência. Um coração é a marca preppy e ainda deixa espaço para o nome.",
+      },
+      {
+        q: "Como se chama a fonte preppy?",
+        a: "Não existe uma única fonte preppy. O que as redes chamam de preppy costumam ser versaletes — maiúsculas mais baixas — com um coração ou laço limpo ao lado. Tudo é texto Unicode, não uma fonte instalada; por isso sobrevive ao copiar e colar.",
+      },
+      {
+        q: "Como consigo fontes preppy?",
+        a: "Digite seu nome acima, escolha uma linha de estilo e um coração, e copie. Cole na bio do Instagram, no nome do TikTok ou no perfil do Adopt Me, e confira a prévia da plataforma antes de salvar.",
       },
     ],
   },

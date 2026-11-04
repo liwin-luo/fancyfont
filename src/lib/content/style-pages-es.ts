@@ -563,10 +563,11 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
   "preppy-font-generator": {
     navName: "Preppy",
     h1: "Generador de letras preppy",
+    title: "Letras preppy — Generador para copiar y pegar | FancyFont",
     description:
-      "Nombres preppy para copiar y pegar: versalitas con un corazón limpio. Cortos para probar en un nombre visible de Adopt Me.",
+      "Las letras preppy son versalitas Unicode limpias con un corazón ordenado. Genera, copia y pega en tu bio, nombre de TikTok o Adopt Me — gratis, sin registro.",
     intro:
-      "Versalitas y un solo corazón: blanco, de palo o girado. Sin lazos y sin letras burbuja. Ese look más ruidoso está en la otra página. Este se queda limpio, que es lo que suelen buscar los nombres preppy de Adopt Me.",
+      "Las letras preppy son versalitas limpias con un corazón ordenado: blanco, de palo o girado. Sin lazos y sin letras burbuja — ese look más ruidoso está en la otra página. Este se mantiene ordenado, que es lo que suelen buscar los nombres preppy de Adopt Me.",
     howItWorks:
       "Las versalitas son letras modificadoras de Unicode que parecen mayúsculas más bajas. El script es la segunda fila, sin adorno. Cada corazón es un símbolo solo en la fila de versalitas, un par o un lado, para que el nombre siga corto.",
     coverageNote:
@@ -591,6 +592,14 @@ export const stylePagesEs: Record<string, StylePageCopy> = {
       {
         q: "¿Por qué los corazones son tan simples?",
         a: "Una pila de lazos se come los 20 caracteres del nombre visible y el filtro la corta más a menudo. Un corazón es la marca preppy y todavía deja sitio para el nombre.",
+      },
+      {
+        q: "¿Cómo se llaman las letras preppy?",
+        a: "No hay una sola letra preppy. Lo que las redes llaman preppy suelen ser versalitas —mayúsculas más bajas— con un corazón o lazo limpio al lado. Todo es texto Unicode, no una fuente instalada; por eso sobrevive al copiar y pegar.",
+      },
+      {
+        q: "¿Cómo consigo letras preppy?",
+        a: "Escribe tu nombre arriba, elige una fila de estilo y un corazón, y copia. Pégalo en tu bio de Instagram, nombre de TikTok o perfil de Adopt Me, y revisa la vista previa de la plataforma antes de guardar.",
       },
     ],
   },

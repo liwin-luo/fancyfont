@@ -557,10 +557,11 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
   "preppy-font-generator": {
     navName: "Preppy",
     h1: "Preppy 字体生成器",
+    title: "Preppy 字体 — 生成器与复制粘贴 | FancyFont",
     description:
-      "可复制的 Preppy 名字：小型大写加一颗干净的心。短到可以拿去试 Adopt Me 的展示名。",
+      "Preppy 字体就是干净的小型大写加一颗整齐的心。生成、复制、粘贴到简介、TikTok 名字或 Adopt Me 展示名——免费、无需注册。",
     intro:
-      "小型大写，再加一颗心：白心、扑克心，或一颗侧过来的心。没有蝴蝶结，也没有气泡字。更闹的那种在可爱字体那一页。这一页保持干净，Adopt Me 里的 preppy 名字通常要的就是这个。",
+      "Preppy 字体就是干净的小型大写加一颗整齐的心：白心、扑克心，或侧过来的心。没有蝴蝶结，也没有气泡字——更闹的在可爱那一页。这一页保持整齐，Adopt Me 里的 preppy 名字要的就是这个。",
     howItWorks:
       "小型大写是 Unicode 修饰字母，看起来像矮一号的大写。花体是不带装饰的第二行。每颗心只套在小型大写那一行，一对或单侧，名字才够短。",
     coverageNote:
@@ -585,6 +586,14 @@ export const stylePagesZhCn: Record<string, StylePageCopy> = {
       {
         q: "为什么爱心这么简单？",
         a: "一串蝴蝶结会吃掉展示名的 20 个字符，也更容易被过滤。一颗心就是 preppy 的记号，还留得下名字。",
+      },
+      {
+        q: "Preppy 字体叫什么名字？",
+        a: "没有唯一一种 preppy 字体。社交媒体说的 preppy 通常指小型大写——矮一号的大写——旁边配一颗干净的心或蝴蝶结。这些都是 Unicode 文本，不是安装的字体，所以能复制粘贴。",
+      },
+      {
+        q: "怎么做出 preppy 字体？",
+        a: "在上面输入你的名字，选一行样式和一颗心，复制。粘贴到 Instagram 简介、TikTok 名字或 Adopt Me 资料里，保存前先看平台自己的预览。",
       },
     ],
   },
