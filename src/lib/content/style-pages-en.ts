@@ -383,7 +383,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     description:
       "Cute copy-and-paste text: round bubble letters with one heart, bow, or flower. Free in the browser, nothing to install.",
     intro:
-      "Type a name and get round bubble letters with one heart, the ୨୧ bow, or a flower. People also call this kawaii or soft lettering. A script line sits underneath if you want it quieter. Ribbon script is the coquette page. These are characters you paste, not a font file.",
+      "Type a name and get round bubble letters with one heart, the ୨୧ bow, or a flower. People also call this kawaii or soft lettering. A script line sits underneath if you want it quieter. Ribbon script is the coquette page. These are characters you paste, not a font file. The full list of every plain alphabet, with no decorations, is the Fancy Text page.",
     howItWorks:
       "Bubble and circled letters are enclosed alphanumerics. The flowing line is Mathematical Script. Hearts, bows (୨୧), flowers, and soft brackets are separate symbols, and only the bubble row wears them — one pair at a time, so the name stays readable.",
     coverageNote:
@@ -397,6 +397,10 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     platformTip:
       "Cute letters work in most Instagram, TikTok, and Discord display names and bios. Usernames that only allow plain letters will reject them. If a bow or soft bracket shows as an empty box, copy the heart row instead.",
     faq: [
+      {
+        q: "Is this the same as the fancy text page?",
+        a: "No. Fancy Text lists every alphabet and adds no decorations. This page only builds the cute look: round bubble letters with a heart, the ୨୧ bow, or a flower.",
+      },
       {
         q: "Is a cute font a file I download?",
         a: "No. The result is Unicode characters, which is why it pastes into apps that only accept plain text. This site does not offer font files.",
@@ -527,7 +531,7 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     description:
       "Wide vaporwave letters with a sparkle or a dot-mist on either side, plus small caps if you want it quieter. Copy and paste, no font file.",
     intro:
-      "Wide full-width letters — the vaporwave look — with a mist of dots or a sparkle on either side. Small caps is the second row when the wide letters feel too loud.",
+      "Wide full-width letters — the vaporwave look — with a mist of dots or a sparkle on either side. Small caps is the second row when the wide letters feel too loud. Every plain alphabet, with none of these decorations, is on the Fancy Text page.",
     howItWorks:
       "Full-width characters come from legacy encodings where CJK and Latin text shared fixed-width grids, so Latin letters got wide boxes of their own. Spaces widen too, which is the slow rhythm. The dot-mist and the sparkle are symbols wrapped around that wide line only. They are not part of the full-width alphabet.",
     coverageNote:
@@ -541,6 +545,10 @@ export const stylePagesEn: Record<string, StylePageCopy> = {
     platformTip:
       "Full-width text shows up wherever CJK text does, which is almost everywhere. It is wide, and the sparkle makes it wider — check that the line still fits your bio. If a sparkle fails, the plain wide row still copies.",
     faq: [
+      {
+        q: "Is this the same as the fancy text page?",
+        a: "No. Fancy Text lists every alphabet and adds no decorations. This page only builds the aesthetic look: wide full-width letters with a mist of dots or a sparkle, plus small caps as the second row.",
+      },
       {
         q: "Why is it called vaporwave text?",
         a: "Wide letters and slow spacing became the visual signature of vaporwave. The technical name of the letters is full-width text. The sparkle is a separate symbol on either side.",
