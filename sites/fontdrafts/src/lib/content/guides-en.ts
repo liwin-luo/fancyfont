@@ -745,4 +745,153 @@ export const guidesEn: GuideDef[] = [
     ],
     appearOn: [],
   },
+  {
+    locale: "en",
+    slug: "whatsapp-fonts-guide",
+    navName: "WhatsApp text guide",
+    h1: "WhatsApp Text Tricks: Native Formatting Meets Unicode Fonts",
+    title: "WhatsApp Fonts Guide — Native Formatting & Unicode Limits",
+    description:
+      "WhatsApp has native *bold* and _italic_ codes most people never use — plus where Unicode fonts work: name ~25, About ~139, messages ~65,536. Honest limits.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "Most people who search for a \u201cWhatsApp font changer\u201d never learn that WhatsApp ships with four text formats built in \u2014 bold, italic, strikethrough and monospace \u2014 triggered by nothing more than punctuation. They are codes, not characters: the recipient sees the style, never the asterisk.",
+      "Beyond those native codes, styled Unicode characters travel through WhatsApp end to end, because in WhatsApp \u2014 unlike most apps \u2014 the characters ARE the style. This guide maps the native formats first, then exactly where fonts, symbols and blank characters work, with the numbers.",
+    ],
+    sections: [
+      {
+        heading: "The four formats WhatsApp ships with",
+        bullets: [
+          "*bold* \u2014 wrap the word in asterisks: *hello* sends as bold hello.",
+          "_italic_ \u2014 underscores on both sides.",
+          "~strikethrough~ \u2014 tildes on both sides.",
+          "```monospace``` \u2014 three backticks before and after the text; handy for code, IDs and coordinates.",
+        ],
+        paragraphs: [
+          "These are formatting flags, the same idea as bold in a word processor: invisible markup that WhatsApp renders on the receiving end. They work in every chat, group and reply, need no settings, and they survive forwarding.",
+          "Everything else people call \u201cWhatsApp fonts\u201d is the second trick \u2014 swapping letters for styled Unicode characters. Unlike the native codes, those are real characters: they count toward length, they survive copy and paste anywhere, and they render even where WhatsApp's own formatting does not (like your profile name).",
+        ],
+      },
+      {
+        heading: "Where Unicode fonts actually work",
+        bullets: [
+          "Profile name: about 25 characters \u2014 styled fonts supported, visible to every chat.",
+          "About line: about 139 characters \u2014 supported, shows on your contact card.",
+          "Messages: about 65,536 characters \u2014 styles survive the whole way; the characters are the style.",
+          "Groups: your name displays per group \u2014 keep it recognizable in work and family groups.",
+        ],
+      },
+      {
+        heading: "Symbols and the invisible trick",
+        bullets: [
+          "Text symbols \u2014 \u2661 \u2605 \u2727 \u2014 render as monochrome glyphs; emoji like \u2764\ufe0f render colored. Both are plain characters and copy the same way.",
+          "An invisible name or empty About uses a blank character (the Hangul filler U+3164) \u2014 see the blank space tool; it is one paste, no app.",
+          "Restraint scales: thin frames and small caps age better in a contact list you share with family and coworkers than heavy gamer stacks.",
+        ],
+      },
+      {
+        heading: "What not to do",
+        bullets: [
+          "No font apps needed \u2014 anything claiming to \u201cinstall fonts on WhatsApp\u201d is repackaging the same Unicode characters.",
+          "Skip zalgo and heavy glitch stacks: screen readers spell them out letter by letter, and old devices draw boxes.",
+          "Keep one findable anchor: a styled name does not match search \u2014 leave the plain spelling in a message to yourself or in your About.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does WhatsApp have a built-in font changer?",
+        a: "Yes \u2014 four formats via punctuation: *bold*, _italic_, ~strikethrough~ and ```monospace```. Everything beyond those is styled Unicode characters, which need no app either \u2014 generate, copy, paste.",
+      },
+      {
+        q: "Why do my fancy fonts show as boxes to some contacts?",
+        a: "Their device font lacks the glyph for that character. Popular styles \u2014 script, bold, small caps, thin frames \u2014 render on nearly everything; exotic symbols are where boxes come from.",
+      },
+      {
+        q: "Can I use a styled name on WhatsApp Business?",
+        a: "Yes \u2014 the name and About fields work the same. For a business profile keep the styled part subtle and leave the actual business name readable: customers search for the plain spelling.",
+      },
+    ],
+    relatedTools: [
+      { href: "/whatsapp-fonts/", title: "WhatsApp font generator", description: "Name & About sized styles, limits in view." },
+      { href: "/symbols/", title: "Symbols copy and paste", description: "388 symbols that render in chats." },
+      { href: "/blank-space/", title: "Blank space copy and paste", description: "Invisible characters for empty names." },
+    ],
+    appearOn: ["whatsapp-fonts", "symbols", "blank-space"],
+  },
+  {
+    locale: "en",
+    slug: "nickname-ideas",
+    navName: "Nickname ideas",
+    h1: "50 Nickname Ideas \u2014 and the Formulas Behind Them",
+    title: "50 Nickname Ideas \u2014 Formulas, Frames & Examples",
+    description:
+      "Nickname formulas that beat random syllables \u2014 hobby + verb, mains, real-name derivatives, frames ꧁꧂ \u2014 with 50 examples grouped by look, sized for real limits.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "Random syllable generators produce names that fail the friend-test: nobody can pronounce them, nobody remembers them, and six months later you are renaming again. Nicknames that stick come from small formulas applied to something personal \u2014 then dressed with a frame and a font.",
+      "This page gives the five formulas first, the dressing rules second, and 50 ready examples grouped by look \u2014 every one sized for real platform limits (6\u201316 in most games, ~24 on TikTok, 3\u201320 on Roblox). Take one as-is or rebuild it with your own base word.",
+    ],
+    sections: [
+      {
+        heading: "Five formulas that produce usable nicknames",
+        bullets: [
+          "Hobby + verb: PixelRuns, ByteForge, ClayShots \u2014 a thing you do plus an action reads as a person, not a product.",
+          "Main + role: AshMain, SupportQueen, IGLShadow \u2014 instant identity in team games.",
+          "Real-name derivative: Alexandra \u2192 Xander, Nicholas \u2192 Nick- oto \u2014 personal without exposing your full name.",
+          "Adjective + noun: QuietWolf, IronPigeon, SleepyTac \u2014 the adjective does the character work.",
+          "Old tag minus numbers: NightWolf92 \u2192 NightWolf \u2014 retire the digits; they are what made it look dated.",
+        ],
+      },
+      {
+        heading: "Dress the winner: frames and fonts",
+        paragraphs: [
+          "The frame does the visual work and costs characters: ꧁꧂ adds 2, \u2661\u2026\u2661 pairs add 2\u20136. A 6\u201312 character field fits ꧁ACE꧂ (7) but not ꧁\u2550 sɴɪᴘᴇʀ \u2550꧂ (12+). Fonts are free by comparison \u2014 swapping letters for bold or small caps adds zero characters \u2014 so the cheap upgrade path is: plain name \u2192 styled font \u2192 light frame, in that order.",
+          "The [nickname generator](/nickname-generator/) does all three layers at once and counts characters as you go, which is the fastest way to see what actually fits your target platform's field.",
+        ],
+      },
+      {
+        heading: "50 examples, grouped by look",
+        bullets: [
+          "Gamer frames: ꧁ACE꧂ \u00b7 ꧁\u1d85\u1d49\u1d50\u1d0f\u1d3f꧂ \u00b7 ꧁\u0280\u1d49\u1d05꧂ \u00b7 ꧁\u1d5c\u1d0f\u1d58\u1d48꧂ \u00b7 ꧁\u1d22\u1d07\u1d04꧂ \u00b7 ꧁\u0274\u1d0f\u1d20\u1d00꧂ \u00b7 ꧁\u0262\u029f\u1d00\u0280\u1d07꧂ \u00b7 ꧁\u1d0b\u026a\u0280\u026a\u1d1b\u1d0f꧂ \u00b7 \u0f3a sᴛᴏʀᴍ \u0f3b \u00b7 ꧁\u1d0d\u026as\u1d1b꧂",
+          "Clean small caps: \u1d04\u0280\u1d07\u1d21 ᴍᴀɪɴ \u00b7 \u1d18\u0280\u1d0f sɴɪᴘᴇ \u00b7 ʟᴏɴᴇ ᴡᴏʟꜰ \u00b7 ǫᴜɪᴇᴛ sᴛᴏʀᴍ \u00b7 ᴅᴀʀᴋ ᴍᴀᴛᴛᴇʀ \u00b7 ꜰɪɴᴀʟ ʟᴀᴘ \u00b7 ꜰɪʀsᴛ ʙʟᴏᴏᴅ \u00b7 ɴɪɢʜᴛ ᴏᴡʟ \u00b7 ɪʀᴏɴ ᴍᴏᴏɴ \u00b7 ꜱᴏꜰᴛ ʟᴀᴜɴᴄʜ",
+          "Bold with accent: ⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡ \u00b7 ♞ 𝐑𝐨𝐲𝐚𝐥 ♞ \u00b7 ✧ 𝐃𝐚𝐫𝐤 ✧ \u00b7 ★ 𝐀𝐜𝐞 ★ \u00b7 ❖ 𝐕𝐞𝐧𝐨𝐦 ❖ \u00b7 ⚡ 𝐒𝐭𝐨𝐫𝐦 ⚡ \u00b7 ✦ 𝐋𝐮𝐧𝐚 ✦ \u00b7 ♆ 𝐓𝐢𝐝𝐞 ♆ \u00b7 ⚔ 𝐈𝐫𝐨𝐧 ⚔ \u00b7 ✰ 𝐍𝐞𝐨𝐧 ✰",
+          "Soft and cute: ♡ milktea ♡ \u00b7 ୨୧ petal ୨୧ \u00b7 ✿ blossom ✿ \u00b7 ♡ softbaby ♡ \u00b7 ୨୧ mochi ୨୧ \u00b7 ✿ june ✿ \u00b7 ♡ cloudnine ♡ \u00b7 ୨୧ berry ୨୧ \u00b7 ✿ peachy ✿ \u00b7 ♡ lullaby ♡",
+          "Minimal one-word: ᴠᴏɪᴅ \u00b7 ᴀsʜᴇs \u00b7 ɴᴇʙᴜʟᴀ \u00b7 ᴅʀɪꜰᴛ \u00b7 ᴏɴʏx \u00b7 ᴇᴄʜᴏ \u00b7 ᴢᴇɴ \u00b7 ʀᴜꜱᴛ \u00b7 ꜰᴏɢ \u00b7 ᴀᴛʟᴀꜱ",
+        ],
+      },
+      {
+        heading: "The friend-test",
+        bullets: [
+          "Pronounceable beats clever: if a teammate cannot say it on voice chat, it is a screen name, not a nickname.",
+          "Two words maximum: the styled alphabet already adds visual noise; the base name should stay simple.",
+          "Search honesty: 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉 does not match a search for starlight \u2014 keep the @handle plain and a plain spelling somewhere findable.",
+          "Never impersonate: styling a pro player's or staff member's name reads as a violation even when the characters differ.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How long should a nickname be?",
+        a: "The sweet spot is 4\u201312 characters: short enough for every field (most games cap 6\u201316, TikTok ~24, Instagram ~30), long enough to be pronounceable. Decorations count toward every limit.",
+      },
+      {
+        q: "Are styled nicknames bad for being found?",
+        a: "Partly \u2014 search matches exact characters, so styled text breaks name search everywhere. Keep the @handle plain and drop a plain-text spelling in a bio line; the styled version is the display layer.",
+      },
+      {
+        q: "Why not just use a random generator?",
+        a: "Random output fails the friend-test \u2014 unpronounceable, unmemorable, replaceable. Formulas produce a base that is yours; the generator's job is the fonts, frames and limits around that base.",
+      },
+    ],
+    relatedTools: [
+      { href: "/nickname-generator/", title: "Nickname generator", description: "Frames + fonts with a live counter." },
+      { href: "/game-name-generator/", title: "Game name generator", description: "Whitelist-friendly styles for shooters." },
+      { href: "/fancy-numbers/", title: "Fancy numbers", description: "Styled digits for squad numbers." },
+    ],
+    appearOn: ["nickname-generator", "game-name-generator", "fancy-numbers"],
+  },
 ];
+
