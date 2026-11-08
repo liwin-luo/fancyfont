@@ -10,8 +10,8 @@ import {
 import { stripZalgo } from "@/lib/zalgo-clean";
 
 describe("text-styles 引擎", () => {
-  it("样式表完整:180 种样式,无重复 id", () => {
-    expect(textStyles).toHaveLength(180);
+  it("样式表完整:182 种样式,无重复 id", () => {
+    expect(textStyles).toHaveLength(182);
     const ids = textStyles.map((s) => s.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
@@ -47,6 +47,20 @@ describe("text-styles 引擎", () => {
 
   it("全角样式加宽字母与空格", () => {
     expect(convertText("a b", "fullwidth")).toBe("ａ\u3000ｂ");
+  });
+
+  it("罗马字片假名:基础音译与大小写、数字透传", () => {
+    expect(convertText("sakura", "katakanaRomaji")).toBe("サクラ");
+    expect(convertText("hello", "katakanaRomaji")).toBe("ヘルロ");
+    expect(convertText("konnichiwa", "katakanaRomaji")).toBe("コンニチワ");
+    expect(convertText("sakka", "katakanaRomaji")).toBe("サッカ");
+    expect(convertText("Sakura 123", "katakanaRomaji")).toBe("サクラ 123");
+  });
+
+  it("韩文字母风:形似 jamo 替换,大小写等效,数字标点透传", () => {
+    expect(convertText("sarang", "koreanJamo")).toBe("ㅅㅏㄹㅏㄴㄱ");
+    expect(convertText("SARANG", "koreanJamo")).toBe("ㅅㅏㄹㅏㄴㄱ");
+    expect(convertText("go 16!", "koreanJamo")).toBe("ㄱㅗ 16!");
   });
 
   it("倒立字:镜像并反转", () => {

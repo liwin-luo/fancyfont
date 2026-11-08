@@ -207,4 +207,109 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
       ],
     },
   },
+
+  "japanese-font-generator": {
+    en: {
+      navName: "Japanese",
+      h1: "Japanese Font Generator",
+      title: "Japanese Font Generator — Katakana & Vaporwave Text",
+      description:
+        "Type romaji, get katakana — sakura becomes サクラ — plus vaporwave fullwidth text for bios, usernames and Discord. Honest note: transliteration, not translation.",
+      intro: [
+        "Type a word in English letters and it comes out as katakana — sakura turns into サクラ, hello into ヘルロ — while the vaporwave row re-renders it as ｗｉｄｅ aesthetic text. Tap any card to copy.",
+        "Two honest notes before you paste: this is transliteration — it spells your word with Japanese sounds, it does not translate meaning — and real Japanese (kanji and all) needs a translator, not a font generator. Everything here is decoration-grade Unicode.",
+      ],
+      steps: [
+        "Type your word in romaji — English letters — in the box.",
+        "Compare the katakana row with the wide ｆｕｌｌｗｉｄｔｈ row and the rest of the aesthetic styles.",
+        "Tap the card you like — it copies instantly. Star favorites to keep a shortlist.",
+        "Paste it into your bio or profile and check every glyph drew — see the boundaries note below for games.",
+      ],
+      about: {
+        heading: "What this generator actually does — and what it doesn't",
+        paragraphs: [
+          "The katakana row spells your word syllable by syllable using the standard romaji-to-katakana chart: sa-ku-ra becomes サクラ, and doubled consonants pick up the small ッ (sakka → サッカ). Letters with no Japanese sound — q, x — pass through as themselves. The output is plain Unicode, so it pastes into any app that renders Japanese text.",
+          "Where it does not work: games with character whitelists often refuse katakana in names, and nothing here translates — ａｅｓｔｈｅｔｉｃ in katakana still just spells aesthetic. Use it for bios, display names and decorative captions; keep anything a Japanese speaker must actually read in real Japanese.",
+        ],
+      },
+      faq: [
+        {
+          q: "Is this real Japanese?",
+          a: "It is real katakana characters spelling your word phonetically — サクラ really reads sakura. What it is not: a translation. Your English sentence stays an English sentence, just written in Japanese sound-units.",
+        },
+        {
+          q: "Can a Japanese speaker read my katakana name?",
+          a: "Usually yes — they would pronounce it as your word. That also means it is not private or secret code; it is styling. Avoid spelling anything you would not say out loud.",
+        },
+        {
+          q: "Why do games refuse my katakana nickname?",
+          a: "Anti-impersonation whitelists only allow characters the game's font pack knows — many refuse kana entirely, with an invalid characters error. It is a save-block, not a ban: test in the actual field before committing.",
+        },
+        {
+          q: "What does this have to do with vaporwave text?",
+          a: "The ｗｉｄｅ fullwidth row is the vaporwave look — letters pulled from the same halfwidth/fullwidth Unicode block as halfwidth katakana, which is why aesthetic Japanese and ｗｉｄｅ text travel together. Both rows are on this page.",
+        },
+        {
+          q: "Can I use katakana in my Instagram @handle?",
+          a: "No — @handles allow plain letters, digits, periods and underscores only. Katakana works in your display name and bio; keep the handle plain so people can find and mention you.",
+        },
+        {
+          q: "Will サクラ show up on phones?",
+          a: "Yes — Japanese fonts ship on virtually every phone and computer, so katakana is among the safest styled text you can paste. Halfwidth decorations and rare small kana are the only spots older devices may miss.",
+        },
+      ],
+    },
+  },
+  "korean-font-generator": {
+    en: {
+      navName: "Korean",
+      h1: "Korean Font Generator",
+      title: "Korean Font Generator — Hangul-Style Text Copy & Paste",
+      description:
+        "Turn text into look-alike Korean letters — sarang becomes ㅅㅏㄹㅏㄴㄱ — for bios, nicknames and profiles. One-tap copy; honest note inside: decoration, not Korean.",
+      intro: [
+        "Type a word and each letter swaps for a similar-looking Hangul letter — sarang comes out ㅅㅏㄹㅏㄴㄱ, close enough to the real word 사랑 to fool the eye at a glance. Tap any card to copy.",
+        "The honest note, up front: these are Hangul letters chosen for shape, not sound — ㅅㅏㄹㅏㄴㄱ is not a Korean word and a Korean speaker cannot read it as one. It is decoration that borrows the alphabet's look, nothing more.",
+      ],
+      steps: [
+        "Type the word you want to Korean-ify in the box.",
+        "Compare the jamo row with small caps, circled and the other aesthetic styles.",
+        "Tap your favorite — it copies instantly. Star a few to compare later.",
+        "Paste where it's going and check it drew — the boundaries note below covers games and handles.",
+      ],
+      about: {
+        heading: "How the look-alike mapping works — and where it trips",
+        paragraphs: [
+          "Every letter maps to the Hangul Compatibility Jamo block by shape: B takes ㅂ because the curves match, M takes ㅁ because of the box, R takes ㄹ for the zigzag. A few letters share a look-alike — L and N both take ㄴ — because the Korean alphabet simply has fewer corner shapes than Latin. Spaces, digits and punctuation pass through untouched.",
+          "The result pastes anywhere Korean text renders, but two things trip: character whitelists in games often refuse jamo outright, and the spelling is shape-based, so it will not read as Korean words. Use it for bios, display names and aesthetic captions — not for anything a Korean speaker needs to read.",
+        ],
+      },
+      faq: [
+        {
+          q: "Is this real Korean?",
+          a: "No — and the page says so plainly. The letters are genuine Hangul jamo, but they are picked for shape, not sound, so the output is a look-alike pattern, not Korean words. For real Korean, use a translator or type Korean directly.",
+        },
+        {
+          q: "Can Korean speakers read my ㅅㅏㄹㅏㄴㄱ name?",
+          a: "Not as a word — ㅅㅏㄹㅏㄴㄱ is jamo spelled out letter by letter, while real Korean composes them into syllable blocks (사랑). They will recognize the style instantly and read nothing beyond the shapes.",
+        },
+        {
+          q: "Why do games refuse my Korean-style name?",
+          a: "Many games whitelist exactly which characters a name may contain, and jamo letters usually are not on the list — you get an invalid characters error at save. It is a save-block, not a ban: test before you commit.",
+        },
+        {
+          q: "Can I use these letters in my @handle?",
+          a: "No — handles on Instagram, TikTok and X allow plain Latin letters, digits, periods and underscores only. The jamo style belongs in display names and bios; keep your handle searchable.",
+        },
+        {
+          q: "Why do L and N turn into the same letter?",
+          a: "Both take ㄴ, the corner-shaped jamo — Hangul has fewer distinct shapes than the Latin alphabet, so two letters sometimes share one look-alike. The mapping on this page favors the closest shape over uniqueness.",
+        },
+        {
+          q: "Does ㅅㅏㄹㅏㄴㄱ render on phones?",
+          a: "Yes — Hangul ships on every modern phone and computer, and the compatibility jamo block is decades old. Like all styled text, paste a test first if the destination is anything permanent.",
+        },
+      ],
+    },
+  },
 };

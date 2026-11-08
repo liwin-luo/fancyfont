@@ -97,7 +97,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       { left: "｡ﾟ", right: "ﾟ｡", label: "haze" },
       { left: "♡", right: "♡", label: "retroSweet" },
     ],
-    related: ["cute-fonts", "decorated-nicknames", "small-fonts", "preppy-font-generator"],
+    related: ["cute-fonts", "japanese-font-generator", "decorated-nicknames", "small-fonts", "preppy-font-generator"],
   },
   {
     slug: "cute-fonts",
@@ -280,6 +280,26 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
     ],
     related: ["gothic-fonts", "cursive-fonts", "zalgo-text", "elegant-font-generator"],
   },
+  {
+    slug: "japanese-font-generator",
+    styleIds: ["katakanaRomaji", "fullwidth", "spaced", "smallCaps", "bubble", "circled", "monospace", "script", "sansBold", "italic"],
+    placeholder: { de: "Sakura", en: "Sakura", "zh-cn": "Sakura", es: "Sakura", "pt-br": "Sakura" },
+    wrapperRows: [
+      { left: "「", right: "」", label: "kagiBrackets" },
+      { left: "♡", right: "♡", label: "hearts" },
+    ],
+    related: ["korean-font-generator", "aesthetic-fonts", "bubble-fonts", "cute-fonts"],
+  },
+  {
+    slug: "korean-font-generator",
+    styleIds: ["koreanJamo", "smallCaps", "bold", "circled", "fullwidth", "spaced", "monospace", "bubble", "sansItalic", "script"],
+    placeholder: { de: "Sarang", en: "Sarang", "zh-cn": "Sarang", es: "Sarang", "pt-br": "Sarang" },
+    wrapperRows: [
+      { left: "✧", right: "✧", label: "sparkle" },
+      { left: "♡", right: "♡", label: "hearts" },
+    ],
+    related: ["japanese-font-generator", "nickname-generator", "aesthetic-fonts", "small-fonts"],
+  },
 ];
 
 // 按 slug 深合并:同一页面在多个语言文件里都有条目,浅展开会整键覆盖。
@@ -320,6 +340,8 @@ const STYLE_THEMES: Record<string, NonNullable<StylePageDef["theme"]>> = {
   "signature-font-generator": { band: "bg-pop-pink/10", motif: "script" },
   "nickname-generator": { band: "bg-pop-green/10", motif: "cute" },
   "medieval-fonts": { band: "bg-pop-orange/15", motif: "gothic" },
+  "japanese-font-generator": { band: "bg-pop-yellow/15", motif: "vapor" },
+  "korean-font-generator": { band: "bg-pop-green/15", motif: "cute" },
 };
 
 /** 页面生成器 = 精选样式置顶 + 其余全目录补齐:分类筛选下每类都有足量卡片。 */

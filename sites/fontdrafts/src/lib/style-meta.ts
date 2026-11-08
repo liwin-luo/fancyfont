@@ -24,6 +24,7 @@ const EN: StyleMetaStrings = {
   },
   names: {
     script: "Cursive", boldScript: "Bold cursive", fraktur: "Gothic", boldFraktur: "Bold gothic",
+    katakanaRomaji: "Katakana (Romaji)", koreanJamo: "Korean jamo (looks-like)",
     bold: "Bold", italic: "Italic", boldItalic: "Bold italic", sansBold: "Sans bold",
     sansItalic: "Sans italic", sansBoldItalic: "Sans bold italic", doubleStruck: "Outline", monospace: "Monospace",
     smallCaps: "Small caps", superscript: "Superscript", subscript: "Subscript",
@@ -202,6 +203,8 @@ const EN: StyleMetaStrings = {
     boldScript: "Mathematical Bold Script",
     fraktur: "Mathematical Fraktur",
     boldFraktur: "Mathematical Bold Fraktur",
+    katakanaRomaji: "Katakana",
+    koreanJamo: "Hangul Compatibility Jamo",
     bold: "Mathematical Bold",
     italic: "Mathematical Italic",
     boldItalic: "Mathematical Bold Italic",
@@ -391,6 +394,7 @@ const ZH: StyleMetaStrings = {
   },
   names: {
     script: "花体", boldScript: "粗花体", fraktur: "哥特体", boldFraktur: "粗哥特体",
+    katakanaRomaji: "罗马字片假名", koreanJamo: "韩文字母风",
     bold: "粗体", italic: "斜体", boldItalic: "粗斜体", sansBold: "无衬线粗体",
     sansItalic: "无衬线斜体", sansBoldItalic: "粗斜无衬线", doubleStruck: "空心体", monospace: "等宽体",
     smallCaps: "小型大写", superscript: "上标小字", subscript: "下标小字",
@@ -569,6 +573,8 @@ const ZH: StyleMetaStrings = {
     boldScript: "数学粗花体",
     fraktur: "数学哥特体",
     boldFraktur: "数学粗哥特体",
+    katakanaRomaji: "片假名",
+    koreanJamo: "韩文兼容字母",
     bold: "数学粗体",
     italic: "数学斜体",
     boldItalic: "数学粗斜体",
@@ -758,6 +764,7 @@ const ES: StyleMetaStrings = {
   },
   names: {
     script: "Cursiva", boldScript: "Cursiva negrita", fraktur: "Gótica", boldFraktur: "Gótica negrita",
+    katakanaRomaji: "Katakana (romaji)", koreanJamo: "Jamo coreano (decorativo)",
     bold: "Negrita", italic: "Itálica", boldItalic: "Negrita itálica", sansBold: "Sans negrita",
     sansItalic: "Sans itálica", sansBoldItalic: "Sans negrita itálica", doubleStruck: "Contorno", monospace: "Monoespaciada",
     smallCaps: "Versalitas", superscript: "Superíndice", subscript: "Subíndice",
@@ -945,6 +952,7 @@ const PT: StyleMetaStrings = {
   },
   names: {
     script: "Cursiva", boldScript: "Cursiva negrito", fraktur: "Gótica", boldFraktur: "Gótica negrito",
+    katakanaRomaji: "Katakana (romaji)", koreanJamo: "Jamo coreano (decorativo)",
     bold: "Negrito", italic: "Itálico", boldItalic: "Negrito itálico", sansBold: "Sans negrito",
     sansItalic: "Sans itálico", sansBoldItalic: "Sans negrito itálico", doubleStruck: "Contorno", monospace: "Monoespaçada",
     smallCaps: "Versalete", superscript: "Sobrescrito", subscript: "Subscrito",
@@ -1135,6 +1143,8 @@ const DE: StyleMetaStrings = {
     boldScript: "Fette Schreibschrift",
     fraktur: "Fraktur",
     boldFraktur: "Fette Fraktur",
+    katakanaRomaji: "Katakana (Romaji)",
+    koreanJamo: "Koreanische Jamo (ähnlich)",
     bold: "Fett",
     italic: "Kursiv",
     boldItalic: "Fett kursiv",

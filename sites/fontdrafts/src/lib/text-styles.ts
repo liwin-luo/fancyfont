@@ -186,7 +186,9 @@ export type TextStyleId =
   | "crossedUnderline"
   | "tildeUnder"
   | "dotBelow"
-  | "xAbove";
+  | "xAbove"
+  | "katakanaRomaji"
+  | "koreanJamo";
 
 export type StyleCategory =
   | "script"
@@ -308,6 +310,101 @@ function fromLetterMap(map: Record<string, string>) {
     return out;
   };
 }
+
+/** 多字符序列→替换文本的最长匹配扫描(罗马字→片假名这类"几个字母合一个字"的转换)。
+ *  键按长度降序尝试,大小写不敏感;未命中的字符原样保留,与引擎"范围外透传"约定一致。 */
+function fromSequenceMap(map: Record<string, string>) {
+  const keys = Object.keys(map).sort((a, b) => b.length - a.length);
+  return (text: string) => {
+    let out = "";
+    let i = 0;
+    while (i < text.length) {
+      let matched = false;
+      for (const key of keys) {
+        if (key.length > text.length - i) continue;
+        const slice = text.slice(i, i + key.length);
+        if (slice === key || slice.toLowerCase() === key) {
+          out += map[key];
+          i += key.length;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        out += text[i];
+        i += 1;
+      }
+    }
+    return out;
+  };
+}
+
+/** 拉丁→形似韩文字母(Hangul Compatibility Jamo, U+3131–U+318E)。
+ *  按形状相似原则映射;L 与 N 同取 ㄴ(韩文字母没有两个都贴近它们的独立形状),
+ *  韩语母语者读不出词——这是装饰,不是翻译。键用小写,fromLetterMap 自动兼容大小写。 */
+const KOREAN_JAMO_MAP: Record<string, string> = {
+  a: "ㅏ", b: "ㅂ", c: "ㅊ", d: "ㄷ", e: "ㅔ", f: "ㅍ", g: "ㄱ", h: "ㅎ", i: "ㅣ",
+  j: "ㅈ", k: "ㅋ", l: "ㄴ", m: "ㅁ", n: "ㄴ", o: "ㅗ", p: "ㅃ", q: "ㅇ", r: "ㄹ",
+  s: "ㅅ", t: "ㅌ", u: "ㅜ", v: "ㅝ", w: "ㅞ", x: "ㅄ", y: "ㅛ", z: "ㅉ",
+};
+
+/** 罗马字→片假名(装饰用音译表)。按 Hepburn 拼写收录,含浊音、拗音、促音;
+ *  没有对应音节的字母(q/x 等)原样保留——这不是翻译,是音译装饰。 */
+const KATAKANA_ROMAJI_MAP: Record<string, string> = (() => {
+  const map: Record<string, string> = {
+    a: "ア", i: "イ", u: "ウ", e: "エ", o: "オ",
+    ya: "ヤ", yi: "イ", yu: "ユ", ye: "イェ", yo: "ヨ",
+    wa: "ワ", wi: "ウィ", wu: "ウ", we: "ウェ", wo: "ヲ",
+    n: "ン", nn: "ン",
+    sha: "シャ", shi: "シ", shu: "シュ", sho: "ショ",
+    cha: "チャ", chi: "チ", chu: "チュ", cho: "チョ",
+    ja: "ジャ", ju: "ジュ", jo: "ジョ",
+    tsa: "ツァ", tsi: "ツィ", tse: "ツェ", tso: "ツォ",
+    fa: "ファ", fi: "フィ", fu: "フ", fe: "フェ", fo: "フォ",
+    va: "ヴァ", vi: "ヴィ", v: "ヴ", ve: "ヴェ", vo: "ヴォ",
+    r: "ル", l: "ル",
+    // 独立辅音(不接元音时):取该行 u 段或惯用音
+    k: "ク", g: "グ", s: "ス", z: "ズ", t: "ト", d: "ド", b: "ブ", p: "プ",
+    m: "ム", h: "フ", c: "ク", q: "ク", w: "ウ", y: "ユ", j: "ジ", x: "クス",
+    th: "ス", ts: "ツ",
+  };
+  const vowels = "aiueo";
+  const small: Record<string, string> = { a: "ャ", u: "ュ", o: "ョ" };
+  // 基本音节行:首字母 × 五段元音
+  const rows: Record<string, string> = {
+    k: "カキクケコ", g: "ガギグゲゴ", s: "サシスセソ", z: "ザジズゼゾ",
+    t: "タチツテト", d: "ダヂヅデド", n: "ナニヌネノ", h: "ハヒフヘホ",
+    b: "バビブベボ", p: "パピプペポ", m: "マミムメモ", r: "ラリルレロ",
+  };
+  // 拗音的附属辅音カナ(取各行 i 段)
+  const iKana: Record<string, string> = {
+    k: "キ", g: "ギ", s: "シ", z: "ジ", t: "チ", d: "ヂ", n: "ニ", h: "ヒ",
+    b: "ビ", p: "ピ", m: "ミ", r: "リ", v: "ヴィ",
+  };
+  for (const [c, kana] of Object.entries(rows)) {
+    for (let idx = 0; idx < vowels.length; idx++) {
+      map[c + vowels[idx]] = kana[idx];
+      map[c + c + vowels[idx]] = (c === "n" ? "ン" : "ッ") + kana[idx]; // 促音二连 sakka→サッカ;nni→ンニ
+    }
+    for (const [v, s] of Object.entries(small)) map[c + "y" + v] = kana[1] + s; // 拗音 kya→キャ
+  }
+  for (const [c, ik] of Object.entries(iKana)) {
+    if (rows[c]) continue;
+    for (const [v, s] of Object.entries(small)) map[c + "y" + v] = ik + s; // vya→ヴィャ
+  }
+  // 拼写别名:sya/tya/cya→シャ族、jya→ジャ族(与 shi/chi/ja 同音)
+  for (const [v, s] of Object.entries(small)) {
+    map["sy" + v] ??= "シ" + s;
+    map["ty" + v] ??= "チ" + s;
+    map["cy" + v] ??= "チ" + s;
+    map["jy" + v] ??= "ジ" + s;
+  }
+  // l 系与 r 系同音(la→ラ、lya→リャ…)
+  for (const key of Object.keys(map)) {
+    if (key.startsWith("r")) map["l" + key.slice(1)] ??= map[key];
+  }
+  return map;
+})();
 
 function compose(...steps: ((text: string) => string)[]) {
   return (text: string) => steps.reduce((acc, step) => step(acc), text);
@@ -740,6 +837,24 @@ export const textStyles: TextStyle[] = [
     category: "wide",
     coverage: "all",
     transform: spacedOut,
+  },
+  {
+    id: "katakanaRomaji",
+    name: "罗马字片假名",
+    aliases: ["japanese", "katakana", "日文风", "片假名", "aesthetic japanese"],
+    note: "把罗马字拼成片假名音译(sakura→サクラ),装饰用,不是真翻译。",
+    category: "wide",
+    coverage: "partial",
+    transform: fromSequenceMap(KATAKANA_ROMAJI_MAP),
+  },
+  {
+    id: "koreanJamo",
+    name: "韩文字母风",
+    aliases: ["korean", "hangul", "jamo", "韩文风", "谚文"],
+    note: "拉丁字母换成形状相似的韩文字母(sarang→ㅅㅏㄹㅏㄴㄱ),装饰用,读不出词。",
+    category: "wide",
+    coverage: "partial",
+    transform: fromLetterMap(KOREAN_JAMO_MAP),
   },
   {
     id: "upsideDown",
