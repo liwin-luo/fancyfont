@@ -1,0 +1,10 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:675px;overflow:hidden;background:#f6f1e7;font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif;color:#111;position:relative}
+.frame{position:absolute;inset:36px;border:3px solid #111;background:#fff;box-shadow:8px 8px 0 #111;border-radius:14px;padding:40px 48px}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#111 1.6px,transparent 1.6px);background-size:22px 22px;opacity:.08;pointer-events:none}
+.tag{display:inline-block;border:3px solid #111;border-radius:10px;padding:6px 18px;font-weight:900;font-size:20px;box-shadow:4px 4px 0 #111;background:#ffd23f;transform:rotate(-2deg)}
+.tile{display:flex;align-items:center;justify-content:center;border:3px solid #111;border-radius:14px;box-shadow:5px 5px 0 #111;font-weight:900}
+.g{display:flex;gap:28px}
+.check{color:#128a5e;font-weight:900}
+.warn{color:#c77800;font-weight:900}
+.no{color:#d43a5e;font-weight:900}
