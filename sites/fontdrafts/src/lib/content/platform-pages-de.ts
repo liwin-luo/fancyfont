@@ -137,6 +137,7 @@ export const platformPagesDe: Record<string, { de: PlatformPageCopy }> = {
         { label: "Name", value: "Ca. 50 Zeichen — Facebooks eigenes Feld zählt verbindlich" },
         { label: "Kurzbeschreibung", value: "Ca. 101 Zeichen, Fancy-Symbole zählen mit" },
         { label: "Namensrichtlinien", value: "Facebook verlangt einen echten Namen; Stile können abgelehnt werden" },
+        { label: "Zählung", value: "Manche Felder zählen einen stilisierten Buchstaben als mehrere Zeichen — Facebooks eigenes Feld ist verbindlich" },
       ],
       compat: [
         "Name: ausgefallene Zeichen funktionieren meist, werden aber strenger geprüft als woanders",
@@ -195,6 +196,7 @@ export const platformPagesDe: Record<string, { de: PlatformPageCopy }> = {
         { label: "Kanalname", value: "Ca. 100 Zeichen, Fancy-Zeichen zählen mit" },
         { label: "@Handle", value: "Ca. 30 Zeichen, nur Buchstaben/Ziffern/Punkte/Unterstriche/Bindestriche" },
         { label: "Kanalbeschreibung", value: "Ca. 1000 Zeichen — für Layout und schlichten Alias nutzbar" },
+        { label: "Zählung", value: "Manche Felder zählen einen stilisierten Buchstaben als mehrere Zeichen — YouTubes Zähler ist verbindlich" },
       ],
       compat: [
         "Kanalname: ausgefallene Zeichen voll unterstützt",
@@ -485,6 +487,7 @@ export const platformPagesDe: Record<string, { de: PlatformPageCopy }> = {
         { label: "Anzeigename", value: "Ca. 3–16 Zeichen — dem Epic-Einstellungsfeld vertrauen" },
         { label: "Namenswechsel", value: "Epic begrenzt Änderungen; vor dem Bestätigen prüfen" },
         { label: "Validierung", value: "Epic filtert Namen — exotische Zeichen können abgelehnt werden" },
+        { label: "Zählung", value: "Manche Felder zählen einen stilisierten Buchstaben als mehrere Zeichen — Epics Feld ist verbindlich" },
       ],
       compat: [
         "Anzeigename: gängige Rahmen ꧁꧂ ★彡彡★ meist akzeptiert",
@@ -543,6 +546,7 @@ export const platformPagesDe: Record<string, { de: PlatformPageCopy }> = {
         { label: "Spitzname", value: "Ca. 16 Zeichen je Version — dem In-Game-Zähler vertrauen" },
         { label: "Clan-Tag", value: "Meist 4–5 Zeichen, separat vor dem Namen" },
         { label: "Wechselkosten", value: "Umbenennungs-Token je nach Titel — vor dem Ausgeben prüfen" },
+        { label: "Zählung", value: "Manche Felder zählen einen stilisierten Buchstaben als mehrere Zeichen — das Spielfeld ist verbindlich" },
       ],
       compat: [
         "Die meisten Versionen akzeptieren gängige Rahmen ꧁꧂ ༺༻ ★彡彡★",

@@ -49,6 +49,18 @@ export const platformPagesEs: Record<string, { [L in Locale]?: PlatformPageCopy 
           q: "¿Un nombre con estilo afecta las menciones?",
           a: "No: las @menciones coinciden con el @usuario, que no cambia por un nombre visible estilizado.",
         },
+        {
+          q: "¿Los caracteres con estilo gastan antes mi límite de 30/150?",
+          a: "En general no: las letras en cursiva, negrita y fullwidth cuentan una cada una, igual que las letras ordinarias. Algunos símbolos pesados pueden contar con ancho visible 2, así que revisa el contador propio de IG después de pegar.",
+        },
+        {
+          q: "¿Las fuentes bonitas funcionan en Stories o Reels?",
+          a: "No como estilos de caracteres: el texto de Stories y Reels usa el menú de fuentes de la propia app, separado de lo que pegues. El Unicode con estilo va en tu Nombre y tu Bio; en Stories, elige entre los estilos integrados.",
+        },
+        {
+          q: "¿Esta herramienta de fuentes para Instagram es gratis?",
+          a: "Sí: gratis, sin registro y sin nada que instalar ni que conectar a tu cuenta. Copias los caracteres aquí y los pegas tú mismo en Instagram.",
+        },
       ],
     },
   },
@@ -94,6 +106,18 @@ export const platformPagesEs: Record<string, { [L in Locale]?: PlatformPageCopy 
         {
           q: "¿Por qué falló el guardado de mi nombre?",
           a: "TikTok valida los apodos con una lista de bloqueo; algunos símbolos exóticos la activan. Cambia el adorno por uno más seguro (♡ ★ 『』) y reintenta.",
+        },
+        {
+          q: "¿Por qué mi apodo se ve con cuadros en Androids antiguos?",
+          a: "Esos dispositivos no traen fuentes para los estilos más pesados: las marcas combinantes y las pilas raras fallan primero. La cursiva, la negrita y los marcos comunes (꧁꧂ ★ ♡) funcionan en la mayor variedad de teléfonos.",
+        },
+        {
+          q: "¿Los caracteres con estilo cuentan más para el límite del apodo o de la bio?",
+          a: "Normalmente uno cada uno, pero algunos símbolos pesados cuentan con ancho visible 2. Con solo unos 24 caracteres de nombre, vigila el contador de la pantalla de edición antes de guardar.",
+        },
+        {
+          q: "¿Cada cuánto puedo cambiar mi apodo de TikTok?",
+          a: "Los cambios de apodo tienen límite de frecuencia: un guardado fallido puede dejarte bloqueado un rato. Decide aquí primero, guarda dos candidatas con estrella y pega solo aquella en la que realmente confíes.",
         },
       ],
     },
@@ -141,6 +165,18 @@ export const platformPagesEs: Record<string, { [L in Locale]?: PlatformPageCopy 
           q: "¿Por qué mi nombre con estilo se ve con cuadros para algunos miembros?",
           a: "A las fuentes de su sistema les faltan esos glifos. Los marcos populares (꧁꧂ ★ ♡) son más seguros que las mezclas de cursiva exóticas.",
         },
+        {
+          q: "¿El texto con estilo cuenta distinto para los límites de Discord?",
+          a: "No: cada carácter cuenta normal, tanto para el límite de nombre de unos 32 caracteres como para el tope de 2000 por mensaje. Un par de marcos como ꧁꧂ cuesta apenas 2.",
+        },
+        {
+          q: "¿Está bien un nombre de Discord con estilo para los lectores de pantalla?",
+          a: "Los lectores de pantalla pueden deletrear 𝔡𝔞𝔯𝔨𝔦𝔤𝔥𝔱 letra por letra como «fraktur», y eso es ruido para quien escucha. Un nombre visible con estilo es decisión tuya; los mensajes que alguien necesite leer de verdad, mejor en texto plano.",
+        },
+        {
+          q: "¿Puedo tener un nombre con estilo distinto en cada servidor?",
+          a: "Sí: los apodos se definen por servidor, así que puedes ser 𝔡𝔞𝔯𝔨𝔦𝔤𝔥𝔱 en una comunidad y quedar plano en otra. El nombre visible de tu cuenta sigue siendo el que pusiste en Ajustes de usuario.",
+        },
       ],
     },
   },
@@ -186,6 +222,18 @@ export const platformPagesEs: Record<string, { [L in Locale]?: PlatformPageCopy 
         {
           q: "¿El formato integrado de WhatsApp entra en conflicto?",
           a: "No: *negrita* y _itálica_ son sintaxis alrededor de texto ordinario; los caracteres con estilo no interfieren con ellas.",
+        },
+        {
+          q: "¿Por qué mi nombre se ve con cuadros para algunos contactos?",
+          a: "A su teléfono le faltan las fuentes para esos glifos; los Android viejos son los culpables clásicos. Pregúntale a un contacto cómo se ve antes de decidirte, y ten guardada con estrella una versión más plana de respaldo.",
+        },
+        {
+          q: "¿Conviene usar un nombre con estilo en los grupos de trabajo?",
+          a: "Mejor no: tus compañeros te buscan y te guardan por nombre, y uno decorado se pierde con facilidad. Deja tu nombre real plano para el trabajo y reserva el estilo para tu Info o tus chats personales.",
+        },
+        {
+          q: "¿Los lectores de pantalla pueden leer nombres de WhatsApp con estilo?",
+          a: "Lo intentan, pero 𝓂𝒾𝓁𝓀 𝓉𝑒𝒶 puede salir como una lista de nombres de letras «script». Reserva el estilo para el nombre de perfil y la Info; los mensajes que deban entenderse, escríbelos en texto ordinario.",
         },
       ],
     },

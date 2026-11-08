@@ -50,6 +50,18 @@ export const platformPagesPtBr: Record<string, { [L in Locale]?: PlatformPageCop
           q: "Um nome estilizado atrapalha as marcações?",
           a: "Não — as @menções casam com o @usuário, que não muda quando o nome de exibição é estilizado.",
         },
+        {
+          q: "Caracteres estilizados gastam mais rápido os meus 30/150 caracteres?",
+          a: "Em geral não — letras em cursiva, negrito e fullwidth contam uma a uma, igual às letras comuns. Alguns símbolos pesados podem contar como largura de exibição 2, então confira o contador da própria IG depois de colar.",
+        },
+        {
+          q: "Fontes estilizadas funcionam em Stories ou Reels?",
+          a: "Não como estilos de caractere — o texto de Stories e Reels usa o menu de fontes do próprio Instagram, separado do que você cola. O Unicode estilizado pertence ao Nome e à Bio; nos Stories, escolha entre os estilos nativos.",
+        },
+        {
+          q: "Essa ferramenta de fontes para Instagram é grátis?",
+          a: "Sim — grátis, sem cadastro, e nada é instalado ou conectado à sua conta. Você copia os caracteres aqui e cola você mesmo no Instagram.",
+        },
       ],
     },
   },
@@ -95,6 +107,18 @@ export const platformPagesPtBr: Record<string, { [L in Locale]?: PlatformPageCop
         {
           q: "E nos grupos de família e de trabalho?",
           a: "Vale a mesma dica para todos os grupos: no trabalho, prefira o nome real com um toque leve (versalete ou moldura fina) para ser reconhecido de cara; guarde os visuais mais chamativos para os grupos de amigos.",
+        },
+        {
+          q: "Misturar caracteres estilizados com a formatação nativa dá conflito?",
+          a: "Não — *negrito* e _itálico_ são sintaxe em volta de texto comum, e os caracteres estilizados não interferem nela. Dá para combinar os dois na mesma mensagem sem problema.",
+        },
+        {
+          q: "Por que meu nome aparece como quadradinhos para alguns contatos?",
+          a: "O celular deles não tem as fontes para esses glifos — Androids antigos são os campeões. Pergunte a um contato como ficou antes de valer e mantenha uma versão mais simples favoritada como reserva.",
+        },
+        {
+          q: "Leitores de tela leem nomes estilizados do WhatsApp?",
+          a: "Eles tentam, mas 𝓂𝒾𝓁𝓀 𝓉𝑒𝒶 pode sair como uma lista de letras “cursivas”. Reserve os estilos para o nome do perfil e o recado; escreva mensagens que precisam ser entendidas em texto comum.",
         },
       ],
     },
@@ -142,6 +166,18 @@ export const platformPagesPtBr: Record<string, { [L in Locale]?: PlatformPageCop
           q: "Por que meu nome não salvou?",
           a: "O TikTok valida nicknames com uma lista de bloqueio, e alguns símbolos exóticos a ativam. Troque a decoração por uma mais segura (♡ ★ 『』) e tente de novo.",
         },
+        {
+          q: "Por que meu nickname aparece com quadradinhos em Androids antigos?",
+          a: "Esses aparelhos não têm fontes para os estilos mais pesados — marcas de combinação e pilhas raras falham primeiro. Cursiva, negrito e molduras comuns (꧁꧂ ★ ♡) sobrevivem na maior variedade de celulares.",
+        },
+        {
+          q: "Caracteres estilizados contam mais no limite do nickname ou da bio?",
+          a: "Normalmente um cada — mas alguns símbolos pesados contam como largura de exibição 2. Com cerca de 24 caracteres de nome, acompanhe o contador da tela de edição antes de salvar.",
+        },
+        {
+          q: "De quanto em quanto tempo posso trocar meu nickname no TikTok?",
+          a: "A edição de nickname tem limite de frequência, então um salvamento que falha pode te deixar esperando por um tempo. Decida aqui primeiro, favorite duas candidatas e cole só a que você mais confia.",
+        },
       ],
     },
   },
@@ -187,6 +223,18 @@ export const platformPagesPtBr: Record<string, { [L in Locale]?: PlatformPageCop
         {
           q: "Com que frequência posso trocar o nome de exibição?",
           a: "O Roblox limita a frequência das trocas de nome de exibição, então decida aqui primeiro e gaste uma tentativa na sua favorita.",
+        },
+        {
+          q: "Caracteres estilizados gastam os 20 caracteres do nome de exibição?",
+          a: "Sim — letras estilizadas contam uma a uma no limite de 3–20, igual às simples. Uma moldura como ⚡…⚡ adiciona 2, então planeje as decorações dentro do total.",
+        },
+        {
+          q: "Meus amigos continuam me encontrando com o nome de exibição estilizado?",
+          a: "Sim — a busca e os pedidos de amizade casam com o @usuário, que continua simples. O nome de exibição é só o que as pessoas veem; compartilhe o @usuário, não a versão estilizada.",
+        },
+        {
+          q: "Essa ferramenta pede meu login do Roblox?",
+          a: "Não — nunca pede credenciais e não se conecta a nada. Você gera e copia os nomes aqui e cola você mesmo na tela de configurações do Roblox.",
         },
       ],
     },

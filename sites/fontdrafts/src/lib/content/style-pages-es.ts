@@ -43,6 +43,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿El texto cursivo dificulta que me encuentren?",
           a: "Sí. Los caracteres estilizados no son letras comunes, así que buscar tu apodo tal cual puede fallar. Deja tu nombre real en caracteres normales en algún lado: la decoración es para lucir, no para buscar.",
         },
+        {
+          q: "¿El texto cursivo ocupa más caracteres en mi bio?",
+          a: "No: cada letra común se cambia por exactamente una letra cursiva, así que el largo queda idéntico. Lo que cabía antes en el campo, sigue cabiendo.",
+        },
+        {
+          q: "¿Los lectores de pantalla leen bien el texto cursivo?",
+          a: "No del todo: muchos lo anuncian letra por letra como «script matemática». Deja la cursiva para nombres y acentos cortos, y escribe en texto plano lo que deba leerse en voz alta.",
+        },
+        {
+          q: "¿El generador es gratis? ¿Necesito una cuenta o instalar una fuente?",
+          a: "Gratis, sin registro y sin nada que instalar: las letras cursivas son caracteres Unicode, no archivos de fuente. El estilo viaja dentro del propio texto copiado.",
+        },
       ],
     },
   },
@@ -82,6 +94,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
         {
           q: "¿Puedo usar caracteres en negrita en hashtags?",
           a: "Mejor no. Los hashtags coinciden con letras normales; un #Negrita estilizado no se indexa ni es clicable. Deja los hashtags en caracteres ordinarios.",
+        },
+        {
+          q: "¿Los lectores de pantalla manejan bien los caracteres en negrita?",
+          a: "Regular: pueden anunciar 𝗕 como «B matemática sans bold» en vez de solo B. Pon en negrita una o dos palabras como máximo, y deja en texto plano lo que deba leerse en voz alta.",
+        },
+        {
+          q: "¿Por qué las letras en negrita se ven como cuadros en algunos celulares?",
+          a: "A las fuentes del dispositivo que recibe le faltan los glifos del bloque matemático; es raro, pero pasa sobre todo en sistemas muy antiguos. Quien envía no puede arreglarlo: si ocurre, reenvía en texto plano.",
+        },
+        {
+          q: "¿La negrita sobrevive al pegar en Word o Google Docs?",
+          a: "Sí: la negrita vive en los propios caracteres, así que sobrevive a documentos, hojas de cálculo y correos. Incluso se mantiene en negrita donde el formato propio de la app se perdería.",
         },
       ],
     },
@@ -123,6 +147,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿Por qué algunas letras se ven distintas?",
           a: "Unicode solo trae glifos fraktur para parte del alfabeto; C, H, I, R y Z usan sustitutos decorativos. Todos los generadores producen el mismo resultado.",
         },
+        {
+          q: "¿El texto gótico ocupa más caracteres?",
+          a: "No: es un cambio de letra por letra, así que 𝔊𝔬𝔱𝔥𝔦𝔠 cuenta igual que «gothic». Los adornos como ☠ suman sus propios caracteres, uno cada uno.",
+        },
+        {
+          q: "¿El blackletter es legible para los lectores de pantalla?",
+          a: "No de forma natural: suelen anunciarlo como letras «fraktur» o «matemáticas». Deja la gótica para apodos y títulos; nunca la uses en una frase que alguien necesite escuchar.",
+        },
+        {
+          q: "¿Puedo agregar ☠ o ⚔ a un nombre gótico?",
+          a: "Sí: son símbolos Unicode ordinarios y combinan de forma natural con el blackletter. Ambos tienen muy buen soporte, aunque algunos dispositivos muy viejos pueden seguir mostrando cuadros.",
+        },
       ],
     },
   },
@@ -162,6 +198,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
         {
           q: "¿El texto pequeño es más difícil de leer?",
           a: "Las formas de letra son ordinarias; solo cambia el tamaño visual. Pero los lectores de pantalla pueden anunciar «superíndice» por cada carácter, así que evítalo para lo que deba leerse en voz alta.",
+        },
+        {
+          q: "¿Las versalitas cuentan igual en mi bio?",
+          a: "Sí: un carácter estilizado por cada letra ordinaria, así que el conteo no cambia. Las versalitas cambian el aspecto, no el largo.",
+        },
+        {
+          q: "¿Por qué las letras en superíndice se ven como cuadros en dispositivos viejos?",
+          a: "La tabla de superíndices es uno de los conjuntos más incompletos de Unicode, y a las fuentes viejas les falta buena parte. Si aparecen cuadros, pasa a versalitas: de los tres estilos es el de mejor cobertura.",
+        },
+        {
+          q: "¿Puedo escribir toda mi bio en versalitas?",
+          a: "Puedes: las versalitas van mejor para líneas completas que el superíndice o el subíndice. Pero una bio en un solo estilo uniforme pierde jerarquía; deja la línea principal normal y estiliza la segunda.",
         },
       ],
     },
@@ -203,6 +251,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿Por qué parece japonés?",
           a: "Las formas fullwidth pertenecen a la tradición tipográfica CJK, que el japonés usa mucho. Siguen siendo caracteres Unicode estándar, atados a ningún idioma.",
         },
+        {
+          q: "¿Los lectores de pantalla leen el texto fullwidth?",
+          a: "Normalmente sí, pero despacio: muchos anuncian cada letra como carácter «fullwidth». Va bien como acento de una palabra en la bio; no para lo que deba leerse en voz alta.",
+        },
+        {
+          q: "¿El texto fullwidth sigue funcionando en las búsquedas?",
+          a: "No: buscar «vaporwave» no encuentra ｖａｐｏｒｗａｖｅ, porque los caracteres son puntos de código distintos. Usa el fullwidth para líneas decorativas y deja en letras ordinarias lo que deba poder encontrarse.",
+        },
+        {
+          q: "¿Necesito descargar una fuente vaporwave?",
+          a: "No: las letras fullwidth son caracteres Unicode estándar, no archivos de fuente. No hay nada que instalar ni cuenta que crear; el aspecto viaja con el texto copiado.",
+        },
       ],
     },
   },
@@ -242,6 +302,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
         {
           q: "El símbolo del moño se ve como un cuadro, ¿qué hago?",
           a: "Ese dispositivo no tiene el glifo. Cambia a ♡ o ✿; las letras burbuja en sí son muy compatibles.",
+        },
+        {
+          q: "¿Los lectores de pantalla manejan bien un nombre tierno decorado?",
+          a: "Casi: ♡ y ✿ se anuncian como nombres cortos de símbolos, pero los marcos alrededor de cada palabra se vuelven ruido rápido. Decora el nombre, no las frases.",
+        },
+        {
+          q: "¿Por qué el ♡ a veces se dibuja a color, como un emoji?",
+          a: "Algunas plataformas le dan presentación de emoji a las formas de corazón y las pintan rojo. Depende del dispositivo, no de tu texto: si te molesta, ✿ o ✧ se mantienen en blanco y negro con más fiabilidad.",
+        },
+        {
+          q: "¿El generador tierno es gratis? ¿Hay que instalar algo?",
+          a: "Gratis, sin cuenta y sin nada que instalar. Las letras burbuja y circulares son caracteres Unicode, así que el estilo viaja copiado junto con el propio texto.",
         },
       ],
     },
@@ -283,6 +355,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿Las letras burbuja sirven para frases largas?",
           a: "No: los caracteres encerrados son visualmente densos y se vuelven ruido rápido. Palabras sueltas, números y palabras clave es la dosis correcta.",
         },
+        {
+          q: "¿Las letras circulares cuentan como dos caracteres?",
+          a: "Una cada una en la mayoría de los contadores, pero las letras encerradas son anchas: algunas plataformas cuentan el ancho visible como 2. Pega primero y mira el contador propio de la plataforma.",
+        },
+        {
+          q: "¿Los lectores de pantalla leen bien las letras burbuja?",
+          a: "No con fluidez: muchos anuncian ⓑ como «letra latina minúscula b en círculo». Va bien para un nombre visible; las frases y lo que deba leerse en voz alta, en letras planas.",
+        },
+        {
+          q: "¿Necesito instalar una fuente burbuja?",
+          a: "No: son caracteres Unicode, no archivos de fuente. Nada que instalar y sin cuenta necesaria; las burbujas viajan dentro del propio texto copiado.",
+        },
       ],
     },
   },
@@ -322,6 +406,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
         {
           q: "¿Puedo usar texto subrayado como nombre de juego?",
           a: "Depende del juego. La mayoría acepta signos combinantes; las validaciones antitrampas estrictas pueden rechazarlos. Prueba en el diálogo de cambio de nombre antes de gastar una tarjeta.",
+        },
+        {
+          q: "¿Los lectores de pantalla siguen leyendo el texto tachado?",
+          a: "Sí: las marcas combinantes no cambian los caracteres base, así que las palabras llegan completas. Eso sí, la broma del «tachado» se pierde para quien escucha; no confíes en la línea para transmitir significado.",
+        },
+        {
+          q: "¿Cómo quito un tachado más adelante?",
+          a: "Borra el texto y escríbelo de nuevo: las marcas son parte de los caracteres y nada puede desactivarlas. Una herramienta que elimine signos combinantes (como el limpiador de zalgo) también lo deshace.",
+        },
+        {
+          q: "¿Puedo tachar emojis también?",
+          a: "Sí: las marcas combinantes se apilan sobre cualquier carácter, emojis incluidos. El dibujo varía: algunas apps trazan la línea limpia, otras la desplazan o la omiten sobre el glifo del emoji.",
         },
       ],
     },
@@ -363,6 +459,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿Un ID de usuario en dígitos con estilo es buscable?",
           a: "No. La gente no puede escribir dígitos estilizados para encontrarte. Muestra tus datos de contacto en dígitos normales junto a cualquier versión decorada.",
         },
+        {
+          q: "¿Por qué los dígitos circulares se ven como cuadros en teléfonos viejos?",
+          a: "Las fuentes antiguas cubren bien la negrita simple y la monoespaciada, pero pierden las familias más raras, como burbujas y contornos rellenos. Cuando envíes a dispositivos desconocidos, empieza por arriba de la lista de confiabilidad: primero negrita, la burbuja al final.",
+        },
+        {
+          q: "¿Cómo manejan los lectores de pantalla los dígitos estilizados?",
+          a: "Pueden anunciar ① como «dígito uno en círculo» o saltarse el estilo por completo. Nunca los uses para algo que deba leerse en voz alta o marcarse: un año en un post va bien, una dirección no.",
+        },
+        {
+          q: "¿Este generador es gratis?",
+          a: "Sí: gratis, sin cuenta y sin nada que instalar. Los dígitos estilizados son caracteres Unicode ordinarios que copias como cualquier otro texto.",
+        },
       ],
     },
   },
@@ -403,6 +511,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
           q: "¿Cómo limpio un zalgo que alguien me mandó?",
           a: "Pega todo en el limpiador de esta página: quita cada signo combinante y selector de variación, deja solo los caracteres base, y todo se procesa localmente en tu navegador.",
         },
+        {
+          q: "¿Cuánto más largo se vuelve el texto zalgo?",
+          a: "Mucho: cada carácter carga de 2 a 8 marcas invisibles, así que una maldición fuerte puede triplicar el largo y reventar los contadores estrictos. El zalgo ligero cabe en un nombre de 30 caracteres; el fuerte rara vez lo hace.",
+        },
+        {
+          q: "¿El zalgo es legible para los lectores de pantalla?",
+          a: "Prácticamente no: recitan cada signo combinante y convierten un nombre en minutos de ruido. Es el estilo menos accesible del sitio; déjalo para textos cortos hechos para los ojos, no para los oídos.",
+        },
+        {
+          q: "¿Dónde puedo publicar texto zalgo sin problemas?",
+          a: "Bios, nombres visibles y comentarios: espacios cortos y decorativos. Los campos estrictos (accesos, @usuarios, formularios) rechazan las marcas o recortan la pila, y los juegos con filtros de nombres suelen rechazarlo de plano.",
+        },
       ],
     },
   },
@@ -442,6 +562,18 @@ export const stylePagesEs: Record<string, { [L in Locale]?: StylePageCopy }> = {
         {
           q: "¿Cómo lo leo de vuelta?",
           a: "Pégalo otra vez en el cuadro y voltéalo de nuevo: la transformación es su propia inversa.",
+        },
+        {
+          q: "¿Los lectores de pantalla entienden el texto al revés?",
+          a: "No: leen las letras en espejo tal como están escritas, lo que suena a galimatías, y la inversión desordena más el orden. Voltea solo líneas cortas y decorativas.",
+        },
+        {
+          q: "¿Por qué algunas letras quedaron derechas?",
+          a: "Algunos caracteres no tienen parecido al revés; la W es la famosa, así que se quedan como se escribieron. Es un hueco en la tabla de espejo de Unicode, no un error del generador.",
+        },
+        {
+          q: "¿Puedo usar texto al revés como nombre de usuario?",
+          a: "Los nombres visibles suelen aceptarlo; los @usuarios estrictos y los campos de acceso suelen rechazar los caracteres en espejo. Prueba primero en el campo real, y recuerda que nadie podrá escribirlo para buscarte.",
         },
       ],
     },
