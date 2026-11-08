@@ -14,7 +14,7 @@ export const contentPublished = "2026-11-07";
 export const contentUpdated = "2026-11-07";
 
 export const ogImagePath = "/og.png";
-export const ogImageAlt = "FancyFont — 花式字体生成器,复制即用的 Unicode 文字样式";
+export const ogImageAlt = "FancyFont — 182 Unicode text styles & 27 nickname frames, copy & paste";
 
 export function getSiteUrl(): string {
   return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://fancyfont.tools").replace(/\/+$/, "");

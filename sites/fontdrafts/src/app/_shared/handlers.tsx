@@ -25,12 +25,31 @@ export function slugParams(locale: Locale): { slug: string }[] {
   ];
 }
 
+/** 无 AI 插图页面的专属 OG 图(scripts/gen-og.sh 生成,其余页走全站默认 /og.png)。 */
+const OG_SPECIAL: Record<string, string> = {
+  "medieval-fonts": "/og-medieval.png",
+  "japanese-font-generator": "/og-japanese.png",
+  "korean-font-generator": "/og-korean.png",
+};
+
+function ogForPage(slug: string, art?: string): { ogImage?: string } {
+  const ogImage = art ?? OG_SPECIAL[slug];
+  return ogImage ? { ogImage } : {};
+}
+
 export async function slugMetadata(locale: Locale, slug: string) {
   const stylePage = getStylePageFor(slug, locale);
   if (stylePage) {
     const copy = stylePage.copy[locale]!;
     const siblings = stylePageLocales(stylePage);
-    return pageMetadata(locale, `/${slug}/`, { title: copy.title, description: copy.description }, siblings);
+    return pageMetadata(
+      locale,
+      `/${slug}/`,
+      { title: copy.title, description: copy.description },
+      siblings,
+      undefined,
+      ogForPage(slug, stylePage.theme?.art),
+    );
   }
   const platformPage = getPlatformPageFor(slug, locale);
   if (!platformPage) return {};
@@ -40,6 +59,8 @@ export async function slugMetadata(locale: Locale, slug: string) {
     `/${slug}/`,
     { title: copy.title, description: copy.description },
     platformPageLocales(platformPage),
+    undefined,
+    ogForPage(slug, platformPage.theme?.art),
   );
 }
 
@@ -135,6 +156,7 @@ export function guidePageMetadata(locale: Locale, slug: string) {
     },
     siblings,
     pathsByLocale,
+    guide.heroImage ? { ogImage: guide.heroImage.src } : undefined,
   );
 }
 

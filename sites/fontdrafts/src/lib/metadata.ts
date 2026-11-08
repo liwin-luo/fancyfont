@@ -13,6 +13,8 @@ export function pageMetadata(
   availableLocales: readonly Locale[] = ACTIVE_LOCALES,
   /** 逐语言的页面路径;指南类路径按语言不同(/learn/、/zh/zhinan/、/guia/)时传入。 */
   pathsByLocale?: Partial<Record<Locale, string>>,
+  /** 页面专属 OG 图(theme.art 的 AI 插图或 og-*.png);缺省用全站默认 /og.png。 */
+  options?: { ogImage?: string },
 ): Metadata {
   const siteUrl = getSiteUrl();
   const pathFor = (l: Locale) => pathsByLocale?.[l] ?? localePath(l, path);
@@ -23,6 +25,9 @@ export function pageMetadata(
   // x-default 指向可用语言里的英文版;英文不可用则退回默认语言。
   const fallback = availableLocales.includes(defaultLocale) ? defaultLocale : availableLocales[0];
   languages["x-default"] = `${siteUrl}${pathFor(fallback)}`;
+  // AI 插图为 1200×675,品牌 OG 图为 1200×630。
+  const ogImage = options?.ogImage ?? ogImagePath;
+  const ogHeight = ogImage.endsWith(".jpg") ? 675 : 630;
 
   return {
     title: meta.title,
@@ -36,13 +41,13 @@ export function pageMetadata(
       description: meta.description,
       url: pathFor(locale),
       siteName,
-      images: [{ url: ogImagePath, width: 1200, height: 630, alt: ogImageAlt }],
+      images: [{ url: ogImage, width: 1200, height: ogHeight, alt: ogImageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: [ogImagePath],
+      images: [ogImage],
     },
   };
 }
