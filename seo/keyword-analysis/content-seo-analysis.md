@@ -109,3 +109,36 @@
 7. linkedin bold 并入 bold 页平台段；vaporwave/wide-text 并入 aesthetic 页段
 
 > 方法论备注：覆盖率按 en 语料；`/learn/*` 目标计为已覆盖；`/styles/decorated-nicknames` 类旧路径目标按「页面是否存在对应 locale copy」复核（发现 A 即由此得出）。
+
+## 七、竞品深挖与埋词判定（2026-11-08 补充，P0 执行依据）
+
+### 7.1 SERP 占位（Bing 实测 + 存档交叉；fancy/free-fire 词以 Google KP 为准）
+- `nickname generator` 头部被**起名灵感站**占死：name-generator.org.uk、nickpick.io（自称 650k ideas）、miniwebtool、nickfinder…
+- **lingojam 的 StylishNameMaker 排第 5** → 证明「花体字体+名字」混合工具页能进头部
+- 判定：头词不正面打，主攻中尾（fancy name maker 500k+900% / stylish name generator / name font generator），页面内嵌灵感小节吃混合意图
+
+### 7.2 逐页信息增量 diff（7 对，线上实测 vs 竞品存档）
+| 页 | 词数 我们/竞品 | FAQ | 花体样本 | 我们独有 | 竞品独有 |
+|---|---|---|---|---|---|
+| cursive-fonts vs fontgenerator.art | 3968/1278 | 4/1 | 1315/2 | login说明、screen-reader、char-limits | — |
+| bold-fonts vs fontgen.cool | 4076/583 | 2/0 | 856/163 | favorites、copy、char-limits、live-preview | png/download、ads |
+| symbols vs piliapp | 2259/2692 | 2/0 | 5/11 | favorites、screen-reader、honest、preview、unicode | — |
+| instagram vs copyandpaste-fonts | 3448/1233 | 2/1 | 572/179 | favorites、copy、preview | 虚标数字(165+/10 styles) |
+| zalgo vs fontcraft | 3520/431 | 2/1 | 554/46 | copy、screen-reader、char-limits、honest | 虚标(401+ styles) |
+| fancy-numbers vs fontgen.cool | 3675/993 | 2/0 | 328/38 | screen-reader、char-limits、preview、unicode | ads |
+
+**结论：7 对全部我们信息量占优（2–8 倍词数、FAQ 全有 vs 基本无、样本行 15–650 倍）；竞品唯一多的是广告位与 PNG 导出（后者我们按诚实原则只在真有按钮的页提供）。新页必须维持同一标准——已执行（见 7.3）。**
+
+### 7.3 埋词判定表（博客 vs 工具页）
+| 词族 | 量 | 意图 | 埋哪 | 依据 |
+|---|---|---|---|---|
+| fancy name maker (500k,+900%) / stylish name generator / name font generator | 800k+ | 工具 | **工具页直埋** → 新页 `/nickname-generator/` | SERP 证明混合工具页可排名； KP YoY 上涨 |
+| nickname generator 头词 (2.5M) | 2.5M | 灵感为主 | 同页次词+正文灵感小节；不单独建博客 | 头词被 idea 站占死，混合定位吃双重意图 |
+| free fire nickname style / stylish nickname (en) | 1.0M+ | 工具 | **工具页直埋** → `/free-fire-name-generator/` en copy | 纯工具意图；en Free Fire 指南已有传递 |
+| fantasy/cute/character nickname ideas | 150k | 混合 | 页内灵感段；未来 ideas 博客再承接 | 意图混合度中等，先页内验证 |
+| bio / username / how-to | 199k | 信息 | 博客（已完成） | 传递机制已建成 |
+
+### 7.4 P0 执行结果（已上线验证）
+1. `/nickname-generator/` 新页：6 FAQ + 3 装饰行（新增 gamerFrame 标签 5 语种）+ 平台数字（IG~30/Roblox 3–20/Discord~32）+ 诚实边界 ✓ 200
+2. `/free-fire-name-generator/` en copy：6 FAQ + 4 limits（6–12 字段/diamonds/计数）✓ 200——**并解除旧迁移重定向**（next.config.ts:172，当年"无 EN 版"规则已过时），hreflang en/es/pt-BR/x-default 成簇 ✓
+3. `small-fonts` en title 去掉 "Super & Subscript"（让位 superscript 页）→ `Small Font Generator — Small Caps & Subtle Bio Text` ✓
