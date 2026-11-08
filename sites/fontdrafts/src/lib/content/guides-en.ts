@@ -674,4 +674,75 @@ export const guidesEn: GuideDef[] = [
     ],
     appearOn: ["game-name-generator", "pubg-name-generator", "fortnite-name-generator", "cod-name-generator", "discord-fonts"],
   },
+  {
+    locale: "en",
+    slug: "lingojam-alternatives",
+    navName: "LingoJam alternatives",
+    h1: "LingoJam Alternatives: Fancy Text Tools Compared Honestly",
+    title: "LingoJam Alternatives — Fancy Text Tools Compared",
+    description:
+      "LingoJam still works — but when it's down or too basic for you: honest alternatives compared, symbol libraries, IG-focused tools and live-preview generators.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "LingoJam has been the default answer to \"fancy text generator\" for a decade, and searches for it — and for alternatives to it — are still huge. This page is the honest version of that comparison: what LingoJam does well, where it falls short, and which tool fits which job, including our own.",
+      "One fact up front, because it shapes everything: every tool in this category does the same core trick — swapping letters for styled Unicode characters. The differences are in the workflow (live preview vs. translate-a-copy), the extras (symbols, blank characters, favorites) and how well the site holds up.",
+    ],
+    sections: [
+      {
+        heading: "Quick answer",
+        bullets: [
+          "LingoJam still works and is free: a two-box translator — paste left, get a styled list right. No sign-up, familiar, fine for a one-off copy.",
+          "Want to see your text rendered in many styles at once, with one-tap copy per card? That is what [our homepage generator](/) does — 180 letter & number styles plus 27 nickname frames, live as you type.",
+          "Need single symbols rather than styled words — hearts, stars, arrows, kaomoji? A symbol library beats a text generator: ours is [388 symbols](/symbols/) with click-to-copy.",
+          "Want an invisible name or empty bio line? That is a blank-character job, not a font job — see [blank space copy and paste](/blank-space/).",
+        ],
+      },
+      {
+        heading: "When LingoJam is the right pick",
+        paragraphs: [
+          "Credit where due: LingoJam is free, requires no account, and has outlived most of its contemporaries. Its translator layout is genuinely good for one job — rewriting the same sentence into several different styles at once, including translated-style output that no plain generator attempts.",
+          "If you know its URL, trust it, and just need a quick copy — there is nothing wrong with using it. Tools in this category are commodities; habit and uptime are legitimate reasons to stay.",
+        ],
+      },
+      {
+        heading: "When to reach for an alternative",
+        bullets: [
+          "Downtime and maintenance: it is a single long-running service, and when it is slow or unreachable there is no fallback on the same site. Every search for \"LingoJam alternative\" is someone hitting exactly this.",
+          "No live preview: the translator pattern means typing your text into a box and reading a flat list — you cannot watch the styles render as you type or tap-to-copy straight off a card.",
+          "Depth of toolkit: one generator page, no symbol library, no blank-character tool, no glitch cleaner — multi-step decorating means multiple sites.",
+          "Language: an English-only interface, while the underlying trick is language-independent — Spanish, Portuguese, Chinese and German users get a localized workflow elsewhere.",
+        ],
+      },
+      {
+        heading: "The wider landscape, honestly sorted",
+        bullets: [
+          "Instagram-branded generators (igfonts, instafonts and cousins): same Unicode swap, packaged for IG bio/name workflows. Convenient branding, same output characters.",
+          "Symbol libraries (coolsymbol and similar): the right tool for single characters and kaomoji, not for styling whole words.",
+          "Logo and image text makers (cooltext, fontmeme): a different intent entirely — they produce images, not copy-paste text. If your paste target is a bio field, they are the wrong category.",
+          "Font download sites (fontspace and friends): real font files for design software. Nothing there can be pasted into a nickname field — different job again.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is LingoJam down?",
+        a: "It has outages like any single-hosted service, but it has not shut down. If it will not load for you, try again later or use any generator that does the same character swap — the output text is identical technology.",
+      },
+      {
+        q: "Are fancy text generators safe to use?",
+        a: "The reputable ones, yes — they run the conversion in your browser and produce ordinary text. Pick tools that do not ask for login or app installs, and be skeptical of any \"generator\" that wants account access to your social profiles.",
+      },
+      {
+        q: "Do all these tools give the same result?",
+        a: "For the popular styles — bold, script, bubble, small caps — yes: they map to the same Unicode characters, so output is interchangeable. Toolkits differ in how many exotic styles they include and in what surrounds the generator (symbols, cleaners, guides).",
+      },
+    ],
+    relatedTools: [
+      { href: "/cursive-fonts/", title: "Cursive font generator", description: "Live-preview script styles, tap to copy." },
+      { href: "/symbols/", title: "Symbols copy and paste", description: "388 symbols — hearts, stars, wings, kaomoji." },
+      { href: "/blank-space/", title: "Blank space copy and paste", description: "Invisible characters for empty names and bios." },
+    ],
+    appearOn: [],
+  },
 ];
