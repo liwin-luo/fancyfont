@@ -363,7 +363,7 @@ export const guidesEn: GuideDef[] = [
     description:
       "Usernames, display names and bios follow three different rulebooks. Per-field and per-platform verdicts for IG, TikTok, Discord, WhatsApp, Roblox and shooters.",
     published: "2026-11-07",
-    updated: "2026-11-07",
+    updated: "2026-11-08",
     intro: [
       "The fastest way to waste a name change is pasting fancy text into the wrong field. Platforms split your identity into several fields — handle, display name, bio — and each one has its own rulebook for styled Unicode characters.",
       "This guide gives the per-field verdicts, then the per-platform verdicts, then one pattern that passes everywhere. No trial-and-error required.",
@@ -416,6 +416,16 @@ export const guidesEn: GuideDef[] = [
           "Before spending a rename card or a cooldown, [star two candidates in the generator](/game-name-generator/) and paste-test the first — if a whitelist refuses it, the backup is one paste away.",
         ],
       },
+      {
+        heading: "Aesthetic username formulas (handles included)",
+        bullets: [
+          "The twist: aesthetic usernames are NOT fancy Unicode \u2014 they are plain characters arranged well, which is exactly why they live in @handles that refuse styled text.",
+          "lowercase + dots: milk.tea \u00b7 soft.rain \u00b7 luna.jpg \u00b7 petal.wav \u00b7 mint.milk",
+          "lowercase + underscores: moon_base \u00b7 hazy_days \u00b7 june_bug \u00b7 late_nineties",
+          "word-pair recipes: soft noun + concrete noun (cloud.curtain), time + noun (3am.notes), place.jpg (rooftop.jpg)",
+          "keep it type-able: every character must exist on a keyboard \u2014 that is the whole trick",
+        ],
+      },
     ],
     faq: [
       {
@@ -429,6 +439,10 @@ export const guidesEn: GuideDef[] = [
       {
         q: "Do fancy characters risk a ban?",
         a: "No — they're ordinary text. The real violations are impersonation and filter evasion; validation failures just refuse the save.",
+      },
+      {
+        q: "What makes a username aesthetic?",
+        a: "Lowercase everything, dots or underscores as joints, and soft concrete nouns \u2014 milk.tea, luna.jpg, hazy_days. It reads as style precisely because every character is plain and keyboard-typeable.",
       },
     ],
     relatedTools: [
