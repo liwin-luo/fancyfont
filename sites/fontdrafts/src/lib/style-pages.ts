@@ -80,7 +80,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       { left: "☠", right: "☠", label: "skull" },
       { left: "⚔", right: "⚔", label: "blades" },
     ],
-    related: ["zalgo-text", "cursive-fonts", "upside-down-text", "dark-font-generator", "chicano-font-generator"],
+    related: ["zalgo-text", "cursive-fonts", "medieval-fonts", "dark-font-generator", "chicano-font-generator"],
   },
   {
     slug: "small-fonts",
@@ -270,6 +270,16 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
     ],
     related: ["cursive-fonts", "elegant-font-generator", "fancy-numbers", "cool-font-generator"],
   },
+  {
+    slug: "medieval-fonts",
+    styleIds: ["fraktur", "boldFraktur", "boldFrakturSpaced", "frakturUnderline", "frakturDoubleUnderline", "boldFrakturStrike", "frakturHalo", "frakturWavy", "frakturArrow", "frakturOverline"],
+    placeholder: { de: "Camelot", en: "Camelot", "zh-cn": "Camelot", es: "Camelot", "pt-br": "Camelot" },
+    wrapperRows: [
+      { left: "⚜", right: "⚜", label: "fleur" },
+      { left: "🗡", right: "🛡", label: "heraldry" },
+    ],
+    related: ["gothic-fonts", "cursive-fonts", "zalgo-text", "elegant-font-generator"],
+  },
 ];
 
 // 按 slug 深合并:同一页面在多个语言文件里都有条目,浅展开会整键覆盖。
@@ -309,6 +319,7 @@ const STYLE_THEMES: Record<string, NonNullable<StylePageDef["theme"]>> = {
   "superscript-subscript-generator": { band: "bg-pop-blue/15", motif: "small" },
   "signature-font-generator": { band: "bg-pop-pink/10", motif: "script" },
   "nickname-generator": { band: "bg-pop-green/10", motif: "cute" },
+  "medieval-fonts": { band: "bg-pop-orange/15", motif: "gothic" },
 };
 
 /** 页面生成器 = 精选样式置顶 + 其余全目录补齐:分类筛选下每类都有足量卡片。 */

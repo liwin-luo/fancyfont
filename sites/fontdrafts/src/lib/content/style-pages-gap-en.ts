@@ -72,6 +72,7 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
         paragraphs: [
           "The script looks are Unicode math-alphanumeric letters — the same technology as every cursive style on this site. Because they are plain characters, your signature travels with the text: it survives copy and paste into any app that renders Unicode, with nothing to install and nothing uploaded.",
           "What it cannot do is be legally yours: an e-mail sign-off in 𝓈𝒸𝓇𝒾𝓅𝓉 has no more legal weight than typed text. Real signatures — contracts, banks, deliveries — need ink or a proper e-signature service. For everything social and personal, a text signature is the quick middle ground.",
+          "No image export here, by design: this page produces characters, not pictures, so there is no PNG to download. If you want a copy you can keep, screenshot the card — or paste the signature into a document and use the browser's print → Save as PDF, which preserves the styling because it is text.",
         ],
       },
       faq: [
@@ -90,6 +91,14 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
         {
           q: "Will the signature work in my email client?",
           a: "Most modern clients render it fine in HTML mode. Plain-text mode and some corporate filters strip it back to normal letters — paste a test mail to yourself before relying on it.",
+        },
+        {
+          q: "Can I download my signature as a PNG or image?",
+          a: "No — the generator outputs styled characters, not images, so there is nothing to download. For a picture, screenshot the card you like; for anything printable, paste the signature into a document and print it to PDF — the style survives because it is text.",
+        },
+        {
+          q: "How do I save or print my signature for later?",
+          a: "Copy your favorite into a note or document and it keeps the look wherever Unicode renders. To file a reusable copy, screenshot it; to put it on paper, paste into any document and use print → Save as PDF — no image file needed.",
         },
       ],
     },
@@ -142,6 +151,58 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
         {
           q: "Will a styled nickname hurt my searchability?",
           a: "Yes, somewhat — 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉 does not match a search for starlight. Keep your @handle and one plain-text mention somewhere findable, and treat the styled nickname as the display layer.",
+        },
+      ],
+    },
+  },
+  "medieval-fonts": {
+    en: {
+      navName: "Medieval",
+      h1: "Medieval Font Generator",
+      title: "Medieval Font Generator (𝕮𝖔𝖕𝖞 𝖆𝖓𝖉 𝖕𝖆𝖘𝖙𝖊)",
+      description:
+        "Turn text into 𝖒𝖊𝖉𝖎𝖊𝖛𝖆𝖑 fonts — Fraktur and Old English styles for clan tags, guild names, D&D characters and bios. Free, no sign-up, copy in one tap.",
+      intro: [
+        "Type a word and watch it turn 𝕮𝖆𝖒𝖊𝖑𝖔𝖙 — blackletter lettering, the ornate fraktur look people call Old English. Every row below converts as you type, and tapping a card copies it instantly.",
+        "These styles fit clan tags, guild names, tabletop character sheets and gothic bios. One honest quirk: the regular Fraktur row borrows ℭ, ℌ, ℑ, ℜ, ℨ for C, H, I, R and Z — real letterlike symbols that read slightly differently. The bold row has no such substitutes.",
+      ],
+      steps: [
+        "Type your word — a clan tag, guild name or character name — in the box.",
+        "Compare the regular Fraktur row with the bold one and the decorated variants: underline, halo, wavy, arrows.",
+        "Tap the card you like — it copies instantly. Star a few to keep a shortlist.",
+        "Paste it where it's going and check every letter drew — read the boundaries note below before taking it into a game.",
+      ],
+      about: {
+        heading: "Where medieval fonts fit — and where they draw boxes",
+        paragraphs: [
+          "The lettering comes from the Mathematical Fraktur block: ornate capitals born for old math papers, adopted everywhere as the gothic, Old English look. Because the letters are plain Unicode characters, your text travels like any copy-and-paste font — nothing installs, nothing uploads, and the decorated variants just add combining marks around the same letters.",
+          "Where it does not work is inside game engines with fixed font packs: Minecraft chat, Roblox in-game text and most console UIs render 𝖌𝖔𝖙𝖍𝖎𝖈 as boxes, because the game ships its own alphabet. Use medieval styles around the games — platform bios, Discord names, clan tags on services that accept them — and test in the actual field before committing anywhere permanent.",
+        ],
+      },
+      faq: [
+        {
+          q: "Is this the same as your Gothic fonts page?",
+          a: "Related, not duplicates. The gothic page mixes blackletter with skulls, strikes and glitch for a dark aesthetic; this page stays inside the Fraktur family — regular, bold and its decorated variants — for the medieval, Old English look specifically.",
+        },
+        {
+          q: "Can I use medieval fonts inside Minecraft, Roblox or other games?",
+          a: "Inside the game, usually no — chat, nametags and menus use the engine's fixed font pack, so fraktur letters draw as boxes. Around the game it works: profile bios, Discord names, clan tags on platforms that accept Unicode.",
+        },
+        {
+          q: "Why do some letters look different in the regular Fraktur row?",
+          a: "Unicode defines proper blackletter shapes for only a few capitals — C, H, I, R and Z exist as the letterlike symbols ℭ ℌ ℑ ℜ ℨ, so the converter uses them. They carry the same gothic flavor with a slightly different skeleton; the bold Fraktur row needs no substitutes at all.",
+        },
+        {
+          q: "Which medieval style is boldest?",
+          a: "Bold Fraktur and its decorated variants (bold underline, bold strike) carry the most weight — start there for short clan tags. Regular Fraktur reads lighter and more manuscript-like; halo, wavy and arrow variants add ornament, not thickness.",
+        },
+        {
+          q: "Do medieval fonts work in Discord server names and channel names?",
+          a: "Server names behave like a display name and take styled characters. Channel names do not — Discord slugifies them to plain lowercase, so 𝖌𝖚𝖎𝖑𝖉-𝖍𝖆𝖑𝖑 becomes guild-hall regardless. Keep the lettering in the server name, nicknames and messages.",
+        },
+        {
+          q: "Will 𝕮𝖆𝖒𝖊𝖑𝖔𝖙 render on phones?",
+          a: "Modern iOS and Android ship fonts for the Fraktur blocks, so it draws on most phones you'll meet. Very old devices may miss some decorated variants — paste a test message before renaming anything permanent.",
         },
       ],
     },

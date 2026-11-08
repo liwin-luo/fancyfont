@@ -138,12 +138,15 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
         { label: "Display name", value: "About 32 characters" },
         { label: "Server nickname", value: "About 32 characters, set per server" },
         { label: "Messages", value: "2000 characters — styled text counts normally" },
+        { label: "Mobile & desktop apps", value: "Same rendering everywhere — very old clients may lack the newest glyphs" },
+        { label: "Server & channel names", value: "Server name takes styles; channel names get slugified to plain lowercase" },
       ],
       compat: [
         "Display name / server nickname: fancy characters fully supported",
         "Status: fancy characters work",
         "Messages: supported; heavy combining marks can wrap oddly",
         "Bots & mentions: match the plain handle — fancy text won't ping",
+        "Channel names: slugified to plain lowercase — styles only survive in server names, nicknames and messages",
       ],
       examples: ["𝔡𝔞𝔯𝔨𝔫𝔦𝔤𝔥𝔱", "⚡stormcaller⚡", "ᴍɪʀᴀɢᴇ", "꧁ACE꧂", "ⓜⓞⓞⓝⓒⓗⓘⓛⓓ"],
       steps: [
@@ -176,6 +179,18 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
         {
           q: "Can I have a different fancy name in each server?",
           a: "Yes — server nicknames are set per server, so you can be 𝔡𝔞𝔯𝔨𝔦𝔤𝔥𝔱 in one community and plain in another. Your account-level display name stays whatever you set in User Settings.",
+        },
+        {
+          q: "Which font style should I use in Discord?",
+          a: "Match the field. Display name and server nickname take bold, ornate styles (𝔡𝔞𝔯𝔨𝔦𝔤𝔥𝔱, ꧁ACE꧂) since you type them once and they read at a glance. Messages read best in light styles like small caps ᴍɪʀᴀɢᴇ — and skip zalgo or heavy combining marks in names: they wrap across lines and annoy readers.",
+        },
+        {
+          q: "Can I use fancy fonts in server names and channel names?",
+          a: "Server names accept styled characters just like a display name. Channel names do not — Discord slugifies them to plain lowercase (general-chat), so decoration there is wasted. Put the styles in the server name, your nickname and your messages.",
+        },
+        {
+          q: "Do these fonts work in threads and forum posts?",
+          a: "Yes — threads and forum posts render message text exactly like channels: styled characters display, mentions stay plain, and very heavy combining marks can wrap oddly on mobile. Everything above about messages applies there too.",
         },
       ],
     },
