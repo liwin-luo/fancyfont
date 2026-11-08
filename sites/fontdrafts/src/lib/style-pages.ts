@@ -259,6 +259,17 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
     placeholder: { de: "Dein Name", en: "Your Name", "zh-cn": "Your Name", es: "Tu nombre", "pt-br": "Seu nome" },
     related: ["cursive-fonts", "elegant-font-generator", "italic-text-generator", "decorated-nicknames"],
   },
+  {
+    slug: "nickname-generator",
+    styleIds: ["script", "boldScript", "smallCaps", "bold", "sansBold", "spaced", "bubble", "circled", "fullwidth", "italic"],
+    placeholder: { de: "Dein Nick", en: "YourNick", "zh-cn": "你的昵称", es: "TuNick", "pt-br": "SeuNick" },
+    wrapperRows: [
+      { left: "꧁", right: "꧂", label: "gamerFrame" },
+      { left: "♡", right: "♡", label: "hearts" },
+      { left: "『", right: "』", label: "softBrackets" },
+    ],
+    related: ["cursive-fonts", "elegant-font-generator", "fancy-numbers", "cool-font-generator"],
+  },
 ];
 
 // 按 slug 深合并:同一页面在多个语言文件里都有条目,浅展开会整键覆盖。
@@ -297,6 +308,7 @@ const STYLE_THEMES: Record<string, NonNullable<StylePageDef["theme"]>> = {
   // 缺口新页:暂无 AI 插图,仅配底色与图案。
   "superscript-subscript-generator": { band: "bg-pop-blue/15", motif: "small" },
   "signature-font-generator": { band: "bg-pop-pink/10", motif: "script" },
+  "nickname-generator": { band: "bg-pop-green/10", motif: "cute" },
 };
 
 /** 页面生成器 = 精选样式置顶 + 其余全目录补齐:分类筛选下每类都有足量卡片。 */

@@ -96,6 +96,7 @@ export interface UiStrings {
     retroSweet: string;
     flowers: string;
     bows: string;
+    gamerFrame: string;
   };
   sections: {
     steps: string;
@@ -239,6 +240,7 @@ const EN: UiStrings = {
     retroSweet: "Retro sweet",
     flowers: "Flowers",
     bows: "Bows",
+    gamerFrame: "Gamer frames",
   },
   sections: {
     steps: "How to use",
@@ -431,6 +433,7 @@ const ZH: UiStrings = {
     retroSweet: "复古甜",
     flowers: "小花",
     bows: "蝴蝶结",
+    gamerFrame: "电竞框",
   },
   sections: {
     steps: "使用步骤",
@@ -625,6 +628,7 @@ const ES: UiStrings = {
     retroSweet: "Dulce retro",
     flowers: "Flores",
     bows: "Moños",
+    gamerFrame: "Marcos gamer",
   },
   sections: {
     steps: "Cómo usarlo",
@@ -821,6 +825,7 @@ const PT: UiStrings = {
     retroSweet: "Doce retrô",
     flowers: "Flores",
     bows: "Laços",
+    gamerFrame: "Molduras gamer",
   },
   sections: {
     steps: "Como usar",
@@ -1017,6 +1022,7 @@ const DE: UiStrings = {
     retroSweet: "Retro Sweet",
     flowers: "Blumen",
     bows: "Schleifen",
+    gamerFrame: "Gamer-Rahmen",
   },
   sections: {
     steps: "So funktioniert’s",

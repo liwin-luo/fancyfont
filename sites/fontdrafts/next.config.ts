@@ -168,8 +168,8 @@ const nextConfig: NextConfig = {
     redirects.push({ source: "/es/gaming-name-generator", destination: "/es/free-fire-name-generator/", permanent: true });
     redirects.push({ source: "/pt-br/gaming-name-generator", destination: "/pt-br/free-fire-name-generator/", permanent: true });
     redirects.push({ source: "/zh-cn/gaming-name-generator", destination: "/zh/game-name-generator/", permanent: true });
-    // free-fire 没有 EN/zh 版:英文与旧 zh-cn 页指向游戏名页(伞页)。
-    redirects.push({ source: "/free-fire-name-generator", destination: "/game-name-generator/", permanent: true });
+    // free-fire 无 zh 版:旧 zh-cn 页指向 zh 游戏名页(伞页)。
+    // EN 版已于 2026-11 补齐(en copy),不再重定向,直接服务英文 Free Fire 查询。
     redirects.push({ source: "/zh-cn/free-fire-name-generator", destination: "/zh/game-name-generator/", permanent: true });
 
     return redirects;

@@ -108,4 +108,63 @@ export const platformPagesGapEn: Record<string, { [L in Locale]?: PlatformPageCo
       ],
     },
   },
+  "free-fire-name-generator": {
+    en: {
+      navName: "Free Fire",
+      h1: "Free Fire Name Generator",
+      title: "Free Fire Name Generator — Stylish Nickname Styles",
+      description:
+        "Stylish Free Fire nicknames — ꧁꧂ frames, fonts and symbols sized for the 6–12 field. Live preview, favorites, copy in one tap. Honest box-risk notes.",
+      platform: "Free Fire",
+      intro: [
+        "꧁ᴅᴇᴍᴏɴ꧂, ⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡, ᴄʀᴇᴡ ᴍᴀɪɴ — the Free Fire look is a short styled name inside a frame. Type your base name below and the cards are sized for the game's tight nickname field before you copy.",
+        "The field is short (about 6–12 characters) and renames usually cost diamonds, so build a shortlist here first. Free Fire renders the popular letter styles well; exotic symbols are the ones that risk boxes on some devices.",
+      ],
+      limits: [
+        { label: "Nickname", value: "About 6–12 characters — every decoration counts toward it" },
+        { label: "Rename cost", value: "Usually diamonds — preview here before spending" },
+        { label: "Clan tag", value: "Separate, shorter field — small caps fit better than frames" },
+        { label: "Counting", value: "Styled letters count as one; strike/zalgo add invisible marks" },
+      ],
+      compat: [
+        "Nickname: popular styles (script, bold, small caps) render in-game on nearly all devices",
+        "Exotic symbols: risk boxes on some phones — test on a teammate's screen first",
+        "Server/community Discord: styled Unicode works — the safest place for heavy frames",
+        "Clan tag: keep it plain small caps; frames eat the short budget",
+      ],
+      examples: ["꧁ᴅᴇᴍᴏɴ꧂", "⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡", "ᴄʀᴇᴡ ᴍᴀɪɴ", "꧁༺ sɴɪᴘᴇʀ ༻꧂", "✧ 𝐃𝐚𝐫𝐤 ✧", "ᴠᴏɪᴅ", "꧁ᴢᴇᴄ꧂"],
+      steps: [
+        "Type your base name and star 2–3 framed candidates.",
+        "Check the counter — the whole name, frame included, must fit the 6–12 field.",
+        "Open Free Fire → profile → nickname, paste the winner.",
+        "If it draws badly on your phone, paste the next candidate — don't spend diamonds twice.",
+      ],
+      faq: [
+        {
+          q: "Why does my styled name show boxes for some players?",
+          a: "Their device font lacks that glyph. The popular styles — script, bold, small caps, the ꧁꧂ frame — render on nearly everything; rare decorative symbols are where boxes come from.",
+        },
+        {
+          q: "Can a stylish name get my Free Fire account banned?",
+          a: "No — styled names are ordinary text characters, not a modification. What gets reported is impersonation or offensive wording; the styling itself is cosmetic.",
+        },
+        {
+          q: "How much does it cost to change my Free Fire name?",
+          a: "The rename usually costs diamonds via an in-game name-change item. Because it is a paid action, generate and compare several candidates here before you commit one.",
+        },
+        {
+          q: "Which characters does Free Fire actually allow?",
+          a: "Letters, digits and most common symbols; the field rejects nothing at input for ordinary Unicode, but the in-game font decides what draws. Frames ꧁꧂ and the popular styled alphabets are the safe picks.",
+        },
+        {
+          q: "How do pros make those ꧁꧂ names?",
+          a: "They assemble them: a base name, a frame from a generator, a symbol accent — exactly what the cards above produce. Nothing is hand-typed; it is copy and paste like here.",
+        },
+        {
+          q: "What about my clan tag?",
+          a: "It is a separate, shorter field. Keep it readable — small caps like ᴄʀᴇᴡ ᴍᴀɪɴ survive every device, while full frames rarely fit the tag budget.",
+        },
+      ],
+    },
+  },
 };

@@ -63,7 +63,7 @@ const SHARED: Omit<PlatformPageDef, "copy">[] = [
   { slug: "whatsapp-fonts", styleIds: { de: LATIN_STYLES, en: LATIN_STYLES, es: LATIN_STYLES, "pt-br": LATIN_STYLES } },
   { slug: "roblox-name-generator", styleIds: { de: GAME_STYLES, en: GAME_STYLES, "pt-br": GAME_STYLES } },
   { slug: "pubg-name-generator", styleIds: { en: GAME_STYLES } },
-  { slug: "free-fire-name-generator", styleIds: { es: GAME_STYLES, "pt-br": GAME_STYLES } },
+  { slug: "free-fire-name-generator", styleIds: { en: GAME_STYLES, es: GAME_STYLES, "pt-br": GAME_STYLES } },
   {
     slug: "game-name-generator",
     styleIds: { de: GAME_STYLES, en: GAME_STYLES, "zh-cn": GAME_STYLES, es: GAME_STYLES, "pt-br": GAME_STYLES },

@@ -165,7 +165,7 @@ export const stylePagesEn: Record<string, { [L in Locale]?: StylePageCopy }> = {
     en: {
       navName: "Small caps",
       h1: "Small Text Generator",
-      title: "Small Font Generator — Small Caps, Super & Subscript",
+      title: "Small Font Generator — Small Caps & Subtle Bio Text",
       description:
         "Quiet small caps, superscript and subscript for clean bios. Updates as you type, one tap to copy. Honest fancy-text coverage: a few capitals stay unchanged.",
       intro: [

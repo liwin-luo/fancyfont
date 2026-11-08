@@ -94,4 +94,56 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
       ],
     },
   },
+  "nickname-generator": {
+    en: {
+      navName: "Nicknames",
+      h1: "Nickname Generator",
+      title: "Nickname Generator — Fancy Name Maker & Fonts",
+      description:
+        "Fancy nicknames in one place: styled fonts, ꧁꧂ gamer frames and name ideas — Instagram ~30, Roblox 3–20, Discord ~32. Live preview, favorites, one-tap copy.",
+      intro: [
+        "Type a name once and watch it become 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉, ᴛʜᴇ ꧁ɢʀɪᴍ꧂ or ♡ ｍｉｌｋｔｅａ ♡ — styled fonts on top, gamer frames and symbol pairs layered underneath. Star your favorites, compare on one screen, copy the winner in one tap.",
+        "Two honest notes before you commit: platforms cap nicknames differently (Instagram ~30, TikTok ~24, Roblox 3–20, Discord ~32 — decorations count toward every one of them), and whitelisted games refuse exotic characters entirely. Build the shortlist here, test in the app, then rename.",
+      ],
+      steps: [
+        "Type the name or word you want to turn into a nickname.",
+        "Pick a font style, then add a ꧁꧂ frame or a ♡ pair from the decoration rows.",
+        "Star 2–3 candidates — the character counter keeps each one inside real platform limits.",
+        "Paste into the app, save one test post, and confirm every glyph drew before renaming.",
+      ],
+      about: {
+        heading: "Fonts, frames and ideas — what this page actually does",
+        paragraphs: [
+          "The font rows swap each letter for a styled Unicode character — script, bold, small caps, fullwidth — which is why the result pastes anywhere as plain text. The decoration rows wrap whatever you typed in ꧁꧂ gamer frames, ♡ hearts or 『』 brackets; every symbol counts as a character, so ꧁ACE꧂ costs 7, not 3.",
+          "As for ideas: the best nicknames are short, pronounceable and personal — a hobby, a mains' verb, an old gamer tag with the numbers dropped. Generate from a real word, not random syllables; random strings fail the friend-test (nobody can find or remember them), and styled text is already hard to search, so keep the base name simple.",
+        ],
+      },
+      faq: [
+        {
+          q: "Why do some games refuse my decorated nickname?",
+          a: "Anti-impersonation whitelists only allow known characters — exotic frames get refused with an “invalid characters” error. It's a save-block, not a ban: strip the decorations back to fonts or plain letters.",
+        },
+        {
+          q: "Do frames and symbols count toward the nickname limit?",
+          a: "Yes, every one: ꧁꧂ adds 2, ♡…♡ adds 2–6 depending on the pair. Keep the base name inside the platform cap minus decorations — the counter on this page shows the real length as you go.",
+        },
+        {
+          q: "Can I use the same nickname on Instagram, TikTok and Discord?",
+          a: "Usually, if you design for the smallest cap (~24 on TikTok) and keep @handles separate — handles are plain usernames and never accept styles. The display name and bio are where decorated nicknames live.",
+        },
+        {
+          q: "Why does my nickname show boxes on some devices?",
+          a: "Older devices and rare fonts lack glyphs for exotic symbols — the ꧁꧂ family and ♡ ♛ ✧ render almost everywhere; that is why this page features them. Test on a friend's phone before committing anywhere permanent.",
+        },
+        {
+          q: "Is the generator free — do I need an account?",
+          a: "Free, no account, nothing uploaded — the styles are Unicode characters converted locally in your browser, and favorites are saved on your device only.",
+        },
+        {
+          q: "Will a styled nickname hurt my searchability?",
+          a: "Yes, somewhat — 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉 does not match a search for starlight. Keep your @handle and one plain-text mention somewhere findable, and treat the styled nickname as the display layer.",
+        },
+      ],
+    },
+  },
 };
