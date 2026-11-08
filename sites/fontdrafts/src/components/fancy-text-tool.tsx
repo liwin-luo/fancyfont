@@ -87,7 +87,13 @@ export function FancyTextTool({
   const wantedAll = useMemo(() => {
     if (!showLatin) return [];
     const all = convertAll(input);
-    const scoped = styleIds.length > 0 ? all.filter((r) => styleIds.includes(r.id)) : all;
+    // 按页面 styleIds 顺序(精选置顶,fullCatalog 保证)而不是引擎目录顺序。
+    const scoped =
+      styleIds.length > 0
+        ? styleIds
+            .map((id) => all.find((r) => r.id === id))
+            .filter((r): r is (typeof all)[number] => Boolean(r))
+        : all;
     if (!queryLower) return scoped;
     // 搜索:引擎别名/名称/说明 + 本地化名称都参与匹配。
     return scoped.filter((r) => {
