@@ -9,11 +9,17 @@ const aiAgents = [
   "OAI-SearchBot",
   "ClaudeBot",
   "Claude-SearchBot",
+  "anthropic-ai",
   "PerplexityBot",
+  "Perplexity-User",
   "Google-Extended",
   "Applebot-Extended",
   "Amazonbot",
   "Bytespider",
+  "meta-externalagent",
+  "cohere-ai",
+  "YouBot",
+  "Diffbot",
 ];
 
 export default function robots(): MetadataRoute.Robots {
