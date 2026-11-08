@@ -284,4 +284,63 @@ export const platformPagesEs: Record<string, { [L in Locale]?: PlatformPageCopy 
       ],
     },
   },
+
+  "game-name-generator": {
+    es: {
+      navName: "Nombres gamer",
+      h1: "Generador de nombres para juegos",
+      title: "Nombres para juegos — generador con marcos y símbolos",
+      description:
+        "Nombres gamer con marcos ꧁꧂, estilos Unicode y símbolos para cualquier juego — el campo suele pedir unos 6–16 caracteres. Vista previa, copia con un toque.",
+      platform: "Juegos",
+      intro: [
+        "꧁ACE꧂, ♛ʀᴇʏ♛, 𝗦𝗧𝗢𝗥𝗠 — la gramática universal del nick gamer, igual en shooters, MOBA y gacha. Escribe tu nombre, elige un estilo y cópialo en la pantalla de cambio de nombre.",
+        "El soporte varía por juego: la mayoría acepta los marcos comunes y las whitelist rechazan los exóticos. Cambiar de nombre suele costar monedas o tarjetas — guarda candidatas aquí antes de gastar.",
+      ],
+      limits: [
+        { label: "Nick típico", value: "Unos 6–16 caracteres según el juego — manda el contador del juego" },
+        { label: "Costo de cambio", value: "Tarjetas o moneda en la mayoría; prueba aquí antes de gastar" },
+        { label: "Validación", value: "Whitelist en algunos títulos; el rechazo avisa «caracteres no válidos»" },
+      ],
+      compat: [
+        "Shooters y MOBA: marcos comunes ꧁꧂ ༺༻ ★彡彡★ casi siempre aceptados",
+        "Juegos anime: los símbolos pasan, pero los marcos suaves combinan mejor con el arte",
+        "Cuentas de competición: solo letras y dígitos planos, por regla de torneo",
+        "Búsqueda de amigos: los IDs estilizados cuestan hallar — comparte el código de jugador",
+      ],
+      examples: ["꧁ᴀᴄᴇ꧂", "♛ʀᴇʏ♛", "𝗦𝗡𝗜𝗣𝗘𝗥", "⚡ᴛᴏʀʙᴇɴ⚡", "꧔꧇1v5꧇꧕"],
+      steps: [
+        "Escribe tu nombre de juego y guarda 2–3 candidatas con estrella.",
+        "Abre la pantalla de cambio de nombre y pega la primera.",
+        "Si el filtro la rechaza, prueba la siguiente — no discutas con la whitelist.",
+        "Pide a un compañero que confirme cómo se ve tu ID en la lista.",
+      ],
+      faq: [
+        {
+          q: "¿Por qué algunos juegos rechazan nombres con estilo?",
+          a: "Los filtros anti-suplantación usan whitelist de caracteres permitidos; todo lo demás se rechaza. Es un bloqueo de guardado, no un baneo — cambia a caracteres planos.",
+        },
+        {
+          q: "¿Un nombre con estilo puede parecerse al de un admin y causar problemas?",
+          a: "Suplantar a administradores o moderadores es una infracción por sí misma — los caracteres estilizados no te protegen. Nunca decores un nombre para que parezca oficial.",
+        },
+        {
+          q: "Un nombre para muchos juegos — ¿cómo lo elijo?",
+          a: "Diséñalo para el juego más estricto que juegues (límite más corto, whitelist más dura); en los demás entrará solo.",
+        },
+        {
+          q: "¿Los adornos cuentan dentro del límite de 6–16 caracteres?",
+          a: "Sí — cada símbolo es un carácter, así que ꧁ACE꧂ cuesta 7, no 3. Primero arma el nombre base y añade marco solo si el contador del juego tiene espacio.",
+        },
+        {
+          q: "¿El generador es gratis? ¿Necesito cuenta?",
+          a: "Gratis, sin cuenta y sin instalar nada — los nombres con estilo son caracteres Unicode que copias y pegas tú mismo. Lo único que cuesta dinero queda dentro del juego, como las tarjetas de cambio de nombre.",
+        },
+        {
+          q: "¿Qué estilos quedan bien en juegos anime o bonitos?",
+          a: "Marcos suaves — ♡nombre♡, ✿nombre✿, versalitas — combinan mejor con ese arte que las pilas pesadas de shooter. Validan igual que cualquier otro carácter; la diferencia es puramente estética.",
+        },
+      ],
+    },
+  },
 };

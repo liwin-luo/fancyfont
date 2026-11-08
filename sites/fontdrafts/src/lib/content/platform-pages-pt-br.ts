@@ -285,4 +285,63 @@ export const platformPagesPtBr: Record<string, { [L in Locale]?: PlatformPageCop
       ],
     },
   },
+
+  "game-name-generator": {
+    "pt-br": {
+      navName: "Nomes para jogos",
+      h1: "Gerador de nomes para jogos",
+      title: "Nomes para jogos — gerador com molduras e símbolos",
+      description:
+        "Nicks gamer com molduras ꧁꧂, estilos Unicode e símbolos para qualquer jogo — o campo costuma pedir de 6 a 16 caracteres. Prévia ao digitar, cópia em um toque.",
+      platform: "Jogos",
+      intro: [
+        "꧁ACE꧂, ♛ʀᴇʏ♛, 𝗦𝗧𝗢𝗥𝗠 — a gramática universal do nick gamer, igual em shooters, MOBAs e gacha. Digite seu nome, escolha um estilo e copie na tela de troca de nome.",
+        "O suporte varia por jogo: a maioria aceita molduras comuns e as whitelists recusam as exóticas. Trocar de nome costuma custar moedas ou cartas — salve candidatas aqui antes de gastar.",
+      ],
+      limits: [
+        { label: "Nick típico", value: "De 6 a 16 caracteres por jogo — o contador do jogo manda" },
+        { label: "Custo da troca", value: "Cartas ou moeda na maioria; teste aqui antes de gastar" },
+        { label: "Validação", value: "Whitelist em alguns títulos; a recusa avisa «caracteres inválidos»" },
+      ],
+      compat: [
+        "Shooters e MOBAs: molduras comuns ꧁꧂ ༺༻ ★彡彡★ quase sempre aceitas",
+        "Jogos de anime: os símbolos passam, mas molduras suaves combinam melhor com a arte",
+        "Contas de competição: só letras e números simples, por regra de torneio",
+        "Busca de amigos: IDs estilizados são difíceis de achar — compartilhe o código de jogador",
+      ],
+      examples: ["꧁ᴀᴄᴇ꧂", "♛ʀᴇʏ♛", "𝗦𝗡𝗜𝗣𝗘𝗥", "⚡ᴛᴏʀʙᴇɴ⚡", "꧔꧇1v5꧇꧕"],
+      steps: [
+        "Digite seu nome de jogo e favorite 2–3 candidatas.",
+        "Abra a tela de troca de nome e cole a primeira.",
+        "Se o filtro recusar, teste a próxima — não brigue com a whitelist.",
+        "Peça para um companheiro conferir como seu ID aparece na lista.",
+      ],
+      faq: [
+        {
+          q: "Por que alguns jogos recusam nomes estilizados?",
+          a: "Filtros anti-personificação usam whitelist de caracteres permitidos; todo o resto é recusado. É uma trava de salvamento, não um ban — volte a caracteres simples.",
+        },
+        {
+          q: "Um nome estilizado pode parecer de admin e dar problema?",
+          a: "Personificar administradores ou moderadores é infração por si só — os caracteres estilizados não te protegem. Nunca decore um nome para parecer oficial.",
+        },
+        {
+          q: "Um nome para muitos jogos — como escolher?",
+          a: "Desenhe para o jogo mais rigoroso que você joga (limite mais curto, whitelist mais dura); nos outros ele entra automaticamente.",
+        },
+        {
+          q: "Os enfeites contam no limite de 6–16 caracteres?",
+          a: "Sim — cada símbolo é um caractere, então ꧁ACE꧂ custa 7, não 3. Monte o nome base primeiro e só acrescente moldura se o contador do jogo tiver espaço.",
+        },
+        {
+          q: "O gerador é grátis? Preciso de conta?",
+          a: "Grátis, sem conta e sem instalar nada — nomes estilizados são caracteres Unicode que você mesmo copia e cola. O que custa dinheiro fica dentro do jogo, como as cartas de troca de nome.",
+        },
+        {
+          q: "Quais estilos combinam com jogos de anime ou fofos?",
+          a: "Molduras suaves — ♡nome♡, ✿nome✿, versalete — combinam melhor com essa arte do que as pilhas pesadas de shooter. Validam igual a qualquer outro caractere; a diferença é puramente estética.",
+        },
+      ],
+    },
+  },
 };
