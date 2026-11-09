@@ -1,9 +1,7 @@
-import { ContactPageTemplate } from "@/components/page-templates/about-contact";
-import { contactContent } from "@/lib/content/page-about-contact";
-import { pageMetadata } from "@/lib/metadata";
+import { LegalPage, legalMetadata } from "@/app/_shared/handlers";
 
-export const metadata = pageMetadata("es", "/contact/", contactContent["es"].meta);
+export const metadata = legalMetadata("es", "contact");
 
 export default function Page() {
-  return <ContactPageTemplate locale="es" />;
+  return <LegalPage locale="es" kind="contact" />;
 }

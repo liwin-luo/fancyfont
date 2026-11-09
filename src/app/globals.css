@@ -1,41 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand — Lavender Pixel */
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede9fe;
-  --color-brand-200: #ddd6fe;
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #6d28d9;
-  --color-brand-700: #5b21b6;
-  --color-brand-800: #4c1d95;
-  --color-brand-900: #2e1065;
+  /* 新粗野波普:米纸底 + 墨黑描边 + 高饱和色块 + 硬偏移阴影 */
+  --color-paper: #f6f1e7;
+  --color-ink: #111111;
+  --color-ink-soft: #3d3a34;
 
-  --color-ink-900: #181526;
-  --color-ink-700: #38334a;
-  --color-ink-600: #5f5a70;
-  --color-ink-500: #6e6880;
+  --color-pop-pink: #ff5d8f;
+  --color-pop-yellow: #ffd23f;
+  --color-pop-blue: #4d96ff;
+  --color-pop-green: #2ebd85;
+  --color-pop-orange: #ff8a00;
+  --color-pop-purple: #9b5de5;
 
-  --color-page: #faf9ff;
   --color-surface: #ffffff;
-  --color-line: #e7e3f0;
 
-  --color-success: #15803d;
-  --color-success-bg: #dcfce7;
-  --color-warning: #92400e;
-  --color-warning-bg: #fef3c7;
-  --color-danger: #b91c1c;
-  --color-danger-bg: #fee2e2;
+  --radius-control: 8px;
+  --radius-card: 12px;
 
-  --color-pixel-lime: #a3e635;
-  --color-pixel-pink: #f9a8d4;
-  --color-pixel-blue: #93c5fd;
-
-  --radius-control: 12px;
-  --radius-card: 16px;
-  --radius-panel: 20px;
+  --shadow-pop: 3px 3px 0 0 var(--color-ink);
+  --shadow-pop-lg: 5px 5px 0 0 var(--color-ink);
+  --shadow-pop-sm: 2px 2px 0 0 var(--color-ink);
 }
 
 @layer base {
@@ -43,75 +28,63 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Long Unicode results must wrap instead of stretching the layout. */
+  /* 长 Unicode 结果必须换行,不能撑破布局。 */
   .result-text {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 
-  .sample-name-in {
-    animation: sample-name-in 280ms ease;
+  ::selection {
+    background-color: var(--color-pop-yellow);
+    color: var(--color-ink);
   }
 
-  .pixel-float {
-    animation: pixel-float 4.5s ease-in-out infinite alternate;
+  /* 信息条跑马灯:第二份文本接在第一份后面无限滚动 */
+  .ticker-move {
+    animation: ticker-scroll 30s linear infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sample-name-in,
-    .pixel-float {
+    .ticker-move {
       animation: none;
     }
   }
 
-  @keyframes sample-name-in {
+  @keyframes ticker-scroll {
     from {
-      opacity: 0;
+      transform: translateX(0);
     }
     to {
-      opacity: 1;
+      transform: translateX(-50%);
     }
   }
 
-  @keyframes pixel-float {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-7px);
-    }
+  /* 细滚动条配合硬边风格 */
+  .pop-scroll::-webkit-scrollbar {
+    height: 8px;
   }
-
-  @keyframes locale-suggest-bar {
-    from {
-      transform: scaleX(1);
-    }
-    to {
-      transform: scaleX(0);
-    }
-  }
-
-  ::selection {
-    background-color: var(--color-brand-100);
-    color: var(--color-brand-900);
+  .pop-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-ink);
+    border-radius: 4px;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:cursor-not-allowed disabled:opacity-50;
+  .btn-pop {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-lg border-2 border-ink bg-pop-yellow px-5 text-sm font-bold text-ink shadow-pop transition-all duration-100 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-pop-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-not-allowed disabled:opacity-50;
   }
 
-  .btn-secondary {
-    @apply inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-line bg-white px-5 text-sm font-semibold text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+  .btn-pop-secondary {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-lg border-2 border-ink bg-surface px-5 text-sm font-bold text-ink shadow-pop-sm transition-all duration-100 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink;
   }
 
-  .card {
-    @apply rounded-2xl border border-line bg-surface;
+  .card-pop {
+    @apply rounded-xl border-2 border-ink bg-surface shadow-pop;
   }
 
-  .text-input {
-    @apply h-12 w-full rounded-xl border border-line bg-white px-4 text-base text-ink-900 transition-colors outline-none placeholder:text-ink-500/70 focus:border-brand-400 focus:ring-2 focus:ring-brand-200;
+  /* 贴纸徽章:轻微旋转的高饱和标签 */
+  .sticker {
+    @apply inline-block rounded-lg border-2 border-ink px-3 py-1 text-sm font-black shadow-pop-sm;
   }
 
   .skip-link {
@@ -119,22 +92,6 @@
   }
 
   .skip-link:focus {
-    @apply not-sr-only fixed top-3 left-3 z-50 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white;
-  }
-
-  .platform-preview-dialog {
-    margin: auto;
-    width: min(680px, calc(100vw - 1.5rem));
-    max-height: min(92vh, 920px);
-    overflow: auto;
-    padding: 0;
-    border: none;
-    border-radius: 16px;
-    background: #fff;
-    color: #181526;
-  }
-
-  .platform-preview-dialog::backdrop {
-    background: rgb(24 21 38 / 0.62);
+    @apply not-sr-only fixed top-3 left-3 z-50 rounded-lg border-2 border-ink bg-pop-yellow px-4 py-2 text-sm font-bold text-ink shadow-pop;
   }
 }

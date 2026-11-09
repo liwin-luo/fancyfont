@@ -1,569 +1,911 @@
-// English copy for the /learn/ guides. Sources for every limit and claim:
-// seo/产品事实底稿.md and the platform pages' own FAQ wording. Sample outputs
-// were generated from src/lib/text-styles.ts (convertText), not typed by hand.
-// The style-risk table is computed from the engine at build time
-// (src/lib/style-risk.ts), so it can never drift from what the tool does.
+// English guides: 6 condensed guides for the international audience.
+// Platform limits use "about" wording; the platform's own counter rules.
 
-import type { GuideDef } from "@/lib/guides";
-import { digitsText, styleRiskRows, styleRiskSummary } from "@/lib/style-risk";
-import { decorationCostRows } from "@/lib/nickname";
+import type { GuideDef } from "../guides";
 
-const risk = styleRiskSummary();
-
-const STYLE_RISK_TABLE = {
-  head: ["Style", "Each letter becomes", "Digits", "Notes"],
-  rows: styleRiskRows().map((row) => [
-    row.name,
-    row.stacking,
-    digitsText(row.digitsStyledCount),
-    row.note ?? "—",
-  ]),
-};
-
-const DECORATION_ROWS = decorationCostRows();
-const decorationCostCounts = DECORATION_ROWS.reduce<Record<number, number>>((acc, row) => {
-  acc[row.cost] = (acc[row.cost] ?? 0) + 1;
-  return acc;
-}, {});
-
-const DECORATION_COST_TABLE = {
-  head: ["Decoration", "Adds around your name", "Example with Shadow"],
-  rows: DECORATION_ROWS.map((row) => [row.label, `+${row.cost} code points`, row.example]),
-};
-
-export const GUIDES_EN: GuideDef[] = [
+export const guidesEn: GuideDef[] = [
   {
-    slug: "change-instagram-bio-font",
-    title: "How to Change Your Instagram Bio Font, Step by Step | FancyFont",
-    h1: "How to Change Your Instagram Bio Font (Step by Step)",
+    locale: "en",
+    slug: "what-are-unicode-fonts",
+    navName: "What are Unicode fonts?",
+    h1: "What Are Unicode Fonts? The Principle in Plain Words",
+    title: "What Are Unicode Fonts? How Fancy Text Actually Works",
     description:
-      "Instagram has no font picker, but your bio accepts Unicode text. Copy styled characters in five steps, plus where fonts work and what to do when they don't.",
-    published: "2026-11-01",
-    updated: "2026-11-01",
+      "Fancy fonts aren't font files — they're styled Unicode characters. The principle behind them, where they work, where they fail, and what makes them differ.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
     intro: [
-      "Instagram has no font picker — there is no button anywhere in the app that turns your bio into cursive. What people call an \"Instagram font\" is a string of look-alike Unicode characters you paste in, and the app's own font renders them. That is the whole trick, and it takes about a minute.",
-      "This guide walks through the copy-paste, where styled text works on Instagram and where it does not, and what to check when a pasted font comes out wrong.",
+      "Every “fancy font” you've seen — 𝓱𝓮𝓵𝓵𝓸, ꧁ace꧂ — is not a font at all. Those are ordinary characters from the Unicode table, exactly like the letters in this sentence: text, not formatting.",
+      "Once you internalize that one fact, most mysteries solve themselves: why the style survives pasting, why some devices show boxes, why search can't find styled names, and why @handles refuse them.",
     ],
     sections: [
       {
-        heading: "What an Instagram bio font actually is",
+        heading: "A second alphabet inside the character table",
         paragraphs: [
-          "Instagram's text fields hold plain text. When you paste 𝒸𝓊𝓇𝓈𝒾𝓋ℯ instead of cursive, you pasted separate Unicode characters that happen to look like a handwritten alphabet — not a font Instagram applied. That is why the same copied string also works in a TikTok nickname or a Discord status, and why nothing gets installed on your phone.",
-          "It also explains the one limitation that matters: a viewer's phone needs a glyph for every character you pasted. Popular alphabets (cursive, bold, small caps) are covered almost everywhere; exotic decorations are where boxes come from.",
+          "Unicode is the global catalog that gives every character in every writing system a number. Around 2001 it added a full set of styled Latin letters for mathematical typesetting — bold, italic, script, outline and gothic each got A–Z and a–z, followed later by bubble, circled and squared decorations.",
+          "Those letters were meant for formulas, but because they look like a different typeface, they were borrowed for personal text. [A generator](/cursive-fonts/) does exactly one thing: swap each ordinary letter for the styled character at the same position. The text is identical; only the glyphs change.",
         ],
       },
       {
-        heading: "Change your bio font in five steps",
-        steps: [
-          "Open the Instagram fonts generator, type the line for your bio, and watch the styles update as you type. The bio draft picker keeps your line breaks in place.",
-          "Pick a style. Each result is real text you can copy. If a style looks unusual, open its character report to see which letters changed and which stayed as typed.",
-          "Copy the styled line. If you want the line as an image instead — for a post or a story — use the PNG export.",
-          "In Instagram, open your profile, tap Edit profile, and paste the line into the Bio field. Paste it the same way into Name if you want the styled look on top of your profile.",
-          "Save and look at it in the app. Instagram shows roughly 150 characters in a bio; if your line is longer, the end can get cut, so trim before you publish.",
-        ],
-        image: {
-          src: "/guides/ig-tool.webp",
-          alt: "FancyFont's Instagram tool with a bio draft picked and the Cursive style applied, next to a Copy button",
-          width: 1200,
-          height: 600,
-          caption:
-            "Steps 1–3 in one screen: pick a bio draft, choose the Cursive style, and copy. The line under the preview counts the about-150 limit before you paste.",
-        },
+        heading: "Why the style survives every paste",
         paragraphs: [
-          "A before/after example, straight from the generator: type coffee and late walks, choose the cursive style, and you copy out 𝒸ℴ𝒻𝒻ℯℯ 𝒶𝓃𝒹 𝓁𝒶𝓉ℯ 𝓌𝒶𝓁𝓀𝓈 — one tap, no app install.",
+          "Bold in a word processor is a formatting flag — it disappears when the destination doesn't support it. A styled letter simply IS bold: boldness is a property of the character, not the environment. Every place that accepts the text accepts the style.",
+          "It also explains counting: one styled letter is still one character (except strike/zalgo, where invisible combining marks are counted too).",
         ],
       },
       {
-        heading: "Where styled text works on Instagram — and where it never does",
+        heading: "Where the boundaries are",
         bullets: [
-          "Bio — works, with line breaks. Around 150 characters, which the generator counts for you before you copy.",
-          "Display name — works, and it is where fonts get seen most: the name shows up in comments and in followers' feeds. It is a shorter field, around 30 characters.",
-          "Username — never. Your @handle only accepts plain letters, digits, periods and underscores, and Instagram applies that to everyone. Keep the handle plain and put the style in the display name.",
-        ],
-      },
-      {
-        heading: "Which styles travel best",
-        paragraphs: [
-          `Most "my font turned into boxes" trouble comes from how a style is built, not from Instagram. We measured every style the generator ships, straight from the conversion engine: ${risk.single} of ${risk.total} swap each letter for exactly one new Unicode character — the safest kind, because there is simply one glyph for the reader's phone to draw. The other ${risk.marked} (${risk.markFamilies.strike} strikethrough and underline variants plus ${risk.markFamilies.zalgo} strengths of glitch) stack combining marks after each letter, and each stacked mark is another chance for a device to render unevenly.`,
-          `Digits are their own split: ${risk.digitsAll} styles also restyle all ten digits, ${risk.digitsPartly} restyle some of them, and ${risk.digitsPlain} leave digits plain — which is why a bold "2026" keeps its numbers while a cursive one does not.`,
-        ],
-        table: STYLE_RISK_TABLE,
-        seeAlso: [],
-      },
-      {
-        heading: "If the paste fails or shows boxes",
-        paragraphs: [
-          "Boxes (□□□) mean the viewer's device is missing a glyph — the characters arrived, but the phone has nothing to draw for them. The fix is to pick a more common style: the table above puts the one-character-per-letter alphabets in one place, and those are covered nearly everywhere. The mark-stacking styles are the ones that break.",
-          "If a paste into the bio comes out wrong, copy the line again from the generator and check the character report for combining-mark styles; strikethrough and zalgo stack marks on every letter and can render unevenly inside Instagram's fields. These are Unicode characters, not an Instagram feature — Instagram can change how it renders them at any time, so paste and check on your own account first.",
+          "Limited coverage: styled glyphs exist only for Latin letters and digits. Other scripts have no second form — Chinese nicknames use decorative frames instead.",
+          "Search mismatch: styled characters aren't plain letters; verbatim search, @mentions and hashtags may fail.",
+          "Display depends on fonts: a device without the glyph shows a box — see the boxes guide.",
+          "Accessibility cost: screen readers may spell out the full character names. Never use for essential information.",
         ],
       },
     ],
     faq: [
       {
-        q: "Can I put a fancy font in my Instagram username?",
-        a: "No. The @handle field only accepts plain letters, digits, periods and underscores for every account — there is no workaround, and apps claiming to style usernames are not doing anything real. Style the display name and bio instead; they are the fields people actually see.",
+        q: "Does the reader need to install anything?",
+        a: "No installation — but their font library must contain the glyphs. Mainstream systems cover the popular styles; exotic symbols are where boxes come from.",
       },
       {
-        q: "Do I need an app or a font keyboard to change my bio font?",
-        a: "No. The whole method on this page runs in a browser: type, copy, paste — nothing to install and no Instagram login anywhere. That is also a useful filter: styling text never requires your password, so be careful with any app that asks for one just to give you fonts.",
-      },
-      {
-        q: "Which bio styles are least likely to show as boxes?",
-        a: "The one-character-per-letter alphabets: cursive, bold, small caps and their cousins — the table above lists all of them. The stacked-mark styles (strikethrough, underline, glitch) are the ones most likely to render unevenly on some devices.",
-      },
-      {
-        q: "How many characters fit in an Instagram bio?",
-        a: "About 150 characters. Instagram counts its own way, so the generator's count is a guide, not a guarantee — if the line is longer, trim it and check the saved profile.",
+        q: "Will other scripts ever get styled forms?",
+        a: "Unicode could add them, but for huge scripts the work never materialized. Frames and decorations are the practical route — which is exactly what the nickname decorator does.",
       },
     ],
-    cta: {
-      after: "Where styled text works on Instagram — and where it never does",
-      heading: "Try it: style your bio line",
-      body: "Type your bio line, pick a style, and copy — the Instagram tool keeps your line breaks and counts the about-150 bio limit before you paste.",
-      label: "Open the Instagram Fonts Generator",
-      href: "/instagram-fonts/",
-    },
-    appearOn: ["instagram-fonts"],
     relatedTools: [
-      {
-        href: "/instagram-fonts/",
-        title: "Instagram Fonts Generator",
-        description: "Bio drafts, display-name presets and a live preview before you copy.",
-      },
-      {
-        href: "/fancy-text-generator/",
-        title: "Fancy Text Generator",
-        description: "All 30 Unicode styles for any short line, with a character report.",
-      },
+      { href: "/cursive-fonts/", title: "Cursive generator", description: "Try character substitution yourself." },
+      { href: "/fancy-numbers/", title: "Nickname decorator", description: "Frames that work on any text." },
+      { href: "/italic-text-generator/", title: "Italic", description: "Open it and try it as you read." },
     ],
+    appearOn: ["cursive-fonts", "bold-fonts", "fancy-numbers", "upside-down-text", "italic-text-generator", "cool-font-generator", "chicano-font-generator"],
   },
   {
-    slug: "pubg-free-fire-stylish-name",
-    title: "PUBG & Free Fire Stylish Names: Steps and Paste Fixes | FancyFont",
-    h1: "Stylish Names in PUBG & Free Fire: How to Change Them, and What to Do When the Paste Fails",
+    locale: "en",
+    slug: "why-boxes-appear",
+    navName: "Why boxes appear",
+    h1: "Why Fancy Text Shows Boxes (□) on Some Devices",
+    title: "Why Fancy Text Shows Boxes (□) — and How to Fix It",
     description:
-      "How players change a PUBG or Free Fire name to a stylish Unicode name, the about-16 and about-12 character limits, and the paste fixes that work on iPhone and iPad.",
-    published: "2026-11-01",
-    updated: "2026-11-01",
+      "Boxes mean the receiving device lacks the glyph — not a broken copy. The mechanism, the high-risk styles, the safe ones, and what to do when it happens.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
     intro: [
-      "PUBG and Free Fire both let you style your name the same way: the name field holds plain text, and you paste in Unicode characters that look like a decorated font. The catch is that both games keep the field short — around 16 characters in PUBG, around 12 in Free Fire — and both can trim or reject what does not fit.",
-      "This guide covers the change itself, the length math that decides whether a name survives, and the paste fixes for the case every iPhone player hits sooner or later: the name simply will not paste.",
+      "It looks fine on your screen, then arrives as a row of boxes □ on an older phone — the classic fancy-text failure. Boxes aren't corruption and nothing was lost in copying: the other device simply has no drawing for that character.",
+      "This guide covers the mechanism, which styles are risky, which are near-bulletproof, and the recovery order.",
     ],
     sections: [
       {
-        heading: "Generate a name that fits before you touch the game",
-        steps: [
-          "Open the gaming name generator and type your base name. It builds decorated combinations — frames, marks, styled alphabets — from what you type.",
-          "Check the length warning. PUBG fields usually take around 16 characters and some modes fewer; Free Fire is around 12 including every symbol. The preview counts code points and flags the name before you copy it.",
-          "Copy the combination you like, or build your own from a styled word plus one mark — one mark plus a short word fits more often than a frame on both sides.",
-          "In the game, open the screen where names are changed (most players get there with a rename card or item), paste the name, confirm, and look at it in the lobby.",
-        ],
-        image: {
-          src: "/guides/pubg-length-warning.webp",
-          alt: "FancyFont's PUBG preview flagging a decorated name at 17 code points against the usual 16",
-          width: 1200,
-          height: 850,
-          caption:
-            "Step 2's warning in action: ShadowWarrior plus decorations counts 17 code points against PUBG's usual 16 — flagged in orange before you copy, along with the standing not-tested-here notice.",
-        },
+        heading: "Missing glyph, not missing data",
         paragraphs: [
-          "An example that fits both games with room to spare: the base name Shadow in the bold style comes out as 𝗦𝗵𝗮𝗱𝗼𝘄 — 6 characters. Wrapped in corner brackets, 「𝗦𝗵𝗮𝗱𝗼𝘄」 counts 8, which still clears PUBG's usual 16 with half the budget to spare.",
+          "To display a character, the device's font library needs a drawing for it. Unicode catalogs tens of thousands of characters and no device ships drawings for all of them. The character arrived intact — the device just can't paint it, so it draws a placeholder box saying “there's a character here I can't draw”.",
+          "That's why boxes are always a receiver-side issue: you see it fine, they see boxes — your fonts cover it, theirs don't.",
         ],
       },
       {
-        heading: "What each decoration costs you",
-        paragraphs: [
-          `Every decoration pair in the builder was measured against a plain name: ${decorationCostCounts[2] ?? 0} of the ${DECORATION_ROWS.length} pairs add exactly 2 code points, the heavy frames add 4, and the star-dust frame (⋆｡˚ name ˚｡⋆) adds 6. Two details the table makes visible: the skull pair looks like 2 characters but carries a hidden variation-selector code point on each side, and the dot/dash pairs include their spacing spaces in the count.`,
-          `That math is the whole game on short fields: a +6 frame eats half of Free Fire's about-12 budget before your name starts, while a +2 pair leaves room for an 8-letter styled word inside PUBG's about-16.`,
-        ],
-        table: DECORATION_COST_TABLE,
-        seeAlso: [],
-      },
-      {
-        heading: "If the name will not paste (iPhone and iPad)",
-        paragraphs: [
-          "The paste failure is usually the phone, not the game: the clipboard never picked the styled string up cleanly, or the game's field ignored the long-press. Players fix it with this sequence:",
-        ],
-        steps: [
-          "Copy the name again from the generator, and wait for the copied confirmation before you leave the page.",
-          "Open Notes, paste the name there, and look at it. If Notes shows the full styled name, tap into it, select all, and copy again from Notes — this re-copies it as one clean string.",
-          "In the game's name field, press and hold until the Paste bubble appears, then lift your finger on Paste. A quick tap will not open the menu.",
-          "Still nothing? Shorten the name and try again. Long decorated strings are the ones that fail to paste and get cut; a 6–8 character name almost always goes through.",
-        ],
-      },
-      {
-        heading: "What these fixes do and don't do",
-        paragraphs: [
-          "None of these steps change what the game accepts — they only get the characters to the field. The game still filters the name after that, and its filters can change without notice.",
-          "That is also why the generator never promises a name will work: it sizes the string and warns on length, but the in-game field is the only test that counts.",
-        ],
-      },
-      {
-        heading: "If the game cuts your name short or rejects it",
+        heading: "High-risk vs low-risk styles",
         bullets: [
-          "Count symbols as characters. A 16-character PUBG budget includes every bracket and mark; Free Fire's 12 goes fast.",
-          "Drop the decoration first when a name is rejected. A plain short name the game accepts beats a styled one it cuts off.",
-          "Prefer one-character-per-letter styles inside games. Of the 30 styles in the generator, 10 stack extra marks onto every letter — strikethrough, underline and the three glitch strengths. Each stacked mark is another chance for the game's field or another player's phone to trip.",
-          "Remember the ID never changes. The numeric player ID cannot be styled — only the nickname is a text field.",
-          "Re-check after game updates. Both games can tighten their filters; a name that worked last season can turn into boxes this one.",
-        ],
-        seeAlso: [
-          {
-            label: "Which styles travel best — all 30 measured",
-            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
-          },
+          "Exotic-script decorations: ꧁ ꧇ ᨳ from Javanese and Lontara — great gamer energy, high box rate on old devices.",
+          "Emoji-presentation characters: 🅱 ⚜ get forced into color emoji on some platforms, not what you designed.",
+          "Dense combining marks: zalgo stacks dozens of marks; old renderers choke.",
+          "Low-risk picks: fullwidth letters (a CJK staple), circled digits ①, and basic symbols ♡ ★ ✿ — near-universal coverage.",
         ],
       },
       {
-        heading: "Will other players see the style?",
+        heading: "The recovery order",
         paragraphs: [
-          "Usually, but it depends on their device: a stylish name renders from the other player's game build and fonts, not yours. Common alphabets show nearly everywhere; heavy decorations are the ones that show as boxes to some players. If the lobby preview looks right on your screen, most players will see what you see — and the players whose phone lacks a glyph will see boxes no matter which decorated style you picked.",
-          "Before you spend a rename card, paste the name into a chat or a second device if you have one. The generator's character report also flags the styles that stack combining marks — those are the ones most likely to render unevenly across phones.",
+          "First [swap the style](/bold-fonts/) — every intent has a safer twin (꧁꧂ → 『』, 🅱 → 𝗕). Then swap the symbol — exotic decorations → basic ♡ ★. Finally accept the limit — on a ten-year-old device anything fancy can fail, so keep important messages plain.",
+          "The cheapest insurance: view your own post on a second device before you commit.",
         ],
       },
     ],
     faq: [
       {
-        q: "How long can a PUBG name be?",
-        a: "Plan for around 16 characters, including every symbol. Some PUBG Mobile flows are shorter. The generator's preview counts code points and warns when a name is over 16.",
+        q: "Can the other person copy the boxed text correctly?",
+        a: "Yes — the box is only a display placeholder; the data is intact. Forwarded to a device with better fonts, it shows perfectly.",
       },
       {
-        q: "Why won't my stylish name paste in PUBG Mobile on iPhone?",
-        a: "Copy the name again, paste it into Notes first and re-copy it from there, then press and hold the name field until Paste appears. If it still fails, shorten the name — long decorated strings are the ones that drop.",
-      },
-      {
-        q: "Can I use symbols in a Free Fire name?",
-        a: "The nickname is about 12 characters including symbols, and the game filters what it does not accept. One mark plus a short styled word fits more often than a full frame.",
-      },
-      {
-        q: "Will a stylish name show for other players?",
-        a: "Only if their game build has the glyph and the name passes the filter. Paste it in and look at the lobby — if you see a box, pick a plainer style.",
+        q: "Is there a style that displays everywhere?",
+        a: "Fullwidth letters, circled digits and basic symbols come close — but nothing is 100%. Choose with “works on almost everything” expectations.",
       },
     ],
-    cta: {
-      after: "What each decoration costs you",
-      heading: "Try it: build a name that fits",
-      body: "Type your base name, add one decoration pair, and check the code-point count before you copy — the builder flags names over the about-16 PUBG and about-12 Free Fire budgets.",
-      label: "Open the Gaming Name Generator",
-      href: "/gaming-name-generator/",
-    },
-    appearOn: ["pubg-name-generator", "free-fire-name-generator", "cod-name-generator"],
     relatedTools: [
-      {
-        href: "/pubg-name-generator/",
-        title: "PUBG Name Generator",
-        description: "Lobby-card preview with the about-16 character warning built in.",
-      },
-      {
-        href: "/free-fire-name-generator/",
-        title: "Free Fire Name Generator",
-        description: "Short nicknames sized for the about-12 character field.",
-      },
-      {
-        href: "/gaming-name-generator/",
-        title: "Gaming Name Generator",
-        description: "Frames, marks and styled alphabets you can combine yourself.",
-      },
+      { href: "/zalgo-text/", title: "Zalgo cleaner", description: "Strip stacked marks from broken text." },
+      { href: "/zalgo-text/", title: "Nickname decorator", description: "Risk labels on every decoration." },
+      { href: "/crazy-font-generator/", title: "Crazy", description: "Open it and try it as you read." },
     ],
+    appearOn: ["zalgo-text", "cute-fonts", "decorated-nicknames", "crazy-font-generator"],
   },
   {
-    slug: "roblox-display-name-rules",
-    title: "Roblox Display Names: 3–20, 7-Day Wait & What Help Says | FancyFont",
-    h1: "Roblox Display Names: Official Rules, the 7-Day Wait, and What Help Does Not Promise",
+    locale: "en",
+    slug: "name-length-limits",
+    navName: "Name length limits",
+    h1: "Name Character Limits, Platform by Platform",
+    title: "Name Length Limits by Platform — IG, TikTok, Discord & More",
     description:
-      "Username vs display name on Roblox: the 7-day wait, 3–20 length from Roblox's staff announcement, free display-name changes, and why Help does not promise fancy Unicode or symbols. Checked against Roblox Support on 2026-11-03.",
-    published: "2026-11-01",
-    updated: "2026-11-03",
+      "Nickname and bio character limits for Instagram, TikTok, Discord, WhatsApp, Roblox and shooters — how fancy characters count, and what to do at the limit.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
     intro: [
-      "Roblox gives you two names with different jobs. The username is your unique login handle. The display name is what other players see above your head, in chat, and on your profile. Most rejected names come from treating those fields as the same box.",
-      "This guide restates what Roblox Support publishes (checked 2026-11-03), cites the staff announcement for the 3–20 length, and clearly marks where Help is silent — especially about fancy Unicode letters and symbols. FancyFont cannot promise that a styled paste will save.",
+      "Fancy characters don't add visible length (one letter swaps for one character), but decoration frames do — 1–2 symbols per side. Tight platforms need decoration plans that fit the cap.",
+      "The table below collects common values. Rules shift over time, numbers are “about”, and the input box's live counter is always the final judge.",
     ],
     sections: [
       {
-        heading: "Username vs display name: two fields, two rulebooks",
-        paragraphs: [
-          "Both fields have published rules — just not all in one place. The free weekly change, the continuous filtering, and the reset-to-username rule come from Roblox Help: Changing Your Display Name; the paid username change is described in Roblox Help: Changing Your Username; the username character limits are stated in Roblox Help: username character guidelines; and the 3–20 display-name length comes from the Roblox staff display-name announcement, which the current Help article does not repeat.",
-        ],
-        bullets: [
-          "Username — your unique login id. Roblox Help's signup guidelines say 3–20 characters, letters and digits only (A–Z, 0–9), and at most one underscore that is not the first or last character. No spaces, symbols, emoji, or styled letters. Changing it costs Robux (Roblox Help: Changing Your Username). See also Roblox Help: username character guidelines.",
-          "Display name — what others see. Roblox Help: Changing Your Display Name says you can change it for free, once every seven days, that it is filtered under the Community Rules, and that a name which breaks the rules may be reset to your username. Help does not publish a full list of allowed letters or symbols, and it does not say mathematical bold, script, or emoji will save.",
-          "Length for display names: Roblox's staff announcement set display names at 3–20 characters. The current Help article does not repeat that number. Treat 3–20 as the announced cap, then confirm on Roblox's own save screen.",
-        ],
-        links: [
-          {
-            label: "Roblox Help: username character guidelines",
-            href: "https://en.help.roblox.com/hc/en-us/articles/4412614080532-Xbox-Error-901",
-          },
-          {
-            label: "Roblox Help: Changing Your Username",
-            href: "https://en.help.roblox.com/hc/en-us/articles/203313130-Changing-Your-Username",
-          },
-          {
-            label: "Roblox Help: Changing Your Display Name",
-            href: "https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name",
-          },
-          {
-            label: "Roblox staff display-name announcement",
-            href: "https://devforum.roblox.com/t/say-hello-to-display-names/1036435",
-          },
-        ],
-      },
-      {
-        heading: "Change your display name in four steps",
-        steps: [
-          "Log in and open Settings → Account Info, then open the Change Display Name entry (Roblox moves settings around now and then — look for the display name field, not the username one).",
-          "Draft a short plain name first (3–20 characters). If you try decorations, keep a plain backup — Help does not guarantee styled characters will save.",
-          "Paste into Roblox's field and save. Rejection happens in that UI; a failed save does not spend Robux on the display name.",
-          "After a successful save, check the name in an experience. You can change the display name only once every seven days, so what you saved is what you wear for the week.",
-        ],
-        image: {
-          src: "/guides/roblox-tool.webp",
-          alt: "FancyFont's Roblox generator with ShadowHero typed in, counting the display name against the announced 3–20 range",
-          width: 1200,
-          height: 650,
-          caption:
-            "Step 2's preparation screen: the Roblox generator keeps the login username plain, drafts the display name separately, and counts it against the announced 3–20 range — whether a styled draft saves is Roblox's to decide, not the preview's.",
-        },
-        paragraphs: [
-          "What comes next is the wait: you can change a display name only once every seven days, and every successful save occupies that week-long window. Check the saved name in an experience before you rely on it.",
-        ],
-      },
-      {
-        heading: "What Roblox publishes about characters (and what it does not)",
-        paragraphs: [
-          "Roblox Help: Changing Your Display Name states that display names are filtered continuously and must follow Community Rules. It notes Japanese characters in a beta for some users, with more character support planned. It does not list Latin \"fancy font\" alphabets, emoji, or punctuation symbols as allowed. Checked 2026-11-03.",
-          "Because Help is silent on a full allow-list, this page does not invent one. Independent testers who ran names through Roblox's own validation (for example Alt Typist's 15 October 2026 write-up) report that symbols, emoji, and styled Unicode letters are commonly refused, while plain letters and digits — with at most one space and one underscore — are the dependable set. That is a third-party test, not a Roblox document: always believe the Save result on your own account.",
-          "Practical habit: keep a plain base name you can fall back to. If a paste fails or is later reset to your username, wait out the seven-day timer only after a successful save — not after a rejected attempt that never applied.",
-        ],
-        links: [
-          {
-            label: "Roblox Help: Changing Your Display Name",
-            href: "https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name",
-          },
-        ],
-        seeAlso: [
-          {
-            label: "All 30 styles measured — which travel best",
-            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
-          },
-          {
-            label: "What each decoration pair costs in code points",
-            href: "/learn/pubg-free-fire-stylish-name/#guide-what-each-decoration-costs-you",
-          },
-        ],
-      },
-      {
-        heading: "If the name is rejected or reverts",
-        bullets: [
-          "Drop the decoration first and shorten toward the 3–20 range. A plain short name Roblox accepts beats a styled one it bounces — especially with the 7-day wait behind it.",
-          "Re-type rather than re-paste once. Some paste operations carry invisible characters along; typing the name fresh rules that out.",
-          "Remember the experience games. Adopt Me and Berry Avenue show your Roblox display name, so the same rules (and the same 3–20 range) follow you there — Berry Avenue's overhead name preview can truncate long names.",
-          "Expect resets, not leniency. Roblox's automated moderation can reset a display name to the username on its own, and Help offers no appeal that makes a styled name pass — a rejected style usually stays rejected until you pick a plainer one.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "How often can I change my Roblox display name?",
-        a: "Once every seven days, according to Roblox Help: Changing Your Display Name. The change is free; the wait is what makes each successful save count.",
-      },
-      {
-        q: "Can my Roblox display name have symbols and fonts?",
-        a: "Roblox Help does not publish a list of fancy Unicode fonts or symbols that display names accept. It says names are filtered and mentions Japanese characters only as a beta for some users (checked 2026-11-03). Third-party checks against Roblox's validation often see symbols, emoji, and styled letters rejected. Do not rely on a generator preview — only Roblox's save screen decides.",
-      },
-      {
-        q: "Can my Roblox username have symbols or fonts?",
-        a: "No. Roblox Help: username character guidelines limit usernames to 3–20 letters and digits with at most one underscore that is not first or last. Styled text does not belong in the username.",
-      },
-      {
-        q: "Does changing your display name cost Robux?",
-        a: "No. Roblox Help: Changing Your Display Name describes display-name changes as free. Username changes require Robux (Roblox Help: Changing Your Username). This page does not invent a Robux price.",
-      },
-      {
-        q: "How long can a Roblox display name be?",
-        a: "Roblox's staff display-name announcement said 3–20 characters. The current Help article does not repeat that figure. Use 3–20 as the announced range, count decorations as characters if you attempt any, and confirm in Settings.",
-      },
-    ],
-    cta: {
-      after: "What Roblox publishes about characters (and what it does not)",
-      heading: "Try it: draft a display name that fits",
-      body: "Type your base name and the Roblox preview counts it against the announced 3–20 range while keeping your login username plain — the save screen, not the preview, decides what Roblox accepts.",
-      label: "Open the Roblox Name Generator",
-      href: "/roblox-name-generator/",
-    },
-    appearOn: ["roblox-name-generator", "adopt-me-fonts", "berry-avenue-fonts"],
-    relatedTools: [
-      {
-        href: "/roblox-name-generator/",
-        title: "Roblox Name Generator",
-        description: "Display-name ideas with the username rules kept separate.",
-      },
-      {
-        href: "/berry-avenue-fonts/",
-        title: "Berry Avenue Fonts",
-        description: "Head-name preview that truncates past 20 characters.",
-      },
-      {
-        href: "/adopt-me-fonts/",
-        title: "Adopt Me Fonts",
-        description: "Adopt Me display names inherit the Roblox rules.",
-      },
-    ],
-  },
-  {
-    slug: "twitch-display-name-fancy-text",
-    title: "Twitch Display Names Can't Use Fancy Fonts (Bio Instead) | FancyFont",
-    h1: "Twitch Display Names Can't Use Fancy Unicode Fonts",
-    description:
-      "Twitch display names only change your username's capitalization, and localized names follow a separate script rule. Where styled Unicode can still go: About, panels, chat.",
-    published: "2026-11-02",
-    updated: "2026-11-02",
-    intro: [
-      "No — a normal Twitch display name cannot hold fancy Unicode. Twitch's Help article on display names defines the field in one line: your display name is a change in capitalization from your username. That is the whole feature. The cursive or bold characters a generator produces are different Unicode letters, not capitalization, so a paste into the display name has nothing to land on — the field keeps showing your username in whatever letter case you saved.",
-      "This guide covers what Twitch officially says, the one real exception (localized display names), where styled text may still paste — channel About, panels, chat — and how to get a readable name without any Unicode. Claims about the display name come from Twitch's own Help article; the fields it does not cover are marked check-it-yourself throughout.",
-    ],
-    sections: [
-      {
-        heading: "What Twitch officially says a display name is",
-        paragraphs: [
-          "Twitch's Help article About display names states the rule plainly: \"Your display name is a change in capitalization from your username. Your display name capitalization appears most everywhere on Twitch. Unlike usernames, display names can be changed at any time.\" No cooldown on the casing, and no path for styled alphabets — 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 is a different set of characters than coolgamer, not a re-capitalization of it.",
-          "Changing the case takes under a minute, and it can be redone whenever you like:",
-        ],
-        steps: [
-          "Open your Profile Settings on Twitch.",
-          "Enter the custom capitalization for your username — upper- and lower-case letters are the only thing this field edits.",
-          "Save Changes. The new casing shows across Twitch, and you can set it again at any time.",
-        ],
-        links: [
-          {
-            label: "About display names",
-            href: "https://help.twitch.tv/s/article/display-names-on-twitch",
-          },
-        ],
-      },
-      {
-        heading: "Username vs display name: which field is which",
-        bullets: [
-          "Username — the login handle you registered. Changing the letters themselves means a username change, and Twitch's FAQ puts those at once every 60 days. The display-name article does not define the username character rules — those live in Twitch's account docs, and this page does not restate them.",
-          "Display name — the same username with your chosen capitalization, shown most everywhere on Twitch. No cooldown: change the casing as often as you like.",
-          "The practical split: case is free and instant, letters are a 60-day decision. Generators blur this because they only produce letters.",
-        ],
-      },
-      {
-        heading: "Localized display names: the real exception, and still not a fancy font",
-        paragraphs: [
-          "Twitch does offer a way to put different characters ahead of your username, but it is a language feature, not a style feature. With the website language set to Arabic, Chinese (Simplified), Chinese (Traditional), Korean, or Japanese, you can add a localized display name in that language's script, shown ahead of your username. Twitch describes it as affecting display names only — it is not a name change.",
-          "That rule rules out the generator use case on its own: a Latin cursive or bold alphabet is neither an Arabic nor a CJK script, so there is no way to smuggle English fancy text into this feature. A name like 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 is exactly what the no-English rule excludes. One quirk if you do use a localized name: Twitch's search guidance says to find localized names through search results, not search suggestions — suggestion clicks can error out.",
-        ],
-        bullets: [
-          "Unique — no two users can hold the same localized name.",
-          "Script-locked — localized display names cannot mix English characters or symbols.",
-          "Cooldown — localized names can be changed once every 60 days.",
-          "No recycle period — once you change away from one, anyone can claim it.",
-          "Removal — switch the website language back to English, then set your display name to match your username.",
-        ],
-      },
-      {
-        heading: "Where styled text may still help on Twitch",
-        paragraphs: [
-          "The display-name article covers names only. It says nothing about the channel About section, panels, stream titles, or chat — the plain-text fields where creators commonly paste Unicode. Treat those fields as paste-and-check: nothing on this page represents Twitch confirming them, so save, then look at your own channel in the app — and for chat, look in a channel whose bots you don't control.",
-          "Aim any styling at a short line — a panel heading, one About line — rather than a decorated wall. The styles that travel best swap each letter for exactly one character, so the reader's device has a single glyph to draw per letter; the mark-stacking styles (strikethrough, glitch) are the ones most likely to come out uneven.",
-        ],
+        heading: "The quick reference",
         table: {
-          head: ["Twitch field", "Styled Unicode?", "What Twitch documents"],
+          head: ["Platform", "Name limit (about)", "Decoration advice"],
           rows: [
-            ["Display name", "No", "Capitalization of your username only — Help, About display names"],
-            ["Localized display name", "No", "Own-script names; cannot mix English characters or symbols; once per 60 days"],
-            ["Username", "No", "Plain handle; changes once per 60 days per the Help FAQ"],
-            ["Channel About / bio", "Paste and check", "Not covered by the display-name article"],
-            ["Panels", "Paste and check", "Not covered by the display-name article"],
-            ["Chat", "Paste and check", "Not covered; some channels' bots filter unusual characters"],
+            ["Instagram", "Name 30 / Bio 150", "Name for the style, Bio for a plain-text lookup line"],
+            ["TikTok", "About 24 (Bio ~80)", "Single-symbol frames ✧ ⋆ keep room for text"],
+            ["Discord", "About 32 (display name)", "Room for double frames ꧁༺༻꧂"],
+            ["WhatsApp", "About 25 (About ~139)", "Thin frames ━ ✧ fit the tight field"],
+            ["Roblox", "3–20 display name", "Validation is strict — plain glyphs pass most often"],
+            ["Shooters (PUBG & co.)", "About 5–16", "Two-letter IDs + ꧁꧂ fit perfectly; count first"],
+            ["Steam", "About 32", "Generous; long frames fit"],
+            ["Telegram", "About 64", "The most generous — anything fits"],
           ],
         },
-        seeAlso: [
-          {
-            label: "Which styles travel best — all 30 measured",
-            href: "/learn/change-instagram-bio-font/#guide-which-styles-travel-best",
-          },
-        ],
       },
       {
-        heading: "A readable display name without any Unicode",
+        heading: "Two counting traps",
         bullets: [
-          "Use the casing you already own: coolgamer → CoolGamer reads as two words in chat, clips, and tags — and with no cooldown, a wrong guess costs nothing.",
-          "Capitalize each word (CoolGamerTV) or split a long name at a natural boundary. Capitalization is the only edit this field takes, so make it carry the whole job.",
-          "If the letters themselves must change, that is a username change: budget it against the once-every-60-days rule instead of experimenting.",
-          "Save the decoration for fields that take it — a panel heading in small caps, an About line with a few symbols — not the name Twitch shows in every chat.",
+          "Combining marks count: strike/zalgo add 1–4 invisible symbols per visible character — counters double and strict fields overflow.",
+          "Fullwidth counting varies: most platforms count one per letter, some count display width as two — watch the counter after pasting.",
         ],
       },
       {
-        heading: "Why Twitch is different from Discord (and why generators confuse people)",
+        heading: "When you're over the limit",
         paragraphs: [
-          "On Discord, a nickname is a plain text field, and a pasted 𝑪𝒐𝒐𝒍𝑮𝒂𝒎𝒆𝒓 simply stays — our Discord fonts page is built around that behavior. People carry the expectation across, paste into the Twitch display name, and the paste goes nowhere, because Twitch defines the field as capitalization rather than free text.",
-          "That mismatch is also the honest answer to most \"Twitch font generator\" pages: they emit Unicode without telling you which Twitch field can hold it. On Twitch the generator's job is narrow — styled lines for panels, About, chat — while the name itself is Twitch's to render from your username.",
-        ],
-      },
-      {
-        heading: "Sources and how far this page goes",
-        paragraphs: [
-          "Every display-name claim on this page — the capitalization definition, the no-cooldown casing change, the localized-name script rules, the 60-day timers — comes from Twitch's Help article About display names, re-read on 2026-11-02. The username-change timer is from the same article's FAQ.",
-          "Nothing on this page was checked inside a logged-in Twitch account, and the fields the article does not cover are labeled paste-and-check above rather than presented as Twitch-approved. If Twitch updates the article, the wording here should be re-checked against it.",
-        ],
-        links: [
-          {
-            label: "About display names",
-            href: "https://help.twitch.tv/s/article/display-names-on-twitch",
-          },
+          "Shorten the text, not the decoration — the frame is the style's core. ꧁starlight꧂ that doesn't fit becomes ꧁star꧂, which beats dropping to plain text.",
+          "Keeping one name across platforms? [Design for the strictest game you play](/game-name-generator/) and the rest follow.",
         ],
       },
     ],
     faq: [
       {
-        q: "Can I use a fancy font in my Twitch display name?",
-        a: "No — not for a normal Twitch display name. Twitch Help describes your display name as a capitalization change of your existing username (for example, coolgamer → CoolGamer). It is not a place to paste cursive, bold, or symbol-decorated Unicode from a fancy-text generator. Changing the letters themselves means changing your username, which Twitch allows once every 60 days.",
+        q: "Where are the official numbers?",
+        a: "Each platform's help center documents them. This table is community-maintained “about” values — the input box counter never lies.",
       },
       {
-        q: "What about Twitch's localized display names?",
-        a: "If your Twitch website language is set to Arabic, Chinese (Simplified or Traditional), Korean, or Japanese, you can add a localized display name in that language's script, shown ahead of your username. Twitch Help says localized display names must be unique and cannot mix English characters or symbols — so English fancy-font characters are excluded by rule — and localized names can only be changed once every 60 days.",
-      },
-      {
-        q: "Where can I use fancy Unicode on Twitch instead?",
-        a: "Creators commonly paste styled Unicode into plain-text areas such as the channel About/bio, panel text, or chat messages. Twitch's display-name Help article does not document those fields, so treat them as paste-and-check: save, then look at your channel in the Twitch app. Prefer short panel headings over decorated paragraphs, and expect some channels' chat bots to filter unusual characters.",
-      },
-      {
-        q: "How do I change my Twitch display name capitalization?",
-        a: "Open Profile Settings on Twitch, enter the custom capitalization for your username, and save. There is no cooldown — you can change the capitalization again at any time. Removing a localized display name is different: switch your website language back to English, then set your display name to match your username.",
+        q: "Why does my count differ from a friend's?",
+        a: "Combining-mark counting differs: some platforms count each mark, some merge to grapheme clusters. Trust the counter where you paste.",
       },
     ],
-    cta: {
-      after: "Where styled text may still help on Twitch",
-      heading: "Try it: build your panel heading",
-      body: "Type your line, pick a one-character-per-letter style like small caps or bold, and copy it into the fields that take styled text — panel headings and About lines, not the display name.",
-      label: "Open the Fancy Text Generator",
-      href: "/fancy-text-generator/",
-    },
-    appearOn: ["discord-fonts", "gaming-name-generator"],
     relatedTools: [
+      { href: "/fancy-numbers/", title: "Nickname decorator", description: "Pick frames to fit the budget." },
+      { href: "/fancy-numbers/", title: "Fancy numbers", description: "Short numbered decorations." },
+      { href: "/blank-space/", title: "blank-space", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["instagram-fonts", "tiktok-fonts", "game-name-generator", "discord-fonts", "fortnite-name-generator", "facebook-fonts", "blank-space", "fancy-numbers", "fancy-numbers"],
+  },
+  {
+    locale: "en",
+    slug: "screen-reader-safety",
+    navName: "Screen reader safety",
+    h1: "Fancy Text and Screen Readers: the Accessibility Cost",
+    title: "Fancy Text and Screen Readers — the Accessibility Cost",
+    description:
+      "Screen readers may announce 𝗕𝗼𝗹𝗱 as “mathematical bold capital B…” — cool for you, noise for blind users. The real costs and the boundaries.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: [
+      "Fancy characters carry a hidden cost for blind users: screen readers don't recognize decorated letters and many announce the full table name — 𝗕𝗼𝗹𝗱 becomes “mathematical sans bold B, mathematical sans bold o”, completely unintelligible.",
+      "This isn't a ban on fancy text — it's a boundary map: where to use it freely, where to hold back, and where never to.",
+    ],
+    sections: [
       {
-        href: "/fancy-text-generator/",
-        title: "Fancy Text Generator",
-        description: "All 30 Unicode styles for a short line — panel headings and About lines, not display names.",
+        heading: "How screen readers read styled letters",
+        paragraphs: [
+          "Screen readers turn characters into speech using name tables. Ordinary letters have short names (“B”); styled math letters carry formal names like “MATHEMATICAL BOLD CAPITAL B” — announced as a description string.",
+          "Support varies by reader and version; newer ones try to fold the names, but coverage is patchy. The safe assumption: styled characters come out as noise.",
+        ],
       },
       {
-        href: "/small-caps-generator/",
-        title: "Small Caps Generator",
-        description: "The quiet one-character-per-letter alphabet that renders on the most devices.",
+        heading: "Where to draw your own lines",
+        bullets: [
+          "Free to decorate: display names, bios, signatures — identity decoration, and assistive tech locates you by your ID anyway.",
+          "Use sparingly in content: one or two stressed words in a post; full styled paragraphs are an readability disaster.",
+          "Never in function fields: verification codes, payment details, critical notices — systems validate plain characters only.",
+          "Combining marks are the worst: strike/zalgo add per-character noise; avoid where information density matters.",
+        ],
       },
       {
-        href: "/symbols/",
-        title: "Symbols & Decorators",
-        description: "Hearts, crowns and brackets for panel headings — not for display names.",
-      },
-      {
-        href: "/discord-fonts/",
-        title: "Discord Fonts",
-        description: "Where a pasted styled name actually works: Discord's nickname field.",
+        heading: "Better tools for emphasis",
+        paragraphs: [
+          "To emphasize without sacrificing readability, prefer the platform's native formatting: [Discord markdown](/discord-fonts/), WhatsApp *bold*, Reddit formatting. Those are layout-level and read correctly.",
+          "Give fancy characters the identity job: make the nickname recognizable and the signature stylish — they exist to be seen, not read aloud.",
+        ],
       },
     ],
+    faq: [
+      {
+        q: "Will a fancy nickname make blind users block me?",
+        a: "No. Assistive tech finds people by their handle; keep @IDs and important info plain and a decorated nickname is perfectly reasonable.",
+      },
+      {
+        q: "Is there a screen-reader-friendly style?",
+        a: "Relatively: some readers treat fullwidth letters as ordinary. Combining-mark styles are the least friendly — it's the character table's design, not a style choice.",
+      },
+    ],
+    relatedTools: [
+      { href: "/strikethrough-text/", title: "Strikethrough generator", description: "See how combining marks work." },
+      { href: "/zalgo-text/", title: "Zalgo cleaner", description: "Undo over-stacked marks." },
+      { href: "/tiny-text-generator/", title: "Tiny", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["strikethrough-text", "zalgo-text", "bold-fonts", "tiny-text-generator"],
+  },
+  {
+    locale: "en",
+    slug: "account-safety",
+    navName: "Ban risks",
+    h1: "Can Fancy Names Get You Banned? The Real Rules",
+    title: "Can Fancy Names Get You Banned? Platform Rules, Explained",
+    description:
+      "Fancy names are ordinary text — they don't trigger bans. Where platforms actually draw lines: whitelists, search mismatch, and impersonation.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: [
+      "“Will a fancy name get me banned?” is the most-asked question. Answer: fancy characters are ordinary text with no code inside — no platform bans you for the characters themselves.",
+      "Real restrictions cluster in three kinds: character whitelists (some games), lookup mismatch (search fails), and impersonation (styled text pretending to be official). Only the last one is a genuine ban risk.",
+    ],
+    sections: [
+      {
+        heading: "Three shapes of platform rules",
+        bullets: [
+          "Open: Discord, WhatsApp, Telegram and most bios accept fancy characters; checks look at content, not glyph style.",
+          "Whitelist validation: some games allow only a known character set — “invalid characters” means a refused save, not a ban.",
+          "Context-sensitive: the name itself is legal, but styling it to impersonate staff or dodge filters is treated as the violation it is.",
+        ],
+      },
+      {
+        heading: "The three things worth worrying about",
+        paragraphs: [
+          "Impersonation: styling “Official Support” to look like a verified account is a clear violation — the ban reason is the impersonation, not the glyphs.",
+          "Evasion: writing slurs or ads in styled characters to slip past filters is punished as filter evasion.",
+          "Scam contexts: styled characters in payment details or verification codes — never do this, and teach family not to trust “official notices” written in fancy text.",
+        ],
+      },
+      {
+        heading: "The safe-use checklist",
+        bullets: [
+          "Nicknames, bios, signatures: decorate freely — that's identity expression.",
+          "Critical info (contacts, IDs, amounts): always plain characters.",
+          "“Invalid characters” error: switch characters or platforms; don't hunt for bypasses.",
+          "After a rename, post one test: confirm both display and search still work.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Someone said a fancy nickname got them throttled — real?",
+        a: "Throttling targets content and behavior, not glyph shapes. The timing coincidence is easy to blame on the new name; check the actual post that got limited.",
+      },
+      {
+        q: "Do styled characters interfere with account security checks?",
+        a: "No — security binds to phone/email/ID verification. Display names are display-only and never enter security flows.",
+      },
+    ],
+    relatedTools: [
+      { href: "/game-name-generator/", title: "Nickname decorator", description: "Safe decoration ideas." },
+      { href: "/game-name-generator/", title: "Game name generator", description: "Whitelist-friendly styles." },
+      { href: "/cod-name-generator/", title: "COD", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["game-name-generator", "pubg-name-generator", "roblox-name-generator", "tiktok-fonts", "cod-name-generator", "adopt-me-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "pick-your-style",
+    navName: "Pick your style",
+    h1: "Pick Your Style: From Game IDs to Work Signatures",
+    title: "How to Choose a Fancy Style — Match the Look to the Place",
+    description:
+      "Game IDs, social nicknames, work signatures, matching names — different places call for different styles. Six scenarios with ready-made formulas.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: [
+      "Thirty styles and twenty-seven frames, all at once — and suddenly choosing is hard. Styles aren't better or worse, they're matched or not: game IDs want presence, work signatures want restraint, matching names come in pairs.",
+      "Six high-frequency scenarios, recommended combos, ready-made formulas — choosing drops from ten minutes to one.",
+    ],
+    sections: [
+      {
+        heading: "Six scenarios, six combos",
+        table: {
+          head: ["Scenario", "Recommended", "Formula examples"],
+          rows: [
+            ["Game ID", "Gamer frame / gothic", "꧁ace꧂, ☠Knight☠"],
+            ["Short-video name", "Book frame / script", "『sunset archivist』, 𝒮𝓊𝓃𝓈ℯ𝓉"],
+            ["Creator communities", "Sweet frame / bubble", "୨୧peachy୨୧, ♡sugar high♡"],
+            ["Work signature", "Small caps / thin line", "ᴏɴɢᴏɪɴɢ ᴘʀᴏᴊᴇᴄᴛ, ━focus mode━"],
+            ["Matching names", "Paired sweet frames / script", "♡sugar♡ / ♡spice♡, 𝒮𝓊𝓃 & ℳℴℴ𝓃"],
+            ["Dark/horror copy", "Zalgo / upside down", "light zalgo, ʇxǝʇ dᴉlɟ"],
+          ],
+        },
+      },
+      {
+        heading: "The one-highlight rule",
+        paragraphs: [
+          "At most one “wow” element per name: a gamer frame is already loud — don't add zalgo to the text; [script](/cursive-fonts/) is already elegant — pick thin-line decorations, not solid blocks. Competing highlights erase each other.",
+          "Same logic for symbol families: keep sweet (♡ ୨୧ ✿) with sweet, dark (☠ ⚔ ☬) with dark; cross-family mixes need a bridge symbol (★ ✧ go with everything).",
+        ],
+      },
+      {
+        heading: "A/B test with favorites",
+        paragraphs: [
+          "Don't commit on day one: [star 3–5 candidates](/cool-font-generator/), rotate through them for a week, and see which one people ask about — the answer surfaces on its own.",
+          "Favorites live in your browser only and don't follow you across devices — keep a copy of the important ones in a notes app.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is there a universal style?",
+        a: "Closest candidates are the book frame 『』 and small caps ᴛᴇxᴛ — restrained, durable, compatible. The price of universal is unremarkable; for big moments, match the scenario.",
+      },
+      {
+        q: "Do styles go out of fashion?",
+        a: "The character table never changes; only popular pairings do. Yesterday's ﹏wave reads as retro today. Pick what you enjoy looking at — that never dates.",
+      },
+    ],
+    relatedTools: [
+      { href: "/gothic-fonts/", title: "Nickname decorator", description: "The full frame collection." },
+      { href: "/cursive-fonts/", title: "Cursive generator", description: "The classic starting point." },
+      { href: "/elegant-font-generator/", title: "Elegant", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["cursive-fonts", "bold-fonts", "gothic-fonts", "decorated-nicknames", "elegant-font-generator", "dark-font-generator", "bubble-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "fancy-text-usernames",
+    navName: "Fancy text in usernames",
+    h1: "Fancy Fonts in Usernames: Where They Work and Where They Fail",
+    title: "Fancy Fonts in Usernames — What Works on Every Platform",
+    description:
+      "Usernames, display names and bios follow three different rulebooks. Per-field and per-platform verdicts for IG, TikTok, Discord, WhatsApp, Roblox and shooters.",
+    published: "2026-11-07",
+    updated: "2026-11-08",
+    intro: [
+      "The fastest way to waste a name change is pasting fancy text into the wrong field. Platforms split your identity into several fields — handle, display name, bio — and each one has its own rulebook for styled Unicode characters.",
+      "This guide gives the per-field verdicts, then the per-platform verdicts, then one pattern that passes everywhere. No trial-and-error required.",
+    ],
+    heroImage: {
+      src: "/guides/usernames-panels.png",
+      alt: "Three panels comparing a plain @handle, a decorated display name and a mixed bio",
+      width: 1200,
+      height: 675,
+      caption: "Three fields, three rulebooks: the handle is for lookup, the display name is for style, the bio takes both.",
+    },
+    sections: [
+      {
+        heading: "The three name fields, decoded",
+        table: {
+          head: ["Field", "Fancy text?", "What it's actually for"],
+          rows: [
+            ["@handle / username ID", "❌ Never", "Login and lookup — systems match it as plain characters"],
+            ["Display name / nickname", "✅ Yes", "What other people see — pure presentation"],
+            ["Bio / signature / About", "✅ Mostly", "Presentation plus search on some platforms"],
+          ],
+        },
+        paragraphs: [
+          "The pattern behind the table: fields that machines match (login, lookup, mentions) validate strict character sets; fields that only humans read accept ordinary Unicode. Fancy characters are text, so display fields wave them through while lookup fields refuse them.",
+          "The expensive mistake is decorating the handle: it doesn't just fail the save, on some platforms a decorated-looking name breaks friend search forever. Handles stay plain — always.",
+        ],
+      },
+      {
+        heading: "Per-platform verdicts",
+        image: {
+          src: "/guides/username-matrix.png",
+          alt: "Matrix of platforms versus name fields with verdict marks",
+          width: 1200,
+          height: 675,
+          caption: "Verdicts by platform: green means fancy text passes, red means the field is plain-only.",
+        },
+        bullets: [
+          "Instagram: display Name ✅ (30 chars), bio ✅ (150), @username ❌ plain only.",
+          "TikTok: nickname ✅ (about 24), bio ✅ (about 80), @handle ❌.",
+          "Discord: display name ✅ and per-server nicknames ✅ (about 32), messages ✅, @mentions ❌.",
+          "WhatsApp: profile name ✅ (about 25), About ✅ (about 139).",
+          "Roblox: display name ✅ but the filter is strict — whole-glyph styles pass, combining marks usually fail. @username ❌ plain.",
+          "Shooters (PUBG, Free Fire & co.): whitelist validation — common frames pass, exotic symbols get “invalid characters”. Esports accounts: plain names only.",
+        ],
+      },
+      {
+        heading: "The pattern that always works",
+        paragraphs: [
+          "Keep the handle plain, decorate the display name with one frame (꧁꧂ or ★彡 彡★), and put a plain-text version of your name in the bio's first line. That combination passes every platform above, stays searchable, and still reads styled at first glance.",
+          "Before spending a rename card or a cooldown, [star two candidates in the generator](/game-name-generator/) and paste-test the first — if a whitelist refuses it, the backup is one paste away.",
+        ],
+      },
+      {
+        heading: "Aesthetic username formulas (handles included)",
+        bullets: [
+          "The twist: aesthetic usernames are NOT fancy Unicode \u2014 they are plain characters arranged well, which is exactly why they live in @handles that refuse styled text.",
+          "lowercase + dots: milk.tea \u00b7 soft.rain \u00b7 luna.jpg \u00b7 petal.wav \u00b7 mint.milk",
+          "lowercase + underscores: moon_base \u00b7 hazy_days \u00b7 june_bug \u00b7 late_nineties",
+          "word-pair recipes: soft noun + concrete noun (cloud.curtain), time + noun (3am.notes), place.jpg (rooftop.jpg)",
+          "keep it type-able: every character must exist on a keyboard \u2014 that is the whole trick",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I put fancy fonts in my @username anywhere?",
+        a: "No. Handles are machine-matched identifiers — Instagram, TikTok, Discord, WhatsApp and Roblox all restrict them to letters, digits and a couple of punctuation marks. Styled characters belong in display fields.",
+      },
+      {
+        q: "My styled name saved fine — why can't people find me?",
+        a: "Search matches the exact characters. A decorated name no longer matches the plain spelling, so keep a plain version in your bio and share your @handle for lookups.",
+      },
+      {
+        q: "Do fancy characters risk a ban?",
+        a: "No — they're ordinary text. The real violations are impersonation and filter evasion; validation failures just refuse the save.",
+      },
+      {
+        q: "What makes a username aesthetic?",
+        a: "Lowercase everything, dots or underscores as joints, and soft concrete nouns \u2014 milk.tea, luna.jpg, hazy_days. It reads as style precisely because every character is plain and keyboard-typeable.",
+      },
+    ],
+    relatedTools: [
+      { href: "/game-name-generator/", title: "Game name generator", description: "Whitelist-friendly styles for shooters." },
+      { href: "/instagram-fonts/", title: "Instagram fonts", description: "IG name/bio limits and ready examples." },
+      { href: "/discord-fonts/", title: "Discord fonts", description: "Names, nicknames and message text." },
+      { href: "/youtube-fonts/", title: "YouTube", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["instagram-fonts", "tiktok-fonts", "discord-fonts", "whatsapp-fonts", "roblox-name-generator", "pubg-name-generator", "game-name-generator", "youtube-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "discord-fonts-guide",
+    navName: "Discord fonts deep-dive",
+    h1: "Discord Fonts: What Actually Works (Names, Nicknames, Messages)",
+    title: "Discord Fonts Guide — Markdown vs Unicode & Zones",
+    description:
+      "Discord has two styling systems — markdown and Unicode — and they do different jobs. Where fancy fonts land in names, nicknames, statuses and messages.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: [
+      "Discord is unusual: it ships its own formatting system (markdown) AND accepts styled Unicode characters everywhere plain text goes. Mixing them up is why so many attempts look broken.",
+      "The short version: markdown formats ordinary text inside messages; Unicode characters carry their style into names, nicknames, statuses — places markdown can't reach. This guide maps both.",
+    ],
+    heroImage: {
+      src: "/guides/discord-chat.png",
+      alt: "A Discord-style chat mockup with styled display names and a markdown versus Unicode comparison",
+      width: 1200,
+      height: 675,
+      caption: "Markdown formats the message text; the styled display names come from Unicode characters that need no Nitro.",
+    },
+    sections: [
+      {
+        heading: "Two systems, two jobs",
+        table: {
+          head: ["", "Discord markdown", "Unicode characters"],
+          rows: [
+            ["What it is", "**bold**, _italic_, `code` syntax", "Styled characters (𝗕𝗼𝗹𝗱, 𝔡𝔞𝔯𝔨)"],
+            ["Where it works", "Messages only", "Display name, server nick, status, messages"],
+            ["Survives copy-paste", "No — formatting stays behind", "Yes — the style is in the characters"],
+            ["Needs Nitro", "No", "No"],
+          ],
+        },
+        paragraphs: [
+          "Use markdown when you're writing a message you control end-to-end. Use Unicode characters when the style must travel — [your display name](/discord-fonts/), a server-specific nickname, your status, or text that will be copied onward.",
+        ],
+      },
+      {
+        heading: "Where fancy text lands in Discord",
+        image: {
+          src: "/guides/discord-zones.png",
+          alt: "Panel showing green check marks for display name, server nickname, status and messages, and red crosses for mentions and bot commands",
+          width: 1200,
+          height: 675,
+          caption: "Display name, server nickname, status and messages take styled characters; mentions and bot commands need the plain handle.",
+        },
+        bullets: [
+          "Display name (about 32 characters) — the main stage; whole-glyph styles read best.",
+          "Server nickname — set per server, same character rules; useful for role-flavored names.",
+          "Status — supports styled characters, but very long stacks may clip on mobile.",
+          "Messages — styled characters survive, though dense combining marks can wrap oddly.",
+          "@mentions and slash commands — match your plain handle; styled text won't ping anyone.",
+        ],
+      },
+      {
+        heading: "What to avoid",
+        paragraphs: [
+          "Two traps cover most of the failures. First, zalgo and strike stacks in names: they save, but they're the styles most likely to wrap badly in the member list and to be refused by auto-mod filters that treat mark-stacks as spam signals. Second, decorating your handle to look official — that's impersonation regardless of the characters used, and moderators ban for the behavior, not the glyphs.",
+          "The readable sweet spot: whole-glyph styles ([bold](/bold-fonts/), script, small caps) for the name, one thin frame if you want flair, and markdown for emphasis inside messages.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Do I need Nitro for a styled Discord name?",
+        a: "No. Nitro covers server-wide emoji and other perks; styled characters are ordinary text and work on every account, server nickname included.",
+      },
+      {
+        q: "Why did my fancy name show boxes to one friend?",
+        a: "Their system fonts lack those glyphs. Popular styles (bold, small caps, ꧁꧂ frames) have near-universal coverage; exotic script mixes are the box-makers.",
+      },
+      {
+        q: "Can I @mention someone by their styled name?",
+        a: "No — mentions resolve against the plain handle. Type @ and pick the user from the list; the styled display name is display-only.",
+      },
+    ],
+    relatedTools: [
+      { href: "/discord-fonts/", title: "Discord font generator", description: "Styles with Discord limits baked in." },
+      { href: "/bold-fonts/", title: "Bold text generator", description: "The safe whole-glyph workhorse." },
+      { href: "/zalgo-text/", title: "Zalgo cleaner", description: "Undo mark-stacks gone wrong." },
+      { href: "/symbols/", title: "Symbols", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["discord-fonts", "symbols", "bold-fonts", "zalgo-text"],
+  },
+  {
+    locale: "en",
+    slug: "instagram-bio-fonts",
+    navName: "Instagram bio fonts",
+    h1: "Instagram Bio Fonts: What Works in the Name, Bio and Captions",
+    title: "Instagram Bio Fonts — Name vs Bio vs Captions",
+    description:
+      "Three text zones with three personalities: the 30-character Name, the 150-character Bio, and captions. Where fancy fonts belong — and a bio layout that works.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: [
+      "Instagram treats its text zones differently, and the difference decides where fancy fonts help you and where they quietly cost you reach. The Name and Bio are display-first — styles shine there. Captions and hashtags are retrieval-first — plain characters win.",
+      "This guide maps the three zones, then walks through a bio layout that keeps the pretty AND the searchable.",
+    ],
+    heroImage: {
+      src: "/guides/ig-profile.png",
+      alt: "An Instagram profile mockup with a styled display name and a formatted bio",
+      width: 1200,
+      height: 675,
+      caption: "Styled characters in the Name and Bio; the @username underneath stays plain for lookup.",
+    },
+    sections: [
+      {
+        heading: "The three text zones",
+        table: {
+          head: ["Zone", "Limit", "Fancy fonts", "Watch out"],
+          rows: [
+            ["Name (display)", "30 characters", "✅ The best stage", "Search matches exact characters"],
+            ["Bio", "150 characters", "✅ Styles + line breaks", "Combining marks can misalign in IG's font"],
+            ["Captions", "2,200 characters", "⚠️ OK for a word", "Hashtags inside captions must stay plain"],
+            ["@username", "30 characters", "❌ Never", "Plain characters only, always"],
+          ],
+        },
+      },
+      {
+        heading: "A bio layout that works",
+        image: {
+          src: "/guides/ig-bio-layout.png",
+          alt: "Anatomy of an Instagram bio: styled name line, decorated descriptor, small-caps interest line and location line",
+          width: 1200,
+          height: 675,
+          caption: "Line one styles the identity, line two says what you do, line three adds character, line four anchors with plain text.",
+        },
+        paragraphs: [
+          "The layout above balances pretty and findable: the display name carries the style (𝓈𝓊𝓃𝓈ℯ𝓉), the first bio line states what you do in decorated plain text, [small caps](/small-fonts/) add a quiet signature line, and the last line keeps location or contact in ordinary characters.",
+          "The plain-text rule matters more than it looks: IG search and tag pages match ordinary characters, so one plain line in the bio keeps you discoverable while everything else stays styled.",
+        ],
+      },
+      {
+        heading: "Limits and the lookup trade-off",
+        bullets: [
+          "Name: 30 characters, and decorations count — a double frame eats 4 of them.",
+          "Bio: 150 characters; use line breaks instead of symbol walls for structure.",
+          "Whole-glyph styles (script, fullwidth, small caps) survive IG's rendering better than combining-mark styles like strikethrough.",
+          "After saving, search your own plain name once — if it fails, add the plain spelling to the bio.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Do Instagram bio fonts need an app?",
+        a: "No. Styled characters are ordinary text — generate, copy, paste. Apps that 'add fonts' to your profile are just dressing up the same Unicode characters.",
+      },
+      {
+        q: "Can I use fancy fonts in my captions?",
+        a: "Yes for a stressed word or a sign-off. Keep hashtags plain — styled characters break tag matching — and avoid full styled paragraphs: readability and reach both suffer.",
+      },
+      {
+        q: "Why did my bio font look different on my friend's phone?",
+        a: "IG renders text with its own font stack; a few glyphs draw slightly thinner or offset. Whole-glyph styles are the stable picks — that's why the bio layout above avoids combining marks.",
+      },
+    ],
+    relatedTools: [
+      { href: "/instagram-fonts/", title: "Instagram font generator", description: "IG-ready styles with limits in view." },
+      { href: "/aesthetic-fonts/", title: "Aesthetic font generator", description: "The fullwidth vaporwave look." },
+      { href: "/small-fonts/", title: "Small text generator", description: "Quiet small-caps signature lines." },
+      { href: "/coquette-font-generator/", title: "Coquette", description: "Open it and try it as you read." },
+    ],
+    appearOn: ["instagram-fonts", "aesthetic-fonts", "small-fonts", "coquette-font-generator", "preppy-font-generator", "heart-font-generator", "berry-avenue-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "free-fire-name-styles",
+    navName: "Free Fire name styles",
+    h1: "Free Fire Name Styles: How the ꧁꧂ Names Are Built",
+    title: "Free Fire Name Styles — Frames, Fonts & Real Limits",
+    description:
+      "How Free Fire nicknames work: the 6–12 character field, which styled letters survive the in-game font, how ꧁꧂ frames are assembled — plus ready examples.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "The names that look uncopyable — ꧁༺ ᴅᴇᴍᴏɴ ༻꧂, ⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡, ᴄʀᴇᴡ ᴍᴀɪɴ — are three tricks stacked together: a decorative frame, styled Unicode letters and a symbol accent. None of it is a mod or an app; it is plain text assembled piece by piece.",
+      "Free Fire is friendlier to styled text than most shooters — the in-game font renders the popular letter styles — but the name field is short (about 6–12 characters), so every character has to earn its place. This guide shows the assembly rules and what to avoid.",
+    ],
+    sections: [
+      {
+        heading: "The field you are working with",
+        bullets: [
+          "Nickname length: about 6–12 characters — a full frame like ꧁༺…༻꧂ eats 8 of them before your name starts. Short frames ꧁…꧂ (4 characters) are the practical pick.",
+          "Renaming costs: changing your nickname later usually costs diamonds, so assemble and test the name before you commit it.",
+          "Counting: styled letters count as one character each, but combining-mark styles (strike, zalgo) add invisible marks that count too.",
+          "Clan tags are a separate, shorter field — the clean small-cap styles fit there better than full frames.",
+        ],
+      },
+      {
+        heading: "The three building blocks",
+        paragraphs: [
+          "Block one is the frame: ꧁…꧂, ▄︻…︻▄, ⚡…⚡, ✦…✦. Frames wrap the name and do the visual work, which is why almost every memorable Free Fire name has one. Block two is the letter style — bold 𝐁𝐨𝐥𝐝, script 𝓈𝓬𝓻𝓲𝓹𝓽, small caps ᴄʟᴇᴀɴ — generated letter by letter from plain text. Block three is a symbol accent: a single ⚡, ♞ or ✧ placed where a space would be.",
+          "A [name generator](/game-name-generator/) does all three in one pass: type the base name, pick a style, and the frames are pre-assembled so the result already fits the field. That is also the fastest way to test five candidates in a minute before spending diamonds on a rename.",
+        ],
+      },
+      {
+        heading: "Ready examples by look",
+        bullets: [
+          "Classic frames: ꧁ᴅᴇᴍᴏɴ꧂ · ꧁༺ sɴɪᴘᴇʀ ༻꧂ · ꧁ 𝐊𝐈𝐍𝐆 ꧂",
+          "Clean small caps: ᴄʀᴇᴡ ᴍᴀɪɴ · ᴘʀᴏ sɴɪᴘᴇ · ʟᴏɴᴇ ᴡᴏʟғ",
+          "Bold with accent: ⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡ · ♞ 𝐑𝐨𝐲𝐚𝐥 ♞ · ✧ 𝐃𝐚𝐫𝐤 ✧",
+          "Symbol wings: ⚡ Vortex ⚡ · ⛧ Rebel ⛧ · 乪 Shadow 乫",
+          "Compact one-liners for the 6-character squeeze: ᴠᴏɪᴅ · ꧁ᴢᴇᴄ꧂ · 𝕬𝖝𝖊",
+        ],
+      },
+      {
+        heading: "What to avoid",
+        bullets: [
+          "Exotic symbols beyond the popular sets risk drawing as boxes on some devices — test on a teammate's screen before renaming.",
+          "Zalgo stacks overflow the small field and render badly — they belong on Discord, not in the nickname box.",
+          "Impersonation styling (fancy versions of pro players' names) is the fastest route to reports — keep the name yours.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Why does my styled name show boxes for some players?",
+        a: "Their device font lacks that glyph. The popular styles — bold, script, small caps and the ꧁꧂ frames — render on nearly everything; rare decorative symbols are where boxes come from.",
+      },
+      {
+        q: "Can a stylish name get my Free Fire account banned?",
+        a: "No — styled names are ordinary text characters, not a modification. What does get reported is impersonation or offensive wording; the styling itself is cosmetic.",
+      },
+      {
+        q: "How do I change my Free Fire name after making one?",
+        a: "In-game: profile → your nickname → edit. The change usually costs diamonds, which is why it pays to generate and compare several candidates first — a name generator assembles framed candidates in seconds.",
+      },
+    ],
+    relatedTools: [
+      { href: "/game-name-generator/", title: "Game name generator", description: "Frames pre-assembled for short name fields." },
+      { href: "/pubg-name-generator/", title: "PUBG name generator", description: "The same ꧁꧂ builds for PUBG & BGMI." },
+      { href: "/fancy-numbers/", title: "Fancy numbers", description: "Styled digits for squad numbers and IDs." },
+    ],
+    appearOn: ["game-name-generator", "pubg-name-generator", "fortnite-name-generator", "cod-name-generator", "discord-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "lingojam-alternatives",
+    navName: "LingoJam alternatives",
+    h1: "LingoJam Alternatives: Fancy Text Tools Compared Honestly",
+    title: "LingoJam Alternatives — Fancy Text Tools Compared",
+    description:
+      "LingoJam still works — but when it's down or too basic for you: honest alternatives compared, symbol libraries, IG-focused tools and live-preview generators.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "LingoJam has been the default answer to \"fancy text generator\" for a decade, and searches for it — and for alternatives to it — are still huge. This page is the honest version of that comparison: what LingoJam does well, where it falls short, and which tool fits which job, including our own.",
+      "One fact up front, because it shapes everything: every tool in this category does the same core trick — swapping letters for styled Unicode characters. The differences are in the workflow (live preview vs. translate-a-copy), the extras (symbols, blank characters, favorites) and how well the site holds up.",
+    ],
+    sections: [
+      {
+        heading: "Quick answer",
+        bullets: [
+          "LingoJam still works and is free: a two-box translator — paste left, get a styled list right. No sign-up, familiar, fine for a one-off copy.",
+          "Want to see your text rendered in many styles at once, with one-tap copy per card? That is what [our homepage generator](/) does — 180 letter & number styles plus 27 nickname frames, live as you type.",
+          "Need single symbols rather than styled words — hearts, stars, arrows, kaomoji? A symbol library beats a text generator: ours is [388 symbols](/symbols/) with click-to-copy.",
+          "Want an invisible name or empty bio line? That is a blank-character job, not a font job — see [blank space copy and paste](/blank-space/).",
+        ],
+      },
+      {
+        heading: "When LingoJam is the right pick",
+        paragraphs: [
+          "Credit where due: LingoJam is free, requires no account, and has outlived most of its contemporaries. Its translator layout is genuinely good for one job — rewriting the same sentence into several different styles at once, including translated-style output that no plain generator attempts.",
+          "If you know its URL, trust it, and just need a quick copy — there is nothing wrong with using it. Tools in this category are commodities; habit and uptime are legitimate reasons to stay.",
+        ],
+      },
+      {
+        heading: "When to reach for an alternative",
+        bullets: [
+          "Downtime and maintenance: it is a single long-running service, and when it is slow or unreachable there is no fallback on the same site. Every search for \"LingoJam alternative\" is someone hitting exactly this.",
+          "No live preview: the translator pattern means typing your text into a box and reading a flat list — you cannot watch the styles render as you type or tap-to-copy straight off a card.",
+          "Depth of toolkit: one generator page, no symbol library, no blank-character tool, no glitch cleaner — multi-step decorating means multiple sites.",
+          "Language: an English-only interface, while the underlying trick is language-independent — Spanish, Portuguese, Chinese and German users get a localized workflow elsewhere.",
+        ],
+      },
+      {
+        heading: "The wider landscape, honestly sorted",
+        bullets: [
+          "Instagram-branded generators (igfonts, instafonts and cousins): same Unicode swap, packaged for IG bio/name workflows. Convenient branding, same output characters.",
+          "Symbol libraries (coolsymbol and similar): the right tool for single characters and kaomoji, not for styling whole words.",
+          "Logo and image text makers (cooltext, fontmeme): a different intent entirely — they produce images, not copy-paste text. If your paste target is a bio field, they are the wrong category.",
+          "Font download sites (fontspace and friends): real font files for design software. Nothing there can be pasted into a nickname field — different job again.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is LingoJam down?",
+        a: "It has outages like any single-hosted service, but it has not shut down. If it will not load for you, try again later or use any generator that does the same character swap — the output text is identical technology.",
+      },
+      {
+        q: "Are fancy text generators safe to use?",
+        a: "The reputable ones, yes — they run the conversion in your browser and produce ordinary text. Pick tools that do not ask for login or app installs, and be skeptical of any \"generator\" that wants account access to your social profiles.",
+      },
+      {
+        q: "Do all these tools give the same result?",
+        a: "For the popular styles — bold, script, bubble, small caps — yes: they map to the same Unicode characters, so output is interchangeable. Toolkits differ in how many exotic styles they include and in what surrounds the generator (symbols, cleaners, guides).",
+      },
+    ],
+    relatedTools: [
+      { href: "/cursive-fonts/", title: "Cursive font generator", description: "Live-preview script styles, tap to copy." },
+      { href: "/symbols/", title: "Symbols copy and paste", description: "388 symbols — hearts, stars, wings, kaomoji." },
+      { href: "/blank-space/", title: "Blank space copy and paste", description: "Invisible characters for empty names and bios." },
+    ],
+    appearOn: [],
+  },
+  {
+    locale: "en",
+    slug: "whatsapp-fonts-guide",
+    navName: "WhatsApp text guide",
+    h1: "WhatsApp Text Tricks: Native Formatting Meets Unicode Fonts",
+    title: "WhatsApp Fonts Guide — Native Formatting & Unicode Limits",
+    description:
+      "WhatsApp has native *bold* and _italic_ codes most people never use — plus where Unicode fonts work: name ~25, About ~139, messages ~65,536. Honest limits.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "Most people who search for a \u201cWhatsApp font changer\u201d never learn that WhatsApp ships with four text formats built in \u2014 bold, italic, strikethrough and monospace \u2014 triggered by nothing more than punctuation. They are codes, not characters: the recipient sees the style, never the asterisk.",
+      "Beyond those native codes, styled Unicode characters travel through WhatsApp end to end, because in WhatsApp \u2014 unlike most apps \u2014 the characters ARE the style. This guide maps the native formats first, then exactly where fonts, symbols and blank characters work, with the numbers.",
+    ],
+    sections: [
+      {
+        heading: "The four formats WhatsApp ships with",
+        bullets: [
+          "*bold* \u2014 wrap the word in asterisks: *hello* sends as bold hello.",
+          "_italic_ \u2014 underscores on both sides.",
+          "~strikethrough~ \u2014 tildes on both sides.",
+          "```monospace``` \u2014 three backticks before and after the text; handy for code, IDs and coordinates.",
+        ],
+        paragraphs: [
+          "These are formatting flags, the same idea as bold in a word processor: invisible markup that WhatsApp renders on the receiving end. They work in every chat, group and reply, need no settings, and they survive forwarding.",
+          "Everything else people call \u201cWhatsApp fonts\u201d is the second trick \u2014 swapping letters for styled Unicode characters. Unlike the native codes, those are real characters: they count toward length, they survive copy and paste anywhere, and they render even where WhatsApp's own formatting does not (like your profile name).",
+        ],
+      },
+      {
+        heading: "Where Unicode fonts actually work",
+        bullets: [
+          "Profile name: about 25 characters \u2014 styled fonts supported, visible to every chat.",
+          "About line: about 139 characters \u2014 supported, shows on your contact card.",
+          "Messages: about 65,536 characters \u2014 styles survive the whole way; the characters are the style.",
+          "Groups: your name displays per group \u2014 keep it recognizable in work and family groups.",
+        ],
+      },
+      {
+        heading: "Symbols and the invisible trick",
+        bullets: [
+          "Text symbols \u2014 \u2661 \u2605 \u2727 \u2014 render as monochrome glyphs; emoji like \u2764\ufe0f render colored. Both are plain characters and copy the same way.",
+          "An invisible name or empty About uses a blank character (the Hangul filler U+3164) \u2014 see the blank space tool; it is one paste, no app.",
+          "Restraint scales: thin frames and small caps age better in a contact list you share with family and coworkers than heavy gamer stacks.",
+        ],
+      },
+      {
+        heading: "What not to do",
+        bullets: [
+          "No font apps needed \u2014 anything claiming to \u201cinstall fonts on WhatsApp\u201d is repackaging the same Unicode characters.",
+          "Skip zalgo and heavy glitch stacks: screen readers spell them out letter by letter, and old devices draw boxes.",
+          "Keep one findable anchor: a styled name does not match search \u2014 leave the plain spelling in a message to yourself or in your About.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does WhatsApp have a built-in font changer?",
+        a: "Yes \u2014 four formats via punctuation: *bold*, _italic_, ~strikethrough~ and ```monospace```. Everything beyond those is styled Unicode characters, which need no app either \u2014 generate, copy, paste.",
+      },
+      {
+        q: "Why do my fancy fonts show as boxes to some contacts?",
+        a: "Their device font lacks the glyph for that character. Popular styles \u2014 script, bold, small caps, thin frames \u2014 render on nearly everything; exotic symbols are where boxes come from.",
+      },
+      {
+        q: "Can I use a styled name on WhatsApp Business?",
+        a: "Yes \u2014 the name and About fields work the same. For a business profile keep the styled part subtle and leave the actual business name readable: customers search for the plain spelling.",
+      },
+    ],
+    relatedTools: [
+      { href: "/whatsapp-fonts/", title: "WhatsApp font generator", description: "Name & About sized styles, limits in view." },
+      { href: "/symbols/", title: "Symbols copy and paste", description: "388 symbols that render in chats." },
+      { href: "/blank-space/", title: "Blank space copy and paste", description: "Invisible characters for empty names." },
+    ],
+    appearOn: ["whatsapp-fonts", "symbols", "blank-space"],
+  },
+  {
+    locale: "en",
+    slug: "nickname-ideas",
+    navName: "Nickname ideas",
+    h1: "50 Nickname Ideas \u2014 and the Formulas Behind Them",
+    title: "50 Nickname Ideas \u2014 Formulas, Frames & Examples",
+    description:
+      "Nickname formulas that beat random syllables \u2014 hobby + verb, mains, real-name derivatives, frames ꧁꧂ \u2014 with 50 examples grouped by look, sized for real limits.",
+    published: "2026-11-08",
+    updated: "2026-11-08",
+    intro: [
+      "Random syllable generators produce names that fail the friend-test: nobody can pronounce them, nobody remembers them, and six months later you are renaming again. Nicknames that stick come from small formulas applied to something personal \u2014 then dressed with a frame and a font.",
+      "This page gives the five formulas first, the dressing rules second, and 50 ready examples grouped by look \u2014 every one sized for real platform limits (6\u201316 in most games, ~24 on TikTok, 3\u201320 on Roblox). Take one as-is or rebuild it with your own base word.",
+    ],
+    sections: [
+      {
+        heading: "Five formulas that produce usable nicknames",
+        bullets: [
+          "Hobby + verb: PixelRuns, ByteForge, ClayShots \u2014 a thing you do plus an action reads as a person, not a product.",
+          "Main + role: AshMain, SupportQueen, IGLShadow \u2014 instant identity in team games.",
+          "Real-name derivative: Alexandra \u2192 Xander, Nicholas \u2192 Nick- oto \u2014 personal without exposing your full name.",
+          "Adjective + noun: QuietWolf, IronPigeon, SleepyTac \u2014 the adjective does the character work.",
+          "Old tag minus numbers: NightWolf92 \u2192 NightWolf \u2014 retire the digits; they are what made it look dated.",
+        ],
+      },
+      {
+        heading: "Dress the winner: frames and fonts",
+        paragraphs: [
+          "The frame does the visual work and costs characters: ꧁꧂ adds 2, \u2661\u2026\u2661 pairs add 2\u20136. A 6\u201312 character field fits ꧁ACE꧂ (7) but not ꧁\u2550 sɴɪᴘᴇʀ \u2550꧂ (12+). Fonts are free by comparison \u2014 swapping letters for bold or small caps adds zero characters \u2014 so the cheap upgrade path is: plain name \u2192 styled font \u2192 light frame, in that order.",
+          "The [nickname generator](/nickname-generator/) does all three layers at once and counts characters as you go, which is the fastest way to see what actually fits your target platform's field.",
+        ],
+      },
+      {
+        heading: "50 examples, grouped by look",
+        bullets: [
+          "Gamer frames: ꧁ACE꧂ \u00b7 ꧁\u1d85\u1d49\u1d50\u1d0f\u1d3f꧂ \u00b7 ꧁\u0280\u1d49\u1d05꧂ \u00b7 ꧁\u1d5c\u1d0f\u1d58\u1d48꧂ \u00b7 ꧁\u1d22\u1d07\u1d04꧂ \u00b7 ꧁\u0274\u1d0f\u1d20\u1d00꧂ \u00b7 ꧁\u0262\u029f\u1d00\u0280\u1d07꧂ \u00b7 ꧁\u1d0b\u026a\u0280\u026a\u1d1b\u1d0f꧂ \u00b7 \u0f3a sᴛᴏʀᴍ \u0f3b \u00b7 ꧁\u1d0d\u026as\u1d1b꧂",
+          "Clean small caps: \u1d04\u0280\u1d07\u1d21 ᴍᴀɪɴ \u00b7 \u1d18\u0280\u1d0f sɴɪᴘᴇ \u00b7 ʟᴏɴᴇ ᴡᴏʟꜰ \u00b7 ǫᴜɪᴇᴛ sᴛᴏʀᴍ \u00b7 ᴅᴀʀᴋ ᴍᴀᴛᴛᴇʀ \u00b7 ꜰɪɴᴀʟ ʟᴀᴘ \u00b7 ꜰɪʀsᴛ ʙʟᴏᴏᴅ \u00b7 ɴɪɢʜᴛ ᴏᴡʟ \u00b7 ɪʀᴏɴ ᴍᴏᴏɴ \u00b7 ꜱᴏꜰᴛ ʟᴀᴜɴᴄʜ",
+          "Bold with accent: ⚡ 𝐒𝐧𝐢𝐩𝐞𝐫 ⚡ \u00b7 ♞ 𝐑𝐨𝐲𝐚𝐥 ♞ \u00b7 ✧ 𝐃𝐚𝐫𝐤 ✧ \u00b7 ★ 𝐀𝐜𝐞 ★ \u00b7 ❖ 𝐕𝐞𝐧𝐨𝐦 ❖ \u00b7 ⚡ 𝐒𝐭𝐨𝐫𝐦 ⚡ \u00b7 ✦ 𝐋𝐮𝐧𝐚 ✦ \u00b7 ♆ 𝐓𝐢𝐝𝐞 ♆ \u00b7 ⚔ 𝐈𝐫𝐨𝐧 ⚔ \u00b7 ✰ 𝐍𝐞𝐨𝐧 ✰",
+          "Soft and cute: ♡ milktea ♡ \u00b7 ୨୧ petal ୨୧ \u00b7 ✿ blossom ✿ \u00b7 ♡ softbaby ♡ \u00b7 ୨୧ mochi ୨୧ \u00b7 ✿ june ✿ \u00b7 ♡ cloudnine ♡ \u00b7 ୨୧ berry ୨୧ \u00b7 ✿ peachy ✿ \u00b7 ♡ lullaby ♡",
+          "Minimal one-word: ᴠᴏɪᴅ \u00b7 ᴀsʜᴇs \u00b7 ɴᴇʙᴜʟᴀ \u00b7 ᴅʀɪꜰᴛ \u00b7 ᴏɴʏx \u00b7 ᴇᴄʜᴏ \u00b7 ᴢᴇɴ \u00b7 ʀᴜꜱᴛ \u00b7 ꜰᴏɢ \u00b7 ᴀᴛʟᴀꜱ",
+        ],
+      },
+      {
+        heading: "The friend-test",
+        bullets: [
+          "Pronounceable beats clever: if a teammate cannot say it on voice chat, it is a screen name, not a nickname.",
+          "Two words maximum: the styled alphabet already adds visual noise; the base name should stay simple.",
+          "Search honesty: 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉 does not match a search for starlight \u2014 keep the @handle plain and a plain spelling somewhere findable.",
+          "Never impersonate: styling a pro player's or staff member's name reads as a violation even when the characters differ.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How long should a nickname be?",
+        a: "The sweet spot is 4\u201312 characters: short enough for every field (most games cap 6\u201316, TikTok ~24, Instagram ~30), long enough to be pronounceable. Decorations count toward every limit.",
+      },
+      {
+        q: "Are styled nicknames bad for being found?",
+        a: "Partly \u2014 search matches exact characters, so styled text breaks name search everywhere. Keep the @handle plain and drop a plain-text spelling in a bio line; the styled version is the display layer.",
+      },
+      {
+        q: "Why not just use a random generator?",
+        a: "Random output fails the friend-test \u2014 unpronounceable, unmemorable, replaceable. Formulas produce a base that is yours; the generator's job is the fonts, frames and limits around that base.",
+      },
+    ],
+    relatedTools: [
+      { href: "/nickname-generator/", title: "Nickname generator", description: "Frames + fonts with a live counter." },
+      { href: "/game-name-generator/", title: "Game name generator", description: "Whitelist-friendly styles for shooters." },
+      { href: "/fancy-numbers/", title: "Fancy numbers", description: "Styled digits for squad numbers." },
+    ],
+    appearOn: ["nickname-generator", "game-name-generator", "fancy-numbers"],
   },
 ];
+

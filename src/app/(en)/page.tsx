@@ -1,9 +1,8 @@
-import { HomePageTemplate } from "@/components/page-templates/home";
-import { homeContent } from "@/lib/content/page-home";
-import { pageMetadata } from "@/lib/metadata";
+import { HomePage } from "@/components/page-templates/home";
+import { homeMetadata } from "@/app/_shared/handlers";
 
-export const metadata = pageMetadata("en", "/", homeContent["en"].meta);
+export const metadata = homeMetadata("en");
 
 export default function Page() {
-  return <HomePageTemplate locale="en" />;
+  return <HomePage locale="en" />;
 }

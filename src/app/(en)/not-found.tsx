@@ -1,7 +1,5 @@
-import { NotFoundTemplate, notFoundMetadata } from "@/components/page-templates/not-found";
+import { NotFoundPage } from "@/app/_shared/handlers";
 
-export const metadata = notFoundMetadata.en;
-
-export default function NotFoundPage() {
-  return <NotFoundTemplate locale="en" />;
+export default function NotFound() {
+  return <NotFoundPage locale="en" />;
 }

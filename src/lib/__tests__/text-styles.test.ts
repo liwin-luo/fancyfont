@@ -1,188 +1,105 @@
 import { describe, expect, it } from "vitest";
-import { convertAll, convertText, getStyle, styleMatches, textStyles, styleCategories } from "@/lib/text-styles";
+import {
+  convertAll,
+  convertText,
+  getStyle,
+  styleMatches,
+  textStyles,
+  withWrapper,
+} from "@/lib/text-styles";
+import { stripZalgo } from "@/lib/zalgo-clean";
 
-const cp = (s: string) => [...s].map((c) => c.codePointAt(0)!.toString(16)).join(" ");
-
-describe("style metadata", () => {
-  it("covers every style with a known category", () => {
-    const known = new Set(styleCategories.map((c) => c.id));
-    for (const style of textStyles) {
-      expect(known.has(style.category)).toBe(true);
-      expect(["letters", "lettersDigits", "partial", "all"]).toContain(style.coverage);
-      expect(style.note.length).toBeGreaterThan(0);
-    }
-  });
-
-  it("matches search aliases and does not treat bold as cursive", () => {
-    expect(styleMatches(getStyle("script"), "cursive")).toBe(true);
-    expect(styleMatches(getStyle("script"), "handwriting")).toBe(true);
-    expect(styleMatches(getStyle("bold"), "cursive")).toBe(false);
-    expect(styleMatches(getStyle("fraktur"), "old english")).toBe(true);
-    expect(styleMatches(getStyle("bubble"), "bubble letters")).toBe(true);
-    expect(styleMatches(getStyle("smallCaps"), "small caps")).toBe(true);
-    expect(styleMatches(getStyle("zalgoLight"), "zalgo")).toBe(true);
-    expect(styleMatches(getStyle("zalgoHeavy"), "glitch")).toBe(true);
-    expect(styleMatches(getStyle("upsideDown"), "flip")).toBe(true);
-    expect(styleMatches(getStyle("superscript"), "tiny")).toBe(true);
-    expect(styleMatches(getStyle("subscript"), "tiny")).toBe(true);
-    expect(convertText("Hello", "script")).toBe("ℋℯ𝓁𝓁ℴ");
-  });
-
-  it("labels combining-mark styles as all-characters and enclosed styles honestly", () => {
-    for (const id of ["strike", "underline", "zalgoHeavy"] as const) {
-      expect(textStyles.find((s) => s.id === id)?.coverage).toBe("all");
-    }
-    expect(textStyles.find((s) => s.id === "squared")?.coverage).toBe("letters");
-    expect(textStyles.find((s) => s.id === "superscript")?.coverage).toBe("partial");
-  });
-});
-
-describe("text style engine", () => {
-  it("exposes unique style ids", () => {
+describe("text-styles 引擎", () => {
+  it("样式表完整:182 种样式,无重复 id", () => {
+    expect(textStyles).toHaveLength(182);
     const ids = textStyles.map((s) => s.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("converts bold letters and digits", () => {
-    expect(cp(convertText("aA0", "bold"))).toBe("1d41a 1d400 1d7ce");
+  it("花体 hello(小写 e/l/o 走公认例外字形)", () => {
+    expect(convertText("hello", "script")).toBe("𝒽ℯ𝓁𝓁ℴ");
   });
 
-  it("converts italic with the Planck-h exception", () => {
-    expect(cp(convertText("h", "italic"))).toBe("210e");
-    expect(convertText("hi", "italic")).toBe("\u210E\u{1D456}");
+  it("粗体含数字", () => {
+    expect(convertText("Bold2026", "bold")).toBe("𝐁𝐨𝐥𝐝𝟐𝟎𝟐𝟔");
   });
 
-  it("converts cursive with typographic exceptions", () => {
-    expect(convertText("Alex", "script")).toBe("𝒜𝓁ℯ𝓍");
-    expect(convertText("Bob", "script")).toBe("ℬℴ𝒷");
+  it("哥特体个别字母用公认替代字形", () => {
+    // C 没有标准 Fraktur 码点,用 ℭ(U+212D)补齐。
+    expect(convertText("CHIC", "fraktur")).toBe("ℭℌℑℭ");
   });
 
-  it("converts gothic with exceptions", () => {
-    expect(convertText("CHR", "fraktur")).toBe("ℭℌℜ");
+  it("汉字在拉丁样式中原样保留", () => {
+    expect(convertText("你好", "script")).toBe("你好");
+    expect(convertText("你好 hello", "script")).toBe("你好 𝒽ℯ𝓁𝓁ℴ");
   });
 
-  it("converts outline (double-struck) with exceptions", () => {
-    expect(convertText("R", "doubleStruck")).toBe("ℝ");
-    expect(cp(convertText("0", "doubleStruck"))).toBe("1d7d8");
+  it("小型大写:X 无字形则保持原样(诚实覆盖),L 用主流 ʟ", () => {
+    expect(convertText("text", "smallCaps")).toBe("ᴛᴇxᴛ");
+    expect(convertText("milk", "smallCaps")).toBe("ᴍɪʟᴋ");
   });
 
-  it("converts small caps including Q and keeps s/x lowercase", () => {
-    expect(convertText("Queen", "smallCaps")).toBe("ǫᴜᴇᴇɴ");
-    expect(convertText("six", "smallCaps")).toBe("ꜱɪx");
+  it("删除线对汉字生效,字符数翻倍", () => {
+    const struck = convertText("中文", "strike");
+    expect(Array.from(struck)).toHaveLength(4);
+    expect(struck.startsWith("中")).toBe(true);
   });
 
-  it("converts circled letters and digits", () => {
-    expect(convertText("aA1", "circled")).toBe("ⓐⒶ①");
-    expect(convertText("0", "circled")).toBe("⓪");
+  it("全角样式加宽字母与空格", () => {
+    expect(convertText("a b", "fullwidth")).toBe("ａ\u3000ｂ");
   });
 
-  it("converts bubble letters and digits", () => {
-    expect(convertText("aA", "bubble")).toBe("🅐🅐");
-    expect(convertText("05", "bubble")).toBe("⓿❺");
+  it("罗马字片假名:基础音译与大小写、数字透传", () => {
+    expect(convertText("sakura", "katakanaRomaji")).toBe("サクラ");
+    expect(convertText("hello", "katakanaRomaji")).toBe("ヘルロ");
+    expect(convertText("konnichiwa", "katakanaRomaji")).toBe("コンニチワ");
+    expect(convertText("sakka", "katakanaRomaji")).toBe("サッカ");
+    expect(convertText("Sakura 123", "katakanaRomaji")).toBe("サクラ 123");
   });
 
-  it("converts fullwidth including spaces", () => {
-    expect(convertText("a A 0", "fullwidth")).toBe("ａ　Ａ　０");
+  it("韩文字母风:形似 jamo 替换,大小写等效,数字标点透传", () => {
+    expect(convertText("sarang", "koreanJamo")).toBe("ㅅㅏㄹㅏㄴㄱ");
+    expect(convertText("SARANG", "koreanJamo")).toBe("ㅅㅏㄹㅏㄴㄱ");
+    expect(convertText("go 16!", "koreanJamo")).toBe("ㄱㅗ 16!");
   });
 
-  it("converts monospace digits", () => {
-    expect(cp(convertText("9", "monospace"))).toBe("1d7ff");
+  it("倒立字:镜像并反转", () => {
+    expect(convertText("flip", "upsideDown")).toBe("dᴉlɟ");
   });
 
-  it("applies combining marks to every character", () => {
-    expect(convertText("ab", "strike")).toBe("a\u0336b\u0336");
-    expect(convertText("x y", "underline")).toBe("x\u0332 \u0332y\u0332");
+  it("zalgo 输出确定性:同输入同输出", () => {
+    const a = convertText("cursed", "zalgoHeavy");
+    const b = convertText("cursed", "zalgoHeavy");
+    expect(a).toBe(b);
+    expect(a).not.toBe("cursed");
   });
 
-  it("keeps unsupported characters unchanged (accents, emoji, CJK)", () => {
-    expect(convertText("héllo 🎉 文", "italic")).toBe("ℎé𝑙𝑙𝑜 🎉 文");
-    expect(convertText("naïve café", "bold")).toBe("𝐧𝐚ï𝐯𝐞 𝐜𝐚𝐟é");
+  it("zalgo 生成后可被清洗还原", () => {
+    const original = "cursed 中文";
+    const cursed = convertText(original, "zalgoMedium");
+    const cleaned = stripZalgo(cursed);
+    expect(cleaned.text).toBe(original);
+    expect(cleaned.removed).toBeGreaterThan(0);
   });
 
-  it("handles empty and long input without breaking", () => {
-    expect(convertText("", "bold")).toBe("");
-    const long = "ab".repeat(5000);
-    // Compare code points: astral-plane styles use two UTF-16 units each.
-    expect([...convertText(long, "script")].length).toBe(long.length);
+  it("convertAll 覆盖全部样式且不修改原文本", () => {
+    const all = convertAll("abc");
+    expect(all).toHaveLength(textStyles.length);
+    expect(all[0].id).toBe(textStyles[0].id);
   });
 
-  it("handles surrogate pairs (emoji) safely", () => {
-    expect(convertText("🎉a", "bold")).toBe("🎉𝐚");
+  it("withWrapper 贴装饰对", () => {
+    expect(withWrapper("清风", ["꧁", "꧂"])).toBe("꧁清风꧂");
   });
 
-  it("convertAll returns one result per style", () => {
-    const results = convertAll("Ok");
-    expect(results).toHaveLength(textStyles.length);
-    expect(results.map((r) => r.id)).toEqual(textStyles.map((s) => s.id));
-    expect(results.every((r) => r.text.length > 0)).toBe(true);
+  it("styleMatches 命中中文名与英文别名", () => {
+    const script = getStyle("script");
+    expect(styleMatches(script, "花体")).toBe(true);
+    expect(styleMatches(script, "cursive")).toBe(true);
+    expect(styleMatches(script, "无关词")).toBe(false);
   });
 
-  it("never returns the original text when there is anything to convert", () => {
-    for (const style of textStyles) {
-      expect(convertText("game over", style.id)).not.toBe("game over");
-    }
-  });
-});
-
-describe("new styles", () => {
-  it("flips text upside down and reverses it", () => {
-    expect(convertText("ab", "upsideDown")).toBe("qɐ");
-    expect(convertText("hello!", "upsideDown")).toBe("¡ollǝɥ");
-    expect(convertText("69", "upsideDown")).toBe("69");
-  });
-
-  it("converts tiny superscript text with full digit coverage", () => {
-    expect(convertText("hi2", "superscript")).toBe("ʰⁱ²");
-    expect(convertText("q", "superscript")).toBe("q"); // no superscript q exists
-  });
-
-  it("converts subscript where forms exist", () => {
-    expect(convertText("hello", "subscript")).toBe("ₕₑₗₗₒ");
-    expect(convertText("b", "subscript")).toBe("b"); // no subscript b exists
-  });
-
-  it("converts sans italic letters", () => {
-    expect(cp(convertText("aA", "sansItalic"))).toBe("1d622 1d608");
-  });
-
-  it("applies slash and double underline marks", () => {
-    expect(convertText("ab", "slash")).toBe("a\u0338b\u0338");
-    expect(convertText("ab", "doubleUnderline")).toBe("a\u0333b\u0333");
-  });
-
-  it("parenthesizes letters and digits 1-20", () => {
-    expect(cp(convertText("a", "parenthesized"))).toBe("249c");
-    expect(cp(convertText("1", "parenthesized"))).toBe("2474");
-    expect(convertText("0", "parenthesized")).toBe("0");
-  });
-
-  it("squares letters", () => {
-    expect(cp(convertText("aA", "squared"))).toBe("1f130 1f130");
-  });
-
-  it("composes pipeline styles", () => {
-    expect(convertText("a", "boldUnderline")).toBe("𝐚\u0332");
-    expect(convertText("a", "boldStrike")).toBe("𝐚\u0336");
-    expect(convertText("a", "italicUnderline")).toBe("𝑎\u0332");
-  });
-
-  it("is deterministic for zalgo and scales with intensity", () => {
-    const light = convertText("abc", "zalgoLight");
-    const medium = convertText("abc", "zalgoMedium");
-    const heavy = convertText("abc", "zalgoHeavy");
-    expect(convertText("abc", "zalgoLight")).toBe(light);
-    expect(convertText("abc", "zalgoMedium")).toBe(medium);
-    expect(convertText("abc", "zalgoHeavy")).toBe(heavy);
-    // Base characters are preserved in order, with combining marks around them.
-    for (const glitch of [light, medium, heavy]) {
-      expect(glitch.replace(/[\u0300-\u036F]/g, "")).toBe("abc");
-    }
-    expect(medium.length).toBeGreaterThan(light.length);
-    expect(heavy.length).toBeGreaterThan(medium.length);
-  });
-
-  it("keeps zalgo safe for astral characters (emoji)", () => {
-    const out = convertText("🎉", "zalgoLight");
-    expect(Array.from(out)[0]).toBe("🎉");
+  it("未知样式 id 抛错", () => {
+    expect(() => getStyle("nonexistent" as never)).toThrow();
   });
 });

@@ -1,12 +1,11 @@
 "use client";
 
-// Small SSR-safe localStorage helpers with cross-component sync.
-// Backs favorites, recent symbols, saved names, and custom combos —
-// everything stays on the user's device, no accounts needed.
+// 小型 SSR 安全的 localStorage 辅助,带跨组件同步。
+// 支撑收藏、最近复制——一切留在用户设备上,无需注册账号。
 
 import { useCallback, useEffect, useState } from "react";
 
-const EVENT_NAME = "fancyfont:local-list";
+const EVENT_NAME = "fontdrafts:local-list";
 
 export function readLocalList(key: string): string[] {
   if (typeof window === "undefined") return [];
@@ -27,15 +26,15 @@ export function writeLocalList(key: string, items: string[]): void {
     window.localStorage.setItem(key, JSON.stringify(items));
     window.dispatchEvent(new CustomEvent(EVENT_NAME, { detail: { key } }));
   } catch {
-    // Storage may be unavailable (private mode, quota) — fail silently.
+    // 存储可能不可用(隐私模式、配额满)——静默失败。
   }
 }
 
 export interface LocalList {
   items: string[];
-  /** Adds an item (dedup, newest first) and trims to max. */
+  /** 添加条目(去重、最新在前)并裁剪到上限。 */
   add: (item: string) => void;
-  /** Toggles an item: adds it when missing, removes it when present. */
+  /** 切换条目:不存在则添加,存在则移除。 */
   toggle: (item: string) => void;
   remove: (item: string) => void;
   clear: () => void;

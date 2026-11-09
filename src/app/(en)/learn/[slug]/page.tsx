@@ -1,26 +1,15 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { GuidePageTemplate } from "@/components/guide-page-template";
-import { enOnlyMetadata } from "@/lib/metadata";
-import { getGuide, guidePath, guides } from "@/lib/guides";
+import { guideParams, guidePageMetadata, GuideArticlePage } from "@/app/_shared/handlers";
 
 export function generateStaticParams() {
-  return guides.map((guide) => ({ slug: guide.slug }));
+  return guideParams("en");
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const guide = getGuide(slug);
-  if (!guide) return {};
-  return enOnlyMetadata(guidePath(guide.slug), {
-    title: guide.title,
-    description: guide.description,
-  });
+  return guidePageMetadata("en", slug);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const guide = getGuide(slug);
-  if (!guide) notFound();
-  return <GuidePageTemplate guide={guide} />;
+  return <GuideArticlePage locale="en" slug={slug} />;
 }

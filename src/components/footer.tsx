@@ -1,145 +1,140 @@
+// 页脚:locale 决定链接前缀与标签语言。黑底反白,硬边风格收尾。
+
 import Link from "next/link";
-import { PixelStar } from "@/components/pixel-star";
-import { BookmarkButton } from "@/components/bookmark-button";
-import { getUi } from "@/lib/ui-strings";
 import { localePath, type Locale } from "@/lib/i18n";
-import { getSiteUrl, siteName, contentUpdated } from "@/lib/site";
-import { isLookPage, stylePages } from "@/lib/style-pages";
+import { guidesFor } from "@/lib/guides";
+import { hubPath } from "@/lib/hubs";
 import { platformPages } from "@/lib/platform-pages";
+import { stylePages } from "@/lib/style-pages";
+import { getUi } from "@/lib/ui-strings";
+import { siteName } from "@/lib/site";
 
 export function Footer({ locale }: { locale: Locale }) {
-  const t = getUi(locale);
+  const ui = getUi(locale);
+  const lp = (slug: string) => localePath(locale, `/${slug}/`);
+  const localeStyles = stylePages.filter((page) => page.copy[locale]);
+  const localePlatforms = platformPages.filter((page) => page.copy[locale]);
+  const localeGuides = guidesFor(locale);
 
   return (
-    <footer className="mt-16 border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-        <div>
-          <p className="flex items-center gap-2 text-base font-extrabold tracking-tight text-ink-900">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-brand-600">
-              <PixelStar className="h-4 w-4 text-white" />
-            </span>
-            {siteName}
-          </p>
-          <p className="mt-1 text-xs text-ink-500">{getSiteUrl().replace(/^https?:\/\//, "")}</p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-600">{t.tools.tagline}</p>
-        </div>
-        <nav aria-label="Tools">
-          <h2 className="text-sm font-semibold text-ink-900">{t.nav.fancy}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/fancy-text-generator/")}>
-                {t.tools.fancy}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/gaming-name-generator/")}>
-                {t.tools.gaming}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/symbols/")}>
-                {t.tools.symbols}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/blank-space/")}>
-                {t.tools.blank}
-              </Link>
-            </li>
-          </ul>
-          <h2 className="mt-6 text-sm font-semibold text-ink-900">{t.tools.forPlatforms}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {platformPages.map((page) => (
-              <li key={page.slug}>
-                <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, `/${page.slug}/`)}>
-                  {page.copy[locale].navName}{" "}
-                  {page.toolMode === "gaming" ? t.tools.namesWord : t.tools.fontsWord}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <nav aria-label="Style generators">
-          <h2 className="text-sm font-semibold text-ink-900">{t.tools.lookGenerators}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {stylePages.filter(isLookPage).map((page) => (
-              <li key={page.slug}>
-                <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, `/${page.slug}/`)}>
-                  {page.copy[locale].navName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <h2 className="mt-6 text-sm font-semibold text-ink-900">{t.tools.letterGenerators}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {stylePages.filter((page) => !isLookPage(page)).map((page) => (
-              <li key={page.slug}>
-                <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, `/${page.slug}/`)}>
-                  {page.copy[locale].navName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <nav aria-label="Site">
-          <h2 className="text-sm font-semibold text-ink-900">{t.tools.site}</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/")}>
-                {t.nav.home}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/privacy/")}>
-                {t.tools.privacy}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/terms/")}>
-                {t.tools.terms}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/about/")}>
-                {t.tools.about}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/contact/")}>
-                {t.tools.contact}
-              </Link>
-            </li>
-            <li>
-              <Link className="text-ink-600 hover:text-brand-700" href={localePath(locale, "/mcp/")}>
-                {t.tools.mcp}
-              </Link>
-            </li>
-            {/* Guides exist only in English, so only the English footer links them. */}
-            {locale === "en" && (
+    <footer className="mt-16 border-t-2 border-ink bg-ink text-paper">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="text-xs font-black tracking-widest text-pop-yellow">{ui.footerCols.styles}</p>
+            <ul className="mt-3 space-y-2">
+              {localeStyles.slice(0, 7).map((page) => (
+                <li key={page.slug}>
+                  <Link href={lp(page.slug)} className="text-sm hover:text-pop-yellow">
+                    {page.copy[locale]!.navName}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link className="text-ink-600 hover:text-brand-700" href="/learn/">
-                  Guides
+                <Link href={hubPath(locale, "styles")} className="text-sm text-paper/70 hover:text-pop-yellow">
+                  {ui.footerCols.allStyles}
                 </Link>
               </li>
-            )}
-          </ul>
-        </nav>
-      </div>
-      <div className="border-t border-line py-4 text-center text-xs text-ink-500">
-        <p>
-          © {new Date().getFullYear()} {siteName}. {t.tools.copyright}
-        </p>
-        <p className="mt-1">
-          {t.tools.publishedBy}{" "}
-          <Link href={localePath(locale, "/about/")} className="font-semibold hover:text-brand-700">
-            {siteName}
-          </Link>{" "}
-          · {t.tools.lastUpdated} <time dateTime={contentUpdated}>{contentUpdated}</time>
-        </p>
-        <p className="mt-2">
-          <BookmarkButton />
-        </p>
+              {locale === "en" && (
+                <>
+                  <li>
+                    <Link href="/symbols/" className="text-sm text-paper/70 hover:text-pop-yellow">
+                      Symbols
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blank-space/" className="text-sm text-paper/70 hover:text-pop-yellow">
+                      Blank Space
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-black tracking-widest text-pop-pink">{ui.footerCols.platforms}</p>
+            <ul className="mt-3 space-y-2">
+              {localePlatforms.slice(0, 8).map((page) => (
+                <li key={page.slug}>
+                  <Link href={lp(page.slug)} className="text-sm hover:text-pop-pink">
+                    {page.copy[locale]!.navName}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href={hubPath(locale, "platforms")} className="text-sm text-paper/70 hover:text-pop-pink">
+                  {ui.footerCols.allPlatforms}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-black tracking-widest text-pop-green">{ui.footerCols.guides}</p>
+            <ul className="mt-3 space-y-2">
+              {localeGuides.slice(0, 5).map((guide) => (
+                <li key={guide.slug}>
+                  <Link href={`${guideBaseFor(locale)}/${guide.slug}/`} className="text-sm hover:text-pop-green">
+                    {guide.navName}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href={`${guideBaseFor(locale)}/`} className="text-sm text-paper/70 hover:text-pop-green">
+                  {ui.footerCols.allGuides}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-black tracking-widest text-pop-blue">{ui.footerCols.about}</p>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link href={lp("about")} className="text-sm hover:text-pop-blue">
+                  {legalNav(locale).about}
+                </Link>
+              </li>
+              <li>
+                <Link href={lp("contact")} className="text-sm hover:text-pop-blue">
+                  {legalNav(locale).contact}
+                </Link>
+              </li>
+              <li>
+                <Link href={lp("privacy")} className="text-sm hover:text-pop-blue">
+                  {legalNav(locale).privacy}
+                </Link>
+              </li>
+              <li>
+                <Link href={lp("terms")} className="text-sm hover:text-pop-blue">
+                  {legalNav(locale).terms}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-10 flex flex-col gap-2 border-t border-paper/20 pt-6 text-xs text-paper/70 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            {siteName} · {ui.footerTagline}
+          </p>
+          <p>© 2026 {siteName}. {ui.copyright}</p>
+        </div>
       </div>
     </footer>
   );
+}
+
+import { guideBase } from "@/lib/guides";
+import { legalContent } from "@/lib/content/legal";
+
+function guideBaseFor(locale: Locale): string {
+  return guideBase(locale);
+}
+
+function legalNav(locale: Locale): { about: string; contact: string; privacy: string; terms: string } {
+  const bundle = legalContent[locale];
+  return {
+    about: bundle.about.navName,
+    contact: bundle.contact.navName,
+    privacy: bundle.privacy.navName,
+    terms: bundle.terms.navName,
+  };
 }

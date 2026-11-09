@@ -1,39 +1,15 @@
-import { notFound } from "next/navigation";
-import { StylePageTemplate } from "@/components/style-page-template";
-import { PlatformPageTemplate } from "@/components/platform-page-template";
-import { stylePages, getStylePage } from "@/lib/style-pages";
-import { platformPages, getPlatformPage } from "@/lib/platform-pages";
-import { pageMetadata } from "@/lib/metadata";
-import { resolvedStyleTitle } from "@/lib/serp-title";
+import { slugParams, slugMetadata, SlugPage } from "@/app/_shared/handlers";
 
 export function generateStaticParams() {
-  return [...stylePages, ...platformPages].map((page) => ({ slug: page.slug }));
+  return slugParams("en");
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const stylePage = getStylePage("en", slug);
-  if (stylePage) {
-    const copy = stylePage.copy["en"];
-    return pageMetadata("en", `/${slug}/`, {
-      title: resolvedStyleTitle(copy, slug, "en"),
-      description: copy.description,
-    });
-  }
-  const platformPage = getPlatformPage("en", slug);
-  if (!platformPage) return {};
-  const copy = platformPage.copy["en"];
-  return pageMetadata("en", `/${slug}/`, {
-    title: copy.title,
-    description: copy.description,
-  });
+  return slugMetadata("en", slug);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const stylePage = getStylePage("en", slug);
-  if (stylePage) return <StylePageTemplate page={stylePage} locale="en" />;
-  const platformPage = getPlatformPage("en", slug);
-  if (platformPage) return <PlatformPageTemplate page={platformPage} locale="en" />;
-  notFound();
+  return <SlugPage locale="en" slug={slug} />;
 }

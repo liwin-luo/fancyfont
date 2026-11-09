@@ -1,721 +1,580 @@
-// Brazilian Portuguese copy for the dedicated style generator pages.
+// Brazilian Portuguese copy for the 11 multilingual style pages.
+// Populated with hand-written PT-BR; see style-pages-en.ts for the reference.
 
-import { coquetteCopyExamples } from "../coquette-examples";
-import type { StylePageCopy } from "./style-pages-en";
+import type { Locale } from "../i18n";
+import type { StylePageCopy } from "../style-pages";
 
-export const stylePagesPtBr: Record<string, StylePageCopy> = {
-  "cursive-text-generator": {
-    navName: "Cursiva",
-    h1: "Gerador de letras cursivas",
-    description:
-      "Transforme seu texto em letras cursivas Unicode na hora. Dois traços, prévia ao vivo e copie para a bio, nome ou chats.",
-    intro:
-      "Transforme seu texto em letras cursivas com caracteres Unicode — sem instalar fonte e sem cadastro. Digite abaixo, escolha o traço e copie.",
-    howItWorks:
-      "O texto cursivo usa as faixas Unicode Mathematical Script e Bold Script. Cada letra vira um caractere parecido desenhado com traços manuscritos conectados — e é por isso que o estilo sobrevive ao copiar e colar, coisa que uma fonte de verdade não consegue.",
-    coverageNote:
-      "Os dois estilos cursivos convertem A–Z e a–z. O Unicode não tem dígitos cursivos, então os números ficam como você digitou; letras com acento, emoji e outros alfabetos passam intactos. A cursiva em negrito é um alfabeto contínuo. A cursiva fina não tem forma matemática própria para e, g e o, então essas três letras usam outro traço (ℯ ℊ ℴ).",
-    bestFor: [
-      "Bios do Instagram e nomes visíveis com um toque manuscrito",
-      "Perfis de beleza, casamento e lifestyle",
-      "Frases curtas onde uma fonte cursiva cairia bem",
-    ],
-    sampleInputs: ["Seu Nome", "Chá Doce", "Sr & Sra"],
-    platformTip:
-      "As letras cursivas funcionam na maioria das bios e nomes do Instagram, TikTok e Discord. Alguns jogos recusam porque as fontes internas só cobrem o alfabeto básico — teste antes de decidir.",
-    faq: [
-      {
-        q: "Texto cursivo é uma fonte de verdade?",
-        a: "Não. São caracteres Unicode que parecem escrita à mão. É justamente por isso que dá para colar em apps que só aceitam texto simples.",
+export const stylePagesPtBr: Record<string, { [L in Locale]?: StylePageCopy }> = {
+  "cursive-fonts": {
+    "pt-br": {
+      navName: "Cursiva",
+      h1: "Gerador de Fonte Cursiva",
+      title: "Gerador de Letras Cursivas — script, negrito e adornos ♡",
+      description:
+        "Letras cursivas bonitas: script claro, script negrito e adornos com ♡ e ✧. Aparecem em tempo real ao digitar e copiam com um toque, para bios e nicknames.",
+      intro: [
+        "Digite um nome, uma palavra ou uma frase curta na caixa abaixo e as versões cursivas aparecem em todos os cartões na hora. Toque para copiar — sem instalar fonte, sem cadastro, sem limite.",
+        "Essas “fontes cursivas” não são fontes de verdade: são caracteres Unicode do bloco de Símbolos Alfanuméricos Matemáticos que por acaso parecem escritos à mão. Como são texto comum, o estilo sobrevive a qualquer copiar e colar em nicknames, bios e assinaturas.",
+      ],
+      steps: [
+        "Digite seu nome ou a frase favorita na caixa.",
+        "Compare a cursiva leve com a cursiva negrito; as combinações com ♡ e ✧ já vêm com decoração.",
+        "Toque em copiar na que ganhar, ou favorite algumas candidatas e decida depois.",
+        "Cole no app e publique um teste antes de valer.",
+      ],
+      about: {
+        heading: "Como o texto cursivo funciona",
+        paragraphs: [
+          "As letras estilizadas vêm do bloco de Símbolos Alfanuméricos Matemáticos do Unicode, criado em 2001 para diagramar fórmulas. Um gerador só faz uma coisa: trocar cada letra comum pelo caractere estilizado da mesma posição — ordem, comprimento e maiúsculas/minúsculas continuam idênticos.",
+          "Como cada letra precisa de um glifo correspondente, a cursiva cobre apenas A–Z. Chinês, japonês e árabe não têm versões estilizadas no Unicode — nesses casos, a saída são molduras decorativas em volta do texto.",
+        ],
       },
-      {
-        q: "Por que aparecem quadradinhos em alguns aparelhos?",
-        a: "O aparelho não tem fonte para esses caracteres. É comum em Androids antigos. Use a cursiva em negrito ou troque de estilo se o seu público tiver esse problema.",
-      },
-      {
-        q: "Posso usar cursiva no meu usuário do Instagram?",
-        a: "Não — o usuário do Instagram aceita só letras, números, pontos e sublinhado. A cursiva vai no nome de exibição e na bio.",
-      },
-    ],
+      faq: [
+        {
+          q: "Onde posso colar texto cursivo?",
+          a: "Em qualquer campo que aceite texto simples: nomes de exibição, bios, assinaturas, nicknames de chat, IDs de jogo. Campos com validação rígida — @usuários, logins — costumam rejeitar caracteres estilizados.",
+        },
+        {
+          q: "Por que algumas letras aparecem como quadradinhos em outros aparelhos?",
+          a: "As fontes do aparelho que recebe não têm esses glifos — comum em sistemas antigos. Trocar para a cursiva negrito costuma resolver. Favorite duas candidatas para ter um plano B.",
+        },
+        {
+          q: "Texto cursivo atrapalha a busca?",
+          a: "Sim. Caracteres estilizados não são letras comuns, então buscar seu nickname exato pode falhar. Deixe o nome real em caracteres simples em algum lugar — decoração é para exibir, não para procurar.",
+        },
+        {
+          q: "Texto cursivo ocupa mais caracteres na bio?",
+          a: "Não — cada letra comum é trocada por exatamente uma letra cursiva, então o comprimento fica idêntico. O que cabia no campo antes continua cabendo.",
+        },
+        {
+          q: "Leitores de tela leem texto cursivo direitinho?",
+          a: "Não muito — muitos anunciam as letras uma a uma como “script matemático”. Reserve a cursiva para nomes e toques curtos, e escreva em texto simples o que precisa ser lido em voz alta.",
+        },
+        {
+          q: "O gerador é grátis? Preciso de cadastro ou instalar alguma fonte?",
+          a: "Grátis, sem cadastro e sem instalar nada — as letras cursivas são caracteres Unicode, não arquivos de fonte. O estilo viaja dentro do próprio texto copiado.",
+        },
+      ],
+    },
   },
-  "gothic-text-generator": {
-    navName: "Gótica",
-    h1: "Gerador de letras góticas",
-    description:
-      "Gerador de letras Fraktur e Old English, a gótica blackletter. Traços clássico e negrito, prévia ao vivo e cópia em um toque para nomes, bios e clãs.",
-    intro:
-      "Digite qualquer coisa e transforme em Fraktur, a blackletter Old English dos logos de metal, tags de clã e bios sombrias. Dois traços, copie em um clique.",
-    howItWorks:
-      "O texto gótico usa as faixas Unicode Mathematical Fraktur. O fraktur, que muita gente chama de Old English, é um estilo alemão histórico, e o Unicode traz um alfabeto inteiro de lookalikes — incluindo formas especiais para C, H, I, R e Z.",
-    coverageNote:
-      "Os dois estilos góticos convertem apenas A–Z e a–z. Dígitos, acentos e emoji ficam como estão, porque o Unicode não tem dígitos fraktur.",
-    bestFor: [
-      "Nomes de jogo e tags de clã com estética metal ou dark",
-      "Bios de Halloween e divulgação de eventos",
-      "Marcas de perfil com cara de banda",
-    ],
-    sampleInputs: ["Sombra", "Madrugada", "Corvo"],
-    platformTip:
-      "Os caracteres blackletter funcionam bem em celulares modernos, mas alguns aparelhos antigos mostram quadradinhos. Teste no app que você vai usar — principalmente em jogos.",
-    faq: [
-      {
-        q: "Fraktur, Old English ou medieval é outro gerador, diferente do gótico?",
-        a: "Não. Esta página cobre todos esses nomes. Fraktur, Old English, medieval e blackletter descrevem o mesmo alfabeto gótico, e «gótica» é como se busca esse texto. Não há um arquivo de fonte separado.",
+  "bold-fonts": {
+    "pt-br": {
+      navName: "Negrito",
+      h1: "Gerador de Texto em Negrito",
+      title: "Gerador de Texto em Negrito — clássico, sans e itálico",
+      description:
+        "Negrito bonito de verdade em 4 pesos, números inclusos: renderiza ao digitar e copia com um toque; a ênfase sobrevive a qualquer colagem.",
+      intro: [
+        "A maioria dos chats e redes sociais não deixa negritar uma palavra — aqui os próprios caracteres já nascem em negrito, então a ênfase sobrevive a qualquer colagem.",
+        "São quatro pesos para escolher: negrito clássico, sem serifa em negrito, negrito itálico e itálico. Os números também ganham versão em negrito, então datas e valores funcionam.",
+      ],
+      steps: [
+        "Digite a palavra, a frase ou o número que você quer destacar.",
+        "Compare os quatro pesos — negrito para títulos, itálico para toques.",
+        "Copie e cole no chat, na assinatura ou no título.",
+        "Se o app renderizar estranho, troque para o negrito sem serifa.",
+      ],
+      about: {
+        heading: "Negrito no nível do caractere",
+        paragraphs: [
+          "Esse negrito é diferente do do editor de textos: não é uma marcação de formatação, é uma troca para o bloco de negritos matemáticos do Unicode. A espessura está gravada no próprio caractere, sem depender de nenhum motor de layout.",
+          "O preço é a acessibilidade: leitores de tela podem anunciar 𝗕𝗼𝗹𝗱 como “B negrito matemático sem serifa…” — ruído para quem escuta. Use em frases curtas, nunca em parágrafos.",
+        ],
       },
-      {
-        q: "Qual a diferença entre os dois estilos góticos?",
-        a: "O primeiro é o fraktur clássico, de traço fino; o segundo é o peso negrito, que continua legível em tamanhos pequenos.",
-      },
-      {
-        q: "Por que algumas letras parecem diferentes das outras?",
-        a: "Letras como C, H, I, R e Z vêm de tipografias blackletter históricas em vez da faixa matemática, então o desenho muda um pouco. É parte autêntica do estilo.",
-      },
-      {
-        q: "Funciona em nomes de Roblox ou Fortnite?",
-        a: "Os dois jogos restringem o conjunto de caracteres, e muitos jogadores relatam recusa das letras góticas. Teste na tela de mudança de nome ou use combinações do Gerador de Nomes que deixam o nome base intacto.",
-      },
-    ],
+      faq: [
+        {
+          q: "Negrito funciona em apps de mensagem como WhatsApp ou Discord?",
+          a: "Sim — o negrito faz parte dos caracteres, então as bolhas de mensagem mantêm o estilo sem nenhuma sintaxe de formatação.",
+        },
+        {
+          q: "Posso misturar negrito com emoji?",
+          a: "Pode. Emoji não tem versão em negrito e passa sem mudança enquanto as letras latinas ficam bold — texto misto funciona bem.",
+        },
+        {
+          q: "Dá para usar negrito em hashtags?",
+          a: "Melhor não. Hashtags casam com letras simples; uma #Bold estilizada não é indexada nem clicável. Deixe as hashtags em caracteres comuns.",
+        },
+        {
+          q: "Leitores de tela lidam bem com letras em negrito?",
+          a: "Mais ou menos — podem anunciar 𝗕 como “B negrito matemático sem serifa” em vez de apenas B. Negrite uma ou duas palavras no máximo e deixe em texto simples o que precisa ser lido em voz alta.",
+        },
+        {
+          q: "Por que as letras em negrito viram quadradinhos em alguns celulares?",
+          a: "As fontes do aparelho não têm os glifos do bloco matemático — raro, mas comum em sistemas muito antigos. Não há o que o remetente possa consertar; se acontecer, reenvie em texto simples.",
+        },
+        {
+          q: "O negrito sobrevive ao colar no Word ou no Google Docs?",
+          a: "Sim — a espessura está nos próprios caracteres, então sobrevive a documentos, planilhas e e-mails. Continua em negrito até onde a formatação nativa do app seria removida.",
+        },
+      ],
+    },
   },
-  "bold-text-generator": {
-    navName: "Negrito",
-    h1: "Gerador de letras em negrito",
-    description:
-      "Deixe seu texto em negrito onde só cabe texto simples. Pesos serif, sans e itálico — prévia e cópia em segundos.",
-    intro:
-      "Negrito de verdade que sobrevive ao copiar e colar — em status do WhatsApp, posts no X, apelidos do Discord e qualquer lugar sem botão de formatação.",
-    howItWorks:
-      "Os estilos em negrito vêm de três faixas Unicode: Mathematical Bold para o peso serif clássico, Mathematical Sans-Serif Bold para um visual mais limpo e Mathematical Bold Italic para ênfase extra. Cada letra é um caractere próprio, então o peso viaja junto com o texto.",
-    coverageNote:
-      "As negritos serif e sans convertem letras e dígitos. A negrito itálico cobre só letras — o Unicode não tem dígitos em negrito itálico — e qualquer coisa fora de A–Z, a–z e 0–9 fica como está.",
-    bestFor: [
-      "Destacar uma ou duas palavras em bios e legendas",
-      "Avisos onde não existe formatação",
-      "Tags de jogo fortes e legíveis",
-    ],
-    sampleInputs: ["Última hora", "Promo 50%", "GOAT"],
-    platformTip:
-      "O negrito Unicode funciona praticamente onde funciona texto simples. Em apps com formatação real, como as mensagens do Discord, prefira o negrito nativo — fica mais consistente.",
-    faq: [
-      {
-        q: "Por que não usar só o botão de negrito?",
-        a: "Muitos lugares — legendas do Instagram, bios do TikTok, a maioria dos jogos — não têm formatação. Os caracteres Unicode em negrito são o único jeito de conseguir peso ali.",
+  "gothic-fonts": {
+    "pt-br": {
+      navName: "Gótica",
+      h1: "Gerador de Fonte Gótica",
+      title: "Gerador de Fonte Gótica — blackletter Old English",
+      description:
+        "Letras góticas bonitas estilo Old English: dois pesos de fraktur, prévia em tempo real ao digitar e copiar com um toque, para nicknames dark e IDs de jogo.",
+      intro: [
+        "A gótica (fraktur/blackletter) é a letra dos jornais antigos e dos logos de bandas de metal. Digite uma palavra e os dois pesos aparecem ao vivo — toque em um cartão para copiar.",
+        "Combine com decorações ☠ ou ⚔ e você tem um nickname dark pronto. Apenas letras latinas — outros alfabetos passam sem mudança.",
+      ],
+      steps: [
+        "Digite seu nickname, o nome da banda ou uma frase curta.",
+        "Compare os dois pesos — o negrito continua legível em tamanho pequeno.",
+        "Copie, cole no campo de nome e publique um teste para conferir a renderização.",
+        "Se aparecerem quadradinhos em aparelhos antigos, troque para o peso negrito ou para a cursiva.",
+      ],
+      about: {
+        heading: "A letra dos jornais antigos virou Unicode",
+        paragraphs: [
+          "O bloco de Símbolos Alfanuméricos Matemáticos do Unicode inclui um fraktur A–Z. A legibilidade é naturalmente baixa, então limite-se a duas ou três palavras — nicknames e títulos, nunca frases inteiras.",
+          "Algumas letras (C, H, I, R, Z) não têm ponto de código fraktur padrão, então entram os substitutos decorativos conhecidos — a mesma convenção que todo gerador segue.",
+        ],
       },
-      {
-        q: "Letras em negrito prejudicam leitores de tela?",
-        a: "Alguns leitores soletram as letras matemáticas uma por uma. Em parágrafos longos, formatação nativa é mais gentil; para um nome ou palavra, não há problema.",
-      },
-      {
-        q: "Existe número em negrito?",
-        a: "Sim — nos estilos serif e sans. O negrito itálico não tem dígitos, então os números passam sem mudança nele.",
-      },
-    ],
+      faq: [
+        {
+          q: "Posso usar texto gótico em jogos?",
+          a: "A maioria dos jogos aceita nicknames Unicode, e o blackletter costuma passar. Jogos com validação por lista branca podem recusar — se aparecer erro de “caracteres inválidos”, só resta texto simples ali.",
+        },
+        {
+          q: "Gótica é a mesma coisa que Old English?",
+          a: "No dia a dia, sim — “fonte Old English” quase sempre quer dizer blackletter fraktur, e não a língua inglesa antiga de verdade.",
+        },
+        {
+          q: "Por que algumas letras parecem diferentes?",
+          a: "O Unicode só traz glifos fraktur para parte do alfabeto; C, H, I, R e Z usam substitutos decorativos. Todos os geradores produzem o mesmo resultado.",
+        },
+        {
+          q: "Texto gótico ocupa mais caracteres?",
+          a: "Não — a troca é uma letra por uma, então 𝔊𝔬𝔱𝔥𝔦𝔠 conta igual a “gothic”. Decorações como ☠ adicionam caracteres próprios, um cada.",
+        },
+        {
+          q: "Blackletter é legível para leitores de tela?",
+          a: "Não naturalmente — eles costumam anunciar as letras como “fraktur” ou “matemáticas”. Reserve a gótica para nicknames e títulos; nunca use em uma frase que alguém precise ouvir.",
+        },
+        {
+          q: "Posso adicionar ☠ ou ⚔ a um nome gótico?",
+          a: "Pode — são símbolos Unicode comuns e combinam naturalmente com o blackletter. Os dois têm bom suporte, embora aparelhos muito antigos ainda possam mostrar quadradinhos.",
+        },
+      ],
+    },
   },
-  "italic-text-generator": {
-    navName: "Itálico",
-    h1: "Gerador de letras itálicas",
-    description:
-      "Escreva texto itálico que cola em qualquer lugar. Itálico serif clássico e sans limpo, com prévia instantânea.",
-    intro:
-      "Texto elegante e inclinado para colar em bios, legendas e chats — onde os apps esqueceram de te dar um botão de itálico.",
-    howItWorks:
-      "O estilo clássico usa a faixa Unicode Mathematical Italic, incluindo o histórico ℎ para a letra h. A variante sans itálico vem da faixa Mathematical Sans-Serif Italic, com uma inclinação mais limpa e moderna.",
-    coverageNote:
-      "Os dois estilos itálicos convertem apenas letras — o Unicode não define dígitos itálicos. Números, pontuação, emoji e outros alfabetos ficam exatamente como digitados.",
-    bestFor: [
-      "Legendas poéticas e bios de leitores",
-      "Destacar títulos e frases em outros idiomas",
-      "Um acento suave dentro de bios simples",
-    ],
-    sampleInputs: ["era uma vez", "modo: cozy", "parte 2"],
-    platformTip:
-      "O itálico Unicode é seguro em bios, nomes e mensagens nas grandes plataformas. Evite parágrafos longos — alguns leitores de tela tropeçam nas letras matemáticas e texto inclinado cansa na leitura.",
-    faq: [
-      {
-        q: "Por que meus números não mudaram?",
-        a: "O Unicode não tem dígitos itálicos — só letras. Seus números ficam no estilo normal, o que geralmente combina bem com letras itálicas.",
+  "small-fonts": {
+    "pt-br": {
+      navName: "Versalete",
+      h1: "Gerador de Texto Pequeno",
+      title: "Gerador de Texto Pequeno — versalete, ˢᵘᵖ e ˢᵘᵇ",
+      description:
+        "Texto pequeno bonito: versalete, sobrescrito e subscrito renderizam ao digitar e copiam com um toque, discretos para bios e assinaturas.",
+      intro: [
+        "Precisa de uma segunda linha discreta na bio? O versalete transforma letras em maiúsculas em miniatura, o sobrescrito eleva o texto e o subscrito desce. Prévia ao vivo, toque para copiar.",
+        "Os três estilos têm uma qualidade em comum: eles não gritam. Uma linha em versalete no meio de estilos chamativos cria hierarquia na hora.",
+      ],
+      steps: [
+        "Digite a frase que você quer encolher.",
+        "Versalete combina com linhas inteiras; sobrescrito e subscrito servem para uma ou duas palavras.",
+        "Copie e cole na bio, na assinatura ou na anotação.",
+        "Algumas maiúsculas não têm glifo em versalete e ficam como estão — é normal.",
+      ],
+      about: {
+        heading: "Os limites de encolher",
+        paragraphs: [
+          "O conjunto de versalete do Unicode não tem X (e o Q usa um sósia), e a tabela de sobrescritos está sem várias maiúsculas. O motor é honesto: caracteres sem versão estilizada permanecem como digitados, em vez de serem falsificados.",
+          "“Pequeno” aqui significa caracteres diferentes, não mudança de tamanho de fonte — altura de linha e espaçamento continuam sob controle da plataforma, e o texto segue legível em telas pequenas.",
+        ],
       },
-      {
-        q: "Qual itálico eu escolho?",
-        a: "O serif tem cara clássica e literária; o sans fica mais limpo em tamanhos pequenos. Os dois copiam do mesmo jeito — teste nos dois no seu texto.",
-      },
-      {
-        q: "Posso deixar a bio inteira do Instagram em itálico?",
-        a: "Pode, mas não recomendamos: blocos longos de caracteres matemáticos ficam estranhos para tecnologias assistivas e cansam a leitura. Melhor itálico em uma palavra ou linha.",
-      },
-    ],
+      faq: [
+        {
+          q: "Por que algumas letras não mudaram?",
+          a: "O Unicode não tem glifos em versalete para todas as letras — o X não tem nenhum. Todos os geradores têm as mesmas lacunas.",
+        },
+        {
+          q: "Para que servem os números sobrescritos?",
+          a: "Selos de ano como ²⁰²⁶, notas de rodapé e piadas de fórmula — também combinam com texto normal como anotações.",
+        },
+        {
+          q: "Texto pequeno é mais difícil de ler?",
+          a: "As formas das letras são comuns; só o tamanho visual muda. Mas leitores de tela podem anunciar “sobrescrito” a cada caractere, então evite em tudo que precisa ser lido em voz alta.",
+        },
+        {
+          q: "Versalete conta igual na bio?",
+          a: "Sim — um caractere estilizado por letra comum, então a contagem não muda. O versalete muda o visual, não o comprimento.",
+        },
+        {
+          q: "Por que letras sobrescritas viram quadradinhos em aparelhos antigos?",
+          a: "A tabela de sobrescritos é um dos conjuntos mais incompletos do Unicode, e fontes antigas cobrem pouco dela. Se aparecerem quadradinhos, volte para o versalete — o estilo com a melhor cobertura dos três.",
+        },
+        {
+          q: "Dá para escrever a bio inteira em versalete?",
+          a: "Dá — o versalete funciona melhor em linhas inteiras do que sobrescrito ou subscrito. Mas uma bio em um único estilo perde a hierarquia; deixe a linha principal normal e estilize a segunda.",
+        },
+      ],
+    },
   },
-  "bubble-letters-generator": {
-    navName: "Bolha",
-    h1: "Gerador de letras de bolha",
-    description:
-      "Coloque suas letras em bolhas cheias, anéis finos ou quadrados. Letras Unicode divertidas com prévia ao vivo e cópia em um toque.",
-    intro:
-      "Envolva cada letra na sua própria bolha. Três versões — bolhas cheias, anéis finos e quadrados bold — todas copiáveis como texto simples.",
-    howItWorks:
-      "O texto de bolha usa os blocos Unicode Enclosed Alphanumerics e Enclosed Alphanumeric Supplement: círculos cheios para o visual bolha, formas circulares finas para algo mais leve e quadrados negativos para a versão quadrada. Cada caractere é um único ponto de código Unicode.",
-    coverageNote:
-      "Os estilos bolha e circulado cobrem letras e dígitos, com um caractere especial para o zero. O quadrado é só de letras e costuma virar emoji colorido nos celulares — divertido, mas teste antes.",
-    bestFor: [
-      "Nomes divertidos e piadas internas com amigos",
-      "Convites de festa infantil e posts casuais",
-      "Destacar letras ou números soltos na bio",
-    ],
-    sampleInputs: ["Bolhas", "Festa 2026", "ABC"],
-    platformTip:
-      "Os caracteres delimitados funcionam muito bem em celulares, onde são mais usados. A exceção é o quadrado — muitos aparelhos renderizam como emoji, então veja como fica onde você vai colar.",
-    faq: [
-      {
-        q: "Qual a diferença entre bolha e circulado?",
-        a: "As letras de bolha ficam em círculos pretos cheios; as circuladas, em anéis finos. Bolha chama mais atenção; circulado é mais discreto.",
+  "aesthetic-fonts": {
+    "pt-br": {
+      navName: "Estético",
+      h1: "Gerador de Fonte Estética",
+      title: "Gerador de Fonte Estética — texto fullwidth ＡＥＳＴＨＥＴＩＣ",
+      description:
+        "Letras estéticas bonitas: fullwidth ＡＥＳＴＨＥＴＩＣ com molduras vaporwave ✧ ｡ﾟ. Aparecem ao digitar e copiam com um toque, o visual retrô para bios e legendas.",
+      intro: [
+        "ａｅｓｔｈｅｔｉｃ — trocar as letras comuns por formas fullwidth alarga tudo em um ritmo uniforme e sonhador. Adicione uma moldura com ✧ ou ｡ﾟ e o pacote vaporwave está completo. Toque para copiar.",
+        "Os caracteres fullwidth foram criados para a diagramação CJK, e é exatamente por isso que qualquer palavra escrita neles ganha aquele clima inconfundível de manual japonês.",
+      ],
+      steps: [
+        "Digite uma palavra ou frase curta — quanto mais curta, melhor fica.",
+        "Use o corpo fullwidth puro ou sobreponha uma combinação ✧・｡ﾟ.",
+        "Copie e cole na bio, na legenda ou na descrição do vídeo.",
+        "Letras fullwidth são largas — confira o contador de caracteres da plataforma.",
+      ],
+      about: {
+        heading: "Por que se chama estético",
+        paragraphs: [
+          "Fullwidth Forms é o alfabeto latino alargado do Unicode, criado para compatibilidade com terminais CJK antigos. Cada caractere ocupa uma célula ideográfica inteira, o que dá ao texto um espaçamento leve e intencional — o ingrediente central do visual vaporwave.",
+          "As combinações decorativas usam caracteres da mesma família de largura, então o ritmo segue uniforme em vez de ficar ruidoso como emoji aleatórios.",
+        ],
       },
-      {
-        q: "Por que o zero é diferente?",
-        a: "O Unicode codifica o zero de forma diferente dos outros dígitos e dá a ele um caractere próprio. Os estilos bolha e circulado também cobrem o zero — só o estilo entre parênteses o salta por completo.",
-      },
-      {
-        q: "Posso usar letras de bolha em nome de jogo?",
-        a: "Alguns jogos aceitam caracteres delimitados, outros não. Copie uma combinação do Gerador de Nomes que mantém seu nome base limpo, para sempre ter um plano B.",
-      },
-    ],
+      faq: [
+        {
+          q: "Quantos caracteres cada letra fullwidth conta?",
+          a: "A maioria das plataformas conta um por caractere; algumas contam a largura de exibição como 2. Observe o contador da própria plataforma depois de colar.",
+        },
+        {
+          q: "Fullwidth combina bem com texto misto?",
+          a: "Perfeitamente — as letras fullwidth têm exatamente a mesma largura de caracteres CJK, então bios mistas mantêm o ritmo uniforme. É o melhor estilo latino para texto misto.",
+        },
+        {
+          q: "Por que parece japonês?",
+          a: "As formas fullwidth pertencem à tradição de diagramação CJK, que o japonês usa intensamente. Continuam sendo caracteres Unicode padrão, sem língua fixa.",
+        },
+        {
+          q: "Leitores de tela leem texto fullwidth?",
+          a: "Em geral sim, mas devagar — muitos anunciam cada letra como um caractere “fullwidth”. Serve para um toque de uma palavra na bio; não para nada que precisa ser lido em voz alta.",
+        },
+        {
+          q: "Texto fullwidth ainda funciona na busca?",
+          a: "Não — buscar “vaporwave” não encontra ｖａｐｏｒｗａｖｅ, porque os pontos de código são diferentes. Use fullwidth em linhas de exibição e deixe em letras comuns tudo que precisa ser encontrado.",
+        },
+        {
+          q: "Preciso baixar uma fonte vaporwave?",
+          a: "Não — as letras fullwidth são caracteres Unicode padrão, não arquivos de fonte. Não há nada para instalar nem cadastro para fazer; o visual viaja com o texto copiado.",
+        },
+      ],
+    },
   },
-  "small-caps-generator": {
-    navName: "Versalete",
-    h1: "Gerador de versalete (small caps)",
-    description:
-      "Escreva em versalete — um visual discreto e premium para bios, nomes e legendas. Converta e copie na hora.",
-    intro:
-      "O versalete transforma seu texto em maiúsculas em miniatura — o visual discreto e premium de bios limpas e perfis aesthetic. Digite, converta, copie.",
-    howItWorks:
-      "O versalete usa as Phonetic Extensions e Small Form Variants do Unicode: um conjunto de maiúsculas em miniatura que tipógrafos usam em notação acadêmica. Letras sem forma de versalete — como o x minúsculo — ficam como estão, e é por isso que o estilo continua legível.",
-    coverageNote:
-      "O versalete converte A–Z e a–z. Dígitos e pontuação não mudam. Uma curiosidade: o x minúsculo não tem forma de versalete em nenhum lugar do Unicode, então continua minúsculo.",
-    bestFor: [
-      "Bios minimalistas e nomes aesthetic",
-      "Títulos de seção e etiquetas em posts",
-      "Um visual premium e discreto para frases curtas",
-    ],
-    sampleInputs: ["aesthetic", "Capítulo um", "mood"],
-    platformTip:
-      "O versalete está entre os caracteres estilizados mais seguros — renderiza em quase qualquer aparelho e é aceito em quase qualquer lugar, inclusive na maioria dos jogos.",
-    faq: [
-      {
-        q: "Por que o x continua pequeno?",
-        a: "O Unicode nunca definiu um versalete X, então não há substituto. Geradores que convertem o x usam outro caractere que pode não renderizar em todos os aparelhos.",
+  "cute-fonts": {
+    "pt-br": {
+      navName: "Fofo",
+      h1: "Gerador de Fonte Fofa",
+      title: "Gerador de Fonte Fofa — corações, laços e miudezas",
+      description:
+        "Letras fofas e bonitas: bolha, cursiva e circuladas com adornos de ♡ ୨୧ ✿. Aparecem ao digitar e copiam com um toque, modelos prontos para nomes combinando.",
+      intro: [
+        "Letras bolha, corações, laços e colchetes macios — o kit completo da fofura em uma página. Digite um nome e todos os estilos e combinações aparecem ao vivo; toque para copiar.",
+        "As combinações decorativas embrulham o estilo vencedor em um par de símbolos — ♡querida♡. Salve várias versões e troque conforme o humor.",
+      ],
+      steps: [
+        "Digite um nome ou uma frase curtinha e doce.",
+        "Escolha a base: bolha é a mais redonda, cursiva é a mais suave.",
+        "Sobreponha uma combinação decorativa — corações e laços são os favoritos do público.",
+        "Favorite algumas candidatas e teste como renderizam na plataforma.",
+      ],
+      about: {
+        heading: "A receita do fofo",
+        paragraphs: [
+          "A fofura vem de glifos redondos mais decorações simétricas. Letras bolha e circuladas carregam o formato arredondado; corações e flores dos dois lados criam um ritmo suave.",
+          "Os símbolos decorativos variam em compatibilidade: ♡ e ✿ funcionam em quase todo lugar, enquanto ୨୧ pode virar quadradinho em aparelhos antigos. Publique um teste antes de valer — as notas de risco estão em todos os cartões.",
+        ],
       },
-      {
-        q: "Versalete é o mesmo que minúscula?",
-        a: "Não — são formas de maiúscula em tamanho menor, com desenho diferente das minúsculas. Copie um de cada e compare.",
-      },
-      {
-        q: "Versalete funciona em nome de jogo?",
-        a: "Normalmente sim — é um dos estilos mais aceitos. Jogos rigorosos ainda podem recusar, então veja antes na tela de troca de nome.",
-      },
-    ],
+      faq: [
+        {
+          q: "Como faço nomes combinando para casais ou melhores amigos?",
+          a: "Envolva o mesmo nome em duas combinações diferentes — uma com ♡, outra com ୨୧. Favorite as duas para já estarem prontas para colar.",
+        },
+        {
+          q: "As decorações gastam caracteres extras?",
+          a: "As letras trocam uma por uma; cada decoração adiciona 1–2 símbolos por lado. Fique de olho no contador de caracteres da plataforma.",
+        },
+        {
+          q: "O símbolo de laço aparece como quadradinho — e agora?",
+          a: "O aparelho não tem esse glifo. Troque para ♡ ou ✿; as letras bolha em si têm compatibilidade alta.",
+        },
+        {
+          q: "Leitores de tela lidam bem com um nome fofo decorado?",
+          a: "Em geral sim — ♡ e ✿ são anunciados como nomes curtos de símbolos, mas molduras em toda palavra ficam ruidosas rápido. Decore o nome, não as frases.",
+        },
+        {
+          q: "Por que o ♡ às vezes aparece colorido como emoji?",
+          a: "Algumas plataformas dão apresentação de emoji às formas de coração e as pintam de vermelho. Isso varia por aparelho, não pelo seu texto — se incomodar, ✿ e ✧ costumam ficar em preto e branco com mais confiabilidade.",
+        },
+        {
+          q: "O gerador fofinho é grátis? Preciso instalar algo?",
+          a: "Grátis, sem cadastro e sem instalar nada. Letras bolha e circuladas são caracteres Unicode, então o estilo é copiado junto com o próprio texto.",
+        },
+      ],
+    },
   },
-  "strikethrough-text-generator": {
-    navName: "Riscado",
-    h1: "Gerador de texto riscado",
-    description:
-      "Risque texto com uma linha, uma barra ou negrito riscado. Copie o resultado em qualquer lugar que aceite texto simples.",
-    intro:
-      "Risque qualquer texto — para piadas, quedas de preço, sarcasmo e correções. Três versões de risco, todas coláveis em apps sem botão de formatação.",
-    howItWorks:
-      "O riscado não troca letras — ele acrescenta uma marca combinável depois de cada caractere. Seu texto original continua intacto por baixo, e é por isso que funciona igual com letras, dígitos, emoji e até caracteres chineses.",
-    coverageNote:
-      "Como o estilo adiciona marcas em vez de substituir caracteres, funciona com qualquer entrada. A contrapartida: leitores de tela podem ler o texto de baixo normalmente, e alguns apps espaçam as marcas de forma desigual.",
-    bestFor: [
-      "Correções engraçadas e piadas autoconscientes em bios e chats",
-      "Preços riscados em posts de promoção",
-      "Edições e retratações em grupos",
-    ],
-    sampleInputs: ["má ideia", "antes R$99", "deixa pra lá"],
-    platformTip:
-      "O riscado renderiza na maioria dos apps modernos. No Discord existe markdown de texto (~~assim~~) para mensagens — o risco Unicode é para bios, apelidos e todo lugar sem markdown.",
-    faq: [
-      {
-        q: "Por que meu texto riscado fica desalinhado?",
-        a: "Cada app desenha as marcas combináveis com suas próprias fontes, e algumas alinham mal. Se a linha parecer quebrada, o negrito riscado costuma alinhar melhor porque as letras são mais largas.",
+  "bubble-fonts": {
+    "pt-br": {
+      navName: "Bolha",
+      h1: "Gerador de Letras Bolha",
+      title: "Gerador de Letras Bolha — ⓐ, quadradas e (parênteses)",
+      description:
+        "Letras bolha bonitas: ⓐ circuladas, quadradas, parênteses e bolhas cheias. Aparecem ao digitar e copiam com um toque, divertidas para nomes e numeração.",
+      intro: [
+        "Letras dentro de círculos e caixas: 🅑🅤🅑🅑🅛🅔 bolhas cheias, ⓑⓤⓑⓑⓛⓔ círculos finos, além das variantes entre parênteses e quadradas. Digite, veja a prévia, toque para copiar.",
+        "As quatro molduras variam em peso: as bolhas são as mais pesadas, os círculos finos as mais leves, os parênteses as mais levinhas, os quadrados as mais parecidas com emblema (cuidado com a renderização em emoji).",
+      ],
+      steps: [
+        "Digite uma palavra — de 2 a 6 letras funciona melhor.",
+        "Compare as quatro molduras e escolha a densidade que combina com o contexto.",
+        "Copie e cole em um nome, cartão de grupo ou lista numerada.",
+        "Se os quadrados virarem emoji coloridos, troque para bolhas ou círculos.",
+      ],
+      about: {
+        heading: "Duas famílias de letras delimitadas",
+        paragraphs: [
+          "As letras de círculo fino vêm do clássico Enclosed Alphanumerics do Unicode (vizinhos de ①②③), que também cobre dígitos circulados de 1 a 20; as bolhas cheias e os quadrados vêm do bloco Enclosed mais novo, onde alguns caracteres têm apresentação de emoji.",
+          "É essa identidade de emoji que faz 🅱 às vezes aparecer em cores — uma dupla identidade, não um bug. Troque de estilo quando uma plataforma impõe a forma colorida.",
+        ],
       },
-      {
-        q: "Posso riscar emoji?",
-        a: "Sim — a marca entra depois do emoji e a linha o atravessa. O resultado varia um pouco por plataforma porque cada uma desenha emoji do seu jeito.",
-      },
-      {
-        q: "O texto original continua ali embaixo?",
-        a: "Sim. O risco é puramente visual — os caracteres não mudam, então copiar, buscar e leitores de tela continuam vendo o texto base.",
-      },
-    ],
+      faq: [
+        {
+          q: "Os números também ganham moldura?",
+          a: "Sim — bolhas e círculos cobrem 0–9, e os parênteses cobrem 1–20. Listas numeradas como ⓶⓪⓶ funcionam de cara.",
+        },
+        {
+          q: "Por que minha letra quadrada ficou colorida?",
+          a: "Caracteres como 🅱🅰 têm identidade de emoji e algumas plataformas preferem essa renderização. Use círculos finos quando quiser a forma simples em preto e branco.",
+        },
+        {
+          q: "Letras bolha funcionam para frases longas?",
+          a: "Não — caracteres delimitados são visualmente densos e ficam ruidosos rápido. Palavras soltas, números e palavras-chave são a dose certa.",
+        },
+        {
+          q: "Letras de círculo contam como dois caracteres?",
+          a: "Uma cada na maioria dos contadores, mas letras delimitadas são largas — algumas plataformas contam a largura de exibição como 2. Cole primeiro e observe o contador da própria plataforma.",
+        },
+        {
+          q: "Letras bolha são legíveis para leitores de tela?",
+          a: "Não com fluidez — muitos anunciam ⓑ como “letra latina minúscula b com círculo”. Serve para nome de exibição; mantenha frases e tudo que é lido em voz alta em letras simples.",
+        },
+        {
+          q: "Preciso instalar uma fonte de letras bolha?",
+          a: "Não — são caracteres Unicode, não arquivos de fonte. Nada para instalar e sem cadastro; as bolhas viajam dentro do próprio texto copiado.",
+        },
+      ],
+    },
   },
-  "glitch-text-generator": {
-    navName: "Glitch",
-    h1: "Gerador de letras glitch (zalgo)",
-    description:
-      "Corrompa seu texto com marcas malditas — três intensidades de glitch, do sutil ao zalgo completo. Copie em um toque.",
-    intro:
-      "Infeste seu texto com marcas rastejantes. Escolha o nível de corrupção — de levemente errado a zalgo total — e cole o caos em qualquer lugar.",
-    howItWorks:
-      "O texto zalgo empilha marcas combináveis do Unicode acima e abaixo de cada caractere. Este gerador escolhe as marcas com um processo determinístico e semeado — a mesma entrada sempre produz o mesmo glitch, então a prévia é exatamente o que você copia.",
-    coverageNote:
-      "O glitch funciona com qualquer caractere — letras, dígitos, emoji — porque nada é substituído. As intensidades altas empilham muitas marcas por letra, e é dali que vem o visual de filme de terror.",
-    bestFor: [
-      "Nomes malditos e perfis de terror",
-      "Memes e caos em grupos de conversa",
-      "Bios de época de sustos e Halloween",
-    ],
-    sampleInputs: ["socorro", "não olhe", "olá"],
-    platformTip:
-      "O glitch é o estilo mais pesado que você pode colar. Alguns apps limitam o número de marcas, cortam ou renderizam em linha reta — sempre teste antes de renomear algo importante.",
-    faq: [
-      {
-        q: "O que é zalgo?",
-        a: "Uma lenda da internet nascida de um quadrinho de 2004: texto corrompido com diacríticos empilhados até parecer possuído. O nome colou como o do estilo.",
+  "strikethrough-text": {
+    "pt-br": {
+      navName: "Riscado",
+      h1: "Gerador de Texto Riscado",
+      title: "Gerador de Texto Riscado — sublinhado e barras",
+      description:
+        "Risque, sublinhe ou corte qualquer texto bonito, até emoji; renderiza ao digitar e copia com um toque. Atenção: a contagem de caracteres quase dobra.",
+      intro: [
+        "Apps de mensagem não deixam riscar uma palavra — aqui o traço já vem embutido nos caracteres, então sobrevive a qualquer colagem e funciona em qualquer texto.",
+        "Riscado para piadas e correções, sublinhado para ênfase; seis variações, da linha única ao sublinhado duplo.",
+      ],
+      steps: [
+        "Digite a palavra ou a frase que vai ganhar um traço.",
+        "Riscado passa a ideia de “cortado”; sublinhado passa a ideia de ênfase.",
+        "Copie e cole no chat, na bio ou em um comentário.",
+        "O alinhamento da linha depende da fonte de quem lê — pequenos desalinhamentos são normais.",
+      ],
+      about: {
+        heading: "Como as marcas de combinação desenham linhas",
+        paragraphs: [
+          "Os traços não são figuras — são marcas de combinação do Unicode (U+0336 e companhia) empilhadas sobre cada caractere. A renderização desenha a linha atravessando o glifo anterior, e é por isso que o truque funciona também em emoji.",
+          "O custo: o texto copiado conta quase o dobro — cada caractere visível carrega uma marca invisível. Fique de olho no contador nos campos rígidos.",
+        ],
       },
-      {
-        q: "Por que meu glitch parece fraco em alguns apps?",
-        a: "Os apps limitam ou normalizam as marcas combináveis para manter o texto renderizável. Nada está quebrado — o app está protegendo o próprio layout.",
-      },
-      {
-        q: "Texto glitch é ruim para leitores de tela?",
-        a: "Sim — as marcas empilhadas são lidas como dezenas de diacríticos ou puladas por completo. Reserve para nomes e piadas, nunca para informação importante.",
-      },
-    ],
+      faq: [
+        {
+          q: "Riscado funciona com qualquer texto?",
+          a: "Sim — todo caractere ganha o traço também. Algumas fontes desenham o traço mais fino em certos glifos; o efeito varia por plataforma.",
+        },
+        {
+          q: "Por que minha contagem de caracteres dobrou?",
+          a: "Cada caractere visível carrega uma marca de combinação invisível que os contadores incluem. Texto riscado tem quase o dobro do tamanho aparente.",
+        },
+        {
+          q: "Posso usar texto sublinhado como nome de jogo?",
+          a: "Depende do jogo. A maioria aceita marcas de combinação; validações rígidas antifraude podem recusar. Teste na tela de renomear antes de gastar um cartão de mudança de nome.",
+        },
+        {
+          q: "Leitores de tela ainda leem texto riscado?",
+          a: "Sim — as marcas de combinação não alteram os caracteres base, então as palavras passam. Só que a piada do “cortado” se perde para quem ouve; não conte com o traço para carregar significado.",
+        },
+        {
+          q: "Como tiro o riscado depois?",
+          a: "Apague o texto e digite de novo — as marcas fazem parte dos caracteres, então nada pode desligá-las. Uma ferramenta que remove marcas de combinação (como um limpador de zalgo) também desfaz.",
+        },
+        {
+          q: "Dá para riscar emoji também?",
+          a: "Dá — as marcas de combinação se empilham sobre qualquer caractere, emoji incluído. A renderização varia: alguns apps desenham o traço limpo, outros o deslocam ou pulam o glifo do emoji.",
+        },
+      ],
+    },
   },
-  "upside-down-text-generator": {
-    navName: "De cabeça pra baixo",
-    h1: "Gerador de letras de cabeça para baixo",
-    description:
-      "Vire seu texto de cabeça para baixo com letras e pontuação invertidas do Unicode. Digite, veja virar, copie e confunda todo mundo.",
-    intro:
-      "Vire tudo. Este gerador reescreve seu texto com formas de letra invertidas e inverte a ordem, para a linha inteira ler de ponta-cabeça (180°).",
-    howItWorks:
-      "Cada caractere é trocado por um parecido rotacionado — o a vira ɐ, o b vira q — e o resultado é invertido para a última letra vir primeiro. A pontuação também vira: o ponto de exclamação vira ¡ e o de interrogação vira ¿.",
-    coverageNote:
-      "Letras e dígitos convertem bem; algumas maiúsculas raras como K e Q não têm boa forma rotacionada e ficam como estão. Tudo que o mapa não consegue virar — incluindo emoji — passa sem mudança.",
-    bestFor: [
-      "Enigmas na bio e legendas de 'leia se conseguir'",
-      "Zoeiras em respostas de grupo",
-      "Nomes que fazem as pessoas entortar a cabeça",
-    ],
-    sampleInputs: ["olá", "me vira", "uau"],
-    platformTip:
-      "O texto invertido funciona bem em bios e mensagens. Detalhe: leitores de tela vão ler o texto invertido literalmente — mantenha curto e brincalhão.",
-    faq: [
-      {
-        q: "Ele realmente rotaciona ou substitui letras?",
-        a: "Substitui: o Unicode tem formas invertidas dedicadas como ɐ e ǝ. Essa substituição é o motivo de o texto sobreviver ao copiar e colar.",
+  "fancy-numbers": {
+    "pt-br": {
+      navName: "Números",
+      h1: "Gerador de Números Estilizados",
+      title: "Gerador de Números Estilizados — ①𝟙➊ dígitos com estilo",
+      description:
+        "Números bonitos e estilosos: negrito, vazado, monoespaçado, circulado ① e bolha ➊. Renderizam ao digitar e copiam com um toque, para anos e listas.",
+      intro: [
+        "①②③ 𝟙𝟚𝟛 ➊➋➌ — todos os estilos de dígito que dá para digitar, em uma página. Digite um número, uma data ou o número de uma sala e os estilos aparecem ao vivo.",
+        "Estilos de dígitos combinam bem com palavras: turma de 𝟐𝟎𝟐𝟕, ⓿ erros. A página também gera letras, então dá para copiar os rótulos junto com os números.",
+      ],
+      steps: [
+        "Digite o número — unidades e letras são bem-vindas (tipo N.º1).",
+        "Dígitos circulados servem para numerar listas; negrito serve para anos.",
+        "Copie e cole em posts, títulos ou nicknames.",
+        "Se aparecerem quadradinhos em aparelhos antigos, troque para negrito ou monoespaçado.",
+      ],
+      about: {
+        heading: "Seis formas para dez dígitos",
+        paragraphs: [
+          "O Unicode dá aos dígitos 0–9 várias famílias estilizadas: negrito/vazado/monoespaçado no bloco matemático; dígitos circulados no bloco clássico de símbolos, ao lado de ①; bolhas cheias no bloco delimitado. A cobertura de fontes varia por família — sistemas antigos perdem os mais raros.",
+          "Uma ordem aproximada de confiabilidade: negrito simples > monoespaçado > vazado > circulado > bolha. Ao enviar para aparelhos desconhecidos, prefira o topo da lista.",
+        ],
       },
-      {
-        q: "Por que meu texto sai ao contrário?",
-        a: "O texto rotacionado lê-se visualmente da direita para a esquerda, então inverter a ordem faz ele ler certo quando a página está de cabeça para baixo.",
-      },
-      {
-        q: "Dá para virar emoji?",
-        a: "Não — emoji não têm formas rotacionadas, então passam sem mudança e continuam para cima.",
-      },
-    ],
+      faq: [
+        {
+          q: "Posso mandar número de telefone em dígitos estilosos?",
+          a: "Melhor não. Códigos de verificação, números de pedido e telefones precisam ser reconhecidos como dígitos comuns — dígitos estilizados quebram o reconhecimento.",
+        },
+        {
+          q: "Qual a diferença entre ① e ➊?",
+          a: "① é um círculo fino do bloco clássico de símbolos; ➊ é uma bolha cheia do bloco delimitado — origens, aparências e cobertura de fontes diferentes. Troque um pelo outro quando um renderizar mal.",
+        },
+        {
+          q: "Um ID com dígitos estilosos é pesquisável?",
+          a: "Não. As pessoas não conseguem digitar dígitos estilizados para te achar. Mostre contatos em dígitos comuns ao lado de qualquer versão decorada.",
+        },
+        {
+          q: "Por que dígitos circulados viram quadradinhos em celulares antigos?",
+          a: "Fontes antigas cobrem bem os dígitos em negrito e monoespaçados, mas perdem as famílias mais raras, como bolhas e vazados. Ao enviar para aparelhos desconhecidos, comece pelo topo da lista de confiabilidade — negrito primeiro, bolha por último.",
+        },
+        {
+          q: "Como os leitores de tela lidam com dígitos estilosos?",
+          a: "Podem anunciar ① como “dígito um circulado” ou simplesmente pular o estilo. Nunca use dígitos estilizados em nada que precise ser lido de volta ou discado — um ano num post está ok, um endereço não.",
+        },
+        {
+          q: "O gerador de números é grátis?",
+          a: "Sim — grátis, sem cadastro e sem instalar nada. Dígitos estilizados são caracteres Unicode comuns que você copia como qualquer outro texto.",
+        },
+      ],
+    },
   },
-  "tiny-text-generator": {
-    navName: "Pequenas",
-    h1: "Gerador de letras pequenas",
-    description:
-      "Encolha seu texto com sobrescrito e subscrito Unicode. Dois estilos tiny, prévia instantânea e cópia para qualquer lugar.",
-    intro:
-      "Encolha suas palavras até o tamanho de um sussurro. O sobrescrito flutua o texto acima da linha; o subscrito afunda abaixo. Os dois copiam como texto simples.",
-    howItWorks:
-      "O texto tiny usa letras modificadoras em sobrescrito e subscrito do Unicode — os mesmos caracteres de notas de rodapé e fórmulas químicas. Cada um é um lookalike compacto a uma fração do tamanho normal.",
-    coverageNote:
-      "É o estilo mais parcial do site: os sobrescritos minúsculos cobrem quase todas as letras menos o q, e os subscritos pulam b, c, d, f, g, q, w, y e z. O que não tem forma tiny — incluindo quase todas as maiúsculas — fica normal, então resultados misturados são o esperado.",
-    bestFor: [
-      "Notas de rodapé na bio ('ela/dela', créditos mini)",
-      "Química e matemática invertidas em perfis de estudo",
-      "Comentários discretos ao lado de texto mais forte",
-    ],
-    sampleInputs: ["sussurro", "H2O", "nota:"],
-    platformTip:
-      "O texto tiny renderiza bem em bios e mensagens, mas buracos onde falta letra podem aparecer. Se isso incomodar, o versalete dá uma sensação parecida com cobertura completa.",
-    faq: [
-      {
-        q: "Por que algumas letras são grandes e outras pequenas?",
-        a: "O Unicode não tem forma de sobrescrito ou subscrito para todas as letras. As que faltam ficam no tamanho normal — é uma limitação conhecida do estilo.",
+  "zalgo-text": {
+    "pt-br": {
+      navName: "Zalgo",
+      h1: "Gerador de Texto Zalgo",
+      title: "Gerador de Texto Zalgo — glitch amaldiçoado e limpador",
+      description:
+        "Texto zalgo chamativo em 3 intensidades e limpador incluído: aparece ao digitar e copia com um toque; leitores de tela e contadores sofrem.",
+      intro: [
+        "Zalgo empilha marcas de combinação sobre os caracteres até o texto sangrar. Três intensidades, do levemente estranho ao totalmente amaldiçoado — digite, veja a prévia, copie.",
+        "O limpador no fim da página fecha o ciclo: cole qualquer texto corrompido e remova todas as marcas até voltar ao original limpo.",
+      ],
+      steps: [
+        "Digite uma frase — zalgo funciona em qualquer caractere, emoji incluído.",
+        "Escolha a intensidade: leve combina com assinaturas; pesada é para trechos curtos de horror.",
+        "Toque em copiar e cole em um nome, bio ou post assustador.",
+        "Se arrependeu? Jogue o texto no limpador abaixo e recupere.",
+      ],
+      about: {
+        heading: "Marcas de combinação levadas ao extremo",
+        paragraphs: [
+          "Letras e emoji são caracteres comuns — e o Unicode traz centenas de marcas de combinação sem largura própria, desenhadas empilhadas sobre o glifo anterior. O zalgo enfia de 2 a 8 delas depois de cada caractere.",
+          "Quanto mais densa a pilha, mais os motores de layout sofrem: linhas cortadas, contadores explodindo e leitores de tela recitando cada marca. Zalgo pesado pertence apenas a trechos curtos — nunca em nada importante.",
+        ],
       },
-      {
-        q: "Dá para escrever números tiny?",
-        a: "Sim — os dígitos em sobrescrito e subscrito são completos, do ⁰ ao ⁹ e do ₀ ao ₉. Por isso o H₂O sai perfeito.",
-      },
-      {
-        q: "Texto tiny dá para ler?",
-        a: "Em tamanho de bio, quase. É melhor para uma ou duas palavras, não frases — e nunca para informação que precisa ser acessível.",
-      },
-    ],
+      faq: [
+        {
+          q: "Texto zalgo pode danificar minha conta?",
+          a: "Não — é texto comum, sem código nenhum embutido. Os riscos são de exibição: layout quebrado, salvamento recusado em alguns jogos. Teste com intensidade leve primeiro; o limpador sempre restaura.",
+        },
+        {
+          q: "Por que aparece como marquinhas ou quadradinhos em outro lugar?",
+          a: "As fontes do aparelho não têm esses glifos de combinação. Uma intensidade menor costuma sobreviver; por isso a pesada é só para trechos curtos.",
+        },
+        {
+          q: "Como limpo um zalgo que alguém me mandou?",
+          a: "Cole tudo no limpador desta página — ele remove cada marca de combinação e seletor de variação, deixando só os caracteres base, tudo localmente no seu navegador.",
+        },
+        {
+          q: "O texto zalgo fica quanto mais comprido?",
+          a: "Muito — cada caractere carrega de 2 a 8 marcas invisíveis, então uma maldição pesada pode triplicar o comprimento e estourar contadores rígidos. Zalgo leve cabe em um nome de 30 caracteres; o pesado raramente cabe.",
+        },
+        {
+          q: "Zalgo é legível para leitores de tela?",
+          a: "Basicamente não — eles recitam cada marca de combinação e transformam um nome em minutos de ruído. É o estilo menos acessível do site; reserve para trechos curtos feitos para os olhos, não para os ouvidos.",
+        },
+        {
+          q: "Onde dá para postar texto zalgo de verdade?",
+          a: "Bios, nomes de exibição e comentários — espaços curtos e decorativos. Campos rígidos (logins, @usuários, formulários) recusam as marcas ou cortam a pilha, e jogos com filtro de nome costumam rejeitar de cara.",
+        },
+      ],
+    },
   },
-  "cute-font-generator": {
-    navName: "Fofa",
-    h1: "Gerador de letras fofas",
-    description:
-      "Letras fofas para copiar e colar: bolhas redondas com um coração, um laço ou uma flor. Grátis no navegador, sem instalar nada.",
-    intro:
-      "Digite um nome e veja letras bolha com um coração, o laço ୨୧ ou uma flor. Também chamam isso de kawaii ou soft. Uma linha cursiva fica embaixo se você quiser mais quieta. O script com fita está na página coquette. São caracteres para colar, não um arquivo de fonte.",
-    howItWorks:
-      "Letras bolha e circuladas são alfanuméricos fechados. A linha que flui é Mathematical Script. Corações, laços (୨୧), flores e colchetes suaves são símbolos separados, e só a linha bolha os usa — um par por vez, para o nome continuar legível.",
-    coverageNote:
-      "Bolha e circuladas convertem A–Z, a–z e dígitos. A cursiva converte só letras, então os números dessa linha ficam normais. Acentos, emoji e outros alfabetos passam direto. Os enfeites são caracteres extras em volta da palavra.",
-    bestFor: [
-      "Nomes de exibição e bios que devem parecer suaves",
-      "Um nome curto com um coração ou um laço só",
-      "Legendas, não frases inteiras",
-    ],
-    sampleInputs: ["Momo", "Doce", "Pêssego"],
-    platformTip:
-      "Essas letras funcionam na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord. Nomes de usuário que só aceitam letras simples vão rejeitar. Se um laço ou colchete virar um quadrado vazio, copie a linha do coração.",
-    faq: [
-      {
-        q: "Letra fofa é um arquivo para baixar?",
-        a: "Não. O resultado são caracteres Unicode, e por isso cola em apps que só aceitam texto puro. Este site não oferece arquivos de fonte.",
+  "upside-down-text": {
+    "pt-br": {
+      navName: "Invertido",
+      h1: "Gerador de Texto Invertido",
+      title: "Gerador de Texto Invertido — escreva amor, leia ɹoɯɐ",
+      description:
+        "Letras invertidas bonitas: glifos espelhados e ordem ao contrário, em tempo real ao digitar e copiar com um toque. A clássica assinatura de pegadinha.",
+      intro: [
+        "ʇı dᴉlℲ — espelhe cada letra, escreva ao contrário e a linha inteira fica de cabeça para baixo. Digite, veja a prévia, copie.",
+        "Letras, dígitos de 1 a 9 e pontuação comum têm formas invertidas. Caracteres sem equivalente passam reto, então texto misto vira só pela metade — o que tem sua própria graça.",
+      ],
+      steps: [
+        "Digite a frase que vai virar.",
+        "Confira a prévia — a pontuação também vira.",
+        "Copie e cole em uma assinatura ou comentário.",
+        "Quer que a parte sem equivalente também pareça estranha? Adicione uma moldura ou um espaçamento.",
+      ],
+      about: {
+        heading: "Não é rotação — é substituição",
+        paragraphs: [
+          "Texto invertido não é efeito gráfico: o gerador troca cada letra por um sósia do Unicode (a→ɐ, e→ǝ) e inverte a ordem, então a leitura corre da direita para a esquerda e a linha parece de cabeça para baixo.",
+          "O mapa cobre maiúsculas e minúsculas, dígitos e pontuação comum; caracteres sem forma invertida ficam como estão. Continua sendo texto comum — copiar, colar e contadores se comportam normalmente.",
+        ],
       },
-      {
-        q: "Coquette ou kawaii é outro gerador?",
-        a: "Kawaii fica nesta página: letras bolha com um coração, o laço ୨୧ ou uma flor. Coquette é a outra página, letras script com um laço de fita.",
-      },
-      {
-        q: "Posso usar isso como usuário do Instagram?",
-        a: "Não. O usuário do Instagram só aceita letras, números, pontos e sublinhados. Cole o nome fofo no nome de exibição ou na bio.",
-      },
-    ],
-  },
-  "cool-font-generator": {
-    navName: "Cool",
-    h1: "Gerador de letras cool",
-    description:
-      "Nomes cool para copiar e colar: letras grossas com um raio, estrelas ou uma asa de clã. Grátis, e fica no seu navegador.",
-    intro:
-      "Letras grossas, depois um raio, uma marca de estrela ou as asas de clã ꧁༒. Também buscam isso como texto stylish ou tag de clã. Aqui se monta um nome decorado. A lista de cada alfabeto, sem símbolos, está em Letras bonitas.",
-    howItWorks:
-      "As letras pesadas são Unicode Mathematical Bold. As versaletes são a segunda linha, mais quieta e sem enfeite, para comparar com a linha grossa decorada. Estrelas, raios e asas envolvem só a linha grossa.",
-    coverageNote:
-      "O negrito converte letras e dígitos. As versaletes convertem a maioria das letras e deixam algumas iguais quando o Unicode não tem forma versalete. Os enfeites contam no limite de caracteres do nome.",
-    bestFor: [
-      "Nomes do Discord e tags de jogo",
-      "Um nome de clã com um par de asas",
-      "Uma palavra que precise pesar mais que a cursiva",
-    ],
-    sampleInputs: ["Nova", "Ás", "Clã"],
-    platformTip:
-      "O negrito Unicode costuma sobreviver no Discord e nas bios. Jogos que só aceitam ASCII puro vão tirar. As asas falham primeiro em celulares antigos — se sumirem, copie a linha do raio.",
-    faq: [
-      {
-        q: "É a mesma coisa que a página de letras bonitas?",
-        a: "Não. Letras bonitas lista cada alfabeto e não põe enfeite. Esta página só monta o visual cool: negrito mais raio, estrelas ou asas de clã.",
-      },
-      {
-        q: "O que é texto stylish aqui?",
-        a: "Os mesmos nomes grossos decorados. Stylish, nesta página, são as linhas do raio, da estrela e das asas — não outro alfabeto.",
-      },
-      {
-        q: "Uma tag de clã cabe num usuário de jogo?",
-        a: "Muitas vezes o símbolo é a parte rejeitada. Se as asas sumirem na prévia do jogo, use a linha de negrito sem enfeite.",
-      },
-      {
-        q: "Letras cool e cool fonts são a mesma coisa?",
-        a: "Sim: letras cool, cool fonts e texto cool descrevem a mesma coisa — letras Unicode em negrito ou versaletes com estrelas, asas ou colchetes. Digite acima, escolha um visual e copie.",
-      },
-    ],
-  },
-  "dark-font-generator": {
-    navName: "Sombria",
-    h1: "Gerador de letras sombrias",
-    description:
-      "Nomes sombrios para copiar e colar: letra gótica com uma caveira, uma adaga ou uma lua. Para bios e nomes de exibição, não para baixar uma fonte.",
-    intro:
-      "Letra gótica com um símbolo sombrio — uma caveira, uma adaga ou uma lua. O estilo emo é essa mistura. A página gótica é o alfabeto nu, sem caveiras. Esta é a versão decorada.",
-    howItWorks:
-      "As letras são Unicode Fraktur. O corte grosso vai decorado; o corte normal fica nu embaixo. Caveiras, adagas e luas são símbolos à parte, só na linha grossa.",
-    coverageNote:
-      "Os dois estilos fraktur convertem só A–Z e a–z. Os dígitos ficam como você digitou. A caveira é um símbolo e pode mudar de cara em cada celular. Acentos e outros alfabetos passam direto.",
-    bestFor: [
-      "Bios sombrias e nomes do Discord",
-      "Nomes emo de uma palavra só",
-      "Frases de Halloween que ainda precisam ser copiadas como texto",
-    ],
-    sampleInputs: ["Noite", "Emo", "Corvo"],
-    platformTip:
-      "O fraktur funciona em muitas bios e falha em jogos que exigem ASCII puro. Se a caveira virar um quadrado vazio, copie a linha da adaga ou da lua.",
-    faq: [
-      {
-        q: "Texto emo é diferente de gótico?",
-        a: "Gótico, neste site, é o alfabeto blackletter nu. Emo é esse alfabeto mais uma caveira, uma adaga ou uma lua — ou seja, esta página.",
-      },
-      {
-        q: "Posso baixar uma fonte sombria?",
-        a: "Não. Você copia caracteres. Um arquivo de fonte precisaria ser instalado, e aqui não se instala nada.",
-      },
-      {
-        q: "Por que algumas letras parecem diferentes?",
-        a: "O fraktur guarda formas históricas para C, H, I, R e Z. Esse desenho é o alfabeto, não uma falha.",
-      },
-    ],
-  },
-  "elegant-font-generator": {
-    navName: "Elegante",
-    h1: "Gerador de letras elegantes",
-    description:
-      "Cursiva elegante para copiar e colar, com uma coroa, uma flor-de-lis ou um coração floral. Para nomes, legendas e bios.",
-    intro:
-      "Cursiva grossa, depois uma coroa, uma flor-de-lis ou um coração floral. Nomes royal e de princesa são esse mesmo visual: letras que fluem e um símbolo formal, não bolhas redondas.",
-    howItWorks:
-      "As letras são Unicode Bold Script, com a cursiva fina como segunda linha nua. Coroas, flores-de-lis e corações florais envolvem só a cursiva grossa, então o enfeite fica um par por resultado.",
-    coverageNote:
-      "Os dois estilos de cursiva convertem só letras. Dígitos, acentos e emoji ficam como você digitou. Cada coroa ou flor-de-lis é um caractere extra daquele lado do nome.",
-    bestFor: [
-      "Nomes de casamento, beleza e perfis formais",
-      "Um nome royal ou de princesa na bio",
-      "Legendas curtas que devem parecer arrumadas",
-    ],
-    sampleInputs: ["Rosa", "Rainha", "Ada"],
-    platformTip:
-      "A cursiva funciona na maioria dos nomes de exibição e bios do Instagram, TikTok e Discord, não em nomes de usuário limitados a letras simples. Se a cursiva grossa virar quadrados, copie a linha fina.",
-    faq: [
-      {
-        q: "Elegante é a mesma coisa que cursiva?",
-        a: "A cursiva é o alfabeto script nu. Elegante usa a cursiva mais grossa e acrescenta um símbolo formal: coroa, flor-de-lis ou coração floral.",
-      },
-      {
-        q: "Onde ficam as fontes royal e de princesa?",
-        a: "Nesta página. Um nome de princesa ou royal aqui é cursiva mais uma coroa ou uma flor-de-lis, não um download separado.",
-      },
-      {
-        q: "Isso é um arquivo de caligrafia?",
-        a: "Não. Você copia caracteres. Arquivos de caligrafia se instalam, e este site não oferece isso.",
-      },
-      {
-        q: "Isso é o que chamam de fonte de luxo?",
-        a: "Quase sempre sim. Quem busca fonte de luxo quer o mesmo visual formal: script com coroas, enfeites e espaçamento fino. Como tudo nesta página, é texto Unicode e não um arquivo de fonte, então dá para colar em bios e perfis.",
-      },
-    ],
-  },
-  "aesthetic-text-generator": {
-    navName: "Aesthetic",
-    h1: "Gerador de letras aesthetic",
-    description:
-      "Letras largas vaporwave com um brilho ou uma névoa de pontos de cada lado, e versaletes se quiser mais quieto. Copiar e colar, sem arquivo de fonte.",
-    intro:
-      "Letras largas full-width — o visual vaporwave — com uma névoa de pontos ou um brilho de cada lado. Os versaletes são a segunda linha quando as letras largas ficam altas demais.",
-    howItWorks:
-      "Os caracteres full-width vêm de codificações antigas onde texto CJK e latino dividiam grades de largura fixa, então as letras latinas ganharam caixas largas próprias. Os espaços também alargam, e dali vem o ritmo lento. A névoa de pontos e o brilho são símbolos em volta só dessa linha larga. Não fazem parte do alfabeto full-width.",
-    coverageNote:
-      "O full-width cobre letras, dígitos e espaços. Os versaletes cobrem a maioria das letras e deixam algumas iguais. A pontuação fica normal. Os enfeites acrescentam caracteres e deixam a linha ainda mais larga.",
-    bestFor: [
-      "Perfis vaporwave, lo-fi e retrô",
-      "Uma bio de uma palavra larga com um pouco de brilho",
-      "Posts retro-tech e dos anos 80/90",
-    ],
-    sampleInputs: ["aesthetic", "v a p o r", "sonho 1997"],
-    platformTip:
-      "O texto full-width aparece onde aparece texto CJK, ou seja, em quase tudo. É largo, e o brilho deixa mais largo — confira se a linha ainda cabe na bio. Se um brilho falhar, a linha larga nua ainda copia.",
-    faq: [
-      {
-        q: "Por que o nome é texto vaporwave?",
-        a: "Letras largas e espaçamento lento viraram a assinatura visual do vaporwave. O nome técnico das letras é texto full-width. O brilho é um símbolo separado de cada lado.",
-      },
-      {
-        q: "O espaçamento largo também copia?",
-        a: "Sim. O espaço largo é um caractere real, o espaço ideográfico, então o ritmo arejado sobrevive à colagem. Também usa mais do limite de caracteres.",
-      },
-      {
-        q: "Os enfeites contam na minha bio?",
-        a: "Sim. Cada letra full-width conta como uma, e cada brilho ou ponto também. Uma palavra curta é o tamanho confortável.",
-      },
-    ],
-  },
-  "coquette-font-generator": {
-    navName: "Coquette",
-    h1: "Letras coquette para copiar e colar",
-    title: "Letras coquette para copiar e colar — laço nas bios",
-    description:
-      "Letras coquette grátis com laço. Copie e cole o script no nome do Instagram ou no apelido do Discord. Prévia no celular. Não é um arquivo de fonte.",
-    intro:
-      "Letras coquette para copiar e colar: script e um laço só. As linhas são um laço pequeno, um par de fitas e o emoji de fita. O estilo fofo deste site são as letras bolha, e a página elegante leva coroa. Esta página fica no laço.",
-    examplesHeading: "Letras coquette para copiar",
-    examplesHint: "O laço já está no texto. Toque para copiar a linha inteira.",
-    copyExamples: coquetteCopyExamples,
-    howItWorks:
-      "O laço envolve o script pesado, Unicode Bold Script, porque esse alfabeto tem e, g e o de verdade. O script fino fica embaixo, sem laço, e nessa linha e, g e o são substitutos, então um nome como Belle fica na linha pesada. Os laços e a fita são símbolos separados, só na linha pesada.",
-    coverageNote:
-      "O script converte A–Z e a–z. Os dígitos ficam como você digitou. O laço pequeno é um caractere raro e pode aparecer como um quadrado vazio. Se isso acontecer, copie a linha do emoji de fita. Os enfeites contam no limite do nome.",
-    bestFor: [
-      "Nomes de exibição e bios do Instagram",
-      "Apelidos e status curtos do Discord",
-      "Um nome de uma palavra com um laço só",
-    ],
-    sampleInputs: ["Mia", "Lila", "Belle"],
-    platformTip:
-      "Cole no nome de exibição do Instagram ou no apelido do Discord. Esses nomes de usuário só aceitam letras comuns, dígitos e algumas marcas, então o laço fica fora do nome de usuário. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord. Se o laço pequeno falhar, o emoji de fita ainda copia.",
-    faq: [
-      {
-        q: "Onde acho letras coquette para copiar e colar?",
-        a: "Na fileira de cima, cada exemplo já traz o laço. Toque e ele copia. Se quiser o seu nome, digite no gerador e copie a linha do emoji 🎀 quando o laço pequeno aparecer como um quadrado.",
-      },
-      {
-        q: "O que é uma letra coquette?",
-        a: "É script com um laço de fita. Não é a página fofa, que usa letras bolha, nem a elegante, que usa coroa. Aqui você copia caracteres, não um arquivo de fonte.",
-      },
-      {
-        q: "O gerador de letras coquette baixa uma fonte?",
-        a: "Não. Não há arquivo para instalar. O resultado cola em apps que aceitam texto puro, como o nome de exibição do Instagram ou o apelido do Discord.",
-      },
-      {
-        q: "Posso colar letras coquette no usuário do Instagram?",
-        a: "Não. O usuário continua em letras comuns, dígitos, pontos e sublinhados. O nome de exibição e a bio podem ser testados. O conjunto de caracteres fica a critério do app; esta página não publica uma lista completa.",
-      },
-    ],
-  },
-  "preppy-font-generator": {
-    navName: "Preppy",
-    h1: "Gerador de letras preppy",
-    title: "Fontes preppy — Gerador para copiar e colar | FancyFont",
-    description:
-      "Fontes preppy são versaletes Unicode limpos com um coração arrumado. Gere, copie e cole na bio, no nome do TikTok ou no Adopt Me — grátis, sem cadastro.",
-    intro:
-      "Fontes preppy são versaletes limpos com um coração arrumado: branco, de naipe ou virado. Sem laços e sem letras bolha — o visual mais barulhento fica na outra página. Este fica arrumado, que é o que os nomes preppy do Adopt Me costumam querer.",
-    howItWorks:
-      "Versaletes são letras modificadoras do Unicode que parecem maiúsculas de menor altura. O script é a segunda linha, sem enfeite. Cada coração é um símbolo só na linha de versaletes, um par ou um lado, para o nome continuar curto.",
-    coverageNote:
-      "Os versaletes cobrem a maioria das letras e deixam algumas iguais quando o Unicode não tem a forma. O script só converte letras, então os dígitos dessa linha ficam normais. Os corações são caracteres extras. O coração branco é um emoji e costuma ser o primeiro que o filtro de um jogo rejeita.",
-    bestFor: [
-      "Nomes de exibição curtos do Adopt Me",
-      "Um nome limpo com um coração só",
-      "Bios que devem parecer arrumadas, não redondas",
-    ],
-    sampleInputs: ["Mila", "Blair", "Tess"],
-    platformTip:
-      "O Adopt Me mostra seu nome de exibição do Roblox, em geral cerca de 20 caracteres, e o usuário não aceita fontes. Um nome curto em versaletes com um coração cabe nessa caixa mais vezes do que um laço dos dois lados. Cole na tela de nome do Roblox antes de confirmar a troca.",
-    faq: [
-      {
-        q: "Preppy é a mesma coisa que coquette?",
-        a: "Não. Coquette é script com um laço de fita. Preppy são versaletes com um coração limpo.",
-      },
-      {
-        q: "Isso funciona como usuário do Adopt Me?",
-        a: "O nome de usuário do Roblox aceita só letras, dígitos e um sublinhado. Teste o nome estilizado como nome de exibição, e só depois que a prévia do próprio jogo aceitar.",
-      },
-      {
-        q: "Por que os corações são tão simples?",
-        a: "Uma pilha de laços come os 20 caracteres do nome de exibição e o filtro corta com mais frequência. Um coração é a marca preppy e ainda deixa espaço para o nome.",
-      },
-      {
-        q: "Como se chama a fonte preppy?",
-        a: "Não existe uma única fonte preppy. O que as redes chamam de preppy costumam ser versaletes — maiúsculas de menor altura — com um coração ou laço limpo ao lado. Tudo é texto Unicode, não uma fonte instalada; por isso sobrevive ao copiar e colar.",
-      },
-      {
-        q: "Como consigo fontes preppy?",
-        a: "Digite seu nome acima, escolha uma linha de estilo e um coração, e copie. Cole na bio do Instagram, no nome do TikTok ou no perfil do Adopt Me, e confira a prévia da plataforma antes de salvar.",
-      },
-    ],
-  },
-  "heart-font-generator": {
-    navName: "Coração",
-    h1: "Gerador de letras com coração",
-    description:
-      "Texto com coração para copiar e colar: letras script e um coração diferente em cada uma de doze linhas. Grátis no navegador, sem instalar nada.",
-    intro:
-      "Letras script e um par de corações por linha: doze corações, e nenhuma linha repete o símbolo. Um coração nas letras bolha fica na página fofa. Um coração limpo nos versaletes fica na página preppy. Você copia caracteres. Não é um arquivo de fonte nem um desenho de letras.",
-    howItWorks:
-      "As linhas com coração envolvem o script pesado do Unicode, o alfabeto que tem e, g e o de verdade. O script fino fica embaixo, sem coração, e nessa linha e, g e o são substitutos, então um nome como Love ou Belle fica numa linha com coração. A bolha é a terceira linha e fica sem enfeite, para não repetir a página fofa. Cada coração é um símbolo separado, só na linha pesada.",
-    coverageNote:
-      "O script e o script pesado convertem A–Z e a–z. Os dígitos ficam como você digitou. A bolha converte letras e dígitos. Acentos, emoji e outros alfabetos passam sem mudança. Os corações são caracteres extras e contam no limite do nome. Os corações menores são raros e podem aparecer como um quadrado vazio: se um falhar, copie a linha do coração vermelho ou a do brilho.",
-    bestFor: [
-      "Nomes de exibição e bios do Instagram e do TikTok",
-      "Um nome de uma palavra ou uma legenda curta",
-      "Apelidos do Discord em que um coração de cada lado basta",
-    ],
-    sampleInputs: ["Love", "Mia", "Honey"],
-    platformTip:
-      "Cole o nome com coração no nome de exibição ou na bio do Instagram, na bio do TikTok ou no apelido do Discord. Nomes de usuário que só aceitam letras comuns rejeitam os corações. O nome de exibição fica em torno de 30 caracteres no Instagram e o apelido em torno de 32 no Discord, então um coração de cada lado de uma palavra curta cabe mais vezes do que uma pilha de símbolos.",
-    faq: [
-      {
-        q: "A fonte de coração é um arquivo para baixar?",
-        a: "Não. O resultado são caracteres Unicode, e é por isso que cola em apps que só aceitam texto puro. Este site não oferece arquivos de fonte e não desenha as letras numa imagem.",
-      },
-      {
-        q: "Qual a diferença para as páginas fofa e preppy?",
-        a: "O fofo são letras bolha com um coração, um laço ou uma flor. Preppy são versaletes com um coração limpo. Esta página é script com doze pares de coração diferentes, e esses corações não aparecem nas outras páginas.",
-      },
-      {
-        q: "Posso usar um nome com coração como usuário do Instagram?",
-        a: "Não. O usuário do Instagram só aceita letras, dígitos, pontos e sublinhados. Cole o nome com coração no nome de exibição ou na bio.",
-      },
-    ],
-  },
-  "chicano-font-generator": {
-    navName: "Chicana",
-    h1: "Gerador de letra chicana",
-    description:
-      "Texto no estilo chicano para copiar e colar: gótica com um enfeite por linha, mais uma linha script. Grátis no navegador. Não é um arquivo de fonte nem um estêncil de tatuagem.",
-    intro:
-      "Gótica clássica e um enfeite por linha: doze marcas, e nenhuma é a caveira ou a lua da página escura. A gótica sem enfeite está na página gothic. Você copia caracteres. Isto não é lettering chicano desenhado à mão, nem um estêncil.",
-    howItWorks:
-      "As linhas com enfeite envolvem o Fraktur do Unicode, a letra gótica que muita gente chama de Old English. A gótica pesada fica embaixo, sem enfeite, para o traço grosso continuar legível em tamanho pequeno. O script pesado é a terceira linha e fica sem enfeite: ocupa o lugar da metade cursiva do estilo, e as letras não são ligadas. Cada enfeite é um símbolo separado, só na linha gótica clássica.",
-    coverageNote:
-      "As duas góticas convertem só A–Z e a–z. Dígitos, letras com acento como á, é e ñ, e emoji ficam como você digitou, porque o Unicode não tem forma gótica para eles. O script pesado só converte letras. Os enfeites são caracteres extras e contam no limite do nome. Um enfeite raro pode aparecer como um quadrado vazio: se isso acontecer, copie a linha da cruz ou a gótica nua.",
-    bestFor: [
-      "Um nome curto ou um lema de uma palavra na bio",
-      "Comparar gótica e script antes de passar o trabalho a um letrista",
-      "Um nome de exibição que queira gótica sem as caveiras da página escura",
-    ],
-    sampleInputs: ["Rosa", "Luz", "Vida"],
-    platformTip:
-      "Cole num nome de exibição ou na bio e confira nesse app. Jogos que só aceitam letras comuns rejeitam a gótica. Estes caracteres não são um estêncil de tatuagem: os traços são glifos de texto, não um desenho no tamanho da pele.",
-    faq: [
-      {
-        q: "Isto é uma fonte chicana para baixar?",
-        a: "Não. Você copia caracteres Unicode. Este site não oferece um arquivo de fonte e não carrega as góticas ou scripts pagos que os geradores de imagem usam.",
-      },
-      {
-        q: "É lettering chicano tradicional?",
-        a: "Não. O lettering chicano é gótica e script desenhados à mão, do trabalho gráfico mexicano-americano: murais, carros e tatuagens. Estas linhas só se aproximam do visual gótico, mais um alfabeto script. Não são um estêncil nem substituem um artista.",
-      },
-      {
-        q: "Por que ñ e as letras com acento ficam normais?",
-        a: "O fraktur do Unicode não tem forma para elas, então passam iguais e o resto das letras ainda converte.",
-      },
-    ],
-  },
-
-  "crazy-font-generator": {
-    navName: "Maluca",
-    h1: "Gerador de letras malucas",
-    description:
-      "Misture estilos Unicode letra por letra e embaralhe até ficar devidamente maluco. Copie letras malucas para bios, nomes de jogo e chats — grátis, sem cadastro.",
-    intro:
-      "Um estilo só nunca é maluco o suficiente. Este gerador mistura vários alfabetos Unicode dentro da mesma palavra, embrulha o resultado em decorações e reembaralha até ficar devidamente maluco. Mesmo texto, maluqueira diferente.",
-    howItWorks:
-      "Em vez de converter o texto inteiro com um alfabeto, o misturador percorre seu texto letra por letra e sorteia um estilo diferente para cada posição: script ao lado de fraktur ao lado de bolha. O sorteio é determinístico: o mesmo texto, nível e embaralhamento reconstruem exatamente o mesmo resultado, e cada novo embaralhamento traz um set diferente.",
-    coverageNote:
-      "Os estilos do misturador convertem A–Z e a–z (alguns também dígitos). Caracteres sem equivalente estilizado — acentos, emoji, chinês — passam como estão, então um resultado pode de propósito misturar letras estilizadas e letras normais. A decoração soma no limite de caracteres do campo de destino.",
-    bestFor: [
-      "Nomes de jogo e tags de clã que devem parecer caóticos de propósito",
-      "Perfis que já testaram os estilos cool e glitch e querem algo mais barulhento",
-      "Zoeiras, títulos de live e apelidos de chat com energia maluca",
-    ],
-    sampleInputs: ["Seu Nome", "Cha0s", "Rainha Glitch"],
-    platformTip:
-      "Letras misturadas são tão portáveis quanto os estilos que as formam: cada caractere é Unicode normal. Jogos com campos só ASCII rejeitam a maioria; bios e nomes visíveis em apps sociais são terreno mais amigável. Cole e confira antes de salvar.",
-    faq: [
-      {
-        q: "O que são letras malucas?",
-        a: "Não são fontes: cada resultado é texto comum onde cada letra foi trocada por um caractere Unicode parecido de outro estilo. É por isso que dá para copiar e colar em qualquer lugar que aceite texto simples.",
-      },
-      {
-        q: "Qual é a diferença do gerador glitch?",
-        a: "O glitch (zalgo) empilha marcas combinantes sobre letras normais. As letras malucas trocam as próprias letras por caracteres de outros alfabetos — o resultado parece vários estilos brigando por uma palavra.",
-      },
-      {
-        q: "Por que o mesmo texto sempre sai igual?",
-        a: "O embaralhamento tem semente, não é aleatório. O mesmo texto, nível e número reconstruem o mesmo resultado; embaralhe de novo e você ganha um set novo.",
-      },
-      {
-        q: "Funciona no nome do meu jogo?",
-        a: "Depende do jogo. Muitos jogos mobile aceitam Unicode decorativo; campos só ASCII não. Copie uma variante, cole no campo real e confira antes de salvar.",
-      },
-    ],
+      faq: [
+        {
+          q: "Texto invertido aparece bem em celulares?",
+          a: "Sim — os caracteres espelhados são letras comuns cobertas pelas fontes dos principais sistemas. Algumas formas parecem um pouco estranhas por natureza.",
+        },
+        {
+          q: "Por que parte do texto não virou?",
+          a: "O Unicode não tem glifos espelhados para todos os caracteres, então o que não tem equivalente passa reto. Envolva em moldura ou dê espaçamento para o efeito “tem algo errado aqui”.",
+        },
+        {
+          q: "Como leio o texto de volta?",
+          a: "Cole de volta na caixa e inverta de novo — a transformação é o próprio inverso dela.",
+        },
+        {
+          q: "Leitores de tela entendem texto invertido?",
+          a: "Não — eles leem as letras espelhadas como estão escritas, o que soa sem sentido, e a inversão embaralha ainda mais a ordem. Inverta só linhas curtas e decorativas.",
+        },
+        {
+          q: "Por que algumas letras ficaram de pé?",
+          a: "Alguns caracteres não têm sósia invertido — o W é o famoso — e ficam como digitados. É uma lacuna na tabela de espelhamento do Unicode, não um bug do gerador.",
+        },
+        {
+          q: "Posso usar texto invertido em nome de usuário?",
+          a: "Nomes de exibição costumam aceitar; @usuários e campos de login normalmente rejeitam os caracteres espelhados. Teste no campo real antes — e lembre que ninguém consegue digitar isso para te buscar.",
+        },
+      ],
+    },
   },
 };
