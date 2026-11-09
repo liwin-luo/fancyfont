@@ -1,1873 +1,1157 @@
-// Localized UI strings. The UiStrings interface requires every key for
-// every locale, so a missing translation is a type error at build time.
+import { textStyles } from "./text-styles";
+import { cjkStyles } from "./cjk-styles";
+// 全站 UI 文案:按语言集中管理。组件通过 getUi(locale) 取用,
+// 服务端组装后只把纯字符串下发到客户端。
 
-import type { Locale } from "./i18n";
-import type { StyleCategory, TextStyleId } from "./text-styles";
-import type { VibeStyleId } from "./nickname";
-
-export interface UiStrings {
-  languageLabel: string;
-  /** Shown when the page locale differs from the browser language. `{name}` is the language name. */
-  localeSuggest: { message: string; action: string };
-  nav: {
-    fancy: string;
-    gaming: string;
-    symbols: string;
-    home: string;
-    /** Header dropdown: all text style generators. */
-    textStyles: string;
-    /** Header dropdown: gaming name generators. */
-    nameMaker: string;
-    /** Header link to /learn/ — rendered in the English locale only. */
-    guides: string;
-  };
-  tools: {
-    fancy: string;
-    gaming: string;
-    symbols: string;
-    blank: string;
-    privacy: string;
-    terms: string;
-    about: string;
-    contact: string;
-    mcp: string;
-    tagline: string;
-    copyright: string;
-    /** Footer byline: who publishes the site, and the last content revision date. */
-    publishedBy: string;
-    lastUpdated: string;
-    /** Footer bookmark link. */
-    bookmarkLabel: string;
-    bookmarkHint: (keys: string) => string;
-    bookmarkMobile: string;
-    letterGenerators: string;
-    lookGenerators: string;
-    forPlatforms: string;
-    site: string;
-    /** Suffix for platform footer links, e.g. "Instagram fonts" / "Roblox names". */
-    fontsWord: string;
-    namesWord: string;
-    usesLetters: (style: string) => string;
-    coverage: {
-      letters: string;
-      lettersDigits: string;
-      partial: string;
-      all: string;
-    };
-  };
-  common: {
-    yourText: string;
-    clear: string;
-    reset: string;
-    charactersInfo: string;
-    countsSummary: string;
-    visibleCount: (count: number) => string;
-    codePointCount: (count: number) => string;
-    utf16Count: (count: number) => string;
-    filterStyles: string;
-    searchStyles: string;
-    all: string;
-    favorites: string;
-    recent: string;
-    noFavorites: string;
-    noStylesMatch: (query: string) => string;
-    typeToSee: (count: number) => string;
-    partialBadge: string;
-    copy: string;
-    copied: string;
-    copyStyle: (name: string) => string;
-    saveStyle: (name: string) => string;
-    removeStyle: (name: string) => string;
-    downloadPng: (name: string) => string;
-    savedAsPng: string;
-    pngFailed: string;
-    shareToX: (name: string) => string;
-    shareToThreads: (name: string) => string;
-    shareToBluesky: (name: string) => string;
-    shareToWhatsapp: (name: string) => string;
-    shareToTelegram: (name: string) => string;
-    shareMore: string;
-    copiedOpening: (dest: string) => string;
-    transparentBg: string;
-    previewSize: string;
-    copyAllFavorites: string;
-    /** Label shows the live style count. */
-    copyAllStyles: (count: number) => string;
-    compareAdd: (name: string) => string;
-    compareRemove: (name: string) => string;
-    compareHeading: string;
-    compareLimit: string;
-    shuffle: string;
-    copiedToClipboard: string;
-    copyFailed: string;
-    browserOnly: string;
-    typeToConvert: string;
-    wrapLabel: string;
-    pasteLabel: string;
-    wrapNone: string;
-    wrapStar: string;
-    wrapHeart: string;
-    wrapWings: string;
-    wrapBrackets: string;
-    pasteAnywhere: string;
-    pasteDisplay: string;
-    pasteBio: string;
-    pasteUsername: string;
-    overLimit: (count: number, limit: number) => string;
-    usernamePlain: string;
-    hanFrames: string;
-    hanNote: string;
-    /** Glitch page: the clean-zalgo tool. */
-    zalgoClean: {
-      heading: string;
-      inputLabel: string;
-      pasteButton: string;
-      pasteFailed: string;
-      resultLabel: string;
-      empty: string;
-      removed: (count: number) => string;
-    };
-  };
-  symbols: {
-    searchLabel: string;
-    searchPlaceholder: string;
-    countInfo: (count: number, category: string | null, query: string) => string;
-    inCategory: (category: string) => string;
-    forQuery: (query: string) => string;
-    batchHint: string;
-    recent: string;
-    copySymbol: (label: string) => string;
-    removeRecent: (label: string) => string;
-    addToBatch: (label: string) => string;
-    removeFromBatch: (label: string) => string;
-    batchSelected: (count: number) => string;
-    copyAll: string;
-    batchClear: string;
-    copiedBatch: (count: number) => string;
-    batchFailed: string;
-    noMatch: (query: string) => string;
-    combosHeading: string;
-    combosHint: string;
-    copyCombo: (label: string) => string;
-    prefixLabel: string;
-    prefixPlaceholder: string;
-  };
-  gaming: {
-    yourName: string;
-    namePlaceholder: string;
-    lengthInfo: string;
-    styleGroup: string;
-    buildYourOwn: string;
-    buildHint: (name: string) => string;
-    decoration: string;
-    letterStyle: string;
-    noDecoration: string;
-    decoOption: (left: string, right: string) => string;
-    normalLetters: string;
-    comboSaved: string;
-    saveCombo: string;
-    myCombos: string;
-    applyCombo: string;
-    removeCombo: string;
-    copyCombo: string;
-    copyAllSaved: string;
-    savedNames: string;
-    copySaved: (name: string) => string;
-    removeSaved: (name: string) => string;
-    saveName: (name: string) => string;
-    emptyName: string;
-    loadMore: string;
-    generateNew: string;
-    checkNickname: string;
-    checkResult: string;
-    inputPreview: string;
-    unicodeHeading: string;
-    platformHeading: string;
-    analysisComplete: string;
-    platformRule: (status: "needs_verification" | "partial" | "verified") => string;
-    platformNone: string;
-    displayDevice: string;
-    combiningMark: string;
-    variationSelector: string;
-    emojiFlag: string;
-    unchangedLetters: (letters: string) => string;
-    codePointsLabel: string;
-  };
-  styleNames: Record<TextStyleId, string>;
-  styleCategoryNames: Record<StyleCategory, string>;
-  vibeNames: Record<VibeStyleId, string>;
-  crazyLevelNames: { mild: string; wild: string; chaos: string };
-  symbolCats: Record<string, string>;
-  platformTool: {
-    stylesFit: (platform: string) => string;
-    presetsHeading: (platform: string) => string;
-    presetsWrap: string;
-    openToPaste: (platform: string) => string;
-  };
-  platformPreview: {
-    heading: (platform: string) => string;
-    preview: string;
-    close: string;
-    previous: string;
-    next: string;
-    note: string;
-    over: string;
-    notTested: string;
-    approxField: (platform: string, max: number) => string;
-    handleAscii: string;
-    posts: string;
-    followers: string;
-    following: string;
-    likes: string;
-    follow: string;
-    message: string;
-    addFriend: string;
-    friends: string;
-    subscribers: string;
-    subscribe: string;
-    /** WhatsApp profile: the About field label. */
-    whatsappInfo: string;
-  };
-  bio: { drafts: string; fillHint: string; boardTail: string; png: string };
-  symbolCatNotes: { invisible: string; blankLink: string };
-  sections: {
-    howToUse: string;
-    examples: string;
-    faq: string;
-    related: string;
-    whereShines: string;
-    onPlatforms: string;
-    howWorks: (topic: string) => string;
-    openFull: string;
-    exploreAll: string;
-    browseSymbols: string;
-    browseFancy: string;
-    lookUses: (style: string) => string;
-  };
-  compat: { lead: string; body: string };
-  stylePageSteps: [string, string, string];
+export interface HomeFaq {
+  q: string;
+  a: string;
 }
 
-const styleNamesEn: Record<TextStyleId, string> = {
-  script: "Cursive",
-  boldScript: "Bold Cursive",
-  fraktur: "Gothic",
-  boldFraktur: "Bold Gothic",
-  bold: "Bold",
-  italic: "Italic",
-  boldItalic: "Bold Italic",
-  sansBold: "Bold Sans",
-  sansItalic: "Sans Italic",
-  doubleStruck: "Outline",
-  monospace: "Monospace",
-  smallCaps: "Small Caps",
-  superscript: "Tiny (Superscript)",
-  subscript: "Subscript",
-  bubble: "Bubble",
-  circled: "Circled",
-  parenthesized: "Parenthesized",
-  squared: "Squared",
-  fullwidth: "Full Width",
-  upsideDown: "Upside Down",
-  strike: "Strikethrough",
-  underline: "Underline",
-  doubleUnderline: "Double Underline",
-  slash: "Slashed",
-  boldStrike: "Bold Strikethrough",
-  boldUnderline: "Bold Underline",
-  italicUnderline: "Italic Underline",
-  zalgoLight: "Glitch Light",
-  zalgoMedium: "Glitch Medium",
-  zalgoHeavy: "Glitch Heavy",
-};
+export interface StartLink {
+  title: string;
+  description: string;
+  href: string;
+}
 
-export const ui: Record<Locale, UiStrings> = {
-  en: {
-    languageLabel: "Language",
-    localeSuggest: { message: "Your system language is {name}", action: "Switch" },
-    nav: { fancy: "Fancy Text", gaming: "Gaming Names", symbols: "Symbols", home: "Home", textStyles: "Text Styles", nameMaker: "Name Maker", guides: "Guides" },
-    tools: {
-      fancy: "Fancy Text Generator",
-      gaming: "Gaming Name Generator",
-      symbols: "Symbols & Decorators",
-      blank: "Blank Space",
-      privacy: "Privacy Policy",
-      terms: "Terms of Use",
-      about: "About",
-      contact: "Contact",
-      mcp: "For AI agents",
-      tagline: "Stylish names, fonts & symbols — free to use, no sign-up needed.",
-      copyright:
-        "All results are Unicode characters, not installed fonts. This site runs entirely in your browser.",
-      publishedBy: "Published by",
-      lastUpdated: "Last updated",
-      bookmarkLabel: "Bookmark this site",
-      bookmarkHint: (keys) => `Press ${keys} to bookmark FancyFont.`,
-      bookmarkMobile: "Use your browser's share menu to add FancyFont to your bookmarks or home screen.",
-      letterGenerators: "Letter styles",
-      lookGenerators: "Looks",
-      forPlatforms: "For platforms",
-      site: "Site",
-      fontsWord: "fonts",
-      namesWord: "names",
-      usesLetters: (style) => `Uses ${style} letters`,
-      coverage: {
-        letters: "Letters only",
-        lettersDigits: "Letters and digits",
-        partial: "Some letters stay plain",
-        all: "Any character",
-      },
-    },
-    common: {
-      yourText: "Your text",
-      clear: "Clear",
-      reset: "Reset",
-      charactersInfo: "characters",
-      countsSummary: "Character counts",
-      visibleCount: (count) => `Visible characters: ${count}`,
-      codePointCount: (count) => `Unicode code points: ${count}`,
-      utf16Count: (count) => `UTF-16 units: ${count}`,
-      filterStyles: "Filter styles",
-      searchStyles: "Search styles — try “cursive”, “tiny”, “glitch”...",
-      all: "All",
-      favorites: "Favorites",
-      recent: "Recent",
-      noFavorites: "No favorites yet — tap the star on any style to pin it here.",
-      noStylesMatch: (query) => `No styles match “${query}” — try another word.`,
-      typeToSee: (count) => `Type something above to see it in ${count} styles.`,
-      partialBadge: "partial",
-      copy: "Copy",
-      copied: "Copied",
-      copyStyle: (name) => `Copy ${name} style`,
-      saveStyle: (name) => `Save ${name} to favorites`,
-      removeStyle: (name) => `Remove ${name} from favorites`,
-      downloadPng: (name) => `Download ${name} style as PNG`,
-      savedAsPng: "Saved as PNG",
-      pngFailed: "Couldn't save the image — try copying instead",
-      shareToX: (name) => `Share ${name} style on X`,
-      shareToThreads: (name) => `Share ${name} style on Threads`,
-      shareToBluesky: (name) => `Share ${name} style on Bluesky`,
-      shareToWhatsapp: (name) => `Share ${name} style on WhatsApp`,
-      shareToTelegram: (name) => `Share ${name} style on Telegram`,
-      shareMore: "More ways to share",
-      copiedOpening: (dest) => `Copied. Opening ${dest}…`,
-      transparentBg: "Transparent background",
-      previewSize: "Preview size",
-      copyAllFavorites: "Copy all favorites",
-    copyAllStyles: (count) => `Copy all ${count} styles`,
-    compareAdd: (name) => `Add ${name} to compare`,
-    compareRemove: (name) => `Remove ${name} from compare`,
-    compareHeading: "Compare styles",
-    compareLimit: "Compare holds up to 4 styles — remove one first.",
-    shuffle: "Shuffle",
-    zalgoClean: {
-      heading: "Clean zalgo text",
-      inputLabel: "Paste zalgo text",
-      pasteButton: "Paste from clipboard",
-      pasteFailed: "Couldn't read the clipboard — paste the text manually.",
-      resultLabel: "Cleaned result",
-      empty: "Paste zalgo above, or generate it here, to strip the stacked marks.",
-      removed: (count) => `Removed ${count} stacked marks.`,
-    },
-      copiedToClipboard: "Copied to clipboard",
-      copyFailed: "Couldn't copy — select the text and copy manually",
-      browserOnly: "Conversions run in your browser — nothing is uploaded.",
-      typeToConvert: "Type something above to see it converted.",
-      wrapLabel: "Decoration",
-      pasteLabel: "Where you'll paste",
-      wrapNone: "None",
-      wrapStar: "Star",
-      wrapHeart: "Heart",
-      wrapWings: "Wings",
-      wrapBrackets: "Brackets",
-      pasteAnywhere: "Anywhere",
-      pasteDisplay: "Display name",
-      pasteBio: "Bio",
-      pasteUsername: "Username",
-      overLimit: (count, limit) => `${count}/${limit} — longer than this field usually allows`,
-      usernamePlain: "Usernames usually keep only letters, numbers, and underscores. Fancy letters belong on the display name.",
-      hanFrames: "Frames for the original text",
-      hanNote: "Chinese characters stay as you typed them. These frames wrap that text — they do not turn the characters into a font.",
-    },
-    symbols: {
-      searchLabel: "Search symbols",
-      searchPlaceholder: "Try “heart”, “star”, “crown”...",
-      countInfo: (count, category, query) =>
-        `${count} symbols${category ? ` in ${category}` : ""}${query ? ` for “${query}”` : ""} · Click a symbol to copy it, or the + to build a batch.`,
-      inCategory: (category) => ` in ${category}`,
-      forQuery: (query) => ` for “${query}”`,
-      batchHint: "Click a symbol to copy it, or the + to build a batch.",
-      recent: "Recent",
-      copySymbol: (label) => `Copy ${label}`,
-      removeRecent: (label) => `Remove ${label} from recent`,
-      addToBatch: (label) => `Add ${label} to batch`,
-      removeFromBatch: (label) => `Remove ${label} from batch`,
-      batchSelected: (count) => `${count} selected`,
-      copyAll: "Copy all",
-      batchClear: "Clear",
-      copiedBatch: (count) => `Copied ${count} symbols`,
-      batchFailed: "Couldn't copy — try smaller selections",
-      noMatch: (query) => `No symbols match “${query}” — try another word like heart, star or crown.`,
-      combosHeading: "Decorative combos",
-      combosHint: "Ready-made decorations — click one to copy the whole thing.",
-      copyCombo: (label) => `Copy ${label}`,
-      prefixLabel: "Text in front",
-      prefixPlaceholder: "Optional — copied before the symbols",
-    },
-    gaming: {
-      yourName: "Your name",
-      namePlaceholder: "Type a name...",
-      lengthInfo: "Up to 24 characters — many games limit name length.",
-      styleGroup: "Nickname style",
-      buildYourOwn: "Build your own",
-      buildHint: (name) => `Pick decorations and a letter style for “${name}”, then copy or save the combo.`,
-      decoration: "Decoration",
-      letterStyle: "Letter style",
-      noDecoration: "No decoration",
-      decoOption: (left, right) => `${left} name ${right}`,
-      normalLetters: "Normal letters",
-      comboSaved: "Combo saved to this device",
-      saveCombo: "Save combo",
-      myCombos: "My combos",
-      applyCombo: "Apply this combo to the builder",
-      removeCombo: "Remove this combo",
-      copyCombo: "Copy your custom combo",
-      copyAllSaved: "Copy all",
-      savedNames: "Saved names",
-      copySaved: (name) => `Copy ${name}`,
-      removeSaved: (name) => `Remove ${name} from saved names`,
-      saveName: (name) => `Save ${name}`,
-      emptyName: "No name yet — these use short suggestions. Type yours to replace them.",
-      loadMore: "Load more",
-      generateNew: "Generate new combinations",
-      checkNickname: "Check this nickname",
-      checkResult: "Check this result",
-      inputPreview: "Input",
-      unicodeHeading: "Unicode analysis",
-      platformHeading: "Platform",
-      analysisComplete: "Character analysis: complete",
-      platformRule: (status) =>
-        ({
-          needs_verification: "Platform rule: needs verification",
-          partial: "Platform rule: partial",
-          verified: "Platform rule: verified",
-        })[status],
-      platformNone: "Platform rule: no platform selected",
-      displayDevice: "Display: depends on the device",
-      combiningMark: "Contains a combining mark",
-      variationSelector: "Contains a variation selector",
-      emojiFlag: "Contains emoji",
-      unchangedLetters: (letters) => `These letters stay the same in this style: ${letters}`,
-      codePointsLabel: "Code points",
-    },
-    styleNames: styleNamesEn,
-    styleCategoryNames: {
-      script: "Script",
-      gothic: "Gothic",
-      bold: "Bold & Italic",
-      sans: "Sans & Mono",
-      small: "Small & Tiny",
-      enclosed: "Bubble & Circled",
-      wide: "Wide",
-      flipped: "Upside Down",
-      effects: "Effects & Glitch",
-    },
-    vibeNames: {
-      cool: "Cool",
-      dark: "Dark",
-      cute: "Cute",
-      pro: "Pro",
-      minimal: "Minimal",
-      gothic: "Gothic",
-      aesthetic: "Aesthetic",
-    },
-    crazyLevelNames: {
-      mild: "Mild",
-      wild: "Wild",
-      chaos: "Chaos",
-    },
-    symbolCats: {
-      hearts: "Hearts",
-      stars: "Stars",
-      arrows: "Arrows",
-      crowns: "Crowns",
-      flowers: "Flowers",
-      wings: "Wings & Bows",
-      brackets: "Brackets",
-      lines: "Lines & Borders",
-      faces: "Faces",
-      kaomoji: "Kaomoji",
-      vibes: "Music & Vibes",
-      checks: "Check & Cross",
-      math: "Math",
-      greek: "Greek",
-      currency: "Currency",
-      numbers: "Numbers & Roman",
-      dots: "Dots & Marks",
-      invisible: "Invisible",
-    },
-    platformTool: {
-      stylesFit: (platform) => `Styles that fit ${platform}`,
-      presetsHeading: (platform) => `${platform} presets`,
-      presetsWrap: "Each preset wraps the text you typed above.",
-      openToPaste: (platform) => `Copied — open ${platform} to paste`,
-    },
-    platformPreview: {
-      heading: (platform) => `Preview on ${platform}`,
-      preview: "Preview",
+export interface UiStrings {
+  nav: {
+    styles: string;
+    stylesHeading: string;
+    cjkHeading: string;
+    platforms: string;
+    guides: string;
+    popular: string;
+    allStyles: string;
+    allPlatforms: string;
+    menu: string;
+    /** 语言切换器按钮的无障碍标签。 */
+    language: string;
+  };
+  /** 中间层 hub 页(分类目录)。 */
+  hub: {
+    styles: { title: string; h1: string; description: string; intro: string };
+    platforms: { title: string; h1: string; description: string; intro: string };
+    styleGroups: Record<"script" | "gothic" | "cute" | "bold" | "small", string>;
+    platformGroups: Record<"social" | "games" | "chat", string>;
+  };
+  ticker: string;
+  skip: string;
+  footerTagline: string;
+  copyright: string;
+  footerCols: { styles: string; platforms: string; guides: string; about: string; allStyles: string; allPlatforms: string; allGuides: string };
+  tool: {
+    inputLabel: string;
+    inputPlaceholder: string;
+    charCount: string;
+    reset: string;
+    tabs: { styles: string; favorites: string; recent: string };
+    copy: string;
+    copied: string;
+    all: string;
+    favAria: string;
+    unfavAria: string;
+    cjkHeading: string;
+    cjkSub: string;
+    cjkBanner: string;
+    cjkBannerLink: string;
+    favoritesEmpty: string;
+    recentEmpty: string;
+    clear: string;
+    removeAria: string;
+    searchPlaceholder: string;
+    infoAria: string;
+    details: {
+      title: string;
+      coverage: string;
+      block: string;
+      chars: string;
+      charsHint: string;
+      screenReader: string;
+      hashtag: string;
+      close: string;
+    };
+    cleaner: {
+      heading: string;
+      intro: string;
+      inputLabel: string;
+      inputPlaceholder: string;
+      idle: string;
+      removedPrefix: string;
+      removedSuffix: string;
+      clear: string;
+      copyResult: string;
+      copied: string;
+    };
+  };
+  /** 装饰组合名称键 -> 各语言标签。 */
+  wrapperLabels: {
+    hearts: string;
+    sparkles: string;
+    softBrackets: string;
+    skull: string;
+    blades: string;
+    vaporwave: string;
+    haze: string;
+    retroSweet: string;
+    flowers: string;
+    bows: string;
+    gamerFrame: string;
+  };
+  sections: {
+    steps: string;
+    faq: string;
+    relatedTools: string;
+    relatedGuides: string;
+    swapStyles: string;
+    tryIt: string;
+    combos: string;
+    combosIntro: (sample: string) => string;
+    structure: string;
+  };
+  breadcrumb: { home: string; guides: string };
+  platform: {
+    limits: (platform: string) => string;
+    compat: string;
+    examples: string;
+    examplesIntro: string;
+    faq: (platform: string) => string;
+  };
+  guideIndex: {
+    h1: string;
+    intro: string;
+    cardLabel: string;
+  };
+  home: {
+    badge: string;
+    h1: string;
+    h1Sub: string;
+    intro: string;
+    statStyles: string;
+    statCjk: string;
+    statLocal: string;
+    stylesHeading: string;
+    stylesIntro: string;
+    platformsHeading: string;
+    platformsIntro: string;
+    platformCard: string;
+    guidesHeading: string;
+    guidesIntro: string;
+    guidesAll: string;
+    gameTextHeading: string;
+    gameTextIntro: string;
+    faqHeading: string;
+    faq: HomeFaq[];
+    startHeading: string;
+    startLinks: StartLink[];
+  };
+  notFound: {
+    badge: string;
+    h1: string;
+    body: string;
+    back: string;
+    secondary: string;
+  };
+  compatNote: string;
+  datePublished: string;
+  dateUpdated: string;
+}
+
+const EN: UiStrings = {
+  nav: {
+    styles: "Font styles",
+    stylesHeading: "Letter & number styles",
+    cjkHeading: "Chinese decorations",
+    platforms: "By platform",
+    guides: "Guides",
+    popular: "Popular",
+    menu: "Open menu",
+    language: "Switch language",
+    allStyles: "All styles",
+    allPlatforms: "All platforms",
+  },
+  ticker: "Copy & paste · No font files · Your text never leaves your device",
+  skip: "Skip to content",
+  footerTagline: "Fancy text is converted locally in your browser. What you type never leaves your device.",
+  copyright: "All rights reserved.",
+  footerCols: {
+    styles: "Font styles",
+    platforms: "Platforms",
+    guides: "Guides",
+    about: "About",
+    allStyles: "View all styles →",
+    allPlatforms: "View all platforms →",
+    allGuides: "All guides →",
+  },
+  tool: {
+    inputLabel: "Your text",
+    inputPlaceholder: "Type a nickname, phrase or word…",
+    charCount: "/120 characters",
+    reset: "Reset example",
+    tabs: { styles: "Styles", favorites: "Favorites", recent: "Recent" },
+    copy: "Copy",
+    copied: "Copied ✓",
+    all: "All",
+    favAria: "Favorite",
+    unfavAria: "Remove favorite",
+    cjkHeading: "Chinese decorations",
+    cjkSub: "Frames work on any characters, including Han",
+    cjkBanner:
+      "Chinese detected: styled glyphs only cover Latin letters, so Han characters pass through unchanged. To dress up Chinese text, use the",
+    cjkBannerLink: "nickname decorator",
+    favoritesEmpty:
+      "No favorites yet. Tap the ☆ on a style card to save it — data stays on this device only.",
+    recentEmpty: "Results you copy appear here, so you can find them again.",
+    clear: "Clear",
+    removeAria: "Remove this entry",
+    searchPlaceholder: "Search styles…",
+    infoAria: "Style details",
+    details: {
+      title: "Style details",
+      coverage: "Coverage",
+      block: "Unicode block",
+      chars: "Characters when pasted",
+      charsHint:
+        "Strike/zalgo stack invisible combining marks — strict counters may double. Regular styles stay one-for-one.",
+      screenReader:
+        "Screen readers may spell styled letters by their full Unicode names. Avoid for essential text.",
+      hashtag: "Hashtags and @handles only match plain characters — keep lookups plain.",
       close: "Close",
-      previous: "Previous",
-      next: "Next",
-      note: "Drawn in your browser to match the profile layout. The real app uses its own font, so paste the text there and check it before you rely on it.",
-      over: "over the usual limit",
-      notTested: "Not tested on this site.",
-      approxField: (platform, max) => `About ${max} characters on ${platform}, counted as code points. Not tested on this site.`,
-      handleAscii: "The login name keeps only the ASCII that platform already documents.",
-      posts: "posts",
-      followers: "followers",
-      following: "following",
-      likes: "likes",
-      follow: "Follow",
-      message: "Message",
-      addFriend: "Add Friend",
-      friends: "Friends",
-      subscribers: "subscribers",
-      subscribe: "Subscribe",
-      whatsappInfo: "About",
     },
-    bio: {
-      drafts: "Draft",
-      fillHint: "Pick one to fill the box, then edit it.",
-      boardTail: "Symbols on your board are added at the end.",
-      png: "Save PNG",
+    cleaner: {
+      heading: "Zalgo cleaner",
+      intro: "Paste corrupted text here and strip the stacked marks in one tap. Everything runs in your browser.",
+      inputLabel: "Paste corrupted text",
+      inputPlaceholder: "Paste the corrupted text to clean…",
+      idle: "Waiting for input",
+      removedPrefix: "Stripped",
+      removedSuffix: "stacked marks",
+      clear: "Clear",
+      copyResult: "Copy result",
+      copied: "Copied ✓",
     },
-    symbolCatNotes: {
-      invisible:
-        "These characters are invisible. They are famously used for blank game names: copy one and replace your whole name with it (some games still reject blank names — test first). The dotted circle just marks where the hidden character is.",
-      blankLink:
-        "Copy a run of Hangul filler, Braille blank, or ideographic space, or place that blank between fancy letters.",
-    },
-    sections: {
-      howToUse: "How to use it",
-      examples: "Examples",
-      faq: "FAQ",
-      related: "Related tools",
-      whereShines: "Where it shines",
-      onPlatforms: "Using it on platforms",
-      howWorks: (topic) => `How ${topic} text works`,
-      openFull: "Open the full Fancy Text Generator →",
-      exploreAll: "Explore all FancyFont tools →",
-      browseSymbols: "Browse 388 symbols to build your own look.",
-      browseFancy: "Browse all 30 styles in one tool and copy any of them.",
-      lookUses: (style) =>
-        `This look uses ${style} letters. The decorations appear only on this page.`,
-    },
-    compat: {
-      lead: "Heads up:",
-      body: "These styles use Unicode characters, not installed font files. Display and availability may vary by device, app, game, and platform rules. Please test your result where you plan to use it.",
-    },
-    stylePageSteps: [
-      "Type your text into the box above — the preview updates as you type.",
-      "Copy the result with one tap, or download it as a PNG image.",
-      "Paste it wherever you want the look — then check it renders the way you expect.",
-    ],
   },
-  es: {
-    languageLabel: "Idioma",
-    localeSuggest: { message: "El idioma del sistema es {name}", action: "Cambiar" },
-    nav: { fancy: "Letras bonitas", gaming: "Nombres gamer", symbols: "Símbolos", home: "Inicio", textStyles: "Estilos de texto", nameMaker: "Nombres gamer", guides: "Guías" },
-    tools: {
-      fancy: "Generador de letras bonitas",
-      gaming: "Generador de nombres para juegos",
-      symbols: "Símbolos y decoración",
-      blank: "Espacio en blanco",
-      privacy: "Política de privacidad",
-      terms: "Términos de uso",
-      about: "Quiénes somos",
-      contact: "Contacto",
-      mcp: "Para agentes de IA",
-      tagline: "Nombres, letras y símbolos con estilo — gratis y sin registro.",
-      copyright:
-        "Todos los resultados son caracteres Unicode, no fuentes instaladas. Este sitio funciona por completo en tu navegador.",
-      publishedBy: "Publicado por",
-      lastUpdated: "Última actualización",
-      bookmarkLabel: "Añadir a marcadores",
-      bookmarkHint: (keys) => `Pulsa ${keys} para añadir FancyFont a marcadores.`,
-      bookmarkMobile: "Usa el menú compartir de tu navegador para añadir FancyFont a marcadores o a tu pantalla de inicio.",
-      letterGenerators: "Estilos de letra",
-      lookGenerators: "Apariencias",
-      forPlatforms: "Por plataforma",
-      site: "Sitio",
-      fontsWord: "fuentes",
-      namesWord: "nombres",
-      usesLetters: (style) => `Usa letras ${style}`,
-      coverage: {
-        letters: "Solo letras",
-        lettersDigits: "Letras y números",
-        partial: "Algunas letras se quedan igual",
-        all: "Cualquier carácter",
+  wrapperLabels: {
+    hearts: "Hearts",
+    sparkles: "Sparkles",
+    softBrackets: "Soft brackets",
+    skull: "Skulls",
+    blades: "Blades",
+    vaporwave: "Vaporwave",
+    haze: "Haze",
+    retroSweet: "Retro sweet",
+    flowers: "Flowers",
+    bows: "Bows",
+    gamerFrame: "Gamer frames",
+  },
+  sections: {
+    steps: "How to use",
+    faq: "FAQ",
+    relatedTools: "Related tools",
+    relatedGuides: "Related guides",
+    swapStyles: "Try another style",
+    tryIt: "Try it yourself",
+    combos: "Decoration combos",
+    combosIntro: (sample: string) =>
+      `Using “${sample}” as the sample: the main style wrapped in each decoration pair. Copy, then swap in your own text.`,
+    structure: "Structure",
+  },
+  hub: {
+    styles: {
+      title: "All Font Styles & Generators",
+      h1: "All font styles",
+      description: "Browse every fancy font style — cursive, gothic, cute, bold, small and glitch generators — grouped by look. Copy and paste, free.",
+      intro: `Every generator on FancyFont, grouped by look. Open one, type, and copy — every page carries the full ${textStyles.length}-style catalog with honest notes on where each look works.`,
+    },
+    platforms: {
+      title: "Fancy Fonts for Every Platform",
+      h1: "Fonts by platform",
+      description: "Fancy fonts and nicknames for Instagram, TikTok, Discord, Roblox and more — character limits and compatibility for each platform.",
+      intro: "Each platform page is built for its app: name limits, what renders safely, and ready-made combos. Pick where you're posting.",
+    },
+    styleGroups: {
+      script: "Cursive & script", gothic: "Gothic & dark", cute: "Cute & aesthetic",
+      bold: "Bold & cool", small: "Small & weird",
+    },
+    platformGroups: {
+      social: "Social platforms", games: "Games", chat: "Chat apps",
+    },
+  },
+  breadcrumb: { home: "Home", guides: "Guides" },
+  platform: {
+    limits: (p) => `${p}: limits & rules`,
+    compat: "Where it works — and where it doesn't",
+    examples: "Ready-made nickname examples",
+    examplesIntro: "Copy as-is, or use them as templates for your own name.",
+    faq: (p) => `${p} FAQ`,
+  },
+  guideIndex: {
+    h1: "Guides",
+    intro:
+      "Principles, box troubleshooting, platform rules and style pairing — built on one fact: the output is plain Unicode text. Nothing we cannot verify.",
+    cardLabel: "Guide",
+  },
+  home: {
+    badge: "Free · No sign-up · Nothing uploaded",
+    h1: "Fancy Font Generator",
+    h1Sub: `${textStyles.length} styles for letters & numbers, ${cjkStyles.length} decorations for nicknames — copy and paste anywhere`,
+    intro:
+      "Type a nickname, phrase or word and every style renders live. Tap a card to copy, then paste it into Instagram, TikTok, Discord, WhatsApp or your game ID — the output is Unicode text, so no font files are needed and it displays no matter what fonts the app has.",
+    statStyles: "letter & number styles",
+    statCjk: "nickname decorations",
+    statLocal: "data uploaded — everything runs locally",
+    stylesHeading: "Style pages",
+    stylesIntro:
+      "One page per look: a filtered generator, how-to steps, compatibility notes and an FAQ.",
+    platformsHeading: "Platform pages",
+    platformsIntro:
+      "Character limits, what works where, and ready-made nickname examples for your platform.",
+    platformCard: "fancy text for",
+    guidesHeading: "Guides",
+    guidesIntro: "Principles, limits & compatibility",
+    guidesAll: "All guides →",
+    gameTextHeading: "Game and roleplay text",
+    gameTextIntro:
+      "Short styles for in-game names, signs and roleplay. Account usernames stay plain letters — save only text the game itself accepts.",
+    faqHeading: "FAQ",
+    faq: [
+      {
+        q: "Do I need to install these “fonts”?",
+        a: "No. The results are special Unicode characters — the style travels with the text when you copy and paste, and neither you nor the reader has to install anything.",
       },
-    },
-    common: {
-      yourText: "Tu texto",
-      clear: "Borrar",
-      reset: "Restaurar",
-      charactersInfo: "caracteres",
-      countsSummary: "Recuento de caracteres",
-      visibleCount: (count) => `Caracteres visibles: ${count}`,
-      codePointCount: (count) => `Puntos de código Unicode: ${count}`,
-      utf16Count: (count) => `Unidades UTF-16: ${count}`,
-      filterStyles: "Filtrar estilos",
-      searchStyles: "Busca estilos — prueba “cursiva”, “pequeño”, “glitch”...",
-      all: "Todos",
-      favorites: "Favoritos",
-      recent: "Recientes",
-      noFavorites: "Aún no hay favoritos — toca la estrella de cualquier estilo para fijarlo aquí.",
-      noStylesMatch: (query) => `Ningún estilo coincide con “${query}” — prueba otra palabra.`,
-      typeToSee: (count) => `Escribe algo arriba para verlo en ${count} estilos.`,
-      partialBadge: "parcial",
-      copy: "Copiar",
-      copied: "Copiado",
-      copyStyle: (name) => `Copiar estilo ${name}`,
-      saveStyle: (name) => `Guardar ${name} en favoritos`,
-      removeStyle: (name) => `Quitar ${name} de favoritos`,
-      downloadPng: (name) => `Descargar estilo ${name} como PNG`,
-      savedAsPng: "Imagen PNG guardada",
-      pngFailed: "No se pudo guardar la imagen — prueba copiando el texto",
-      shareToX: (name) => `Compartir estilo ${name} en X`,
-      shareToThreads: (name) => `Compartir estilo ${name} en Threads`,
-      shareToBluesky: (name) => `Compartir estilo ${name} en Bluesky`,
-      shareToWhatsapp: (name) => `Compartir estilo ${name} en WhatsApp`,
-      shareToTelegram: (name) => `Compartir estilo ${name} en Telegram`,
-      shareMore: "Más opciones para compartir",
-      copiedOpening: (dest) => `Copiado. Abriendo ${dest}…`,
-      transparentBg: "Fondo transparente",
-      previewSize: "Tamaño de vista previa",
-      copyAllFavorites: "Copiar todos los favoritos",
-    copyAllStyles: (count) => `Copiar los ${count} estilos`,
-    compareAdd: (name) => `Añadir ${name} para comparar`,
-    compareRemove: (name) => `Quitar ${name} de la comparación`,
-    compareHeading: "Comparar estilos",
-    compareLimit: "La comparación admite 4 estilos como máximo; quita uno primero.",
-    shuffle: "Mezclar",
-    zalgoClean: {
-      heading: "Limpiar texto zalgo",
-      inputLabel: "Pega el texto zalgo",
-      pasteButton: "Pegar desde el portapapeles",
-      pasteFailed: "No se pudo leer el portapapeles: pega el texto a mano.",
-      resultLabel: "Resultado limpio",
-      empty: "Pega texto zalgo arriba, o genéralo aquí, para quitar las marcas apiladas.",
-      removed: (count) => `Quitadas ${count} marcas apiladas.`,
-    },
-      copiedToClipboard: "Copiado al portapapeles",
-      copyFailed: "No se pudo copiar — selecciona el texto y cópialo a mano",
-      browserOnly: "Las conversiones ocurren en tu navegador — nada se envía a ningún servidor.",
-      typeToConvert: "Escribe algo arriba para verlo convertido.",
-      wrapLabel: "Decoración",
-      pasteLabel: "Dónde lo vas a pegar",
-      wrapNone: "Ninguna",
-      wrapStar: "Estrella",
-      wrapHeart: "Corazón",
-      wrapWings: "Alas",
-      wrapBrackets: "Corchetes",
-      pasteAnywhere: "Cualquier sitio",
-      pasteDisplay: "Nombre visible",
-      pasteBio: "Bio",
-      pasteUsername: "Usuario",
-      overLimit: (count, limit) => `${count}/${limit} — más largo de lo que suele aceptar este campo`,
-      usernamePlain: "El usuario suele aceptar solo letras, números y guion bajo. Las letras decoradas van en el nombre visible.",
-      hanFrames: "Marcos para el texto original",
-      hanNote: "Los caracteres chinos se quedan como los escribiste. Estos marcos rodean ese texto; no convierten los caracteres en una fuente.",
-    },
-    symbols: {
-      searchLabel: "Buscar símbolos",
-      searchPlaceholder: "Prueba “corazón”, “estrella”, “corona”...",
-      countInfo: (count, category, query) =>
-        `${count} símbolos${category ? ` en ${category}` : ""}${query ? ` para “${query}”` : ""} · Toca un símbolo para copiarlo, o el + para armar un lote.`,
-      inCategory: (category) => ` en ${category}`,
-      forQuery: (query) => ` para “${query}”`,
-      batchHint: "Toca un símbolo para copiarlo, o el + para armar un lote.",
-      recent: "Recientes",
-      copySymbol: (label) => `Copiar ${label}`,
-      removeRecent: (label) => `Quitar ${label} de recientes`,
-      addToBatch: (label) => `Añadir ${label} al lote`,
-      removeFromBatch: (label) => `Quitar ${label} del lote`,
-      batchSelected: (count) => `${count} seleccionados`,
-      copyAll: "Copiar todo",
-      batchClear: "Borrar",
-      copiedBatch: (count) => `${count} símbolos copiados`,
-      batchFailed: "No se pudo copiar — prueba con selecciones más pequeñas",
-      noMatch: (query) => `Ningún símbolo coincide con “${query}” — prueba con corazón, estrella o corona.`,
-      combosHeading: "Combinaciones decorativas",
-      combosHint: "Decoraciones listas para usar — toca una para copiarla completa.",
-      copyCombo: (label) => `Copiar ${label}`,
-      prefixLabel: "Texto delante",
-      prefixPlaceholder: "Opcional — se copia antes de los símbolos",
-    },
-    gaming: {
-      yourName: "Tu nombre",
-      namePlaceholder: "Escribe un nombre...",
-      lengthInfo: "Hasta 24 caracteres — muchos juegos limitan el largo del nombre.",
-      styleGroup: "Estilo del apodo",
-      buildYourOwn: "Crea el tuyo",
-      buildHint: (name) => `Elige decoraciones y un estilo de letra para “${name}”, y copia o guarda la combinación.`,
-      decoration: "Decoración",
-      letterStyle: "Estilo de letra",
-      noDecoration: "Sin decoración",
-      decoOption: (left, right) => `${left} nombre ${right}`,
-      normalLetters: "Letras normales",
-      comboSaved: "Combinación guardada en este dispositivo",
-      saveCombo: "Guardar combinación",
-      myCombos: "Mis combinaciones",
-      applyCombo: "Aplicar esta combinación al creador",
-      removeCombo: "Eliminar esta combinación",
-      copyCombo: "Copiar tu combinación",
-      copyAllSaved: "Copiar todos",
-      savedNames: "Nombres guardados",
-      copySaved: (name) => `Copiar ${name}`,
-      removeSaved: (name) => `Quitar ${name} de nombres guardados`,
-      saveName: (name) => `Guardar ${name}`,
-      emptyName: "Aún no hay nombre — estas usan sugerencias cortas. Escribe el tuyo para reemplazarlas.",
-      loadMore: "Cargar más",
-      generateNew: "Generar nuevas combinaciones",
-      checkNickname: "Revisar este apodo",
-      checkResult: "Revisar este resultado",
-      inputPreview: "Entrada",
-      unicodeHeading: "Análisis Unicode",
-      platformHeading: "Plataforma",
-      analysisComplete: "Análisis de caracteres: completo",
-      platformRule: (status) =>
-        ({
-          needs_verification: "Regla de la plataforma: falta verificación",
-          partial: "Regla de la plataforma: parcial",
-          verified: "Regla de la plataforma: verificada",
-        })[status],
-      platformNone: "Regla de la plataforma: ninguna plataforma elegida",
-      displayDevice: "Visualización: depende del dispositivo",
-      combiningMark: "Contiene una marca combinante",
-      variationSelector: "Contiene un selector de variación",
-      emojiFlag: "Contiene un emoji",
-      unchangedLetters: (letters) => `Estas letras no cambian en este estilo: ${letters}`,
-      codePointsLabel: "Puntos de código",
-    },
-    styleNames: {
-      ...styleNamesEn,
-      script: "Cursiva",
-      boldScript: "Cursiva negrita",
-      fraktur: "Gótica",
-      boldFraktur: "Gótica negrita",
-      bold: "Negrita",
-      italic: "Itálica",
-      boldItalic: "Negrita itálica",
-      sansBold: "Negrita sans",
-      sansItalic: "Sans itálica",
-      doubleStruck: "Contorno",
-      monospace: "Monoespaciada",
-      smallCaps: "Versalitas",
-      superscript: "Mini (superíndice)",
-      subscript: "Subíndice",
-      bubble: "Burbuja",
-      circled: "Encerrada",
-      parenthesized: "Entre paréntesis",
-      squared: "Cuadrada",
-      fullwidth: "Ancha",
-      upsideDown: "Al revés",
-      strike: "Tachado",
-      underline: "Subrayado",
-      doubleUnderline: "Doble subrayado",
-      slash: "Con barra",
-      boldStrike: "Negrita tachada",
-      boldUnderline: "Negrita subrayada",
-      italicUnderline: "Itálica subrayada",
-      zalgoLight: "Glitch suave",
-      zalgoMedium: "Glitch medio",
-      zalgoHeavy: "Glitch intenso",
-    },
-    styleCategoryNames: {
-      script: "Cursivas",
-      gothic: "Góticas",
-      bold: "Negrita e itálica",
-      sans: "Sans y mono",
-      small: "Pequeñas",
-      enclosed: "Burbuja y círculos",
-      wide: "Anchas",
-      flipped: "Al revés",
-      effects: "Efectos y glitch",
-    },
-    vibeNames: {
-      cool: "Cool",
-      dark: "Oscura",
-      cute: "Tierna",
-      pro: "Pro",
-      minimal: "Minimalista",
-      gothic: "Gótico",
-      aesthetic: "Estética",
-    },
-    crazyLevelNames: {
-      mild: "Suave",
-      wild: "Salvaje",
-      chaos: "Caos",
-    },
-    symbolCats: {
-      hearts: "Corazones",
-      stars: "Estrellas",
-      arrows: "Flechas",
-      crowns: "Coronas",
-      flowers: "Flores",
-      wings: "Alas y lazos",
-      brackets: "Corchetes",
-      lines: "Líneas y bordes",
-      faces: "Caritas",
-      kaomoji: "Emoticonos",
-      vibes: "Música y vibra",
-      checks: "Vistos y cruces",
-      math: "Matemáticas",
-      greek: "Griego",
-      currency: "Monedas",
-      numbers: "Números y romanos",
-      dots: "Puntos y marcas",
-      invisible: "Invisibles",
-    },
-    platformTool: {
-      stylesFit: (platform) => `Estilos que van con ${platform}`,
-      presetsHeading: (platform) => `Presets de ${platform}`,
-      presetsWrap: "Cada preset envuelve el texto que escribiste arriba.",
-      openToPaste: (platform) => `Copiado — abre ${platform} para pegar`,
-    },
-    platformPreview: {
-      heading: (platform) => `Vista previa en ${platform}`,
-      preview: "Vista previa",
-      close: "Cerrar",
-      previous: "Anterior",
-      next: "Siguiente",
-      note: "Se dibuja en tu navegador con la disposición del perfil. La app real usa su propia fuente: pega el texto allí y compruébalo antes de fiarte.",
-      over: "supera el límite habitual",
-      notTested: "No lo hemos probado en este sitio.",
-      approxField: (platform, max) => `Unos ${max} caracteres en ${platform}, contados como puntos de código. No lo hemos probado en este sitio.`,
-      handleAscii: "El nombre de inicio de sesión conserva solo el ASCII que la plataforma ya documenta.",
-      posts: "publicaciones",
-      followers: "seguidores",
-      following: "seguidos",
-      likes: "me gusta",
-      follow: "Seguir",
-      message: "Mensaje",
-      addFriend: "Agregar",
-      friends: "Amigos",
-      subscribers: "suscriptores",
-      subscribe: "Suscribirse",
-      whatsappInfo: "Info",
-    },
-    bio: {
-      drafts: "Borrador",
-      fillHint: "Elige uno para rellenar el campo y edítalo.",
-      boardTail: "Los símbolos de tu bandeja se añaden al final.",
-      png: "Guardar PNG",
-    },
-    symbolCatNotes: {
-      invisible:
-        "Estos caracteres son invisibles. Se usan mucho para nombres vacíos en juegos: copia uno y reemplaza con él todo tu nombre (algunos juegos siguen rechazando nombres vacíos — prueba antes). El círculo punteado solo marca dónde está el carácter oculto.",
-      blankLink:
-        "Copia una tanda de relleno hangul, espacio braille o espacio ideográfico, o colócalo entre letras con estilo.",
-    },
-    sections: {
-      howToUse: "Cómo usarlo",
-      examples: "Ejemplos",
-      faq: "Preguntas frecuentes",
-      related: "Herramientas relacionadas",
-      whereShines: "Dónde luce",
-      onPlatforms: "Cómo usarlo en plataformas",
-      howWorks: (topic) => `Cómo funciona el texto ${topic}`,
-      openFull: "Abrir el generador completo →",
-      exploreAll: "Explorar todas las herramientas de FancyFont →",
-      browseSymbols: "388 símbolos para armar tu propio look.",
-      browseFancy: "Los 30 estilos en una sola herramienta, cópialos todos.",
-      lookUses: (style) =>
-        `Este look usa letras ${style}. Las decoraciones solo están en esta página.`,
-    },
-    compat: {
-      lead: "Atención:",
-      body: "Estos estilos usan caracteres Unicode, no archivos de fuentes instaladas. La visualización y disponibilidad varían según el dispositivo, la app, el juego y las reglas de cada plataforma. Prueba tu resultado donde lo vayas a usar.",
-    },
-    stylePageSteps: [
-      "Escribe tu texto en el cuadro de arriba — la vista previa se actualiza mientras escribes.",
-      "Copia el resultado con un toque o descárgalo como imagen PNG.",
-      "Pégalo donde quieras el look — y revisa que se vea como esperas.",
-    ],
-  },
-  "pt-br": {
-    languageLabel: "Idioma",
-    localeSuggest: { message: "O idioma do sistema é {name}", action: "Mudar" },
-    nav: {
-      fancy: "Letras bonitas",
-      gaming: "Nomes de jogo",
-      symbols: "Símbolos",
-      home: "Início",
-      textStyles: "Estilos de texto",
-      nameMaker: "Nomes de jogo",
-      guides: "Guias",
-    },
-    tools: {
-      fancy: "Gerador de letras bonitas",
-      gaming: "Gerador de nomes para jogos",
-      symbols: "Símbolos e decoração",
-      blank: "Espaço em branco",
-      privacy: "Política de Privacidade",
-      terms: "Termos de uso",
-      about: "Sobre",
-      contact: "Contato",
-      mcp: "Para agentes de IA",
-      tagline: "Nomes, letras e símbolos estilosos — grátis e sem cadastro.",
-      copyright:
-        "Todos os resultados são caracteres Unicode, não fontes instaladas. Este site funciona inteiramente no seu navegador.",
-      publishedBy: "Publicado por",
-      lastUpdated: "Última atualização",
-      bookmarkLabel: "Adicionar aos favoritos",
-      bookmarkHint: (keys) => `Pressione ${keys} para adicionar o FancyFont aos favoritos.`,
-      bookmarkMobile: "Use o menu de compartilhar do navegador para adicionar o FancyFont aos favoritos ou à tela inicial.",
-      letterGenerators: "Estilos de letra",
-      lookGenerators: "Visuais",
-      forPlatforms: "Por plataforma",
-      site: "Site",
-      fontsWord: "fontes",
-      namesWord: "nomes",
-      usesLetters: (style) => `Usa letras ${style}`,
-      coverage: {
-        letters: "Só letras",
-        lettersDigits: "Letras e números",
-        partial: "Algumas letras ficam iguais",
-        all: "Qualquer caractere",
+      {
+        q: "Can I style non-Latin scripts?",
+        a: "Unicode has no styled glyphs for scripts like Chinese, Japanese or Arabic, so those characters pass through unchanged. Nickname decorations (frames and symbols) work on any characters, though.",
       },
-    },
-    common: {
-      yourText: "Seu texto",
-      clear: "Limpar",
-      reset: "Restaurar",
-      charactersInfo: "caracteres",
-      countsSummary: "Contagem de caracteres",
-      visibleCount: (count) => `Caracteres visíveis: ${count}`,
-      codePointCount: (count) => `Pontos de código Unicode: ${count}`,
-      utf16Count: (count) => `Unidades UTF-16: ${count}`,
-      filterStyles: "Filtrar estilos",
-      searchStyles: "Busque estilos — teste “cursiva”, “pequena”, “glitch”...",
-      all: "Todos",
-      favorites: "Favoritos",
-      recent: "Recentes",
-      noFavorites: "Nenhum favorito ainda — toque na estrela de um estilo para fixá-lo aqui.",
-      noStylesMatch: (query) => `Nenhum estilo corresponde a “${query}” — tente outra palavra.`,
-      typeToSee: (count) => `Digite algo acima para ver em ${count} estilos.`,
-      partialBadge: "parcial",
-      copy: "Copiar",
-      copied: "Copiado",
-      copyStyle: (name) => `Copiar estilo ${name}`,
-      saveStyle: (name) => `Salvar ${name} nos favoritos`,
-      removeStyle: (name) => `Remover ${name} dos favoritos`,
-      downloadPng: (name) => `Baixar estilo ${name} como PNG`,
-      savedAsPng: "Imagem PNG salva",
-      pngFailed: "Não foi possível salvar a imagem — tente copiar o texto",
-      shareToX: (name) => `Compartilhar estilo ${name} no X`,
-      shareToThreads: (name) => `Compartilhar estilo ${name} no Threads`,
-      shareToBluesky: (name) => `Compartilhar estilo ${name} no Bluesky`,
-      shareToWhatsapp: (name) => `Compartilhar estilo ${name} no WhatsApp`,
-      shareToTelegram: (name) => `Compartilhar estilo ${name} no Telegram`,
-      shareMore: "Mais opções de compartilhamento",
-      copiedOpening: (dest) => `Copiado. Abrindo ${dest}…`,
-      transparentBg: "Fundo transparente",
-      previewSize: "Tamanho da prévia",
-      copyAllFavorites: "Copiar todos os favoritos",
-    copyAllStyles: (count) => `Copiar todos os ${count} estilos`,
-    compareAdd: (name) => `Adicionar ${name} para comparar`,
-    compareRemove: (name) => `Remover ${name} da comparação`,
-    compareHeading: "Comparar estilos",
-    compareLimit: "A comparação aceita até 4 estilos; remova um primeiro.",
-    shuffle: "Misturar",
-    zalgoClean: {
-      heading: "Limpar texto zalgo",
-      inputLabel: "Cole o texto zalgo",
-      pasteButton: "Colar da área de transferência",
-      pasteFailed: "Não foi possível ler a área de transferência: cole o texto manualmente.",
-      resultLabel: "Resultado limpo",
-      empty: "Cole texto zalgo acima, ou gere aqui, para remover as marcas empilhadas.",
-      removed: (count) => `${count} marcas empilhadas removidas.`,
-    },
-      copiedToClipboard: "Copiado para a área de transferência",
-      copyFailed: "Não foi possível copiar — selecione o texto e copie manualmente",
-      browserOnly: "As conversões acontecem no seu navegador — nada é enviado a servidores.",
-      typeToConvert: "Digite algo acima para ver a conversão.",
-      wrapLabel: "Decoração",
-      pasteLabel: "Onde você vai colar",
-      wrapNone: "Nenhuma",
-      wrapStar: "Estrela",
-      wrapHeart: "Coração",
-      wrapWings: "Asas",
-      wrapBrackets: "Colchetes",
-      pasteAnywhere: "Qualquer lugar",
-      pasteDisplay: "Nome de exibição",
-      pasteBio: "Bio",
-      pasteUsername: "Usuário",
-      overLimit: (count, limit) => `${count}/${limit} — maior do que este campo costuma aceitar`,
-      usernamePlain: "O usuário costuma aceitar só letras, números e sublinhado. Letras decoradas ficam no nome de exibição.",
-      hanFrames: "Molduras para o texto original",
-      hanNote: "Caracteres chineses ficam como você digitou. Estas molduras cercam esse texto; não transformam os caracteres numa fonte.",
-    },
-    symbols: {
-      searchLabel: "Buscar símbolos",
-      searchPlaceholder: "Teste “coração”, “estrela”, “coroa”...",
-      countInfo: (count, category, query) =>
-        `${count} símbolos${category ? ` em ${category}` : ""}${query ? ` para “${query}”` : ""} · Toque em um símbolo para copiar, ou no + para montar um lote.`,
-      inCategory: (category) => ` em ${category}`,
-      forQuery: (query) => ` para “${query}”`,
-      batchHint: "Toque em um símbolo para copiar, ou no + para montar um lote.",
-      recent: "Recentes",
-      copySymbol: (label) => `Copiar ${label}`,
-      removeRecent: (label) => `Remover ${label} dos recentes`,
-      addToBatch: (label) => `Adicionar ${label} ao lote`,
-      removeFromBatch: (label) => `Remover ${label} do lote`,
-      batchSelected: (count) => `${count} selecionados`,
-      copyAll: "Copiar tudo",
-      batchClear: "Limpar",
-      copiedBatch: (count) => `${count} símbolos copiados`,
-      batchFailed: "Não foi possível copiar — tente seleções menores",
-      noMatch: (query) => `Nenhum símbolo corresponde a “${query}” — teste coração, estrela ou coroa.`,
-      combosHeading: "Combinações decorativas",
-      combosHint: "Decorações prontas — toque em uma para copiar tudo.",
-      copyCombo: (label) => `Copiar ${label}`,
-      prefixLabel: "Texto na frente",
-      prefixPlaceholder: "Opcional — copiado antes dos símbolos",
-    },
-    gaming: {
-      yourName: "Seu nome",
-      namePlaceholder: "Digite um nome...",
-      lengthInfo: "Até 24 caracteres — muitos jogos limitam o tamanho do nome.",
-      styleGroup: "Estilo do apelido",
-      buildYourOwn: "Crie o seu",
-      buildHint: (name) => `Escolha decorações e um estilo de letra para “${name}”, e copie ou salve a combinação.`,
-      decoration: "Decoração",
-      letterStyle: "Estilo de letra",
-      noDecoration: "Sem decoração",
-      decoOption: (left, right) => `${left} nome ${right}`,
-      normalLetters: "Letras normais",
-      comboSaved: "Combinação salva neste dispositivo",
-      saveCombo: "Salvar combinação",
-      myCombos: "Minhas combinações",
-      applyCombo: "Aplicar esta combinação ao criador",
-      removeCombo: "Remover esta combinação",
-      copyCombo: "Copiar sua combinação",
-      copyAllSaved: "Copiar todos",
-      savedNames: "Nomes salvos",
-      copySaved: (name) => `Copiar ${name}`,
-      removeSaved: (name) => `Remover ${name} dos nomes salvos`,
-      saveName: (name) => `Salvar ${name}`,
-      emptyName: "Ainda sem nome — estas usam sugestões curtas. Digite o seu para substituí-las.",
-      loadMore: "Carregar mais",
-      generateNew: "Gerar novas combinações",
-      checkNickname: "Conferir este apelido",
-      checkResult: "Conferir este resultado",
-      inputPreview: "Entrada",
-      unicodeHeading: "Análise Unicode",
-      platformHeading: "Plataforma",
-      analysisComplete: "Análise de caracteres: completa",
-      platformRule: (status) =>
-        ({
-          needs_verification: "Regra da plataforma: precisa de verificação",
-          partial: "Regra da plataforma: parcial",
-          verified: "Regra da plataforma: verificada",
-        })[status],
-      platformNone: "Regra da plataforma: nenhuma plataforma escolhida",
-      displayDevice: "Exibição: depende do aparelho",
-      combiningMark: "Contém uma marca combinante",
-      variationSelector: "Contém um seletor de variação",
-      emojiFlag: "Contém emoji",
-      unchangedLetters: (letters) => `Estas letras ficam iguais neste estilo: ${letters}`,
-      codePointsLabel: "Pontos de código",
-    },
-    styleNames: {
-      ...styleNamesEn,
-      script: "Cursiva",
-      boldScript: "Cursiva negrito",
-      fraktur: "Gótica",
-      boldFraktur: "Gótica negrito",
-      bold: "Negrito",
-      italic: "Itálico",
-      boldItalic: "Negrito itálico",
-      sansBold: "Negrito sans",
-      sansItalic: "Sans itálico",
-      doubleStruck: "Contorno",
-      monospace: "Monoespaçada",
-      smallCaps: "Versalete",
-      superscript: "Mini (sobrescrito)",
-      subscript: "Subscrito",
-      bubble: "Bolha",
-      circled: "Circulado",
-      parenthesized: "Entre parênteses",
-      squared: "Quadrado",
-      fullwidth: "Largo",
-      upsideDown: "De cabeça para baixo",
-      strike: "Riscado",
-      underline: "Sublinhado",
-      doubleUnderline: "Sublinhado duplo",
-      slash: "Com barra",
-      boldStrike: "Negrito riscado",
-      boldUnderline: "Negrito sublinhado",
-      italicUnderline: "Itálico sublinhado",
-      zalgoLight: "Glitch leve",
-      zalgoMedium: "Glitch médio",
-      zalgoHeavy: "Glitch intenso",
-    },
-    styleCategoryNames: {
-      script: "Cursivas",
-      gothic: "Góticas",
-      bold: "Negrito e itálico",
-      sans: "Sans e mono",
-      small: "Pequenas",
-      enclosed: "Bolha e círculos",
-      wide: "Largas",
-      flipped: "De cabeça para baixo",
-      effects: "Efeitos e glitch",
-    },
-    vibeNames: {
-      cool: "Cool",
-      dark: "Sombria",
-      cute: "Fofo",
-      pro: "Pro",
-      minimal: "Minimalista",
-      gothic: "Gótico",
-      aesthetic: "Estético",
-    },
-    crazyLevelNames: {
-      mild: "Leve",
-      wild: "Selvagem",
-      chaos: "Caos",
-    },
-    symbolCats: {
-      hearts: "Corações",
-      stars: "Estrelas",
-      arrows: "Setas",
-      crowns: "Coroas",
-      flowers: "Flores",
-      wings: "Asas e laços",
-      brackets: "Colchetes",
-      lines: "Linhas e bordas",
-      faces: "Carinhas",
-      kaomoji: "Kaomoji",
-      vibes: "Música e vibe",
-      checks: "Vistos e cruzes",
-      math: "Matemática",
-      greek: "Grego",
-      currency: "Moedas",
-      numbers: "Números e romanos",
-      dots: "Pontos e marcas",
-      invisible: "Invisíveis",
-    },
-    platformTool: {
-      stylesFit: (platform) => `Estilos que combinam com o ${platform}`,
-      presetsHeading: (platform) => `Presets do ${platform}`,
-      presetsWrap: "Cada preset envolve o texto que você digitou acima.",
-      openToPaste: (platform) => `Copiado — abra o ${platform} para colar`,
-    },
-    platformPreview: {
-      heading: (platform) => `Prévia no ${platform}`,
-      preview: "Prévia",
-      close: "Fechar",
-      previous: "Anterior",
-      next: "Próximo",
-      note: "Desenhado no seu navegador com a disposição do perfil. O app real usa a fonte dele: cole o texto lá e confira antes de confiar.",
-      over: "acima do limite usual",
-      notTested: "Não testado neste site.",
-      approxField: (platform, max) => `Cerca de ${max} caracteres no ${platform}, contados como pontos de código. Não testado neste site.`,
-      handleAscii: "O nome de login mantém só o ASCII que a plataforma já documenta.",
-      posts: "publicações",
-      followers: "seguidores",
-      following: "seguindo",
-      likes: "curtidas",
-      follow: "Seguir",
-      message: "Mensagem",
-      addFriend: "Adicionar",
-      friends: "Amigos",
-      subscribers: "inscritos",
-      subscribe: "Inscrever-se",
-      whatsappInfo: "Recado",
-    },
-    bio: {
-      drafts: "Rascunho",
-      fillHint: "Escolha um para preencher o campo e edite.",
-      boardTail: "Os símbolos da sua bandeja são adicionados no final.",
-      png: "Salvar PNG",
-    },
-    symbolCatNotes: {
-      invisible:
-        "Esses caracteres são invisíveis. São famosos para nomes vazios em jogos: copie um e substitua todo o seu nome por ele (alguns jogos ainda recusam nomes vazios — teste antes). O círculo pontilhado só marca onde está o caractere oculto.",
-      blankLink:
-        "Copie uma sequência de preenchimento hangul, espaço braille ou espaço ideográfico, ou coloque esse espaço entre letras estilizadas.",
-    },
-    sections: {
-      howToUse: "Como usar",
-      examples: "Exemplos",
-      faq: "Perguntas frequentes",
-      related: "Ferramentas relacionadas",
-      whereShines: "Onde brilha",
-      onPlatforms: "Como usar em plataformas",
-      howWorks: (topic) => `Como funciona o texto ${topic}`,
-      openFull: "Abrir o gerador completo →",
-      exploreAll: "Explorar todas as ferramentas do FancyFont →",
-      browseSymbols: "388 símbolos para montar seu próprio visual.",
-      browseFancy: "Os 30 estilos em uma ferramenta só, copie qualquer um.",
-      lookUses: (style) =>
-        `Este visual usa letras ${style}. As decorações só aparecem nesta página.`,
-    },
-    compat: {
-      lead: "Atenção:",
-      body: "Estes estilos usam caracteres Unicode, não arquivos de fontes instaladas. A exibição e a disponibilidade variam conforme o aparelho, o app, o jogo e as regras da plataforma. Teste seu resultado onde você for usar.",
-    },
-    stylePageSteps: [
-      "Digite seu texto na caixa acima — a prévia atualiza enquanto você digita.",
-      "Copie o resultado com um toque ou baixe como imagem PNG.",
-      "Cole onde quiser o visual — e confira se ficou como esperava.",
-    ],
-  },
-  "zh-cn": {
-    languageLabel: "语言",
-    localeSuggest: { message: "系统语言是{name}", action: "切换" },
-    nav: { fancy: "个性字体", gaming: "游戏昵称", symbols: "特殊符号", home: "首页", textStyles: "文字样式", nameMaker: "游戏昵称", guides: "指南" },
-    tools: {
-      fancy: "个性字体生成器",
-      gaming: "游戏昵称生成器",
-      symbols: "特殊符号大全",
-      blank: "空白复制",
-      privacy: "隐私政策",
-      terms: "使用条款",
-      about: "关于本站",
-      contact: "联系我们",
-      mcp: "给 AI 代理",
-      tagline: "个性昵称、花体字与特殊符号——免费使用，无需注册。",
-      copyright:
-        "所有结果均为 Unicode 字符，而非已安装的字体文件。本网站完全在你的浏览器中运行。",
-      publishedBy: "发布者",
-      lastUpdated: "最后更新",
-      bookmarkLabel: "收藏本站",
-      bookmarkHint: (keys) => `按 ${keys} 收藏 FancyFont。`,
-      bookmarkMobile: "用浏览器的分享菜单把 FancyFont 加入书签或添加到主屏幕。",
-      letterGenerators: "字母",
-      lookGenerators: "外观",
-      forPlatforms: "按平台",
-      site: "本站",
-      fontsWord: "字体",
-      namesWord: "名字",
-      usesLetters: (style) => `用的是${style}字母`,
-      coverage: {
-        letters: "只改字母",
-        lettersDigits: "字母和数字",
-        partial: "部分字母保持原样",
-        all: "任何字符",
+      {
+        q: "Is my text uploaded anywhere?",
+        a: "No. Conversion happens entirely in your browser. There is no server involved, so what you type never leaves your device.",
       },
-    },
-    common: {
-      yourText: "你的文字",
-      clear: "清空",
-      reset: "还原",
-      charactersInfo: "个字符",
-      countsSummary: "字符计数",
-      visibleCount: (count) => `可见字符：${count}`,
-      codePointCount: (count) => `Unicode 码点：${count}`,
-      utf16Count: (count) => `UTF-16 单元：${count}`,
-      filterStyles: "筛选样式",
-      searchStyles: "搜索样式——试试“花体”“上标”“乱码”...",
-      all: "全部",
-      favorites: "收藏",
-      recent: "最近使用",
-      noFavorites: "还没有收藏——点击任意样式旁的星标即可固定在这里。",
-      noStylesMatch: (query) => `没有匹配“${query}”的样式——换个词试试。`,
-      typeToSee: (count) => `在上方输入文字，即可看到 ${count} 种样式效果。`,
-      partialBadge: "部分支持",
-      copy: "复制",
-      copied: "已复制",
-      copyStyle: (name) => `复制${name}样式`,
-      saveStyle: (name) => `收藏${name}样式`,
-      removeStyle: (name) => `取消收藏${name}样式`,
-      downloadPng: (name) => `将${name}样式下载为 PNG`,
-      savedAsPng: "PNG 图片已保存",
-      pngFailed: "图片保存失败——请改为手动复制文字",
-      shareToX: (name) => `分享${name}样式到 X`,
-      shareToThreads: (name) => `分享${name}样式到 Threads`,
-      shareToBluesky: (name) => `分享${name}样式到 Bluesky`,
-      shareToWhatsapp: (name) => `分享${name}样式到 WhatsApp`,
-      shareToTelegram: (name) => `分享${name}样式到 Telegram`,
-      shareMore: "更多分享方式",
-      copiedOpening: (dest) => `已复制，正在打开 ${dest}`,
-      transparentBg: "透明背景",
-      previewSize: "预览字号",
-      copyAllFavorites: "复制全部收藏",
-    copyAllStyles: (count) => `复制全部 ${count} 种样式`,
-    compareAdd: (name) => `把「${name}」加入对比`,
-    compareRemove: (name) => `把「${name}」移出对比`,
-    compareHeading: "对比样式",
-    compareLimit: "对比最多放 4 个样式，请先移除一个。",
-    shuffle: "换一批",
-    zalgoClean: {
-      heading: "清除 zalgo 乱码",
-      inputLabel: "粘贴 zalgo 文本",
-      pasteButton: "从剪贴板粘贴",
-      pasteFailed: "无法读取剪贴板——请手动粘贴文本。",
-      resultLabel: "清理结果",
-      empty: "在上方粘贴 zalgo 文本，或在这里生成，即可剥离叠加的符号。",
-      removed: (count) => `已移除 ${count} 个叠加符号。`,
-    },
-      copiedToClipboard: "已复制到剪贴板",
-      copyFailed: "复制失败——请选中文本手动复制",
-      browserOnly: "转换全部在你的浏览器中完成——不会上传任何内容。",
-      typeToConvert: "在上方输入文字即可看到转换效果。",
-      wrapLabel: "装饰",
-      pasteLabel: "准备贴到哪里",
-      wrapNone: "无",
-      wrapStar: "星星",
-      wrapHeart: "爱心",
-      wrapWings: "翅膀",
-      wrapBrackets: "括号",
-      pasteAnywhere: "不限",
-      pasteDisplay: "显示名",
-      pasteBio: "简介",
-      pasteUsername: "用户名",
-      overLimit: (count, limit) => `${count}/${limit} — 比这个栏位通常允许的更长`,
-      usernamePlain: "用户名通常只保留字母、数字和下划线。花体请贴到显示名。",
-      hanFrames: "给原文加的框",
-      hanNote: "汉字会保持原样，不会变成花体。下面这些框只包住你输入的原文。",
-    },
-    symbols: {
-      searchLabel: "搜索符号",
-      searchPlaceholder: "试试“爱心”“星星”“皇冠”...",
-      countInfo: (count, category, query) =>
-        `${count} 个符号${category ? `（${category}）` : ""}${query ? `，匹配“${query}”` : ""} · 点击符号即复制，点 + 可攒一批。`,
-      inCategory: (category) => `（${category}）`,
-      forQuery: (query) => `，匹配“${query}”`,
-      batchHint: "点击符号即复制，点 + 可攒一批。",
-      recent: "最近使用",
-      copySymbol: (label) => `复制${label}`,
-      removeRecent: (label) => `从最近使用中移除${label}`,
-      addToBatch: (label) => `将${label}加入批量`,
-      removeFromBatch: (label) => `从批量中移除${label}`,
-      batchSelected: (count) => `已选 ${count} 个`,
-      copyAll: "全部复制",
-      batchClear: "清空",
-      copiedBatch: (count) => `已复制 ${count} 个符号`,
-      batchFailed: "复制失败——试试减少选择数量",
-      noMatch: (query) => `没有匹配“${query}”的符号——试试爱心、星星或皇冠。`,
-      combosHeading: "装饰组合",
-      combosHint: "现成的装饰搭配——点击即整条复制。",
-      copyCombo: (label) => `复制${label}`,
-      prefixLabel: "前面的文字",
-      prefixPlaceholder: "可选，会复制在符号前面",
-    },
-    gaming: {
-      yourName: "你的名字",
-      namePlaceholder: "输入一个名字...",
-      lengthInfo: "最多 24 个字符——很多游戏会限制名字长度。",
-      styleGroup: "昵称风格",
-      buildYourOwn: "自定义搭配",
-      buildHint: (name) => `为“${name}”选择装饰和字母样式，然后复制或保存组合。`,
-      decoration: "装饰",
-      letterStyle: "字母样式",
-      noDecoration: "不加装饰",
-      decoOption: (left, right) => `${left}名字${right}`,
-      normalLetters: "普通字母",
-      comboSaved: "组合已保存到本设备",
-      saveCombo: "保存组合",
-      myCombos: "我的组合",
-      applyCombo: "将此组合应用到搭配器",
-      removeCombo: "删除此组合",
-      copyCombo: "复制你的自定义组合",
-      copyAllSaved: "全部复制",
-      savedNames: "已保存的名字",
-      copySaved: (name) => `复制${name}`,
-      removeSaved: (name) => `从已保存中移除${name}`,
-      saveName: (name) => `保存${name}`,
-      emptyName: "还没输入名字——下面用的是短建议。输入你的名字就会换成你的。",
-      loadMore: "加载更多",
-      generateNew: "换一批组合",
-      checkNickname: "检查这段昵称",
-      checkResult: "检查这段结果",
-      inputPreview: "输入预览",
-      unicodeHeading: "Unicode 分析",
-      platformHeading: "平台规则",
-      analysisComplete: "字符分析：完成",
-      platformRule: (status) =>
-        ({
-          needs_verification: "平台规则：需要核实",
-          partial: "平台规则：部分",
-          verified: "平台规则：已验证",
-        })[status],
-      platformNone: "平台规则：未选择平台",
-      displayDevice: "显示：取决于设备",
-      combiningMark: "含有组合附加符号",
-      variationSelector: "含有变体选择符",
-      emojiFlag: "含有 emoji",
-      unchangedLetters: (letters) => `这些字母在这个样式里保持原样：${letters}`,
-      codePointsLabel: "码点",
-    },
-    styleNames: {
-      script: "花体",
-      boldScript: "粗花体",
-      fraktur: "哥特",
-      boldFraktur: "粗哥特",
-      bold: "粗体",
-      italic: "斜体",
-      boldItalic: "粗斜体",
-      sansBold: "无衬线粗体",
-      sansItalic: "无衬线斜体",
-      doubleStruck: "空心体",
-      monospace: "等宽",
-      smallCaps: "小型大写",
-      superscript: "上标小字",
-      subscript: "下标小字",
-      bubble: "气泡",
-      circled: "圆圈字",
-      parenthesized: "括号字",
-      squared: "方块字",
-      fullwidth: "全角",
-      upsideDown: "颠倒字",
-      strike: "删除线",
-      underline: "下划线",
-      doubleUnderline: "双下划线",
-      slash: "斜线删除",
-      boldStrike: "粗体删除线",
-      boldUnderline: "粗体下划线",
-      italicUnderline: "斜体下划线",
-      zalgoLight: "轻乱码",
-      zalgoMedium: "中乱码",
-      zalgoHeavy: "重乱码",
-    },
-    styleCategoryNames: {
-      script: "花体",
-      gothic: "哥特",
-      bold: "粗体与斜体",
-      sans: "无衬线与等宽",
-      small: "小型字",
-      enclosed: "气泡与圈字",
-      wide: "全角",
-      flipped: "颠倒",
-      effects: "特效与乱码",
-    },
-    vibeNames: {
-      cool: "酷炫",
-      dark: "暗黑",
-      cute: "可爱",
-      pro: "竞技",
-      minimal: "极简",
-      gothic: "哥特",
-      aesthetic: "氛围感",
-    },
-    crazyLevelNames: {
-      mild: "轻微",
-      wild: "狂野",
-      chaos: "混乱",
-    },
-    symbolCats: {
-      hearts: "爱心",
-      stars: "星星",
-      arrows: "箭头",
-      crowns: "皇冠",
-      flowers: "花朵",
-      wings: "翅膀与蝴蝶结",
-      brackets: "括号",
-      lines: "线条与边框",
-      faces: "表情",
-      kaomoji: "颜文字",
-      vibes: "音乐与氛围",
-      checks: "对勾与叉",
-      math: "数学",
-      greek: "希腊字母",
-      currency: "货币",
-      numbers: "数字与罗马",
-      dots: "圆点与符号",
-      invisible: "隐形字符",
-    },
-    platformTool: {
-      stylesFit: (platform) => `适合${platform}的样式`,
-      presetsHeading: (platform) => `${platform}预设`,
-      presetsWrap: "每个预设会包裹你在上方输入的文字。",
-      openToPaste: (platform) => `已复制——打开${platform}去粘贴`,
-    },
-    platformPreview: {
-      heading: (platform) => `在 ${platform} 上的预览`,
-      preview: "预览",
-      close: "关闭",
-      previous: "上一个",
-      next: "下一个",
-      note: "按资料页的版式画在你的浏览器里。真正的应用用自己的字体，把文字粘贴过去再确认一次。",
-      over: "超过常见字数",
-      notTested: "未在本站实测。",
-      approxField: (platform, max) => `${platform} 大约 ${max} 个字符（按码点计）。未在本站实测。`,
-      handleAscii: "登录名只保留平台公开允许的 ASCII。",
-      posts: "帖子",
-      followers: "粉丝",
-      following: "关注",
-      likes: "赞",
-      follow: "关注",
-      message: "发消息",
-      addFriend: "加好友",
-      friends: "好友",
-      subscribers: "位订阅者",
-      subscribe: "订阅",
-      whatsappInfo: "简介",
-    },
-    bio: {
-      drafts: "草稿",
-      fillHint: "点选一个填入输入框，再自行修改。",
-      boardTail: "托盘里的符号会加在末尾。",
-      png: "保存 PNG",
-    },
-    symbolCatNotes: {
-      invisible:
-        "这些字符本身不可见，最出名的用法是游戏空白名：复制一个，用它替换整个名字（部分游戏仍然拒绝空白名——请先测试）。虚线圆圈只是用来标记隐藏字符的位置。",
-      blankLink: "要复制一串韩文填充符、盲文空位或表意空格，或把这种空白夹进花体字母，打开空白复制页。",
-    },
-    sections: {
-      howToUse: "使用方法",
-      examples: "示例",
-      faq: "常见问题",
-      related: "相关工具",
-      whereShines: "适用场景",
-      onPlatforms: "在平台上的使用",
-      howWorks: (topic) => `${topic}文字的原理`,
-      openFull: "打开完整的个性字体生成器 →",
-      exploreAll: "探索 FancyFont 全部工具 →",
-      browseSymbols: "浏览 388 个符号，搭配你自己的风格。",
-      browseFancy: "30 种样式集于一处，任意复制。",
-      lookUses: (style) => `这一页用的是${style}字母，装饰只出现在这一页。`,
-    },
-    compat: {
-      lead: "注意：",
-      body: "这些效果使用 Unicode 字符，而非已安装的字体文件。显示效果和可用性可能因设备、应用、游戏及平台规则而异，请在实际使用位置测试。",
-    },
-    stylePageSteps: [
-      "在上方输入框输入你的文字——预览会随输入实时更新。",
-      "点一下即可复制结果，或下载为 PNG 图片。",
-      "粘贴到任何你想用它的地方——记得确认显示效果符合预期。",
-    ],
-  },
-  id: {
-    languageLabel: "Bahasa",
-    localeSuggest: { message: "Bahasa sistem adalah {name}", action: "Ganti" },
-    nav: { fancy: "Huruf Keren", gaming: "Nama Game", symbols: "Simbol", home: "Beranda", textStyles: "Gaya Teks", nameMaker: "Nama Game", guides: "Panduan" },
-    tools: {
-      fancy: "Generator Huruf Keren",
-      gaming: "Generator Nama Game",
-      symbols: "Simbol & Dekorasi",
-      blank: "Spasi kosong",
-      privacy: "Kebijakan Privasi",
-      terms: "Ketentuan penggunaan",
-      about: "Tentang",
-      contact: "Kontak",
-      mcp: "Untuk agen AI",
-      tagline: "Nama, huruf, dan simbol keren — gratis tanpa daftar.",
-      copyright:
-        "Semua hasil adalah karakter Unicode, bukan font yang terpasang. Situs ini berjalan sepenuhnya di browser kamu.",
-      publishedBy: "Diterbitkan oleh",
-      lastUpdated: "Terakhir diperbarui",
-      bookmarkLabel: "Bookmark situs ini",
-      bookmarkHint: (keys) => `Tekan ${keys} untuk menandai FancyFont.`,
-      bookmarkMobile: "Gunakan menu bagikan browser untuk menandai FancyFont atau menambahkannya ke layar utama.",
-      letterGenerators: "Huruf",
-      lookGenerators: "Tampilan",
-      forPlatforms: "Per platform",
-      site: "Situs",
-      fontsWord: "font",
-      namesWord: "nama",
-      usesLetters: (style) => `Pakai huruf ${style}`,
-      coverage: {
-        letters: "Huruf saja",
-        lettersDigits: "Huruf dan angka",
-        partial: "Sebagian huruf tetap biasa",
-        all: "Karakter apa pun",
+      {
+        q: "Where can I paste fancy text?",
+        a: "Display spots generally accept it: display names, bios, signatures, chat nicknames. Lookup spots generally don't: @handles, username IDs and hashtags only take plain characters. Each platform page spells out the details.",
       },
-    },
-    common: {
-      yourText: "Teks kamu",
-      clear: "Hapus",
-      reset: "Reset",
-      charactersInfo: "karakter",
-      countsSummary: "Jumlah karakter",
-      visibleCount: (count) => `Karakter terlihat: ${count}`,
-      codePointCount: (count) => `Titik kode Unicode: ${count}`,
-      utf16Count: (count) => `Unit UTF-16: ${count}`,
-      filterStyles: "Filter gaya",
-      searchStyles: "Cari gaya — coba “cursive”, “tiny”, “glitch”...",
-      all: "Semua",
-      favorites: "Favorit",
-      recent: "Baru dipakai",
-      noFavorites: "Belum ada favorit — ketuk bintang pada gaya untuk menyimpannya di sini.",
-      noStylesMatch: (query) => `Tidak ada gaya yang cocok dengan “${query}” — coba kata lain.`,
-      typeToSee: (count) => `Ketik sesuatu di atas untuk melihatnya dalam ${count} gaya.`,
-      partialBadge: "sebagian",
-      copy: "Salin",
-      copied: "Tersalin",
-      copyStyle: (name) => `Salin gaya ${name}`,
-      saveStyle: (name) => `Simpan ${name} ke favorit`,
-      removeStyle: (name) => `Hapus ${name} dari favorit`,
-      downloadPng: (name) => `Unduh gaya ${name} sebagai PNG`,
-      savedAsPng: "Tersimpan sebagai PNG",
-      pngFailed: "Gagal menyimpan gambar — coba salin teksnya saja",
-      shareToX: (name) => `Bagikan gaya ${name} ke X`,
-      shareToThreads: (name) => `Bagikan gaya ${name} ke Threads`,
-      shareToBluesky: (name) => `Bagikan gaya ${name} ke Bluesky`,
-      shareToWhatsapp: (name) => `Bagikan gaya ${name} ke WhatsApp`,
-      shareToTelegram: (name) => `Bagikan gaya ${name} ke Telegram`,
-      shareMore: "Opsi berbagi lainnya",
-      copiedOpening: (dest) => `Tersalin. Membuka ${dest}…`,
-      transparentBg: "Latar transparan",
-      previewSize: "Ukuran pratinjau",
-      copyAllFavorites: "Salin semua favorit",
-    copyAllStyles: (count) => `Salin semua ${count} gaya`,
-    compareAdd: (name) => `Tambahkan ${name} ke perbandingan`,
-    compareRemove: (name) => `Hapus ${name} dari perbandingan`,
-    compareHeading: "Bandingkan gaya",
-    compareLimit: "Perbandingan maksimal 4 gaya — hapus satu dulu.",
-    shuffle: "Acak",
-    zalgoClean: {
-      heading: "Bersihkan teks zalgo",
-      inputLabel: "Tempel teks zalgo",
-      pasteButton: "Tempel dari papan klip",
-      pasteFailed: "Tidak bisa membaca papan klip — tempel teksnya secara manual.",
-      resultLabel: "Hasil bersih",
-      empty: "Tempel teks zalgo di atas, atau buat di sini, untuk melepas tandanya.",
-      removed: (count) => `${count} tanda bertumpuk dihapus.`,
-    },
-      copiedToClipboard: "Tersalin ke papan klip",
-      copyFailed: "Gagal menyalin — pilih teksnya dan salin manual",
-      browserOnly: "Semua konversi berjalan di browser kamu — tidak ada yang diunggah.",
-      typeToConvert: "Ketik sesuatu di atas untuk melihat hasilnya.",
-      wrapLabel: "Dekorasi",
-      pasteLabel: "Tempel di mana",
-      wrapNone: "Tanpa",
-      wrapStar: "Bintang",
-      wrapHeart: "Hati",
-      wrapWings: "Sayap",
-      wrapBrackets: "Kurung",
-      pasteAnywhere: "Di mana saja",
-      pasteDisplay: "Nama tampilan",
-      pasteBio: "Bio",
-      pasteUsername: "Username",
-      overLimit: (count, limit) => `${count}/${limit} — lebih panjang dari yang biasanya diterima kolom ini`,
-      usernamePlain: "Username biasanya hanya menyimpan huruf, angka, dan garis bawah. Huruf hias untuk nama tampilan.",
-      hanFrames: "Bingkai untuk teks asli",
-      hanNote: "Karakter Tionghoa tetap seperti yang kamu ketik. Bingkai ini hanya membungkus teks itu, bukan mengubahnya jadi font.",
-    },
-    symbols: {
-      searchLabel: "Cari simbol",
-      searchPlaceholder: "Coba “hati”, “bintang”, “mahkota”...",
-      countInfo: (count, category, query) =>
-        `${count} simbol${category ? ` di ${category}` : ""}${query ? ` untuk “${query}”` : ""} · Ketuk simbol untuk menyalin, atau + untuk kumpulan.`,
-      inCategory: (category) => ` di ${category}`,
-      forQuery: (query) => ` untuk “${query}”`,
-      batchHint: "Ketuk simbol untuk menyalin, atau + untuk kumpulan.",
-      recent: "Baru dipakai",
-      copySymbol: (label) => `Salin ${label}`,
-      removeRecent: (label) => `Hapus ${label} dari terbaru`,
-      addToBatch: (label) => `Tambah ${label} ke kumpulan`,
-      removeFromBatch: (label) => `Keluarkan ${label} dari kumpulan`,
-      batchSelected: (count) => `${count} dipilih`,
-      copyAll: "Salin semua",
-      batchClear: "Hapus",
-      copiedBatch: (count) => `${count} simbol tersalin`,
-      batchFailed: "Gagal menyalin — coba pilihan yang lebih sedikit",
-      noMatch: (query) =>
-        `Tidak ada simbol yang cocok dengan “${query}” — coba hati, bintang, atau mahkota.`,
-      combosHeading: "Kombinasi dekorasi",
-      combosHint: "Dekorasi siap pakai — ketuk untuk menyalin semuanya.",
-      copyCombo: (label) => `Salin ${label}`,
-      prefixLabel: "Teks di depan",
-      prefixPlaceholder: "Opsional — disalin sebelum simbol",
-    },
-    gaming: {
-      yourName: "Nama kamu",
-      namePlaceholder: "Ketik sebuah nama...",
-      lengthInfo: "Maksimal 24 karakter — banyak game membatasi panjang nama.",
-      styleGroup: "Gaya nama",
-      buildYourOwn: "Racik sendiri",
-      buildHint: (name) =>
-        `Pilih dekorasi dan gaya huruf untuk “${name}”, lalu salin atau simpan kombinasinya.`,
-      decoration: "Dekorasi",
-      letterStyle: "Gaya huruf",
-      noDecoration: "Tanpa dekorasi",
-      decoOption: (left, right) => `${left} nama ${right}`,
-      normalLetters: "Huruf biasa",
-      comboSaved: "Kombinasi tersimpan di perangkat ini",
-      saveCombo: "Simpan kombinasi",
-      myCombos: "Kombinasiku",
-      applyCombo: "Terapkan kombinasi ini ke peracik",
-      removeCombo: "Hapus kombinasi ini",
-      copyCombo: "Salin kombinasi buatanmu",
-      copyAllSaved: "Salin semua",
-      savedNames: "Nama tersimpan",
-      copySaved: (name) => `Salin ${name}`,
-      removeSaved: (name) => `Hapus ${name} dari nama tersimpan`,
-      saveName: (name) => `Simpan ${name}`,
-      emptyName: "Belum ada nama — ini memakai saran pendek. Ketik namamu untuk menggantinya.",
-      loadMore: "Muat lebih banyak",
-      generateNew: "Buat kombinasi baru",
-      checkNickname: "Periksa nama ini",
-      checkResult: "Periksa hasil ini",
-      inputPreview: "Pratinjau masukan",
-      unicodeHeading: "Analisis Unicode",
-      platformHeading: "Aturan platform",
-      analysisComplete: "Analisis karakter: selesai",
-      platformRule: (status) =>
-        ({
-          needs_verification: "Aturan platform: perlu verifikasi",
-          partial: "Aturan platform: sebagian",
-          verified: "Aturan platform: terverifikasi",
-        })[status],
-      platformNone: "Aturan platform: platform belum dipilih",
-      displayDevice: "Tampilan: tergantung perangkat",
-      combiningMark: "Mengandung tanda penggabung",
-      variationSelector: "Mengandung pemilih variasi",
-      emojiFlag: "Mengandung emoji",
-      unchangedLetters: (letters) => `Huruf ini tetap sama pada gaya ini: ${letters}`,
-      codePointsLabel: "Code point",
-    },
-    styleNames: {
-      script: "Cursive",
-      boldScript: "Cursive Tebal",
-      fraktur: "Gothic",
-      boldFraktur: "Gothic Tebal",
-      bold: "Tebal",
-      italic: "Miring",
-      boldItalic: "Tebal Miring",
-      sansBold: "Sans Tebal",
-      sansItalic: "Sans Miring",
-      doubleStruck: "Kerangka",
-      monospace: "Monospace",
-      smallCaps: "Kapital Kecil",
-      superscript: "Superskrip",
-      subscript: "Subskrip",
-      bubble: "Balon",
-      circled: "Lingkaran",
-      parenthesized: "Kurung",
-      squared: "Kotak",
-      fullwidth: "Lebar Penuh",
-      upsideDown: "Terbalik",
-      strike: "Coret",
-      underline: "Garis Bawah",
-      doubleUnderline: "Garis Bawah Ganda",
-      slash: "Coret Miring",
-      boldStrike: "Tebal Coret",
-      boldUnderline: "Tebal Garis Bawah",
-      italicUnderline: "Miring Garis Bawah",
-      zalgoLight: "Glitch Ringan",
-      zalgoMedium: "Glitch Sedang",
-      zalgoHeavy: "Glitch Berat",
-    },
-    styleCategoryNames: {
-      script: "Cursive",
-      gothic: "Gothic",
-      bold: "Tebal & Miring",
-      sans: "Sans & Mono",
-      small: "Kecil",
-      enclosed: "Balon & Lingkaran",
-      wide: "Lebar",
-      flipped: "Terbalik",
-      effects: "Efek & Glitch",
-    },
-    vibeNames: {
-      cool: "Keren",
-      dark: "Gelap",
-      cute: "Imut",
-      pro: "Pro",
-      minimal: "Minimalis",
-      gothic: "Gothic",
-      aesthetic: "Estetik",
-    },
-    crazyLevelNames: {
-      mild: "Ringan",
-      wild: "Liar",
-      chaos: "Kacau",
-    },
-    symbolCats: {
-      hearts: "Hati",
-      stars: "Bintang",
-      arrows: "Panah",
-      crowns: "Mahkota",
-      flowers: "Bunga",
-      wings: "Sayap & Pita",
-      brackets: "Kurung",
-      lines: "Garis & Border",
-      faces: "Wajah",
-      kaomoji: "Kaomoji",
-      vibes: "Musik & Vibe",
-      checks: "Ceklis & Silang",
-      math: "Matematika",
-      greek: "Yunani",
-      currency: "Mata Uang",
-      numbers: "Angka & Romawi",
-      dots: "Titik & Tanda",
-      invisible: "Tak Terlihat",
-    },
-    platformTool: {
-      stylesFit: (platform) => `Gaya yang cocok untuk ${platform}`,
-      presetsHeading: (platform) => `Preset ${platform}`,
-      presetsWrap: "Setiap preset membungkus teks yang kamu ketik di atas.",
-      openToPaste: (platform) => `Tersalin — buka ${platform} untuk menempel`,
-    },
-    platformPreview: {
-      heading: (platform) => `Pratinjau di ${platform}`,
-      preview: "Pratinjau",
-      close: "Tutup",
-      previous: "Sebelumnya",
-      next: "Berikutnya",
-      note: "Digambar di browser kamu dengan tata letak profil. Aplikasi aslinya memakai fontnya sendiri — tempel teksnya di sana dan cek sebelum kamu mengandalkannya.",
-      over: "melebihi batas umum",
-      notTested: "Belum diuji di situs ini.",
-      approxField: (platform, max) => `Sekitar ${max} karakter di ${platform}, dihitung sebagai titik kode. Belum diuji di situs ini.`,
-      handleAscii: "Nama login hanya menyimpan ASCII yang sudah didokumentasikan platform.",
-      posts: "postingan",
-      followers: "pengikut",
-      following: "mengikuti",
-      likes: "suka",
-      follow: "Ikuti",
-      message: "Pesan",
-      addFriend: "Tambah teman",
-      friends: "Teman",
-      subscribers: "subscriber",
-      subscribe: "Berlangganan",
-      whatsappInfo: "Info",
-    },
-    bio: {
-      drafts: "Draf",
-      fillHint: "Pilih salah satu untuk mengisi kotak, lalu ubah.",
-      boardTail: "Simbol di baki kamu ditambahkan di akhir.",
-      png: "Simpan PNG",
-    },
-    symbolCatNotes: {
-      invisible:
-        "Karakter ini tidak terlihat. Terkenal untuk nama kosong di game: salin satu dan ganti seluruh namamu dengannya (beberapa game tetap menolak nama kosong — uji dulu). Lingkaran titik-titik hanya penanda posisi karakter tersembunyi.",
-      blankLink:
-        "Salin deretan pengisi Hangul, spasi Braille, atau spasi ideografis, atau selipkan spasi itu di antara huruf keren.",
-    },
-    sections: {
-      howToUse: "Cara pakai",
-      examples: "Contoh",
-      faq: "FAQ",
-      related: "Alat terkait",
-      whereShines: "Paling cocok untuk",
-      onPlatforms: "Di platform",
-      howWorks: (topic) => `Cara kerja teks ${topic}`,
-      openFull: "Buka Generator Huruf Keren lengkap →",
-      exploreAll: "Jelajahi semua alat FancyFont →",
-      browseSymbols: "Jelajahi 388 simbol untuk bikin gayamu sendiri.",
-      browseFancy: "Semua 30 gaya dalam satu alat — salin salah satunya.",
-      lookUses: (style) =>
-        `Tampilan ini memakai huruf ${style}. Dekorasinya hanya ada di halaman ini.`,
-    },
-    compat: {
-      lead: "Catatan:",
-      body: "Gaya-gaya ini menggunakan karakter Unicode, bukan file font yang terpasang. Tampilan dan ketersediaan bisa berbeda tergantung perangkat, aplikasi, game, dan aturan platform. Uji hasilnya di tempat kamu akan memakainya.",
-    },
-    stylePageSteps: [
-      "Ketik teksmu di kotak atas — pratinjau berubah saat kamu mengetik.",
-      "Salin hasilnya sekali ketuk, atau unduh sebagai gambar PNG.",
-      "Tempel di mana pun kamu mau — lalu pastikan tampilannya sesuai harapan.",
+      {
+        q: "Why does some text show boxes (□) on other devices?",
+        a: "A box means the other device's fonts lack that glyph. Switching styles usually fixes it — fullwidth letters and common symbols are the safest picks. Risk notes are printed on every style card.",
+      },
+    ],
+    startHeading: "Start here",
+    startLinks: [
+      { title: "Signature font", description: "Script styles for a name. Not an ink or legal signature.", href: "/signature-font-generator/" },
+      { title: "Cursive converter", description: "The classic script look for English words.", href: "/cursive-fonts/" },
+      { title: "Why boxes appear", description: "Compatibility, explained simply.", href: "/learn/why-boxes-appear/" },
+      { title: "Pick your style", description: "Match a look to your scenario.", href: "/learn/pick-your-style/" },
     ],
   },
+  notFound: {
+    badge: "404",
+    h1: "This page got copied away",
+    body: "The address may be mistyped, or the page has moved. Head back home — every generator and guide lives there.",
+    back: "Back home",
+    secondary: "Nickname decorator",
+  },
+  compatNote:
+    "Styled characters display fine on most modern devices; old devices or exotic symbols may render as boxes (□). Style cards carry ⚠ risk notes — post a test on the target platform before you commit.",
+  datePublished: "Published",
+  dateUpdated: "Updated",
 };
 
-export function getUi(locale: Locale): UiStrings {
-  return ui[locale];
+const ZH: UiStrings = {
+  nav: {
+    styles: "字体样式",
+    stylesHeading: "英文/数字样式",
+    cjkHeading: "中文装饰",
+    platforms: "平台专区",
+    guides: "装扮指南",
+    popular: "热门样式",
+    menu: "打开菜单",
+    language: "切换语言",
+    allStyles: "全部样式",
+    allPlatforms: "全部平台",
+  },
+  ticker: "复制即用 · 无需下载字体 · 文本永不上传 · 全平台可用 · 字数统计 · 收藏同步本机",
+  skip: "跳到主要内容",
+  footerTagline: "花式文字在浏览器本地转换,你输入的文本不会离开设备。",
+  copyright: "保留所有权利。",
+  footerCols: {
+    styles: "字体样式",
+    platforms: "平台专区",
+    guides: "装扮指南",
+    about: "关于",
+    allStyles: "查看全部样式 →",
+    allPlatforms: "查看全部平台 →",
+    allGuides: "全部指南 →",
+  },
+  tool: {
+    inputLabel: "输入文字",
+    inputPlaceholder: "输入昵称、短句或单词…",
+    charCount: "/120 字符",
+    reset: "重置为示例",
+    tabs: { styles: "样式", favorites: "收藏", recent: "最近" },
+    copy: "复制",
+    copied: "已复制 ✓",
+    all: "全部",
+    favAria: "收藏",
+    unfavAria: "取消收藏",
+    cjkHeading: "中文装饰",
+    cjkSub: "环绕框对汉字同样生效",
+    cjkBanner: "检测到中文:带样式字形只覆盖英文字母,汉字保持原样。想让中文也出彩?试试",
+    cjkBannerLink: "花式昵称装饰",
+    favoritesEmpty: "还没有收藏。点样式卡片右侧的 ☆ 把喜欢的存下来,数据只留在本机。",
+    recentEmpty: "复制过一次的结果会出现在这里,方便回找。",
+    clear: "清空",
+    removeAria: "删除这条记录",
+    searchPlaceholder: "搜索样式…",
+    infoAria: "样式详情",
+    details: {
+      title: "样式详情",
+      coverage: "覆盖范围",
+      block: "Unicode 区段",
+      chars: "粘贴后的字符数",
+      charsHint: "删除线/乱码会叠加不可见符号,严格计数的平台统计会翻倍;常规样式一换一。",
+      screenReader: "屏幕阅读器可能把带样式字母按全名朗读,重要信息请用普通字符。",
+      hashtag: "话题标签和 @账号 只匹配普通字符,检索位请保持普通写法。",
+      close: "关闭",
+    },
+    cleaner: {
+      heading: "乱码清洗器",
+      intro: "把带乱码的文字粘贴进来,一键剥离叠加符号。清洗完全在你的浏览器里进行。",
+      inputLabel: "粘贴乱码文字",
+      inputPlaceholder: "粘贴需要清洗的乱码文字…",
+      idle: "等待输入",
+      removedPrefix: "已剥离",
+      removedSuffix: "个叠加符号",
+      clear: "清空",
+      copyResult: "复制结果",
+      copied: "已复制 ✓",
+    },
+  },
+  wrapperLabels: {
+    hearts: "爱心",
+    sparkles: "星光",
+    softBrackets: "软括弧",
+    skull: "骷髅",
+    blades: "双剑",
+    vaporwave: "蒸汽波",
+    haze: "星雾",
+    retroSweet: "复古甜",
+    flowers: "小花",
+    bows: "蝴蝶结",
+    gamerFrame: "电竞框",
+  },
+  sections: {
+    steps: "使用步骤",
+    faq: "常见问题",
+    relatedTools: "相关工具",
+    relatedGuides: "相关指南",
+    swapStyles: "继续换样式",
+    tryIt: "动手试试",
+    combos: "装饰组合",
+    combosIntro: (sample: string) =>
+      `以「${sample}」为例,主样式套上装饰对的效果,复制后替换成你自己的文字。`,
+    structure: "结构",
+  },
+  hub: {
+    styles: {
+      title: "全部字体样式生成器",
+      h1: "全部样式",
+      description: "浏览全部花式字体样式——花体、哥特、可爱、粗体、小字与乱码生成器,按风格分组,复制即用。",
+      intro: `FancyFont 的全部生成器按风格分组。打开即用,每页收录全部 ${textStyles.length} 种样式,并诚实标注各样式的适用范围。`,
+    },
+    platforms: {
+      title: "各平台花式字体",
+      h1: "按平台选字体",
+      description: "抖音、小红书、微信、QQ、B 站等平台的花式字体与昵称——各平台字数限制与兼容性一目了然。",
+      intro: "每个平台专页针对对应应用:昵称字数、安全渲染与现成组合。选你要发的平台。",
+    },
+    styleGroups: {
+      script: "花体手写", gothic: "哥特暗黑", cute: "可爱美学",
+      bold: "粗体利落", small: "小字怪趣",
+    },
+    platformGroups: {
+      social: "社交平台", games: "游戏昵称", chat: "通讯办公",
+    },
+  },
+  breadcrumb: { home: "首页", guides: "装扮指南" },
+  platform: {
+    limits: (p) => `${p}的字数与规则`,
+    compat: "哪里能用,哪里不能用",
+    examples: "现成昵称示例",
+    examplesIntro: "直接复制,或当作模板替换成你的名字。",
+    faq: (p) => `${p}常见问题`,
+  },
+  guideIndex: {
+    h1: "装扮指南",
+    intro:
+      "用得明白,装饰得放心。这里有花式字体的原理科普、兼容性排查、平台规则解读和场景搭配教程,全部基于「结果就是普通 Unicode 字符」这一事实展开,不做无法核实的承诺。",
+    cardLabel: "指南",
+  },
+  home: {
+    badge: "免费 · 无需注册 · 文本不上传",
+    h1: "花式字体生成器",
+    h1Sub: `英文变 ${textStyles.length} 种样式,中文套 ${cjkStyles.length} 种装饰 —— 复制直接用`,
+    intro:
+      "输入昵称、短句或名字,所有样式实时生成。点击卡片复制,粘贴到抖音、微信、QQ、微博、游戏 ID—— 本质是 Unicode 字符,不需要下载字体,平台装什么字体都显示。",
+    statStyles: "种英文/数字样式",
+    statCjk: "种中文环绕装饰",
+    statLocal: "数据上传 · 全程本地转换",
+    stylesHeading: "字体样式专页",
+    stylesIntro: "每种风格一个专页:筛选后的生成器、使用步骤、兼容性说明和 FAQ。",
+    platformsHeading: "平台专页",
+    platformsIntro: "每个平台的字数限制、兼容性边界、现成昵称示例,进场前先看一眼。",
+    platformCard: "的花式昵称方案",
+    guidesHeading: "装扮指南",
+    guidesIntro: "原理、兼容性、平台规则——用得明白,装饰得放心。",
+    guidesAll: "查看全部指南 →",
+    gameTextHeading: "游戏与角色名文本",
+    gameTextIntro: "给游戏内名字、告示和角色扮演用的短文本。账号用户名保持普通字符，只保存游戏自己接受的内容。",
+    faqHeading: "常见问题",
+    faq: [
+      {
+        q: "这些「字体」需要下载安装吗?",
+        a: "不需要。生成的结果本身就是特殊 Unicode 字符,复制后粘贴到哪里都自带样式,你和看到它的人都不用装任何字体文件。",
+      },
+      {
+        q: "中文名字能用花式字体吗?",
+        a: "汉字在 Unicode 里只有一种常规形态,没有花体/斜体变化。中文昵称的个性化靠环绕装饰——꧁名字꧂、『名字』这类装饰框,在「花式昵称装饰」页一键生成。",
+      },
+      {
+        q: "我输入的文字会被上传吗?",
+        a: "不会。转换完全在你的浏览器里完成,没有服务器参与,输入的任何内容都不离开你的设备。",
+      },
+      {
+        q: "花式文字在哪些平台能用?",
+        a: "昵称、个性签名、简介、群名片等展示位普遍支持;@账号ID、话题标签等检索位只接受普通字符。每个平台的细节见对应平台专页。",
+      },
+      {
+        q: "为什么粘贴到某些设备显示成方框?",
+        a: "方框说明对方设备缺少该字符的字形,换一种样式通常能解决。低风险的样式(全角、基本符号装饰)几乎全平台正常,风险提示在样式卡片上都有标注。",
+      },
+    ],
+    startHeading: "从这几个页面开始",
+    startLinks: [
+      { title: "花式昵称装饰", description: "中文昵称的 27 种环绕装饰。", href: "/zh/decorated-nicknames/" },
+      { title: "花体字转换器", description: "最经典的英文花体样式。", href: "/zh/cursive-fonts/" },
+      { title: "中文花式昵称教程", description: "三个技巧做出风格。", href: "/zh/zhinan/chinese-nickname-guide/" },
+      { title: "场景选样式", description: "按场景匹配风格组合。", href: "/zh/zhinan/pick-your-style/" },
+    ],
+  },
+  notFound: {
+    badge: "404",
+    h1: "这个页面被复制走了",
+    body: "地址可能输错了,或者页面已经搬家。回到首页,所有生成器和指南都在那里。",
+    back: "回首页",
+    secondary: "花式昵称装饰",
+  },
+  compatNote:
+    "带样式字符在绝大多数主流设备上正常显示;老旧机型或冷门装饰符号可能显示为方框□。样式卡片上的 ⚠ 标注了对应风险,收藏前先在目标平台发一条测试内容。",
+  datePublished: "发布于",
+  dateUpdated: "更新于",
+};
+
+const ES: UiStrings = {
+  nav: {
+    styles: "Estilos de letra",
+    stylesHeading: "Letras y números",
+    cjkHeading: "Decoraciones chinas",
+    platforms: "Por plataforma",
+    guides: "Guías",
+    popular: "Populares",
+    menu: "Abrir menú",
+    language: "Cambiar idioma",
+    allStyles: "Todos los estilos",
+    allPlatforms: "Todas las plataformas",
+  },
+  ticker: "Copia y pega · Sin archivos de fuente · Tu texto nunca sale de tu dispositivo",
+  skip: "Saltar al contenido",
+  footerTagline: "El texto fancy se convierte en tu navegador. Lo que escribes nunca sale de tu dispositivo.",
+  copyright: "Todos los derechos reservados.",
+  footerCols: {
+    styles: "Estilos",
+    platforms: "Plataformas",
+    guides: "Guías",
+    about: "Acerca de",
+    allStyles: "Ver todos los estilos →",
+    allPlatforms: "Ver todas las plataformas →",
+    allGuides: "Todas las guías →",
+  },
+  tool: {
+    inputLabel: "Tu texto",
+    inputPlaceholder: "Escribe un apodo, frase o palabra…",
+    charCount: "/120 caracteres",
+    reset: "Restaurar ejemplo",
+    tabs: { styles: "Estilos", favorites: "Favoritos", recent: "Recientes" },
+    copy: "Copiar",
+    copied: "Copiado ✓",
+    all: "Todos",
+    favAria: "Guardar en favoritos",
+    unfavAria: "Quitar de favoritos",
+    cjkHeading: "Decoraciones chinas",
+    cjkSub: "Los marcos funcionan con cualquier carácter",
+    cjkBanner:
+      "Chino detectado: los glifos con estilo solo cubren letras latinas, los caracteres chinos se quedan igual. Para decorarlos usa el",
+    cjkBannerLink: "decorador de apodos",
+    favoritesEmpty:
+      "Aún no hay favoritos. Toca la ☆ de una tarjeta para guardarla — los datos se quedan en este dispositivo.",
+    recentEmpty: "Lo que copies aparece aquí para que lo encuentres de nuevo.",
+    clear: "Vaciar",
+    removeAria: "Eliminar esta entrada",
+    searchPlaceholder: "Buscar estilos…",
+    infoAria: "Detalles del estilo",
+    details: {
+      title: "Detalles del estilo",
+      coverage: "Cobertura",
+      block: "Bloque Unicode",
+      chars: "Caracteres al pegar",
+      charsHint:
+        "Tachado/zalgo añaden marcas invisibles — los contadores estrictos pueden duplicarse. Los estilos normales cambian uno a uno.",
+      screenReader:
+        "Los lectores de pantalla pueden deletrear las letras con estilo. Evita el texto esencial.",
+      hashtag: "Los hashtags y @usuarios solo coinciden con caracteres normales.",
+      close: "Cerrar",
+    },
+    cleaner: {
+      heading: "Limpiador zalgo",
+      intro: "Pega aquí el texto dañado y elimina los símbolos superpuestos de un toque. Todo corre en tu navegador.",
+      inputLabel: "Pega el texto dañado",
+      inputPlaceholder: "Pega el texto dañado para limpiar…",
+      idle: "Esperando texto",
+      removedPrefix: "Eliminados",
+      removedSuffix: "símbolos superpuestos",
+      clear: "Vaciar",
+      copyResult: "Copiar resultado",
+      copied: "Copiado ✓",
+    },
+  },
+  wrapperLabels: {
+    hearts: "Corazones",
+    sparkles: "Destellos",
+    softBrackets: "Paréntesis suaves",
+    skull: "Calaveras",
+    blades: "Espadas",
+    vaporwave: "Vaporwave",
+    haze: "Bruma",
+    retroSweet: "Dulce retro",
+    flowers: "Flores",
+    bows: "Moños",
+    gamerFrame: "Marcos gamer",
+  },
+  sections: {
+    steps: "Cómo usarlo",
+    faq: "Preguntas frecuentes",
+    relatedTools: "Herramientas relacionadas",
+    relatedGuides: "Guías relacionadas",
+    swapStyles: "Prueba otro estilo",
+    tryIt: "Pruébalo",
+    combos: "Combinaciones decorativas",
+    combosIntro: (sample: string) =>
+      `Usando «${sample}» como ejemplo: el estilo principal envuelto en cada par decorativo. Copia y cambia el texto por el tuyo.`,
+    structure: "Estructura",
+  },
+  hub: {
+    styles: {
+      title: "Todos los estilos de letra",
+      h1: "Todos los estilos",
+      description: "Explora todos los generadores: cursiva, gótica, mono, negrita, pequeña y glitch, agrupados por estilo. Copia y pega gratis.",
+      intro: `Todos los generadores de FancyFont agrupados por estilo. Abre uno, escribe y copia: cada página incluye los ${textStyles.length} estilos completos.`,
+    },
+    platforms: {
+      title: "Letras para cada plataforma",
+      h1: "Letras por plataforma",
+      description: "Letras fancy para Instagram, TikTok, Discord, Free Fire y más: límites de caracteres y compatibilidad de cada plataforma.",
+      intro: "Cada página se ajusta a su app: límites de nombre, renderizado seguro y combinaciones listas. Elige dónde vas a publicar.",
+    },
+    styleGroups: {
+      script: "Cursiva y script", gothic: "Gótica y oscura", cute: "Mono y estética",
+      bold: "Negrita y cool", small: "Pequeñas y raras",
+    },
+    platformGroups: {
+      social: "Redes sociales", games: "Juegos", chat: "Apps de chat",
+    },
+  },
+  breadcrumb: { home: "Inicio", guides: "Guías" },
+  platform: {
+    limits: (p) => `Reglas y límites de ${p}`,
+    compat: "Dónde funciona y dónde no",
+    examples: "Apodos listos para copiar",
+    examplesIntro: "Córialos tal cual o úsalos como plantilla para el tuyo.",
+    faq: (p) => `${p}: preguntas frecuentes`,
+  },
+  guideIndex: {
+    h1: "Guías",
+    intro:
+      "Principios, solución de cuadros □, reglas de plataformas y combinaciones de estilo — el resultado es texto Unicode normal, verificado.",
+    cardLabel: "Guía",
+  },
+  home: {
+    badge: "Gratis · Sin registro · Nada se sube",
+    h1: "Generador de Letras Bonitas",
+    h1Sub: `${textStyles.length} estilos para letras y números, ${cjkStyles.length} marcos para apodos — copia y pega donde quieras`,
+    intro:
+      "Escribe un apodo, frase o palabra y todos los estilos se generan al instante. Toca una tarjeta para copiar y pégalo en Instagram, TikTok, Discord, WhatsApp o en tu ID de juego — el resultado es texto Unicode, sin archivos de fuente, y se ve igual pase lo que pase con las fuentes de la app.",
+    statStyles: "estilos para letras y números",
+    statCjk: "marcos de decoración",
+    statLocal: "datos subidos — todo se procesa en local",
+    stylesHeading: "Páginas de estilos",
+    stylesIntro:
+      "Una página por estilo: generador filtrado, pasos de uso, notas de compatibilidad y FAQ.",
+    platformsHeading: "Páginas por plataforma",
+    platformsIntro:
+      "Límites de caracteres, qué funciona y dónde, y apodos listos para copiar en tu plataforma.",
+    platformCard: "letras fancy para",
+    guidesHeading: "Guías",
+    guidesIntro: "Principios, límites y compatibilidad",
+    guidesAll: "Todas las guías →",
+    gameTextHeading: "Texto para juegos y roleplay",
+    gameTextIntro:
+      "Estilos cortos para nombres dentro del juego, carteles y roleplay. El usuario de la cuenta se queda en letras normales: guarda solo lo que el juego acepte.",
+    faqHeading: "Preguntas frecuentes",
+    faq: [
+      {
+        q: "¿Hay que instalar estas «fuentes»?",
+        a: "No. Los resultados son caracteres Unicode especiales: el estilo viaja con el texto al copiar y pegar, y nadie necesita instalar nada.",
+      },
+      {
+        q: "¿Funciona con escritura no latina?",
+        a: "Unicode no tiene glifos con estilo para chino, japonés o árabe, así que esos caracteres se quedan igual. Los marcos decorativos sí funcionan con cualquier carácter.",
+      },
+      {
+        q: "¿Mi texto se sube a algún sitio?",
+        a: "No. La conversión ocurre por completo en tu navegador, sin servidor: lo que escribes nunca sale de tu dispositivo.",
+      },
+      {
+        q: "¿Dónde puedo pegar texto fancy?",
+        a: "Los espacios de visualización suelen aceptarlo: nombres visibles, bios, firmas. Los de búsqueda no: @usuarios, IDs y hashtags solo aceptan caracteres normales. Cada página de plataforma detalla los casos.",
+      },
+      {
+        q: "¿Por qué se ven cuadros (□) en otros dispositivos?",
+        a: "Un cuadro significa que las fuentes del otro dispositivo no tienen ese glifo. Cambiar de estilo suele bastar; las letras fullwidth y los símbolos comunes son lo más seguro. Cada tarjeta marca sus riesgos con ⚠.",
+      },
+    ],
+    startHeading: "Empieza por aquí",
+    startLinks: [
+      { title: "Letras coquette", description: "Lazo y script para copiar. No cambia el usuario de la cuenta.", href: "/es/coquette-font-generator/" },
+      { title: "Conversor a cursiva", description: "El clásico estilo script para palabras.", href: "/es/cursive-fonts/" },
+      { title: "Por qué salen cuadros", description: "Compatibilidad explicada sin lío.", href: "/es/guia/why-boxes-appear/" },
+      { title: "Límites de longitud", description: "Cuántos caracteres caben en un nombre.", href: "/es/guia/name-length-limits/" },
+    ],
+  },
+  notFound: {
+    badge: "404",
+    h1: "Esta página se copió y se fue",
+    body: "La dirección puede estar mal escrita o la página se movió. Vuelve al inicio: ahí están todos los generadores y guías.",
+    back: "Al inicio",
+    secondary: "Decorador de apodos",
+  },
+  compatNote:
+    "Los caracteres con estilo se ven bien en la mayoría de dispositivos modernos; en equipos viejos o con símbolos exóticos pueden verse cuadros (□). Las tarjetas marcan los riesgos con ⚠ — haz una prueba en la plataforma antes de decidirte.",
+  datePublished: "Publicado",
+  dateUpdated: "Actualizado",
+};
+
+const PT: UiStrings = {
+  nav: {
+    styles: "Estilos de letra",
+    stylesHeading: "Letras e números",
+    cjkHeading: "Decorações chinesas",
+    platforms: "Por plataforma",
+    guides: "Guias",
+    popular: "Populares",
+    menu: "Abrir menu",
+    language: "Mudar idioma",
+    allStyles: "Todos os estilos",
+    allPlatforms: "Todas as plataformas",
+  },
+  ticker: "Copie e cole · Sem arquivos de fonte · Seu texto nunca sai do dispositivo",
+  skip: "Pular para o conteúdo",
+  footerTagline: "O texto estilizado é convertido no seu navegador. O que você digita nunca sai do dispositivo.",
+  copyright: "Todos os direitos reservados.",
+  footerCols: {
+    styles: "Estilos",
+    platforms: "Plataformas",
+    guides: "Guias",
+    about: "Sobre",
+    allStyles: "Ver todos os estilos →",
+    allPlatforms: "Ver todas as plataformas →",
+    allGuides: "Todos os guias →",
+  },
+  tool: {
+    inputLabel: "Seu texto",
+    inputPlaceholder: "Digite um apelido, frase ou palavra…",
+    charCount: "/120 caracteres",
+    reset: "Restaurar exemplo",
+    tabs: { styles: "Estilos", favorites: "Favoritos", recent: "Recentes" },
+    copy: "Copiar",
+    copied: "Copiado ✓",
+    all: "Todos",
+    favAria: "Favoritar",
+    unfavAria: "Remover dos favoritos",
+    cjkHeading: "Decorações chinesas",
+    cjkSub: "As molduras funcionam com qualquer caractere",
+    cjkBanner:
+      "Chinês detectado: os glifos estilizados cobrem apenas letras latinas — caracteres chineses ficam como estão. Para decorá-los use o",
+    cjkBannerLink: "decorador de apelidos",
+    favoritesEmpty:
+      "Nenhum favorito ainda. Toque na ☆ de um cartão para salvar — os dados ficam só neste dispositivo.",
+    recentEmpty: "O que você copiar aparece aqui para achar de novo.",
+    clear: "Limpar",
+    removeAria: "Remover este item",
+    searchPlaceholder: "Buscar estilos…",
+    infoAria: "Detalhes do estilo",
+    details: {
+      title: "Detalhes do estilo",
+      coverage: "Cobertura",
+      block: "Bloco Unicode",
+      chars: "Caracteres ao colar",
+      charsHint:
+        "Riscado/zalgo adicionam marcas invisíveis — contadores estritos podem dobrar. Estilos normais trocam um por um.",
+      screenReader:
+        "Leitores de tela podem soletrar letras estilizadas pelos nomes completos. Evite em texto essencial.",
+      hashtag: "Hashtags e @usuários só coincidem com caracteres normais.",
+      close: "Fechar",
+    },
+    cleaner: {
+      heading: "Limpador zalgo",
+      intro: "Cole o texto danificado aqui e remova os símbolos sobrepostos num toque. Tudo roda no seu navegador.",
+      inputLabel: "Cole o texto danificado",
+      inputPlaceholder: "Cole o texto danificado para limpar…",
+      idle: "Aguardando texto",
+      removedPrefix: "Removidos",
+      removedSuffix: "símbolos sobrepostos",
+      clear: "Limpar",
+      copyResult: "Copiar resultado",
+      copied: "Copiado ✓",
+    },
+  },
+  wrapperLabels: {
+    hearts: "Corações",
+    sparkles: "Brilhos",
+    softBrackets: "Parênteses macios",
+    skull: "Caveiras",
+    blades: "Espadas",
+    vaporwave: "Vaporwave",
+    haze: "Névoa",
+    retroSweet: "Doce retrô",
+    flowers: "Flores",
+    bows: "Laços",
+    gamerFrame: "Molduras gamer",
+  },
+  sections: {
+    steps: "Como usar",
+    faq: "Perguntas frequentes",
+    relatedTools: "Ferramentas relacionadas",
+    relatedGuides: "Guias relacionadas",
+    swapStyles: "Teste outro estilo",
+    tryIt: "Experimente",
+    combos: "Combinações decorativas",
+    combosIntro: (sample: string) =>
+      `Usando “${sample}” como exemplo: o estilo principal envolto em cada par decorativo. Copie e troque pelo seu texto.`,
+    structure: "Estrutura",
+  },
+  hub: {
+    styles: {
+      title: "Todos os estilos de letra",
+      h1: "Todos os estilos",
+      description: "Explore todos os geradores: cursiva, gótica, fofa, negrito, pequena e glitch, agrupados por estilo. Copie e cole de graça.",
+      intro: `Todos os geradores do FancyFont agrupados por estilo. Abra um, digite e copie: cada página inclui os ${textStyles.length} estilos completos.`,
+    },
+    platforms: {
+      title: "Fontes para cada plataforma",
+      h1: "Fontes por plataforma",
+      description: "Letras estilizadas para Instagram, TikTok, Discord, Free Fire e mais: limites de caracteres e compatibilidade.",
+      intro: "Cada página é feita para o app: limites de nome, renderização segura e combinações prontas. Escolha onde você vai postar.",
+    },
+    styleGroups: {
+      script: "Cursiva e script", gothic: "Gótica e sombria", cute: "Fofa e estética",
+      bold: "Negrito e legal", small: "Pequenas e estranhas",
+    },
+    platformGroups: {
+      social: "Redes sociais", games: "Jogos", chat: "Apps de chat",
+    },
+  },
+  breadcrumb: { home: "Início", guides: "Guias" },
+  platform: {
+    limits: (p) => `Limites e regras do ${p}`,
+    compat: "Onde funciona — e onde não",
+    examples: "Apelidos prontos para copiar",
+    examplesIntro: "Copie como estão ou use como modelo para o seu.",
+    faq: (p) => `${p}: perguntas frequentes`,
+  },
+  guideIndex: {
+    h1: "Guias",
+    intro:
+      "Princípios, solução dos quadradinhos □, regras das plataformas e combinações de estilo — o resultado é texto Unicode comum, verificado.",
+    cardLabel: "Guia",
+  },
+  home: {
+    badge: "Grátis · Sem cadastro · Nada é enviado",
+    h1: "Gerador de Letras Diferentes",
+    h1Sub: `${textStyles.length} estilos para letras e números, ${cjkStyles.length} molduras para apelidos — copie e cole onde quiser`,
+    intro:
+      "Digite um apelido, frase ou palavra e todos os estilos aparecem na hora. Toque em um cartão para copiar e cole no Instagram, TikTok, Discord, WhatsApp ou no seu ID de jogo — o resultado é texto Unicode, sem arquivo de fonte, e aparece igual independente das fontes do app.",
+    statStyles: "estilos para letras e números",
+    statCjk: "molduras de decoração",
+    statLocal: "dados enviados — tudo roda no seu aparelho",
+    stylesHeading: "Páginas de estilos",
+    stylesIntro:
+      "Uma página por estilo: gerador filtrado, passos de uso, notas de compatibilidade e FAQ.",
+    platformsHeading: "Páginas por plataforma",
+    platformsIntro:
+      "Limites de caracteres, o que funciona onde e apelidos prontos para a sua plataforma.",
+    platformCard: "letras fancy para",
+    guidesHeading: "Guias",
+    guidesIntro: "Princípios, limites e compatibilidade",
+    guidesAll: "Todos os guias →",
+    gameTextHeading: "Texto para jogos e roleplay",
+    gameTextIntro:
+      "Estilos curtos para nomes dentro do jogo, placas e roleplay. O usuário da conta continua em letras comuns — salve só o que o jogo aceitar.",
+    faqHeading: "Perguntas frequentes",
+    faq: [
+      {
+        q: "Preciso instalar essas “fontes”?",
+        a: "Não. Os resultados são caracteres Unicode especiais: o estilo viaja junto com o texto ao copiar e colar, e ninguém precisa instalar nada.",
+      },
+      {
+        q: "Funciona com escrita não latina?",
+        a: "O Unicode não tem glifos estilizados para chinês, japonês ou árabe — esses caracteres ficam como estão. As molduras decorativas funcionam com qualquer caractere.",
+      },
+      {
+        q: "Meu texto é enviado para algum servidor?",
+        a: "Não. A conversão acontece inteiramente no seu navegador, sem servidor: o que você digita nunca sai do dispositivo.",
+      },
+      {
+        q: "Onde posso colar texto estilizado?",
+        a: "Campos de exibição geralmente aceitam: nome exibido, bio, assinatura. Campos de busca não: @usuário, ID e hashtag só aceitam caracteres comuns. Cada página de plataforma detalha os casos.",
+      },
+      {
+        q: "Por que aparecem quadradinhos (□) em outros aparelhos?",
+        a: "O quadradinho significa que as fontes do outro aparelho não têm aquele glifo. Trocar o estilo normalmente resolve; letras fullwidth e símbolos comuns são os mais seguros. Cada cartão marca os riscos com ⚠.",
+      },
+    ],
+    startHeading: "Comece por aqui",
+    startLinks: [
+      { title: "Letras coquette", description: "Laço e script para copiar. Não muda o usuário da conta.", href: "/pt-br/coquette-font-generator/" },
+      { title: "Conversor cursivo", description: "O clássico estilo script para palavras.", href: "/pt-br/cursive-fonts/" },
+      { title: "Por que aparecem quadradinhos", description: "Compatibilidade explicada sem enrolação.", href: "/pt-br/guia/why-boxes-appear/" },
+      { title: "Limites de caracteres", description: "Quantos caracteres cabem em um nome.", href: "/pt-br/guia/name-length-limits/" },
+    ],
+  },
+  notFound: {
+    badge: "404",
+    h1: "Esta página foi copiada e sumiu",
+    body: "O endereço pode estar errado ou a página mudou de lugar. Volte ao início — todos os geradores e guias estão lá.",
+    back: "Voltar ao início",
+    secondary: "Decorador de apelidos",
+  },
+  compatNote:
+    "Os caracteres estilizados aparecem bem na maioria dos aparelhos modernos; aparelhos antigos ou símbolos exóticos podem virar quadradinhos (□). Os cartões marcam riscos com ⚠ — faça um teste na plataforma antes de decidir.",
+  datePublished: "Publicado em",
+  dateUpdated: "Atualizado em",
+};
+
+const DE: UiStrings = {
+  nav: {
+    styles: "Schriftstile",
+    stylesHeading: "Buchstaben- & Zahlenstile",
+    cjkHeading: "Chinesische Dekorationen",
+    platforms: "Nach Plattform",
+    guides: "Guides",
+    popular: "Beliebt",
+    menu: "Menü öffnen",
+    language: "Sprache wechseln",
+    allStyles: "Alle Stile",
+    allPlatforms: "Alle Plattformen",
+  },
+  ticker: "Kopieren & einfügen · Keine Font-Dateien · Dein Text verlässt dein Gerät nie",
+  skip: "Zum Inhalt springen",
+  footerTagline: "Fancy-Text wird direkt in deinem Browser umgewandelt. Was du eingibst, verlässt dein Gerät nie.",
+  copyright: "Alle Rechte vorbehalten.",
+  footerCols: {
+    styles: "Schriftstile",
+    platforms: "Plattformen",
+    guides: "Guides",
+    about: "Über uns",
+    allStyles: "Alle Stile ansehen →",
+    allPlatforms: "Alle Plattformen ansehen →",
+    allGuides: "Alle Guides →",
+  },
+  tool: {
+    inputLabel: "Dein Text",
+    inputPlaceholder: "Nickname, Satz oder Wort eingeben…",
+    charCount: "/120 Zeichen",
+    reset: "Beispiel zurücksetzen",
+    tabs: { styles: "Stile", favorites: "Favoriten", recent: "Zuletzt" },
+    copy: "Kopieren",
+    copied: "Kopiert ✓",
+    all: "Alle",
+    favAria: "Zu Favoriten hinzufügen",
+    unfavAria: "Aus Favoriten entfernen",
+    cjkHeading: "Chinesische Dekorationen",
+    cjkSub: "Die Rahmen funktionieren mit beliebigen Zeichen, auch mit Han",
+    cjkBanner:
+      "Chinesisch erkannt: Die gestylten Glyphen decken nur lateinische Buchstaben ab, Han-Zeichen bleiben unverändert. Um chinesischen Text zu verschönern, nutze den",
+    cjkBannerLink: "Nickname-Dekorator",
+    favoritesEmpty:
+      "Noch keine Favoriten. Tippe auf einer Stilkarte auf ☆, um sie zu speichern — die Daten bleiben nur auf diesem Gerät.",
+    recentEmpty: "Kopierte Ergebnisse erscheinen hier, damit du sie wiederfindest.",
+    clear: "Leeren",
+    removeAria: "Diesen Eintrag entfernen",
+    searchPlaceholder: "Stile suchen…",
+    infoAria: "Stildetails",
+    details: {
+      title: "Stildetails",
+      coverage: "Abdeckung",
+      block: "Unicode-Block",
+      chars: "Zeichen nach dem Einfügen",
+      charsHint:
+        "Durchgestrichen/Zalgo stapeln unsichtbare Kombinationszeichen — strenge Zähler können doppelt zählen. Normale Stile bleiben eins zu eins.",
+      screenReader:
+        "Screenreader buchstabieren gestylte Buchstaben eventuell mit ihren vollen Unicode-Namen. Für wichtigen Text nicht verwenden.",
+      hashtag: "Hashtags und @Handles matchen nur einfache Zeichen — halte Suchbegriffe schlicht.",
+      close: "Schließen",
+    },
+    cleaner: {
+      heading: "Zalgo-Reiniger",
+      intro: "Füge hier kaputten Text ein und entferne die gestapelten Zeichen mit einem Tipp. Alles läuft in deinem Browser.",
+      inputLabel: "Kaputten Text einfügen",
+      inputPlaceholder: "Den kaputten Text zum Bereinigen einfügen…",
+      idle: "Warte auf Eingabe",
+      removedPrefix: "Entfernt:",
+      removedSuffix: "gestapelte Zeichen",
+      clear: "Leeren",
+      copyResult: "Ergebnis kopieren",
+      copied: "Kopiert ✓",
+    },
+  },
+  wrapperLabels: {
+    hearts: "Herzen",
+    sparkles: "Funkeln",
+    softBrackets: "Weiche Klammern",
+    skull: "Totenköpfe",
+    blades: "Klingen",
+    vaporwave: "Vaporwave",
+    haze: "Dunst",
+    retroSweet: "Retro Sweet",
+    flowers: "Blumen",
+    bows: "Schleifen",
+    gamerFrame: "Gamer-Rahmen",
+  },
+  sections: {
+    steps: "So funktioniert’s",
+    faq: "FAQ",
+    relatedTools: "Weitere Tools",
+    relatedGuides: "Weitere Guides",
+    swapStyles: "Anderen Stil ausprobieren",
+    tryIt: "Probiere es selbst",
+    combos: "Deko-Kombinationen",
+    combosIntro: (sample: string) =>
+      `Mit „${sample}“ als Beispiel: der Hauptstil, umhüllt von jedem Deko-Paar. Kopiere und ersetze ihn durch deinen eigenen Text.`,
+    structure: "Aufbau",
+  },
+  hub: {
+    styles: {
+      title: "Alle Schriftstile & Generatoren",
+      h1: "Alle Schriftstile",
+      description: "Stöbere durch alle Fancy-Schriftstile — Schreibschrift, Gothic, Cute, Bold, Small und Glitch — gruppiert nach Look. Kostenlos kopieren und einfügen.",
+      intro: `Alle Generatoren auf FancyFont, gruppiert nach Look. Einen öffnen, tippen, kopieren — jede Seite enthält den kompletten Katalog mit ${textStyles.length} Stilen und ehrlichen Hinweisen, wo jeder Look funktioniert.`,
+    },
+    platforms: {
+      title: "Fancy Fonts für jede Plattform",
+      h1: "Fonts nach Plattform",
+      description: "Fancy Fonts und Nicknames für Instagram, TikTok, Discord, Roblox und mehr — Zeichenlimits und Kompatibilität für jede Plattform.",
+      intro: "Jede Plattform-Seite ist auf ihre App zugeschnitten: Namens-Limits, was sicher gerendert wird und fertige Kombinationen. Wähle, wo du postest.",
+    },
+    styleGroups: {
+      script: "Schreibschrift & Script", gothic: "Gothic & Dark", cute: "Cute & Ästhetisch",
+      bold: "Bold & Cool", small: "Klein & Seltsam",
+    },
+    platformGroups: {
+      social: "Soziale Plattformen", games: "Games", chat: "Chat-Apps",
+    },
+  },
+  breadcrumb: { home: "Start", guides: "Guides" },
+  platform: {
+    limits: (p) => `${p}: Limits & Regeln`,
+    compat: "Wo es funktioniert — und wo nicht",
+    examples: "Fertige Nickname-Beispiele",
+    examplesIntro: "Kopiere sie direkt oder nutze sie als Vorlage für deinen eigenen Namen.",
+    faq: (p) => `${p} FAQ`,
+  },
+  guideIndex: {
+    h1: "Guides",
+    intro:
+      "Grundprinzipien, Kästchen-Fehlerbehebung, Plattform-Regeln und Stil-Kombis — das Ergebnis ist einfacher Unicode-Text, belegbar.",
+    cardLabel: "Guide",
+  },
+  home: {
+    badge: "Kostenlos · Keine Anmeldung · Nichts wird hochgeladen",
+    h1: "Fancy Font Generator",
+    h1Sub: `${textStyles.length} Stile für Buchstaben & Zahlen, ${cjkStyles.length} Dekorationen für Nicknames — kopieren und überall einfügen`,
+    intro:
+      "Gib einen Nickname, einen Satz oder ein Wort ein und jeder Stil wird live gerendert. Tippe auf eine Karte zum Kopieren und füge es in Instagram, TikTok, Discord, WhatsApp oder deine Game-ID ein — das Ergebnis ist Unicode-Text, daher werden keine Font-Dateien benötigt und es wird angezeigt, egal welche Fonts die App mitbringt.",
+    statStyles: "Buchstaben- & Zahlenstile",
+    statCjk: "Nickname-Dekorationen",
+    statLocal: "Daten hochgeladen — alles läuft lokal",
+    stylesHeading: "Stil-Seiten",
+    stylesIntro:
+      "Eine Seite pro Look: gefilterter Generator, Schritt-für-Schritt-Anleitung, Kompatibilitätshinweise und FAQ.",
+    platformsHeading: "Plattform-Seiten",
+    platformsIntro:
+      "Zeichenlimits, was wo funktioniert, und fertige Nickname-Beispiele für deine Plattform.",
+    platformCard: "Fancy-Text für",
+    guidesHeading: "Guides",
+    guidesIntro: "Grundprinzipien, Limits & Kompatibilität",
+    guidesAll: "Alle Guides →",
+    gameTextHeading: "Text für Spiele und Roleplay",
+    gameTextIntro:
+      "Kurze Stile für Namen im Spiel, Schilder und Roleplay. Account-Nutzernamen bleiben einfache Buchstaben — speichere nur, was das Spiel selbst annimmt.",
+    faqHeading: "FAQ",
+    faq: [
+      {
+        q: "Muss ich diese „Fonts“ installieren?",
+        a: "Nein. Die Ergebnisse sind spezielle Unicode-Zeichen — der Stil reist beim Kopieren und Einfügen mit dem Text mit, und weder du noch die Leserin oder der Leser muss etwas installieren.",
+      },
+      {
+        q: "Kann ich nicht-lateinische Schriften stylen?",
+        a: "Unicode hat keine gestylten Glyphen für Schriften wie Chinesisch, Japanisch oder Arabisch, daher bleiben diese Zeichen unverändert. Nickname-Dekorationen (Rahmen und Symbole) funktionieren aber mit beliebigen Zeichen.",
+      },
+      {
+        q: "Wird mein Text irgendwo hochgeladen?",
+        a: "Nein. Die Umwandlung findet vollständig in deinem Browser statt. Es ist kein Server beteiligt, also verlässt nichts, was du tippst, dein Gerät.",
+      },
+      {
+        q: "Wo kann ich Fancy-Text einfügen?",
+        a: "Anzeigefelder akzeptieren ihn in der Regel: Anzeigenamen, Bios, Signaturen, Chat-Nicknames. Suchfelder meist nicht: @Handles, Benutzername-IDs und Hashtags nehmen nur einfache Zeichen. Jede Plattform-Seite erklärt die Details.",
+      },
+      {
+        q: "Warum zeigen manche Geräte Kästchen (□) an?",
+        a: "Ein Kästchen bedeutet, dass die Fonts des anderen Geräts diese Glyphe nicht haben. Ein Stilwechsel löst es meist — vollbreite Buchstaben und gängige Symbole sind am sichersten. Risikohinweise stehen auf jeder Stilkarte.",
+      },
+    ],
+    startHeading: "Hier starten",
+    startLinks: [
+      { title: "Coquette", description: "Schleife und Script zum Kopieren. Der Account-Nutzername bleibt unverändert.", href: "/de/coquette-font-generator/" },
+      { title: "Schreibschrift-Konverter", description: "Der klassische Script-Look für Wörter.", href: "/de/cursive-fonts/" },
+      { title: "Warum Kästchen erscheinen", description: "Kompatibilität, einfach erklärt.", href: "/de/anleitung/why-boxes-appear/" },
+      { title: "Zeichenlimits", description: "Wie viele Zeichen in einen Namen passen.", href: "/de/anleitung/name-length-limits/" },
+    ],
+  },
+  notFound: {
+    badge: "404",
+    h1: "Diese Seite wurde wegkopiert",
+    body: "Die Adresse ist vielleicht falsch geschrieben, oder die Seite ist umgezogen. Zurück zur Startseite — alle Generatoren und Guides findest du dort.",
+    back: "Zur Startseite",
+    secondary: "Nickname-Dekorator",
+  },
+  compatNote:
+    "Gestylte Zeichen werden auf den meisten modernen Geräten korrekt angezeigt; auf alten Geräten oder bei exotischen Symbolen können Kästchen (□) erscheinen. Stilkarten tragen ⚠ Risikohinweise — teste vorher auf der Zielplattform, bevor du dich festlegst.",
+  datePublished: "Veröffentlicht",
+  dateUpdated: "Aktualisiert",
+};
+
+const STRINGS: Record<string, UiStrings> = { en: EN, "zh-cn": ZH, es: ES, "pt-br": PT, de: DE };
+
+export function getUi(locale: string): UiStrings {
+  return STRINGS[locale] ?? EN;
 }

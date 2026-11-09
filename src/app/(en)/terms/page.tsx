@@ -1,9 +1,7 @@
-import { LegalPageTemplate } from "@/components/page-templates/privacy";
-import { termsContent } from "@/lib/content/page-terms";
-import { pageMetadata } from "@/lib/metadata";
+import { LegalPage, legalMetadata } from "@/app/_shared/handlers";
 
-export const metadata = pageMetadata("en", "/terms/", termsContent.en.meta);
+export const metadata = legalMetadata("en", "terms");
 
 export default function Page() {
-  return <LegalPageTemplate content={termsContent.en} locale="en" path="/terms/" />;
+  return <LegalPage locale="en" kind="terms" />;
 }

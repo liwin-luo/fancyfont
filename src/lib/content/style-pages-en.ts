@@ -1,743 +1,580 @@
-// English copy for the dedicated style generator pages.
-// Every entry is hand-written so each page has genuinely unique content.
+// English copy for the 11 multilingual style pages.
+// decorated-nicknames is Chinese-only and lives in style-pages-zh-cn.ts.
 
-import type { TextStyleId } from "../text-styles";
+import type { Locale } from "../i18n";
+import type { StylePageCopy } from "../style-pages";
 
-export interface StylePageFaq {
-  q: string;
-  a: string;
-}
-
-export interface StylePageCopy {
-  navName: string;
-  h1: string;
-  description: string;
-  intro: string;
-  howItWorks: string;
-  coverageNote: string;
-  bestFor: string[];
-  sampleInputs: string[];
-  platformTip: string;
-  faq: StylePageFaq[];
-  /** Plain SERP title. Omit to keep the shared script title. */
-  title?: string;
-  examplesHeading?: string;
-  examplesHint?: string;
-  copyExamples?: readonly string[];
-}
-
-export interface StylePageShared {
-  slug: string;
-  styleIds: TextStyleId[];
-  related: string[];
-}
-
-export const stylePagesEn: Record<string, StylePageCopy> = {
-  "cursive-text-generator": {
-    navName: "Cursive",
-    h1: "Cursive Text Generator",
-    description:
-      "Turn ordinary text into flowing cursive Unicode text. Two weights, instant preview, copy and paste into bios, names and chats.",
-    intro:
-      "Turn your text into flowing cursive letters with Unicode script characters — no font to install, nothing to sign up for. Type below, pick a weight, and copy.",
-    howItWorks:
-      "Cursive text is built from the Unicode Mathematical Script and Bold Script ranges. Each letter is swapped for a lookalike character that happens to be drawn with connected, handwritten strokes — which is exactly why the style survives copy and paste while a real font would not.",
-    coverageNote:
-      "Both cursive styles convert A–Z and a–z. Unicode has no cursive digits, so numbers stay as you typed them, and accented letters, emoji and other scripts pass through untouched. Bold cursive is one continuous alphabet. Lighter cursive has no single mathematical form for e, g, and o, so those three letters use a different cut (ℯ ℊ ℴ).",
-    bestFor: [
-      "Instagram bios and display names that need a soft, handwritten touch",
-      "Beauty, wedding and lifestyle branding in profiles",
-      "Short quotes and captions where a script font would feel at home",
-    ],
-    sampleInputs: ["Your Name", "Sweet Tea", "Mr & Mrs"],
-    platformTip:
-      "Cursive letters work in most bios and display names on Instagram, TikTok and Discord. Some games reject them because their built-in fonts only cover plain ASCII — preview before you commit.",
-    faq: [
-      {
-        q: "Is cursive text a real font?",
-        a: "No. It is a set of Unicode characters that look like cursive handwriting. That is what makes it copyable into apps that only accept plain text.",
+export const stylePagesEn: Record<string, { [L in Locale]?: StylePageCopy }> = {
+  "cursive-fonts": {
+    en: {
+      navName: "Cursive",
+      h1: "Cursive Font Generator",
+      title: "Cursive Font Generator — Script Styles, Copy & Paste",
+      description:
+        "Turn English words into fancy cursive. Script and bold script update as you type — one tap to copy for bios, signatures and display names.",
+      intro: [
+        "Type an English word, name or short phrase below and the cursive versions appear on every card in real time. Tap to copy — no font files, no sign-up, no limits.",
+        "These “cursive fonts” aren't fonts at all: they're Unicode characters from the Mathematical Alphanumeric Symbols block that happen to look handwritten. Because they're ordinary text, the style survives any copy-paste into nicknames, bios and signatures.",
+      ],
+      steps: [
+        "Type your English name or favorite phrase in the box.",
+        "Compare the light script with the bold script; the ♡ and ✧ combos add decorations automatically.",
+        "Tap copy on the winner, or star a few candidates and pick later.",
+        "Paste into the target app and post a test before you commit.",
+      ],
+      about: {
+        heading: "How cursive text works",
+        paragraphs: [
+          "The styled letters come from Unicode's Mathematical Alphanumeric Symbols block, added in 2001 so formulas could be typeset. A generator simply swaps each ordinary letter for the styled character at the same code position — order, length and capitalization stay identical.",
+          "Because every letter needs a matching glyph, cursive only covers A–Z. Chinese, Japanese and Arabic have no styled forms in Unicode — that's why Chinese nicknames rely on decorative frames instead (see the nickname decorator, Chinese site only).",
+        ],
       },
-      {
-        q: "Why does my cursive text show squares on some devices?",
-        a: "The device is missing a font for those characters. Older Android phones are the most common offender. Pick the bold cursive weight or a different style if that happens to your audience.",
-      },
-      {
-        q: "Can I use cursive text for my Instagram username?",
-        a: "No — Instagram usernames only allow letters, digits, periods and underscores. Cursive works in your display name and bio instead.",
-      },
-    ],
+      faq: [
+        {
+          q: "Where can I paste cursive text?",
+          a: "Anywhere plain text is accepted: display names, bios, signatures, chat nicknames, game IDs. Fields that validate strictly — @handles, login IDs — usually reject styled characters.",
+        },
+        {
+          q: "Why do some letters show as boxes on other devices?",
+          a: "The receiving device's fonts lack those glyphs — common on old systems. Switching to bold script usually fixes it. Star two candidates so you have a backup.",
+        },
+        {
+          q: "Does cursive text hurt searchability?",
+          a: "Yes. Styled characters aren't ordinary letters, so searching your nickname verbatim may fail. Keep the real name in plain characters somewhere — decorations are for display, not lookup.",
+        },
+        {
+          q: "Does cursive text take up more characters in my bio?",
+          a: "No — each ordinary letter swaps for exactly one cursive letter, so the length stays identical. Whatever fit in the field before still fits.",
+        },
+        {
+          q: "Will screen readers read cursive text properly?",
+          a: "Not really — many announce it as “mathematical script” letter by letter. Keep cursive to names and short accents, and write anything meant to be read aloud in plain text.",
+        },
+        {
+          q: "Is the generator free? Do I need an account or a font install?",
+          a: "Free, no sign-up, and nothing to install — cursive letters are Unicode characters, not font files. The style travels inside the copied text itself.",
+        },
+      ],
+    },
   },
-  "gothic-text-generator": {
-    navName: "Gothic",
-    h1: "Gothic Text Generator",
-    description:
-      "Fraktur and Old English font generator for gothic blackletter. Classic and bold weights, live preview, one-tap copy for names, bios and clans.",
-    intro:
-      "Type anything and turn it into Fraktur, the Old English blackletter in metal logos, clan tags and moody bios. Classic and bold weights, copy in one click.",
-    howItWorks:
-      "Gothic text uses the Unicode Mathematical Fraktur ranges. Fraktur, often called Old English, is a historical German blackletter style, and Unicode ships a full lookalike alphabet for it — including typographically correct special forms for C, H, I, R and Z.",
-    coverageNote:
-      "Both gothic styles convert A–Z and a–z only. Digits, accented letters and emoji are kept exactly as typed, because Unicode ships no fraktur digits.",
-    bestFor: [
-      "Metal, gaming and dark-aesthetic usernames and clan tags",
-      "Halloween bios and event promos",
-      "Band-style wordmarks in social profiles",
-    ],
-    sampleInputs: ["Shadow", "Nightfall", "Raven"],
-    platformTip:
-      "Blackletter characters are widely supported on modern phones, but a few older devices show boxes. Test in the app you are targeting — especially inside games.",
-    faq: [
-      {
-        q: "Is Fraktur, Old English or medieval a different generator from gothic?",
-        a: "No. This page is all these names. Fraktur, Old English, medieval and blackletter all describe the same alphabet, and gothic is the usual search name for those characters. There is no separate font file.",
+  "bold-fonts": {
+    en: {
+      navName: "Bold",
+      h1: "Bold Text Generator",
+      title: "Bold Font Generator — Serif, Sans & Bold Italic",
+      description:
+        "Make genuinely bold fancy-text characters in four styles — serif, clean sans, bold italic and italic. Updates as you type; one tap to copy anywhere.",
+      intro: [
+        "Most chat apps and social platforms can't bold a single word — here the characters themselves are bold, so the emphasis survives every paste.",
+        "Four weights to choose from: classic bold, clean sans bold, bold italic and italic. Digits get bold forms too, so dates and numbers work.",
+      ],
+      steps: [
+        "Type the word, phrase or number you want to emphasize.",
+        "Compare the four weights — bold for headings, italic for accents.",
+        "Copy and paste into chat, a signature or a title.",
+        "If the target app renders it oddly, switch to sans bold.",
+      ],
+      about: {
+        heading: "Character-level bolding",
+        paragraphs: [
+          "This bold is different from a word processor's: it isn't a formatting flag, it's a swap to the Mathematical Bold block of Unicode. Boldness is baked into the character itself, independent of any layout engine.",
+          "The cost is accessibility: screen readers may announce 𝗕𝗼𝗹𝗱 as “mathematical sans bold B…” — noise for visually impaired listeners. Keep it to short phrases, never paragraphs.",
+        ],
       },
-      {
-        q: "What is the difference between the two gothic styles?",
-        a: "The first is classic Fraktur with thinner strokes; the second is the bold weight with heavier strokes that stays readable at small sizes.",
-      },
-      {
-        q: "Why do some letters look different from the rest?",
-        a: "Letters like C, H, I, R and Z come from historic blackletter typefaces rather than the mathematical range, so their shapes differ slightly. That is authentic to the style.",
-      },
-      {
-        q: "Does gothic text work in Roblox or Fortnite names?",
-        a: "Both games restrict nickname character sets, and many players report gothic characters being rejected. Try a name-change preview first, or use the plain-name combos in the Gaming Name Generator.",
-      },
-    ],
+      faq: [
+        {
+          q: "Does bold work in chat apps like WhatsApp or Discord?",
+          a: "Yes — the boldness is part of the characters, so chat bubbles keep it without any formatting syntax.",
+        },
+        {
+          q: "Can I mix bold with Chinese or emoji?",
+          a: "Yes. Chinese and emoji have no bold forms and pass through unchanged while the Latin parts turn bold — mixed text works fine.",
+        },
+        {
+          q: "Can I use bold characters in hashtags?",
+          a: "Better not. Hashtags match plain letters; a styled #Bold won't be indexed or clickable. Keep hashtags in ordinary characters.",
+        },
+        {
+          q: "Will screen readers cope with bold characters?",
+          a: "Poorly — they may announce 𝗕 as “mathematical sans bold B” instead of just B. Bold one or two words at most, and keep anything meant to be read aloud plain.",
+        },
+        {
+          q: "Why do bold letters show as boxes on some phones?",
+          a: "The receiving device's fonts lack glyphs for the mathematical block — rare, but common on very old systems. There's nothing the sender can fix; resend in plain text if it happens.",
+        },
+        {
+          q: "Does the bold survive pasting into Word or Google Docs?",
+          a: "Yes — the boldness lives in the characters themselves, so it survives documents, spreadsheets and emails. It even stays bold where the app's own formatting would be stripped.",
+        },
+      ],
+    },
   },
-  "bold-text-generator": {
-    navName: "Bold",
-    h1: "Bold Text Generator",
-    description:
-      "Make your text bold everywhere plain text is accepted. Serif, sans and italic bold weights — preview and copy in seconds.",
-    intro:
-      "Real bold that survives copy and paste — into WhatsApp statuses, X posts, Discord nicknames and anywhere formatting buttons can't reach.",
-    howItWorks:
-      "The bold styles draw from three Unicode ranges: Mathematical Bold for a classic serif weight, Mathematical Sans-Serif Bold for a cleaner look, and Mathematical Bold Italic for extra emphasis. Each letter is a separate character, so the weight travels with the text.",
-    coverageNote:
-      "Serif and sans bold convert letters and digits. The bold italic style covers letters only — Unicode has no bold italic digits — and anything outside A–Z, a–z and 0–9 stays unchanged.",
-    bestFor: [
-      "Emphasising a word or two inside bios and captions",
-      "Announcement posts where formatting is unavailable",
-      "Strong, readable gaming tags",
-    ],
-    sampleInputs: ["Breaking News", "Sale 50%", "GOAT"],
-    platformTip:
-      "Bold Unicode works almost everywhere plain text works. In apps that do support formatting, like Discord messages, prefer the app's own bold — it renders more consistently.",
-    faq: [
-      {
-        q: "Why not just use a bold button?",
-        a: "Many places — Instagram captions, TikTok bios, most game names — have no formatting option. Bold Unicode characters are the only way to get weight there.",
+  "gothic-fonts": {
+    en: {
+      navName: "Gothic",
+      h1: "Gothic Font Generator",
+      title: "Gothic Font Generator — Old English Blackletter",
+      description:
+        "Turn text into Fraktur blackletter in two weights — the dark fancy-text look for IDs, band names and moody bios. Updates as you type, one tap to copy.",
+      intro: [
+        "Gothic (Fraktur/Blackletter) is the lettering on old newspaper mastheads and metal band logos. Type an English word and both weights render live — tap a card to copy.",
+        "Pair it with ☠ or ⚔ decorations and you have a ready-made dark-themed nickname. Latin letters only — other scripts pass through unchanged.",
+      ],
+      steps: [
+        "Type your English nickname, band name or short phrase.",
+        "Compare the two weights — the bold one stays legible at small sizes.",
+        "Copy, paste into the name field, then post a test to check rendering.",
+        "If boxes appear on older devices, switch to the bold weight or cursive.",
+      ],
+      about: {
+        heading: "Newspaper lettering as Unicode",
+        paragraphs: [
+          "Unicode's Mathematical Alphanumeric Symbols block includes a Fraktur A–Z. Its readability is naturally low, so keep it to two or three words — nicknames and titles, never sentences.",
+          "A few letters (C, H, I, R, Z) have no standard Fraktur code point, so the well-known decorative substitutes fill in — the same convention every generator follows.",
+        ],
       },
-      {
-        q: "Do bold characters hurt screen readers?",
-        a: "Some screen readers read the mathematical letters letter-by-letter or spell them oddly. For long paragraphs, real formatting is kinder; for a name or a word, it is fine.",
-      },
-      {
-        q: "Is there a bold number?",
-        a: "Yes — in the serif and sans bold styles. The bold italic style has no bold italic digits, so numbers pass through unchanged there.",
-      },
-    ],
+      faq: [
+        {
+          q: "Can I use gothic text in games?",
+          a: "Most games accept Unicode nicknames, and blackletter usually passes. Games with whitelist validation may refuse — if you see an “illegal characters” error, plain letters are the only option there.",
+        },
+        {
+          q: "Is gothic the same as Old English?",
+          a: "Colloquially yes — “Old English font” almost always means Fraktur blackletter, not the actual Old English language.",
+        },
+        {
+          q: "Why do some letters look off?",
+          a: "Unicode only ships Fraktur glyphs for part of the alphabet; C, H, I, R and Z use decorative stand-ins. Every generator produces the same result.",
+        },
+        {
+          q: "Does gothic text take up more characters?",
+          a: "No — it's a one-for-one letter swap, so 𝔊𝔬𝔱𝔥𝔦𝔠 counts the same as “gothic”. Decorations like ☠ add their own characters, one each.",
+        },
+        {
+          q: "Is blackletter readable to screen readers?",
+          a: "Not naturally — they tend to announce it as “Fraktur” or “mathematical” letters. Keep gothic to nicknames and titles; never use it for a sentence someone needs to hear.",
+        },
+        {
+          q: "Can I add ☠ or ⚔ to a gothic name?",
+          a: "Yes — they're ordinary Unicode symbols and pair naturally with blackletter. Both are widely supported, though a few very old devices may still show boxes.",
+        },
+      ],
+    },
   },
-  "italic-text-generator": {
-    navName: "Italic",
-    h1: "Italic Text Generator",
-    description:
-      "Write slanted italic text that copies anywhere. Classic serif italic and clean sans italic, with instant preview.",
-    intro:
-      "Elegant slanted text you can paste into bios, captions and chats — wherever the apps forgot to give you an italic button.",
-    howItWorks:
-      "The classic style uses the Unicode Mathematical Italic range, including the historic ℎ for the letter h. The sans italic variant draws from the Mathematical Sans-Serif Italic range for a cleaner, more modern slant.",
-    coverageNote:
-      "Both italic styles convert letters only — Unicode defines no italic digits. Digits, punctuation, emoji and other scripts stay exactly as typed.",
-    bestFor: [
-      "Bookish, poetic captions and reading bios",
-      "Highlighting titles and foreign phrases",
-      "A softer accent inside otherwise plain bios",
-    ],
-    sampleInputs: ["once upon a time", "mood: cozy", "part 2"],
-    platformTip:
-      "Italic Unicode is safe in bios, display names and messages on all major platforms. Avoid long paragraphs — some screen readers stumble on mathematical letters, and slanted text is harder to read in bulk.",
-    faq: [
-      {
-        q: "Why did my numbers not change?",
-        a: "Unicode has no italic digits — only letters. Your numbers stay in the normal style, which usually looks fine mixed with italic letters.",
+  "small-fonts": {
+    en: {
+      navName: "Small caps",
+      h1: "Small Text Generator",
+      title: "Small Font Generator — Small Caps & Subtle Bio Text",
+      description:
+        "Quiet small caps, superscript and subscript for clean bios. Updates as you type, one tap to copy. Honest fancy-text coverage: a few capitals stay unchanged.",
+      intro: [
+        "Need a quiet second line in your bio? Small caps turn letters into miniature capitals, superscript lifts text up and subscript drops it down. Live preview, tap to copy.",
+        "All three styles share one quality: they don't shout. A small-caps line inside a loud row of styles adds instant hierarchy.",
+      ],
+      steps: [
+        "Type the English phrase you want to shrink.",
+        "Small caps suit whole lines; superscript and subscript fit one or two words.",
+        "Copy and paste into your bio, signature or note.",
+        "A few capitals have no small-caps glyph and stay unchanged — that's normal.",
+      ],
+      about: {
+        heading: "The limits of going small",
+        paragraphs: [
+          "Unicode's small-capital set has no X (and Q uses a lookalike), and the superscript table is missing several capitals. The engine is honest about it: characters without a styled form stay as typed rather than being faked.",
+          "“Small” here means different characters, not a font-size change — so line height and spacing stay under the platform's control, and the text stays legible on small screens.",
+        ],
       },
-      {
-        q: "Which italic should I pick?",
-        a: "Serif italic reads classic and bookish; sans italic looks cleaner at small sizes. Both copy the same way, so try both on your text.",
-      },
-      {
-        q: "Can I italicize a whole Instagram bio?",
-        a: "You can, but we would not recommend it: long stretches of mathematical characters can be read awkwardly by assistive tech and look busy. Italicize a word or a line instead.",
-      },
-    ],
+      faq: [
+        {
+          q: "Why didn't some letters change?",
+          a: "Unicode doesn't ship small-capital glyphs for every letter — X has none at all. All generators have the same gaps.",
+        },
+        {
+          q: "What are superscript digits good for?",
+          a: "Year badges like ²⁰²⁶, footnotes and formula jokes — they also pair nicely with normal text as annotations.",
+        },
+        {
+          q: "Is small text harder to read?",
+          a: "The letterforms are ordinary; only the visual size differs. But screen readers may announce “superscript” per character, so avoid it for anything that must be read aloud.",
+        },
+        {
+          q: "Do small caps count the same in my bio?",
+          a: "Yes — one styled character per ordinary letter, so the count doesn't change. Small caps change the look, not the length.",
+        },
+        {
+          q: "Why do superscript letters show as boxes on older devices?",
+          a: "The superscript table is one of the patchiest sets in Unicode, and old fonts miss much of it. If boxes appear, fall back to small caps — they have the best coverage of the three styles.",
+        },
+        {
+          q: "Can I set my whole bio in small caps?",
+          a: "You can — small caps suit whole lines better than superscript or subscript do. But a bio in one uniform style loses hierarchy; keep the main line normal and style the second line instead.",
+        },
+      ],
+    },
   },
-  "bubble-letters-generator": {
-    navName: "Bubble",
-    h1: "Bubble Letters Generator",
-    description:
-      "Bubble your text in filled circles, thin rings or squares. Playful Unicode letters with live preview and one-tap copy.",
-    intro:
-      "Wrap every letter in its own bubble. Three flavours — filled bubbles, thin rings and bold squares — all copyable as plain text.",
-    howItWorks:
-      "Bubble text uses the Enclosed Alphanumerics and Enclosed Alphanumeric Supplement blocks: filled circles for the bubble look, thin circled forms for a lighter touch, and negative squares for a blocky alternative. Each enclosed character is a single Unicode code point.",
-    coverageNote:
-      "Bubble and circled styles cover letters and digits, including a special character for zero. The squared style is letters-only and often renders as a colorful emoji on phones — fun, but test it first.",
-    bestFor: [
-      "Playful usernames and friend-group inside jokes",
-      "Kids' party invites and casual event posts",
-      "Highlighting single letters or numbers in bios",
-    ],
-    sampleInputs: ["Bubbles", "Party 2026", "ABC"],
-    platformTip:
-      "Enclosed characters are well supported on phones, which is where they are used most. The squared style is the exception — many devices render it as emoji, so check how it lands where you plan to paste it.",
-    faq: [
-      {
-        q: "What is the difference between bubble and circled?",
-        a: "Bubble letters sit in filled black circles; circled letters sit in thin outlined rings. Bubble is louder, circled is neater.",
+  "aesthetic-fonts": {
+    en: {
+      navName: "Aesthetic",
+      h1: "Aesthetic Font Generator",
+      title: "Aesthetic Font Generator — Fullwidth & Vaporwave",
+      description:
+        "ＡＥＳＴＨＥＴＩＣ fullwidth letters — the vaporwave fancy-text look — with ✧ ｡ﾟ heart combos. Live preview, one tap to copy for bios and captions.",
+      intro: [
+        "ａｅｓｔｈｅｔｉｃ — swapping ordinary letters for fullwidth forms widens everything into an even, dreamy rhythm. Add a ✧ or ｡ﾟ frame and you have the complete vaporwave package. Tap to copy.",
+        "Fullwidth characters were designed for CJK typesetting, which is exactly why English set in them gets that unmistakable Japanese-manual vibe.",
+      ],
+      steps: [
+        "Type a short English word or phrase — shorter reads better.",
+        "Take the fullwidth body or layer a ✧・｡ﾟ decoration combo.",
+        "Copy and paste into your bio, caption or video description.",
+        "Fullwidth letters are wide — check the platform's character counter.",
+      ],
+      about: {
+        heading: "Why it's called aesthetic",
+        paragraphs: [
+          "Fullwidth Forms are Unicode's widened Latin alphabet, built for compatibility with old CJK terminals. Every character occupies a full ideographic cell, giving English an intentional airy spacing — the core ingredient of the vaporwave look.",
+          "The decoration combos use characters from the same width family, so the rhythm stays even instead of turning noisy like random emoji do.",
+        ],
       },
-      {
-        q: "Why does zero look different?",
-        a: "Unicode encloses zero differently from the other digits, so it gets its own character. Both styles handle it — the parenthesized style is the only one that skips zero entirely.",
-      },
-      {
-        q: "Can I use bubble letters in a game name?",
-        a: "Some games allow enclosed characters, but strict ones do not. Copy a combo from the Gaming Name Generator that keeps your base name plain, so you always have a fallback.",
-      },
-    ],
+      faq: [
+        {
+          q: "How many characters does fullwidth count as?",
+          a: "Most platforms count one character each; a few count display width as 2. Watch the platform's own counter after pasting.",
+        },
+        {
+          q: "Does fullwidth mix well with Chinese?",
+          a: "Perfectly — fullwidth letters share the exact width of Han characters, so mixed bios keep an even rhythm. It's the best English style for CJK-mixed text.",
+        },
+        {
+          q: "Why does it look Japanese?",
+          a: "Fullwidth forms belong to the CJK typesetting tradition, which Japanese text uses heavily. They remain standard Unicode characters, tied to no language.",
+        },
+        {
+          q: "Will screen readers read fullwidth text?",
+          a: "Usually yes, but slowly — many announce each letter as a “fullwidth” character. Fine for a one-word bio accent; not for anything that has to be read aloud.",
+        },
+        {
+          q: "Does fullwidth text still work in search?",
+          a: "No — searching “vaporwave” won't match ｖａｐｏｒｗａｖｅ, because the characters are different code points. Use fullwidth for display lines and keep anything meant to be found in ordinary letters.",
+        },
+        {
+          q: "Do I need to download a vaporwave font?",
+          a: "No — fullwidth letters are standard Unicode characters, not font files. There's nothing to install and no account to make; the look travels with the copied text.",
+        },
+      ],
+    },
   },
-  "small-caps-generator": {
-    navName: "Small Caps",
-    h1: "Small Caps Generator",
-    description:
-      "Type in small capitals — a quiet, premium look for bios, display names and captions. Convert and copy instantly.",
-    intro:
-      "Small caps turn your text into miniature capitals — the quiet, premium look you see in clean bios and aesthetic profiles. Type, convert, copy.",
-    howItWorks:
-      "Small caps use the Unicode Phonetic Extensions and Small Form Variants: a dedicated set of miniature capital letters typographers use for scholarly notation. Letters without a small-capital form — like lowercase x — stay as they are, which is why the style still reads naturally.",
-    coverageNote:
-      "Small caps convert A–Z and a–z. Digits and punctuation are unaffected. One quirk to know: lowercase x has no small-capital form anywhere in Unicode, so it stays lowercase.",
-    bestFor: [
-      "Minimalist bios and aesthetic display names",
-      "Chapter headings and section labels in posts",
-      "A premium, understated look for short phrases",
-    ],
-    sampleInputs: ["aesthetic", "Chapter One", "mood"],
-    platformTip:
-      "Small caps are among the safest styled characters — they render on nearly every device and are accepted almost everywhere, including most games.",
-    faq: [
-      {
-        q: "Why does the x stay small?",
-        a: "Unicode never defined a small-capital X, so there is nothing to swap it with. Generators that do convert x are substituting a different character that may not render on all devices.",
+  "cute-fonts": {
+    en: {
+      navName: "Cute",
+      h1: "Cute Font Generator",
+      title: "Cute Font Generator — Hearts, Bows & Soft Frames",
+      description:
+        "Sweet fancy-text bubble, script and circled letters wrapped in ♡ ୨୧ ✿ frames. Live preview, one-tap copy for soft, matching names.",
+      intro: [
+        "Bubble letters, hearts, bows and soft brackets — the whole sweet-toolkit on one page. Type a name and every style and combo renders live; tap to copy.",
+        "Decoration combos wrap the winning style in a symbol pair — ♡Sweetie♡. Save several variants and switch with your mood.",
+      ],
+      steps: [
+        "Type an English name or a sweet short phrase.",
+        "Pick the base: bubble is roundest, script is softest.",
+        "Layer a decoration combo — hearts and bows are the crowd favorites.",
+        "Star a few candidates and test how they render on the platform.",
+      ],
+      about: {
+        heading: "The recipe for cute",
+        paragraphs: [
+          "Cuteness comes from round glyphs plus symmetric decorations. Bubble and circled letters carry the roundness; hearts and flowers on both sides add a soft rhythm.",
+          "Decoration symbols differ in compatibility: ♡ and ✿ work almost everywhere, while ୨୧ may turn into boxes on old devices. Post a test before committing — risk notes are on every card.",
+        ],
       },
-      {
-        q: "Is small caps the same as lowercase?",
-        a: "No — they are distinct capital letterforms at a smaller size, with different shapes from lowercase letters. Copy one of each and compare.",
-      },
-      {
-        q: "Does small caps work in game names?",
-        a: "Usually, yes — it is one of the most widely accepted styles. Strict games can still reject it, so preview in a name-change screen first.",
-      },
-    ],
+      faq: [
+        {
+          q: "How do I make matching names for couples or besties?",
+          a: "Wrap the same name in two different combos — one ♡, one ୨୧. Star both so they're ready to paste.",
+        },
+        {
+          q: "Do decorations use extra characters?",
+          a: "The letters swap one-for-one; each decoration adds 1–2 symbols per side. Keep an eye on the platform's name-length counter.",
+        },
+        {
+          q: "The bow symbol shows as a box — what now?",
+          a: "That device lacks the glyph. Switch to ♡ or ✿; the bubble letters themselves are highly compatible.",
+        },
+        {
+          q: "Will screen readers handle a cute decorated name?",
+          a: "Mostly — ♡ and ✿ are announced as short symbol names, but frames around every word get noisy fast. Decorate the name, not the sentences.",
+        },
+        {
+          q: "Why does ♡ sometimes render in color like an emoji?",
+          a: "Some platforms give heart shapes an emoji presentation and paint them red. It varies by device, not by your text — if it bothers you, ✿ or ✧ stay black-and-white more reliably.",
+        },
+        {
+          q: "Is the cute generator free — do I need to install anything?",
+          a: "Free, no account, nothing to install. Bubble and circled letters are Unicode characters, so the style is copied along with the text itself.",
+        },
+      ],
+    },
   },
-  "strikethrough-text-generator": {
-    navName: "Strikethrough",
-    h1: "Strikethrough Text Generator",
-    description:
-      "Cross out text with a strikethrough line, a slash, or bold struck letters. Copy the result anywhere plain text works.",
-    intro:
-      "Cross out any text — for jokes, price drops, sarcasm and edits. Three strike flavours, all copyable into apps with no formatting button.",
-    howItWorks:
-      "Strikethrough does not swap letters at all — it appends a combining slash mark after every character. Your original text stays intact underneath, which is why struck text works on letters, digits, emoji and even Chinese characters alike.",
-    coverageNote:
-      "Because the style adds marks rather than replacing characters, it works on any input. One trade-off: screen readers may read the underlying text normally, and some apps space the marks unevenly.",
-    bestFor: [
-      "Funny corrections and self-aware jokes in bios and chats",
-      "Crossed-out sale prices in posts",
-      "Edits and revoke notes in group chats",
-    ],
-    sampleInputs: ["bad idea", "was $99", "never mind"],
-    platformTip:
-      "Strikethrough renders in most modern apps. In Discord, plain-text markdown (~~like this~~) exists for messages — Unicode strikes are for bios, nicknames and everywhere markdown is not available.",
-    faq: [
-      {
-        q: "Why does my struck text look uneven?",
-        a: "Apps draw combining marks with their own fonts, and some align them imperfectly. If the line looks broken, the bold struck style often aligns better because the letters are wider.",
+  "bubble-fonts": {
+    en: {
+      navName: "Bubble",
+      h1: "Bubble Letters Generator",
+      title: "Bubble Font Generator — Circled, Squared & Parenthesized",
+      description:
+        "Wrap every letter in fancy bubbles: filled bubbles, thin circles, parentheses and squared badges. Live preview, one tap to copy for names and numbering.",
+      intro: [
+        "Letters inside circles and boxes: 🅑🅤🅑🅑🅛🅔 filled bubbles, ⓑⓤⓑⓑⓛⓔ thin circles, plus parenthesized and squared variants. Type, preview, tap to copy.",
+        "The four wraps differ in weight: bubbles are the heaviest, thin circles the lightest, parentheses the airiest, squares the most badge-like (watch for emoji rendering).",
+      ],
+      steps: [
+        "Type an English word — 2 to 6 letters works best.",
+        "Compare the four wraps and pick a density that fits the context.",
+        "Copy and paste into a name, group card or numbered list.",
+        "If squares turn into colored emoji, switch to bubbles or circles.",
+      ],
+      about: {
+        heading: "Two families of enclosed letters",
+        paragraphs: [
+          "Thin circle letters come from Unicode's classic Enclosed Alphanumerics (neighbors of ①②③), which also covers circled digits 1–20; filled bubbles and squares come from the newer Enclosed block, where some characters carry an emoji presentation.",
+          "That emoji identity is why 🅱 occasionally renders in color — a dual identity, not a bug. Switch styles when a platform forces the colorful form.",
+        ],
       },
-      {
-        q: "Can I strike through emoji?",
-        a: "Yes — the mark is added after the emoji, so the line crosses it. Results vary slightly per platform because emoji glyphs differ.",
-      },
-      {
-        q: "Is the original text still there underneath?",
-        a: "Yes. Strikethrough is purely visual — the characters are unchanged, so copy-paste, search and screen readers still see the base text.",
-      },
-    ],
+      faq: [
+        {
+          q: "Do digits get wrapped too?",
+          a: "Yes — bubbles and circles cover 0–9, parentheses cover 1–20. Numbered lists like ⓶⓪⓶ work out of the box.",
+        },
+        {
+          q: "Why did my square letter turn colorful?",
+          a: "Characters like 🅱🅰 have an emoji identity and some platforms prefer that rendering. Use thin circles when you want the plain black-and-white form.",
+        },
+        {
+          q: "Are bubble letters good for long sentences?",
+          a: "No — enclosed characters are visually dense and get noisy fast. Single words, numbers and keywords are the right dose.",
+        },
+        {
+          q: "Do circle letters count as two characters?",
+          a: "One each in most counters, but enclosed letters are wide — some platforms count display width as 2. Paste first and watch the platform's own counter.",
+        },
+        {
+          q: "Are bubble letters readable by screen readers?",
+          a: "Not smoothly — many announce ⓑ as “circled latin small letter b”. Fine for a display name; keep sentences and anything read aloud in plain letters.",
+        },
+        {
+          q: "Do I need to install a bubble font?",
+          a: "No — these are Unicode characters, not font files. Nothing to install and no account needed; the bubbles travel inside the copied text itself.",
+        },
+      ],
+    },
   },
-  "glitch-text-generator": {
-    navName: "Glitch",
-    h1: "Glitch Text Generator",
-    description:
-      "Corrupt your text with cursed combining marks — three glitch intensities, from subtly wrong to fully zalgo. Copy with one tap.",
-    intro:
-      "Infest your text with crawling marks. Pick a corruption level — from subtly off to full zalgo — and paste the chaos anywhere.",
-    howItWorks:
-      "Zalgo text stacks Unicode combining marks above and below each character. This generator picks marks with a seeded, deterministic process — the same input always produces the same glitch, so what you preview is exactly what you copy.",
-    coverageNote:
-      "Glitch works on any character — letters, digits, emoji — because nothing is replaced. Heavy intensities stack many marks per letter, which is where the horror-movie look comes from.",
-    bestFor: [
-      "Cursed usernames and horror-themed profiles",
-      "Meme posts and chaotic group-chat energy",
-      "Spooky season bios and Halloween events",
-    ],
-    sampleInputs: ["help", "do not look", "hello"],
-    platformTip:
-      "Glitch text is the most demanding style you can paste. Some apps cap the number of combining marks, trim them, or render them in a straight line — always test before renaming anything important.",
-    faq: [
-      {
-        q: "What is zalgo?",
-        a: "An internet legend born from a 2004 comic: text corrupted with stacking diacritics until it looks possessed. The name stuck as the style's name.",
+  "strikethrough-text": {
+    en: {
+      navName: "Strikethrough",
+      h1: "Strikethrough Text Generator",
+      title: "Strikethrough Text Generator — Slash & Underlines",
+      description:
+        "Strike, slash or underline any fancy text — Chinese and emoji included. Copy in one tap; screen readers still read the base text, counters may double.",
+      intro: [
+        "Chat apps won't let you strike a word — here the line is baked into the characters, so it survives every paste and works on any script.",
+        "Strikethrough for jokes and corrections, underline for emphasis; six variants from single lines to double underlines.",
+      ],
+      steps: [
+        "Type the word or phrase to line through.",
+        "Strikethrough reads as “crossed out”; underline reads as emphasis.",
+        "Copy and paste into chat, a bio or a comment.",
+        "Line alignment depends on the reader's font — slight offsets are normal.",
+      ],
+      about: {
+        heading: "How combining marks draw lines",
+        paragraphs: [
+          "The lines aren't graphics — they're Unicode combining marks (U+0336 and friends) stacked onto each character. Rendering draws the line through the previous glyph, which is why the trick works on Chinese and emoji too.",
+          "The cost: copied text counts roughly double — every visible character carries an invisible mark. Watch the counter in strict input fields.",
+        ],
       },
-      {
-        q: "Why does my glitch text look tame in some apps?",
-        a: "Apps cap or normalize combining marks to keep text renderable. Nothing is broken — the app is protecting its own layout.",
-      },
-      {
-        q: "Is glitch text bad for screen readers?",
-        a: "Yes — stacked marks are read as dozens of diacritics or skipped entirely. Keep it to names and jokes, never important information.",
-      },
-    ],
+      faq: [
+        {
+          q: "Does strikethrough work on Chinese?",
+          a: "Yes — every Han character gets the line too. Some fonts render it thinner on CJK glyphs; the effect varies by platform.",
+        },
+        {
+          q: "Why did my character count double?",
+          a: "Every visible character carries an invisible combining mark that counters include. Struck text is about twice as long as it looks.",
+        },
+        {
+          q: "Can I use underlined text as a game name?",
+          a: "Depends on the game. Most accept combining marks; strict anti-cheat validations may refuse. Test in the rename dialog before spending a name-change card.",
+        },
+        {
+          q: "Will screen readers still read struck-through text?",
+          a: "Yes — the combining marks don't change the base characters, so the words come through. The “crossed out” joke is lost on listeners, though; don't rely on the line to carry meaning.",
+        },
+        {
+          q: "How do I remove a strikethrough later?",
+          a: "Delete the text and retype it — the marks are part of the characters, so nothing can toggle them off. A tool that strips combining marks (like a zalgo cleaner) also undoes it.",
+        },
+        {
+          q: "Can I strike through emoji too?",
+          a: "Yes — combining marks stack on any character, emoji included. Rendering varies: some apps draw the line cleanly, others offset it or skip it on the emoji glyph.",
+        },
+      ],
+    },
   },
-  "upside-down-text-generator": {
-    navName: "Upside Down",
-    h1: "Upside Down Text Generator",
-    description:
-      "Flip your text upside down with flipped Unicode letters and punctuation. Type, watch it flip, copy and confuse everyone.",
-    intro:
-      "Flip it. This generator rewrites your text with upside-down letterforms and reverses the order, so the whole line reads rotated 180°.",
-    howItWorks:
-      "Each character is swapped for a rotated lookalike — a becomes ɐ, b becomes q — and the result is reversed so the last letter lands first. Punctuation flips too: an exclamation mark becomes ¡, question marks become ¿.",
-    coverageNote:
-      "Letters and digits convert well; a few rarer capitals like K and Q have no good rotated form and stay as they are. Anything the map cannot flip — including emoji — passes through unchanged.",
-    bestFor: [
-      "Bio puzzles and 'read if you can' captions",
-      "Reply pranks in group chats",
-      "Profile names that make people tilt their heads",
-    ],
-    sampleInputs: ["hello", "turn me", "wow"],
-    platformTip:
-      "Flipped text is well supported in bios and messages. Note that screen readers will read the reversed, substituted text literally — keep it short and playful.",
-    faq: [
-      {
-        q: "Does it actually rotate, or substitute letters?",
-        a: "It substitutes: Unicode has dedicated upside-down letterforms like ɐ and ǝ. That substitution is why the text survives copy and paste.",
+  "fancy-numbers": {
+    en: {
+      navName: "Numbers",
+      h1: "Fancy Numbers Generator",
+      title: "Fancy Numbers Generator — Circled, Bold & Bubble",
+      description:
+        "Turn digits into ① 𝟙 ➊ — six fancy digit families for dates, door numbers and IDs. Honest coverage notes; copy in one tap.",
+      intro: [
+        "①②③ 𝟙𝟚𝟛 ➊➋➌ — every digit style you can type, on one page. Enter a number, date or room number and the styles render live.",
+        "Digit styles mix well with words: 𝟐𝟎𝟐𝟕 class, ⓿ errors. The page also outputs letter forms so you can copy labels together with numbers.",
+      ],
+      steps: [
+        "Type the number — units and letters welcome (like No.1).",
+        "Circled digits suit list numbering; bold suits years.",
+        "Copy and paste into posts, titles or nicknames.",
+        "If boxes appear on older devices, switch to bold or monospace.",
+      ],
+      about: {
+        heading: "Six shapes for ten digits",
+        paragraphs: [
+          "Unicode gives 0–9 several styled families: mathematical bold/outline/monospace in the math block; circled digits in the classic symbols block next to ①; filled bubbles in the enclosed block. Font coverage differs per family — older systems miss the rarest ones.",
+          "A rough reliability order: plain bold > monospace > outline > circled > bubble. When sending to unknown devices, prefer the top of that list.",
+        ],
       },
-      {
-        q: "Why is my text reversed?",
-        a: "Rotated text reads right-to-left visually, so reversing the order is what makes it read correctly when the page is upside down.",
-      },
-      {
-        q: "Can I flip emoji?",
-        a: "No — emoji have no rotated forms, so they pass through unchanged and stay right-side up.",
-      },
-    ],
+      faq: [
+        {
+          q: "Can I send phone numbers in fancy digits?",
+          a: "Please don't. Verification codes, order numbers and phone numbers must be recognized as ordinary digits — styled digits break recognition.",
+        },
+        {
+          q: "What's the difference between ① and ➊?",
+          a: "① is a thin circle from the classic symbols block, ➊ a filled bubble from the enclosed block — different sources, looks and font coverage. Swap them when one renders badly.",
+        },
+        {
+          q: "Is a fancy-digits user ID searchable?",
+          a: "No. People can't type styled digits to find you. Show contact info in ordinary digits next to any decorated version.",
+        },
+        {
+          q: "Why do circled digits show as boxes on older phones?",
+          a: "Older fonts cover plain bold and monospace digits well but miss rarer families like bubbles and filled outlines. When sending to unknown devices, start at the top of the reliability list — bold first, bubble last.",
+        },
+        {
+          q: "How do screen readers handle fancy digits?",
+          a: "They may announce ① as “circled digit one” or skip the style entirely. Never use styled digits for anything that must be read back or dialed — a year in a post is fine, an address is not.",
+        },
+        {
+          q: "Is this generator free to use?",
+          a: "Yes — free, no account, nothing to install. Styled digits are ordinary Unicode characters you copy like any other text.",
+        },
+      ],
+    },
   },
-  "tiny-text-generator": {
-    navName: "Tiny",
-    h1: "Tiny Text Generator",
-    description:
-      "Shrink your text with Unicode superscript and subscript letters. Two tiny styles, instant preview, copy and paste anywhere.",
-    intro:
-      "Shrink your words to whisper size. Superscript floats your text above the line; subscript sinks it below. Both copy as plain text.",
-    howItWorks:
-      "Tiny text uses Unicode superscript and subscript modifier letters — the same characters footnote markers and chemical formulas are built from. Each character is a compact lookalike at a fraction of the normal size.",
-    coverageNote:
-      "This is the most partial style on the site: lowercase superscripts cover most letters but not q, and subscripts skip b, c, d, f, g, q, w, y and z. Anything without a tiny form — including most capitals — stays normal, which is why mixed results are normal here.",
-    bestFor: [
-      "Footnote-style asides in bios ('she/her', tiny credits)",
-      "Chemistry and math inverts in study accounts",
-      "Quiet side comments next to louder text",
-    ],
-    sampleInputs: ["whisper", "H2O", "note:"],
-    platformTip:
-      "Tiny text renders reliably in bios and messages, but gaps where letters are missing can look uneven. If that bothers you, small caps give a similar quiet feel with full coverage.",
-    faq: [
-      {
-        q: "Why are some letters big and some tiny?",
-        a: "Unicode has no superscript or subscript form for every letter. The missing ones stay normal size — a known trade-off of the style.",
+  "zalgo-text": {
+    en: {
+      navName: "Zalgo",
+      h1: "Zalgo Text Generator",
+      title: "Zalgo Text Generator — 3 Glitch Levels & Cleaner",
+      description:
+        "Stack cursed fancy-text marks in three intensities on any character. Copy in one tap, or strip corruption with the built-in cleaner. Screen readers skip it.",
+      intro: [
+        "Zalgo stacks combining marks onto characters until the text bleeds. Three intensities from lightly off to fully cursed — type, preview, copy.",
+        "The cleaner at the bottom of the page closes the loop: paste corrupted text from anywhere and strip every mark back to the clean original.",
+      ],
+      steps: [
+        "Type a phrase — zalgo works on any characters, Chinese and emoji included.",
+        "Pick an intensity: light suits signatures, heavy is for short horror copy.",
+        "Tap copy and paste into a name, bio or spooky post.",
+        "Regret it? Drop the text into the cleaner below and restore it.",
+      ],
+      about: {
+        heading: "Combining marks, taken too far",
+        paragraphs: [
+          "Letters, Han characters and emoji are all ordinary characters — and Unicode ships hundreds of combining marks with no width of their own, drawn stacked on the previous glyph. Zalgo stuffs 2–8 of them after every character.",
+          "The denser the stack, the more layout engines struggle: rows get clipped, counters explode, and screen readers recite every mark. Heavy zalgo belongs in short copy only — never in anything important.",
+        ],
       },
-      {
-        q: "Can I write tiny numbers?",
-        a: "Yes — superscript and subscript digits are fully covered, from ⁰ to ⁹ and ₀ to ₉. That is why H₂O works perfectly.",
-      },
-      {
-        q: "Is tiny text readable?",
-        a: "At bio sizes, mostly. It is best for a word or two, not sentences — and never for information that must be accessible.",
-      },
-    ],
+      faq: [
+        {
+          q: "Can zalgo text damage my account?",
+          a: "No — it's plain text with no code attached. The risks are display-level: broken layout, refused saves in some games. Test short first; the cleaner always restores.",
+        },
+        {
+          q: "Why does it render as tiny marks or squares elsewhere?",
+          a: "The device's fonts lack those combining glyphs. A lighter intensity usually survives; that's why heavy is for short copy.",
+        },
+        {
+          q: "How do I clean zalgo someone sent me?",
+          a: "Paste the whole thing into the cleaner on this page — it strips every combining mark and variation selector, keeping only base characters, all locally in your browser.",
+        },
+        {
+          q: "How much longer does zalgo text get?",
+          a: "A lot — every character carries 2–8 invisible marks, so a heavy curse can triple the length and blow past strict counters. Light zalgo fits a 30-character name; heavy rarely does.",
+        },
+        {
+          q: "Is zalgo readable by screen readers?",
+          a: "Essentially no — screen readers recite every combining mark, turning one name into minutes of noise. It's the least accessible style on this site; keep it to short copy aimed at eyes, not ears.",
+        },
+        {
+          q: "Where can I actually post zalgo text?",
+          a: "Bios, display names and comments — short, decorative spots. Strict fields (logins, handles, forms) refuse the marks or clip the stack, and games with name filters often reject it outright.",
+        },
+      ],
+    },
   },
-  "cute-font-generator": {
-    navName: "Cute",
-    h1: "Cute Font Generator",
-    description:
-      "Cute copy-and-paste text: round bubble letters with one heart, bow, or flower. Free in the browser, nothing to install.",
-    intro:
-      "Type a name and get round bubble letters with one heart, the ୨୧ bow, or a flower. People also call this kawaii or soft lettering. A script line sits underneath if you want it quieter. Ribbon script is the coquette page. These are characters you paste, not a font file.",
-    howItWorks:
-      "Bubble and circled letters are enclosed alphanumerics. The flowing line is Mathematical Script. Hearts, bows (୨୧), flowers, and soft brackets are separate symbols, and only the bubble row wears them — one pair at a time, so the name stays readable.",
-    coverageNote:
-      "Bubble and circled convert A–Z, a–z, and digits. Script converts letters only, so numbers in that row stay plain. Accented letters, emoji, and other scripts pass through. Decorations are extra characters around the word.",
-    bestFor: [
-      "Display names and bios that should feel soft",
-      "A short name with one heart or one bow",
-      "Captions, not full sentences",
-    ],
-    sampleInputs: ["Momo", "Soft", "Peach"],
-    platformTip:
-      "Cute letters work in most Instagram, TikTok, and Discord display names and bios. Usernames that only allow plain letters will reject them. If a bow or soft bracket shows as an empty box, copy the heart row instead.",
-    faq: [
-      {
-        q: "Is a cute font a file I download?",
-        a: "No. The result is Unicode characters, which is why it pastes into apps that only accept plain text. This site does not offer font files.",
+  "upside-down-text": {
+    en: {
+      navName: "Upside down",
+      h1: "Upside Down Text Generator",
+      title: "Upside Down Text Generator — Flip Letters & Marks",
+      description:
+        "Mirror every letter and reverse the line — a becomes ɐ, ! becomes ¡. Type, watch it flip, copy in one tap. Well supported fancy text for bios and messages.",
+      intro: [
+        "ʇı dᴉlℲ — mirror every letter, then run the string backwards, and the whole line reads upside down. Type, preview, copy.",
+        "Letters, digits 1–9 and common punctuation all have upside-down forms. Chinese has none and passes through, so mixed text flips halfway — which is its own kind of fun.",
+      ],
+      steps: [
+        "Type the English phrase to flip.",
+        "Check the preview — punctuation flips too.",
+        "Copy and paste into a signature or comment.",
+        "Want the Chinese part to look odd too? Add a frame or spacing from the decorator.",
+      ],
+      about: {
+        heading: "It's not rotation — it's substitution",
+        paragraphs: [
+          "Upside-down text isn't a graphic effect: the engine swaps each letter for a Unicode lookalike (a→ɐ, e→ǝ) and then reverses the string, so reading order runs right-to-left and the line looks inverted.",
+          "The map covers both cases, digits and common punctuation; characters without an upside-down form (like W or Chinese) stay put. It's still ordinary text — copy, paste and counters all behave.",
+        ],
       },
-      {
-        q: "Is coquette or kawaii text a different generator?",
-        a: "Kawaii stays on this page: bubble letters with a heart, the ୨୧ bow, or a flower. Coquette is the other page, script letters with a ribbon bow.",
-      },
-      {
-        q: "Can I use this as my Instagram username?",
-        a: "No. Instagram usernames only allow letters, digits, periods, and underscores. Paste the cute name into your display name or bio.",
-      },
-    ],
-  },
-  "cool-font-generator": {
-    navName: "Cool",
-    h1: "Cool Font Generator",
-    description:
-      "Cool copy-and-paste names: bold letters with lightning, stars, or a clan wing. Free, and it stays in your browser.",
-    intro:
-      "Bold letters, then lightning, a star mark, or the clan wings ꧁༒. People also call this stylish text or a clan tag. It builds one decorated name. The full list of every alphabet, with no symbols, is the Fancy Text page.",
-    howItWorks:
-      "The heavy letters are Unicode Mathematical Bold. Small caps is the quieter second row and stays bare, so you can compare it with the decorated bold line. Stars, lightning, and wing brackets are symbols wrapped around the bold row only.",
-    coverageNote:
-      "Bold converts letters and digits. Small caps converts most letters and leaves a few unchanged when Unicode has no small-cap form. Decorations count toward name-length limits.",
-    bestFor: [
-      "Discord display names and game tags",
-      "A clan-style name with one wing pair",
-      "A single word that should read heavier than script",
-    ],
-    sampleInputs: ["Nova", "Ace", "Clan"],
-    platformTip:
-      "Bold Unicode usually survives Discord and social bios. Games that only accept plain ASCII will strip it. Wing brackets fail first on older phones — if they vanish, copy the lightning row.",
-    faq: [
-      {
-        q: "Is this the same as the fancy text page?",
-        a: "No. Fancy Text lists every alphabet and adds no decorations. This page only builds the cool look: bold letters plus lightning, stars, or clan wings.",
-      },
-      {
-        q: "What does stylish text mean here?",
-        a: "The same decorated bold names. Stylish, on this page, is the lightning, star, and wing rows — not a separate alphabet.",
-      },
-      {
-        q: "Will a clan tag fit a game username?",
-        a: "Often the symbol is the part that gets rejected. If the wings disappear in the game's preview, use the plain bold row.",
-      },
-      {
-        q: "Are cool letters the same as cool fonts?",
-        a: "Yes — cool letters, cool fonts and cool text all describe the same thing: bold or small-caps Unicode letters dressed with stars, wings or brackets. Type above, pick a look and copy it.",
-      },
-    ],
-  },
-  "dark-font-generator": {
-    navName: "Dark",
-    h1: "Dark Font Generator",
-    description:
-      "Dark copy-and-paste names: blackletter with a skull, a dagger, or a moon. For bios and display names, not a font download.",
-    intro:
-      "Blackletter with one dark symbol — a skull, a dagger, or a moon. Emo lettering is this mix. The gothic page is the bare alphabet, with no skulls. This page is the decorated version.",
-    howItWorks:
-      "The letters are Unicode Fraktur. The heavy bold cut is wrapped; the regular cut stays bare underneath. Skulls, daggers, and moons are separate symbols on the bold row only.",
-    coverageNote:
-      "Both fraktur styles convert A–Z and a–z only. Digits stay as you typed them. The skull is a symbol and can look different on each phone. Accented letters and other scripts pass through.",
-    bestFor: [
-      "Dark bios and Discord names",
-      "Emo or moody one-word names",
-      "Halloween lines that still need to be copied as text",
-    ],
-    sampleInputs: ["Night", "Emo", "Raven"],
-    platformTip:
-      "Fraktur works in many bios and fails in games that require plain ASCII. If the skull shows as an empty box, copy the dagger or the moon row.",
-    faq: [
-      {
-        q: "Is emo text different from gothic?",
-        a: "Gothic, on this site, is the bare blackletter alphabet. Emo is that alphabet plus a skull, a dagger, or a moon — which is this page.",
-      },
-      {
-        q: "Can I download a dark font?",
-        a: "No. You copy characters. A font file would have to be installed, and nothing here is installed.",
-      },
-      {
-        q: "Why do some letters look different from the rest?",
-        a: "Fraktur keeps historical forms for C, H, I, R, and Z. That shape is the alphabet, not a glitch.",
-      },
-    ],
-  },
-  "elegant-font-generator": {
-    navName: "Elegant",
-    h1: "Elegant Font Generator",
-    description:
-      "Elegant copy-and-paste script with a crown, a fleur-de-lis, or a floral heart. For names, captions, and bios.",
-    intro:
-      "Heavy script, then a crown, a fleur-de-lis, or a floral heart. Royal and princess names are this same look: flowing letters and one formal symbol, not round bubble type.",
-    howItWorks:
-      "Letters are Unicode Bold Script, with the thinner script as a bare second row. Crowns, fleurs, and floral hearts wrap the bold script only, so the decoration stays one pair per result.",
-    coverageNote:
-      "Both script styles convert letters only. Digits, accents, and emoji stay as typed. Each crown or fleur is an extra character on that side of the name.",
-    bestFor: [
-      "Wedding, beauty, and formal display names",
-      "A royal or princess name in a bio",
-      "Short captions that should feel dressed up",
-    ],
-    sampleInputs: ["Rose", "Royal", "Ada"],
-    platformTip:
-      "Script works in most Instagram, TikTok, and Discord display names and bios, not in usernames limited to plain letters. If the heavy script shows boxes, copy the thinner script row.",
-    faq: [
-      {
-        q: "Is elegant the same as cursive?",
-        a: "Cursive is the bare script alphabet. Elegant leads with the heavier script and adds one formal symbol: a crown, a fleur, or a floral heart.",
-      },
-      {
-        q: "Where are royal and princess fonts?",
-        a: "On this page. A princess or royal name here is script plus a crown or a fleur-de-lis, not a separate download.",
-      },
-      {
-        q: "Is this a calligraphy font file?",
-        a: "No. You copy characters. Calligraphy font files are something you install, and this site does not offer those.",
-      },
-      {
-        q: "Is this what people mean by a luxury font?",
-        a: "Often, yes. Luxury font searches usually want the same formal look — script with crowns, ornate marks and tidy spacing. Like everything on this page it is Unicode text rather than a font file, so you can paste it into bios and profiles.",
-      },
-    ],
-  },
-  "aesthetic-text-generator": {
-    navName: "Aesthetic",
-    h1: "Aesthetic Font Generator",
-    description:
-      "Wide vaporwave letters with a sparkle or a dot-mist on either side, plus small caps if you want it quieter. Copy and paste, no font file.",
-    intro:
-      "Wide full-width letters — the vaporwave look — with a mist of dots or a sparkle on either side. Small caps is the second row when the wide letters feel too loud.",
-    howItWorks:
-      "Full-width characters come from legacy encodings where CJK and Latin text shared fixed-width grids, so Latin letters got wide boxes of their own. Spaces widen too, which is the slow rhythm. The dot-mist and the sparkle are symbols wrapped around that wide line only. They are not part of the full-width alphabet.",
-    coverageNote:
-      "Full-width covers letters, digits, and spaces. Small caps covers most letters and leaves a few unchanged. Punctuation stays plain. The decorations add characters and make the line wider still.",
-    bestFor: [
-      "Vaporwave, lo-fi, and retro profiles",
-      "A wide one-word bio with a little sparkle",
-      "Retro-tech and 80s/90s posts",
-    ],
-    sampleInputs: ["aesthetic", "v a p o r", "dream 1997"],
-    platformTip:
-      "Full-width text shows up wherever CJK text does, which is almost everywhere. It is wide, and the sparkle makes it wider — check that the line still fits your bio. If a sparkle fails, the plain wide row still copies.",
-    faq: [
-      {
-        q: "Why is it called vaporwave text?",
-        a: "Wide letters and slow spacing became the visual signature of vaporwave. The technical name of the letters is full-width text. The sparkle is a separate symbol on either side.",
-      },
-      {
-        q: "Does the wide spacing copy too?",
-        a: "Yes. The wide space is a real character, the ideographic space, so the airy rhythm survives pasting. It also uses more of a character limit.",
-      },
-      {
-        q: "Will decorations count in my bio?",
-        a: "Yes. Each full-width letter counts as one, and each sparkle or dot counts as well. A short word is the comfortable length.",
-      },
-    ],
-  },
-  "coquette-font-generator": {
-    navName: "Coquette",
-    h1: "Coquette Font Generator",
-    title: "Coquette Font Generator — Copy Paste Ribbon Letters",
-    description:
-      "Free coquette letters with a ribbon bow. Copy and paste script text for Instagram display names and Discord nicknames. Not a font file to install.",
-    intro:
-      "Script letters, then one bow. The rows are a small bow, a ribbon pair, and a ribbon emoji. Cute text on this site is round bubble letters. This page stays the ribbon look.",
-    howItWorks:
-      "The bow wraps Unicode Bold Script. That heavier alphabet has a real e, g, and o. The thinner script sits underneath with no bow, and on that row e, g, and o are stand-ins, so a name like Belle should use the bold row. The bows and the ribbon are separate symbols on the bold row only.",
-    coverageNote:
-      "Script converts A–Z and a–z. Digits stay as typed. The small bow is a rare character and can show as an empty box. If it does, copy the ribbon-emoji row. Decorations count toward the name limit.",
-    bestFor: [
-      "Instagram display names and bios",
-      "Discord nicknames and short statuses",
-      "A one-word name with a single bow",
-    ],
-    sampleInputs: ["Mia", "Lila", "Belle"],
-    platformTip:
-      "Paste this into an Instagram display name or a Discord nickname. Those usernames only take plain letters, digits, and a few marks, so the bow stays off the handle. A display name is about 30 characters on Instagram and a nickname about 32 on Discord. If the small bow fails, the ribbon emoji still copies.",
-    faq: [
-      {
-        q: "Is coquette a font I download?",
-        a: "No. You copy characters. A font file would have to be installed, and this site does not offer one.",
-      },
-      {
-        q: "How is this different from the cute font page?",
-        a: "Cute is bubble letters with a heart, the ୨୧ bow, or a flower. Coquette is script with a ribbon bow. The two pages do not share decorations.",
-      },
-      {
-        q: "Can I put a coquette name in my Instagram username?",
-        a: "No. The username stays plain letters, digits, and a few marks. You can try the styled name in the display name or the bio. The app decides which characters it accepts; this page does not list a full character set.",
-      },
-    ],
-  },
-  "preppy-font-generator": {
-    navName: "Preppy",
-    h1: "Preppy Font Generator",
-    title: "Preppy Fonts — Generator, Copy & Paste Styles | FancyFont",
-    description:
-      "Preppy fonts are clean small-cap Unicode styles with one tidy heart. Generate, copy and paste them into bios, TikTok names and Adopt Me display names — free, no sign-up.",
-    intro:
-      "Preppy fonts are the clean small-cap look with one tidy heart — white, a suit heart, or a rotated one. No bows and no bubble letters: the louder cute look is the other page. This one stays tidy, which is what preppy names in Adopt Me usually want.",
-    howItWorks:
-      "Small caps are Unicode modifier letters that look like shorter capitals. Script is the bare second row. Each heart is a symbol on the small-caps row only, one pair or one side, so the name stays short.",
-    coverageNote:
-      "Small caps cover most letters and leave a few unchanged when Unicode has no small-cap form. Script converts letters only, so digits in that row stay plain. Hearts are extra characters. The white heart is an emoji and is the first one a game filter may reject.",
-    bestFor: [
-      "Short Adopt Me display names",
-      "A clean name with a single heart",
-      "Bios that should feel tidy rather than bubbly",
-    ],
-    sampleInputs: ["Mila", "Blair", "Tess"],
-    platformTip:
-      "Adopt Me shows your Roblox display name, usually about 20 characters, and the username cannot take fonts. A short small-caps name with one heart fits that box more often than a bow on both sides. Paste it on Roblox's own name screen before you confirm the change.",
-    faq: [
-      {
-        q: "Is preppy the same as coquette?",
-        a: "No. Coquette is script with a ribbon bow. Preppy is small caps with one clean heart.",
-      },
-      {
-        q: "Will this work as an Adopt Me username?",
-        a: "The Roblox username stays letters, digits, and one underscore. Try the styled name as the display name, and only after the game's own preview accepts it.",
-      },
-      {
-        q: "Why keep the hearts so plain?",
-        a: "A stack of bows eats the 20-character display name and gets filtered more often. One heart is the preppy mark, and it still leaves room for the name.",
-      },
-      {
-        q: "What is the preppy font called?",
-        a: "There is no single preppy font. What social media calls preppy is usually small caps — shorter capitals — often with one clean heart or bow next to it. It is all Unicode text, not an installed font, which is why it survives copy and paste.",
-      },
-      {
-        q: "How do I get preppy fonts?",
-        a: "Type your name above, pick a style row and a heart, then copy. Paste it into your Instagram bio, TikTok display name or Adopt Me profile, and check the platform's own preview before saving.",
-      },
-    ],
-  },
-  "heart-font-generator": {
-    navName: "Heart",
-    h1: "Heart Font Generator",
-    description:
-      "Heart copy-and-paste text: script letters with a different heart on each of twelve rows. Free in the browser, nothing to install.",
-    intro:
-      "Script letters, then one heart pair per row — twelve hearts, and no two rows share a symbol. One heart on bubble letters stays on the cute page. One clean heart on small caps stays on the preppy page. You copy characters. This is not a font file and not a picture of lettering.",
-    howItWorks:
-      "The heart rows wrap Unicode Bold Script, the heavier alphabet with a real e, g, and o. The thinner script sits underneath with no heart — on that row e, g, and o are stand-ins, so a name like Love or Belle should stay on a heart row. Bubble is the third row and stays bare, so it does not repeat the cute page. Each heart is a separate symbol on the bold row only.",
-    coverageNote:
-      "Script and bold script convert A–Z and a–z. Digits stay as typed. Bubble converts letters and digits. Accented letters, emoji, and other scripts pass through. Hearts are extra characters and count toward name-length limits. The smaller hearts are rare and can show as an empty box — if one fails, copy the red heart or the sparkle row.",
-    bestFor: [
-      "Instagram and TikTok display names and bios",
-      "A one-word name or a short caption",
-      "Discord nicknames where one heart on each side is enough",
-    ],
-    sampleInputs: ["Love", "Mia", "Honey"],
-    platformTip:
-      "Paste a heart name into an Instagram display name or bio, a TikTok bio, or a Discord nickname. Handles that only allow plain letters will reject the hearts. A display name is about 30 characters on Instagram and a nickname about 32 on Discord, so one heart on each side of a short word fits more often than a stack of symbols.",
-    faq: [
-      {
-        q: "Is a heart font a file I download?",
-        a: "No. The result is Unicode characters, which is why it pastes into apps that only accept plain text. This site does not offer font files, and it does not draw the letters into a picture.",
-      },
-      {
-        q: "How is this different from the cute and preppy pages?",
-        a: "Cute is bubble letters with one heart, a bow, or a flower. Preppy is small caps with one clean heart. This page is script with twelve different heart pairs, and those hearts are not used on the other pages.",
-      },
-      {
-        q: "Can I use a heart name as my Instagram username?",
-        a: "No. Instagram usernames only allow letters, digits, periods, and underscores. Paste the heart name into your display name or bio.",
-      },
-    ],
-  },
-  "chicano-font-generator": {
-    navName: "Chicano",
-    h1: "Chicano Font Generator",
-    description:
-      "Chicano-style copy-and-paste text: blackletter with one ornament per row, plus a script line. Free in the browser. Not a font file or a tattoo stencil.",
-    intro:
-      "Classic blackletter, then one ornament per row — twelve marks, and none of them are the skulls or moons on the dark page. Bare blackletter, with no ornaments, is the gothic page. You copy characters. This is not hand-drawn Chicano lettering, and it is not a stencil.",
-    howItWorks:
-      "The ornament rows wrap Unicode Fraktur, the blackletter alphabet often called Old English. Bold fraktur sits underneath with no ornament, so the heavier weight stays readable at small sizes. Bold script is the third row and stays bare: it stands in for the flowing half of the style, and the letters are not joined. Each ornament is a separate symbol on the classic fraktur row only.",
-    coverageNote:
-      "Both fraktur styles convert A–Z and a–z only. Digits, accented letters such as á, é, and ñ, and emoji stay as typed, because Unicode has no fraktur forms for them. Bold script converts letters only. Ornaments are extra characters and count toward name-length limits. A rare ornament can show as an empty box — if it does, copy the cross row or the bare fraktur row.",
-    bestFor: [
-      "A short name or a one-word motto in a bio",
-      "Comparing blackletter and script before you brief a lettering artist",
-      "A display name that wants blackletter without the dark-page skulls",
-    ],
-    sampleInputs: ["Rosa", "Luz", "Vida"],
-    platformTip:
-      "Paste into a display name or bio, then check that app. Games that only accept plain letters will reject blackletter. These characters are not a tattoo stencil: the strokes are text glyphs, not a drawing sized for skin.",
-    faq: [
-      {
-        q: "Is this a Chicano font I download?",
-        a: "No. You copy Unicode characters. This site does not offer a font file, and it does not load the retail blackletter or script faces that image generators use.",
-      },
-      {
-        q: "Is this traditional Chicano lettering?",
-        a: "No. Chicano lettering is hand-drawn blackletter and script from Mexican-American graphic work — murals, cars, and tattoos. These rows only approximate the blackletter look, plus one script alphabet. They are not a stencil or a stand-in for an artist.",
-      },
-      {
-        q: "Why do ñ and accented letters stay plain?",
-        a: "Unicode fraktur has no styled form for them, so they pass through and the other letters still convert.",
-      },
-    ],
-  },
-
-  "crazy-font-generator": {
-    navName: "Crazy",
-    h1: "Crazy Font Generator",
-    description:
-      "Mix wild Unicode styles letter by letter and shuffle until it looks properly unhinged. Copy crazy fonts for bios, game names and chats — free, no sign-up.",
-    intro:
-      "One style is never crazy enough. This generator mixes several Unicode letter styles inside a single word, wraps the result in decorations, and reshuffles on demand until it looks properly unhinged. Same text in, different madness out.",
-    howItWorks:
-      "Instead of converting the whole string with one alphabet, the mixer walks through your text character by character and draws a different style for each position from a seeded shuffle — script next to fraktur next to bubble. The shuffle is deterministic: the same text, level and shuffle always rebuild the exact same result, and every reshuffle gives you a genuinely new set.",
-    coverageNote:
-      "The mixing styles convert A–Z and a–z (some also digits). Characters without a styled lookalike — accented letters, emoji, Chinese — pass through untouched, so a mixed result can deliberately blend styled and plain characters. Decorations add to the length your target field counts.",
-    bestFor: [
-      "Game names and clan tags that should look chaotic on purpose",
-      "Profiles that already tried the cool and glitch styles and want something louder",
-      "One-off jokes, stream titles and chat handles with unhinged energy",
-    ],
-    sampleInputs: ["Your Name", "Cha0s", "GlitchQueen"],
-    platformTip:
-      "Mixed styles are exactly as portable as the styles they are made of — every character is plain Unicode. Games with ASCII-only name fields reject most of it; bios and display names on social apps are friendlier ground. Paste and preview before you commit.",
-    faq: [
-      {
-        q: "What are crazy fonts?",
-        a: "They are not fonts at all — each crazy result is ordinary text where every letter has been swapped for a lookalike Unicode character from a different style. That is why you can copy and paste them anywhere plain text goes.",
-      },
-      {
-        q: "How is this different from the glitch generator?",
-        a: "Glitch (zalgo) stacks combining marks on top of normal letters. Crazy text swaps the letters themselves for characters from different alphabets, so the result reads like several styles fighting over one word.",
-      },
-      {
-        q: "Why does the same text keep coming back the same?",
-        a: "The shuffle is seeded, not random. The same text, level and shuffle number always rebuild the identical result — hit shuffle again and you get a genuinely new set.",
-      },
-      {
-        q: "Will crazy text work in my game name?",
-        a: "It depends on the game. Many mobile games accept decorative Unicode; ASCII-only fields do not. Copy a variant, paste it into the actual field, and check before you save.",
-      },
-    ],
+      faq: [
+        {
+          q: "Does flipped text display fine on phones?",
+          a: "Yes — the mirror characters are ordinary letters covered by mainstream system fonts. A few shapes look slightly odd by nature.",
+        },
+        {
+          q: "Why didn't the Chinese flip?",
+          a: "Unicode has no mirrored Han glyphs, so Chinese passes through. Frame it or space it out for the “something's off” effect.",
+        },
+        {
+          q: "How do I read it back?",
+          a: "Paste it back into the box and flip again — the transform is its own inverse.",
+        },
+        {
+          q: "Will screen readers understand flipped text?",
+          a: "No — they read the mirrored letters as written, which sounds like gibberish, and the reversal scrambles the order further. Flip only short, decorative lines.",
+        },
+        {
+          q: "Why did some letters stay upright?",
+          a: "A few characters have no upside-down lookalike — W is the famous one — so they're left as typed. It's a gap in Unicode's mirror table, not a bug in the generator.",
+        },
+        {
+          q: "Can I use upside-down text in a username?",
+          a: "Display names usually take it; strict @handles and login fields typically reject the mirrored characters. Test in the real field first — and remember nobody can type it to search for you.",
+        },
+      ],
+    },
   },
 };

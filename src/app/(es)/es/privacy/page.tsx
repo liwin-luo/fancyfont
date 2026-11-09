@@ -1,9 +1,7 @@
-import { PrivacyPageTemplate } from "@/components/page-templates/privacy";
-import { privacyContent } from "@/lib/content/page-symbols-privacy";
-import { pageMetadata } from "@/lib/metadata";
+import { LegalPage, legalMetadata } from "@/app/_shared/handlers";
 
-export const metadata = pageMetadata("es", "/privacy/", privacyContent["es"].meta);
+export const metadata = legalMetadata("es", "privacy");
 
 export default function Page() {
-  return <PrivacyPageTemplate locale="es" />;
+  return <LegalPage locale="es" kind="privacy" />;
 }

@@ -1,7 +1,14 @@
 # Localization
 
-Audit layer for multilingual content. The published copy still lives in
-`src/lib/`; nothing here is imported by the site at runtime.
+Historical review export for the **previous** root application (English, Spanish,
+Brazilian Portuguese, `zh-cn`, and Indonesian). The current site does not import
+this directory. Its copy lives in `src/lib/` and is served at `/zh/`, not
+`/zh-cn/`; Indonesian is not a current locale. The old `i18n:export` and
+`content:export` scripts were removed with that application because they imported
+modules that no longer exist.
+
+Audit layer for that older multilingual content. Nothing here is imported by the
+site at runtime.
 
 ## UI dictionary (phase 1)
 

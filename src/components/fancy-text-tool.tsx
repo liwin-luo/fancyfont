@@ -1,537 +1,567 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { localePath } from "@/lib/i18n";
+// 花式文字生成器:输入实时转换,分类过滤,收藏/最近留在本机。
+// 服务端渲染初始结果(defaultValue 预填示例),首屏即有内容可看。
+
+import { useEffect, useMemo, useState } from "react";
 import {
   convertAll,
   getStyle,
   styleCategories,
   styleMatches,
   type ConvertedText,
+  type StyleCategory,
+  type TextStyleId,
 } from "@/lib/text-styles";
-import {
-  applyWrap,
-  hanFrames,
-  hasHan,
-  pasteTargets,
-  type PasteTargetId,
-  type WrapId,
-} from "@/lib/composer";
-import { measureText, sliceGraphemes } from "@/lib/measure";
-import { codePointLength } from "@/lib/platform-preview";
-import { CompatReport } from "@/components/compat-report";
-import { CopyButton } from "@/components/copy-button";
-import { PreviewOptions, ShareLinks } from "@/components/style-actions";
-import { useToast } from "@/components/toast";
-import { copyText } from "@/lib/copy";
-import { downloadTextPng } from "@/lib/export-image";
+import { convertCjkAll, hasCjk } from "@/lib/cjk-styles";
 import { useLocalList } from "@/lib/storage";
-import { useLocale } from "@/components/locale-context";
 import { getUi } from "@/lib/ui-strings";
+import { getStyleMeta } from "@/lib/style-meta";
+import type { Locale } from "@/lib/i18n";
 
-const MAX_LENGTH = 120;
-const COMPARE_MAX = 4;
-const FAVORITES_KEY = "fancyfont:favorite-styles";
-const RECENTS_KEY = "fancyfont:recent-styles";
+type TabId = "styles" | "favorites" | "recent";
 
-function StarIcon({ filled }: { filled: boolean }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
-      <path d="M10 2.5l2.35 4.76 5.25.76-3.8 3.7.9 5.24L10 14.52l-4.7 2.44.9-5.24-3.8-3.7 5.25-.76L10 2.5z" />
-    </svg>
-  );
+async function copyToClipboard(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }
 
-function DownloadIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 2v8m0 0l3-3m-3 3L5 7M3 12.5h10" />
-    </svg>
-  );
-}
-
-export function FancyTextTool({ defaultText = "Your Name" }: { defaultText?: string }) {
-  const [text, setText] = useState(defaultText);
+export function FancyTextTool({
+  locale,
+  styleIds,
+  placeholder,
+  showCjk = false,
+  showCategories = true,
+  showLatin = true,
+}: {
+  locale: Locale;
+  styleIds: TextStyleId[];
+  placeholder: string;
+  /** 同时渲染中文装饰网格(花式昵称页/部分平台页)。 */
+  showCjk?: boolean;
+  /** 显示英文样式分类 tab(窄主题页可关)。 */
+  showCategories?: boolean;
+  /** 渲染英文样式卡片(纯中文装饰页可关)。 */
+  showLatin?: boolean;
+}) {
+  const ui = getUi(locale);
+  const meta = getStyleMeta(locale);
+  const [input, setInput] = useState(placeholder);
+  const [tab, setTab] = useState<TabId>("styles");
+  const [category, setCategory] = useState<StyleCategory | "all">("all");
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<string | null>(null);
-  const [previewSize, setPreviewSize] = useState(18);
-  const [transparentPng, setTransparentPng] = useState(false);
-  const [wrapId, setWrapId] = useState<WrapId>("none");
-  const [pasteId, setPasteId] = useState<PasteTargetId>("anywhere");
-  const [openReport, setOpenReport] = useState<string | null>(null);
-  const favorites = useLocalList(FAVORITES_KEY);
-  const recents = useLocalList(RECENTS_KEY, 8);
-  const [compareIds, setCompareIds] = useState<string[]>([]);
+  const [infoId, setInfoId] = useState<TextStyleId | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+  const favorites = useLocalList("fontdrafts:favorites", 50);
+  const recents = useLocalList("fontdrafts:recent", 10);
 
-  const showToast = useToast();
-  const locale = useLocale();
-  const t = getUi(locale);
+  /** ⓘ 详情打开时支持 Esc 关闭。 */
+  useEffect(() => {
+    if (!infoId) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setInfoId(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [infoId]);
 
-  const source = sliceGraphemes(text, MAX_LENGTH);
-  const measures = measureText(source);
-  const charCount = measures.graphemes;
-  const all = useMemo(
-    () =>
-      convertAll(source).map((result) => ({
-        ...result,
-        localName: t.styleNames[result.id],
-      })),
-    [source, t],
+  const queryLower = query.trim().toLowerCase();
+
+  /** 页面声明的全部样式(未做分类过滤),供分类 tab 判断"有没有内容"。 */
+  const wantedAll = useMemo(() => {
+    if (!showLatin) return [];
+    const all = convertAll(input);
+    // 按页面 styleIds 顺序(精选置顶,fullCatalog 保证)而不是引擎目录顺序。
+    const scoped =
+      styleIds.length > 0
+        ? styleIds
+            .map((id) => all.find((r) => r.id === id))
+            .filter((r): r is (typeof all)[number] => Boolean(r))
+        : all;
+    if (!queryLower) return scoped;
+    // 搜索:引擎别名/名称/说明 + 本地化名称都参与匹配。
+    return scoped.filter((r) => {
+      const style = getStyle(r.id);
+      const localName = (meta.names[r.id] ?? "").toLowerCase();
+      return styleMatches(style, queryLower) || localName.includes(queryLower);
+    });
+  }, [input, styleIds, showLatin, queryLower, meta.names]);
+
+  const latinResults = useMemo(
+    () => (category === "all" ? wantedAll : wantedAll.filter((r) => r.category === category)),
+    [wantedAll, category],
   );
 
-  const results = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    const matched = all.filter((result) => {
-      if (category === "favorites") return favorites.items.includes(result.id);
-      if (category === "recent") return recents.items.includes(result.id);
-      if (category && result.category !== category) return false;
-      if (!q) return true;
-      return (
-        styleMatches(getStyle(result.id), q) ||
-        result.localName.toLowerCase().includes(q) ||
-        t.styleCategoryNames[result.category].toLowerCase().includes(q)
-      );
-    });
-    if (category !== "recent") return matched;
-    const rank = new Map(recents.items.map((id, index) => [id, index]));
-    return matched.sort((a, b) => (rank.get(a.id) ?? 0) - (rank.get(b.id) ?? 0));
-  }, [all, category, query, favorites.items, recents.items, t]);
+  const cjkResults = useMemo(() => {
+    if (!showCjk) return [];
+    const all = convertCjkAll(input);
+    if (!queryLower) return all;
+    return all.filter(
+      (r) =>
+        r.name.toLowerCase().includes(queryLower) ||
+        r.text.toLowerCase().includes(queryLower) ||
+        r.tags.some((tag) => tag.toLowerCase().includes(queryLower)),
+    );
+  }, [input, showCjk, queryLower]);
+  const containsCjk = hasCjk(input);
+  const charCount = Array.from(input).length;
 
-  async function handleDownload(result: ConvertedText & { localName: string }) {
-    const ok = await downloadTextPng(result.text, `fancyfont-${result.id}.png`, {
-      transparent: transparentPng,
-    });
-    showToast(ok ? t.common.savedAsPng : t.common.pngFailed);
+  async function handleCopy(id: string, text: string) {
+    const ok = await copyToClipboard(text);
+    if (!ok) return;
+    setCopied(id);
+    window.setTimeout(() => setCopied((current) => (current === id ? null : current)), 1500);
+    recents.add(text);
   }
 
-  const paste = pasteTargets.find((item) => item.id === pasteId) ?? pasteTargets[0];
-  const showHan = hasHan(source);
-
-  function dressed(value: string) {
-    return applyWrap(value, wrapId);
-  }
-
-  async function copyFavorites() {
-    const lines = all
-      .filter((result) => favorites.items.includes(result.id))
-      .map((result) => dressed(result.text))
-      .filter((line) => line.trim().length > 0);
-    const ok = lines.length > 0 && (await copyText(lines.join("\n")));
-    showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
-  }
-
-  function toggleCompare(id: string) {
-    if (compareIds.includes(id)) {
-      setCompareIds(compareIds.filter((existing) => existing !== id));
-      return;
-    }
-    if (compareIds.length >= COMPARE_MAX) {
-      showToast(t.common.compareLimit);
-      return;
-    }
-    setCompareIds([...compareIds, id]);
-  }
-
-  async function copyAllStylesText() {
-    // Empty conversions stay out; a wrapped empty input would otherwise
-    // paste decoration frames with nothing inside.
-    const lines = all
-      .filter((result) => result.text.trim().length > 0)
-      .map((result) => dressed(result.text));
-    const ok = lines.length > 0 && (await copyText(lines.join("\n")));
-    showToast(ok ? t.common.copiedToClipboard : t.common.copyFailed);
-  }
-
-  const wrapChips: { id: WrapId; name: string }[] = [
-    { id: "none", name: t.common.wrapNone },
-    { id: "star", name: t.common.wrapStar },
-    { id: "heart", name: t.common.wrapHeart },
-    { id: "wings", name: t.common.wrapWings },
-    { id: "brackets", name: t.common.wrapBrackets },
+  const tabs: { id: TabId; label: string; count?: number }[] = [
+    { id: "styles", label: ui.tool.tabs.styles },
+    { id: "favorites", label: ui.tool.tabs.favorites, count: favorites.items.length },
+    { id: "recent", label: ui.tool.tabs.recent, count: recents.items.length },
   ];
-  const pasteChips: { id: PasteTargetId; name: string }[] = [
-    { id: "anywhere", name: t.common.pasteAnywhere },
-    { id: "display", name: t.common.pasteDisplay },
-    { id: "bio", name: t.common.pasteBio },
-    { id: "username", name: t.common.pasteUsername },
-  ];
-  const chipClass = (active: boolean) =>
-    `h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-      active
-        ? "border-brand-600 bg-brand-100 text-brand-800"
-        : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
-    }`;
 
-  const chips: { id: string; name: string }[] = [
-    { id: "all", name: t.common.all },
-    ...styleCategories.map((c) => ({ id: c.id, name: t.styleCategoryNames[c.id] })),
-    ...(recents.items.length > 0 ? [{ id: "recent", name: t.common.recent }] : []),
-    {
-      id: "favorites",
-      name: `★ ${t.common.favorites}${favorites.items.length ? ` (${favorites.items.length})` : ""}`,
-    },
-  ];
+  const activeCategories = showCategories
+    ? styleCategories.filter((c) => wantedAll.some((r) => r.category === c.id))
+    : [];
 
   return (
-    <div>
-      <div className="card p-4 sm:p-6">
-        <label htmlFor="fancy-input" className="mb-2 block text-sm font-semibold text-ink-700">
-          {t.common.yourText}
+    <div className="mt-6">
+      {/* 输入区(移动端 sticky:翻样式列表时输入框始终在手边) */}
+      <div className="card-pop sticky top-14 z-30 p-4 sm:p-5 md:static md:top-0">
+        <label htmlFor="fd-input" className="text-sm font-black">
+          {ui.tool.inputLabel}
         </label>
-        <div className="flex gap-2">
-          <input
-            id="fancy-input"
-            type="text"
-            value={text}
-            onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
-            placeholder={t.common.yourText}
-            autoComplete="off"
-            spellCheck={false}
-            className="text-input"
-          />
-          {text !== defaultText && (
-            <button
-              type="button"
-              onClick={() => setText(defaultText)}
-              className="h-12 shrink-0 rounded-xl px-3 text-sm font-medium text-ink-600 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-            >
-              {t.common.reset}
-            </button>
-          )}
-          {text.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setText("")}
-              className="h-12 shrink-0 rounded-xl px-3 text-sm font-medium text-ink-600 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-            >
-              {t.common.clear}
-            </button>
-          )}
-        </div>
-        <p className="mt-2 text-xs text-ink-500">
-          {charCount}/{MAX_LENGTH} {t.common.charactersInfo} · {t.common.browserOnly}
-        </p>
-        <details className="mt-1">
-          <summary className="cursor-pointer text-xs text-ink-500">{t.common.countsSummary}</summary>
-          <p className="mt-1 text-xs leading-relaxed text-ink-500">
-            {t.common.visibleCount(measures.graphemes)}
-            <br />
-            {t.common.codePointCount(measures.codePoints)}
-            <br />
-            {t.common.utf16Count(measures.utf16)}
-          </p>
-        </details>
-
-        <div className="mt-4">
-          <p className="mb-2 text-sm font-semibold text-ink-700">{t.common.wrapLabel}</p>
-          <div role="group" aria-label={t.common.wrapLabel} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-            {wrapChips.map((chip) => (
-              <button
-                key={chip.id}
-                type="button"
-                aria-pressed={wrapId === chip.id}
-                onClick={() => setWrapId(chip.id)}
-                className={chipClass(wrapId === chip.id)}
-              >
-                {chip.name}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="mt-3">
-          <p className="mb-2 text-sm font-semibold text-ink-700">{t.common.pasteLabel}</p>
-          <div role="group" aria-label={t.common.pasteLabel} className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-            {pasteChips.map((chip) => (
-              <button
-                key={chip.id}
-                type="button"
-                aria-pressed={pasteId === chip.id}
-                onClick={() => setPasteId(chip.id)}
-                className={chipClass(pasteId === chip.id)}
-              >
-                {chip.name}
-              </button>
-            ))}
-          </div>
-          {paste.plain && (
-            <p className="mt-2 text-xs leading-relaxed text-ink-600">{t.common.usernamePlain}</p>
-          )}
-        </div>
-
-        <div className="mt-4 border-t border-line pt-4">
-          <label htmlFor="style-search" className="mb-2 block text-sm font-semibold text-ink-700">
-            {t.common.filterStyles}
-          </label>
-          <input
-            id="style-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={t.common.searchStyles}
-            autoComplete="off"
-            className="text-input h-11"
-          />
-          <div
-            role="group"
-            aria-label={t.common.filterStyles}
-            className="-mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-1"
+        <textarea
+          id="fd-input"
+          value={input}
+          onChange={(event) => setInput(event.target.value.slice(0, 120))}
+          rows={2}
+          className="mt-2 w-full resize-none rounded-lg border-2 border-ink bg-paper px-4 py-3 text-lg font-bold outline-none placeholder:text-ink-soft/50 focus:shadow-pop-sm"
+          placeholder={ui.tool.inputPlaceholder}
+          maxLength={120}
+        />
+        <div className="mt-2 flex items-center justify-between text-xs text-ink-soft">
+          <span>
+            {charCount}
+            {ui.tool.charCount}
+          </span>
+          <button
+            type="button"
+            onClick={() => setInput(placeholder)}
+            className="font-bold underline-offset-2 hover:underline"
           >
-            {chips.map((chip) => {
-              const active = category === chip.id || (chip.id === "all" && category === null);
-              return (
-                <button
-                  key={chip.id}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => {
-                    const next = chip.id === "all" ? null : chip.id;
-                    setCategory(next);
-                  }}
-                  className={`h-9 shrink-0 whitespace-nowrap rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-                    active
-                      ? "border-brand-600 bg-brand-100 text-brand-800"
-                      : "border-line bg-white text-ink-700 hover:border-brand-300 hover:bg-brand-50"
-                  }`}
-                >
-                  {chip.name}
-                </button>
-              );
-            })}
-          </div>
-          <PreviewOptions
-            size={previewSize}
-            onSize={setPreviewSize}
-            transparent={transparentPng}
-            onTransparent={setTransparentPng}
-            onCopyFavorites={favorites.items.length > 0 ? copyFavorites : undefined}
-            onCopyAllStyles={copyAllStylesText}
-            allStylesCount={charCount > 0 ? all.length : 0}
-          />
+            {ui.tool.reset}
+          </button>
         </div>
+        {containsCjk && !showCjk ? (
+          <p className="mt-2 rounded-lg border-2 border-ink bg-pop-blue/20 px-3 py-2 text-xs font-bold">
+            {ui.tool.cjkBanner}
+            {locale === "zh-cn" ? (
+              <a href="/zh/decorated-nicknames/" className="mx-1 underline">
+                {ui.tool.cjkBannerLink}
+              </a>
+            ) : null}
+            {locale === "zh-cn" ? "的环绕框。" : ""}
+          </p>
+        ) : null}
       </div>
 
-      {compareIds.length > 0 && (
-        <section className="mt-6" aria-labelledby="compare-heading">
-          <div className="flex items-center justify-between gap-3">
-            <h2 id="compare-heading" className="text-sm font-semibold text-ink-700">
-              {t.common.compareHeading}
-            </h2>
+      {/* Tab 行 */}
+      <div className="mt-5 flex flex-wrap items-center gap-2" role="tablist" aria-label={ui.tool.tabs.styles}>
+        {tabs.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            role="tab"
+            aria-selected={tab === item.id}
+            onClick={() => setTab(item.id)}
+            className={`rounded-lg border-2 border-ink px-3 py-1.5 text-sm font-black shadow-pop-sm transition-all ${
+              tab === item.id
+                ? "bg-pop-pink text-ink"
+                : "bg-surface hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none"
+            }`}
+          >
+            {item.label}
+            {typeof item.count === "number" && item.count > 0 ? ` ${item.count}` : ""}
+          </button>
+        ))}
+      </div>
+
+      {/* 样式搜索框 */}
+      {tab === "styles" && (wantedAll.length > 0 || cjkResults.length > 0 || queryLower) ? (
+        <div className="mt-3">
+          <label htmlFor="fd-search" className="sr-only">
+            {ui.tool.searchPlaceholder}
+          </label>
+          <div className="relative">
+            <span aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-ink-soft">
+              🔍
+            </span>
+            <input
+              id="fd-search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              className="h-10 w-full rounded-lg border-2 border-ink bg-surface pl-9 pr-3 text-sm font-bold outline-none placeholder:text-ink-soft/60 focus:shadow-pop-sm"
+              placeholder={ui.tool.searchPlaceholder}
+              maxLength={40}
+            />
+          </div>
+        </div>
+      ) : null}
+
+      {/* 分类过滤 */}
+      {tab === "styles" && activeCategories.length > 1 ? (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={() => setCategory("all")}
+            className={`rounded-lg border-2 border-ink px-2.5 py-1 text-xs font-black ${
+              category === "all" ? "bg-pop-yellow" : "bg-surface"
+            }`}
+          >
+            {ui.tool.all}
+          </button>
+          {activeCategories.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              onClick={() => setCategory(c.id)}
+              className={`rounded-lg border-2 border-ink px-2.5 py-1 text-xs font-black ${
+                category === c.id ? "bg-pop-yellow" : "bg-surface"
+              }`}
+            >
+              {meta.categories[c.id]}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      {/* 样式网格 */}
+      {tab === "styles" ? (
+        <div className="pop-scroll mt-4 grid gap-3 md:grid-cols-2">
+          {latinResults.map((result) => (
+            <StyleCard
+              key={result.id}
+              result={result}
+              ui={ui}
+              meta={meta}
+              copied={copied === result.id}
+              isFavorite={favorites.items.includes(result.text)}
+              onCopy={() => handleCopy(result.id, result.text)}
+              onToggleFavorite={() => favorites.toggle(result.text)}
+              onInfo={() => setInfoId(result.id)}
+            />
+          ))}
+          {cjkResults.length > 0 ? (
+            <div className="md:col-span-2">
+              <h3 className="mt-6 flex items-center gap-2 text-lg font-black">
+                <span className="sticker -rotate-2 bg-pop-green text-paper">{ui.tool.cjkHeading}</span>
+                <span className="text-sm font-bold text-ink-soft">{ui.tool.cjkSub}</span>
+              </h3>
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                {cjkResults.map((result) => (
+                  <CjkCard
+                    key={result.id}
+                    result={result}
+                    copied={copied === result.id}
+                    copyLabel={ui.tool.copy}
+                    copiedLabel={ui.tool.copied}
+                    onCopy={() => handleCopy(result.id, result.text)}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {latinResults.length === 0 && cjkResults.length === 0 ? (
+            <p className="text-sm text-ink-soft">{ui.tool.inputPlaceholder}</p>
+          ) : null}
+        </div>
+      ) : null}
+
+      {/* 收藏 */}
+      {tab === "favorites" ? (
+        <SavedList
+          items={favorites.items}
+          copied={copied}
+          emptyText={ui.tool.favoritesEmpty}
+          copyLabel={ui.tool.copy}
+          copiedLabel={ui.tool.copied}
+          removeAria={ui.tool.removeAria}
+          onCopy={(text) => handleCopy(text, text)}
+          removeItem={favorites.remove}
+        />
+      ) : null}
+
+      {/* 最近 */}
+      {tab === "recent" ? (
+        <SavedList
+          items={recents.items}
+          copied={copied}
+          emptyText={ui.tool.recentEmpty}
+          copyLabel={ui.tool.copy}
+          copiedLabel={ui.tool.copied}
+          removeAria={ui.tool.removeAria}
+          onCopy={(text) => handleCopy(text, text)}
+          removeItem={recents.remove}
+          clear={recents.clear}
+          clearLabel={ui.tool.clear}
+        />
+      ) : null}
+
+      {/* ⓘ 样式详情弹窗 */}
+      {infoId ? (
+        <InfoDialog
+          locale={locale}
+          result={wantedAll.find((r) => r.id === infoId) ?? null}
+          onClose={() => setInfoId(null)}
+        />
+      ) : null}
+    </div>
+  );
+}
+
+function StyleCard({
+  result,
+  ui,
+  meta,
+  copied,
+  isFavorite,
+  onCopy,
+  onToggleFavorite,
+  onInfo,
+}: {
+  result: ConvertedText;
+  ui: ReturnType<typeof getUi>;
+  meta: ReturnType<typeof getStyleMeta>;
+  copied: boolean;
+  isFavorite: boolean;
+  onCopy: () => void;
+  onToggleFavorite: () => void;
+  onInfo: () => void;
+}) {
+  const name = meta.names[result.id] ?? result.name;
+  const risk = result.risk ? (meta.risks[result.id] ?? result.risk) : undefined;
+  return (
+    <div className="card-pop p-3.5">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-sm font-black">{name}</span>
+          <span className="rounded border border-ink bg-paper px-1.5 py-0.5 text-[10px] font-bold text-ink-soft">
+            {meta.coverage[result.coverage]}
+          </span>
+        </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <button
+            type="button"
+            onClick={onInfo}
+            aria-label={`${ui.tool.infoAria}: ${name}`}
+            className="flex h-6 w-6 items-center justify-center rounded-full border border-ink text-[11px] font-black text-ink-soft hover:bg-pop-yellow hover:text-ink"
+          >
+            ⓘ
+          </button>
+          <button
+            type="button"
+            onClick={onToggleFavorite}
+            aria-pressed={isFavorite}
+            aria-label={isFavorite ? `${ui.tool.unfavAria} ${name}` : `${ui.tool.favAria} ${name}`}
+            className="text-lg leading-none hover:scale-110"
+          >
+            {isFavorite ? "⭐" : "☆"}
+          </button>
+        </div>
+      </div>
+      {risk ? <p className="mt-1 text-[11px] leading-snug text-pop-pink">⚠ {risk}</p> : null}
+      <p className="result-text mt-2 min-h-7 text-xl leading-relaxed">{result.text}</p>
+      <button type="button" onClick={onCopy} className="btn-pop mt-3 h-9 w-full text-xs">
+        {copied ? ui.tool.copied : ui.tool.copy}
+      </button>
+    </div>
+  );
+}
+
+function CjkCard({
+  result,
+  copied,
+  copyLabel,
+  copiedLabel,
+  onCopy,
+}: {
+  result: ReturnType<typeof convertCjkAll>[number];
+  copied: boolean;
+  copyLabel: string;
+  copiedLabel: string;
+  onCopy: () => void;
+}) {
+  return (
+    <div className="card-pop p-3.5">
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-sm font-black">{result.name}</span>
+          {result.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded border border-ink bg-pop-yellow/60 px-1.5 py-0.5 text-[10px] font-bold"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+      {result.risk ? <p className="mt-1 text-[11px] leading-snug text-pop-pink">⚠ {result.risk}</p> : null}
+      <p className="result-text mt-2 min-h-7 text-xl leading-relaxed">{result.text}</p>
+      <button type="button" onClick={onCopy} className="btn-pop mt-3 h-9 w-full text-xs">
+        {copied ? copiedLabel : copyLabel}
+      </button>
+    </div>
+  );
+}
+
+/** ⓘ 详情弹窗:覆盖范围 / Unicode 区段 / 粘贴后字符数 / 无障碍与检索提示。 */
+function InfoDialog({
+  locale,
+  result,
+  onClose,
+}: {
+  locale: Locale;
+  result: ConvertedText | null;
+  onClose: () => void;
+}) {
+  const ui = getUi(locale);
+  const meta = getStyleMeta(locale);
+  if (!result) return null;
+  const name = meta.names[result.id] ?? result.name;
+  const pastedChars = Array.from(result.text).length;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={ui.tool.details.title}
+    >
+      <div className="absolute inset-0 bg-ink/60" onClick={onClose} aria-hidden="true" />
+      <div className="card-pop relative w-full max-w-sm bg-surface p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold text-ink-soft">{ui.tool.details.title}</p>
+            <h4 className="text-lg font-black">{name}</h4>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={ui.tool.details.close}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border-2 border-ink bg-surface text-sm font-black shadow-pop-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none"
+          >
+            ✕
+          </button>
+        </div>
+
+        <p className="result-text mt-3 rounded-lg border-2 border-ink bg-paper px-3 py-2 text-lg leading-relaxed">
+          {result.text}
+        </p>
+
+        <dl className="mt-3 space-y-2 text-sm">
+          <div className="flex gap-2">
+            <dt className="w-24 shrink-0 font-bold text-ink-soft">{ui.tool.details.coverage}</dt>
+            <dd className="font-bold">{meta.coverage[result.coverage]}</dd>
+          </div>
+          <div className="flex gap-2">
+            <dt className="w-24 shrink-0 font-bold text-ink-soft">{ui.tool.details.block}</dt>
+            <dd className="font-bold">{meta.blocks[result.id] ?? "—"}</dd>
+          </div>
+          <div className="flex gap-2">
+            <dt className="w-24 shrink-0 font-bold text-ink-soft">{ui.tool.details.chars}</dt>
+            <dd className="font-black">{pastedChars}</dd>
+          </div>
+        </dl>
+
+        <ul className="mt-3 space-y-1.5 rounded-lg border-2 border-ink bg-pop-yellow/30 p-3 text-xs leading-relaxed text-ink-soft">
+          <li>• {ui.tool.details.charsHint}</li>
+          <li>• {ui.tool.details.screenReader}</li>
+          <li>• {ui.tool.details.hashtag}</li>
+        </ul>
+
+        <button type="button" onClick={onClose} className="btn-pop mt-4 w-full">
+          {ui.tool.details.close}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function SavedList({
+  items,
+  copied,
+  emptyText,
+  copyLabel,
+  copiedLabel,
+  removeAria,
+  onCopy,
+  removeItem,
+  clear,
+  clearLabel,
+}: {
+  items: string[];
+  copied: string | null;
+  emptyText: string;
+  copyLabel: string;
+  copiedLabel: string;
+  removeAria: string;
+  onCopy: (text: string) => void;
+  removeItem: (text: string) => void;
+  clear?: () => void;
+  clearLabel?: string;
+}) {
+  if (items.length === 0) {
+    return <p className="mt-6 text-sm text-ink-soft">{emptyText}</p>;
+  }
+  return (
+    <div className="mt-4">
+      {clear ? (
+        <div className="mb-3 text-right">
+          <button type="button" onClick={clear} className="text-xs font-bold underline">
+            {clearLabel}
+          </button>
+        </div>
+      ) : null}
+      <ul className="pop-scroll grid gap-2 md:grid-cols-2">
+        {items.map((text, index) => (
+          <li key={`${text}-${index}`} className="card-pop flex items-center gap-2 p-3">
+            <p className="result-text min-w-0 flex-1 truncate text-lg">{text}</p>
             <button
               type="button"
-              onClick={() => setCompareIds([])}
-              className="text-xs font-medium text-ink-500 transition-colors hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+              onClick={() => onCopy(text)}
+              className="btn-pop h-8 shrink-0 px-3 text-xs"
             >
-              {t.common.clear}
+              {copied === text ? copiedLabel : copyLabel}
             </button>
-          </div>
-          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
-            {compareIds.map((id) => {
-              const result = all.find((item) => item.id === id);
-              if (!result) return null;
-              const line = dressed(result.text);
-              return (
-                <li key={id} className="rounded-xl border border-line bg-surface p-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
-                      {result.localName}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => toggleCompare(id)}
-                      aria-label={t.common.compareRemove(result.localName)}
-                      className="flex h-6 w-6 items-center justify-center rounded-md text-sm font-bold text-ink-500 transition-colors hover:text-danger focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <p className="result-text mt-2 break-all text-ink-900" style={{ fontSize: previewSize }}>
-                    {line}
-                  </p>
-                  <div className="mt-2">
-                    <CopyButton text={line} ariaLabel={t.common.copyStyle(result.localName)} />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-          {compareIds.length >= COMPARE_MAX && (
-            <p className="mt-2 text-xs text-ink-500">{t.common.compareLimit}</p>
-          )}
-        </section>
-      )}
-
-      {showHan && (
-        <section className="mt-6" aria-labelledby="han-frames-heading">
-          <h2 id="han-frames-heading" className="text-sm font-semibold text-ink-700">
-            {t.common.hanFrames}
-          </h2>
-          <p className="mt-1 text-sm leading-relaxed text-ink-600">{t.common.hanNote}</p>
-          <ul className="mt-3 space-y-2">
-            {hanFrames.map(([left, right]) => {
-              const line = left + source + right;
-              return (
-                <li
-                  key={left + right}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-line bg-surface px-4 py-3"
-                >
-                  <p className="result-text min-w-0 text-lg text-ink-900">{line}</p>
-                  <CopyButton text={line} ariaLabel={t.common.copy} />
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )}
-
-      {charCount === 0 ? (
-        <p className="mt-6 rounded-xl border border-dashed border-line bg-white/60 p-8 text-center text-sm text-ink-600">
-          {t.common.typeToSee(all.length)}
-        </p>
-      ) : results.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-dashed border-line bg-white/60 p-8 text-center text-sm text-ink-600">
-          {category === "favorites" && favorites.items.length === 0
-            ? t.common.noFavorites
-            : t.common.noStylesMatch(query.trim())}
-        </p>
-      ) : (
-        <ul className="mt-6 space-y-3">
-          {results.map((result) => {
-            const isFavorite = favorites.items.includes(result.id);
-            const inCompare = compareIds.includes(result.id);
-            const line = dressed(result.text);
-            const points = codePointLength(line);
-            const over = paste.limit !== null && points > paste.limit;
-            return (
-              <li
-                key={result.id}
-                className="rounded-xl border border-line bg-surface p-4 transition-colors hover:border-brand-200"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="min-w-0">
-                  <span className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      aria-pressed={isFavorite}
-                      aria-label={
-                        isFavorite
-                          ? t.common.removeStyle(result.localName)
-                          : t.common.saveStyle(result.localName)
-                      }
-                      onClick={() => {
-                        favorites.toggle(result.id);
-                      }}
-                      className={`-ml-1 flex h-7 w-7 items-center justify-center rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-                        isFavorite ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
-                      }`}
-                    >
-                      <StarIcon filled={isFavorite} />
-                    </button>
-                    <button
-                      type="button"
-                      aria-pressed={inCompare}
-                      aria-label={
-                        inCompare
-                          ? t.common.compareRemove(result.localName)
-                          : t.common.compareAdd(result.localName)
-                      }
-                      onClick={() => toggleCompare(result.id)}
-                      className={`flex h-7 w-7 items-center justify-center rounded-md text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${
-                        inCompare ? "text-brand-600" : "text-ink-500/50 hover:text-brand-600"
-                      }`}
-                    >
-                      ⇄
-                    </button>
-                    <span
-                      className="text-[11px] font-semibold tracking-wider text-ink-500 uppercase"
-                      title={result.note}
-                    >
-                      {result.localName}
-                    </span>
-                    {result.coverage === "partial" && (
-                      <span
-                        className="rounded bg-warning-bg px-1.5 py-0.5 text-[10px] font-semibold text-warning"
-                        title={result.note}
-                      >
-                        {t.common.partialBadge}
-                      </span>
-                    )}
-                    {result.risk && (
-                      <span
-                        className="rounded bg-warning-bg px-1.5 py-0.5 text-[10px] font-semibold text-warning"
-                        title={result.risk}
-                      >
-                        !
-                      </span>
-                    )}
-                  </span>
-                  <p
-                    className="result-text mt-1 text-ink-900 select-all"
-                    style={{ fontSize: previewSize }}
-                  >
-                    {line}
-                  </p>
-                  {over && paste.limit !== null && (
-                    <p className="mt-1 text-xs text-warning">{t.common.overLimit(points, paste.limit)}</p>
-                  )}
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => handleDownload({ ...result, text: line })}
-                    aria-label={t.common.downloadPng(result.localName)}
-                    className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium text-ink-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 sm:h-9"
-                  >
-                    <DownloadIcon />
-                    <span className="sm:hidden">PNG</span>
-                  </button>
-                  <CopyButton
-                    text={line}
-                    ariaLabel={t.common.copyStyle(result.localName)}
-                    onCopied={() => {
-                      recents.add(result.id);
-                    }}
-                  />
-                  <ShareLinks text={line} name={result.localName} />
-                  <button
-                    type="button"
-                    aria-expanded={openReport === result.id}
-                    aria-controls={openReport === result.id ? `fancy-report-${result.id}` : undefined}
-                    onClick={() => setOpenReport((current) => (current === result.id ? null : result.id))}
-                    className="text-sm font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-                  >
-                    {t.gaming.checkResult}
-                  </button>
-                </div>
-                </div>
-                {openReport === result.id && (
-                  <CompatReport
-                    id={`fancy-report-${result.id}`}
-                    text={line}
-                    source={source}
-                    styleId={result.id}
-                    rule={null}
-                  />
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      <nav aria-label={t.sections.related} className="mt-8 flex flex-wrap gap-x-4 gap-y-2">
-        <Link
-          href={localePath(locale, "/gaming-name-generator/")}
-          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
-        >
-          {t.nav.gaming}
-        </Link>
-        <Link
-          href={localePath(locale, "/symbols/")}
-          className="text-sm font-semibold text-brand-800 underline decoration-brand-300 underline-offset-2"
-        >
-          {t.nav.symbols}
-        </Link>
-      </nav>
+            <button
+              type="button"
+              onClick={() => removeItem(text)}
+              aria-label={removeAria}
+              className="shrink-0 px-1 text-ink-soft hover:text-pop-pink"
+            >
+              ✕
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

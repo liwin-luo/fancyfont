@@ -1,7 +1,6 @@
-// Strips zalgo corruption: the combining marks stacked on top of base
-// characters. Range list follows the widely used zalgo definition
-// (combining marks Mn/Me plus variation selectors), so emoji presentation
-// selectors are removed too. Base letters, emoji and CJK stay untouched.
+// 清除 zalgo 乱码:剥离堆叠在基础字符上的组合符号。码点范围表沿用
+// 通行的 zalgo 定义(Mn/Me 组合符号 + 变体选择符),emoji 表现选择符
+// 也会被移除。基础字母、emoji 和汉字不受影响。
 
 const ZALGO_RANGES: [number, number][] = [
   [0x0300, 0x036f], [0x0483, 0x0489], [0x0591, 0x05bd], [0x05bf, 0x05bf],
@@ -40,7 +39,7 @@ const ZALGO_RANGES: [number, number][] = [
   [0x1ab0, 0x1abe], [0x1b00, 0x1b03], [0x1b34, 0x1b34], [0x1b36, 0x1b3a],
   [0x1b3c, 0x1b3c], [0x1b42, 0x1b42], [0x1b6b, 0x1b73], [0x1b80, 0x1b81],
   [0x1ba2, 0x1ba5], [0x1ba8, 0x1ba9], [0x1bab, 0x1bad], [0x1be6, 0x1be6],
-  [0x1be8, 0x1be9], [0x1bed, 0x1bed], [0x1bef, 0x1bf1], [0x1c2c, 0x1c33],
+  [0x1be8, 0x1be9], [0x1bed, 0x1bef], [0x1bf1, 0x1bf1], [0x1c2c, 0x1c33],
   [0x1c36, 0x1c37], [0x1cd0, 0x1cd2], [0x1cd4, 0x1ce0], [0x1ce2, 0x1ce8],
   [0x1ced, 0x1ced], [0x1cf4, 0x1cf4], [0x1cf8, 0x1cf9], [0x1dc0, 0x1df5],
   [0x1dfc, 0x1dff], [0x2065, 0x2065], [0x20d0, 0x20f0], [0x2cef, 0x2cf1],
@@ -72,7 +71,7 @@ function isZalgoMark(codePoint: number): boolean {
 
 export interface ZalgoCleanResult {
   text: string;
-  /** Combining marks and variation selectors that were stripped. */
+  /** 被剥离的组合符号与变体选择符个数。 */
   removed: number;
 }
 

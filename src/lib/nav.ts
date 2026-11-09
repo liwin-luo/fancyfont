@@ -1,11 +1,11 @@
-// Header navigation, assembled on the server from the page registries.
-// The client header receives plain strings via props, so the per-locale
-// page copy never enters the client bundle.
+// 页头导航:按 locale 取标签与前缀,只收该语言可用的页面。
 
-import { isLookPage, stylePages } from "./style-pages";
+import { localePath, type Locale } from "./i18n";
+import { guideBase } from "./guides";
+import { FEATURED_PLATFORM_SLUGS, FEATURED_STYLE_SLUGS, hubPath } from "./hubs";
 import { platformPages } from "./platform-pages";
+import { getStylePage, isCjkOnlyPage, stylePages } from "./style-pages";
 import { getUi } from "./ui-strings";
-import type { Locale } from "./i18n";
 
 export interface NavLinkItem {
   href: string;
@@ -13,72 +13,72 @@ export interface NavLinkItem {
 }
 
 export interface NavChildGroup {
-  /** Optional small caption above the group. */
+  /** 组上方的小标题。 */
   heading?: string;
   items: NavLinkItem[];
 }
 
 export interface NavItem {
   label: string;
-  /** Dropdown groups when present; a plain link when absent. */
+  /** 存在时渲染下拉组;不存在时是普通链接。 */
   children?: NavChildGroup[];
   href?: string;
 }
 
-const gamingOrder = [
-  "pubg-name-generator",
-  "free-fire-name-generator",
-  "cod-name-generator",
-  "roblox-name-generator",
-  "fortnite-name-generator",
-] as const;
-
 export function buildNav(locale: Locale): NavItem[] {
-  const t = getUi(locale);
-  const pageLabel = (slug: string): NavLinkItem => {
-    const style = stylePages.find((page) => page.slug === slug);
-    if (style) return { href: `/${style.slug}/`, label: style.copy[locale].h1 };
-    const platform = platformPages.find((page) => page.slug === slug);
-    if (platform) return { href: `/${platform.slug}/`, label: platform.copy[locale].h1 };
-    throw new Error(`Nav: unknown page slug ${slug}`);
+  const ui = getUi(locale);
+  const lp = (slug: string) => localePath(locale, `/${slug}/`);
+
+  const styleLink = (slug: string): NavLinkItem => {
+    const def = getStylePage(slug);
+    const copy = def?.copy[locale];
+    return { href: lp(slug), label: copy ? copy.navName : slug };
   };
+
+  // 下拉只放精选 + hub 入口,完整目录在 /styles/ /platforms/ 中间层页。
+  const featuredStyles = FEATURED_STYLE_SLUGS.filter((slug) => getStylePage(slug)?.copy[locale]);
+  const cjkStyles = stylePages.filter((page) => page.copy[locale] && isCjkOnlyPage(page));
+  const featuredPlatforms = FEATURED_PLATFORM_SLUGS[locale].filter(
+    (slug) => platformPages.find((page) => page.slug === slug)?.copy[locale],
+  );
 
   const items: NavItem[] = [
     {
-      label: t.nav.textStyles,
+      label: ui.nav.styles,
       children: [
         {
-          heading: t.tools.letterGenerators,
+          heading: ui.nav.stylesHeading,
           items: [
-            { href: "/fancy-text-generator/", label: t.tools.fancy },
-            ...stylePages.filter((page) => !isLookPage(page)).map((page) => ({ href: `/${page.slug}/`, label: page.copy[locale].h1 })),
+            ...featuredStyles.map((slug) => styleLink(slug)),
+            { href: hubPath(locale, "styles"), label: ui.nav.allStyles },
           ],
         },
-        {
-          heading: t.tools.lookGenerators,
-          items: stylePages.filter(isLookPage).map((page) => ({ href: `/${page.slug}/`, label: page.copy[locale].h1 })),
-        },
+        ...(cjkStyles.length > 0
+          ? [
+              {
+                heading: ui.nav.cjkHeading,
+                items: cjkStyles.map((page) => styleLink(page.slug)),
+              },
+            ]
+          : []),
       ],
     },
     {
-      label: t.nav.nameMaker,
+      label: ui.nav.platforms,
       children: [
         {
           items: [
-            { href: "/gaming-name-generator/", label: t.tools.gaming },
-            ...gamingOrder.map(pageLabel),
+            ...featuredPlatforms.map((slug) => {
+              const page = platformPages.find((entry) => entry.slug === slug)!;
+              return { href: lp(slug), label: page.copy[locale]!.navName };
+            }),
+            { href: hubPath(locale, "platforms"), label: ui.nav.allPlatforms },
           ],
         },
       ],
     },
-    { label: t.nav.symbols, href: "/symbols/" },
+    { label: ui.nav.guides, href: guideBase(locale) + "/" },
   ];
-
-  // /learn/ exists in English only; linking to it from other locales would
-  // put a dead entry in every non-English header.
-  if (locale === "en") {
-    items.push({ label: t.nav.guides, href: "/learn/" });
-  }
 
   return items;
 }

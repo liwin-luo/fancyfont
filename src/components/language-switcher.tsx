@@ -1,145 +1,63 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+// 语言切换：链接在首屏 HTML 里就是普通 <a href>，不依赖 useEffect。
+// 有对等翻译时链到该页；没有则链到该语言首页。hreflang 仍只由 metadata 声明真实翻译。
+
 import { usePathname } from "next/navigation";
-import Link from "next/link";
-import {
-  locales,
-  localeNames,
-  localeShortLabel,
-  localeFromLanguages,
-  localeFromPathname,
-  localePath,
-  type Locale,
-} from "@/lib/i18n";
-import { getUi } from "@/lib/ui-strings";
-import { useDismiss } from "@/components/use-dismiss";
+import { NavDropdown } from "@/components/nav-dropdown";
+import type { Locale } from "@/lib/i18n";
+import { resolveLanguageLinks, type LanguageIndex } from "@/lib/locale-nav-resolve";
 
-/** Keep in sync with the progress-bar animation duration below. */
-const DISMISS_MS = 6000;
-const STORAGE_KEY = "fancyfont-locale-suggest";
+const GLOBE = (
+  <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <circle cx="10" cy="10" r="8" />
+    <path d="M2 10 h16 M10 2 c 3 2.5 3 13.5 0 16 M10 2 c -3 2.5 -3 13.5 0 16" />
+  </svg>
+);
 
-/**
- * Dropdown that swaps only the locale prefix. A mismatch with the browser
- * language shows a suggestion; it never redirects on its own.
- */
-export function LanguageSwitcher({ locale }: { locale: Locale }) {
-  const pathname = usePathname() ?? "/";
-  const t = getUi(locale);
-  const current = localeFromPathname(pathname);
-  const pathWithoutLocale =
-    current === "en" ? pathname : pathname.replace(`/${current}`, "") || "/";
-  const [menuOpen, setMenuOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  useDismiss(rootRef, menuOpen, () => setMenuOpen(false));
-  const [suggest, setSuggest] = useState<Locale | null>(null);
-
-  useEffect(() => {
-    const list = navigator.languages?.length
-      ? navigator.languages
-      : navigator.language
-        ? [navigator.language]
-        : [];
-    const system = localeFromLanguages(list);
-    if (!system || system === locale) return;
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
-    } catch {
-      // Private mode: still show for this visit.
-    }
-    setSuggest(system);
-    const id = window.setTimeout(() => {
-      setSuggest(null);
-      try {
-        sessionStorage.setItem(STORAGE_KEY, "1");
-      } catch {
-        // Ignore quota / private-mode failures.
-      }
-    }, DISMISS_MS);
-    return () => window.clearTimeout(id);
-  }, [locale]);
-
-  const suggested = suggest ? getUi(suggest) : null;
+export function LanguageSwitcher({
+  locale,
+  label,
+  index,
+}: {
+  locale: Locale;
+  label: string;
+  index: LanguageIndex;
+}) {
+  const pathname = usePathname() || "/";
+  const links = resolveLanguageLinks(pathname, index);
 
   return (
-    <div className="relative" ref={rootRef}>
-      <button
-        type="button"
-        aria-label={`${t.languageLabel}: ${localeNames[locale]}`}
-        aria-expanded={menuOpen}
-        aria-haspopup="true"
-        onClick={() => setMenuOpen((value) => !value)}
-        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-full border border-line bg-white pr-2.5 pl-3 text-sm font-semibold text-ink-900 transition-colors hover:border-brand-300 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-      >
-        {localeNames[locale]}
-        <svg
-          aria-hidden
-          viewBox="0 0 12 12"
-          className={`size-3 text-ink-500 transition-transform ${menuOpen ? "rotate-180" : ""}`}
-          fill="none"
-        >
-          <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-
-      {menuOpen && (
-        <div className="absolute top-full right-0 z-50 mt-1.5 min-w-48 rounded-2xl border border-line bg-white p-1 shadow-lg">
-          {locales.map((code) => {
-            const active = code === locale;
-            return (
-              <Link
-                key={code}
-                href={localePath(code, pathWithoutLocale)}
-                hrefLang={code}
-                aria-current={active ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center gap-2 rounded-xl px-2.5 py-2 text-sm transition-colors ${
-                  active
-                    ? "bg-brand-50 font-semibold text-brand-700"
-                    : "text-ink-700 hover:bg-brand-50 hover:text-brand-700"
-                }`}
-              >
-                <span className={`w-8 text-xs font-bold tracking-wide ${active ? "text-brand-600" : "text-ink-500"}`}>
-                  {localeShortLabel[code]}
-                </span>
-                {localeNames[code]}
-              </Link>
-            );
-          })}
-        </div>
-      )}
-
-      {suggest && suggested && (
-        <div
-          role="status"
-          className="absolute top-full right-0 z-40 mt-2 w-64 overflow-hidden rounded-2xl border border-line bg-white shadow-lg"
-        >
-          <div className="px-3 pt-3 pb-2.5">
-            <p className="text-sm text-ink-700">
-              {suggested.localeSuggest.message.replace("{name}", localeNames[suggest])}
-            </p>
-            <Link
-              href={localePath(suggest, pathWithoutLocale)}
-              onClick={() => {
-                try {
-                  sessionStorage.setItem(STORAGE_KEY, "1");
-                } catch {
-                  // Ignore quota / private-mode failures.
-                }
-              }}
-              className="mt-2 inline-flex h-8 items-center rounded-lg bg-brand-600 px-3 text-xs font-semibold text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+    <NavDropdown
+      name="site-nav"
+      summaryClassName="flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-lg border-2 border-ink bg-surface px-2 text-xs font-black shadow-pop-sm [&::-webkit-details-marker]:hidden"
+      summaryAriaLabel={label}
+      summary={
+        <>
+          {GLOBE}
+          <span className="hidden sm:inline">{links.find((link) => link.locale === locale)?.shortLabel}</span>
+        </>
+      }
+      panelClassName="absolute right-0 z-50 mt-1 w-48 rounded-xl border-2 border-ink bg-surface p-1.5 shadow-pop-lg"
+    >
+      <ul aria-label={label}>
+        {links.map((link) => (
+          <li key={link.locale}>
+            <a
+              href={link.href}
+              hrefLang={link.hrefLang}
+              lang={link.lang}
+              aria-current={link.current ? "page" : undefined}
+              className={`flex items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-sm font-bold ${
+                link.current ? "bg-pop-yellow" : "hover:bg-paper"
+              }`}
             >
-              {suggested.localeSuggest.action}
-            </Link>
-          </div>
-          <div className="h-1.5 bg-brand-100" aria-hidden>
-            <div
-              className="h-full origin-left bg-brand-600"
-              style={{ animation: `locale-suggest-bar ${DISMISS_MS}ms linear forwards` }}
-            />
-          </div>
-        </div>
-      )}
-    </div>
+              <span>{link.shortLabel}</span>
+              <span className="text-xs font-bold text-ink-soft">{link.name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </NavDropdown>
   );
 }

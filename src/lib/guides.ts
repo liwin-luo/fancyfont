@@ -1,36 +1,31 @@
-// English-only guides under /learn/.
-//
-// Guides answer informational queries the tool pages cannot hold (step-by-step
-// how-tos, paste troubleshooting). They exist in English only: no hreflang
-// siblings, no locale alternates, and they never enter the per-locale sitemap
-// fan-out. Every claim stays inside the boundaries in seo/产品事实底稿.md —
-// platform limits are "about", nothing is promised as tested or verified.
+// 装扮指南:每语言独立集合,路径本地化(en /learn/,zh /zhinan/,es/pt-br /guia/)。
+// 每篇 GuideDef 自带 locale;所有平台限制用"约"表述,不做无法核实的承诺。
+// appearOn 控制指南在哪些工具页反向露出。
 
-import type { FaqItem, RelatedLink } from "@/components/sections";
-import { GUIDES_EN } from "@/lib/content/guides-en";
+import type { Locale } from "./i18n";
+import { localePath } from "./i18n";
+import { guidesZhCn } from "./content/guides-zh-cn";
+import { guidesEn } from "./content/guides-en";
+import { guidesEs } from "./content/guides-es";
+import { guidesPtBr } from "./content/guides-pt-br";
+import { guidesDe } from "./content/guides-de";
 
 export interface GuideSectionTable {
   head: string[];
   rows: string[][];
 }
 
-export interface GuideSeeAlso {
-  label: string;
-  href: string;
-}
-
-/** Mid-article call to action, rendered as a branded box after one section. */
-export interface GuideCta {
-  /** The section heading the box follows. */
-  after: string;
+export interface GuideSection {
   heading: string;
-  body: string;
-  label: string;
-  href: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  table?: GuideSectionTable;
+  /** 本节末尾的配图(public 路径 + 尺寸,模板渲染 lazy img + caption)。 */
+  image?: GuideImage;
 }
 
 export interface GuideImage {
-  /** Path under /public, served as-is (e.g. /guides/ig-tool.webp). */
+  /** public 下的路径,如 /guides/usernames-panels.png。 */
   src: string;
   alt: string;
   width: number;
@@ -38,52 +33,58 @@ export interface GuideImage {
   caption: string;
 }
 
-export interface GuideSection {
-  heading: string;
-  paragraphs?: string[];
-  steps?: string[];
-  bullets?: string[];
-  table?: GuideSectionTable;
-  seeAlso?: GuideSeeAlso[];
-  image?: GuideImage;
-  /**
-   * External source links resolved inside this section's own paragraphs.
-   * Each label must appear verbatim in the section's copy, and hrefs are
-   * absolute https (official documentation, never competitor pages).
-   */
-  links?: GuideSeeAlso[];
-}
-
 export interface GuideDef {
+  locale: Locale;
   slug: string;
-  /** SERP title, ends with the brand like every other page. */
-  title: string;
+  navName: string;
   h1: string;
+  title: string;
   description: string;
   published: string;
   updated: string;
   intro: string[];
+  /** 头图(渲染在导语之后)。 */
+  heroImage?: GuideImage;
   sections: GuideSection[];
-  faq: FaqItem[];
-  /** Tool/platform page slugs whose English template links back to this guide. */
+  faq: { q: string; a: string }[];
+  /** 页尾"动手试试"卡片,链回工具页(href 含语言前缀)。 */
+  relatedTools: { href: string; title: string; description: string }[];
+  /** 这些工具页的模板会在"相关指南"里链接回本篇(slug,不含前缀)。 */
   appearOn: string[];
-  /** Cards in the guide's "Try it" section, linking back into the tools. */
-  relatedTools: RelatedLink[];
-  /** Optional in-body call to action; href must be a page in the sitemap. */
-  cta?: GuideCta;
 }
 
-export function guidePath(slug: string): string {
-  return `/learn/${slug}/`;
+const GUIDE_BASE: Record<Locale, string> = {
+  en: "/learn",
+  "zh-cn": "/zhinan",
+  es: "/guia",
+  "pt-br": "/guia",
+  de: "/anleitung",
+};
+
+const ALL: GuideDef[] = [...guidesEn, ...guidesZhCn, ...guidesEs, ...guidesPtBr, ...guidesDe];
+
+// 返回值都是可直接用于 href/canonical 的完整站内路径(含语言前缀):
+// en /learn/…,zh-cn /zh/zhinan/…,es /es/guia/…,pt-br /pt-br/guia/…。
+export function guidePath(locale: Locale, slug: string): string {
+  const base = GUIDE_BASE[locale];
+  // 空 slug 是指南目录本身。不能拼成 /learn//，否则会多一次 308。
+  const path = slug ? `${base}/${slug}/` : `${base}/`;
+  return localePath(locale, path);
 }
 
-export const guides: GuideDef[] = GUIDES_EN;
-
-export function getGuide(slug: string): GuideDef | undefined {
-  return guides.find((guide) => guide.slug === slug);
+export function guideBase(locale: Locale): string {
+  return localePath(locale, GUIDE_BASE[locale]);
 }
 
-/** Guides linked from a tool page's English template. */
-export function guidesForPage(pageSlug: string): GuideDef[] {
-  return guides.filter((guide) => guide.appearOn.includes(pageSlug));
+export function guidesFor(locale: Locale): GuideDef[] {
+  return ALL.filter((guide) => guide.locale === locale);
+}
+
+export function getGuide(locale: Locale, slug: string): GuideDef | undefined {
+  return ALL.find((guide) => guide.locale === locale && guide.slug === slug);
+}
+
+/** 某个工具页在指定语言下要反向露出的指南列表。 */
+export function guidesForPage(locale: Locale, pageSlug: string): GuideDef[] {
+  return ALL.filter((guide) => guide.locale === locale && guide.appearOn.includes(pageSlug));
 }

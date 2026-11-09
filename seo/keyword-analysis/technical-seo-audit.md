@@ -1,7 +1,7 @@
 # 全站技术 SEO 审核报告（2026-11-08）
 
 > 范围：sitemap 全部 **223 个 URL** 逐页抓取 + 基础设施探测
-> 工具：`sites/fontdrafts/scripts/seo-audit.mjs`（可复跑：`node scripts/seo-audit.mjs`）
+> 工具：`scripts/seo-audit.mjs`（可复跑：`node scripts/seo-audit.mjs`）
 > 结果：**站点本体全绿，1 个基础设施级发现（www 无 DNS 记录）**
 
 ## 一、逐页检查矩阵（223/223 通过 ✓）

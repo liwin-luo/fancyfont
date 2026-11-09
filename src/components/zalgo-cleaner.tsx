@@ -1,85 +1,63 @@
 "use client";
 
-import { useMemo, useState } from "react";
+// 乱码清洗器:剥离 zalgo 组合符号与变体选择符,还原干净文本。
+
+import { useState } from "react";
 import { stripZalgo } from "@/lib/zalgo-clean";
-import { measureText, sliceGraphemes } from "@/lib/measure";
-import { CopyButton } from "@/components/copy-button";
-import { useToast } from "@/components/toast";
-import { useLocale } from "@/components/locale-context";
 import { getUi } from "@/lib/ui-strings";
+import type { Locale } from "@/lib/i18n";
 
-const MAX_LENGTH = 500;
+export function ZalgoCleaner({ locale }: { locale: Locale }) {
+  const ui = getUi(locale).tool.cleaner;
+  const [input, setInput] = useState("");
+  const [copied, setCopied] = useState(false);
 
-/**
- * The "clean" half of the glitch page's loop: generate zalgo above, copy a
- * result, then paste (or read straight from the clipboard) here to strip
- * the stacked marks back off.
- */
-export function ZalgoCleaner() {
-  const locale = useLocale();
-  const t = getUi(locale);
-  const showToast = useToast();
-  const [text, setText] = useState("");
-  const source = sliceGraphemes(text, MAX_LENGTH);
-  const count = measureText(source).graphemes;
-  const { text: cleaned, removed } = useMemo(() => stripZalgo(source), [source]);
+  const { text, removed } = stripZalgo(input);
 
-  async function pasteFromClipboard() {
+  async function handleCopy() {
     try {
-      const value = await navigator.clipboard.readText();
-      if (value) {
-        setText(sliceGraphemes(value, MAX_LENGTH));
-      } else {
-        showToast(t.common.zalgoClean.pasteFailed);
-      }
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1500);
     } catch {
-      showToast(t.common.zalgoClean.pasteFailed);
+      // 复制失败静默处理:用户可以手动选中输出框复制。
     }
   }
 
   return (
-    <section className="card mt-8 p-4 sm:p-6" aria-labelledby="zalgo-clean-heading">
-      <h2 id="zalgo-clean-heading" className="text-lg font-bold text-ink-900">
-        {t.common.zalgoClean.heading}
-      </h2>
-      <label htmlFor="zalgo-clean-input" className="mt-4 mb-2 block text-sm font-semibold text-ink-700">
-        {t.common.zalgoClean.inputLabel}
+    <div className="card-pop mt-8 p-4 sm:p-5">
+      <h3 className="text-lg font-black">{ui.heading}</h3>
+      <p className="mt-1 text-sm text-ink-soft">{ui.intro}</p>
+      <label htmlFor="zalgo-input" className="sr-only">
+        {ui.inputLabel}
       </label>
       <textarea
-        id="zalgo-clean-input"
+        id="zalgo-input"
+        value={input}
+        onChange={(event) => setInput(event.target.value.slice(0, 400))}
         rows={3}
-        value={text}
-        onChange={(event) => setText(sliceGraphemes(event.target.value, MAX_LENGTH))}
-        className="text-input h-auto py-2"
+        className="mt-3 w-full resize-none rounded-lg border-2 border-ink bg-paper px-4 py-3 text-base outline-none focus:shadow-pop-sm"
+        placeholder={ui.inputPlaceholder}
+        maxLength={400}
       />
-      <div className="mt-3 flex flex-wrap items-center gap-3">
-        <button
-          type="button"
-          onClick={() => void pasteFromClipboard()}
-          className="h-9 rounded-lg border border-line bg-white px-3 text-sm font-semibold text-ink-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-        >
-          {t.common.zalgoClean.pasteButton}
-        </button>
-        <p className="text-xs text-ink-500">
-          {count}/{MAX_LENGTH} {t.common.charactersInfo}
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <p className="text-xs font-bold text-ink-soft" aria-live="polite">
+          {input ? `${ui.removedPrefix} ${removed} ${ui.removedSuffix}` : ui.idle}
         </p>
-      </div>
-      {count === 0 ? (
-        <p className="mt-4 rounded-xl border border-dashed border-line bg-white/60 p-6 text-center text-sm text-ink-600">
-          {t.common.zalgoClean.empty}
-        </p>
-      ) : (
-        <div className="mt-4 rounded-xl border border-line bg-surface p-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
-            {t.common.zalgoClean.resultLabel}
-          </p>
-          <p className="result-text mt-2 break-all text-lg text-ink-900 select-all">{cleaned}</p>
-          <p className="mt-2 text-xs text-ink-500">{t.common.zalgoClean.removed(removed)}</p>
-          <div className="mt-3">
-            <CopyButton text={cleaned} ariaLabel={t.common.copy} />
-          </div>
+        <div className="flex gap-2">
+          <button type="button" onClick={() => setInput("")} className="btn-pop-secondary h-9 text-xs">
+            {ui.clear}
+          </button>
+          <button type="button" onClick={handleCopy} disabled={!text} className="btn-pop h-9 text-xs">
+            {copied ? ui.copied : ui.copyResult}
+          </button>
         </div>
-      )}
-    </section>
+      </div>
+      {text ? (
+        <p className="result-text mt-3 min-h-8 rounded-lg border-2 border-ink bg-paper px-4 py-3 text-xl leading-relaxed">
+          {text}
+        </p>
+      ) : null}
+    </div>
   );
 }
