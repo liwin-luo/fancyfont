@@ -12,8 +12,8 @@ import {
   sampleGlyph,
 } from "@/components/illustrations";
 import { cjkStyles } from "@/lib/cjk-styles";
-import { hubPath } from "@/lib/hubs";
-import { FEATURED_STYLE_SLUGS } from "@/lib/hubs";
+import { featuredGameTextLinks } from "@/lib/contextual-links";
+import { FEATURED_STYLE_SLUGS, hubPath } from "@/lib/hubs";
 import { guidesFor, guidePath } from "@/lib/guides";
 import { platformPages } from "@/lib/platform-pages";
 import { siteName } from "@/lib/site";
@@ -39,6 +39,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     (page): page is (typeof localeStyles)[number] => Boolean(page),
   );
   const localeGuides = guidesFor(locale);
+  const gameText = featuredGameTextLinks(locale);
   const accent = ["bg-pop-yellow", "bg-pop-pink text-paper", "bg-pop-blue text-paper", "bg-pop-green text-paper"];
 
   return (
@@ -163,6 +164,27 @@ export function HomePage({ locale }: { locale: Locale }) {
           </Link>
         </p>
       </section>
+
+      {gameText.length > 0 ? (
+        <section aria-labelledby="game-text-heading" className="mt-10">
+          <h2 id="game-text-heading" className="text-2xl font-black">
+            {ui.home.gameTextHeading}
+          </h2>
+          <p className="mt-1 max-w-2xl text-sm text-ink-soft">{ui.home.gameTextIntro}</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {gameText.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="card-pop group block p-4 transition-all duration-100 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-pop-sm"
+              >
+                <p className="font-black group-hover:text-pop-pink">{link.title}</p>
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-soft">{link.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* 指南 */}
       {localeGuides.length > 0 ? (

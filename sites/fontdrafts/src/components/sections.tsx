@@ -97,10 +97,19 @@ export interface RelatedLink {
   description: string;
 }
 
-export function RelatedTools({ links, heading = "相关工具" }: { links: RelatedLink[]; heading?: string }) {
+export function RelatedTools({
+  links,
+  heading = "相关工具",
+  id = "related-heading",
+}: {
+  links: RelatedLink[];
+  heading?: string;
+  id?: string;
+}) {
+  if (links.length === 0) return null;
   return (
-    <section className="mt-12" aria-labelledby="related-heading">
-      <h2 id="related-heading" className="text-xl font-black">
+    <section className="mt-12" aria-labelledby={id}>
+      <h2 id={id} className="text-xl font-black">
         {heading}
       </h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">

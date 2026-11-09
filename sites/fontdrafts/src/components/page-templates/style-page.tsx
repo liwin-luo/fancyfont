@@ -10,12 +10,14 @@ import { hubPath } from "@/lib/hubs";
 import { localePath, type Locale } from "@/lib/i18n";
 import { breadcrumbJsonLd, howToJsonLd, workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
+import { contextualLinks, uniqueLinks } from "@/lib/contextual-links";
 import { relatedCards, type StylePageDef } from "@/lib/style-pages";
 
 export function StylePageTemplate({ locale, page }: { locale: Locale; page: StylePageDef }) {
   const ui = getUi(locale);
   const c = page.copy[locale]!;
   const guides = guidesForPage(locale, page.slug);
+  const related = uniqueLinks([...relatedCards(locale, page.related), ...contextualLinks(locale, page.slug)]);
   const primaryStyle = page.styleIds[0];
   const sampleInput = page.placeholder[locale];
   const lp = (slug: string) => localePath(locale, `/${slug}/`);
@@ -130,6 +132,7 @@ export function StylePageTemplate({ locale, page }: { locale: Locale; page: Styl
 
       {guides.length > 0 ? (
         <RelatedTools
+          id="related-guides"
           heading={ui.sections.relatedGuides}
           links={guides.map((guide) => ({
             href: guidePath(locale, guide.slug),
@@ -146,12 +149,11 @@ export function StylePageTemplate({ locale, page }: { locale: Locale; page: Styl
         <Faq items={c.faq} />
       </section>
 
-      {page.related.length > 0 ? (
-        <RelatedTools
-          links={relatedCards(locale, page.related)}
-          heading={guides.length > 0 ? ui.sections.swapStyles : ui.sections.relatedTools}
-        />
-      ) : null}
+      <RelatedTools
+        id="related-tools"
+        links={related}
+        heading={guides.length > 0 ? ui.sections.swapStyles : ui.sections.relatedTools}
+      />
     </div>
   );
 }

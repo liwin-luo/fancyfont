@@ -15,11 +15,11 @@ export type StyleGroupKey = "script" | "gothic" | "cute" | "bold" | "small";
 export type PlatformGroupKey = "social" | "games" | "chat";
 
 export const STYLE_GROUPS: { key: StyleGroupKey; slugs: string[] }[] = [
-  { key: "script", slugs: ["cursive-fonts", "elegant-font-generator", "coquette-font-generator", "heart-font-generator"] },
+  { key: "script", slugs: ["cursive-fonts", "signature-font-generator", "elegant-font-generator", "coquette-font-generator", "heart-font-generator"] },
   { key: "gothic", slugs: ["gothic-fonts", "dark-font-generator", "chicano-font-generator"] },
   { key: "cute", slugs: ["cute-fonts", "bubble-fonts", "preppy-font-generator", "aesthetic-fonts", "decorated-nicknames"] },
   { key: "bold", slugs: ["bold-fonts", "italic-text-generator", "cool-font-generator", "fancy-numbers", "strikethrough-text"] },
-  { key: "small", slugs: ["small-fonts", "tiny-text-generator", "upside-down-text", "zalgo-text", "crazy-font-generator"] },
+  { key: "small", slugs: ["small-fonts", "tiny-text-generator", "superscript-subscript-generator", "upside-down-text", "zalgo-text", "crazy-font-generator"] },
 ];
 
 export const PLATFORM_GROUPS: { key: PlatformGroupKey; slugs: string[] }[] = [
@@ -27,6 +27,7 @@ export const PLATFORM_GROUPS: { key: PlatformGroupKey; slugs: string[] }[] = [
     key: "social",
     slugs: [
       "instagram-fonts",
+      "twitter-fonts",
       "tiktok-fonts",
       "facebook-fonts",
       "youtube-fonts",
@@ -42,6 +43,7 @@ export const PLATFORM_GROUPS: { key: PlatformGroupKey; slugs: string[] }[] = [
     key: "games",
     slugs: [
       "game-name-generator",
+      "minecraft-fonts",
       "roblox-name-generator",
       "pubg-name-generator",
       "fortnite-name-generator",
@@ -65,6 +67,17 @@ export const FEATURED_STYLE_SLUGS = [
   "zalgo-text",
   "fancy-numbers",
 ];
+
+/**
+ * 首页「游戏与角色扮演文本」小块。只展示该语言真实存在的页面，
+ * 不放进页脚，避免把长尾页铺成关键词列表。
+ */
+export const FEATURED_GAME_TEXT_SLUGS = [
+  "berry-avenue-fonts",
+  "roblox-name-generator",
+  "adopt-me-fonts",
+  "coquette-font-generator",
+] as const;
 
 /** 各语言导航平台下拉的精选顺序(未列出的走 hub 页)。 */
 export const FEATURED_PLATFORM_SLUGS: Record<Locale, string[]> = {

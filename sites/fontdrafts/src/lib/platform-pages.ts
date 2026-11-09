@@ -2,7 +2,7 @@
 // zh 主打抖音/小红书/微信/QQ,es/pt-br 各自本土化)。页面在哪些语言可用
 // 由 copy 的键决定;hreflang 只在可用语言之间输出。
 
-import type { Locale } from "./i18n";
+import { localePath, type Locale } from "./i18n";
 import type { TextStyleId } from "./text-styles";
 import { platformPagesZhCn } from "./content/platform-pages-zh-cn";
 import { platformPagesEn } from "./content/platform-pages-en";
@@ -197,7 +197,7 @@ export function relatedCards(
   for (const link of links) {
     if (link.kind === "style") {
       const copy = getStylePageCopy(locale, link.slug);
-      if (copy) out.push({ href: `/${link.slug}/`, title: copy.navName, description: copy.description });
+      if (copy) out.push({ href: localePath(locale, `/${link.slug}/`), title: copy.navName, description: copy.description });
     } else {
       const guide = getGuideFor(locale, link.slug);
       if (guide) out.push({ href: guidePath(locale, link.slug), title: guide.navName, description: guide.description });
