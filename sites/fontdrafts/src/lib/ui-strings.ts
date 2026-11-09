@@ -138,6 +138,8 @@ export interface UiStrings {
     guidesHeading: string;
     guidesIntro: string;
     guidesAll: string;
+    gameTextHeading: string;
+    gameTextIntro: string;
     faqHeading: string;
     faq: HomeFaq[];
     startHeading: string;
@@ -259,7 +261,7 @@ const EN: UiStrings = {
       title: "All Font Styles & Generators",
       h1: "All font styles",
       description: "Browse every fancy font style — cursive, gothic, cute, bold, small and glitch generators — grouped by look. Copy and paste, free.",
-      intro: "Every generator on FancyFont, grouped by look. Open one, type, and copy — every page carries the full ${textStyles.length}-style catalog with honest notes on where each look works.`",
+      intro: `Every generator on FancyFont, grouped by look. Open one, type, and copy — every page carries the full ${textStyles.length}-style catalog with honest notes on where each look works.`,
     },
     platforms: {
       title: "Fancy Fonts for Every Platform",
@@ -308,6 +310,9 @@ const EN: UiStrings = {
     guidesHeading: "Guides",
     guidesIntro: "Principles, limits & compatibility",
     guidesAll: "All guides →",
+    gameTextHeading: "Game and roleplay text",
+    gameTextIntro:
+      "Short styles for in-game names, signs and roleplay. Account usernames stay plain letters — save only text the game itself accepts.",
     faqHeading: "FAQ",
     faq: [
       {
@@ -333,7 +338,7 @@ const EN: UiStrings = {
     ],
     startHeading: "Start here",
     startLinks: [
-      { title: "Nickname decorator", description: "27 symbol frames that work on any text.", href: "/decorated-nicknames/" },
+      { title: "Signature font", description: "Script styles for a name. Not an ink or legal signature.", href: "/signature-font-generator/" },
       { title: "Cursive converter", description: "The classic script look for English words.", href: "/cursive-fonts/" },
       { title: "Why boxes appear", description: "Compatibility, explained simply.", href: "/learn/why-boxes-appear/" },
       { title: "Pick your style", description: "Match a look to your scenario.", href: "/learn/pick-your-style/" },
@@ -499,6 +504,8 @@ const ZH: UiStrings = {
     guidesHeading: "装扮指南",
     guidesIntro: "原理、兼容性、平台规则——用得明白,装饰得放心。",
     guidesAll: "查看全部指南 →",
+    gameTextHeading: "游戏与角色名文本",
+    gameTextIntro: "给游戏内名字、告示和角色扮演用的短文本。账号用户名保持普通字符，只保存游戏自己接受的内容。",
     faqHeading: "常见问题",
     faq: [
       {
@@ -524,10 +531,10 @@ const ZH: UiStrings = {
     ],
     startHeading: "从这几个页面开始",
     startLinks: [
-      { title: "花式昵称装饰", description: "中文昵称的 27 种环绕装饰。", href: "/decorated-nicknames/" },
-      { title: "花体字转换器", description: "最经典的英文花体样式。", href: "/cursive-fonts/" },
-      { title: "中文花式昵称教程", description: "三个技巧做出风格。", href: "/zhinan/chinese-nickname-guide/" },
-      { title: "场景选样式", description: "按场景匹配风格组合。", href: "/zhinan/pick-your-style/" },
+      { title: "花式昵称装饰", description: "中文昵称的 27 种环绕装饰。", href: "/zh/decorated-nicknames/" },
+      { title: "花体字转换器", description: "最经典的英文花体样式。", href: "/zh/cursive-fonts/" },
+      { title: "中文花式昵称教程", description: "三个技巧做出风格。", href: "/zh/zhinan/chinese-nickname-guide/" },
+      { title: "场景选样式", description: "按场景匹配风格组合。", href: "/zh/zhinan/pick-your-style/" },
     ],
   },
   notFound: {
@@ -696,6 +703,9 @@ const ES: UiStrings = {
     guidesHeading: "Guías",
     guidesIntro: "Principios, límites y compatibilidad",
     guidesAll: "Todas las guías →",
+    gameTextHeading: "Texto para juegos y roleplay",
+    gameTextIntro:
+      "Estilos cortos para nombres dentro del juego, carteles y roleplay. El usuario de la cuenta se queda en letras normales: guarda solo lo que el juego acepte.",
     faqHeading: "Preguntas frecuentes",
     faq: [
       {
@@ -721,10 +731,10 @@ const ES: UiStrings = {
     ],
     startHeading: "Empieza por aquí",
     startLinks: [
-      { title: "Decorador de apodos", description: "27 marcos que funcionan con cualquier texto.", href: "/decorated-nicknames/" },
-      { title: "Conversor a cursiva", description: "El clásico estilo script para palabras.", href: "/cursive-fonts/" },
-      { title: "Por qué aparecen cuadros", description: "Compatibilidad explicada sin lío.", href: "/learn/why-boxes-appear/" },
-      { title: "Elige tu estilo", description: "El look adecuado para cada ocasión.", href: "/learn/pick-your-style/" },
+      { title: "Letras coquette", description: "Lazo y script para copiar. No cambia el usuario de la cuenta.", href: "/es/coquette-font-generator/" },
+      { title: "Conversor a cursiva", description: "El clásico estilo script para palabras.", href: "/es/cursive-fonts/" },
+      { title: "Por qué salen cuadros", description: "Compatibilidad explicada sin lío.", href: "/es/guia/why-boxes-appear/" },
+      { title: "Límites de longitud", description: "Cuántos caracteres caben en un nombre.", href: "/es/guia/name-length-limits/" },
     ],
   },
   notFound: {
@@ -893,6 +903,9 @@ const PT: UiStrings = {
     guidesHeading: "Guias",
     guidesIntro: "Princípios, limites e compatibilidade",
     guidesAll: "Todos os guias →",
+    gameTextHeading: "Texto para jogos e roleplay",
+    gameTextIntro:
+      "Estilos curtos para nomes dentro do jogo, placas e roleplay. O usuário da conta continua em letras comuns — salve só o que o jogo aceitar.",
     faqHeading: "Perguntas frequentes",
     faq: [
       {
@@ -918,10 +931,10 @@ const PT: UiStrings = {
     ],
     startHeading: "Comece por aqui",
     startLinks: [
-      { title: "Decorador de apelidos", description: "27 molduras que funcionam com qualquer texto.", href: "/decorated-nicknames/" },
-      { title: "Conversor cursivo", description: "O clássico estilo script para palavras.", href: "/cursive-fonts/" },
-      { title: "Por que aparecem quadradinhos", description: "Compatibilidade explicada sem enrolação.", href: "/learn/why-boxes-appear/" },
-      { title: "Escolha seu estilo", description: "O visual certo para cada situação.", href: "/learn/pick-your-style/" },
+      { title: "Letras coquette", description: "Laço e script para copiar. Não muda o usuário da conta.", href: "/pt-br/coquette-font-generator/" },
+      { title: "Conversor cursivo", description: "O clássico estilo script para palavras.", href: "/pt-br/cursive-fonts/" },
+      { title: "Por que aparecem quadradinhos", description: "Compatibilidade explicada sem enrolação.", href: "/pt-br/guia/why-boxes-appear/" },
+      { title: "Limites de caracteres", description: "Quantos caracteres cabem em um nome.", href: "/pt-br/guia/name-length-limits/" },
     ],
   },
   notFound: {
@@ -1090,6 +1103,9 @@ const DE: UiStrings = {
     guidesHeading: "Guides",
     guidesIntro: "Grundprinzipien, Limits & Kompatibilität",
     guidesAll: "Alle Guides →",
+    gameTextHeading: "Text für Spiele und Roleplay",
+    gameTextIntro:
+      "Kurze Stile für Namen im Spiel, Schilder und Roleplay. Account-Nutzernamen bleiben einfache Buchstaben — speichere nur, was das Spiel selbst annimmt.",
     faqHeading: "FAQ",
     faq: [
       {
@@ -1115,10 +1131,10 @@ const DE: UiStrings = {
     ],
     startHeading: "Hier starten",
     startLinks: [
-      { title: "Nickname-Dekorator", description: "27 Symbolrahmen, die mit jedem Text funktionieren.", href: "/decorated-nicknames/" },
-      { title: "Schreibschrift-Konverter", description: "Der klassische Script-Look für englische Wörter.", href: "/cursive-fonts/" },
-      { title: "Warum Kästchen erscheinen", description: "Kompatibilität, einfach erklärt.", href: "/learn/why-boxes-appear/" },
-      { title: "Finde deinen Stil", description: "Den passenden Look für dein Szenario finden.", href: "/learn/pick-your-style/" },
+      { title: "Coquette", description: "Schleife und Script zum Kopieren. Der Account-Nutzername bleibt unverändert.", href: "/de/coquette-font-generator/" },
+      { title: "Schreibschrift-Konverter", description: "Der klassische Script-Look für Wörter.", href: "/de/cursive-fonts/" },
+      { title: "Warum Kästchen erscheinen", description: "Kompatibilität, einfach erklärt.", href: "/de/anleitung/why-boxes-appear/" },
+      { title: "Zeichenlimits", description: "Wie viele Zeichen in einen Namen passen.", href: "/de/anleitung/name-length-limits/" },
     ],
   },
   notFound: {

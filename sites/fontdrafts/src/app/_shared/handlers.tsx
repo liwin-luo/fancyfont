@@ -191,7 +191,14 @@ import { siteName } from "@/lib/site";
 /** 404 页。 */
 export function NotFoundPage({ locale }: { locale: Locale }) {
   const ui = getUi(locale);
-  const lp = (slug: string) => localePath(locale, `/${slug}/`);
+  const decorator = getStylePageFor("decorated-nicknames", locale);
+  const cursive = getStylePageFor("cursive-fonts", locale);
+  const secondary = decorator
+    ? { href: localePath(locale, "/decorated-nicknames/"), label: ui.notFound.secondary }
+    : {
+        href: localePath(locale, "/cursive-fonts/"),
+        label: cursive?.copy[locale]?.navName ?? ui.notFound.secondary,
+      };
   return (
     <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
       <p className="sticker -rotate-2 bg-pop-pink text-paper">{ui.notFound.badge}</p>
@@ -201,8 +208,8 @@ export function NotFoundPage({ locale }: { locale: Locale }) {
         <Link href={localePath(locale, "/")} className="btn-pop">
           {ui.notFound.back}
         </Link>
-        <Link href={lp("decorated-nicknames")} className="btn-pop-secondary">
-          {ui.notFound.secondary}
+        <Link href={secondary.href} className="btn-pop-secondary">
+          {secondary.label}
         </Link>
       </div>
     </div>

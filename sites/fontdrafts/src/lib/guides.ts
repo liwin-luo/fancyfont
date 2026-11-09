@@ -66,7 +66,10 @@ const ALL: GuideDef[] = [...guidesEn, ...guidesZhCn, ...guidesEs, ...guidesPtBr,
 // 返回值都是可直接用于 href/canonical 的完整站内路径(含语言前缀):
 // en /learn/…,zh-cn /zh/zhinan/…,es /es/guia/…,pt-br /pt-br/guia/…。
 export function guidePath(locale: Locale, slug: string): string {
-  return localePath(locale, `${GUIDE_BASE[locale]}/${slug}/`);
+  const base = GUIDE_BASE[locale];
+  // 空 slug 是指南目录本身。不能拼成 /learn//，否则会多一次 308。
+  const path = slug ? `${base}/${slug}/` : `${base}/`;
+  return localePath(locale, path);
 }
 
 export function guideBase(locale: Locale): string {

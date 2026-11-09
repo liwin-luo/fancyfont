@@ -14,6 +14,7 @@ import {
   Steps,
   faqJsonLd,
 } from "@/components/sections";
+import { contextualLinks } from "@/lib/contextual-links";
 import { guidesForPage, guidePath } from "@/lib/guides";
 import { localePath, type Locale } from "@/lib/i18n";
 import { breadcrumbJsonLd, howToJsonLd, workMeta } from "@/lib/schema";
@@ -25,6 +26,7 @@ export function PlatformPageTemplate({ locale, page }: { locale: Locale; page: P
   const ui = getUi(locale);
   const c = page.copy[locale]!;
   const guides = guidesForPage(locale, page.slug);
+  const neighbors = contextualLinks(locale, page.slug);
   const lp = (slug: string) => localePath(locale, `/${slug}/`);
   const placeholder = locale === "zh-cn" ? "清风徐来" : locale === "en" ? "sunset" : locale === "es" ? "luna" : "estrela";
 
@@ -127,6 +129,7 @@ export function PlatformPageTemplate({ locale, page }: { locale: Locale; page: P
 
       {guides.length > 0 ? (
         <RelatedTools
+          id="related-guides"
           heading={ui.sections.relatedGuides}
           links={guides.map((guide) => ({
             href: guidePath(locale, guide.slug),
@@ -135,6 +138,8 @@ export function PlatformPageTemplate({ locale, page }: { locale: Locale; page: P
           }))}
         />
       ) : null}
+
+      <RelatedTools id="related-tools" heading={ui.sections.relatedTools} links={neighbors} />
 
       <section aria-labelledby="faq-heading" className="mt-12">
         <h2 id="faq-heading" className="text-xl font-black">

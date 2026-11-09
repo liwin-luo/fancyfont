@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { localePrefix, type Locale } from "@/lib/i18n";
+import { languageIndex } from "@/lib/locale-nav";
 import type { NavItem } from "@/lib/nav";
 import { getUi } from "@/lib/ui-strings";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -81,7 +82,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: NavItem[] }) {
 
         {/* 语言切换器:桌面在导航尾部,移动端在汉堡菜单旁 */}
         <div className="flex items-center gap-1.5">
-          <LanguageSwitcher locale={locale} label={ui.nav.language} />
+          <LanguageSwitcher locale={locale} label={ui.nav.language} index={languageIndex} />
 
           {/* 移动端菜单:<details> 语义 + 同款关闭逻辑;分组双列栅格,限高滚动 */}
           <NavDropdown

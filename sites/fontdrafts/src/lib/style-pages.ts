@@ -4,7 +4,7 @@
 // (decorated-nicknames 仅中文;*-migration 模块是从旧站迁移的落地页,
 //  首版仅英文,slug 与旧站一致以保护已收录 URL)。
 
-import type { Locale } from "./i18n";
+import { localePath, type Locale } from "./i18n";
 import { textStyles, type TextStyleId } from "./text-styles";
 import { stylePagesZhCn } from "./content/style-pages-zh-cn";
 import { stylePagesEn } from "./content/style-pages-en";
@@ -381,7 +381,7 @@ export function relatedCards(
     .map((slug) => {
       const def = getStylePage(slug);
       const copy = def?.copy[locale];
-      if (copy) return { href: `/${def.slug}/`, title: copy.navName, description: copy.description };
+      if (copy) return { href: localePath(locale, `/${def.slug}/`), title: copy.navName, description: copy.description };
       return undefined;
     })
     .filter((c): c is { href: string; title: string; description: string } => Boolean(c));
