@@ -112,7 +112,7 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
         "Fancy nicknames in one place: styled fonts, ꧁꧂ gamer frames and name ideas — Instagram ~30, Roblox 3–20, Discord ~32. Live preview, favorites, one-tap copy.",
       intro: [
         "Type a name once and watch it become 𝒮𝓉𝒶𝓇𝓁𝒾𝑔𝒽𝓉, ᴛʜᴇ ꧁ɢʀɪᴍ꧂ or ♡ ｍｉｌｋｔｅａ ♡ — styled fonts on top, gamer frames and symbol pairs layered underneath. Star your favorites, compare on one screen, copy the winner in one tap.",
-        "Two honest notes before you commit: platforms cap nicknames differently (Instagram ~30, TikTok ~24, Roblox 3–20, Discord ~32 — decorations count toward every one of them), and whitelisted games refuse exotic characters entirely. Build the shortlist here, test in the app, then rename.",
+        "Two honest notes before you commit: platforms cap nicknames differently (Instagram ~30, TikTok 30, Roblox 3–20, Discord ~32 — decorations count toward every one of them), and whitelisted games refuse exotic characters entirely. Build the shortlist here, test in the app, then rename.",
       ],
       steps: [
         "Type the name or word you want to turn into a nickname.",
@@ -138,7 +138,7 @@ export const stylePagesGapEn: Record<string, { [L in Locale]?: StylePageCopy }> 
         },
         {
           q: "Can I use the same nickname on Instagram, TikTok and Discord?",
-          a: "Usually, if you design for the smallest cap (~24 on TikTok) and keep @handles separate — handles are plain usernames and never accept styles. The display name and bio are where decorated nicknames live.",
+          a: "Usually, if you design for the smallest cap you'll use (Roblox allows 3–20) and keep @handles separate — handles are plain usernames and never accept styles. The display name and bio are where decorated nicknames live.",
         },
         {
           q: "Why does my nickname show boxes on some devices?",

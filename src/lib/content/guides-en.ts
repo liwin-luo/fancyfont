@@ -137,7 +137,7 @@ export const guidesEn: GuideDef[] = [
           head: ["Platform", "Name limit (about)", "Decoration advice"],
           rows: [
             ["Instagram", "Name 30 / Bio 150", "Name for the style, Bio for a plain-text lookup line"],
-            ["TikTok", "About 24 (Bio ~80)", "Single-symbol frames ✧ ⋆ keep room for text"],
+            ["TikTok", "Up to 30 (Bio 80)", "Single-symbol frames ✧ ⋆ keep room for text"],
             ["Discord", "About 32 (display name)", "Room for double frames ꧁༺༻꧂"],
             ["WhatsApp", "About 25 (About ~139)", "Thin frames ━ ✧ fit the tight field"],
             ["Roblox", "3–20 display name", "Validation is strict — plain glyphs pass most often"],
@@ -402,7 +402,7 @@ export const guidesEn: GuideDef[] = [
         },
         bullets: [
           "Instagram: display Name ✅ (30 chars), bio ✅ (150), @username ❌ plain only.",
-          "TikTok: nickname ✅ (about 24), bio ✅ (about 80), @handle ❌.",
+          "TikTok: nickname ✅ (up to 30), bio ✅ (about 80), @handle ❌.",
           "Discord: display name ✅ and per-server nicknames ✅ (about 32), messages ✅, @mentions ❌.",
           "WhatsApp: profile name ✅ (about 25), About ✅ (about 139).",
           "Roblox: display name ✅ but the filter is strict — whole-glyph styles pass, combining marks usually fail. @username ❌ plain.",
@@ -1010,7 +1010,7 @@ export const guidesEn: GuideDef[] = [
     updated: "2026-11-08",
     intro: [
       "Random syllable generators produce names that fail the friend-test: nobody can pronounce them, nobody remembers them, and six months later you are renaming again. Nicknames that stick come from small formulas applied to something personal \u2014 then dressed with a frame and a font.",
-      "This page gives the five formulas first, the dressing rules second, and 50 ready examples grouped by look \u2014 every one sized for real platform limits (6\u201316 in most games, ~24 on TikTok, 3\u201320 on Roblox). Take one as-is or rebuild it with your own base word.",
+      "This page gives the five formulas first, the dressing rules second, and 50 ready examples grouped by look \u2014 every one sized for real platform limits (6\u201316 in most games, up to 30 on TikTok, 3\u201320 on Roblox). Take one as-is or rebuild it with your own base word.",
     ],
     sections: [
       {
@@ -1053,7 +1053,7 @@ export const guidesEn: GuideDef[] = [
     faq: [
       {
         q: "How long should a nickname be?",
-        a: "The sweet spot is 4\u201312 characters: short enough for every field (most games cap 6\u201316, TikTok ~24, Instagram ~30), long enough to be pronounceable. Decorations count toward every limit.",
+        a: "The sweet spot is 4\u201312 characters: short enough for every field (most games cap 6\u201316, TikTok 30, Instagram ~30), long enough to be pronounceable. Decorations count toward every limit.",
       },
       {
         q: "Are styled nicknames bad for being found?",

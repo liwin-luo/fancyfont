@@ -68,18 +68,18 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
     en: {
       navName: "TikTok fonts",
       h1: "TikTok Font Generator",
-      title: "TikTok Font Generator — Nickname ~24 & Bio ~80",
+      title: "TikTok Font Generator — Name up to 30 & Bio 80",
       description:
-        "Fancy fonts for TikTok nicknames (about 24 characters) and bios (about 80). Live preview, one-tap copy; the @handle and hashtags stay plain.",
+        "Fancy fonts for TikTok nicknames (up to 30 characters) and bios (80). Live preview, one-tap copy; the @handle and hashtags stay plain.",
       platform: "TikTok",
       intro: [
         "TikTok nicknames accept fancy Unicode characters, and the bio takes most styles too. Type your nickname below — gamer frames, script, fullwidth — and tap to copy.",
         "Watch the boundary: your @handle only takes plain characters, and hashtags with fancy characters won't match. Styles belong in the nickname and bio.",
       ],
       limits: [
-        { label: "Nickname", value: "About 24 characters — trust the edit screen's counter" },
+        { label: "Nickname", value: "Up to 30 characters — trust the edit screen's counter" },
         { label: "Bio", value: "About 80 characters, fancy symbols count in" },
-        { label: "@handle", value: "Letters/digits/dots/underscores only — no fancy characters" },
+        { label: "@handle", value: "2–24 letters, digits, dots or underscores — no fancy characters" },
       ],
       compat: [
         "Nickname: fancy characters work; nickname edits are rate-limited",
@@ -113,11 +113,11 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
         },
         {
           q: "Do fancy characters count more toward the nickname or bio limit?",
-          a: "Usually one each — but some heavy symbols count as display width 2. With only ~24 name characters to play with, watch the edit screen's counter before saving.",
+          a: "Usually one each — but some heavy symbols count as display width 2. With only 30 name characters to play with, watch the edit screen's counter before saving.",
         },
         {
           q: "How often can I change my TikTok nickname?",
-          a: "Nickname edits are rate-limited, so a failed save can lock you out for a while. Decide here first, star two candidates, and only paste one you're confident in.",
+          a: "TikTok lets you change your nickname once every 7 days, so decide here first — star two candidates and paste the one you're confident in.",
         },
       ],
     },
