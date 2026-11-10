@@ -192,13 +192,13 @@ export const platformPagesMigrationPtBr: Record<string, { "pt-br": PlatformPageC
   "berry-avenue-fonts": {
     "pt-br": {
       navName: "Berry Avenue",
-      h1: "Gerador de fontes para Berry Avenue",
-      title: "Fontes para Berry Avenue — copie grátis (~20 caracteres)",
+      h1: "Fontes para Berry Avenue: nomes, bio e emojis para copiar",
+      title: "Fontes Berry Avenue: copie e cole nomes, bio e emojis",
       description:
-        "Fontes grátis para Berry Avenue no nome de exibição do Roblox — laços, script e versalete perto dos ~20 caracteres. Veja, copie, cole. Não é para o @usuário.",
+        "Fontes para Berry Avenue para copiar e colar: laços coquette, versalete preppy e emojis para o nome de exibição do Roblox. O @usuário fica simples.",
       platform: "Berry Avenue",
       intro: [
-        "O Berry Avenue mostra seu nome de exibição do Roblox sobre o personagem — esse campo fica em cerca de 20 caracteres, e o @usuário continua simples. Linhas como 𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚 e 𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚 são o visual coquette, no tamanho que cabe. Digite abaixo e toque para copiar.",
+        "As fontes de Berry Avenue são letras e símbolos Unicode que você copia e cola no nome de exibição do Roblox — o nome que o Berry Avenue mostra sobre o personagem. O nome de exibição fica em cerca de 20 caracteres, laços e emojis incluídos, e linhas como 𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚 já nascem no tamanho que cabe. O @usuário continua simples: a Roblox só permite letras, dígitos e um sublinhado comuns ali.",
         "São caracteres Unicode para colar, não uma fonte para instalar — então o filtro do Roblox e os glifos do seu aparelho decidem o visual final. Mantenha o nome de exibição dentro do limite, salve só quando a tela do Roblox aceitar, e deixe as linhas compridas para o chat ou para uma placa.",
       ],
       limits: [
@@ -214,6 +214,40 @@ export const platformPagesMigrationPtBr: Record<string, { "pt-br": PlatformPageC
         "O filtro de chat do Roblox pode transformar palavras estilizadas em #### — guarde uma versão em texto simples para o que importa",
       ],
       examples: ["𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚", "🎀 𝒮𝓀𝓎𝑒", "𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚", "♡ 𝓔𝓵𝓵𝓲𝓮", "ᴊᴀᴅᴇ ᴠᴀʟᴇ", "꒰ 𝓝𝓲𝓬𝓸𝓵𝓮 ꒱", "𐙚 𝑫𝒂𝒚𝒍𝒆𝒆"],
+      copyGroups: [
+        {
+          heading: "Exemplos de nomes e bio para Berry Avenue",
+          note: "Cada linha cabe no nome de exibição de ~20 caracteres — toque para copiar. O laço ୨୧ e a estrela 𐙚 são os símbolos que mais viram quadrado (□) em alguns aparelhos; corações ♡, brilhos ✧ e emojis como 🎀 aparecem em quase todo celular moderno. Os mesmos caracteres funcionam em qualquer campo que aceite texto colado, então bios e falas de RP mais longas podem reutilizar essas linhas.",
+          groups: [
+            {
+              label: "Coquette e fofa",
+              items: ["𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚", "𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚", "♡ 𝓔𝓵𝓵𝓲𝓮 ♡", "𝜗𝜚 𝑺𝒐𝒇𝒊 𝜗𝜚"],
+            },
+            {
+              label: "Preppy",
+              items: ["✧ ᴍɪʟᴀ ✧", "ᴊᴀᴅᴇ ᴠᴀʟᴇ", "♡ ᴄʟᴀɪʀᴇ ♡", "ᴘʀᴇᴘᴘʏ ᴄʟᴜʙ"],
+            },
+            {
+              label: "RP de família: mamãe, papai e bebê",
+              items: ["ᴍᴀᴍᴀ̃ᴇ ♡ ʟɪʟʏ", "ᴘᴀᴘᴀɪ ★ ᴊᴀᴄᴋ", "𝓑𝓮𝓫𝓮 𝓥𝓲𝓸𝓵𝓮𝓽", "𐙚 ʙᴇʙᴇ ᴍɪᴀ 𐙚"],
+            },
+            {
+              label: "Combos estéticos com emojis",
+              items: ["🎀 𝒮𝓀𝓎𝑒 🎀", "✿ 𝒻𝓁𝑜𝓇 ✿", "☾ 𝓂𝑜𝑜𝓃 ☽", "✧ 𝓈𝓉𝒶𝓇𝓈 ✧"],
+            },
+          ],
+        },
+      ],
+      fieldTable: {
+        heading: "Onde as fontes de Berry Avenue funcionam — campo por campo",
+        columns: ["Campo", "Aceita fontes?", "Observações"],
+        rows: [
+          ["Nome de exibição", "Sim", "Cole caracteres Unicode. Cerca de 20 caracteres (a Roblox anunciou 3–20) — laços, corações e emojis contam no limite."],
+          ["@usuário", "Não — só simples", "Letras, dígitos e um sublinhado. Os jogadores ainda te encontram por esse @."],
+          ["Chat", "Sim, com filtro", "Sem limite publicado do Berry Avenue. O filtro do Roblox pode transformar palavras estilizadas em #### — guarde uma versão em texto simples."],
+          ["Placa da casa", "Sim", "Também sem limite publicado. Confira se as linhas compridas renderizam no seu aparelho antes de decorar."],
+        ],
+      },
       steps: [
         "Digite seu nome e copie uma linha que fique perto dos 20 caracteres.",
         "Abra o Roblox → Configurações → Informações da conta → Nome de exibição (o Berry Avenue mostra seu nome do Roblox).",
@@ -244,6 +278,10 @@ export const platformPagesMigrationPtBr: Record<string, { "pt-br": PlatformPageC
         {
           q: "Isto é um gerador de fontes para Berry Avenue?",
           a: "Ele rascunha um nome de exibição para copiar. Não é uma ferramenta oficial do Berry Avenue nem da Roblox, e nada aqui garante que o jogo aceite os caracteres — a tela do próprio Roblox é a conferência final.",
+        },
+        {
+          q: "Posso usar as fontes de Berry Avenue na bio?",
+          a: "Sim — qualquer campo que aceite texto colado aceita os mesmos caracteres, incluindo bios e falas de RP mais compridas. Só o nome de exibição (~20 caracteres) e o @usuário (simples) têm regras declaradas; para o resto não existe limite publicado do Berry Avenue, então cole e confira se renderiza no seu aparelho.",
         },
       ],
     },

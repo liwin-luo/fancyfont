@@ -320,8 +320,28 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
         "Stylish PUBG IDs with ꧁꧂ frames — nicknames run about 5–16 characters and renames cost a card. Star two candidates, paste-test, then commit.",
       platform: "PUBG",
       intro: [
-        "꧁ACE꧂, ★彡sniper彡★, 𝗦𝗛𝗔𝗗𝗢𝗪 — gamer frames are the shared language of shooter IDs. Type your name, preview the styles, copy into the rename card flow.",
+        "A PUBG name with symbols is styled Unicode text you paste into the rename card flow — nicknames run about 5–16 characters, and every frame symbol counts toward that budget. Type your name below, preview the frames, and copy one into the game. PUBG Mobile and BGMI validate against their own whitelists, so paste-test before you spend a rename card.",
         "Rename cards cost money, so decide here: star two or three candidates, then spend one attempt on the one that validates.",
+      ],
+      copyGroups: [
+        {
+          heading: "PUBG clan tag & symbol ideas",
+          note: "Tap a symbol to copy it, then build your name around it. The common frames (꧁꧂ ༺༻ ★彡彡★) are the ones most versions accept; combining marks (strike/zalgo) get refused on stricter servers, and tournament accounts stay plain. Every symbol counts against the about 5–16 character nickname budget, and renames cost a card — where your version has a clan tag, keep it short and plain.",
+          groups: [
+            {
+              label: "Frames & borders",
+              items: ["꧁꧂", "༺༻", "「」", "★彡彡★", "♛♛"],
+            },
+            {
+              label: "Symbols & accents",
+              items: ["★", "⚡", "⚔", "☠", "彡", "✦", "➤"],
+            },
+            {
+              label: "Ready-made examples",
+              items: ["꧁ACE꧂", "★彡sniper彡★", "꧔꧇1v5꧇꧕", "♛heir♛"],
+            },
+          ],
+        },
       ],
       limits: [
         { label: "Nickname", value: "About 5–16 characters depending on version" },
@@ -336,9 +356,9 @@ export const platformPagesEn: Record<string, { [L in Locale]?: PlatformPageCopy 
       ],
       examples: ["꧁ACE꧂", "★彡sniper彡★", "𝗦𝗛𝗔𝗗𝗢𝗪", "♛heir♛", "꧔꧇1v5꧇꧕"],
       steps: [
-        "Generate candidates here and star the top two.",
-        "Open the game → inventory → rename card → enter new name.",
-        "Paste the first candidate; if the filter refuses, use the backup.",
+        "Generate candidates here and star the top two — frames included, within about 5–16 characters.",
+        "Open the game (PUBG Mobile or BGMI) → inventory → rename card → enter new name.",
+        "Paste the first candidate; if the filter says “invalid characters”, use the backup.",
         "Squad up and have a teammate check your name in the list.",
       ],
       faq: [

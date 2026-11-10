@@ -221,12 +221,23 @@ export const stylePagesMigrationEs: Record<string, { es: StylePageCopy }> = {
     es: {
       navName: "Coquette",
       h1: "Letras coquette para copiar y pegar",
-      title: "Letras coquette para copiar y pegar — lazo en bios",
+      title: "Letras coquette para copiar y pegar — lazos y emojis",
       description:
-        "Letras coquette gratis con lazo ୨୧. Copia y pega script para el nombre de Instagram o el apodo de Discord. No es un archivo de fuente para instalar.",
+        "Letras coquette para copiar y pegar: lazo ୨୧, emojis coquette y corazones ♡ para tu bio, TikTok o Adopt Me. Gratis, en el navegador, sin instalar una fuente.",
       intro: [
-        "Letras script y un solo lazo. Escribe un nombre — Mia, Lila, Belle — y las filas se reconstruyen en tu navegador: el par de lazos de cinta ୨୧ sobre el script grueso, con corazones ♡, flores ✿ y corchetes suaves ꒰꒱ como alternativa. Lo tierno de este sitio son las letras burbuja; esta página se queda en el look de lazo.",
+        "Las letras coquette son letras script de Unicode que copias y pegas con un lazo ୨୧: se ven en tu bio, tu nombre visible de TikTok e Instagram, y en el nombre de Adopt Me. Escribe un nombre — Mia, Lila, Belle — y las filas se reconstruyen en tu navegador: el par de lazos de cinta ୨୧ sobre el script grueso, con corazones ♡, flores ✿ y corchetes suaves ꒰꒱ como alternativa. Lo tierno de este sitio son las letras burbuja; esta página se queda en el look de lazo.",
         "El lazo envuelve el script grueso de Unicode — el alfabeto con e, g y o de verdad — así que nombres como Belle conservan sus formas. El script fino queda debajo, sin lazo, y en esa fila e, g y o son sustitutos. Los lazos son símbolos aparte, añadidos solo alrededor de la fila gruesa.",
+      ],
+      copyGroups: [
+        {
+          heading: "Emojis y símbolos coquette",
+          note: "Toca un símbolo para copiarlo y pégalo alrededor de tu nombre o en tu bio. Los emojis (🎀 🩰) se ven en casi todos los teléfonos; los símbolos menos comunes como ୨୧ o 𐙚 pueden salir como un cuadro (□) en dispositivos viejos — si te pasa, usa el corazón ♡ o la flor ✿.",
+          groups: [
+            {
+              items: ["୨୧", "୨୧♡୨୧", "୨୧𐙚୨୧", "𐙚", "🎀", "🩰", "♡", "✿", "❀", "✾", "❦", "✧", "꒰♡꒱", "꒰୨୧꒱"],
+            },
+          ],
+        },
       ],
       steps: [
         "Escribe el nombre que quieras — una sola palabra mantiene el protagonismo en el lazo.",
@@ -327,12 +338,23 @@ export const stylePagesMigrationEs: Record<string, { es: StylePageCopy }> = {
     es: {
       navName: "Preppy",
       h1: "Generador de letras preppy",
-      title: "Letras preppy — Generador para copiar y pegar | FancyFont",
+      title: "Letras preppy para copiar y pegar — Adopt Me y TikTok",
       description:
-        "Las letras preppy son versalitas Unicode limpias con un corazón ordenado. Genera, copia y pega en tu bio, nombre de TikTok o Adopt Me — gratis, sin registro.",
+        "Letras preppy para copiar y pegar: versalitas con corazón ♡ para nombres de Adopt Me, Roblox y TikTok. Generador gratis, sin registro — Unicode, no una fuente.",
       intro: [
-        "Las letras preppy son versalitas limpias con un corazón ♡ ordenado: el estilo detrás de la mayoría de los nombres preppy de Adopt Me y de las bios de TikTok. Escribe Mila, Blair o Tess y las filas se arman mientras tecleas, un adorno por lado para que el nombre siga siendo lo importante.",
+        "Las letras preppy son versalitas de Unicode que copias y pegas con un corazón ♡ ordenado: el estilo detrás de la mayoría de los nombres preppy de Adopt Me, de Roblox y de las bios de TikTok. Escribe Mila, Blair o Tess y las filas se arman mientras tecleas, un adorno por lado para que el nombre siga siendo lo importante. Abajo tienes nombres preppy listos para Adopt Me, Roblox y TikTok — toca uno para copiarlo.",
         "Las versalitas son letras modificadoras de Unicode que parecen mayúsculas de menor altura; el script y la burbuja son las segundas opciones, más suaves. El destello ✧ funciona cuando el corazón se siente demasiado dulce, y cada adorno es un símbolo aparte añadido alrededor de la fila que elijas.",
+      ],
+      copyGroups: [
+        {
+          heading: "Nombres preppy para Adopt Me, Roblox y TikTok",
+          note: "Cada nombre cabe en el nombre visible de Adopt Me (unos 20 caracteres, como muestra tu nombre visible de Roblox). Toca para copiar: el corazón ♡ y el destello ✧ son adornos comunes que la mayoría de dispositivos dibujan bien; si un adorno sale como un cuadro (□), copia la fila con el nombre en versalitas peladas y añade el adorno después.",
+          groups: [
+            {
+              items: ["♡ ᴍɪʟᴀ ♡", "✧ ʙʟᴀɪʀ ✧", "꒰ ᴋᴀᴛᴇ ꒱", "ᴘʀᴇᴘᴘʏ ɢɪʀʟ", "✧ ʟᴜᴄʏ ✧", "♡ ᴘᴇᴀᴄʜʏ ♡", "ᴍᴀᴘʟᴇ ✧", "꒰ ʟᴜɴᴀ ꒱", "♡ ᴘʀᴇᴘ ᴄʟᴜʙ ♡", "✧ ᴠᴏɢᴜᴇ ✧", "୨୧ ᴍɪᴀ ୨୧", "♡ ʙᴇʟʟᴀ ♡"],
+            },
+          ],
+        },
       ],
       steps: [
         "Escribe el nombre corto — una palabra de cinco letras o menos es el tamaño cómodo.",
