@@ -583,6 +583,7 @@ export const guidesEn: GuideDef[] = [
         paragraphs: [
           "The layout above balances pretty and findable: the display name carries the style (𝓈𝓊𝓃𝓈ℯ𝓉), the first bio line states what you do in decorated plain text, [small caps](/small-fonts/) add a quiet signature line, and the last line keeps location or contact in ordinary characters.",
           "The plain-text rule matters more than it looks: IG search and tag pages match ordinary characters, so one plain line in the bio keeps you discoverable while everything else stays styled.",
+          "On TikTok? The fields work differently — see [TikTok bio fonts](/learn/tiktok-bio-fonts/).",
         ],
       },
       {
@@ -616,6 +617,169 @@ export const guidesEn: GuideDef[] = [
       { href: "/coquette-font-generator/", title: "Coquette", description: "Open it and try it as you read." },
     ],
     appearOn: ["instagram-fonts", "aesthetic-fonts", "small-fonts", "coquette-font-generator", "preppy-font-generator", "heart-font-generator", "berry-avenue-fonts"],
+  },
+  {
+    locale: "en",
+    slug: "tiktok-bio-fonts",
+    navName: "TikTok bio fonts",
+    h1: "How to Change Your TikTok Bio and Name Font",
+    title: "How to Change Your TikTok Bio & Name Font (No App)",
+    description:
+      "Fancy fonts work in your TikTok Name and Bio, but not your @username. Copy styled text, paste it in Edit profile, then check the 30 and 80 character counters.",
+    published: "2026-11-10",
+    updated: "2026-11-10",
+    intro: [
+      "TikTok doesn't have a font menu, so “changing the font” means pasting Unicode characters that look styled. Generate them in a tool like FancyFont, copy, then go to Profile → Edit profile → Name or Bio, paste and save — the Name takes up to 30 characters and can be changed once every 7 days. Your @username can't be styled: TikTok only allows letters, numbers, underscores and periods there.",
+      "This guide shows where styled text works on TikTok, a bio layout that stays readable, and what to do when TikTok won't save your new name. FancyFont is a free tool and isn't affiliated with TikTok.",
+    ],
+    heroImage: {
+      src: "/guides/tiktok-profile-fields.png",
+      alt: "Diagram of a TikTok profile: styled Name, styled Bio, plain @username",
+      width: 1200,
+      height: 675,
+      caption:
+        "Illustration, not a TikTok screenshot: the Name and Bio take styled characters, the @username underneath stays plain for lookup.",
+    },
+    sections: [
+      {
+        heading: "Where fancy fonts work on TikTok",
+        table: {
+          head: ["Field", "Limit", "Fancy fonts", "Changes"],
+          rows: [
+            ["Name (nickname)", "Up to 30 characters", "✅ Yes — the best place", "Once every 7 days"],
+            ["Bio", "80 characters (check your counter)", "✅ Most styles", "Any time"],
+            ["@username", "2–24 characters", "❌ Letters, numbers, _ and . only", "Once every 30 days"],
+            ["Captions & comments", "Not published in TikTok Help", "⚠️ A styled word is fine", "—"],
+            ["Hashtags", "—", "❌ Keep plain so the tag matches", "—"],
+          ],
+        },
+        paragraphs: [
+          "The Name is what people see on the For You feed, in comments and in direct messages — it's the display layer. The @username is different: it's what your profile link is made of, so it stays plain. Other apps split the fields the same way — see [how other apps handle usernames](/learn/fancy-text-usernames/).",
+          "Source: [TikTok Help: Changing your nickname](https://support.tiktok.com/en/getting-started/setting-up-your-profile/changing-your-nickname) and [Changing your username](https://support.tiktok.com/en/getting-started/setting-up-your-profile/changing-your-username).",
+        ],
+      },
+      {
+        heading: "How to change your TikTok name font, step by step",
+        paragraphs: [
+          "Step one happens outside TikTok: type your name in the [TikTok font generator](/tiktok-fonts/) and pick a style you like — the remaining steps are pastes and taps.",
+        ],
+        bullets: [
+          "Tap the result to copy it.",
+          "In TikTok: Profile → Edit profile → Name.",
+          "Paste, watch the counter, tap Save.",
+          "Check your profile from another phone or the web before you settle — you can't change it again for 7 days.",
+        ],
+        image: {
+          src: "/guides/tiktok-fonts-tool.png",
+          alt: "FancyFont TikTok font generator showing styled versions of \"Mia Daily Vlogs\"",
+          width: 1200,
+          height: 675,
+          caption: "FancyFont's TikTok page: type once, tap a style to copy.",
+        },
+      },
+      {
+        heading: "How to change your TikTok bio font",
+        paragraphs: [
+          "The Bio takes most styles too, and there's no 7-day cooldown on it — if a paste doesn't land, you can fix it right away.",
+        ],
+        bullets: [
+          "In TikTok: Profile → Edit profile → Bio.",
+          "Paste the styled line you generated.",
+          "Watch the counter — the Bio cap is 80 characters (your counter is the final word).",
+          "Tap Save. On the web it's the same fields: tiktok.com → Profile → Edit profile.",
+        ],
+      },
+      {
+        heading: "Copy-ready examples (made with FancyFont)",
+        table: {
+          head: ["Style", "Example", "Notes"],
+          rows: [
+            ["Script", "ℳ𝒾𝒶 𝒟𝒶𝒾𝓁𝓎 𝒱𝓁ℴℊ𝓈", "Name · 25 UTF-16 units"],
+            ["Bold script", "𝓜𝓲𝓪 𝓓𝓪𝓲𝓵𝔂 𝓥𝓵𝓸𝓰𝓼", "Name · 28 UTF-16 units"],
+            ["Sans bold", "𝗠𝗶𝗮 𝗗𝗮𝗶𝗹𝘆 𝗩𝗹𝗼𝗴𝘀", "Name or bio keyword · 28 UTF-16 units"],
+            ["Small caps", "ᴍɪᴀ ᴅᴀɪʟʏ ᴠʟᴏɢꜱ", "Name or bio · 15 UTF-16 units"],
+            ["Fullwidth", "Ｍｉａ　Ｄａｉｌｙ　Ｖｌｏｇｓ", "Name (very wide) · 15 UTF-16 units"],
+            ["Double-struck", "𝕄𝕚𝕒 𝔻𝕒𝕚𝕝𝕪 𝕍𝕝𝕠𝕘𝕤", "Name · 28 UTF-16 units"],
+            ["Mixed", "𝓜𝓲𝓪 ✨ ᴅᴀɪʟʏ ᴠʟᴏɢꜱ", "Name · 20 UTF-16 units"],
+            ["Frame ꧁꧂", "꧁𝓜𝓲𝓪꧂", "Name · 8 UTF-16 units"],
+            ["Frame ★彡", "★彡𝗠𝗶𝗮彡★", "Name · 10 UTF-16 units"],
+            ["Bio line (small caps)", "ᴅᴀɪʟʏ ᴠʟᴏɢꜱ & ꜱᴛᴜᴅʏ ɴᴏᴛᴇꜱ", "Bio · 25 UTF-16 units"],
+            ["Bio line (italic)", "𝑐𝑜𝑓𝑓𝑒𝑒 𝑓𝑖𝑟𝑠𝑡, 𝑡ℎ𝑒𝑛 𝑐ℎ𝑎𝑜𝑠", "Bio · 42 UTF-16 units"],
+            ["Bio keyword", "𝗡𝗘𝗪 𝗩𝗜𝗗𝗘𝗢 every friday", "Bio · 30 UTF-16 units"],
+            ["Avoid: strike", "M̶i̶a̶ ̶V̶l̶o̶g̶s̶", "Avoid — marks double the length and screen readers stumble · 18 UTF-16 units"],
+            ["Avoid: upside down", "sƃolɅ ɐᴉW", "Avoid — hard to read · 9 UTF-16 units"],
+            ["@username", "mia.creates", "Plain only — the only form the field accepts"],
+          ],
+        },
+      },
+      {
+        heading: "A bio layout that stays readable",
+        paragraphs: [
+          "Four lines cover both pretty and findable: a styled identity line, a small-caps line that says what you do, one bold keyword for energy, and a plain last line — because TikTok search and screen readers both work on ordinary characters ([how screen readers read styled text](/learn/screen-reader-safety/)).",
+        ],
+        table: {
+          head: ["Line", "Content", "Style"],
+          rows: [
+            ["1 · Identity", "𝓜𝓲𝓪 𝓓𝓪𝓲𝓵𝔂 𝓥𝓵𝓸𝓰𝓼", "Bold script · 28 UTF-16 units"],
+            ["2 · What you do", "ᴅᴀɪʟʏ ᴠʟᴏɢꜱ & ꜱᴛᴜᴅʏ ɴᴏᴛᴇꜱ", "Small caps · 25 UTF-16 units"],
+            ["3 · Keyword", "𝗡𝗘𝗪 𝗩𝗜𝗗𝗘𝗢 every friday", "Sans bold + plain · 30 UTF-16 units"],
+            ["4 · Plain anchor", "📍 NYC · mia.creates@email", "Plain text — searchable and screen-reader safe"],
+          ],
+        },
+      },
+      {
+        heading: "Why the counter jumps (and why your name won't fit)",
+        paragraphs: [
+          "Most styled letters live on Unicode's supplementary planes, so each one takes two UTF-16 units. The bold-script 𝓜𝓲𝓪 𝓓𝓪𝓲𝓵𝔂 𝓥𝓵𝓸𝓰𝓼 in the table above is 15 characters but 28 UTF-16 units, while the small-caps ᴍɪᴀ ᴅᴀɪʟʏ ᴠʟᴏɢꜱ is 15 either way — fullwidth letters are one unit each too. TikTok hasn't published which counting its counter uses, so treat the edit screen as the truth: if the counter jumps by two per letter, switch the long part of your name to small caps and it stops growing. The same accounting shows up in the [character limits on other platforms](/learn/name-length-limits/).",
+        ],
+      },
+      {
+        heading: "TikTok won't save my name — what to check",
+        bullets: [
+          "Over the limit → shorten the text or switch the long part to small caps.",
+          "Changed in the last 7 days → TikTok only allows a nickname change once every 7 days.",
+          "Trying to style the @username → not allowed; style the Name instead.",
+          "A word or symbol breaks the Community Guidelines → remove it.",
+          "Looks like boxes on another phone → switch to script, bold or small caps.",
+        ],
+        paragraphs: [
+          "The 7-day cooldown is official — see [TikTok Help: Changing your nickname](https://support.tiktok.com/en/getting-started/setting-up-your-profile/changing-your-nickname) — and boxes on a friend's phone mean that device lacks the glyph for the character, not that your copy broke: [why fancy text shows boxes](/learn/why-boxes-appear/).",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can you change the font on TikTok without an app?",
+        a: "Yes. TikTok has no built-in font picker for profiles; styled text is just Unicode characters. Copy them from a browser tool and paste them into Edit profile — nothing to install.",
+      },
+      {
+        q: "Why can't I use fancy fonts in my TikTok username?",
+        a: "TikTok's rules allow only letters, numbers, underscores and periods in the @username, which is also your profile link. Put the style in your Name instead.",
+      },
+      {
+        q: "How often can I change my TikTok name?",
+        a: "TikTok lets you change your nickname once every 7 days and your username once every 30 days, so check the result before you save.",
+      },
+      {
+        q: "Why does my TikTok name show boxes on some phones?",
+        a: "The phone is missing a font for that character. Script, bold and small caps show up on the most devices; see why fancy text shows boxes.",
+      },
+      {
+        q: "Do fancy fonts hurt my TikTok reach?",
+        a: "We're not aware of any TikTok rule against styled characters, but people searching for your name type plain letters. Keep a plain spelling in your bio so they can still find you.",
+      },
+      {
+        q: "Do fancy letters count as more than one character?",
+        a: "Some do. Most styled letters take two UTF-16 units, while small caps and fullwidth take one. If TikTok's counter fills up fast, switch part of your name to small caps.",
+      },
+    ],
+    relatedTools: [
+      { href: "/tiktok-fonts/", title: "TikTok font generator", description: "Styles sized for the 30-character Name." },
+      { href: "/small-fonts/", title: "Small caps", description: "One UTF-16 unit per letter — saves room." },
+      { href: "/cursive-fonts/", title: "Cursive / script", description: "The classic styled-name look." },
+      { href: "/symbols/", title: "Symbols", description: "Frames and sparkles for your Name." },
+    ],
+    appearOn: ["tiktok-fonts", "small-fonts", "cursive-fonts"],
   },
   {
     locale: "en",

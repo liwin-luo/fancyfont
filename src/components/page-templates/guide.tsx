@@ -12,6 +12,7 @@ import {
 } from "@/components/sections";
 import { HeaderBand, SquiggleDivider } from "@/components/illustrations";
 import { guidePath, type GuideDef, type GuideImage } from "@/lib/guides";
+import { parseInlineLinks } from "@/lib/inline-links";
 import { localePath, type Locale } from "@/lib/i18n";
 import { breadcrumbJsonLd, workMeta } from "@/lib/schema";
 import { getUi } from "@/lib/ui-strings";
@@ -26,6 +27,7 @@ const GUIDE_EMOJI: Record<string, string> = {
   "chinese-nickname-guide": "🏮",
   "platform-support": "📊",
   "pick-your-style": "🎨",
+  "tiktok-bio-fonts": "🎵",
 };
 
 function formatDate(iso: string): string {
@@ -174,23 +176,35 @@ export function GuidePageTemplate({ locale, guide }: { locale: Locale; guide: Gu
   );
 }
 
-/** 正文行内链接:`[文字](/slug/)` 语法 → 站内 Link;只接受站内路径,其余按纯文本渲染。 */
+/** 正文行内链接:`[文字](/slug/)` → 站内 Link;`[文字](https://…)` → 普通 <a>(Step 4 扩展)。
+ * 解析逻辑在 lib/inline-links.ts(纯函数,单测覆盖);只接受这两种格式,其余按纯文本渲染。 */
 function InlineLinks({ text }: { text: string }) {
-  const parts = text.split(/(\[[^\]]+\]\(\/[^)]+\/\))/g);
-  if (parts.length === 1) return <>{text}</>;
+  const tokens = parseInlineLinks(text);
+  if (tokens.length === 1 && tokens[0].kind === "text") return <>{tokens[0].value}</>;
   return (
     <>
-      {parts.map((part, index) => {
-        const m = part.match(/^\[([^\]]+)\]\((\/[^)]+\/)\)$/);
-        if (!m) return <span key={index}>{part}</span>;
+      {tokens.map((token, index) => {
+        if (token.kind === "text") return <span key={index}>{token.value}</span>;
+        if (token.kind === "internal") {
+          return (
+            <Link
+              key={index}
+              href={token.href}
+              className="font-bold text-ink underline decoration-pop-pink decoration-2 underline-offset-2 hover:decoration-ink"
+            >
+              {token.label}
+            </Link>
+          );
+        }
         return (
-          <Link
+          <a
             key={index}
-            href={m[2]}
+            href={token.href}
+            rel="noopener noreferrer"
             className="font-bold text-ink underline decoration-pop-pink decoration-2 underline-offset-2 hover:decoration-ink"
           >
-            {m[1]}
-          </Link>
+            {token.label}
+          </a>
         );
       })}
     </>
