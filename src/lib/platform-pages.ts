@@ -28,6 +28,10 @@ export interface PlatformPageCopy {
   compat: string[];
   /** 现成昵称示例,复制即用。 */
   examples: string[];
+  /** 分组示例区(带一键复制按钮):heading/note 随语言写在文案里,组内可再带小标题。 */
+  copyGroups?: { heading: string; note?: string; groups: { label?: string; items: string[] }[] }[];
+  /** 字段对照表(如 显示名/@用户名/聊天/标牌 各字段能否用花体)。 */
+  fieldTable?: { heading: string; intro?: string; columns: string[]; rows: string[][] };
   steps: string[];
   faq: { q: string; a: string }[];
 }

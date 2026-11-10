@@ -192,3 +192,39 @@ export function LimitsTable({ limits }: { limits: { label: string; value: string
     </div>
   );
 }
+
+/** 字段对照表:各输入框能否用花体字 + 注意事项(平台页用,列头随语言)。 */
+export function ComparisonTable({ columns, rows }: { columns: string[]; rows: string[][] }) {
+  return (
+    <div className="card-pop mt-4 overflow-hidden">
+      <table className="w-full text-sm">
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th key={column} scope="col" className="border-b-2 border-ink px-4 py-2.5 text-left font-black">
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row[0]} className={index % 2 === 0 ? "bg-paper/60" : ""}>
+              {row.map((cell, cellIndex) =>
+                cellIndex === 0 ? (
+                  <th key={cellIndex} scope="row" className="border-r-2 border-ink px-4 py-2.5 text-left align-top font-black whitespace-nowrap">
+                    {cell}
+                  </th>
+                ) : (
+                  <td key={cellIndex} className="px-4 py-2.5 align-top text-ink-soft">
+                    {cell}
+                  </td>
+                ),
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

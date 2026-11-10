@@ -24,6 +24,8 @@ export interface StylePageCopy {
   title: string;
   description: string;
   intro: string[];
+  /** 分组示例区(带一键复制按钮):heading/note 随语言写在文案里,组内可再带小标题。 */
+  copyGroups?: { heading: string; note?: string; groups: { label?: string; items: string[] }[] }[];
   steps: string[];
   about: { heading: string; paragraphs: string[] };
   faq: { q: string; a: string }[];
@@ -222,7 +224,7 @@ const SHARED: Omit<StylePageDef, "copy">[] = [
       { left: "♡", right: "♡", label: "hearts" },
       { left: "୨୧", right: "୨୧", label: "bows" },
     ],
-    related: ["aesthetic-fonts", "cute-fonts", "small-fonts", "coquette-font-generator"],
+    related: ["aesthetic-fonts", "cute-fonts", "small-fonts", "coquette-font-generator", "chicano-font-generator"],
   },
   {
     slug: "crazy-font-generator",

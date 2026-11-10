@@ -191,13 +191,13 @@ export const platformPagesMigrationEn: Record<string, { en: PlatformPageCopy }> 
   "berry-avenue-fonts": {
     en: {
       navName: "Berry Avenue",
-      h1: "Berry Avenue Fonts Generator",
-      title: "Berry Avenue Fonts — Free Copy & Paste (~20 Chars)",
+      h1: "Berry Avenue Fonts: Copy & Paste Names, Bios & Emoji Combos",
+      title: "Berry Avenue Fonts — Copy & Paste Names, Bios & Emoji Combos",
       description:
-        "Free Berry Avenue fonts for your Roblox display name — bows, script and small caps near the ~20 limit. Preview, copy, paste. Not for the @username.",
+        "Berry Avenue fonts to copy and paste — coquette bows, preppy caps and emoji combos for your Roblox display name. About 20 characters fit; @username stays plain.",
       platform: "Berry Avenue",
       intro: [
-        "Berry Avenue shows your Roblox display name over your character — that field is about 20 characters, and the @username stays plain. Rows like 𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚 and 𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚 are the coquette look, sized to fit. Type below and tap to copy.",
+        "Berry Avenue fonts are styled Unicode letters and symbols you copy and paste into your Roblox display name — the name Berry Avenue shows over your character. The display name fits about 20 characters, bows and emoji included, and rows like 𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚 are sized to fit. The @username stays plain: Roblox only allows ordinary letters, digits and one underscore there.",
         "These are Unicode characters you paste, not a font you install — so Roblox's filter and your device's glyphs decide the final look. Keep the display name inside the limit, save only when Roblox's own screen accepts it, and put longer lines in chat or on a sign.",
       ],
       limits: [
@@ -213,6 +213,40 @@ export const platformPagesMigrationEn: Record<string, { en: PlatformPageCopy }> 
         "Roblox's chat filter can turn styled words into #### — keep a plain-text backup for anything important",
       ],
       examples: ["𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚", "🎀 𝒮𝓀𝓎𝑒", "𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚", "♡ 𝓔𝓵𝓵𝓲𝓮", "ᴊᴀᴅᴇ ᴠᴀʟᴇ", "꒰ 𝓝𝓲𝓬𝓸𝓵𝓮 ꒱", "𐙚 𝑫𝒂𝒚𝒍𝒆𝒆"],
+      copyGroups: [
+        {
+          heading: "Berry Avenue name & bio examples",
+          note: "Every row fits the ~20-character display name — tap to copy. The bow ୨୧ and the star 𐙚 are the symbols most likely to draw as a box (□) on some devices; hearts ♡, sparkles ✧ and emoji like 🎀 render on nearly every modern phone. The same characters work in any field that accepts pasted text, so longer bios and roleplay lines can reuse these rows.",
+          groups: [
+            {
+              label: "Coquette & cute",
+              items: ["𝜗𝜚 𝑩𝒍𝒂𝒊𝒓 𝜗𝜚", "𐙚 𝓡𝓸𝓼𝓲𝓮 𐙚", "♡ 𝓔𝓵𝓵𝓲𝓮 ♡", "𝜗𝜚 𝑺𝒐𝒇𝒊 𝜗𝜚"],
+            },
+            {
+              label: "Preppy",
+              items: ["✧ ᴍɪʟᴀ ✧", "ᴊᴀᴅᴇ ᴠᴀʟᴇ", "♡ ᴄʟᴀɪʀᴇ ♡", "ᴘʀᴇᴘᴘʏ ᴄʟᴜʙ"],
+            },
+            {
+              label: "Family roleplay: mom, dad & baby",
+              items: ["ᴍᴏᴍ ♡ ʟɪʟʏ", "ᴅᴀᴅ ★ ᴊᴀᴄᴋ", "𝓑𝓪𝓫𝔂 𝓥𝓲𝓸𝓵𝓮𝓽", "𐙚 ʙᴀʙʏ ᴍɪᴀ 𐙚"],
+            },
+            {
+              label: "Aesthetic emoji combos",
+              items: ["🎀 𝒮𝓀𝓎𝑒 🎀", "✿ 𝒻𝓁𝑜𝓌𝑒𝓇 ✿", "☾ 𝓂𝑜𝑜𝓃 ☽", "✧ 𝓈𝓉𝒶𝓇𝓈 ✧"],
+            },
+          ],
+        },
+      ],
+      fieldTable: {
+        heading: "Where Berry Avenue fonts go — field by field",
+        columns: ["Field", "Fancy fonts?", "Notes"],
+        rows: [
+          ["Display name", "Yes", "Copy and paste Unicode. About 20 characters (Roblox announced 3–20) — bows, hearts and emoji count toward the limit."],
+          ["@username", "No — plain only", "Ordinary letters, digits and one underscore. Players still find you by this handle."],
+          ["Chat", "Yes, but filtered", "No published Berry Avenue limit. Roblox's filter can turn styled words into #### — keep a plain-text backup."],
+          ["House sign", "Yes", "No published limit either. Check that longer lines actually draw on your own device before decorating."],
+        ],
+      },
       steps: [
         "Type your name and copy a row that stays near 20 characters.",
         "Open Roblox → Settings → Account info → Display name (Berry Avenue shows your Roblox name).",
@@ -243,6 +277,10 @@ export const platformPagesMigrationEn: Record<string, { en: PlatformPageCopy }> 
         {
           q: "Is this a Berry Avenue font generator?",
           a: "It drafts a display name you can copy, and it's not an official Berry Avenue or Roblox tool. Nothing here guarantees the game will accept the characters — Roblox's own screen is the final check.",
+        },
+        {
+          q: "Can I use Berry Avenue fonts in my bio?",
+          a: "Yes — any field that accepts pasted text takes the same characters, including longer bio and roleplay lines. Only the display name (~20 characters) and the @username (plain) have stated rules; for everything else there's no published Berry Avenue limit, so paste and check it renders on your device.",
         },
       ],
     },

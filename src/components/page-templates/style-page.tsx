@@ -2,6 +2,7 @@
 // 指南反链 + FAQ,配齐 WebApplication / FAQPage / BreadcrumbList。
 
 import { FancyTextTool } from "@/components/fancy-text-tool";
+import { CopyChips } from "@/components/copy-chips";
 import { ZalgoCleaner } from "@/components/zalgo-cleaner";
 import { HeaderBand } from "@/components/illustrations";
 import { Breadcrumbs, CompatNote, Faq, JsonLd, RelatedTools, Steps, faqJsonLd } from "@/components/sections";
@@ -111,6 +112,22 @@ export function StylePageTemplate({ locale, page }: { locale: Locale; page: Styl
           </ul>
         </section>
       ) : null}
+
+      {/* 分组示例区(一键复制):可选区块,文案随语言。 */}
+      {c.copyGroups?.map((group, groupIndex) => (
+        <section key={group.heading} aria-labelledby={`copy-group-${groupIndex}`} className="mt-10">
+          <h2 id={`copy-group-${groupIndex}`} className="text-xl font-black">
+            {group.heading}
+          </h2>
+          {group.note ? <p className="mt-1 text-sm text-ink-soft">{group.note}</p> : null}
+          {group.groups.map((sub, subIndex) => (
+            <div key={subIndex}>
+              {sub.label ? <h3 className="mt-5 text-base font-black">{sub.label}</h3> : null}
+              <CopyChips items={sub.items} copiedLabel={ui.tool.copied} />
+            </div>
+          ))}
+        </section>
+      ))}
 
       <section aria-labelledby="steps-heading" className="mt-12">
         <h2 id="steps-heading" className="text-xl font-black">
